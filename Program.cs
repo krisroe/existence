@@ -1,1 +1,1 @@
-﻿
+﻿void Main(s[] a){}

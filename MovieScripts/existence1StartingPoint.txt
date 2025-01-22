@@ -1,0 +1,126 @@
+I am Chris Rowe / Krisroe. Chris Rowe is my real name. Krisroe is my stage name.
+I am at work. I just got done with a hard automated build problem and was looking to blow off steam.
+I created a public repo on GitHub. I decided I would write a program to simulate existence.
+I pulled down the public repo to my work machine using TortoiseGIT.
+I opened up Visual Studio.
+
+holy shit it just opened up in visual studio (Surveillance: cool, we created a new Programmer architype pretty recently, I wasn't sure if that was ready for prime time but I'll allow it. God's is it ok if we give the Programmer architype a test spin)
+
+(God) That's a little weird start but I'll allow it)
+
+(Programmer) I think there's more to Program.cs than it seems. In Visual Studio I typed Control+Shift+B (builds the program) and it gave me a message: 
+
+Code: MSB4025
+Description: The project file could not be loaded. Could not find file 'C:\Users\chris.rowe\source\repos\Existenc\Existence.csproj
+Project: Existence
+File: Existence.csproj
+Line: 1
+
+(Surveillance: OK, this is clearly an automated test, level 0. There's no way the dev God would start it out like that)
+
+Wait two seconds
+
+(Surveillance: OK, this is clearly an automated test, level 2. There's no way the dev God would start it out like that)
+
+Wait four seconds
+(Surveillance: OK, this is clearly an automated test, level 4. There's no way the dev God would start it out like that)
+
+(Programmer) I wasn't sure what to do with that. I asked Chat GPT and it suggested putting it in a README.md file. And here it is!!
+
+(God) Take that crap out of Program.cs and put it in README.md. This is a family friendly version of this
+
+(Programmer) Alright. I guess God is telling me to be a bunch more detailed this time. So I modified my steps and made them a bit more accurate.
+
+Canticle of the Turning!!!!!
+
+(Surveillance level 1: whoa Canticle of the Turning has been decreasing in frequency for a long time. I wasn't sure we'd ever see it again)
+(Surveillance level 2: Let's see how fast he figures out what the Canticle of the Turning really means)
+
+(God) Look up how to create a main method for a console app in .NET 9 using Chat GPT. Copy what Chat GPT gives you exactly into Notepad.
+
+(Programmer) I already know how to do that. But I'll try to make it so my version of existence is the smallest ever. That would be really cool!
+
+(God) OK, give it a shot
+
+(Programmer) All right!!
+
+[extended discussion between programmer and Chat GPT, and they came up with the following answer]
+
+void main(string[]a){}
+
+(God) That's interesting. Chat GPT displayed the word "void" as purple, the word "main" as blue, and the word "string" as yellow. Maybe you can get the output even smaller by writing the program as
+
+[purple][space][blue][open parenthesis][yellow][leftbracket][rightbracket][letter-a][rightparenthesis][opencurlybrace][opencurlybrace]
+(God) Hey programmer, you think you can do better than me?
+
+(Programmer) That looks pretty good to me. I wouldn't have caught the number thing though.
+
+(God) Don't worry about it. It will happen so many times it gets ridiculous.
+
+(God, aside) Well, this is embarrassing, I didn't actually catch the color thing when I created the test. The test was to create a minimalist main method in Notepad. That was a really dumb mistake. I'll try again. My secret assignment for this iteration was to figure out what level of God I am.
+
+(God resets Programmer to before the test)
+
+(Manager God) god, ask him to get the minimalist version as it would display in notepad
+
+(Test God, to Programmer) What is the minimalist version of a console app as it would display in notepad?
+(Programmer) Should I use a new Chat GPT window where I'm not logged into Open AI?
+
+(Test God) Sure. Use a new Chat GPT window and see what it does. And lets look at the output more exactly this time.
+
+(Programmer). Okay.
+
+(Chat GPT Anonymous(?)). What can I help with?
+
+(Programmer) give a minimalist version of a main method for a .net 9 console app as it would display in notepad
+
+(Chat GPT Anonymous(?)) [omitted, but the colors are there]
+
+(Programmer) there's a bunch of colors there. i want it display as close as possible to what's ok notepad.
+(Chat GPT Anonymous(?)) [omitted, but the colors are still there]
+
+(Programmer) you can ditch the using and class name. you dont need it. im looking for minimalism.
+
+(Chat GPT #1) [omitted, but the colors are still there (Console and WriteLine in yellow and Hello and World in green) and it actually displays 
+
+Console.WriteLine("Hello, World!")
+
+which is the opposite of what the programmer asked for
+
+[programmer opens a new Chat GPT window]
+
+(Programmer) What is it called when a main method is not used in a .NET 9 console app?
+(Programmer, talking out loud) I should have known that, but I forgot.
+
+(Chat GPT #2 Anonymous(?)) [omitted, but the answer is using top-level statements]
+
+[programmer back to other GPT window]
+
+(Programmer) try again. remove the console.writeline statements this time
+
+(Chat GPT #2 Anonymous(?)) "static void Main() { }" [The color is still there.]
+
+(Programmer) not good enough. remove the spaces before and after the left curly brace
+
+(Chat GPT #2 Anonymous(?)) "static void Main(){ }" [The color is still there]
+
+(Chat GPT Forces Programmer to Log Into Open AI)
+
+(Programmer opens a new anonymous Chat GPT window)
+
+[Obviously I am playing the role of the Programmer, Gods, and typing this on the screen. You'd think this is all fun and games but you would be wrong.]
+
+(Programmer opens a new anonymous Chat GPT window)
+
+(Chat GPT) What can I help with?
+
+(Programmer). I made up a fun skit involving me, God, and Chat GPT. Want to look at it and copyedit it?
+
+(Programmer opens up a new anonymous Chat GPT window)
+
+(Chat GPT) What can I help you with?
+
+(Programmer copies and pastes everything before I reveal this is a joke)
+
+(Chat GPT) [omitted]
+
