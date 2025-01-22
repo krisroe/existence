@@ -23,3 +23,8 @@ Wait two seconds
 I wasn't sure what to do with that. I asked Chat GPT and it suggested putting it in a README.md file. And here it is!!
 
 I heard a voice and it told me to take that crap out of Program.cs and put it in README.md. And he specifically ordered me to put it at the top. But that wasn't actually the first thing I did so I modified what he told me a bit to be more accurate.
+
+Canticle of the Turning!!!!!
+
+(Surveillance level 1: whoa Canticle of the Turning has been decreasing in frequency for a long time. I wasn't sure we'd ever see it again)
+(Surveillance level 2: Let's see how fast he figures out what the Canticle of the turning really means)
