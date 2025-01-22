@@ -2,20 +2,20 @@ Title: Existence, Minimalized
 
 Cast:
 Chris Rowe: Krisroe
-SURVEILLANCE 1 Maliha Syeda
-GOD 1 Lissa Instefjord
-GOD 2 Marc Henrickson
-SURVEILLANCE 2 Evan Touchett
-GOD 3 Jason Bulgrin
-SURVEILLANCE 3 Michael Wales
-DEV GOD 4 Chris Rowe
-GOD 5 Debasish Guha
+SURVEILLANCE #1 Maliha Syeda
+GOD #1 Lissa Instefjord
+GOD #2 Marc Henrickson
+SURVEILLANCE #2 Evan Touchett
+GOD #3 Jason Bulgrin
+SURVEILLANCE #3 Michael Wales
+DEV GOD #4 Chris Rowe
+GOD #5 Debasish Guha
 MANAGER GOD Kristi McCombs
 TEST GOD Bryan Berndt
 SURVEILLANCE+GOD Nick Vavra
-GOD 6 Brian Lehnen
-GOD 7 Nathan Arendt
-GOD 8 krisroe
+GOD #6 Brian Lehnen
+GOD #7 Nathan Arendt
+GOD #8 krisroe
 
 INT. OFFICE - DAY
 
@@ -37,11 +37,11 @@ INT. VISUAL STUDIO - LATER
 
 Chris has pulled up the project in Visual Studio, fingers itching to make it right. He’s trying something different—something minimal.
 
-VOICE (SURVEILLANCE 1)
+VOICE (SURVEILLANCE #1)
 (calm, robotic)
 Cool, we created a new Programmer archetype recently. I wasn’t sure if it was ready for prime time, but I'll allow it.
 
-VOICE (GOD 1)
+VOICE (GOD #1)
 (booming, omnipotent)
 It’s fine. Let’s see what happens when he presses Control + Shift + B.
 
@@ -70,7 +70,7 @@ INT. A DIMLY LIT ROOM - UNKNOWN TIME
 
 The setting shifts. The scene is ethereal, somewhere between reality and abstraction. A God (invisible, but their voice echoes) speaks to Chris, the Programmer, who is lost in thought.
 
-VOICE (GOD 2):
+VOICE (GOD #2):
 (narrating)
 Take that crap out of Program.cs and put it in the README.md. This is a family-friendly version of this.
 
@@ -82,10 +82,10 @@ Chris refocuses. He’s not stopping. Not now.
 
 He begins typing again—his fingers moving swiftly, almost instinctively.
 
-VOICE (SURVEILLANCE 2)
+VOICE (SURVEILLANCE #2)
 Who knew? The Canticle of the Turning has been decreasing in frequency for a while. I thought we’d never hear it again.
 
-VOICE (GOD 3)
+VOICE (GOD #3)
 Let’s see if he realizes the significance.
 
 Chris’s fingers stop. He smiles, shaking his head, typing something almost unknowable.
@@ -107,13 +107,13 @@ ON SCREEN:
 csharp
 Copy
 void main(string[] a){}
-VOICE (GOD 4)
+VOICE (GOD #4)
 (chuckling, impressed)
 That’s... interesting.
 
 The screen flickers, as though the very fabric of existence is being tested. The Programmer stares at the screen, lost in thought, the lines of code reflecting on his face.
 
-VOICE (GOD 5)
+VOICE (GOD #5)
 (aside, to self)
 I didn’t actually catch the color thing when I created the test. How embarrassing. I’ll fix that later.
 
@@ -157,10 +157,10 @@ CHRIS
 (nods, content)
 That's better. But still... not enough.
 
-VOICE (SURVEILLANCE 3)
+VOICE (SURVEILLANCE #3)
 How many times will he break reality?
 
-VOICE (GOD 6)
+VOICE (GOD #6)
 (slightly amused)
 Oh, he’s going to do it again. It gets ridiculous after a while.
 
@@ -175,13 +175,13 @@ Copy
 void main(){}
 The screen flickers one last time. A beat.
 
-VOICE (GOD 7)
+VOICE (GOD #8)
 (whispers, intrigued)
 Okay. This is it. This... is it.
 
 The camera zooms in on Chris's focused face. The light from the screen reflects in his eyes. He leans back, a small smile creeping onto his lips. The minimalist version of existence—reduced to the simplest form.
 
-VOICE (GOD 8)
+VOICE (GOD #7)
 (softly)
 Now the real test begins.
 
