@@ -1,8 +1,15 @@
 Title: Existence, Minimalized
 
+Cast:
+Chris Rowe: Chris Rowe / Krisroe
+SURVEILLANCE #1 Maliha Syeda
+GOD #1 Lissa Instefjord
+GOD #2 Marc Henrickson
+
+
 INT. OFFICE - DAY
 
-The fluorescent lights buzz softly above CHRIS ROWE (early 30s, programmer, deep thinker) as he sits at his desk, a slight frown crossing his face. A screen in front of him glows, displaying a build error. His fingers hover over the keyboard, tapping rhythmically.
+The fluorescent lights buzz softly above Chris Rowe (early 30s, programmer, deep thinker) as he sits at his desk, a slight frown crossing his face. A screen in front of him glows, displaying a build error. His fingers hover over the keyboard, tapping rhythmically.
 
 ON SCREEN:
 
@@ -10,7 +17,7 @@ Error Message:
 
 MSB4025: The project file could not be loaded. Could not find file 'C:\Users\chris.rowe\source\repos\Existenc\Existence.csproj'.
 
-CHRIS
+Chris:
 (quietly to himself)
 I hate it when it does that.
 
@@ -18,13 +25,13 @@ He leans back in his chair, deep in thought. His mind races—time for a distrac
 
 INT. VISUAL STUDIO - LATER
 
-CHRIS has pulled up the project in Visual Studio, fingers itching to make it right. He’s trying something different—something minimal.
+Chris has pulled up the project in Visual Studio, fingers itching to make it right. He’s trying something different—something minimal.
 
-VOICE (SURVEILLANCE)
+VOICE (SURVEILLANCE #1 Maliha Syeda)
 (calm, robotic)
 Cool, we created a new Programmer archetype recently. I wasn’t sure if it was ready for prime time, but I'll allow it.
 
-VOICE (GOD)
+VOICE (GOD #1 Lissa Instefjord)
 (booming, omnipotent)
 It’s fine. Let’s see what happens when he presses Control + Shift + B.
 
@@ -36,7 +43,7 @@ Error Message:
 
 MSB4025: The project file could not be loaded...
 
-CHRIS
+Chris:
 (under his breath)
 Not again. Okay, okay.
 
@@ -45,15 +52,15 @@ He grabs his phone, typing quickly, as if summoned.
 TEXT MESSAGE ON SCREEN:
 Chat GPT suggestion: Put the error message in a README.md file.
 
-CHRIS
+Chris:
 (smirking)
 A README file. Right.
 
 INT. A DIMLY LIT ROOM - UNKNOWN TIME
 
-The setting shifts. The scene is ethereal, somewhere between reality and abstraction. A GOD (invisible, but their voice echoes) speaks to CHRIS, the Programmer, who is lost in thought.
+The setting shifts. The scene is ethereal, somewhere between reality and abstraction. A God (invisible, but their voice echoes) speaks to Chris, the Programmer, who is lost in thought.
 
-VOICE (GOD)
+VOICE (GOD #2 Marc Henrickson):
 (narrating)
 Take that crap out of Program.cs and put it in the README.md. This is a family-friendly version of this.
 
@@ -65,15 +72,15 @@ Chris refocuses. He’s not stopping. Not now.
 
 He begins typing again—his fingers moving swiftly, almost instinctively.
 
-VOICE (SURVEILLANCE)
+VOICE (SURVEILLANCE #1 Evan Touchett)
 Who knew? The Canticle of the Turning has been decreasing in frequency for a while. I thought we’d never hear it again.
 
-VOICE (GOD)
+VOICE (GOD #3 Jason Bulgrin)
 Let’s see if he realizes the significance.
 
 Chris’s fingers stop. He smiles, shaking his head, typing something almost unknowable.
 
-CHRIS
+Chris:
 (quietly to himself)
 Canticle of the Turning... Wait. What does that even mean?
 
@@ -81,7 +88,7 @@ INT. OFFICE - DAY (CONTINUOUS)
 
 Chris is typing again. His concentration is laser-focused. He hits the keyboard: a minimalist Main method.
 
-CHRIS
+Chris:
 (under his breath)
 I’m going to make this the smallest one ever.
 
@@ -90,21 +97,21 @@ ON SCREEN:
 csharp
 Copy
 void main(string[] a){}
-VOICE (GOD)
+VOICE (GOD #4 Chris Rowe)
 (chuckling, impressed)
 That’s... interesting.
 
-The screen flickers, as though the very fabric of existence is being tested. The PROGRAMMER stares at the screen, lost in thought, the lines of code reflecting on his face.
+The screen flickers, as though the very fabric of existence is being tested. The Programmer stares at the screen, lost in thought, the lines of code reflecting on his face.
 
-VOICE (GOD)
+VOICE (GOD #5 Debasish Guha)
 (aside, to self)
 I didn’t actually catch the color thing when I created the test. How embarrassing. I’ll fix that later.
 
-VOICE (MANAGER GOD)
+VOICE (MANAGER GOD Kristi McCombs)
 (narrating)
 Ask him again, but this time, let’s look more closely at the output.
 
-VOICE (TEST GOD)
+VOICE (TEST GOD Bryan Berndt)
 (voice sharp, as though a new force is in play)
 What is the minimalist version of a console app as it would display in Notepad?
 
@@ -140,10 +147,10 @@ CHRIS
 (nods, content)
 That's better. But still... not enough.
 
-VOICE (SURVEILLANCE)
+VOICE (SURVEILLANCE #3 Nick Vavra)
 How many times will he break reality?
 
-VOICE (GOD)
+VOICE (GOD #6 Brian Lehnen)
 (slightly amused)
 Oh, he’s going to do it again. It gets ridiculous after a while.
 
@@ -164,7 +171,7 @@ Okay. This is it. This... is it.
 
 The camera zooms in on Chris's focused face. The light from the screen reflects in his eyes. He leans back, a small smile creeping onto his lips. The minimalist version of existence—reduced to the simplest form.
 
-VOICE (GOD)
+VOICE (GOD #7 Nathan Arendt)
 (softly)
 Now the real test begins.
 
