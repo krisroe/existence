@@ -3,6 +3,7 @@ Title: Existence, Minimalized
 Cast:
 Chris Rowe: Chris Rowe / Krisroe
 SURVEILLANCE #1 Maliha Syeda
+SURVEILLANCE #2 Evan Touchett
 GOD #1 Lissa Instefjord
 GOD #2 Marc Henrickson
 
@@ -27,11 +28,11 @@ INT. VISUAL STUDIO - LATER
 
 Chris has pulled up the project in Visual Studio, fingers itching to make it right. He’s trying something different—something minimal.
 
-VOICE (SURVEILLANCE #1 Maliha Syeda)
+VOICE (SURVEILLANCE #1)
 (calm, robotic)
 Cool, we created a new Programmer archetype recently. I wasn’t sure if it was ready for prime time, but I'll allow it.
 
-VOICE (GOD #1 Lissa Instefjord)
+VOICE (GOD #1)
 (booming, omnipotent)
 It’s fine. Let’s see what happens when he presses Control + Shift + B.
 
@@ -60,7 +61,7 @@ INT. A DIMLY LIT ROOM - UNKNOWN TIME
 
 The setting shifts. The scene is ethereal, somewhere between reality and abstraction. A God (invisible, but their voice echoes) speaks to Chris, the Programmer, who is lost in thought.
 
-VOICE (GOD #2 Marc Henrickson):
+VOICE (GOD #2):
 (narrating)
 Take that crap out of Program.cs and put it in the README.md. This is a family-friendly version of this.
 
@@ -72,7 +73,7 @@ Chris refocuses. He’s not stopping. Not now.
 
 He begins typing again—his fingers moving swiftly, almost instinctively.
 
-VOICE (SURVEILLANCE #1 Evan Touchett)
+VOICE (SURVEILLANCE #2)
 Who knew? The Canticle of the Turning has been decreasing in frequency for a while. I thought we’d never hear it again.
 
 VOICE (GOD #3 Jason Bulgrin)
