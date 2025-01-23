@@ -8,6 +8,7 @@ GOD #2 Marc Henrickson
 SURVEILLANCE #2 Evan Touchett
 GOD #3 Jason Bulgrin
 SURVEILLANCE #3 Michael Wales
+SURVEILLANCE #4 Jacob Sieran
 DEV GOD #4 Chris Rowe
 GOD #5 Debasish Guha
 MANAGER GOD Kristi McCombs
@@ -15,7 +16,7 @@ TEST GOD Bryan Berndt
 SURVEILLANCE+GOD Nick Vavra
 GOD #6 Brian Lehnen
 GOD #7 Nathan Arendt
-GOD #8 krisroe
+GOD #8 Antihero Archetype
 
 INT. OFFICE - DAY
 
