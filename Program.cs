@@ -1,1 +1,6 @@
-﻿void Main(s[] a){}
+﻿namespace Existence
+{
+    internal class Program
+    {
+    }
+}
