@@ -1,0 +1,17 @@
+.bin
+.cache
+.dll
+.editorconfig
+.exe
+.json
+.manifest
+.pdb
+.props
+.suo
+.targets
+.testlog
+.txt
+.vsidx
+.v2
+obj/
+.vs/
