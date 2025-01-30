@@ -1,0 +1,14 @@
+.cache
+.dll
+.editorconfig
+.exe
+.json
+.manifest
+.pdb
+.props
+.suo
+.targets
+.testlog
+.txt
+.vsidx
+obj/
