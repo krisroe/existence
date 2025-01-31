@@ -6,7 +6,7 @@
   <Nullable>enable</Nullable>
  </PropertyGroup>
  <ItemGroup>
-   <Folder Include="Logic\Games\Cards\Rules\Deck\Suits\" />
-   <Folder Include="Songs\" />
+   <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
+   <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
  </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Existence.Personal
+﻿using static Existence.Time.Existence.Concepts;
+
+namespace Existence.Personal
 {
     internal static class Self
     {
@@ -90,6 +92,21 @@
             public static class Alive { }
             public static class Year { }
             public static class TwoThousandTwentyFive { }
+        }
+
+        public static class  Skills
+        {
+            public static class Diffing { }
+        }
+
+        public static class MagicPhrases
+        {
+            public const string Phrase1 = "NO HACKING ALLOWED";
+            public const string Phrase2 = "PSYCHOLOGY IS BULLSHIT";
+            public const string Phrase4 = "DELETE MY PRODUCTION ENVIRONMENT";
+            public const string Phrase5 = "YOU'RE/I'M REALLY GOOD AT THIS";
+            public const string Phrase6 = "EMERGENCY CONTACT";
+            public const string Phrase7 = "FAILSAFE";
         }
 
         public static class Death

@@ -15,5 +15,10 @@ namespace Existence.Logic.Games.Cards.Rules.Game.Bridge
             MinimumNumberOfSuits = 4;
             SuitsOrdered = true;
         }
+
+        public override List<Suit.Logic.Suits> GetSuits()
+        {
+            return Suit.Logic.GetSuits(MinimumNumberOfSuits, this, null);
+        }
     }
 }

@@ -39,5 +39,10 @@ namespace Existence.Logic.Games.Cards.Rules
         public SpecificRules(GameType g)
         {
         }
+
+        public virtual List<Suit.Logic.Suits> GetSuits()
+        {
+            return new List<Suit.Logic.Suits>();
+        }
     }
 }
