@@ -20,5 +20,13 @@
         public class World { }
         public class Emotion { }
         public class Ethics { }
+        public class Psychology { }
+        public class Bullshit { }
+        public class Production { }
+        public class Magic { }
+        public class Word { }
+        public class Program { }
+        public class Song { }
+        public class Rule { }
     }
 }
