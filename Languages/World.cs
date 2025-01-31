@@ -5,7 +5,22 @@
         public static class Esperanto
         {
             public static class Universal { }
+            public static class Very { }
+            public static class Few { }
+            public static class People { }
+            public static class Fluent { }
         }
+
+        public static class UnitedNationsOfficialLanguages
+        {
+            public static class English { }
+            public static class French { }
+            public static class Spanish { }
+            public static class Russian { }
+            public static class Chinese { }
+            public static class Arabic { }
+        }
+
         public static class English
         {
             public static class Countries
