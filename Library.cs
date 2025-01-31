@@ -1,7 +1,11 @@
 ﻿namespace Existence
 {
+    public abstract class Anti { }
+    public abstract class Archetype { }
     public abstract class Base { }
+    public abstract class Con { }
     public abstract class Concept { }
+    public abstract class Pro { }
     public static class Example { }
     public static class Fact { }
     public static class Folder { }
