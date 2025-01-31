@@ -6,6 +6,7 @@
   <Nullable>enable</Nullable>
  </PropertyGroup>
  <ItemGroup>
+   <Folder Include="Games\Cards\Rules\Deck\Suits\" />
    <Folder Include="Songs\" />
  </ItemGroup>
 </Project>
