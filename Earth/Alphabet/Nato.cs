@@ -1,4 +1,4 @@
-﻿namespace Existence.Alphabet
+﻿namespace Existence.Earth.Alphabet
 {
     public static class Nato
     {

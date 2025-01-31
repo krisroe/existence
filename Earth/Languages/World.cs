@@ -1,4 +1,4 @@
-﻿namespace Existence.Languages
+﻿namespace Existence.Earth.Languages
 {
     public static class World
     {
@@ -41,7 +41,7 @@
             public static class Speakers { }
         }
 
-        public static class Swedish 
+        public static class Swedish
         {
             public static class Embassy
             {
@@ -75,7 +75,7 @@
             public static class Epidemic { }
             public static class Over { }
         }
-        
+
         public static class Vietnamese
         {
             public static class War { }
@@ -83,7 +83,7 @@
             public static class Communism { }
             public static class Won { }
         }
-        public static class  Europe
+        public static class Europe
         {
             public static class Dutch { }
             public static class Italian { }
@@ -130,7 +130,7 @@
             {
                 public static class First
                 {
-                    public static class Entente 
+                    public static class Entente
                     {
                         public static class Italy { }
                         public static class Russia { }
@@ -152,7 +152,7 @@
                         public static class Ottoman { }
                         public static class Empire { }
                     }
-                    
+
                 }
                 public static class Second
                 {
@@ -174,7 +174,7 @@
         public static class German { }
         public static class Latin
         {
-         public static class Dead { }
+            public static class Dead { }
         }
     }
 }

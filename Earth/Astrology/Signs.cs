@@ -1,4 +1,4 @@
-﻿namespace Existence.Astrology
+﻿namespace Existence.Earth.Astrology
 {
     public static class Signs
     {
