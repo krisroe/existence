@@ -7,17 +7,22 @@
             public static class Personal { }
         }
 
+        public static class Sagittarius { }
         public static class Man { }
         public static class Male { }
         public static class Spouse { }
         public static class Husband { }
+        public static class Alive { }
 
         public static class Married
         {
+            public static class One { }
             public static class Spouse { }
             public static class Wife { }
             public static class Woman { }
             public static class Female { }
+            public static class Cancer { }
+            public static class Alive { }
         }
 
         public static class Birth
@@ -45,10 +50,7 @@
 
         public static class Death
         {
-            public static class Not { }
-            public static class Yet { }
+            public static class Latin { }
         }
-
-        public static class Sagittarius { }
     }
 }
