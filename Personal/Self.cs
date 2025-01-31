@@ -35,6 +35,20 @@
                 public static class Six { }
             }
         }
+
+        public static class Life
+        {
+            public static class Alive { }
+            public static class Year { }
+            public static class TwoThousandTwentyFive { }
+        }
+
+        public static class Death
+        {
+            public static class Not { }
+            public static class Yet { }
+        }
+
         public static class Sagittarius { }
     }
 }
