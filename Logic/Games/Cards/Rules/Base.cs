@@ -1,6 +1,6 @@
-﻿using Existence.Games.Cards.Rules.Suit;
+﻿using Existence.Logic.Games.Cards;
 
-namespace Existence.Games.Cards.Rules
+namespace Existence.Logic.Games.Cards.Rules
 {
     public class BaseRules
     {

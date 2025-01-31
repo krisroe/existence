@@ -1,7 +1,6 @@
-﻿using Existence.Games.Cards.Rules.Game.Bridge;
-using static Existence.Earth.Alphabet.Letters;
+﻿using Existence.Logic.Games.Cards.Rules;
 
-namespace Existence.Games.Cards.Rules.Suit
+namespace Existence.Logic.Games.Cards.Rules.Suit
 {
     public static class Logic
     {
