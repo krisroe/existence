@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rubix
 {
+    /*
     internal class Program
     {
         static void Main()
@@ -78,7 +79,7 @@ namespace Rubix
             Console.Out.WriteLine($"Bottom solved={bottomSolved} includeHalf={includeHalfRotations}");
             TwoByTwo.FindSequences(start, finish, false, includeHalfRotations, true, bidirectionalSearch, MetricType.MinimizeRotationsBeyondTwoFaces, true, 0);
         }
-    }
+    }*/
     /*
     [TestClass]
     public class TwoByTwoTests

@@ -6,7 +6,7 @@
   <ImplicitUsings>disable</ImplicitUsings>
   <LangVersion>latest</LangVersion>
   <Nullable>enable</Nullable>
-  <OutputType>Exe</OutputType>
+  <OutputType>Library</OutputType>
   <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
