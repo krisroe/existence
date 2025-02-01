@@ -17,6 +17,6 @@
   <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
  </ItemGroup>
  <ItemGroup>
-  <ProjectReference Include="..\Existence.csproj" />
+  <ProjectReference Include="..\Existence\Existence.csproj" />
  </ItemGroup>
 </Project>
