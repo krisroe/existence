@@ -7,19 +7,19 @@
   <Nullable>enable</Nullable>
  </PropertyGroup>
  <ItemGroup>
-  <ProjectReference Include="HelloWorld/HelloWorld.csproj" /> ✅ (Correct)
+  <ProjectReference Include="HelloWorld/HelloWorld.csproj"/>
  </ItemGroup>
  <ItemGroup>
-  <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
-  <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
+  <PackageReference Include="MSTest.TestAdapter" Version="3.7.3"/>
+  <PackageReference Include="MSTest.TestFramework" Version="3.7.3"/>
  </ItemGroup>
  <ItemGroup>
-   <Folder Include="Earth\FieldsOfStudy\Biology\" />
-   <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
-   <Folder Include="Earth\FieldsOfStudy\Geography\" />
-   <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
-   <Folder Include="Earth\FieldsOfStudy\Psychology\" />
-   <Folder Include="Logic\Games\Chess\" />
-   <Folder Include="Logic\Games\Rubix\" />
+   <Folder Include="Earth\FieldsOfStudy\Biology\"/>
+   <Folder Include="Earth\FieldsOfStudy\Cosmology\"/>
+   <Folder Include="Earth\FieldsOfStudy\Geography\"/>
+   <Folder Include="Earth\FieldsOfStudy\Mathematics\"/>
+   <Folder Include="Earth\FieldsOfStudy\Psychology\"/>
+   <Folder Include="Logic\Games\Chess\"/>
+   <Folder Include="Logic\Games\Rubix\"/>
  </ItemGroup>
 </Project>
