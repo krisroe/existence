@@ -11,10 +11,6 @@
   <ProjectReference Include="Logic/Games/Rubix/Library/RubixLibrary.csproj" />
  </ItemGroup>
  <ItemGroup>
-  <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
-  <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
- </ItemGroup>
- <ItemGroup>
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
