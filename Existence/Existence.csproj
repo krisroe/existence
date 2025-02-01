@@ -9,7 +9,6 @@
  </PropertyGroup>
  <ItemGroup>
   <ProjectReference Include="Software/HelloWorld/HelloWorld.csproj" />
-  <ProjectReference Include="Logic/Games/Rubix/Library/RubixLibrary.csproj" />
  </ItemGroup>
  <ItemGroup>
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
@@ -19,7 +18,6 @@
    <Folder Include="Earth\FieldsOfStudy\Psychology\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Logic\Games\Rubix\LibraryTests\" />
-   <Folder Include="Logic\Games\Rubix\Library\" />
    <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
  </ItemGroup>
 </Project>
