@@ -9,6 +9,7 @@
   <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
+  <Compile Include="AssemblyInfo.cs" />
   <Compile Include="p.cs" />
  </ItemGroup>
 </Project>
