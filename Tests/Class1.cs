@@ -19,18 +19,16 @@ namespace Existence.Tests
         {
             List<int> nullList = null!;
             Random? r = null;
-            try
+
+            Assert.ThrowsException<ArgumentNullException>(() =>
             {
-                Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(nullList, r, Existence.Logic.Random.Logic.RandomType.Global, Existence.Logic.Random.Logic.LinqHandling.None);
-            }
-            catch (Exception ex)
-            {
-                if (ex is ArgumentNullException)
-                    Assert.IsTrue(true);
-                else
-                    Assert.Fail();
-            }
-            Assert.Fail();
+                Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(
+                    nullList,
+                    r,
+                    Existence.Logic.Random.Logic.RandomType.Global,
+                    Existence.Logic.Random.Logic.LinqHandling.None
+                );
+            });
         }
 
         [TestMethod]
