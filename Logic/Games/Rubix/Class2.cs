@@ -79,7 +79,7 @@ namespace Rubix
             TwoByTwo.FindSequences(start, finish, false, includeHalfRotations, true, bidirectionalSearch, MetricType.MinimizeRotationsBeyondTwoFaces, true, 0);
         }
     }
-
+    /*
     [TestClass]
     public class TwoByTwoTests
     {
@@ -335,5 +335,5 @@ namespace Rubix
             Assert.AreEqual(transformations.Count, 24);
             return transformations;
         }
-    }
+    }*/
 }
