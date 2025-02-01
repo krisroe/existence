@@ -6,7 +6,7 @@
   <ImplicitUsings>disable</ImplicitUsings>
   <LangVersion>latest</LangVersion>
   <Nullable>enable</Nullable>
-  <OutputPath>$(ProjectDir)bin\</OutputPath>
+  <OutputPath>bin\</OutputPath>
   <OutputType>Exe</OutputType>
   <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
