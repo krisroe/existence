@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Existence.Logic.Random;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Existence.Tests
 {
