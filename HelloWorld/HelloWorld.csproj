@@ -1,17 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
  <PropertyGroup>
-  <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   <ImplicitUsings>disable</ImplicitUsings>
+  <IsTestProject>true</IsTestProject>
   <LangVersion>latest</LangVersion>
   <Nullable>enable</Nullable>
   <OutputPath>bin\</OutputPath>
   <OutputType>Exe</OutputType>
   <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
- <ItemGroup>
-  <Compile Include="AssemblyInfo.cs" />
-  <Compile Include="p.cs" />
- </ItemGroup>
 </Project>

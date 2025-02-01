@@ -1,11 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
  <PropertyGroup>
+  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  <TargetFramework>net9.0</TargetFramework>
-  <ImplicitUsings>enable</ImplicitUsings>
+  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  <ImplicitUsings>disable</ImplicitUsings>
+  <IsTestProject>true</IsTestProject>
+  <LangVersion>latest</LangVersion>
   <Nullable>enable</Nullable>
   <OutputPath>bin\</OutputPath>
   <OutputType>Library</OutputType>
+  <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
