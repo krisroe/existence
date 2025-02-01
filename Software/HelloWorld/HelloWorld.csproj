@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
  <PropertyGroup>
   <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   <ImplicitUsings>disable</ImplicitUsings>
   <LangVersion>latest</LangVersion>
   <Nullable>enable</Nullable>
   <OutputType>Exe</OutputType>
-  <TargetFramework>net8.0</TargetFramework>
+  <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
   <Compile Include="p.cs" />
