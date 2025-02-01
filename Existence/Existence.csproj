@@ -8,9 +8,6 @@
   <OutputType>Library</OutputType>
  </PropertyGroup>
  <ItemGroup>
-  <ProjectReference Include="Software/HelloWorld/HelloWorld.csproj" />
- </ItemGroup>
- <ItemGroup>
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
