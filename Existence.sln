@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Existence", "Existence.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "Software\HelloWorld\HelloWorld.csproj", "{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubix", "Logic\Games\Rubix\Rubix.csproj", "{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubix", "Logic\Games\Rubix\Library\RubixLibrary.csproj", "{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

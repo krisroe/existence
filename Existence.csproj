@@ -8,7 +8,7 @@
  </PropertyGroup>
  <ItemGroup>
   <ProjectReference Include="Software/HelloWorld/HelloWorld.csproj" />
-  <ProjectReference Include="Logic/Games/Rubix/Rubix.csproj" />
+  <ProjectReference Include="Logic/Games/Rubix/Library/RubixLibrary.csproj" />
  </ItemGroup>
  <ItemGroup>
   <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
@@ -21,6 +21,8 @@
    <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
    <Folder Include="Earth\FieldsOfStudy\Psychology\" />
    <Folder Include="Logic\Games\Chess\" />
-   <Folder Include="Logic\Games\Rubix\" />
+   <Folder Include="Logic\Games\Rubix\LibraryTests\" />
+   <Folder Include="Logic\Games\Rubix\Library\" />
+   <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
  </ItemGroup>
 </Project>
