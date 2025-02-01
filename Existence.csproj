@@ -17,6 +17,5 @@
    <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
    <Folder Include="Earth\FieldsOfStudy\Psychology\" />
    <Folder Include="Logic\Games\Chess\" />
-   <Folder Include="Logic\Games\RubixCube\" />
  </ItemGroup>
 </Project>
