@@ -17,7 +17,6 @@
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
    <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
-   <Folder Include="Earth\FieldsOfStudy\Psychology\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Logic\Games\Rubix\LibraryTests\" />
    <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
