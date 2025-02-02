@@ -1,5 +1,4 @@
-﻿using static Existence.Time.Existence.Concepts;
-
+﻿
 namespace Existence.Personal
 {
     internal static class Self
