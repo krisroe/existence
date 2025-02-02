@@ -1,7 +1,6 @@
 ﻿namespace Existence
 {
     public abstract class Anti { }
-    public abstract class Archetype { }
     public abstract class Base { }
     public abstract class Con { }
     public abstract class Concept { }
@@ -80,23 +79,6 @@
             public class Sun { }
             public class Universe { }
             public class World { }
-        }
-
-        public class Emotions
-        {
-            public class Anger { }
-            public class Annoyance { }
-            public class Anticipation { }
-            public class Boredom { }
-            public class Enlightenment { }
-            public class Fear { }
-            public class Happy { }
-            public class Hate { }
-            public class Hope { }
-            public class Love { }
-            public class Lust { }
-            public class Rage { }
-            public class Sad { }
         }
 
         public static class Equation

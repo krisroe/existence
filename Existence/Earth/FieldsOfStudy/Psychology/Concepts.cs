@@ -5,10 +5,51 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 {
     public static class Concepts
     {
+        public class Emotions
+        {
+            public class Anger { }
+            public class Annoyance { }
+            public class Anticipation { }
+            public class Boredom { }
+            public class Enlightenment { }
+            public class Fear { }
+            public class Happy { }
+            public class Hate { }
+            public class Hope { }
+            public class Love { }
+            public class Lust { }
+            public class Rage { }
+            public class Sad { }
+        }
+
+        public static class Archetypes
+        {
+            public static class AntiHero { }
+            public static class Hero { }
+        }
+
         public static class Apophenia
         {
             public static class MakingConnectionsWithApparentlyUnrelatedThings { }
         }
+        public static class Catharsis
+        {
+            public static class EmotionalRelease
+            {
+                public static class GainOrLoseEmotionAfterSomethingIsFinished { }
+            }
+        }
+
+        public static class PsychologicalTrauma
+        {
+            public static class Memory
+            {
+                public static class Repressed { }
+                public static class Confabulated { }
+                public static class Painful { }
+            }
+        }
+
         public static class SuspensionOfDisbelief
         {
             public static class BelievingFictionIsRealForThePurposeOfEntertainment { }
