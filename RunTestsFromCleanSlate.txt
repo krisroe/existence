@@ -1,0 +1,17 @@
+1. Delete local repo
+2. Open command prompt
+2. dotnet nuget locals all --clear
+3. Open Visual Studio Developer Command Prompt
+3. devenv /ResetSettings
+4. Reboot
+5. Open Visual Studio Developer Command Prompt
+6. devenv /ResetUserData
+7. Pull down repo from source control server
+8. Open command prompt and navigate to the solution directory
+9. Run dotnet restore on the solution
+10. Run dotnet test --list-tests to list out tests
+11. Open Visual Studio and see if the tests run
+12. Open the solution in Visual Studio.
+13. Rebuild the solution (Ctrl + Shift + B).
+14. Open Test Explorer (Test → Test Explorer or Ctrl + E, T).
+15. Click "Run All" and verify the results.
