@@ -19,3 +19,9 @@
 Listing packages including transitive dependencies
 
 dotnet list package --include-transitive
+
+Framework reference typically not needed
+
+ <ItemGroup>
+  <FrameworkReference Include="Microsoft.NETCore.App" />
+ </ItemGroup>
