@@ -9,6 +9,10 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
         {
             public static class MakingConnectionsWithApparentlyUnrelatedThings { }
         }
+        public static class SuspensionOfDisbelief
+        {
+            public static class BelievingFictionIsRealForThePurposeOfEntertainment { }
+        }
         public static class Synethesia
         {
             public static class ColorsSeemBrighter { }
