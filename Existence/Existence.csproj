@@ -13,13 +13,16 @@
   <TargetFramework>net9.0</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
+   <Compile Remove="Logic\Games\Rubix\**" />
+   <EmbeddedResource Remove="Logic\Games\Rubix\**" />
+   <None Remove="Logic\Games\Rubix\**" />
+ </ItemGroup>
+ <ItemGroup>
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
    <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
    <Folder Include="Logic\Games\Chess\" />
-   <Folder Include="Logic\Games\Rubix\LibraryTests\" />
-   <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
    <Folder Include="Personal\Songs\Parody\" />
  </ItemGroup>
  <ItemGroup>
