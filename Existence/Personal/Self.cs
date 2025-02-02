@@ -25,6 +25,17 @@ namespace Existence.Personal
         public static class Husband { }
         public static class Alive { }
 
+        public static class PoliticalPhilosophiesRanked
+        {
+            public static class Libertarian { }
+            public static class Conservative { }
+            public static class Liberal { }
+            public static class Environmentalist { }
+            public static class Socialist { }
+            public static class Communist { }
+        }
+
+
         public static class Married
         {
             public static class One { }
