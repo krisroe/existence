@@ -1,2 +1,1 @@
-﻿//static void Main(string[] a){}
-System.Console.Out.WriteLine("HelloWorld");
+﻿class Program{static void Main(string[] a){}}
