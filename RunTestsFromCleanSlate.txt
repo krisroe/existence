@@ -15,3 +15,7 @@
 13. Rebuild the solution (Ctrl + Shift + B).
 14. Open Test Explorer (Test → Test Explorer or Ctrl + E, T).
 15. Click "Run All" and verify the results.
+
+Listing packages including transitive dependencies
+
+dotnet list package --include-transitive
