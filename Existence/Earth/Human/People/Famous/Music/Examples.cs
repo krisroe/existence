@@ -7,5 +7,6 @@ namespace Existence.Earth.People.Famous.Music
         private static class TaylorSwift { }
         private static class EltonJohn { }
         private static class JohnnyCash { }
+        private static class FreddieMercury { }
     }
 }
