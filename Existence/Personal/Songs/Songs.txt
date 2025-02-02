@@ -1,3 +1,4 @@
+
 Hero (Mariah Carey)
 Love Story (Taylor Swift)
 Sound of Silence (Paul Simon)
@@ -16,8 +17,8 @@ Cat's in the Cradle
 Recovery from Active Shooter Incident (2018). Other people in 2025 won't like mentioning the shooter's name (Anthony Tong).
 Rainbow Connection
 Wade in the Water
-How Far I'll Go
-You're Welcome
+How Far I'll Go (Automated Build)
+You're Welcome (Dev God workplan with manager)
 Circle Game
 You are my Sunshine
 Music of the Night
@@ -29,8 +30,8 @@ Mr. Blue Sky
 Recovery from Active Shooter Incident (2018) [take two]
 Rainbow Connection
 Wade in the Water
-How Far I'll Go
-You're Welcome
+How Far I'll Go (Automated Build)
+You're Welcome (Dev God workplan with manager)
 Phantom of the Opera (remember what you (witness) and the shooter (suicide-by-cop) were both going through)
 Circle Game
 You are my Sunshine
@@ -49,8 +50,6 @@ Mr. Blue Sky helped me recover from the loneliness of Covid and become happy aga
 Learning to make Parody Songs
 
 Let it Go (all I had to do was switch out the word code with the word cold)
-
-Stocco Elegy
 How Far I'll Go (Automated Build)
 Complicated (Avril Lavigne)
 Rickroll Connection (parody of Rainbow Connection and Never Gonna Give You Up)
