@@ -21,6 +21,7 @@
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Logic\Games\Rubix\LibraryTests\" />
    <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
+   <Folder Include="Personal\Songs\Parody\" />
  </ItemGroup>
  <ItemGroup>
   <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
