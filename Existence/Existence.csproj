@@ -22,7 +22,4 @@
    <Folder Include="Logic\Games\Rubix\LibraryTests\" />
    <Folder Include="Logic\Games\Rubix\SolutionFinder\" />
  </ItemGroup>
- <ItemGroup>
-   <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
- </ItemGroup>
 </Project>
