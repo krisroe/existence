@@ -1,4 +1,5 @@
 ﻿using Existence.Logic.Games.Cards;
+using System.Collections.Generic;
 
 namespace Existence.Logic.Games.Cards.Rules
 {

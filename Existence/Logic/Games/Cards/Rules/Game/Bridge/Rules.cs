@@ -1,5 +1,6 @@
 ﻿using Existence.Logic.Games.Cards;
 using Existence.Logic.Games.Cards.Rules;
+using System.Collections.Generic;
 
 namespace Existence.Logic.Games.Cards.Rules.Game.Bridge
 {
