@@ -22,6 +22,7 @@
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
    <Folder Include="Earth\FieldsOfStudy\Mathematics\" />
+   <Folder Include="Earth\Songs\Folk\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Personal\Songs\Parody\" />
  </ItemGroup>

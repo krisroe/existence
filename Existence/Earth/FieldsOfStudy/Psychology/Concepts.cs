@@ -7,9 +7,24 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
     {
         public class Emotions
         {
+            public static class EmotionalResonance
+            {
+                public static class AssociationOfAnEmotionWithSomethingSuchAsASong { }
+            }
+
+            public static class EmotionalRelease
+            {
+                public static class Catharsis
+                {
+                    public static class GainOrLoseEmotionAfterSomethingIsFinished { }
+                }
+            }
+
+
             public class Anger { }
             public class Annoyance { }
             public class Anticipation { }
+            public class Anxiety { }
             public class Boredom { }
             public class Enlightenment { }
             public class Fear { }
@@ -19,7 +34,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             public class Love { }
             public class Lust { }
             public class Rage { }
-            public class Sad { }
+            public class Sadness { }
         }
 
         public static class Archetypes
@@ -32,13 +47,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
         {
             public static class MakingConnectionsWithApparentlyUnrelatedThings { }
         }
-        public static class Catharsis
-        {
-            public static class EmotionalRelease
-            {
-                public static class GainOrLoseEmotionAfterSomethingIsFinished { }
-            }
-        }
+
 
         public static class PsychologicalTrauma
         {
