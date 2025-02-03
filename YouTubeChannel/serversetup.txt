@@ -1,0 +1,37 @@
+sudo apt update
+sudo apt upgrade
+sudo reboot
+sudo apt full-upgrade
+sudo apt autoremove
+
+sudo apt install nginx
+sudo apt install php-fpm
+remove /etc/nginx/sites-available/default
+remove /etc/nginx/sites-enabled/default
+setup /etc/nginx/sites-available/destroyallpugs
+navigate to /etc/nginx/sites-enabled
+sudo ln -s ../sites-available/destroyallpugs
+sudo mkdir /var/www/destroyallpugs
+sudo chmod -R 755 /var/www/destroyallpugs
+sudo chown ubuntu destroyallpugs
+[copy in the website files]
+sudo apt install postgresql
+
+sudo su postgres
+psql
+ALTER USER postgres WITH PASSWORD 'ToiletDrawHind939'; (local)
+
+modify /etc/postgresql/16/main/postgresql.conf set listen_addresses = '*', set port to 24866 (allow in security group)
+sudo service postgresql restart
+try to connect in pgadmin to get ip address
+modify /etc/postgresql/16/main/pg_hba.conf
+host all all 1.2.3.4/32 md5
+
+sudo apt-get install php-pgsql
+/etc/php/8.3/fpm/php.ini
+enable
+extension=pdo_pgsql
+extension=pgsql
+
+curl x-www-form-urlencoded syntax:
+curl -X POST -d [rest removed because contains secrets]
