@@ -1,0 +1,3 @@
+donotclick.php
+
+Autoplay: There is a choice for whether to make the user click the video to start it, or autoplay and have it start muted. Either way there needs to be an indicator at the top to force the user to take a workflow step, whether it's start or mute. Either way there is a risk the user won't watch the video (not clicking start or closing out). I prefer to force the issue and make the user unmute.

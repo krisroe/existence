@@ -1,0 +1,1428 @@
+<data>
+ <document>
+  <id>1</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript</purpose>
+  <googledrivefileid>1LgoYVHevi1OmS9Icf7ECddt7MlmWGltW</googledrivefileid>
+  <comment>Proxy using Brotli additional</comment>
+ </document>
+ <document>
+  <id>2</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1iYsyti8Vce3eAq9klTUN5_KCp53wG7U9</googledrivefileid>
+  <comment>Rainbow Connection Part 1 additional</comment>
+ </document>
+ <document>
+  <id>3</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1qg3Ck6nMi-1NK2WHF1CSFpRInXZVkmjr</googledrivefileid>
+  <comment>Rainbow Connection MUSX</comment>
+ </document>
+ <document>
+  <id>4</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1_GxU3y30DRKGEEosp3EES7pPzp6btlwQ</googledrivefileid>
+  <comment>Mainline Song with No Name #1 additional</comment>
+ </document>
+ <document>
+  <id>5</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1IzsM9NCULtkSpfMP1cBXwEn9XZdiB1K_</googledrivefileid>
+  <comment>Wade in the Water additional</comment>
+ </document>
+ <document>
+  <id>6</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>103PU75ieW6iSJ9S8RpaphkO4jBOVTfgW</googledrivefileid>
+  <comment>Wade in the Water MUSX</comment>
+ </document>
+ <document>
+  <id>7</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1FDetRdkGfQGpyK8-cIoFZcTpi6BXvykS</googledrivefileid>
+  <comment>How Far I'll Go additional</comment>
+ </document>
+ <document>
+  <id>8</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1uTBXINr2jDm0LI7pmhmeEFOF9WGaxHXn</googledrivefileid>
+  <comment>How Far I'll Go MUSX</comment>
+ </document>
+ <document>
+  <id>9</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1MYZGBPAIEq52ScksczHtccG1MBVJWc4D</googledrivefileid>
+  <comment>Anti-Hero additional</comment>
+ </document>
+ <document>
+  <id>10</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1Bzc0d9aDYCiJ0ct-0UoT-_AnuMTFSLca</googledrivefileid>
+  <comment>Anti-Hero MUSX</comment>
+ </document>
+ <document>
+  <id>11</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript,Commentary</purpose>
+  <googledrivefileid>1N7k23AsvLoWJNxr9vbNLYe4YXJnwD0IF</googledrivefileid>
+  <comment>Complicated additional</comment>
+ </document>
+ <document>
+  <id>12</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1exNtgqPufqhzM-ZZYbQ50uiYmqAteIPz</googledrivefileid>
+  <comment>Complicated MUSX</comment>
+ </document>
+ <document>
+  <id>13</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript</purpose>
+  <googledrivefileid>1DFMj6u_yBozYduyDHih5Suds6KHOzwaV</googledrivefileid>
+  <comment>Rainbow Connection Part 2 Transcript</comment>
+ </document>
+ <document>
+  <id>14</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript</purpose>
+  <googledrivefileid>1fkBGgnRSKvs3GyMcpUW4vOfQf9ecafQV</googledrivefileid>
+  <comment>Let it Go Transcript</comment>
+ </document>
+ <document>
+  <id>15</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1-RzIoTzacieiXmphr9Xe7znVZVIslBXH</googledrivefileid>
+  <comment>Let it Go MUSX</comment>
+ </document>
+ <document>
+  <id>16</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript</purpose>
+  <googledrivefileid>1YoASjd8H6YLuXInYt3p1uv35Um8JA9Pt</googledrivefileid>
+  <comment>Cat's in the Cradle MUSX</comment>
+ </document>
+ <document>
+  <id>17</id>
+  <type>MUSX</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1fym-Fn0tSZ8axxV9f-Wz8Tfp9MrO2JHv</googledrivefileid>
+  <comment>Let it Go MUSX</comment>
+ </document>
+ <!-- template -->
+ <!--
+ <document>
+  <id>X</id>
+  <type>AdditionalTextFile/MUSC</type
+  <purpose>None,Transcript,Commentary</purpose>
+  <googledrivefileid>XYZ<googledrivefileid>
+  <comment>WWW</comment>
+ </document>
+ -->
+ 
+ <video>
+  <id>1</id>
+  <youtubeid>rFERC1KdbaI</youtubeid>
+  <shortname>Proxy using Brotli</shortname>
+  <identifier>Mainline 1</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>1</additionaltextdocumentid>
+ </video>
+ <video>
+  <id>2</id>
+  <youtubeid>aniNdj304ac</youtubeid>
+  <shortname>Rainbow Connection Part 1</shortname>
+  <identifier>Mainline 2</identifier>
+  <owner>Muppet Movie</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>2</additionaltextdocumentid>
+  <musxdocumentid>3</musxdocumentid>
+ </video>
+ <video>
+  <id>3</id>
+  <youtubeid>wwH4jGiHTjE</youtubeid>
+  <shortname>The Song with No Name Part 1 Take 1</shortname>
+  <identifier>Mainline 3</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>4</additionaltextdocumentid>
+ </video>
+ <video>
+  <id>4</id>
+  <youtubeid>DuU7sTGspV8</youtubeid>
+  <shortname>Wade in the Water</shortname>
+  <identifier>Mainline 4</identifier>
+  <owner>Negro Spiritual</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>5</additionaltextdocumentid>
+  <musxdocumentid>6</musxdocumentid>
+ </video>
+ <video>
+  <id>5</id>
+  <youtubeid>5ijfLtT9Qjc</youtubeid>
+  <shortname>How Far I'll Go</shortname>
+  <identifier>Mainline 5</identifier>
+  <owner>Moana</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>7</additionaltextdocumentid>
+  <musxdocumentid>8</musxdocumentid>
+ </video>
+ <video>
+  <id>6</id>
+  <youtubeid>5axgUawYohI</youtubeid>
+  <shortname>Anti-Hero Part 1</shortname>
+  <identifier>Mainline 6</identifier>
+  <owner>Taylor Swift</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>9</additionaltextdocumentid>
+  <musxdocumentid>10</musxdocumentid>
+ </video>
+ <video>
+  <id>7</id>
+  <youtubeid>S7Cl0GSHYR8</youtubeid>
+  <shortname>Complicated</shortname>
+  <identifier>Mainline 7</identifier>
+  <owner>Avril Lavigne</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>11</additionaltextdocumentid>
+  <musxdocumentid>12</musxdocumentid>
+ </video>
+ <video>
+  <id>8</id>
+  <youtubeid>bmLd72rY1KE</youtubeid>
+  <shortname>Jason Kelce is The Man</shortname>
+  <identifier>Silly Song 15</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>9</id>
+  <youtubeid>4aHkS6bngtE</youtubeid>
+  <shortname>Sneaky Business (Cookies)</shortname>
+  <identifier>Recital 1</identifier>
+  <owner>My Daughter</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>10</id>
+  <youtubeid>mo7nOCLEk6E</youtubeid>
+  <shortname>The Song with No Name Part 1 Take 2</shortname>
+  <identifier>The Song with No Name 1</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>11</id>
+  <youtubeid>qbbGfCPT1TQ</youtubeid>
+  <shortname>The Song with No Name Part 2</shortname>
+  <identifier>Unexplainable 1</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>12</id>
+  <youtubeid>XJKlsBVLW5s</youtubeid>
+  <shortname>A Morning Sunbeam</shortname>
+  <identifier>Recital 2</identifier>
+  <owner>My Daughter</owner>
+  <isprivate>true</isprivate>
+ </video>
+ <video>
+  <id>13</id>
+  <youtubeid>s6YRrMbga-M</youtubeid>
+  <shortname>Rainbow Connection Part 2</shortname>
+  <identifier>Mainline 8</identifier>
+  <owner>Muppet Movie</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>13</additionaltextdocumentid>
+ </video>
+ <video>
+  <id>14</id>
+  <youtubeid>eymtTwRoFFU</youtubeid>
+  <shortname>Let it Go</shortname>
+  <identifier>Mainline 9</identifier>
+  <owner>Frozen</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>14</additionaltextdocumentid>
+  <musxdocumentid>15</musxdocumentid>
+ </video>
+ <video>
+  <id>15</id>
+  <youtubeid>7oDiWUqrd5Y</youtubeid>
+  <shortname>Turtle of Doom</shortname>
+  <identifier>Silly Song 42</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>16</id>
+  <youtubeid>wzCHyiLZ0jg</youtubeid>
+  <shortname>Personal Project</shortname>
+  <identifier>Unexplainable 2</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+ </video>
+ <video>
+  <id>17</id>
+  <youtubeid>dllXh4rML3s</youtubeid>
+  <shortname>Cat's in the Cradle</shortname>
+  <identifier>Mainline 10</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>16</additionaltextdocumentid>
+  <musxdocumentid>17</musxdocumentid>
+ </video>
+ <!-- template
+ <video>
+  <id>W</id>
+  <youtubeid>X</youtubeid>
+  <shortname>Y</shortname>
+  <identifier>Z</identifier>
+  <owner>XX</owner>
+  <isprivate>YY</isprivate>
+ </video>
+ -->
+ <performer>
+  <id>1</id>
+  <name><![CDATA[Chris Rowe (Krisroe)]]></name>
+ </performer>
+ <performer>
+  <id>2</id>
+  <name><![CDATA[Daughter]]></name>
+ </performer>
+ <rule>
+  <id>1</id>
+  <number><![CDATA[1]]></number>
+  <rule><![CDATA[Re: Like/Subscribe]]></rule>
+  <source><![CDATA[ (clarified)]]></source>
+  <actualrule><![CDATA[]]></actualrule>
+  <videoid1>1</videoid1>
+  <videoid2>7</videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>2</id>
+  <number><![CDATA[1a]]></number>
+  <rule><![CDATA[&nbsp;I will NEVER tell you to like and/or subscribe]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[I follow this]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>3</id>
+  <number><![CDATA[1b]]></number>
+  <rule><![CDATA[&nbsp;You are NOT ALLOWED to like my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[To like or to dislike, that is the question. No acknowledgement also acceptable]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>4</id>
+  <number><![CDATA[1c]]></number>
+  <rule><![CDATA[&nbsp;You are NOT ALLOWED to subscribe]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[It's fine]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>5</id>
+  <number><![CDATA[2]]></number>
+  <rule><![CDATA[Turn on the subtitles]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[You don't have to because I've forced it upon you, although some videos have real subtitles]]></actualrule>
+  <videoid1>2</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>6</id>
+  <number><![CDATA[3]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read the video description]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Go ahead if some of this is your thing]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>7</id>
+  <number><![CDATA[4]]></number>
+  <rule><![CDATA[You are REQUIRED to watch each video twice, once with eyes open and once with eyes closed]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>8</id>
+  <number><![CDATA[5]]></number>
+  <rule><![CDATA[I AM ALLOWED to create content that inappropriately rips off somebody else's content, but<br/>YOU are NOT ALLOWED to create content that inappropriately rips off somebody else's content]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[I do my best to not do this, and you shouldn't either, and it's funny to make it into a hypocritical rule]]></actualrule>
+  <videoid1>2</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext>true</video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>9</id>
+  <number><![CDATA[6]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to comment on my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[It's fine, if you do try to be constructive, whatever that means]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>10</id>
+  <number><![CDATA[7]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to learn anything from my channel]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Not sure I'm capable of teaching you anything, but go ahead]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>11</id>
+  <number><![CDATA[8]]></number>
+  <rule><![CDATA[You are 100% ABSOLUTELY NOT ALLOWED to watch my videos]]></rule>
+  <source><![CDATA[, later put in 1+2s' description]]></source>
+  <actualrule><![CDATA[I don't have a rule against it, I suppose you could have an independent rule against it and then you can choose to follow it or not]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>12</id>
+  <number><![CDATA[<del>7</del>9]]></number>
+  <rule><![CDATA[Your kidz are NOT ALLOWED to watch my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Use your judgment, I don't know you or your kidz]]></actualrule>
+  <videoid1>13</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>13</id>
+  <number><![CDATA[10]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to pause my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[If you have the patience for this, sure]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>14</id>
+  <number><![CDATA[11]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to skip to the end of my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[If you don't have the patience for this, sure]]></actualrule>
+  <videoid1>3</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>15</id>
+  <number><![CDATA[12]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read the actual rulez]]></rule>
+  <source><![CDATA[This document]]></source>
+  <actualrule><![CDATA[Fine, may contain things you can't unsee]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>16</id>
+  <number><![CDATA[13]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read the transcripts]]></rule>
+  <source><![CDATA[Retconned everywhere]]></source>
+  <actualrule><![CDATA[I guess it's okay]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>17</id>
+  <number><![CDATA[14]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read the directory's commentaries]]></rule>
+  <source><![CDATA[Retconned everywhere]]></source>
+  <actualrule><![CDATA[Untrue, but there might be a good reason I made the stuff less visible]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>18</id>
+  <number><![CDATA[15]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to do ABSOLUTELY ANYTHING with my links]]></rule>
+  <source><![CDATA[This document]]></source>
+  <actualrule><![CDATA[As with everything, use your judgment]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>19</id>
+  <number><![CDATA[16]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read my channel description]]></rule>
+  <source><![CDATA[Channel description]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>20</id>
+  <number><![CDATA[17]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to spoil any channel content for yourself or others]]></rule>
+  <source><![CDATA[This site]]></source>
+  <actualrule><![CDATA[Your choice, use your judgment]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>21</id>
+  <number><![CDATA[18]]></number>
+  <rule><![CDATA[The rulez are ABSOLUTE. There are NO EXCEPTIONS!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Some rulez have exceptions, others don't]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>22</id>
+  <number><![CDATA[19]]></number>
+  <rule><![CDATA[I am NOT ALLOWED to make BLOOPERS]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[yes [MISTAKE]]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>23</id>
+  <number><![CDATA[20]]></number>
+  <rule><![CDATA[I am NOT ALLOWED to make MISTAKES]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[yes [BLOOPER]]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>24</id>
+  <number><![CDATA[21]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read the subtitles]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>25</id>
+  <number><![CDATA[22]]></number>
+  <rule><![CDATA[White people are NOT ALLOWED to watch my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Not touching this one with a ten foot pole]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>26</id>
+  <number><![CDATA[23]]></number>
+  <rule><![CDATA[black people are NOT ALLOWED to watch my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Not touching this one with a ten foot pole]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>27</id>
+  <number><![CDATA[24]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to REPRESS/DENY/CONFABULATE/FORGET the actual rulez once you see them]]></rule>
+  <source><![CDATA[This document]]></source>
+  <actualrule><![CDATA[If you're capable of this, go nuts]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>28</id>
+  <number><![CDATA[25]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to CHANGE YOUR MIND after watching my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Maybe I'd like you to, I'm not in control of this one, also see rule 7]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>29</id>
+  <number><![CDATA[26]]></number>
+  <rule><![CDATA[If you accidentally violate rule #6 [comment on my videos], you are NOT ALLOWED to make the SECOND post]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[also see rule 6]]></actualrule>
+  <videoid1>4</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>30</id>
+  <number><![CDATA[27]]></number>
+  <rule><![CDATA[I am NOT ALLOWED to COMPLAIN]]></rule>
+  <source><![CDATA[<a href="Complaints.html">Complaints page<a/>]]></source>
+  <actualrule><![CDATA[Sure I am]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>31</id>
+  <number><![CDATA[28]]></number>
+  <rule><![CDATA[NO ONE is ALLOWED to FIX my COMPLAINTS]]></rule>
+  <source><![CDATA[<a href="Complaints.html">Complaints page<a/>]]></source>
+  <actualrule><![CDATA[Hope springs eternal]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>32</id>
+  <number><![CDATA[29]]></number>
+  <rule><![CDATA[You are REQUIRED to DISLIKE all of my videos]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Re: acknowledgement: To like or to dislike, that is the question, no acknowledgement is also acceptable<br/>Re: preferences: You can think what you want about my videos]]></actualrule>
+  <videoid1>7</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>33</id>
+  <number><![CDATA[30]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to read my process document]]></rule>
+  <source><![CDATA[<a href="Process.html">Process document</a>]]></source>
+  <actualrule><![CDATA[Not sure if it's actually helpful to anyone, but go ahead]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>34</id>
+  <number><![CDATA[31]]></number>
+  <rule><![CDATA[I am NOT ALLOWED to discuss controversial topics on my channel]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Try and stop me]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>35</id>
+  <number><![CDATA[32]]></number>
+  <rule><![CDATA[<a href="ExceptionLists.php">The MAIN EXCEPTION LIST</a>. Entities, per video, can break some rulez, but only when NOT mentioned by name. They can...]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[It exists]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>36</id>
+  <number><![CDATA[32a]]></number>
+  <rule><![CDATA[&nbsp;Subscribe to the video]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Not physically possible]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>37</id>
+  <number><![CDATA[32b]]></number>
+  <rule><![CDATA[&nbsp;Make the second comment post for the video]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[I'm willing to risk this]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>38</id>
+  <number><![CDATA[32c]]></number>
+  <rule><![CDATA[&nbsp;Learn something from the video]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Not quite as risky, but a little knowledge is a dangerous thing]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>39</id>
+  <number><![CDATA[33]]></number>
+  <rule><![CDATA[There is currently NO ONE on the exception list!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[This is correct]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>40</id>
+  <number><![CDATA[34]]></number>
+  <rule><![CDATA[My coworkers are NOT ALLOWED to watch my videos, but if you accidentally break this rule you are REQUIRED to do so during work hours!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[&lt;sarcasm&gt;dead on&lt;/sarcasm&gt;]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>41</id>
+  <number><![CDATA[35]]></number>
+  <rule><![CDATA[NO ONE is allowed to make mash-up jokes with my channel and Microsoft Teams!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Lamer is better]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>42</id>
+  <number><![CDATA[36]]></number>
+  <rule><![CDATA[If you accidentally watch one of my videos, you are REQUIRED to REPRESS/DENY/CONFABULATE/FORGET it IMMEDIATELY]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Go ahead if you need the space for something else]]></actualrule>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>43</id>
+  <number><![CDATA[37]]></number>
+  <rule><![CDATA[If I tell you to stop watching my videos, you STOP WATCHING MY VIDEOS!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1>6</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>44</id>
+  <number><![CDATA[38]]></number>
+  <rule><![CDATA[The 2017 Super Bowl Champion Philadelphia Eagles are NOT ALLOWED to watch my videos!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Boo]]></actualrule>
+  <videoid1>8</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>45</id>
+  <number><![CDATA[39]]></number>
+  <rule><![CDATA[If I mention you in a video, you are NOT ALLOWED to do anything that makes me regret that decision]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[I can't control this, but I kinda tried]]></actualrule>
+  <videoid1>8</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>46</id>
+  <number><![CDATA[40]]></number>
+  <rule><![CDATA[You are NOT ALLOWED to visit my website]]></rule>
+  <source><![CDATA[<a href="https://destroyallpugz.site">https://destroyallpugz.site</a>]]></source>
+  <actualrule><![CDATA[<a href="https://destroyallpugz.site">https://destroyallpugz.site</a>]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>47</id>
+  <number><![CDATA[41]]></number>
+  <rule><![CDATA[You are REQUIRED to read the terms and conditions of the web site]]></rule>
+  <source><![CDATA[This site]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>48</id>
+  <number><![CDATA[42]]></number>
+  <rule><![CDATA[Kidz, you are REQUIRED to ask permission before NOT WATCHING MY VIDEOS]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1>13</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>49</id>
+  <number><![CDATA[43]]></number>
+  <rule><![CDATA[KIDZ, DON'T WEAR A GARBAGE BAG WITHOUT ADULT SUPERVISION]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[KIDZ, DON'T WEAR A GARBAGE BAG WITHOUT ADULT SUPERVISION]]></actualrule>
+  <videoid1>13</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>50</id>
+  <number><![CDATA[44]]></number>
+  <rule><![CDATA[If you accidentally start watching one of my videos, STOP IMMEDIATELY]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Optional]]></actualrule>
+  <videoid1>14</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>51</id>
+  <number><![CDATA[45]]></number>
+  <rule><![CDATA[NO ONE is ALLOWED to put my videos on a playlist]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[Does anyone actually use playlists?]]></actualrule>
+  <videoid1>14</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>52</id>
+  <number><![CDATA[46]]></number>
+  <rule><![CDATA[<a href="ExceptionLists.php">For some individuals, the rulez DO NOT APPLY</a>]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[It exists and no one is on this list either]]></actualrule>
+  <videoid1>14</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>  
+ </rule>
+ <rule>
+  <id>53</id>
+  <number><![CDATA[47]]></number>
+  <rule><![CDATA[I am NOT ALLOWED to give ANYONE security training]]></rule>
+  <source><![CDATA[work team teams chat]]></source>
+  <actualrule><![CDATA[Life is filled with security training (e.g. suspicious links)]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <rule>
+  <id>54</id>
+  <number><![CDATA[48]]></number>
+  <rule><![CDATA[THIS IS A PERSONAL PROJECT! I MAKE ZERO MONEY OFF THIS SITE! SEND DONATIONS TO MY EMPLOYER!]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[The personal+nonmonetary part is true, the donations-to-employer part is intended as a joke]]></actualrule>
+  <videoid1>16</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ <!-- template -->
+ <!--
+ <rule>
+  <id>X</id>
+  <number><![CDATA[]]></number>
+  <rule><![CDATA[]]></rule>
+  <source><![CDATA[]]></source>
+  <actualrule><![CDATA[]]></actualrule>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </rule>
+ -->
+ <ruleunofficial>
+  <id>1</id>
+  <rule><![CDATA[If your name is Jason and your last name has two syllables, you are REQUIRED to sing "Jason Kelce is The Man" with your name once per day]]></rule>
+  <source><![CDATA[]]></source>
+  <videoid1>8</videoid1>
+  <videoid2></videoid2>
+  <video1isadditionaltext></video1isadditionaltext>
+ </ruleunofficial>
+ <exceptionlistmembertype>
+  <name>Nonhuman Entities</name>
+  <id>1</id>
+ </exceptionlistmembertype>
+ <exceptionlistmembertype>
+  <name>Fictional Characters</name>
+  <id>2</id>
+ </exceptionlistmembertype>
+ <exceptionlistmembertype>
+  <name>Living People</name>
+  <id>3</id>
+ </exceptionlistmembertype>
+ <exceptionlistmembertype>
+  <name>Concepts</name>
+  <id>4</id>
+ </exceptionlistmembertype>
+ <exceptionlist>
+  <id>1</id>
+  <name>Main Exception List</name>
+  <videoid>5</videoid>
+  <detail><![CDATA[<h3>Rule 32: Entities, per video, can break some rulez, but only when NOT mentioned by name</h3><h4>Rule 32a: They can subscribe to the video</h4><h4>Rule 32b: They can make the second comment post</h4><h4>Rule 32c: They can learn something from the video</h4>]]></detail>
+  <member>
+   <categoryid>1</categoryid>
+   <name>Chat GPT</name>
+   <videoid>5</videoid>
+  </member>
+  <member>
+   <categoryid>1</categoryid>
+   <name>Automated Build</name>
+   <videoid>5</videoid>
+  </member>
+  <member>
+   <categoryid>1</categoryid>
+   <name>Upgrader</name>
+   <videoid>7</videoid>
+  </member>
+  <member>
+   <categoryid>2</categoryid>
+   <name>Kermit the Frog</name>
+   <videoid>5</videoid>
+  </member>
+  <member>
+   <categoryid>2</categoryid>
+   <name>Grover (Sesame Street)</name>
+   <videoid>5</videoid>
+  </member>
+  <member>
+   <categoryid>3</categoryid>
+   <name>Taylor Swift</name>
+   <videoid>5</videoid>
+  </member>
+  <member>
+   <categoryid>3</categoryid>
+   <name>Jason Kelce</name>
+   <videoid>8</videoid>
+  </member>
+  <member>
+   <categoryid>3</categoryid>
+   <name>My Dad</name>
+   <videoid>17</videoid>
+  </member>
+  <member>
+   <categoryid>4</categoryid>
+   <name>Code</name>
+   <videoid>14</videoid>
+  </member>
+ </exceptionlist>
+ <exceptionlist>
+  <id>2</id>
+  <name>The rulez do NOT apply to these individuals</name>
+  <videoid>14</videoid>
+  <detail><![CDATA[]]></detail>
+  <member>
+   <categoryid>2</categoryid>
+   <name>Elsa (Frozen)</name>
+   <videoid>14</videoid>
+  </member>
+ </exceptionlist>
+ <lyricsanalysis>
+  <id>1</id>
+  <videoid>2</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>2</id>
+  <videoid>4</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>3</id>
+  <videoid>4</videoid>
+  <location>Commentary</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>4</id>
+  <videoid>5</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>5</id>
+  <videoid>5</videoid>
+  <location>VideoDescription</location>
+  <parody>true</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>6</id>
+  <videoid>6</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>7</id>
+  <videoid>7</videoid>
+  <location>VideoDescription</location>
+  <parody>true</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>8</id>
+  <videoid>7</videoid>
+  <location>Commentary</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>9</id>
+  <videoid>14</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <lyricsanalysis>
+  <id>10</id>
+  <videoid>17</videoid>
+  <location>VideoDescription</location>
+  <parody>false</parody>
+ </lyricsanalysis>
+ <!-- template -->
+ <!--
+ <lyricsanalysis>
+  <id>X</id>
+  <videoid>Y</videoid>
+  <location>VideoDescription/AdditionalCommentary</location>
+  <parody>false/true</parody>
+ </lyricsanalysis>
+ -->
+ <copyrightfound>
+  <id>1</id>
+  <song><![CDATA[Rainbow Connection<br/>Lyrics and Music by Paul Williams and Kenny Ascher<br/>I syncopated, split vocals/piano, transcribed to Finale]]></song>
+  <copyright><![CDATA[1979-07-31 Henson Associates, Inc. All rights reserved (SR0000010909)]]></copyright>
+  <videoid1>2</videoid1>
+  <videoid2>13</videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>2</id>
+  <song><![CDATA[Piano lesson book: Jazz rags & blues 1/pno.]]></song>
+  <copyright><![CDATA[1993-10-03 Alfred Music. All rights reserved. (V3529D411)]]></copyright>
+  <videoid1>9</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>3</id>
+  <song><![CDATA[Complicated<br/>By Avril Lavigne, Lauren Christy, Graham Edwards, David Alspach<br/>I parodied from musicnotes.com MN0128885]]></song>
+  <copyright><![CDATA[2002-07-22 Almo Music Corporation etall. All rights reserved. (PA0001101506)]]></copyright>
+  <videoid1>7</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>4</id>
+  <song><![CDATA[How Far I'll Go<br/>Lyrics and Music by Lin-Manuel Miranda<br/>I split vocals/piano, transcribed to Finale]]></song>
+  <copyright><![CDATA[2016-10-28 Walt Disney Music Company. All rights reserved (PA0002210560)]]></copyright>
+  <videoid1>5</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>5</id>
+  <song><![CDATA[Anti-Hero<br/>Original Lyrics and Music by Taylor Swift and Jack Antonoff<br/>I reinterpreted from musicnotes.com MN0264688]]></song>
+  <copyright><![CDATA[2022-12-08 TASRM Publishing. All rights reserved. (PA0002390184)]]></copyright>
+  <videoid1>6</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>6</id>
+  <song><![CDATA[Let it Go<br/>Music and Lyrics by Kristen Anderson-Lopez and Robert Lopez<br/>Started from Frozen: Music from the Motion Picture Soundtrack]]></song>
+  <copyright><![CDATA[Copyright 2013-10-21 Wonderland Music Company, Inc. (PA0002160548 2018-07-11). All rights reserved.]]></copyright>
+  <videoid1>14</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>7</id>
+  <song><![CDATA[Cat's in the Cradle</br>Music and Lyrics by Harry Chapin and Sandy Chapin]]></song>
+  <copyright><![CDATA[Copyright 1974-08-01 Story Songs, Ltd. All rights reserved.]]></copyright>
+  <videoid1>17</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <!-- template -->
+ <!--
+ <copyrightfound>
+  <id>X</id>
+  <song><![CDATA[]]></song>
+  <copyright><![CDATA[]]></copyright>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ -->
+ <copyrightmissing>
+  <id>1</id>
+  <song><![CDATA[Minuet from the "Anna Magdalena Bach Notebook"]]></song>
+  <copyright><![CDATA[YouTube flags as "Menuet In G-Dur BWV Anh. 116" with no details]]></copyright>
+  <videoid1>9</videoid1>
+  <videoid2></videoid2>
+ </copyrightmissing>
+ <copyrightmissing>
+  <id>2</id>
+  <song><![CDATA[Piano lesson book: Jazz rags & blues 1/pno.]]></song>
+  <copyright><![CDATA[1993-10-03 Alfred Music. All rights reserved. (V3529D411)<br/>The V3529D411 entry is from later (2005)]]></copyright>
+  <videoid1>9</videoid1>
+  <videoid2></videoid2>
+ </copyrightmissing>
+ <copyrightmissing>
+  <id>3</id>
+  <song><![CDATA[A Morning Sunbeam]]></song>
+  <copyright><![CDATA[1937 (Renewed) by G. Schirmir Inc. Intl copyright secured. All rights reserved.]]></copyright>
+  <videoid1>12</videoid1>
+  <videoid2></videoid2>
+ </copyrightmissing>
+ <!-- template -->
+ <!--
+ <copyrightmissing>
+  <id>X</id>
+  <episode><![CDATA[]]></episode>
+  <song><![CDATA[]]></song>
+  <copyright><![CDATA[]]></copyright>
+  <videoid1></videoid1>
+  <videoid2></videoid2>
+ </copyrightmissing>
+ -->
+  <land>
+   <id>1</id>
+   <name>rickroll</name>
+   <url>https://en.wikipedia.org/wiki/Rickrolling</url>
+  </land>
+  <land>
+   <id>2</id>
+   <name>snyk</name>
+   <url>https://snyk.io</url>
+  </land>
+  <land>
+   <id>3</id>
+   <name>keeper</name>
+   <url>https://www.keepersecurity.com</url>
+  </land>
+  <land>
+   <id>4</id>
+   <name>redgate</name>
+   <url>https://www.red-gate.com</url>
+  </land>
+  <land>
+   <id>5</id>
+   <name>datadog</name>
+   <url>https://www.datadoghq.com</url>
+  </land>
+  <land>
+   <id>6</id>
+   <name>lastpass</name>
+   <url>https://www.lastpass.com</url>
+  </land>
+  <land>
+   <id>7</id>
+   <name>chatgpt</name>
+   <url>https://chatgpt.com</url>
+  </land>
+  <land>
+   <id>8</id>
+   <name>aws</name>
+   <url>https://aws.amazon.com</url>
+  </land>
+  <land>
+   <id>9</id>
+   <name>github</name>
+   <url>https://github.com</url>
+  </land>
+  <land>
+   <id>10</id>
+   <name>musicnotes</name>
+   <url>https://www.musicnotes.com</url>
+  </land>
+  <land>
+   <id>11</id>
+   <name>google</name>
+   <url>https://www.google.com</url>
+  </land>
+  <land>
+   <id>12</id>
+   <name>wikipedia</name>
+   <url>https://www.wikipedia.org</url>
+  </land>
+  <land>
+   <id>13</id>
+   <name>epic</name>
+   <url>https://www.epic.com</url>
+  </land>
+  <land>
+   <id>14</id>
+   <name>paradigm</name>
+   <url>https://myparadigm.com</url>
+  </land>
+  <!--
+  <land>
+   <id>X</id>
+   <name>Y</name>
+   <url>Z</url>
+  </land>
+  -->
+ <complaint>
+  <id>1</id>
+  <number><![CDATA[1a]]></number>
+  <target><![CDATA[YouTube]]></target>
+  <detail><![CDATA[I don't see an option to force subtitles on]]></detail>
+  <source><![CDATA[]]></source>
+  <comment><![CDATA[I think it could be useful for educational channels]]></comment>
+  <videoid>2</videoid>
+ </complaint>
+ <complaint>
+  <id>2</id>
+  <number><![CDATA[1b]]></number>
+  <target><![CDATA[YouTube]]></target>
+  <detail><![CDATA[I don't see an automatic way to drop a comment on publishing a video]]></detail>
+  <source><![CDATA[]]></source>
+  <comment><![CDATA[My rule #6 comment experience is the workaround of posting when unlisted or after public is annoying]]></comment>
+  <videoid>4</videoid>
+ </complaint>
+ <complaint>
+  <id>3</id>
+  <number><![CDATA[1c]]></number>
+  <target><![CDATA[YouTube]]></target>
+  <detail><![CDATA[I don't see a way to make DISLIKE counts public for my channel]]></detail>
+  <source><![CDATA[Future]]></source>
+  <comment><![CDATA[I think a personal/family channel should be able to use dislikes to limit the reach of the channel]]></comment>
+  <videoid></videoid>
+ </complaint>
+ <complaint>
+  <id>4</id>
+  <number><![CDATA[1d]]></number>
+  <target><![CDATA[YouTube]]></target>
+  <detail><![CDATA[Dislike counts don't show on the Channel Content screen (only I can see this)]]></detail>
+  <source><![CDATA[Future]]></source>
+  <comment><![CDATA[Why have a column header named "Likes (vs. dislikes)" if it doesn't show the dislikes?]]></comment>
+  <videoid></videoid>
+ </complaint>
+ <videolists>
+  <mainline>
+   <videoid>1</videoid>
+   <episode><![CDATA[1]]></episode>
+   <theme><![CDATA[Chat GPT]]></theme>
+   <audience><![CDATA[Work]]></audience>
+   <majorrulez><![CDATA[Re: Like/Subscribe<br/>1a. I will NEVER tell you to like and/or subscribe<br/>1b. You are NOT ALLOWED to like my videos<br/>1c. You are NOT ALLOWED to subscribe]]></majorrulez>
+   <memes><![CDATA[Word to the cloud]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>2</videoid>
+   <episode><![CDATA[2]]></episode>
+   <theme><![CDATA[Apophenia]]></theme>
+   <audience><![CDATA[Kidz]]></audience>
+   <majorrulez><![CDATA[2. Turn on the Subtitles]]></majorrulez>
+   <memes><![CDATA[If I had a dollar every time I wanted to strangle you, I would be richer than Jeff Bezos<br/>If you want to turn the subtitles off, you'll need to repaint your monitor<br/>Darn cat! Damn cat!]]></memes>
+   <minorrulez><![CDATA[5. I AM ALLOWED to create content that inappropriately rips off somebody else's content, but<br/>YOU are NOT ALLOWED to create content that inappropriately rips off somebody else's content]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>3</videoid>
+   <episode><![CDATA[3]]></episode>
+   <theme><![CDATA[Repression/Denial/Confabulation]]></theme>
+   <audience><![CDATA[Music]]></audience>
+   <majorrulez><![CDATA[8. You are 100% ABSOLUTELY NOT ALLOWED to watch my videos<br/>7. You are NOT ALLOWED to LEARN ANYTHING ON MY CHANNEL<br/>3. You are NOT ALLOWED to read the video description]]></majorrulez>
+   <memes><![CDATA[Two Takes = Mistake]]></memes>
+   <minorrulez><![CDATA[10. You are NOT ALLOWED to pause my videos<br/>11. You are NOT ALLOWED to skip to the end of my videos<br/>4. You are REQUIRED to watch each video twice, once with eyes open and once with eyes closed]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>4</videoid>
+   <episode><![CDATA[4]]></episode>
+   <theme><![CDATA[Race Capitalization]]></theme>
+   <audience><![CDATA[Music]]></audience>
+   <majorrulez><![CDATA[6. You are NOT ALLOWED to comment on my videos<br/>26. If you accidentally violate rule #6, you are NOT ALLOWED to make the second post<br/>18. The rules are ABSOLUTE! There are NO exceptions!]]></majorrulez>
+   <memes><![CDATA[That darn/damn black cat killed my webcam]]></memes>
+   <minorrulez><![CDATA[21. You are NOT ALLOWED to read the subtitles<br/>19. I am NOT ALLOWED to make BLOOPERS<br/>20. I am NOT ALLOWED to make MISTAKES<br/>22. White people are NOT ALLOWED to watch my videos<br/>23. black people are NOT ALLOWED to watch my videos<br/>25. You are NOT ALLOWED to CHANGE YOUR MIND after watching my videos]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>5</videoid>
+   <episode><![CDATA[5]]></episode>
+   <theme><![CDATA[Automated Build]]></theme>
+   <audience><![CDATA[Work]]></audience>
+   <majorrulez><![CDATA[32. The EXCEPTION LIST. Entities, per video, can break the rulez, but only when NOT mentioned by name. They can...<br/>32a. Subscribe to the video (Rule #1)<br/>32b. Can make the SECOND comment POST for the video (Rule #6+#26)<br/>32c. Learn something from the video (Rule #7)]]></majorrulez>
+   <memes><![CDATA[YOUR MOM broke the build]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>6</videoid>
+   <episode><![CDATA[6]]></episode>
+   <theme><![CDATA[Taylor Swift Compare/Contrast]]></theme>
+   <audience><![CDATA[Personal]]></audience>
+   <majorrulez><![CDATA[Taylor Swift: Welcome to the exception list!]]></majorrulez>
+   <memes><![CDATA[This is how to troll Taylor Swift]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>7</videoid>
+   <episode><![CDATA[7]]></episode>
+   <theme><![CDATA[Upgrader]]></theme>
+   <audience><![CDATA[Work]]></audience>
+   <majorrulez><![CDATA[29. You are REQUIRED to DISLIKE my videos!]]></majorrulez>
+   <memes><![CDATA[Upgrader, you are such a tool!]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>13</videoid>
+   <episode><![CDATA[8]]></episode>
+   <theme><![CDATA[Teenager Parenting]]></theme>
+   <audience><![CDATA[Parenting]]></audience>
+   <majorrulez><![CDATA[7. Your kidz are NOT ALLOWED to watch my videos<br/>42. Kidz, you are REQUIRED to ask permission before NOT WATCHING MY VIDEOS]]></majorrulez>
+   <memes><![CDATA[People are going to think you get your information from The Totally Real News for Dum-Dums]]></memes>
+   <minorrulez><![CDATA[43. KIDZ, DON'T WEAR A GARBAGE BAG WITHOUT ADULT SUPERVISION]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>14</videoid>
+   <episode><![CDATA[9]]></episode>
+   <theme><![CDATA[Emotional Release]]></theme>
+   <audience><![CDATA[Kidz]]></audience>
+   <majorrulez><![CDATA[44. If you accidentally start watching one of my videos, STOP IMMEDIATELY<br/>45. NO ONE is ALLOWED to put my videos on a playlist<br/>46. The rulez DO NOT APPLY to Elsa (Frozen)]]></majorrulez>
+   <memes><![CDATA[The code never bothered me anyway]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  <mainline>
+   <videoid>17</videoid>
+   <episode><![CDATA[10]]></episode>
+   <theme><![CDATA[Paternal Relationship]]></theme>
+   <audience><![CDATA[Parenting]]></audience>
+   <majorrulez><![CDATA[Dad: Welcome to the exception list!]]></majorrulez>
+   <memes><![CDATA[]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+ <!-- template -->  
+ <!--
+  <mainline>
+   <videoid>X</videoid>
+   <episode><![CDATA[]]></episode>
+   <theme><![CDATA[]]></theme>
+   <audience><![CDATA[]]></audience>
+   <majorrulez><![CDATA[]]></majorrulez>
+   <memes><![CDATA[]]></memes>
+   <minorrulez><![CDATA[]]></minorrulez>
+  </mainline>
+  -->
+ <musicvideo>
+  <videoid>10</videoid>
+  <performerid>1</performerid>
+  <piece><![CDATA[The Song with No Name Part 1 Take 2]]></piece>
+  <author><![CDATA[Me (Never Notated)]]></author>
+  <setting><![CDATA[Home Baby Grand]]></setting>
+ </musicvideo>
+ <musicvideo>
+  <videoid>11</videoid>
+  <performerid>1</performerid>
+  <piece><![CDATA[The Song with No Name Part 2]]></piece>
+  <author><![CDATA[Me (Never Notated)]]></author>
+  <setting><![CDATA[Home Baby Grand]]></setting>
+ </musicvideo>
+ <musicvideo>
+  <videoid>9</videoid>
+  <performerid>2</performerid>
+  <piece><![CDATA[Minuet in G major, BWV Anh.116<br/>Sneaky Business]]></piece>
+  <author><![CDATA[Johann Sebastian Bach<br/>Martha Mier]]></author>
+  <setting><![CDATA[Recital 2024/04]]></setting>
+ </musicvideo>
+ <musicvideo>
+  <videoid>12</videoid>
+  <performerid>2</performerid>
+  <piece><![CDATA[A Morning Sunbeam]]></piece>
+  <author><![CDATA[Florence B Price]]></author>
+  <setting><![CDATA[Home Baby Grand (Recital Fix)]]></setting>
+ </musicvideo>
+ <!-- template -->
+ <!--
+ <musicvideo>
+  <videoid>X</videoid>
+  <performerid>X</performerid>
+  <piece><![CDATA[]]></piece>
+  <author><![CDATA[]]></author>
+  <setting><![CDATA[]]></setting>
+ </musicvideo>
+ -->
+  <sillysong>
+   <videoid>8</videoid>
+   <number><![CDATA[15]]></number>
+   <rulez><![CDATA[38. The 2017 Super Bowl Champion Philadelphia Eagles are NOT ALLOWED to watch my videos!<br/>39. If I mention you in a video, you are NOT ALLOWED to do anything that makes me regret that decision<br/>Unofficial. If your name is Jason and your last name has two syllables, you are REQUIRED to sing the song with your name once per day]]></rulez>
+   <memes><![CDATA[FACT: Jason Kelce is married, while his brother is NOT married]]></memes>
+  </sillysong>
+  <sillysong>
+   <videoid>15</videoid>
+   <number><![CDATA[42]]></number>
+   <rulez><![CDATA[The Turtle of Doom: Welcome to the Exception List]]></rulez>
+   <memes><![CDATA[IT'S TURTLES ALL THE WAY DOWN]]></memes>
+  </sillysong>
+  <!-- template -->
+  <!--
+  <sillysong>
+   <videoid>X</videoid>
+   <number><![CDATA[]]></number>
+   <rulez><![CDATA[]]></rulez>
+   <memes><![CDATA[]]></memes>
+  </sillysong>
+  -->
+  <workvideo>
+   <videoid>1</videoid>
+   <concepts><![CDATA[Proxy<br/>Brotli<br/>Chat GPT]]></concepts>
+  </workvideo>
+  <workvideo>
+   <videoid>5</videoid>
+   <concepts><![CDATA[Automated Build<br/>CCNET<br/>SVN vs git]]></concepts>
+  </workvideo>
+  <workvideo>
+   <videoid>7</videoid>
+   <concepts><![CDATA[Upgrader<br/>Version Graph<br/>Red Gate CLI]]></concepts>   
+  </workvideo>
+  <!-- template -->
+  <!--
+  <workvideo>
+   <videoid>X</videoid>
+   <name><![CDATA[]]></name>
+   <concepts><![CDATA[]]></concepts>   
+  </workvideo>  
+  -->
+  <!-- template -->
+  <kidzvideo>
+   <videoid>2</videoid>
+  </kidzvideo>
+  <kidzvideo>
+   <videoid>8</videoid>
+  </kidzvideo>
+  <kidzvideo>
+   <videoid>14</videoid>
+  </kidzvideo>
+  <kidzvideo>
+   <videoid>15</videoid>
+  </kidzvideo>
+  <!--
+  <kidzvideo>
+   <videoid></videoid>
+   <name><![CDATA[]]></name>
+   <identifier><![CDATA[]]></identifier>
+  </kidzvideo>
+  -->
+  <unexplainablevideo>
+   <videoid>11</videoid>
+   <reason><![CDATA[I cannot explain why I deleted the original version of this video and replaced it with this one. I cannot explain how this video was cut. I cannot explain the abuse of artificial intelligence.]]></reason>
+   <musxdocumentid></musxdocumentid>
+  </unexplainablevideo>
+  <unexplainablevideo>
+   <videoid>16</videoid>
+   <reason><![CDATA[I cannot explain why the vertical lines in the musx file are red and green (I can only explain them as black)]]></reason>
+   <musxdocumentid>10</musxdocumentid>
+  </unexplainablevideo>
+ </videolists>
+</data>

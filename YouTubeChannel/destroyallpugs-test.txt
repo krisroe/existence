@@ -1,0 +1,16 @@
+
+server {
+ root /var/www/destroyallpugs;
+ index index.html;
+ server_name _;
+ location / {
+  try_files $uri $uri/ =404;
+ }
+ location ~ \.php$ {
+  include snippets/fastcgi-php.conf;
+  fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+ }
+
+ listen 80;
+ listen [::]:80;
+}
