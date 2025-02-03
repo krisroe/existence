@@ -1,0 +1,82 @@
+h1, h2, h3, h4, h5, h6 {
+ margin-top: 0;
+ margin-bottom: 0;
+ padding-top: 0;
+ padding-bottom: 0;
+}
+table {
+ border-collapse: collapse;
+ border: 1px solid black;
+ width: 100%;
+}
+th, td {
+ border: 1px solid black;
+ padding: 8px;
+ text-align: left;
+}
+.musicvideoperformer {
+ text-align: left;
+ vertical-align: middle;
+ font-weight: bold;
+ font-size: 18px;
+}
+.hidden {
+ display: none;
+}
+#playercontainervisible {
+ box-sizing: border-box;
+}
+#playercontainer {
+ display: none;
+}
+#playall {
+ margin-bottom: 2px;
+}
+#playallbutton {
+ margin-bottom: 2px;
+}
+#homecontainer {
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ padding-top: 0px;
+ padding-bottom: 0px;
+}
+#playvideotopcontent {
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ padding-top: 0px;
+ padding-bottom: 0px;
+}
+.playvideotopcontentitem
+{
+ font-size: 1.17em;
+ margin-left: 10px;
+ text-align: left;
+}
+.playvideotopcontentitem p
+{
+ margin: 0;
+ padding: 0;
+}
+#homelink {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.linkinstructionsselect {
+ width: 400px;
+}
+.linkfirstcolumn {
+ width: 100px
+}
+#autosizetable {
+ width: auto;
+}
