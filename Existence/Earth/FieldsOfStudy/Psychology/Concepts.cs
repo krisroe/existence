@@ -1,5 +1,5 @@
 ﻿
-using System.Xml.Schema;
+using System;
 
 namespace Existence.Earth.FieldsOfStudy.Psychology
 {
@@ -166,6 +166,16 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             AcceptableSideEffects,
             Necessary,
             Emergency,
+            WishfulThinking,
+        }
+
+        public class PersonalMedGoalAttribute : Attribute
+        {
+            public MedicationGoals Goal { get; set; }
+            public PersonalMedGoalAttribute(MedicationGoals mg)
+            {
+                Goal = mg;
+            }
         }
 
         public class MedGoalAttribute : Attribute
@@ -226,7 +236,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                     [MedGoal(MedicationGoals.Stable)]
                     public static class FourHundredMG { }
-                    
+
                     public static class Stated
                     {
                         public static class AntiPsychotic { }
