@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Existence", "Existence\Exis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldHuman", "HelloWorldHuman\HelloWorldHuman.csproj", "{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubixLibrary", "RubixLibrary\RubixLibrary.csproj", "{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A829FF90-8DD2-4F83-ADA3-29FCED425FF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldComputer", "HelloWorldComputer\HelloWorldComputer.csproj", "{27985E95-6F6E-4A9B-88A8-B81B2626FD9E}"
@@ -27,10 +25,6 @@ Global
 		{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{171FE1CA-5442-4A4D-8389-0A0C17C7EAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A829FF90-8DD2-4F83-ADA3-29FCED425FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A829FF90-8DD2-4F83-ADA3-29FCED425FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A829FF90-8DD2-4F83-ADA3-29FCED425FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
