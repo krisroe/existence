@@ -104,6 +104,13 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
             public static class ThingsDependentOnElevation
             {
+                public static class Agnosia
+                {
+                    public static class SocioEmotional
+                    {
+                        public static class TriggeredIfHighEnough { }
+                    }
+                }
                 public static class Alexithymia
                 {
                     public static class TriggeredIfHighEnough { }
@@ -282,6 +289,12 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                     public static class Deterministic { }
                     public static class Parts
                     {
+                        public static class PreFrontalCortex
+                        {
+                            public static class DecisionMaking { }
+                            public static class SocialBehavior { }
+                        }
+
                         public static class LeftHemisphere
                         {
                             public static class Performs
@@ -291,27 +304,66 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                                 public static class Language { }
                             }
                         }
-                        public static class LeftRightConnects
+
+                        public static class Communication
                         {
-                            public static class Communication
+                            public static class CorpusCallosum
                             {
-                                public static class CorpusCallosum
+                                public static class RegulatesConnectionBetweenAreas
                                 {
-                                    public static class AlexithymiaDimmerSwitch
+                                    public static class LeftHemisphere { }
+                                    public static class RightHemisphere { }
+                                }
+                            }
+
+                            public static class AgnosiaSwitch
+                            {
+                                public static class SocioEmotional
+                                {
+                                    public static class RegulatesConnectionBetweenAreas
                                     {
-                                        public static class RegulatesConnectionBetweenEmotionAndLanguage { }
-                                    }
-                                    public static class ApopheniaDimmerSwitch
-                                    {
-                                        public static class RegulatesConnectionBetweenLeftAndRightSidesForMakingOtherwiseUnrelatedConnections { }
+                                        public static class Social { }
+                                        public static class Emotion { }
                                     }
                                 }
                             }
-                            public static class Emotion
+
+                            public static class AlexithymiaSwitch
                             {
-                                public static class Amygdala { }
+                                public static class RegulatesConnectionBetweenAreas
+                                {
+                                    public static class Language { }
+                                    public static class Emotion { }
+                                }
                             }
                         }
+
+                        public static class DopamineNeurotransmitter
+                        {
+                            public static class Manages
+                            {
+                                public static class Motivation { }
+                                public static class PatternDetection { }
+                                public static class Reward { }
+                            }
+                            public static class CorrelatedWith
+                            {
+                                public static class Apophenia { }
+                            }
+                        }
+
+                        public static class Amygdala
+                        {
+                            public static class Emotion
+                            {
+                                public static class Facial
+                                {
+                                    public static class Expression { }
+
+                                }
+                            }
+                        }
+
                         public static class RightHemisphere
                         {
                             public static class Creativity { }
@@ -323,8 +375,6 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                 public static class Mind
                 {
-                    public static class FreeWill { }
-
                     public static class Ethics
                     {
                         public static class Comprises
@@ -341,6 +391,8 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                             }
                         }
                     }
+
+                    public static class FreeWill { }
                 }
             }
             public static class Sentience { }
