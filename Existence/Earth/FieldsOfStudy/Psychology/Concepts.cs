@@ -29,7 +29,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             public class Enlightenment { }
             public class Fear { }
             public class Happy { }
-            public class Hate { }
+            public class Hatred { }
             public class Hope { }
             public class Love { }
             public class Lust { }
@@ -48,21 +48,6 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             public static class MakingConnectionsWithApparentlyUnrelatedThings { }
         }
 
-
-        public static class PsychologicalTrauma
-        {
-            public static class Memory
-            {
-                public static class Repressed { }
-                public static class Confabulated { }
-                public static class Painful { }
-            }
-        }
-
-        public static class SuspensionOfDisbelief
-        {
-            public static class BelievingFictionIsRealForThePurposeOfEntertainment { }
-        }
         public static class Synethesia
         {
             public static class ColorsSeemBrighter { }
@@ -108,26 +93,88 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                         }
                     }
                 }
-                public static class TrafficLights
+
+                public static class Tricolor
                 {
-                    public static class RedMeansStop { }
-                    public static class YellowMeansCaution { }
-                    public static class GreenMeansGo { }
+                    public static class RGB
+                    {
+                        public static class Red { }
+                        public static class Green { }
+                        public static class Blue { }
+                    }
                 }
 
-                public static class WhiteAndBlackOpposites
+                public static class TrafficLightPattern
                 {
-                    public static class HumanRaces { }
-                    public static class White
+                    public static class Red
                     {
-                        public static class Life { }
+                        public static class Stop { }
                     }
-                    public static class Black
+                    public static class Yellow
                     {
-                        public static class Death { }
+                        public static class Caution { }
+                    }
+                    public static class Green
+                    {
+                        public static class Go { }
+                    }
+                }
+
+                public static class Opposites
+                {
+                    public class BlackWhite
+                    {
+                        public static class Black
+                        {
+                            public static class Death { }
+                        }
+                        public static class White
+                        {
+                            public static class Life { }
+                        }
+                    }
+                }
+
+                public static class HumanRaces
+                {
+                    public static class White { }
+                    public static class Black { }
+                    public static class Yellow { }
+                    public static class Brown { }
+                }
+            }
+        }
+
+        public static class Psychosis
+        {
+            public static class Symptoms
+            {
+                public static class InabilityToDistinguishWhatIsReality { }
+                public static class UncontrolledThinking
+                {
+                    public static class Examples
+                    {
+                        public static class Apophenia { }
+                        public static class Synethesia { }
                     }
                 }
             }
+        }
+
+
+        public static class PsychologicalTrauma
+        {
+            public static class Memory
+            {
+                public static class Repressed { }
+                public static class Confabulated { }
+                public static class Painful { }
+            }
+        }
+
+        public static class SuspensionOfDisbelief
+        {
+            public static class BelievingFictionIsRealForThePurposeOfEntertainment { }
         }
     }
 }
