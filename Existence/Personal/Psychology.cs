@@ -417,7 +417,17 @@ namespace Existence.Personal
                     /// importance entirely dependent on sleep
                     /// </summary>
                     [MedImportance(MedicationImportance.DependentOnContext)]
-                    public static class Lorazepam { }
+                    public static class Lorazepam
+                    {
+                        public static class Helps
+                        {
+                            public static class Sleep { }
+                        }
+                        public static class Drawback
+                        {
+                            public static class LowerQualitySleep { }
+                        }
+                    }
                 }
 
                 public static class Rules
