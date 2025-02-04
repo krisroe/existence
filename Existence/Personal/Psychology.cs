@@ -307,6 +307,17 @@ namespace Existence.Personal
                 {
                     public static class Lithium
                     {
+                        public static class Effect
+                        {
+                            public static class Stated
+                            {
+                                public static class MoodStabilizer { }
+                            }
+                            public static class Unstated
+                            {
+                                public static class SuppressesSelfAwarenessOfSubconsiousProcesses { }
+                            }
+                        }
                         public static class ManicToStable
                         {
                             [MedImportance(MedicationImportance.Critical)]
@@ -337,6 +348,29 @@ namespace Existence.Personal
 
                     public static class Quetiapine
                     {
+                        public static class Effect
+                        {
+                            public static class Stated
+                            {
+                                public static class AntiPsychotic { }
+                            }
+                            public static class Unstated
+                            {
+                                public static class SuppressesConnectionBetweenDifferentAreasOfTheBrainOrMind
+                                {
+                                    public static class Emotion { }
+                                    public static class Logic { }
+                                    public static class Language { }
+                                }
+                                public static class TherebyReducing
+                                {
+                                    public static class Apophenia { }
+                                    public static class Creativity { }
+                                    public static class Delusion { }
+                                    public static class Synethesia { }
+                                }
+                            }
+                        }
                         public static class ManicToStable
                         {
                             [MedImportance(MedicationImportance.Critical)]
