@@ -159,6 +159,24 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             public static class Hero { }
         }
 
+        public enum MedicationGoals
+        {
+            Stable,
+            Functional,
+            AcceptableSideEffects,
+            Necessary,
+            Emergency,
+        }
+
+        public class MedGoalAttribute : Attribute
+        {
+            public MedicationGoals Goal { get; set; }
+            public MedGoalAttribute(MedicationGoals mg)
+            {
+                Goal = mg;
+            }
+        }
+
         public static class Medications
         {
             public static class Lithium
@@ -166,13 +184,17 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                 public const int GenericNumber = 224;
                 public static class Effect
                 {
+                    [MedGoal(MedicationGoals.Stable)]
+                    public static class NineHundredMG { }
+
                     public static class Stated
                     {
                         public static class MoodStabilizer { }
                     }
+
                     public static class Unstated
                     {
-                        public static class SuppressesSelfAwarenessOfSubconsiousProcesses { }
+                        public static class RegulatesSelfAwarenessOfSubconsiousProcesses { }
                     }
                 }
             }
@@ -196,13 +218,23 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                 public static class Effect
                 {
+                    [MedGoal(MedicationGoals.Emergency)]
+                    public static class EightHundredMG { }
+
+                    [MedGoal(MedicationGoals.Functional)]
+                    public static class SixHundredMG { }
+
+                    [MedGoal(MedicationGoals.Stable)]
+                    public static class FourHundredMG { }
+                    
                     public static class Stated
                     {
                         public static class AntiPsychotic { }
                     }
+                    
                     public static class Unstated
                     {
-                        public static class SuppressesConnectionBetweenDifferentAreasOfTheBrainOrMind
+                        public static class RegulatesConnectionBetweenDifferentAreasOfTheMind
                         {
                             public static class Emotion { }
                             public static class Logic { }

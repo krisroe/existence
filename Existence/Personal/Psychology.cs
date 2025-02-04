@@ -1,6 +1,5 @@
 ﻿
-using System;
-using System.Collections.Generic;
+using Existence.Earth.FieldsOfStudy.Psychology;
 
 namespace Existence.Personal
 {
@@ -290,16 +289,48 @@ namespace Existence.Personal
             {
                 public static class MagicWords
                 {
-                    public static class BigDeal
+                    public static class IHaveNoSin
                     {
-                        public static class DeleteMyProductionEnvironment
+                        public static class SaidByYou { }
+                        public static class LedToBeliefGodDoesNotExist { }
+                    }
+
+
+                    public static class IWantADivorce
+                    {
+                        public static class YelledByTou { }
+                        public static class SpouseAndMotherWereInTheHouseAndGaveNoResponse { }
+                        public static class CopsCameAndTookMeToPsychiatricWardOfHospital { }
+                    }
+
+                    public static class StopIt
+                    {
+                        public static class Instance1
                         {
-                            public static class SaidByYou { }
+                            public static class SaidByTherapist { }
+                            public static class SaidToYou { }
+                            public static class IntentWasToTeachThatStopItMattersInAbusiveRelationship { }
                         }
-                        public static class Psychotic
+                        public static class Instance2
                         {
-                            public static class SaidByPsychiatrist { }
+                            public static class SaidByYou
+                            {
+                                public static class DidNotExplainContext { }
+                            }
+                            public static class SaidToSpouse { }
+                            public static class NoResponse { }
                         }
+                    }
+
+                    public static class DeleteMyProductionEnvironment
+                    {
+                        public static class SaidByYou { }
+                        public static class ToYourself { }
+                    }
+                    public static class Psychotic
+                    {
+                        public static class SaidByPsychiatrist { }
+                        public static class ToYou { }
                     }
                 }
 
@@ -336,7 +367,7 @@ namespace Existence.Personal
                         public static class StableToManic
                         {
                             [MedImportance(MedicationImportance.Relevant)]
-                            public static class FourHundredFify { }
+                            public static class FourHundredFifty { }
 
                             [MedImportance(MedicationImportance.Serious)]
                             public static class TwoHundredTwentyFive { }
