@@ -104,14 +104,25 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
             public static class ThingsDependentOnElevation
             {
+                public static class Alexithymia
+                {
+                    public static class TriggeredIfHighEnough { }
+                }
                 public static class Apophenia
                 {
-                    public static class MakingConnectionsWithApparentlyUnrelatedThings { }
+                    public static class CorrelatedUntilFunctionalityBreakdown { }
                 }
-                public static class Creativity { }
-                public static class DelusionalThoughts { }
+                public static class Creativity
+                {
+                    public static class CorrelatedUntilFunctionalityBreakdown { }
+                }
+                public static class DelusionalThoughts
+                {
+                    public static class CorrelatedUntilFunctionalityBreakdown { }
+                }
                 public static class Synethesia
                 {
+                    public static class CorrelatedUntilFunctionalityBreakdown { }
                     public static class Colors
                     {
                         public static class AppearBrighter { }
@@ -153,12 +164,6 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             public class Sadness { }
         }
 
-        public static class Archetypes
-        {
-            public static class AntiHero { }
-            public static class Hero { }
-        }
-
         public enum MedicationGoals
         {
             Stable,
@@ -182,6 +187,18 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
         public static class Medications
         {
+            public static class Abilify
+            {
+                public static class Stated
+                {
+                    public static class AntiPsychotic { }
+                }
+                public static class Unstated
+                {
+                    public static class RegulatesEmotionalProcessing { }
+                }
+            }
+
             public static class Lithium
             {
                 public const int GenericNumber = 224;
@@ -237,20 +254,96 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                     
                     public static class Unstated
                     {
-                        public static class RegulatesConnectionBetweenDifferentAreasOfTheMind
+                        public static class RegulatesConnectionBetween
                         {
                             public static class Emotion { }
-                            public static class Logic { }
                             public static class Language { }
                         }
                         public static class TherebyReducing
                         {
                             public static class Elevation { }
                         }
+                        public static class SomewhatEquivalentTo
+                        {
+                            public static class Alexithymia { }
+                        }
                     }
                 }
 
             }
+        }
+
+        public static class Human
+        {
+            public static class Comprises
+            {
+                public static class Brain
+                {
+                    public static class Deterministic { }
+                    public static class Parts
+                    {
+                        public static class LeftHemisphere
+                        {
+                            public static class Performs
+                            {
+                                public static class Analytics { }
+                                public static class Logic { }
+                                public static class Language { }
+                            }
+                        }
+                        public static class LeftRightConnects
+                        {
+                            public static class Communication
+                            {
+                                public static class CorpusCallosum
+                                {
+                                    public static class AlexithymiaDimmerSwitch
+                                    {
+                                        public static class RegulatesConnectionBetweenEmotionAndLanguage { }
+                                    }
+                                    public static class ApopheniaDimmerSwitch
+                                    {
+                                        public static class RegulatesConnectionBetweenLeftAndRightSidesForMakingOtherwiseUnrelatedConnections { }
+                                    }
+                                }
+                            }
+                            public static class Emotion
+                            {
+                                public static class Amygdala { }
+                            }
+                        }
+                        public static class RightHemisphere
+                        {
+                            public static class Creativity { }
+                            public static class Intuition { }
+                            public static class Spatial { }
+                        }
+                    }
+                }
+
+                public static class Mind
+                {
+                    public static class FreeWill { }
+
+                    public static class Ethics
+                    {
+                        public static class Comprises
+                        {
+                            public static class Consciousness
+                            {
+                                public static class SelfAwareness { }
+                                public static class LogicalReasoning { }
+                            }
+                            public static class Subconscious
+                            {
+                                public static class DevilAndAngelOnYourShoulders { }
+                                public static class SenseOfRightAndWrong { }
+                            }
+                        }
+                    }
+                }
+            }
+            public static class Sentience { }
         }
 
         public static class Psychosis
