@@ -167,15 +167,8 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             Necessary,
             Emergency,
             WishfulThinking,
-        }
-
-        public class PersonalMedGoalAttribute : Attribute
-        {
-            public MedicationGoals Goal { get; set; }
-            public PersonalMedGoalAttribute(MedicationGoals mg)
-            {
-                Goal = mg;
-            }
+            Relevant,
+            Confirm,
         }
 
         public class MedGoalAttribute : Attribute

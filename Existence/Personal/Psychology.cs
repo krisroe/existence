@@ -2,6 +2,7 @@
 using Existence.Earth.FieldsOfStudy.Psychology;
 using System;
 using System.Collections.Generic;
+using static Existence.Earth.FieldsOfStudy.Psychology.Concepts;
 
 namespace Existence.Personal
 {
@@ -31,6 +32,15 @@ namespace Existence.Personal
             /// a manic episode is imminent
             /// </summary>
             Critical,
+        }
+
+        public class EvtImportance : Attribute
+        {
+            public EventImportance Import { get; set; }
+            public EvtImportance(EventImportance ei)
+            {
+                Import = ei;
+            }
         }
 
         /// <summary>
@@ -64,15 +74,6 @@ namespace Existence.Personal
             Relevant,
         }
 
-        public class EvtImportance : Attribute
-        {
-            public EventImportance Import { get; set; }
-            public EvtImportance(EventImportance ei)
-            {
-                Import = ei;
-            }
-        }
-
         public class MedImportance : Attribute
         {
             public MedicationImportance Import { get; set; }
@@ -82,9 +83,156 @@ namespace Existence.Personal
             }
         }
 
-        public static class Generic
+        public class PersonalMedGoalAttribute : Attribute
         {
-            public static class Psychosis
+            public MedicationGoals Goal { get; set; }
+            public PersonalMedGoalAttribute(MedicationGoals mg)
+            {
+                Goal = mg;
+            }
+        }
+
+        public static class Medications
+        {
+            public static class Lithium
+            {
+                public static class Effect
+                {
+                    public static class Stated
+                    {
+                        public static class MoodStabilizer { }
+                    }
+                    public static class Unstated
+                    {
+                        public static class SuppressesSelfAwarenessOfSubconsiousProcesses { }
+                    }
+                }
+                public static class ManicToStable
+                {
+                    [MedImportance(MedicationImportance.Critical)]
+                    public static class NineHundred { }
+
+                    [MedImportance(MedicationImportance.Serious)]
+                    public static class SixHundredSeventyFive { }
+
+                    [MedImportance(MedicationImportance.Relevant)]
+                    public static class FourHundredFifty { }
+                }
+
+                [MedImportance(MedicationImportance.Relevant)]
+                public static class StableDose { }
+
+                public static class StableToManic
+                {
+                    [MedImportance(MedicationImportance.Relevant)]
+                    [PersonalMedGoal(MedicationGoals.AcceptableSideEffects)]
+                    public static class FourHundredFifty { }
+
+                    [MedImportance(MedicationImportance.Serious)]
+                    [PersonalMedGoal(MedicationGoals.Necessary)]
+                    public static class TwoHundredTwentyFive { }
+
+                    [MedImportance(MedicationImportance.Critical)]
+                    [PersonalMedGoal(MedicationGoals.WishfulThinking)]
+                    public static class Zero { }
+                }
+            }
+
+            public static class Quetiapine
+            {
+                public static class Effect
+                {
+                    public static class Stated
+                    {
+                        public static class AntiPsychotic { }
+                    }
+                    public static class Unstated
+                    {
+                        public static class SuppressesConnectionBetweenDifferentAreasOfTheBrainOrMind
+                        {
+                            public static class Emotion { }
+                            public static class Logic { }
+                            public static class Language { }
+                        }
+                        public static class TherebyReducing
+                        {
+                            public static class Apophenia { }
+                            public static class Creativity { }
+                            public static class Delusion { }
+                            public static class Synethesia { }
+                        }
+                    }
+                }
+                public static class ManicToStable
+                {
+                    [MedImportance(MedicationImportance.Critical)]
+                    [PersonalMedGoal(MedicationGoals.Functional)]
+                    public static class EightHundred { }
+
+                    [MedImportance(MedicationImportance.Serious)]
+                    [PersonalMedGoal(MedicationGoals.Stable)]
+                    public static class SixHundred { }
+
+                    [MedImportance(MedicationImportance.Stable)]
+                    [PersonalMedGoal(MedicationGoals.Relevant)]
+                    public static class FourHundred { }
+                }
+
+                [MedImportance(MedicationImportance.Stable)]
+                [PersonalMedGoal(MedicationGoals.Confirm)]
+                public static class StableDose { }
+
+                public static class FromStableToManic
+                {
+                    [MedImportance(MedicationImportance.Stable)]
+                    [PersonalMedGoal(MedicationGoals.Relevant)]
+                    public static class FourHundred { }
+
+                    [MedImportance(MedicationImportance.Relevant)]
+                    [PersonalMedGoal(MedicationGoals.Stable)]
+                    public static class ThreeHundred { }
+
+                    [MedImportance(MedicationImportance.Serious)]
+                    [PersonalMedGoal(MedicationGoals.AcceptableSideEffects)]
+                    public static class TwoHundred { }
+
+                    [MedImportance(MedicationImportance.Critical)]
+                    [PersonalMedGoal(MedicationGoals.Necessary)]
+                    public static class AnythingBelowTwoHundred { }
+                }
+
+
+
+
+                public static class FourHundred { }
+
+                [EvtImportance(EventImportance.Serious)]
+                public static class TwoHundred { }
+
+                [EvtImportance(EventImportance.Critical)]
+                public static class AnythingBelowTwoHundred { }
+            }
+
+            /// <summary>
+            /// importance entirely dependent on sleep
+            /// </summary>
+            [MedImportance(MedicationImportance.DependentOnContext)]
+            public static class Lorazepam
+            {
+                public static class Helps
+                {
+                    public static class Sleep { }
+                }
+                public static class Drawback
+                {
+                    public static class LowerQualitySleep { }
+                }
+            }
+        }
+
+        public static class Psychosis
+        {
+            public static class Generic
             {
                 public static class Events
                 {
@@ -333,133 +481,6 @@ namespace Existence.Personal
                     {
                         public static class SaidByPsychiatrist { }
                         public static class ToYou { }
-                    }
-                }
-
-                public static class MedicationImportances
-                {
-                    public static class Lithium
-                    {
-                        public static class Effect
-                        {
-                            public static class Stated
-                            {
-                                public static class MoodStabilizer { }
-                            }
-                            public static class Unstated
-                            {
-                                public static class SuppressesSelfAwarenessOfSubconsiousProcesses { }
-                            }
-                        }
-                        public static class ManicToStable
-                        {
-                            [MedImportance(MedicationImportance.Critical)]
-                            public static class NineHundred { }
-
-                            [MedImportance(MedicationImportance.Serious)]
-                            public static class SixHundredSeventyFive { }
-
-                            [MedImportance(MedicationImportance.Relevant)]
-                            public static class FourHundredFifty { }
-                        }
-
-                        [MedImportance(MedicationImportance.Relevant)]
-                        public static class StableDose { }
-
-                        public static class StableToManic
-                        {
-                            [MedImportance(MedicationImportance.Relevant)]
-                            public static class FourHundredFifty { }
-
-                            [MedImportance(MedicationImportance.Serious)]
-                            public static class TwoHundredTwentyFive { }
-
-                            [MedImportance(MedicationImportance.Critical)]
-                            public static class Zero { }
-                        }
-                    }
-
-                    public static class Quetiapine
-                    {
-                        public static class Effect
-                        {
-                            public static class Stated
-                            {
-                                public static class AntiPsychotic { }
-                            }
-                            public static class Unstated
-                            {
-                                public static class SuppressesConnectionBetweenDifferentAreasOfTheBrainOrMind
-                                {
-                                    public static class Emotion { }
-                                    public static class Logic { }
-                                    public static class Language { }
-                                }
-                                public static class TherebyReducing
-                                {
-                                    public static class Apophenia { }
-                                    public static class Creativity { }
-                                    public static class Delusion { }
-                                    public static class Synethesia { }
-                                }
-                            }
-                        }
-                        public static class ManicToStable
-                        {
-                            [MedImportance(MedicationImportance.Critical)]
-                            public static class EightHundred { }
-
-                            [MedImportance(MedicationImportance.Serious)]
-                            public static class SixHundred { }
-
-                            [MedImportance(MedicationImportance.Stable)]
-                            public static class FourHundred { }
-                        }
-
-                        [MedImportance(MedicationImportance.Stable)]
-                        public static class StableDose { }
-
-                        public static class FromStableToManic
-                        {
-                            [MedImportance(MedicationImportance.Stable)]
-                            public static class FourHundred { }
-
-                            [MedImportance(MedicationImportance.Relevant)]
-                            public static class ThreeHundred { }
-
-                            [MedImportance(MedicationImportance.Serious)]
-                            public static class TwoHundred { }
-
-                            [MedImportance(MedicationImportance.Critical)]
-                            public static class AnythingBelowTwoHundred { }
-                        }
-
-
-
-
-                        public static class FourHundred { }
-
-                        [EvtImportance(EventImportance.Serious)]
-                        public static class TwoHundred { }
-
-                        [EvtImportance(EventImportance.Critical)]
-                        public static class AnythingBelowTwoHundred { }
-                    }
-
-                    /// <summary>
-                    /// importance entirely dependent on sleep
-                    /// </summary>
-                    [MedImportance(MedicationImportance.DependentOnContext)]
-                    public static class Lorazepam
-                    {
-                        public static class Helps
-                        {
-                            public static class Sleep { }
-                        }
-                        public static class Drawback
-                        {
-                            public static class LowerQualitySleep { }
-                        }
                     }
                 }
 
