@@ -13,11 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldComputer", "HelloWorldComputer\HelloWorldComputer.csproj", "{27985E95-6F6E-4A9B-88A8-B81B2626FD9E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YouTubeChannel", "YouTubeChannel", "{3B063C9A-92D4-4CE8-874E-D598A031A0B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabasePopulator", "Existence\Personal\YouTubeChannel\DatabasePopulator\DatabasePopulator.csproj", "{B77D80B3-5A1B-4D9A-BFF2-8FD3A4153738}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabasePopulator", "YouTubeChannel\DatabasePopulator\DatabasePopulator.csproj", "{B77D80B3-5A1B-4D9A-BFF2-8FD3A4153738}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDeployer", "YouTubeChannel\LocalDeployer\LocalDeployer.csproj", "{B4DE2D99-94DB-425E-9337-FE8CC3574D3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDeployer", "Existence\Personal\YouTubeChannel\LocalDeployer\LocalDeployer.csproj", "{B4DE2D99-94DB-425E-9337-FE8CC3574D3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
