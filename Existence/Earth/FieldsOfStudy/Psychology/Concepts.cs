@@ -221,7 +221,12 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                     public static class Unstated
                     {
-                        public static class RegulatesSelfAwarenessOfSubconsiousProcesses { }
+                        public static class RegulatesBalance
+                        {
+                            public static class ConsciousSelfAwareness { }
+                            public static class Versus { }
+                            public static class ConsciousAwarenessOfSubconsciousProcesses { }
+                        }
                     }
                 }
             }
