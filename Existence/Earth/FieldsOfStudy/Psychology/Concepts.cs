@@ -98,6 +98,27 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             }
         }
 
+        public class Agnosia
+        {
+            public static class SeeAgnosiaSwitch { }
+        }
+
+        public class Alexithymia
+        {
+            public static class SeeAlexithymiaSwitch { }
+        }
+
+        public class Apophenia
+        {
+            public static class MakingConnectionsBetweenSeeminglyUnrelatedThings { }
+            public static class SeeDopamineNeurotransmitter { }
+        }
+
+        public class Hyperreflexivity
+        {
+            public static class ExcessiveSelfAwarenessWhereNormallyAutomaticOrSubconsciouProcessesBecomeOverlyConsciousAndScrutinized { }
+        }
+
         public class Synesthesia
         {
             public static class Colors
@@ -135,6 +156,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                 }
                 public static class Alexithymia { }
                 public static class Delusions { }
+                public static class Hyperreflexivity { }
             }
 
             public static class CouldBePositiveOrNegativeAspectsOfHigherElevation

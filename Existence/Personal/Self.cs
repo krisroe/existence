@@ -17,7 +17,10 @@ namespace Existence.Personal
             public static class RemindMeNotTo { }
         }
 
-        public static class Sagittarius { }
+        public static class AstrologicalSign
+        {
+            public static class Sagittarius { }
+        }
         public static class Man { }
         public static class Male { }
         public static class Spouse { }
@@ -42,7 +45,10 @@ namespace Existence.Personal
             public static class Wife { }
             public static class Woman { }
             public static class Female { }
-            public static class Cancer { }
+            public static class AstrologicalSign
+            {
+                public static class Cancer { }
+            }
             public static class Alive { }
         }
 
