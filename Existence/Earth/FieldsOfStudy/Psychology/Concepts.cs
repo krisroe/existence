@@ -388,11 +388,25 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                             {
                                 public static class SelfAwareness { }
                                 public static class LogicalReasoning { }
+                                public static class EthicalPrinciples { }
                             }
                             public static class Subconscious
                             {
-                                public static class DevilAndAngelOnYourShoulders { }
-                                public static class SenseOfRightAndWrong { }
+                                public static class SenseOfRightAndWrong 
+                                {
+                                    public static class Figurative
+                                    {
+                                        public static class DevilAndAngelOnYourShoulders { }
+                                    }
+                                    public static class Literal
+                                    {
+                                        public static class FeelingsOnRightAndLeftSideOfThroat
+                                        {
+                                            public static class Applause { }
+                                            public static class No { }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
