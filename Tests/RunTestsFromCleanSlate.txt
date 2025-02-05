@@ -25,3 +25,9 @@ Framework reference typically not needed
  <ItemGroup>
   <FrameworkReference Include="Microsoft.NETCore.App" />
  </ItemGroup>
+
+Running test execution from vstest.console.exe:
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform>vstest.console.exe C:\Path\To\Tests.dll /ListTests
+
+Running dotnet test with adapter path:
+dotnet test --test-adapter-path:. --list-tests
