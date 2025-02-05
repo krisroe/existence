@@ -98,44 +98,54 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
             }
         }
 
+        public class Synesthesia
+        {
+            public static class Colors
+            {
+                public static class AppearBrighter { }
+                public static class MeanThingsMore { }
+            }
+        }
+
         public class Elevation
         {
             public const string Definition = "Sum Total of All Brain Activity";
 
-            public static class ThingsDependentOnElevation
+            public static class Excessive
             {
+                public static class Hypomania
+                {
+                    public static class FunctioningSomewhatCompromised { }
+                }
+                public static class Mania
+                {
+                    public static class FunctioningVeryCompromised { }
+                }
+            }
+
+            public static class PotentiallyProblematicPsychologicalAspects
+            {
+                /// <summary>
+                /// lack of sensory information for certain types of things
+                /// </summary>
                 public static class Agnosia
                 {
-                    public static class SocioEmotional
-                    {
-                        public static class TriggeredIfHighEnough { }
-                    }
+                    public static class ProbablyOtherTypes { }
+                    public static class SocioEmotional { }
                 }
-                public static class Alexithymia
-                {
-                    public static class TriggeredIfHighEnough { }
-                }
-                public static class Apophenia
-                {
-                    public static class CorrelatedUntilFunctionalityBreakdown { }
-                }
-                public static class Creativity
-                {
-                    public static class CorrelatedUntilFunctionalityBreakdown { }
-                }
-                public static class DelusionalThoughts
-                {
-                    public static class CorrelatedUntilFunctionalityBreakdown { }
-                }
-                public static class Synethesia
-                {
-                    public static class CorrelatedUntilFunctionalityBreakdown { }
-                    public static class Colors
-                    {
-                        public static class AppearBrighter { }
-                        public static class MeanThingsMore { }
-                    }
-                }
+                public static class Alexithymia { }
+                public static class Delusions { }
+            }
+
+            public static class CouldBePositiveOrNegativeAspectsOfHigherElevation
+            {
+                public static class Apophenia { }
+                public static class Synethesia { }
+            }
+
+            public static class PositiveAspectsOfHigherElevation
+            {
+                public static class Creativity { }
             }
         }
 
@@ -221,10 +231,8 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                     public static class Unstated
                     {
-                        public static class RegulatesBalance
+                        public static class Regulates
                         {
-                            public static class ConsciousSelfAwareness { }
-                            public static class Versus { }
                             public static class ConsciousAwarenessOfSubconsciousProcesses { }
                         }
                     }
@@ -380,13 +388,17 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                 public static class Mind
                 {
+                    public static class SelfAwareness
+                    {
+                        public static class DisruptedByExcessiveElevation { }
+                    }
+
                     public static class Ethics
                     {
                         public static class Comprises
                         {
                             public static class Consciousness
                             {
-                                public static class SelfAwareness { }
                                 public static class LogicalReasoning { }
                                 public static class EthicalPrinciples { }
                             }
