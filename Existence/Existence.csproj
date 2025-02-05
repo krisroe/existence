@@ -25,7 +25,6 @@
    <Folder Include="Earth\Characters\" />
    <Folder Include="Earth\Songs\Folk\" />
    <Folder Include="Earth\Songs\Musical\" />
-   <Folder Include="Earth\Songs\Rap\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Personal\Skills\" />
    <Folder Include="Personal\Songs\Parody\" />
