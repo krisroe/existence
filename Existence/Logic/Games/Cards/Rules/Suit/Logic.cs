@@ -1,5 +1,4 @@
-﻿using Existence.Logic.Games.Cards.Rules;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Existence.Logic.Games.Cards.Rules.Suit
@@ -49,7 +48,7 @@ namespace Existence.Logic.Games.Cards.Rules.Suit
 
             if (randomize.HasValue && randomize.Value)
             {
-
+                //CSRTODO: do something here
             }
 
             return r;

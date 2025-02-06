@@ -19,7 +19,9 @@ namespace Existence.Logic.Games.Cards.Rules.Game.Bridge
 
         public override List<Suit.Logic.Suits> GetSuits()
         {
-            return Suit.Logic.GetSuits(MinimumNumberOfSuits, this, null);
+            //return Suit.Logic.GetSuits(MinimumNumberOfSuits, this, null);
+            //CSRTODO: get suits from Existence.Games.Cards.Rules.Deck.Standard.Bridge.SuitOrder
+            return null;
         }
     }
 }
