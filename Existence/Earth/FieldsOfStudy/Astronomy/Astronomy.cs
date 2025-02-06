@@ -90,11 +90,12 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
             }
         }
 
-
         public class BlackHole : AstronomicalBody
         {
-            public BlackHole() : base(AstronomicalBodyType.BlackHole)
+            public BlackHoleType BlackHoleType { get; set; }
+            public BlackHole(BlackHoleType blackHoleType) : base(AstronomicalBodyType.BlackHole)
             {
+                BlackHoleType = blackHoleType;
             }
         }
 
@@ -128,6 +129,23 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
             /// </summary>
             public static class Formation
             {
+                public static class Processes
+                {
+                    public static class PlanetaryAccretion
+                    {
+                        /// <summary>
+                        /// tiny dust and ice particles within the disk stuck together through electrostatic forces
+                        /// </summary>
+                        public static class Planetismals
+                        {
+                            /// <summary>
+                            /// over time, collided and merged into larger bodies, forming protoplanets
+                            /// </summary>
+                            public static class Protoplanets { }
+                        }
+                    }
+                }
+
                 /// <summary>
                 /// ~4.6 billion years ago
                 /// Giant rotating cloud of gas and dust
@@ -139,30 +157,158 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
                 /// Gravity caused the nebula to collapse, and as it contracted, it spun faster due to the conservation of
                 /// angular momentum. Most of the mass accumulated at the center.
                 /// </summary>
-                public static class NebularCollapseAndProtosunFormation
+                public static class NebularCollapseCreatingProtostar
                 {
-                    /// <summary>
-                    /// most of the mass, young sun that had not yet begun nuclear fission
-                    /// </summary>
-                    public static class Protosun { }
-                    /// <summary>
-                    /// surrounding flat material
-                    /// </summary>
-                    public static class ProtoplanetaryDisk { }
-                }
-
-                public static class PlanetaryAccretion
-                {
-                    /// <summary>
-                    /// tiny dust and ice particles within the disk stuck together through electrostatic forces
-                    /// </summary>
-                    public static class Planetismals
+                    public static class SolarNebula
                     {
                         /// <summary>
-                        /// over time, collided and merged into larger bodies, forming protoplanets
+                        /// most of the mass, young sun that had not yet begun nuclear fusion
                         /// </summary>
-                        public static class Protoplanets { }
+                        public static class Protostar { }
+
+                        /// <summary>
+                        /// surrounding flat material
+                        /// </summary>
+                        public static class ProtoplanetaryDisk { }
                     }
+                }
+
+                /// <summary>
+                /// A temperature gradient within the protoplanetary disk was created due to distance from the protostar
+                /// </summary>
+                public static class DifferentiationOfProtoplanetaryDiskDueToTemperatureGradient
+                {
+                    public static class SolarNebula
+                    {
+                        /// <summary>
+                        /// remained in protostar phase for ~100,000 to a few million years after solar system formation
+                        /// </summary>
+                        public static class Protostar { }
+                        public static class InnerSolarSystem { }
+                        public static class OuterSolarSystem { }
+                    }
+
+                    /// <summary>
+                    /// ~4.6. billion years ago
+                    /// Inner: Only materials with high melting points (metals, silicates) could solidify,
+                    /// leading to the formation of small, rocky, planets
+                    /// Outer: Colder temperatures allowed volatile substances (water, ammonia, methane) to condense,
+                    /// enabling the formation of gas and ice giants
+                    /// </summary>
+                    public static class CondensationAndMaterialDifferentiationOfInnerAndOuterSolarSystem { }
+                }
+
+
+                public static class GasGiantFormation
+                {
+                    public static class SolarNebula
+                    {
+                        /// <summary>
+                        /// ~100,000 to a few million years after solar system formation
+                        /// The protostar grew hotter and denser as gravitational energy was converted into heat
+                        /// It shone due to gravitational contraction but had not yet started nuclear fusion
+                        /// </summary>
+                        public static class Protostar { }
+                        public static class InnerSolarSystem { }
+                        public static class OuterSolarSystem
+                        {
+                            /// <summary>
+                            /// ~1 million years after solar system formation
+                            /// Formation was rapid, creating a gravitational barrier that disrupted material flow between
+                            /// the inner and outer solar system
+                            /// This prevented much of the gas and ice from moving inward, further isolating the terrestrial planets
+                            /// </summary>
+                            public static class Jupiter { }
+
+                            /// <summary>
+                            /// ~2-3 million years
+                            /// Mostly hydrogen and helium like Jupiter, suggesting it formed early while the solar nebula still contained
+                            /// abundant gas
+                            /// Saturn is slightly less massive than Jupiter, indicating it had less time to accrete gas before the solar
+                            /// windows cleared out the nebula
+                            /// Jupiter's early formation affected the development of Saturn, helpint it accumulate gas, but also limiting
+                            /// its final mass.
+                            /// Some models suggest Jupiter and Saturn entered a resonance (gravitational interaction) that shaped the 
+                            /// rest of the solar system.
+                            /// </summary>
+                            public static class Saturn { }
+                        }
+                    }
+                }
+
+                public static class IceGiantFormation
+                {
+                    public static class Protostar { }
+                    public static class InnerSolarSystem { }
+                    public static class OuterSolarSystem
+                    {
+                        public static class Jupiter { }
+                        public static class Saturn { }
+
+                        /// <summary>
+                        /// both ice giants
+                        /// Core Accretion theory:
+                        ///  ~5-7 million years: solid cores (10-15 earth masses) formed
+                        ///  grew to final masses (~15-17 earth masses) before the solar nebula was gone
+                        /// When solar nebula gone, fully formed but migrating toward current orbits
+                        /// </summary>
+                        public static class NeptuneOrUranus { }
+                        public static class UranusOrNeptune { }
+                    }
+                }
+
+                /// <summary>
+                /// ~1-10 million years after collapse
+                /// When the core temperature reached ~10 million Kelvin, hydrogen fusion began via the proton-proton chain reaction
+                /// The Sun officially became a "main sequence star"
+                /// </summary>
+                public static class SunIgnitionOfNuclearFusion
+                {
+                    public static class SolarNebula
+                    {
+                        public static class MainSequenceStar { }
+                        public static class InnerSolarSystem { }
+                        public static class OuterSolarSystem
+                        {
+                            public static class Jupiter { }
+                            public static class Saturn { }
+                            public static class NeptuneOrUranus { }
+                            public static class UranusOrNeptune { }
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// ~3-10 million years after solar system formation
+                /// The Sun's radiation and solar winds pushed remaining gas and dust outward
+                /// This effectively sealed the boundary between the inner and outer solar system, finalizing their distinct
+                /// compositions
+                /// Eventually ~10 million years after solar system formation, the solar nebula dissipated
+                /// </summary>
+                public static class SolarWindsClearTheNebula
+                {
+                    public static class SolarSystem
+                    {
+                        public static class MainSequenceStar { }
+                        public static class InnerSolarSystem { }
+                        public static class OuterSolarSystem
+                        {
+                            public static class Jupiter { }
+                            public static class Saturn { }
+                            public static class NeptuneOrUranus { }
+                            public static class UranusOrNeptune { }
+                        }
+                    }
+                }
+
+                public static class SeparationOfInnerAndOuterSolarSystem
+                {
+                    /// <summary>
+                    /// The asteroid belt (between Mars and Jupter) became a natural boundary
+                    /// Terrestrial plents remained small and rocky
+                    /// Gas and ice giants grew massive, capturing large atmopheres
+                    /// </summary>
+                    public static class Result { }
                 }
 
                 /// <summary>
