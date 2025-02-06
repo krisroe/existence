@@ -1,5 +1,4 @@
-﻿
-namespace Existence.Earth.FieldsOfStudy.Astronomy
+﻿namespace Existence.Earth.FieldsOfStudy.Astrology
 {
     public static class Astrology
     {
