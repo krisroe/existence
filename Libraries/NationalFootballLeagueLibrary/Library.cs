@@ -40,7 +40,7 @@ namespace NationalFootballLeagueLibrary
                 nextScore.SetAttribute("firstdate", gsi.GetFirstMatchupDate());
                 nextScore.SetAttribute("firstmatchup", gsi.GetFirstMatchupText());
                 nextScore.SetAttribute("lastdate", gsi.GetLastMatchupDate());
-                nextScore.SetAttribute("lastmatchup", gsi.GetFirstMatchupText());
+                nextScore.SetAttribute("lastmatchup", gsi.GetLastMatchupText());
                 top.AppendChild(nextScore);
             }
             Common.WriteToFile(doc, filePath);
@@ -48,32 +48,26 @@ namespace NationalFootballLeagueLibrary
             return Common.READ_NEWLINE;
         }
 
+        /// <summary>
+        /// retrieves the first and last game with the game score
+        /// </summary>
+        /// <param name="gsi">game score information</param>
+        /// <param name="hc">http client</param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc)
         {
             string sURL = $"https://www.pro-football-reference.com/boxscores/game_scores_find.cgi?pts_win={gsi.PtsW}&pts_lose={gsi.PtsL}";
             HtmlDocument mainDoc = GetHtmlDocumentFromURL(sURL, hc);
             HtmlNode foundTable = GetRankerTable(mainDoc);
             int iRowIndex = 0;
-            string first_week_num = string.Empty;
-            string first_game_date = string.Empty;
-            string first_winner = string.Empty;
-            string first_game_location = string.Empty;
-            string first_loser = string.Empty;
-            string last_week_num = string.Empty;
-            string last_game_date = string.Empty;
-            string last_winner = string.Empty;
-            string last_game_location = string.Empty;
-            string last_loser = string.Empty;
+            List<GameInfo> firstGames = new List<GameInfo>();
+            List<GameInfo> lastGames = new List<GameInfo>();
             foreach (HtmlNode nextRow in foundTable.SelectNodes("//tr"))
             {
                 iRowIndex++;
                 if (iRowIndex > 1)
                 {
-                    string next_week_num = string.Empty;
-                    string next_game_date = string.Empty;
-                    string next_winner = string.Empty;
-                    string next_game_location = string.Empty;
-                    string next_loser = string.Empty;
+                    GameInfo nextGame = GameInfo.GetEmptyObject();
                     foreach (HtmlNode nextCol in nextRow.ChildNodes.AsEnumerable())
                     {
                         string sColName = nextCol.Name;
@@ -115,21 +109,21 @@ namespace NationalFootballLeagueLibrary
                                     if (sValue != "boxscore") throw new InvalidOperationException();
                                     break;
                                 case "week_num":
-                                    next_week_num = sValue;
+                                    nextGame.week_num = sValue;
                                     break;
                                 case "game_date":
-                                    next_game_date = sValue;
+                                    nextGame.game_date = sValue;
                                     break;
                                 case "winner":
-                                    next_winner = sValue;
+                                    nextGame.winner = sValue;
                                     break;
                                 case "game_location":
                                     if (sValue != string.Empty && sValue != "@" && sValue != "N")
                                         throw new InvalidOperationException();
-                                    next_game_location = sValue == string.Empty ? " " : sValue;
+                                    nextGame.game_location = sValue == string.Empty ? " " : sValue;
                                     break;
                                 case "loser":
-                                    next_loser = sValue;
+                                    nextGame.loser = sValue;
                                     break;
                                 case "game_outcome": //otherwise ignored, but validate it matches the game score info
                                     string expected = gsi.PtsL == gsi.PtsW ? "T" : "W";
@@ -146,132 +140,93 @@ namespace NationalFootballLeagueLibrary
                             }
                         }
                     }
-
-                    if (string.IsNullOrEmpty(next_week_num) ||
-                        string.IsNullOrEmpty(next_game_date) ||
-                        string.IsNullOrEmpty(next_winner) ||
-                        string.IsNullOrEmpty(next_game_location) ||
-                        string.IsNullOrEmpty(next_loser))
+                    if (!nextGame.IsValid()) throw new InvalidOperationException();
+                    if (firstGames.Count == 0 || nextGame.game_date == firstGames[0].game_date)
                     {
-                        throw new InvalidOperationException();
+                        firstGames.Add(nextGame);
                     }
-                    if (iRowIndex == 2)
+                    if (lastGames.Count > 0 && !string.Equals(lastGames[0].game_date, nextGame.game_date))
                     {
-                        first_week_num = next_week_num;
-                        first_game_date = next_game_date;
-                        first_winner = next_winner;
-                        first_game_location = next_game_location;
-                        first_loser = next_loser;
+                        lastGames.Clear();
                     }
-                    last_week_num = next_week_num;
-                    last_game_date = next_game_date;
-                    last_winner = next_winner;
-                    last_game_location = next_game_location;
-                    last_loser = next_loser;
+                    lastGames.Add(nextGame);
                 }
             }
-            if (string.IsNullOrEmpty(first_week_num) ||
-                string.IsNullOrEmpty(first_game_date) ||
-                string.IsNullOrEmpty(first_winner) ||
-                string.IsNullOrEmpty(first_game_location) ||
-                string.IsNullOrEmpty(first_loser) ||
-                string.IsNullOrEmpty(last_week_num) ||
-                string.IsNullOrEmpty(last_game_date) ||
-                string.IsNullOrEmpty(last_winner) ||
-                string.IsNullOrEmpty(last_game_location) ||
-                string.IsNullOrEmpty(last_loser))
+            if (firstGames.Count == 0 || lastGames.Count == 0)
             {
                 throw new InvalidOperationException();
             }
+            GameInfo firstGameInfo = firstGames[0];
             string firstteam1, firstteam2;
-            if (first_game_location == "@" || first_game_location == "N")
+            if (firstGameInfo.game_location == "@" || firstGameInfo.game_location == "N")
             {
-                firstteam1 = first_winner;
-                firstteam2 = first_loser;
+                firstteam1 = firstGameInfo.winner;
+                firstteam2 = firstGameInfo.loser;
             }
             else
             {
-                firstteam1 = first_loser;
-                firstteam2 = first_winner;
+                firstteam1 = firstGameInfo.loser;
+                firstteam2 = firstGameInfo.winner;
             }
-            string lastteam1, lastteam2;
-            if (last_game_location == "@" || last_game_location == "N")
-            {
-                lastteam1 = last_winner;
-                lastteam2 = last_loser;
-            }
-            else
-            {
-                lastteam1 = last_loser;
-                lastteam2 = last_winner;
-            }
-
-            DateTime firstDate = DateTime.ParseExact(first_game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            DateTime lastDate = DateTime.ParseExact(last_game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-            if (gsi.LastDay != lastDate.Day ||
-                gsi.LastMonth != lastDate.Month ||
-                gsi.LastYear != lastDate.Year)
-            {
-                throw new InvalidOperationException();
-            }
-
+            DateTime firstDate = DateTime.ParseExact(firstGameInfo.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             gsi.FirstYear = firstDate.Year;
             gsi.FirstMonth = firstDate.Month;
             gsi.FirstDay = firstDate.Day;
-
-            MatchupType mt;
-            if (int.TryParse(first_week_num, out _))
-                mt = MatchupType.RegularSeason;
-            else if (first_week_num == "Wild Card")
-                mt = MatchupType.WildCard;
-            else if (first_week_num == "Division")
-                mt = MatchupType.Division;
-            else if (first_week_num == "Conf. Champ")
-                mt = MatchupType.ConferenceChampionship;
-            else if (first_week_num == "Champ")
-                mt = MatchupType.Championship;
-            else if (first_week_num == "Super Bowl")
-                mt = MatchupType.SuperBowl;
-            else
-                throw new InvalidOperationException();
-            gsi.FirstMatchupType = mt;
-            if (int.TryParse(last_week_num, out _))
-                mt = MatchupType.RegularSeason;
-            else if (last_week_num == "Wild Card")
-                mt = MatchupType.WildCard;
-            else if (last_week_num == "Division")
-                mt = MatchupType.Division;
-            else if (last_week_num == "Conf. Champ")
-                mt = MatchupType.ConferenceChampionship;
-            else if (last_week_num == "Champ")
-                mt = MatchupType.Championship;
-            else if (last_week_num == "Super Bowl")
-                mt = MatchupType.SuperBowl;
-            else
-                throw new InvalidOperationException();
-            gsi.LastMatchupType = mt;
-
-            string lastMatchup;
-            if (last_game_location == "N")
-                lastMatchup = lastteam1 + " vs " + lastteam2;
-            else
-                lastMatchup = lastteam1 + " at " + lastteam2;            
-
-            if (!string.Equals(lastMatchup, gsi.LastMatchup) &&
-                !string.Equals(lastMatchup, gsi.LastMatchup.Replace(" vs ", " at ")) &&
-                !string.Equals(last_winner + " vs " + last_loser, gsi.LastMatchup))
-            {
-                throw new InvalidOperationException();
-            }
-            gsi.LastMatchup = lastMatchup;
-
+            gsi.FirstMatchupType = firstGameInfo.GetMatchupType();
             string firstMatchup;
-            if (first_game_location == "N")
+            if (firstGameInfo.game_location == "N")
                 firstMatchup = firstteam1 + " vs " + firstteam2;
             else
                 firstMatchup = firstteam1 + " at " + firstteam2;
             gsi.FirstMatchup = firstMatchup;
+
+            bool foundMatchingLastGame = false;
+            foreach (GameInfo nextLastGame in lastGames)
+            {
+                string lastteam1, lastteam2;
+                if (nextLastGame.game_location == "@" || nextLastGame.game_location == "N")
+                {
+                    lastteam1 = nextLastGame.winner;
+                    lastteam2 = nextLastGame.loser;
+                }
+                else
+                {
+                    lastteam1 = nextLastGame.loser;
+                    lastteam2 = nextLastGame.winner;
+                }
+                DateTime lastDate = DateTime.ParseExact(nextLastGame.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                MatchupType mt = nextLastGame.GetMatchupType();
+
+                string lastMatchup;
+                if (nextLastGame.game_location == "N")
+                    lastMatchup = lastteam1 + " vs " + lastteam2;
+                else
+                    lastMatchup = lastteam1 + " at " + lastteam2;
+
+                if (string.Equals(lastMatchup, gsi.LastMatchup) ||
+                    string.Equals(lastMatchup, gsi.LastMatchup.Replace(" vs ", " at ")) ||
+                    string.Equals(nextLastGame.winner + " vs " + nextLastGame.loser, gsi.LastMatchup) ||
+                    string.Equals(nextLastGame.loser + " vs " + nextLastGame.winner, gsi.LastMatchup))
+                {
+                    if (foundMatchingLastGame)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    if (gsi.LastDay != lastDate.Day ||
+                        gsi.LastMonth != lastDate.Month ||
+                        gsi.LastYear != lastDate.Year)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    gsi.LastMatchupType = mt;
+                    gsi.LastMatchup = lastMatchup;
+                    foundMatchingLastGame = true;
+                }
+            }
+            if (!foundMatchingLastGame)
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         /// <summary>
@@ -368,6 +323,88 @@ namespace NationalFootballLeagueLibrary
             }
         }
 
+        /// <summary>
+        /// game information for matchup
+        /// </summary>
+        public class GameInfo
+        {
+            /// <summary>
+            /// constructor
+            /// </summary>
+            public static GameInfo GetEmptyObject()
+            {
+                return new GameInfo()
+                {
+                    week_num = string.Empty,
+                    game_date = string.Empty,
+                    winner = string.Empty,
+                    game_location = string.Empty,
+                    loser = string.Empty
+                };
+            }
+
+            /// <summary>
+            /// whether the game information is valid
+            /// </summary>
+            /// <returns>true if valid, false otherwise</returns>
+            public bool IsValid()
+            {
+                return !string.IsNullOrEmpty(week_num) &&
+                       !string.IsNullOrEmpty(game_date) &&
+                       !string.IsNullOrEmpty(winner) &&
+                       !string.IsNullOrEmpty(game_location) &&
+                       !string.IsNullOrEmpty(loser);
+            }
+
+            /// <summary>
+            /// retrieves the matchup type for the game
+            /// </summary>
+            /// <returns>matchup type</returns>
+            public MatchupType GetMatchupType()
+            {
+                MatchupType mt;
+                if (int.TryParse(week_num, out _))
+                    mt = MatchupType.RegularSeason;
+                else if (week_num == "Wild Card")
+                    mt = MatchupType.WildCard;
+                else if (week_num == "Division")
+                    mt = MatchupType.Division;
+                else if (week_num == "Conf. Champ")
+                    mt = MatchupType.ConferenceChampionship;
+                else if (week_num == "Champ")
+                    mt = MatchupType.Championship;
+                else if (week_num == "Super Bowl")
+                    mt = MatchupType.SuperBowl;
+                else
+                    throw new InvalidOperationException();
+                return mt;
+            }
+
+            /// <summary>
+            /// week number
+            /// </summary>
+            public required string week_num { get; set; }
+
+            /// <summary>
+            /// game date
+            /// </summary>
+            public required string game_date { get; set; }
+
+            /// <summary>
+            /// winner
+            /// </summary>
+            public required string winner { get; set; }
+
+            /// <summary>
+            /// game location
+            /// </summary>
+            public required string game_location { get; set; }
+
+            /// <summary>
+            /// loser
+            /// </summary>
+            public required string loser { get; set; }
+        }
 
 
         /// <summary>
@@ -468,8 +505,14 @@ namespace NationalFootballLeagueLibrary
         }
 
         public string GetLastMatchupText()
-        {
-            return this.LastMatchup + GetMatchupTypeString(this.LastMatchupType);
+        {            
+            string ret = this.LastMatchup;
+            string sMatchupType = GetMatchupTypeString(this.LastMatchupType);
+            if (!string.IsNullOrEmpty(sMatchupType))
+            {
+                ret = ret + " (" + sMatchupType + ")";
+            }
+            return ret;
         }
 
         public string GetFirstMatchupDate()
@@ -479,7 +522,13 @@ namespace NationalFootballLeagueLibrary
 
         public string GetFirstMatchupText()
         {
-            return this.FirstMatchup + GetMatchupTypeString(this.FirstMatchupType);
+            string ret = this.FirstMatchup;
+            string sMatchupType = GetMatchupTypeString(this.FirstMatchupType);
+            if (!string.IsNullOrEmpty(sMatchupType))
+            {
+                ret = ret + " (" + sMatchupType + ")";
+            }
+            return ret;
         }
 
         private static string GetMatchupTypeString(MatchupType mt)
