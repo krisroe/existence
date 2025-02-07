@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalFootballLeagueLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryConsoleApp", "Libraries\LibraryConsoleApp\LibraryConsoleApp.csproj", "{818866E8-B06E-4FDB-81AC-48694EA60852}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryShared", "libraries\LibraryShared\LibraryShared.csproj", "{04B30851-844C-4089-86DE-1373C8226898}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{818866E8-B06E-4FDB-81AC-48694EA60852}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{818866E8-B06E-4FDB-81AC-48694EA60852}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{818866E8-B06E-4FDB-81AC-48694EA60852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B30851-844C-4089-86DE-1373C8226898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B30851-844C-4089-86DE-1373C8226898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B30851-844C-4089-86DE-1373C8226898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B30851-844C-4089-86DE-1373C8226898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
