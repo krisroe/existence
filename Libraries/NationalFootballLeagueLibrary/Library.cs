@@ -211,7 +211,7 @@ namespace NationalFootballLeagueLibrary
                 string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
                 if (mt != MatchupType.RegularSeason)
                 {
-                    sMatchupString += (" " + GameScoreInfo.GetMatchupTypeString(mt));
+                    sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
                 }
                 fsi.FirstMatchups.Add(sMatchupString);
             }
@@ -254,7 +254,7 @@ namespace NationalFootballLeagueLibrary
                 }
                 if (mt != MatchupType.RegularSeason)
                 {
-                    lastMatchup += (" " + GameScoreInfo.GetMatchupTypeString(mt));
+                    lastMatchup += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
                 }
                 fsi.LastMatchups.Add(lastMatchup);
             }
