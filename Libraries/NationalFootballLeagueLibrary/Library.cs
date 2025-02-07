@@ -404,10 +404,25 @@ namespace NationalFootballLeagueLibrary
             {
                 string sContent = hrm.Content.ReadAsStringAsync().Result;
                 mainDoc.LoadHtml(sContent);
+                return mainDoc;
             }
-            else
-                throw new InvalidOperationException();
-            return mainDoc;
+            else if (hrm.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+            {
+                int retryAfter = -1;
+                foreach (var nextHeader in hrm.Headers)
+                {
+                    if (nextHeader.Key == "Retry-After")
+                    {
+                        retryAfter = nextHeader.Key.First();
+                    }
+                }
+                if (retryAfter != -1)
+                {
+                    throw new Exception("429 (Too Many Requests) Error. Try again after " + retryAfter + " seconds");
+                }
+
+            }
+            throw new Exception("HTTP request to " + URL + " failed with " + Convert.ToInt32(hrm.StatusCode) + " (" + hrm.StatusCode.ToString() + ") error");
         }
 
         /// <summary>

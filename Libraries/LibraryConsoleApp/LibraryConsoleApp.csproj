@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
-    <ProjectReference Include="..\NationalFootballLeagueLibrary\NationalFootballLeagueLibrary.csproj" />
   </ItemGroup>
 
 </Project>

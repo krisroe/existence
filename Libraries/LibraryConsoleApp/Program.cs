@@ -21,7 +21,7 @@ public class Program
         try
         {
             //put the library run logic here
-            //result = NameSpace.Library.RunMain(args)
+            //result = Namespace.Library.RunMain(args);
         }
         catch (Exception ex)
         {
