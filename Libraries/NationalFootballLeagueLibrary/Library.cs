@@ -23,24 +23,27 @@ namespace NationalFootballLeagueLibrary
             XmlElement top = doc.CreateElement("scorigamiinformation");
             doc.AppendChild(top);
 
-            bool pastFirst = false;
-
-            List<GameScoreInfo> gsis = new List<GameScoreInfo>();
-            foreach (GameScoreInfo gsi in Library.ProcessAllGameScoresFromWeb(Common.HttpClient))
+            foreach (FinalScoreInfo fsi in ProcessAllGameScoresFromWeb(Common.HttpClient))
             {
-                if (pastFirst)
-                    Thread.Sleep(5000); //sleep to try to avoid being throttled
-                else
-                    pastFirst = true;
-                Library.GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient);
-                Console.Out.WriteLine(gsi.ToString());
+                fsi.WriteToConsole();
                 XmlElement nextScore = doc.CreateElement("score");
-                nextScore.SetAttribute("score", gsi.PtsW + "-" + gsi.PtsL);
-                nextScore.SetAttribute("count", gsi.Count.ToString());
-                nextScore.SetAttribute("firstdate", gsi.GetFirstMatchupDate());
-                nextScore.SetAttribute("firstmatchup", gsi.GetFirstMatchupText());
-                nextScore.SetAttribute("lastdate", gsi.GetLastMatchupDate());
-                nextScore.SetAttribute("lastmatchup", gsi.GetLastMatchupText());
+                nextScore.SetAttribute("score", fsi.Score);
+                nextScore.SetAttribute("count", fsi.Count.ToString());
+                nextScore.SetAttribute("firstdate", fsi.FirstDate.ToString("yyyy-MM-dd"));
+                nextScore.SetAttribute("lastdate", fsi.LastDate.ToString("yyyy-MM-dd"));
+                XmlElement matchup;
+                foreach (string nextMatchup in fsi.FirstMatchups)
+                {
+                    matchup = doc.CreateElement("First");
+                    matchup.InnerText = nextMatchup;
+                    nextScore.AppendChild(matchup);
+                }
+                foreach (string nextMatchup in fsi.LastMatchups)
+                {
+                    matchup = doc.CreateElement("Last");
+                    matchup.InnerText = nextMatchup;
+                    nextScore.AppendChild(matchup);
+                }
                 top.AppendChild(nextScore);
             }
             Common.WriteToFile(doc, filePath);
@@ -54,7 +57,7 @@ namespace NationalFootballLeagueLibrary
         /// <param name="gsi">game score information</param>
         /// <param name="hc">http client</param>
         /// <exception cref="InvalidOperationException"></exception>
-        public static void GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc)
+        public static FinalScoreInfo GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc)
         {
             string sURL = $"https://www.pro-football-reference.com/boxscores/game_scores_find.cgi?pts_win={gsi.PtsW}&pts_lose={gsi.PtsL}";
             HtmlDocument mainDoc = GetHtmlDocumentFromURL(sURL, hc);
@@ -141,68 +144,99 @@ namespace NationalFootballLeagueLibrary
                         }
                     }
                     if (!nextGame.IsValid()) throw new InvalidOperationException();
-                    if (firstGames.Count == 0 || nextGame.game_date == firstGames[0].game_date)
+
+                    int iComparisonValue;
+
+                    //determine if the game works as a first game for that score
+                    bool isFirstGame;
+                    if (firstGames.Count > 0)
                     {
+                        iComparisonValue = nextGame.game_date.CompareTo(firstGames[0].game_date);
+                        if (iComparisonValue < 0) firstGames.Clear();
+                        isFirstGame = iComparisonValue <= 0;
+                    }
+                    else
+                    {
+                        isFirstGame = true;
+                    }
+                    if (isFirstGame) 
                         firstGames.Add(nextGame);
-                    }
-                    if (lastGames.Count > 0 && !string.Equals(lastGames[0].game_date, nextGame.game_date))
+
+                    //determine if the game works as a last game for that score
+                    bool isLastGame;
+                    if (lastGames.Count > 0)
                     {
-                        lastGames.Clear();
+                        iComparisonValue = nextGame.game_date.CompareTo(lastGames[0].game_date);
+                        if (iComparisonValue > 0) lastGames.Clear();
+                        isLastGame = iComparisonValue >= 0;
                     }
-                    lastGames.Add(nextGame);
+                    else
+                    {
+                        isLastGame = true;
+                    }
+                    if (isLastGame) lastGames.Add(nextGame);
                 }
             }
             if (firstGames.Count == 0 || lastGames.Count == 0)
             {
                 throw new InvalidOperationException();
             }
-            GameInfo firstGameInfo = firstGames[0];
-            string firstteam1, firstteam2;
-            if (firstGameInfo.game_location == "@" || firstGameInfo.game_location == "N")
-            {
-                firstteam1 = firstGameInfo.winner;
-                firstteam2 = firstGameInfo.loser;
-            }
-            else
-            {
-                firstteam1 = firstGameInfo.loser;
-                firstteam2 = firstGameInfo.winner;
-            }
-            DateTime firstDate = DateTime.ParseExact(firstGameInfo.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            gsi.FirstYear = firstDate.Year;
-            gsi.FirstMonth = firstDate.Month;
-            gsi.FirstDay = firstDate.Day;
-            gsi.FirstMatchupType = firstGameInfo.GetMatchupType();
-            string firstMatchup;
-            if (firstGameInfo.game_location == "N")
-                firstMatchup = firstteam1 + " vs " + firstteam2;
-            else
-                firstMatchup = firstteam1 + " at " + firstteam2;
-            gsi.FirstMatchup = firstMatchup;
+            DateTime firstDate = DateTime.ParseExact(firstGames[0].game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            DateTime lastDate = DateTime.ParseExact(lastGames[0].game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            FinalScoreInfo fsi = new FinalScoreInfo(gsi.PtsW.ToString().PadLeft(2, '0') + "-" + gsi.PtsL.ToString().PadLeft(2, '0'), gsi.Count.ToString().PadLeft(3, '0'), firstDate, lastDate);
 
+            MatchupType mt;
+
+            foreach (GameInfo nextFirstGame in firstGames)
+            {
+                string firstteam1, firstteam2;
+                int firstteam1points, firstteam2points;
+                if (nextFirstGame.game_location == "@" || nextFirstGame.game_location == "N")
+                {
+                    firstteam1 = nextFirstGame.winner;
+                    firstteam1points = gsi.PtsW;
+                    firstteam2 = nextFirstGame.loser;
+                    firstteam2points = gsi.PtsL;
+                }
+                else
+                {
+                    firstteam1 = nextFirstGame.loser;
+                    firstteam1points = gsi.PtsL;
+                    firstteam2 = nextFirstGame.winner;
+                    firstteam2points = gsi.PtsW;
+                }
+                string firstGameVersusOrAt = nextFirstGame.game_location == "N" ? "vs" : "at";
+
+                mt = nextFirstGame.GetMatchupType();
+                string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
+                if (mt != MatchupType.RegularSeason)
+                {
+                    sMatchupString += (" " + GameScoreInfo.GetMatchupTypeString(mt));
+                }
+                fsi.FirstMatchups.Add(sMatchupString);
+            }
             bool foundMatchingLastGame = false;
             foreach (GameInfo nextLastGame in lastGames)
             {
                 string lastteam1, lastteam2;
+                int lastteam1points, lastteam2points;
                 if (nextLastGame.game_location == "@" || nextLastGame.game_location == "N")
                 {
                     lastteam1 = nextLastGame.winner;
+                    lastteam1points = gsi.PtsW;
                     lastteam2 = nextLastGame.loser;
+                    lastteam2points = gsi.PtsL;
                 }
                 else
                 {
                     lastteam1 = nextLastGame.loser;
+                    lastteam1points = gsi.PtsL;
                     lastteam2 = nextLastGame.winner;
+                    lastteam2points = gsi.PtsW;
                 }
-                DateTime lastDate = DateTime.ParseExact(nextLastGame.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                MatchupType mt = nextLastGame.GetMatchupType();
-
-                string lastMatchup;
-                if (nextLastGame.game_location == "N")
-                    lastMatchup = lastteam1 + " vs " + lastteam2;
-                else
-                    lastMatchup = lastteam1 + " at " + lastteam2;
-
+                mt = nextLastGame.GetMatchupType();
+                string lastGameVersusOrAt = nextLastGame.game_location == "N" ? "vs" : "at";
+                string lastMatchup = lastteam1 + " " + lastteam1points.ToString() + " " + lastGameVersusOrAt + " " + lastteam2points.ToString() + " " + lastteam2;
                 if (string.Equals(lastMatchup, gsi.LastMatchup) ||
                     string.Equals(lastMatchup, gsi.LastMatchup.Replace(" vs ", " at ")) ||
                     string.Equals(nextLastGame.winner + " vs " + nextLastGame.loser, gsi.LastMatchup) ||
@@ -212,28 +246,26 @@ namespace NationalFootballLeagueLibrary
                     {
                         throw new InvalidOperationException();
                     }
-                    if (gsi.LastDay != lastDate.Day ||
-                        gsi.LastMonth != lastDate.Month ||
-                        gsi.LastYear != lastDate.Year)
+                    if (fsi.LastDate != lastDate) //date mismatch
                     {
                         throw new InvalidOperationException();
                     }
-                    gsi.LastMatchupType = mt;
-                    gsi.LastMatchup = lastMatchup;
                     foundMatchingLastGame = true;
                 }
+                if (mt != MatchupType.RegularSeason)
+                {
+                    lastMatchup += (" " + GameScoreInfo.GetMatchupTypeString(mt));
+                }
+                fsi.LastMatchups.Add(lastMatchup);
             }
             if (!foundMatchingLastGame)
             {
                 throw new InvalidOperationException();
             }
+            return fsi;
         }
 
-        /// <summary>
-        /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
-        /// </summary>
-        /// <returns>enumerates through the game scores</returns>
-        public static IEnumerable<GameScoreInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
+        private static IEnumerable<GameScoreInfo> GetAllGameScoresFromWeb(HttpClient hc)
         {
             HtmlDocument mainDoc = GetHtmlDocumentFromURL("https://www.pro-football-reference.com/boxscores/game-scores.htm", hc);
             HtmlNode foundTable = GetRankerTable(mainDoc);
@@ -322,6 +354,91 @@ namespace NationalFootballLeagueLibrary
                 }
             }
         }
+
+        /// <summary>
+        /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
+        /// </summary>
+        /// <returns>enumerates through the game scores</returns>
+        public static IEnumerable<FinalScoreInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
+        {
+            bool pastFirst = false;
+            foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb(hc))
+            {
+                if (pastFirst)
+                    Thread.Sleep(5000); //sleep to try to avoid being throttled
+                else
+                    pastFirst = true;
+                yield return Library.GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient);
+            }
+        }
+
+        /// <summary>
+        /// final score info
+        /// </summary>
+        public class FinalScoreInfo
+        {
+            /// <summary>
+            /// final score info constructor
+            /// </summary>
+            public FinalScoreInfo(string Score, string Count, DateTime FirstDate, DateTime LastDate)
+            {
+                FirstMatchups = new List<string>();
+                LastMatchups = new List<string>();
+                this.Score = Score;
+                this.Count = Count;
+                this.FirstDate = FirstDate;
+                this.LastDate = LastDate;
+            }
+
+            /// <summary>
+            /// writes the information to console
+            /// </summary>
+            public void WriteToConsole()
+            {
+                Console.Out.WriteLine(this.Score + " " + this.Count);
+                Console.Out.WriteLine(" " + this.FirstDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+                foreach (string next in FirstMatchups)
+                {
+                    Console.Out.WriteLine("  " + next);
+                }
+                Console.Out.WriteLine(" " + this.LastDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+                foreach (string next in LastMatchups)
+                {
+                    Console.Out.WriteLine("  " + next);
+                }
+            }
+
+            /// <summary>
+            /// score
+            /// </summary>
+            public string Score { get; set; }
+
+            /// <summary>
+            /// number of games
+            /// </summary>
+            public string Count { get; set; }
+
+            /// <summary>
+            /// date for the first game
+            /// </summary>
+            public DateTime FirstDate { get; set; }
+
+            /// <summary>
+            /// date for the last game
+            /// </summary>
+            public DateTime LastDate { get; set; }
+
+            /// <summary>
+            /// first matchup or matchups
+            /// </summary>
+            public List<string> FirstMatchups { get; set; }
+
+            /// <summary>
+            /// last matchups
+            /// </summary>
+            public List<string> LastMatchups { get; set; }
+        }
+
 
         /// <summary>
         /// game information for matchup
@@ -488,50 +605,7 @@ namespace NationalFootballLeagueLibrary
     /// </summary>
     public class GameScoreInfo
     {
-        /// <summary>
-        /// text version of the game score info
-        /// </summary>
-        /// <returns>text version of the game score info</returns>
-        public override string ToString()
-        {
-            return this.PtsW.ToString().PadLeft(2, '0') + "-" + this.PtsL.ToString().PadLeft(2, '0') + " " + 
-                this.Count.ToString().PadLeft(3, '0') + " " + 
-                GetLastMatchupDate() + " " + GetLastMatchupText() + " " + GetFirstMatchupDate() + " " + GetFirstMatchupText();
-        }
-
-        public string GetLastMatchupDate()
-        {
-            return this.LastYear.ToString().PadLeft(4, '0') + "/" + this.LastMonth.ToString().PadLeft(2, '0') + "/" + this.LastDay.ToString().PadLeft(2, '0');
-        }
-
-        public string GetLastMatchupText()
-        {            
-            string ret = this.LastMatchup;
-            string sMatchupType = GetMatchupTypeString(this.LastMatchupType);
-            if (!string.IsNullOrEmpty(sMatchupType))
-            {
-                ret = ret + " (" + sMatchupType + ")";
-            }
-            return ret;
-        }
-
-        public string GetFirstMatchupDate()
-        {
-            return this.FirstYear.ToString().PadLeft(4, '0') + "/" + this.FirstMonth.ToString().PadLeft(2, '0') + "/" + this.FirstDay.ToString().PadLeft(2, '0');
-        }
-
-        public string GetFirstMatchupText()
-        {
-            string ret = this.FirstMatchup;
-            string sMatchupType = GetMatchupTypeString(this.FirstMatchupType);
-            if (!string.IsNullOrEmpty(sMatchupType))
-            {
-                ret = ret + " (" + sMatchupType + ")";
-            }
-            return ret;
-        }
-
-        private static string GetMatchupTypeString(MatchupType mt)
+        public static string GetMatchupTypeString(MatchupType mt)
         {
             string ret = string.Empty;
             if (mt != MatchupType.RegularSeason)
@@ -571,62 +645,35 @@ namespace NationalFootballLeagueLibrary
 
             string sMatchupInfo = r.LastGame;
             int matchupLength = sMatchupInfo.Length;
-            this.LastYear = int.Parse(sMatchupInfo.Substring(matchupLength - 4));
+            int iLastYear = int.Parse(sMatchupInfo.Substring(matchupLength - 4));
             sMatchupInfo = sMatchupInfo.Substring(0, matchupLength - 5);
 
             int previousSpace = sMatchupInfo.LastIndexOf(' ');
-            this.LastDay = int.Parse(sMatchupInfo.Substring(previousSpace + 1));
+            int iLastDay = int.Parse(sMatchupInfo.Substring(previousSpace + 1));
             sMatchupInfo = sMatchupInfo.Substring(0, previousSpace);
 
             previousSpace = sMatchupInfo.LastIndexOf(' ');
             string sMonth = sMatchupInfo.Substring(previousSpace + 1);
 
-            int iMonth;
             switch (sMonth)
             {
                 case "January":
-                    iMonth = 1;
-                    break;
                 case "February":
-                    iMonth = 2;
-                    break;
                 case "March":
-                    iMonth = 3;
-                    break;
                 case "April":
-                    iMonth = 4;
-                    break;
                 case "May":
-                    iMonth = 5;
-                    break;
                 case "June":
-                    iMonth = 6;
-                    break;
                 case "July":
-                    iMonth = 7;
-                    break;
                 case "August":
-                    iMonth = 8;
-                    break;
                 case "September":
-                    iMonth = 9;
-                    break;
                 case "October":
-                    iMonth = 10;
-                    break;
                 case "November":
-                    iMonth = 11;
-                    break;
                 case "December":
-                    iMonth = 12;
                     break;
                 default:
                     throw new InvalidOperationException();
             }
-            this.LastMonth = iMonth;
-            this.LastMatchup = sMatchupInfo.Substring(0, previousSpace).Replace("vs.", "vs");
-                        
-            this.FirstMatchup = string.Empty; //populated in second pass
+            this.LastMatchup = sMatchupInfo.Substring(0, previousSpace).Replace("vs.", "vs");                        
         }
 
         /// <summary>
@@ -645,53 +692,9 @@ namespace NationalFootballLeagueLibrary
         public int Count { get; set; }
 
         /// <summary>
-        /// last year
-        /// </summary>
-        public int LastYear { get; set; }
-
-        /// <summary>
-        /// last day
-        /// </summary>
-        public int LastDay { get; set; }
-
-        /// <summary>
-        /// last month
-        /// </summary>
-        public int LastMonth { get; set;  }
-
-        /// <summary>
         /// last matchup
         /// </summary>
-        public string LastMatchup { get; set; }
-
-        /// <summary>
-        /// last matchup type
-        /// </summary>
-        public MatchupType LastMatchupType { get; set; }
-
-        /// <summary>
-        /// first year
-        /// </summary>
-        public int FirstYear { get; set; }
-
-        /// <summary>
-        /// first day
-        /// </summary>
-        public int FirstDay { get; set; }
-        
-        /// <summary>
-        /// first month
-        /// </summary>
-        public int FirstMonth { get; set; }
-
-        /// <summary>
-        /// first matchup
-        /// </summary>
-        public string FirstMatchup { get; set; }
-        /// <summary>
-        /// first matchup type
-        /// </summary>
-        public MatchupType FirstMatchupType { get; set; }
+        public string LastMatchup { get; set;  }
     }
 
     public enum MatchupType
