@@ -89,7 +89,8 @@ namespace NationalFootballLeagueLibrary
             buckets[71] = d72Count;
 
             double dTotalExpectedCount = 0;
-            double[,] expectedCount = new double[74,74];
+            double[,] expectedPercentage = new double[maxScore + 1, maxScore + 1];
+            double[,] expectedCount = new double[maxScore+1,maxScore+1];
             
             for (int i = 0; i <= maxScore; i++)
             {
@@ -108,18 +109,27 @@ namespace NationalFootballLeagueLibrary
                         dPercentageForCell = dPercentageLoser * dPercentageWinner * 2;
                     }
                     dTotalExpectedCount += dPercentageForCell;
+                    expectedPercentage[i, j] = dPercentageForCell;
                     expectedCount[i, j] = dPercentageForCell * totalCount;
                 }
             }
 
             //print out expected number of games for that score
+            double dScorigamiPercentage = 0;
             for (int i = 0; i <= maxScore; i++)
             {
                 for (int j = i; j >= 0; j--)
                 {
-                    Console.WriteLine(i.ToString().PadLeft(2, '0') + "-" + j.ToString().PadLeft(2, '0') + ":" + expectedCount[i, j].ToString("F2"));
+                    if (finalScores[i, j] == null)
+                    {
+                        double nextExpectedScorigamiPercentage = expectedPercentage[i, j];
+                        dScorigamiPercentage += nextExpectedScorigamiPercentage;
+                        Console.WriteLine("Scorigami Percentage 1/X " + i + "-" + j + ": " + ((double)1 / nextExpectedScorigamiPercentage).ToString("F4"));
+                    }
+                    //Console.WriteLine(i.ToString().PadLeft(2, '0') + "-" + j.ToString().PadLeft(2, '0') + ":" + expectedCount[i, j].ToString("F2"));
                 }
             }
+            Console.WriteLine("Overall Scorigami Percentage 1/X:" + ((double)1 / dScorigamiPercentage).ToString("F2"));
         }
 
         public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
