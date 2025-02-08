@@ -1,7 +1,26 @@
-﻿using Existence.Earth.FieldsOfStudy.Mathematics;
+﻿using System;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 
 namespace Existence.Earth.Sports
 {
+    public class RetiredAttribute : Attribute
+    {
+        public bool Retired { get; set; }
+        public RetiredAttribute(bool Retired)
+        {
+            this.Retired = Retired;
+        }
+    }
+
+    public class RecordAttribute : Attribute
+    {
+        public string Record { get; set; }
+        public RecordAttribute(string Record)
+        {
+            this.Record = Record;
+        }
+    }
+
     public class GamePointsTieScore : NumberAttribute
     {
         public int TieScore
