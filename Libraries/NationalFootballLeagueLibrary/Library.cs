@@ -28,11 +28,98 @@ namespace NationalFootballLeagueLibrary
             {
                 SaveToXmlFile(GetFinalScoreInfosFromXML(filePath), filePath);
             }
+            else if (operation == "loadxml")
+            {
+                GetProbabilitiesForAllScores(GetFinalScoreInfosFromXML(filePath), true);
+            }
             else
             {
                 throw new InvalidOperationException();
             }
             return Common.READ_NEWLINE;
+        }
+
+        private static void GetProbabilitiesForAllScores(IEnumerable<FinalScoreInfo> fsis, bool displayActualCounts)
+        {
+            int maxScore = 73;
+            int totalFinalScores = 0;
+            int totalCount = 0;
+            int[] buckets = new int[maxScore+1];
+            FinalScoreInfo[,] finalScores = new FinalScoreInfo[maxScore+1, maxScore+1];
+
+            foreach (FinalScoreInfo fsi in fsis)
+            {
+                string[] scores = fsi.Score.Split("-");
+                if (scores.Length != 2) throw new InvalidOperationException();
+                int iFirstScore = int.Parse(scores[0]);
+                int iSecondScore = int.Parse(scores[1]);
+                int iGameCount = fsi.Count;
+
+                //count twice since there are two teams in a game
+                totalCount += iGameCount;
+                totalCount += iGameCount;
+                buckets[iFirstScore] += iGameCount;
+                buckets[iSecondScore] += iGameCount;
+
+                finalScores[iFirstScore, iSecondScore] = fsi;
+                totalFinalScores++;
+            }
+
+            // display actual counts for each score
+            if (displayActualCounts)
+            {
+                Console.Out.WriteLine(totalFinalScores + " unique scores");
+                for (int i = 0; i <= maxScore; i++)
+                {
+                    Console.Out.WriteLine(i + " points: " + buckets[i] + "/" + totalCount);
+                }
+            }
+
+            //adjust to account for zeroes at 67/68/69 and 71 (1 point is left at zero). This means probabilities add up to slightly over 100%
+            int d70Count = buckets[70];
+            if (buckets[66] != d70Count) throw new InvalidOperationException();
+            if (buckets[67] != 0) throw new InvalidOperationException();
+            if (buckets[68] != 0) throw new InvalidOperationException();
+            if (buckets[69] != 0) throw new InvalidOperationException();
+            buckets[67] = d70Count;
+            buckets[68] = d70Count;
+            buckets[69] = d70Count;
+            int d72Count = buckets[72];
+            if (d72Count != buckets[73]) throw new InvalidOperationException();
+            buckets[71] = d72Count;
+
+            double dTotalExpectedCount = 0;
+            double[,] expectedCount = new double[74,74];
+            
+            for (int i = 0; i <= maxScore; i++)
+            {
+                double dPercentageWinner = (double)buckets[i] / totalCount;
+                for (int j = i; j >= 0; j--)
+                {
+                    double dPercentageLoser = (double)buckets[j] / totalCount;
+                    double dPercentageForCell;
+                    if (i == j) //tie
+                    {
+                        dPercentageForCell = dPercentageLoser * dPercentageLoser;
+                        
+                    }
+                    else //counts for double since either team could win
+                    {
+                        dPercentageForCell = dPercentageLoser * dPercentageWinner * 2;
+                    }
+                    dTotalExpectedCount += dPercentageForCell;
+                    expectedCount[i, j] = dPercentageForCell * totalCount;
+                }
+            }
+
+            //print out expected number of games for that score
+            for (int i = 0; i <= maxScore; i++)
+            {
+                for (int j = i; j >= 0; j--)
+                {
+                    Console.WriteLine(i.ToString().PadLeft(2, '0') + "-" + j.ToString().PadLeft(2, '0') + ":" + expectedCount[i, j].ToString("F2"));
+                }
+            }
         }
 
         public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
@@ -102,26 +189,33 @@ namespace NationalFootballLeagueLibrary
                 if (node is XmlElement elem)
                 {
                     string sScore = elem.GetAttribute("score");
-                    string sCount = elem.GetAttribute("count");
+                    int iCount = int.Parse(elem.GetAttribute("count"));
                     string firstdate = elem.GetAttribute("firstdate");
                     string lastdate = elem.GetAttribute("lastdate");
                     List<string> first = new List<string>();
                     List<string> last = new List<string>();
+                    int exampleCount = 0;
+                    bool isOnly = false;
                     foreach (XmlNode exampleNode in elem.ChildNodes)
                     {
                         if (exampleNode is XmlElement exampleelem)
                         {
                             string sText = exampleelem.InnerText;
-                            if (exampleelem.Name == "First")
+                            if (exampleelem.Name == "Only")
                             {
                                 first.Add(sText);
+                                exampleCount++;
+                                isOnly = true;
+                            }
+                            else if (exampleelem.Name == "First")
+                            {
+                                first.Add(sText);
+                                exampleCount++;
                             }
                             else if (exampleelem.Name == "Last")
                             {
-                                if (!first.Contains(sText))
-                                {
-                                    last.Add(sText);
-                                }
+                                last.Add(sText);
+                                exampleCount++;
                             }
                             else
                             {
@@ -129,9 +223,19 @@ namespace NationalFootballLeagueLibrary
                             }
                         }
                     }
+                    if (isOnly)
+                    {
+                        if (exampleCount != 1 || iCount != 1) 
+                            throw new InvalidOperationException();
+                    }
+                    else //not is only
+                    {
+                        if (exampleCount < 2 || iCount < 2)
+                            throw new InvalidOperationException();
+                    }
                     DateTime dtFirst = DateTime.ParseExact(firstdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     DateTime dtLast = DateTime.ParseExact(lastdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                    FinalScoreInfo fsi = new FinalScoreInfo(sScore, sCount, dtFirst, dtLast);
+                    FinalScoreInfo fsi = new FinalScoreInfo(sScore, iCount, dtFirst, dtLast);
                     fsi.FirstMatchups.AddRange(first);
                     fsi.LastMatchups.AddRange(last);
                     yield return fsi;
@@ -271,7 +375,7 @@ namespace NationalFootballLeagueLibrary
             }
             DateTime firstDate = DateTime.ParseExact(firstGames[0].game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             DateTime lastDate = DateTime.ParseExact(lastGames[0].game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            FinalScoreInfo fsi = new FinalScoreInfo(gsi.PtsW.ToString().PadLeft(2, '0') + "-" + gsi.PtsL.ToString().PadLeft(2, '0'), gsi.Count.ToString().PadLeft(3, '0'), firstDate, lastDate);
+            FinalScoreInfo fsi = new FinalScoreInfo(gsi.PtsW.ToString().PadLeft(2, '0') + "-" + gsi.PtsL.ToString().PadLeft(2, '0'), gsi.Count, firstDate, lastDate);
 
             MatchupType mt;
 
@@ -468,7 +572,7 @@ namespace NationalFootballLeagueLibrary
             /// <summary>
             /// final score info constructor
             /// </summary>
-            public FinalScoreInfo(string Score, string Count, DateTime FirstDate, DateTime LastDate)
+            public FinalScoreInfo(string Score, int Count, DateTime FirstDate, DateTime LastDate)
             {
                 FirstMatchups = new List<string>();
                 LastMatchups = new List<string>();
@@ -504,7 +608,7 @@ namespace NationalFootballLeagueLibrary
             /// <summary>
             /// number of games
             /// </summary>
-            public string Count { get; set; }
+            public int Count { get; set; }
 
             /// <summary>
             /// date for the first game
