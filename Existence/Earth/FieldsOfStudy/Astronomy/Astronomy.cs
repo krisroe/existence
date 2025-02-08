@@ -879,16 +879,15 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
                 [Age("Solar System Age", "14,600 years")]
                 public static class JupitersCoreReachesACriticalMass
                 {
-                }
+                    /// <summary>
+                    /// Large planetary embryos (~2,500+ km) are still merging, further reducing the number of competing bodies.
+                    /// Some of these collisions may be similar to the giant impacts that will later form Earth’s Moon or strip Mercury’s mantle.
+                    /// </summary>
+                    [Age("Solar System Age", "14,800 years")]
+                    public static class MoreProtoplanetaryCollisionsReduceTheNumberOfEmbryos
+                    {
 
-                /// <summary>
-                /// Large planetary embryos (~2,500+ km) are still merging, further reducing the number of competing bodies.
-                /// Some of these collisions may be similar to the giant impacts that will later form Earth’s Moon or strip Mercury’s mantle.
-                /// </summary>
-                [Age("Solar System Age", "14,800 years")]
-                public static class MoreProtoplanetaryCollisionsReduceTheNumberOfEmbryos
-                {
-
+                    }
                 }
 
                 /// <summary>
@@ -921,7 +920,7 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
                 public static class TwentyThousand
                 {
                     public static class SaturnCoreGrowingNearingGasAccretion { }
-                    pubilc static class NeptuneAndUranusStillCompetingWithOtherProtoPlanets { }
+                    public static class NeptuneAndUranusStillCompetingWithOtherProtoPlanets { }
                 }
 
 
