@@ -13,17 +13,34 @@ namespace NationalFootballLeagueLibrary
     {
         public static int RunMain(string[] args)
         {
-            if (args.Length < 1 || string.IsNullOrEmpty(args[0]))
+            if (args.Length < 2 || string.IsNullOrEmpty(args[0]) || string.IsNullOrEmpty(args[1]))
             {
                 Console.WriteLine("No command line arguments given");
                 return Common.READ_NEWLINE;
             }
-            string filePath = args[0];
+            string operation = args[0];
+            string filePath = args[1];
+            if (operation == "fromweb")
+            {
+                SaveToXmlFile(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath);
+            }
+            else if (operation == "reprocessxml") //load from XML file
+            {
+                SaveToXmlFile(GetFinalScoreInfosFromXML(filePath), filePath);
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+            return Common.READ_NEWLINE;
+        }
+
+        public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
+        {
             XmlDocument doc = new XmlDocument();
             XmlElement top = doc.CreateElement("scorigamiinformation");
             doc.AppendChild(top);
-
-            foreach (FinalScoreInfo fsi in ProcessAllGameScoresFromWeb(Common.HttpClient))
+            foreach (FinalScoreInfo fsi in fsis)
             {
                 fsi.WriteToConsole();
                 XmlElement nextScore = doc.CreateElement("score");
@@ -32,23 +49,94 @@ namespace NationalFootballLeagueLibrary
                 nextScore.SetAttribute("firstdate", fsi.FirstDate.ToString("yyyy-MM-dd"));
                 nextScore.SetAttribute("lastdate", fsi.LastDate.ToString("yyyy-MM-dd"));
                 XmlElement matchup;
+
+                //duplicate checking
+                HashSet<string> matchups = new HashSet<string>();
                 foreach (string nextMatchup in fsi.FirstMatchups)
                 {
-                    matchup = doc.CreateElement("First");
-                    matchup.InnerText = nextMatchup;
-                    nextScore.AppendChild(matchup);
+                    if (matchups.Contains(nextMatchup)) throw new InvalidOperationException();
+                    matchups.Add(nextMatchup);
                 }
                 foreach (string nextMatchup in fsi.LastMatchups)
                 {
-                    matchup = doc.CreateElement("Last");
-                    matchup.InnerText = nextMatchup;
+                    if (matchups.Contains(nextMatchup)) throw new InvalidOperationException();
+                    matchups.Add(nextMatchup);
+                }
+
+                int iFirstCount = fsi.FirstMatchups.Count;
+                int iLastCount = fsi.LastMatchups.Count;
+
+                if (iFirstCount + iLastCount == 1)
+                {
+                    matchup = doc.CreateElement("Only");
+                    matchup.InnerText = matchups.First();
                     nextScore.AppendChild(matchup);
+                }
+                else //both first and last
+                {
+                    foreach (string nextMatchup in fsi.FirstMatchups)
+                    {
+                        matchup = doc.CreateElement("First");
+                        matchup.InnerText = nextMatchup;
+                        nextScore.AppendChild(matchup);
+                    }
+                    foreach (string nextMatchup in fsi.LastMatchups)
+                    {
+                        matchup = doc.CreateElement("Last");
+                        matchup.InnerText = nextMatchup;
+                        nextScore.AppendChild(matchup);
+                    }
                 }
                 top.AppendChild(nextScore);
             }
             Common.WriteToFile(doc, filePath);
             Console.Out.WriteLine("Wrote game score info to " + filePath);
-            return Common.READ_NEWLINE;
+        }
+
+        public static IEnumerable<FinalScoreInfo> GetFinalScoreInfosFromXML(string filePath)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+            foreach (XmlNode node in doc.DocumentElement!.ChildNodes)
+            {
+                if (node is XmlElement elem)
+                {
+                    string sScore = elem.GetAttribute("score");
+                    string sCount = elem.GetAttribute("count");
+                    string firstdate = elem.GetAttribute("firstdate");
+                    string lastdate = elem.GetAttribute("lastdate");
+                    List<string> first = new List<string>();
+                    List<string> last = new List<string>();
+                    foreach (XmlNode exampleNode in elem.ChildNodes)
+                    {
+                        if (exampleNode is XmlElement exampleelem)
+                        {
+                            string sText = exampleelem.InnerText;
+                            if (exampleelem.Name == "First")
+                            {
+                                first.Add(sText);
+                            }
+                            else if (exampleelem.Name == "Last")
+                            {
+                                if (!first.Contains(sText))
+                                {
+                                    last.Add(sText);
+                                }
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException();
+                            }
+                        }
+                    }
+                    DateTime dtFirst = DateTime.ParseExact(firstdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    DateTime dtLast = DateTime.ParseExact(lastdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    FinalScoreInfo fsi = new FinalScoreInfo(sScore, sCount, dtFirst, dtLast);
+                    fsi.FirstMatchups.AddRange(first);
+                    fsi.LastMatchups.AddRange(last);
+                    yield return fsi;
+                }
+            }
         }
 
         /// <summary>
