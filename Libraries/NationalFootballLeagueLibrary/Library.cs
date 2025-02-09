@@ -70,7 +70,7 @@ namespace NationalFootballLeagueLibrary
                 int iLoserPts = gi.pts_loss;
                 DateTime dtDateObject = gi.GetDateObject();
                 FinalScoreInfo existingFSI = scorigamis[iWinnerPts, iLoserPts];
-                bool isScorigami = existingFSI == null || existingFSI.LastDate == dtDateObject;
+                bool isScorigami = existingFSI == null || existingFSI.FirstDate == dtDateObject;
                 string matchupString = GetMatchupString(gi.game_location, gi.winner, gi.loser, gi.pts_win, gi.pts_loss, gi.GetMatchupType());
                 if (isScorigami)
                 {
@@ -79,8 +79,6 @@ namespace NationalFootballLeagueLibrary
                         existingFSI = new FinalScoreInfo(gi.pts_win.ToString().PadLeft(2, '0') + "-" + gi.pts_loss.ToString().PadLeft(2, '0'), 0, dtDateObject, dtDateObject);
                         scorigamis[iWinnerPts, iLoserPts] = existingFSI;
                     }
-                    existingFSI.FirstDate = dtDateObject;
-                    existingFSI.LastDate = dtDateObject;
                     existingFSI.FirstMatchups.Add(matchupString);
                 }
                 else
@@ -88,6 +86,7 @@ namespace NationalFootballLeagueLibrary
                     if (existingFSI == null) throw new InvalidOperationException();
                     if (existingFSI.LastDate != dtDateObject)
                     {
+                        existingFSI.LastDate = dtDateObject;
                         existingFSI.LastMatchups.Clear();
                     }
                     existingFSI.LastMatchups.Add(matchupString);
