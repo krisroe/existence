@@ -6,6 +6,7 @@ using LibraryShared;
 using System.Globalization;
 using System.Reflection;
 using System.Xml;
+using static NationalFootballLeagueLibrary.Library;
 
 namespace NationalFootballLeagueLibrary
 {
@@ -22,7 +23,11 @@ namespace NationalFootballLeagueLibrary
             string filePath = args[1];
             if (operation == "fromweb")
             {
-                SaveToCsvFile(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath);
+                using (StreamWriter sw = new StreamWriter(filePath, true))
+                {
+                    sw.Write("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
+                    ProcessAllGameScoresFromWeb(Common.HttpClient, sw);
+                }
             }
             else if (operation == "reprocessxml") //load from XML file
             {
@@ -131,36 +136,6 @@ namespace NationalFootballLeagueLibrary
             }
             Console.WriteLine("Overall Scorigami Percentage 1/X:" + ((double)1 / dScorigamiPercentage).ToString("F2"));
         }
-
-        public static void SaveToCsvFile(IEnumerable<GameInfo> gameInfos, string filePath)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath, true))
-            {
-                sw.WriteLine("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
-                foreach (GameInfo nextGame in gameInfos)
-                {
-                    sw.Write(nextGame.week_num);
-                    sw.Write(",");
-                    sw.Write(nextGame.game_date);
-                    sw.Write(",");
-                    sw.Write(nextGame.winner);
-                    sw.Write(",");
-                    sw.Write(nextGame.loser);
-                    sw.Write(",");
-                    sw.Write(nextGame.game_location);
-                    sw.Write(",");
-                    sw.Write(nextGame.pts_win);
-                    sw.Write(",");
-                    sw.Write(nextGame.pts_loss);
-                    sw.Write(",");
-                    if (nextGame.leagueType != LeagueType.NFL)
-                    {
-                        sw.Write(nextGame.leagueType.ToString());
-                    }
-                }
-            }
-        }
-
         public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
         {
             XmlDocument doc = new XmlDocument();
@@ -516,6 +491,7 @@ namespace NationalFootballLeagueLibrary
                     "Brooklyn-New York Yankees",
                     "Los Angeles Dons",
                     "Buffalo Bills",
+                    "Buffalo Bisons",
                     "Chicago Rockets",
                     "Chicago Hornets",
                     "Miami Seahawks",
@@ -649,20 +625,43 @@ namespace NationalFootballLeagueLibrary
         /// <summary>
         /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
         /// </summary>
+        /// <param name="hc">HTTP client</param>
+        /// <param name="sw">stream writer</param>
         /// <returns>enumerates through the game scores</returns>
-        public static List<GameInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
+        public static void ProcessAllGameScoresFromWeb(HttpClient hc, StreamWriter sw)
         {
-            List<GameInfo> allGames = new List<GameInfo>();
             bool pastFirst = false;
             foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb(hc))
             {
+                List<GameInfo> allGames = new List<GameInfo>();
                 if (pastFirst)
                     Thread.Sleep(5000); //sleep to try to avoid being throttled
                 else
                     pastFirst = true;
                 GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient, allGames);
+                foreach (GameInfo nextGame in allGames)
+                {
+                    sw.WriteLine();
+                    sw.Write(nextGame.week_num);
+                    sw.Write(",");
+                    sw.Write(nextGame.game_date);
+                    sw.Write(",");
+                    sw.Write(nextGame.winner);
+                    sw.Write(",");
+                    sw.Write(nextGame.loser);
+                    sw.Write(",");
+                    sw.Write(nextGame.game_location);
+                    sw.Write(",");
+                    sw.Write(nextGame.pts_win);
+                    sw.Write(",");
+                    sw.Write(nextGame.pts_loss);
+                    sw.Write(",");
+                    if (nextGame.leagueType != LeagueType.NFL)
+                    {
+                        sw.Write(nextGame.leagueType.ToString());
+                    }
+                }
             }
-            return allGames;
         }
 
         /// <summary>
