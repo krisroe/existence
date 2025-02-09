@@ -32,9 +32,11 @@ namespace NationalFootballLeagueLibrary
             {
                 List<GameInfo> allGameInfos = new List<GameInfo>();
                 allGameInfos.AddRange(ProcessAllGameInfosFromCSV(filePath1));
-                ProcessScorigamiCountsBySeason(allGameInfos, false);
+                //ProcessScorigamiCountsBySeason(allGameInfos, false);
                 //allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
                 //WriteGameInfosToCSV(allGameInfos, filePath2);
+                bool includeAAFC = true;
+                SaveToXmlFile(ProcessScorigamiInfo(ProcessAllGameInfosFromCSV(filePath1), includeAAFC), filePath2);
             }
             else if (operation == "reprocessxml") //load from XML file
             {
@@ -50,6 +52,59 @@ namespace NationalFootballLeagueLibrary
             }
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        /// <summary>
+        /// processes scorigami information from games
+        /// </summary>
+        /// <param name="gameInfos">games, assumed to be in chronological order</param>
+        /// <param name="includeAAFC">whether to include AAFC games</param>
+        /// <returns>final score info objects</returns>
+        private static List<FinalScoreInfo> ProcessScorigamiInfo(IEnumerable<GameInfo> gameInfos, bool includeAAFC)
+        {
+            FinalScoreInfo[,] scorigamis = new FinalScoreInfo[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
+            foreach (GameInfo gi in gameInfos)
+            {
+                if (gi.league == LeagueType.AAFC && !includeAAFC) continue;
+                int iWinnerPts = gi.pts_win;
+                int iLoserPts = gi.pts_loss;
+                DateTime dtDateObject = gi.GetDateObject();
+                FinalScoreInfo existingFSI = scorigamis[iWinnerPts, iLoserPts];
+                bool isScorigami = existingFSI == null || existingFSI.LastDate == dtDateObject;
+                string matchupString = GetMatchupString(gi.game_location, gi.winner, gi.loser, gi.pts_win, gi.pts_loss, gi.GetMatchupType());
+                if (isScorigami)
+                {
+                    if (existingFSI == null)
+                    {
+                        existingFSI = new FinalScoreInfo(gi.pts_win.ToString().PadLeft(2, '0') + "-" + gi.pts_loss.ToString().PadLeft(2, '0'), 0, dtDateObject, dtDateObject);
+                        scorigamis[iWinnerPts, iLoserPts] = existingFSI;
+                    }
+                    existingFSI.FirstDate = dtDateObject;
+                    existingFSI.LastDate = dtDateObject;
+                    existingFSI.FirstMatchups.Add(matchupString);
+                }
+                else
+                {
+                    if (existingFSI == null) throw new InvalidOperationException();
+                    if (existingFSI.LastDate != dtDateObject)
+                    {
+                        existingFSI.LastMatchups.Clear();
+                    }
+                    existingFSI.LastMatchups.Add(matchupString);
+                }
+                existingFSI.Count++;
+            }
+            List<FinalScoreInfo> allFinalScores = new List<FinalScoreInfo>();
+            for (int i = 0; i <= MAXIMUM_SCORE; i++)
+            {
+                for (int j = 0; j < MAXIMUM_SCORE; j++)
+                {
+                    FinalScoreInfo fsi = scorigamis[i, j];
+                    if (fsi != null) allFinalScores.Add(fsi);
+                }
+            }
+            allFinalScores.Sort(new FinalScoreInfoSorter(FinalScoreInfoSortType.ByScore));
+            return allFinalScores;
         }
 
         /// <summary>
@@ -464,31 +519,7 @@ namespace NationalFootballLeagueLibrary
 
             foreach (GameInfo nextFirstGame in firstGames)
             {
-                string firstteam1, firstteam2;
-                int firstteam1points, firstteam2points;
-                if (nextFirstGame.game_location == "@" || nextFirstGame.game_location == "N")
-                {
-                    firstteam1 = nextFirstGame.winner;
-                    firstteam1points = gsi.PtsW;
-                    firstteam2 = nextFirstGame.loser;
-                    firstteam2points = gsi.PtsL;
-                }
-                else
-                {
-                    firstteam1 = nextFirstGame.loser;
-                    firstteam1points = gsi.PtsL;
-                    firstteam2 = nextFirstGame.winner;
-                    firstteam2points = gsi.PtsW;
-                }
-                string firstGameVersusOrAt = nextFirstGame.game_location == "N" ? "vs" : "at";
-
-                mt = nextFirstGame.GetMatchupType();
-                string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
-                if (mt != MatchupType.RegularSeason)
-                {
-                    sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
-                }
-                fsi.FirstMatchups.Add(sMatchupString);
+                fsi.FirstMatchups.Add(GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.loser, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
             }
             bool foundMatchingLastGame = false;
             foreach (GameInfo nextLastGame in lastGames)
@@ -541,6 +572,33 @@ namespace NationalFootballLeagueLibrary
                 throw new InvalidOperationException();
             }
             return fsi;
+        }
+
+        private static string GetMatchupString(string game_location, string winner, string loser, int PtsW, int PtsL, MatchupType mt)
+        {
+            string firstteam1, firstteam2;
+            int firstteam1points, firstteam2points;
+            if (game_location == "@" || game_location == "N")
+            {
+                firstteam1 = winner;
+                firstteam1points = PtsW;
+                firstteam2 = loser;
+                firstteam2points = PtsL;
+            }
+            else
+            {
+                firstteam1 = loser;
+                firstteam1points = PtsL;
+                firstteam2 = winner;
+                firstteam2points = PtsW;
+            }
+            string firstGameVersusOrAt = game_location == "N" ? "vs" : "at";
+            string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
+            if (mt != MatchupType.RegularSeason)
+            {
+                sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
+            }
+            return sMatchupString;
         }
 
         private static LeagueType DetermineLeagueType(DateTime dt, string team1, string team2)
@@ -710,6 +768,39 @@ namespace NationalFootballLeagueLibrary
             }
         }
 
+        public enum FinalScoreInfoSortType
+        {
+            TotalCountDescending,
+            ByScore,
+        }
+
+        public class FinalScoreInfoSorter : IComparer<FinalScoreInfo>
+        {
+            private FinalScoreInfoSortType SortType { get; set; }
+            public FinalScoreInfoSorter(FinalScoreInfoSortType SortType)
+            {
+                this.SortType = SortType;
+            }
+            public int Compare(FinalScoreInfo? x, FinalScoreInfo? y)
+            {
+                if (x == null || y == null) throw new InvalidOperationException();
+                int ret;
+                if (SortType == FinalScoreInfoSortType.TotalCountDescending)
+                {
+                    ret = y.Count.CompareTo(x.Count);
+                }
+                else if (SortType == FinalScoreInfoSortType.ByScore)
+                {
+                    ret = x.Score.CompareTo(y.Score);
+                }
+                else
+                {
+                    throw new InvalidOperationException();
+                }
+                return ret;
+            }
+        }
+
         /// <summary>
         /// final score info
         /// </summary>
@@ -838,7 +929,7 @@ namespace NationalFootballLeagueLibrary
             /// retrieves the game info date object
             /// </summary>
             /// <returns>game info date object</returns>
-            public DateTime GetDateTime()
+            public DateTime GetDateObject()
             {
                 if (this.ParsedDate == null)
                 {
@@ -853,7 +944,7 @@ namespace NationalFootballLeagueLibrary
             /// <returns>game info year</returns>
             public int GetYear()
             {
-                return this.GetDateTime().Year;
+                return this.GetDateObject().Year;
             }
 
             /// <summary>
@@ -862,7 +953,7 @@ namespace NationalFootballLeagueLibrary
             /// <returns>game info month</returns>
             public int GetMonth()
             {
-                return this.GetDateTime().Month;
+                return this.GetDateObject().Month;
             }
 
             /// <summary>
@@ -871,7 +962,7 @@ namespace NationalFootballLeagueLibrary
             /// <returns>game info day</returns>
             public int GetDay()
             {
-                return this.GetDateTime().Day;
+                return this.GetDateObject().Day;
             }
 
             /// <summary>
