@@ -1,12 +1,11 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
+using CsvHelper.TypeConversion;
 using HtmlAgilityPack;
 using LibraryShared;
 using System.Globalization;
-using System.Reflection;
 using System.Xml;
-using static NationalFootballLeagueLibrary.Library;
 
 namespace NationalFootballLeagueLibrary
 {
@@ -20,28 +19,64 @@ namespace NationalFootballLeagueLibrary
                 return Common.READ_NEWLINE;
             }
             string operation = args[0];
-            string filePath = args[1];
+            string filePath1 = args[1];
+            string filePath2 = args.Length > 2 ? args[2] : string.Empty;
             if (operation == "fromweb")
             {
-                using (StreamWriter sw = new StreamWriter(filePath, true))
-                {
-                    sw.Write("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
-                    ProcessAllGameScoresFromWeb(Common.HttpClient, sw);
-                }
+                WriteGameInfosToCSV(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath1);
+            }
+            else if (operation == "fromcsv") //load from all games csv file
+            {
+                List<GameInfo> allGameInfos = new List<GameInfo>();
+                allGameInfos.AddRange(ProcessAllGameInfosFromCSV(filePath1));
+                allGameInfos.Sort(new GameInfoComparer());
+                WriteGameInfosToCSV(allGameInfos, filePath2);
             }
             else if (operation == "reprocessxml") //load from XML file
             {
-                SaveToXmlFile(GetFinalScoreInfosFromXML(filePath), filePath);
+                SaveToXmlFile(GetFinalScoreInfosFromXML(filePath1), filePath1);
             }
             else if (operation == "loadxml")
             {
-                GetProbabilitiesForAllScores(GetFinalScoreInfosFromXML(filePath), true);
+                GetProbabilitiesForAllScores(GetFinalScoreInfosFromXML(filePath1), true);
             }
             else
             {
                 throw new InvalidOperationException();
             }
+            Console.Out.WriteLine("Finished! Press Enter to Continue.")
             return Common.READ_NEWLINE;
+        }
+
+        private static void WriteGameInfosToCSV(IEnumerable<GameInfo> gameInfos, string filePath)
+        {
+            if (File.Exists(filePath)) throw new InvalidOperationException();
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.Write("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
+                foreach (GameInfo gi in gameInfos)
+                {
+                    sw.WriteLine();
+                    sw.Write(gi.week_num);
+                    sw.Write(",");
+                    sw.Write(gi.game_date);
+                    sw.Write(",");
+                    sw.Write(gi.winner);
+                    sw.Write(",");
+                    sw.Write(gi.loser);
+                    sw.Write(",");
+                    sw.Write(gi.game_location);
+                    sw.Write(",");
+                    sw.Write(gi.pts_win);
+                    sw.Write(",");
+                    sw.Write(gi.pts_loss);
+                    sw.Write(",");
+                    if (gi.league != LeagueType.NFL)
+                    {
+                        sw.Write(gi.league.ToString());
+                    }
+                }
+            }
         }
 
         private static void GetProbabilitiesForAllScores(IEnumerable<FinalScoreInfo> fsis, bool displayActualCounts)
@@ -352,7 +387,7 @@ namespace NationalFootballLeagueLibrary
                     }
                     if (!nextGame.IsValid()) throw new InvalidOperationException();
                     DateTime dtGameDate = DateTime.ParseExact(nextGame.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                    nextGame.leagueType = DetermineLeagueType(dtGameDate, nextGame.winner, nextGame.loser);
+                    nextGame.league = DetermineLeagueType(dtGameDate, nextGame.winner, nextGame.loser);
                     keepTrackOfAllGames.Add(nextGame);
 
                     int iComparisonValue;
@@ -626,9 +661,8 @@ namespace NationalFootballLeagueLibrary
         /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
         /// </summary>
         /// <param name="hc">HTTP client</param>
-        /// <param name="sw">stream writer</param>
         /// <returns>enumerates through the game scores</returns>
-        public static void ProcessAllGameScoresFromWeb(HttpClient hc, StreamWriter sw)
+        public static IEnumerable<GameInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
         {
             bool pastFirst = false;
             foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb(hc))
@@ -641,25 +675,7 @@ namespace NationalFootballLeagueLibrary
                 GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient, allGames);
                 foreach (GameInfo nextGame in allGames)
                 {
-                    sw.WriteLine();
-                    sw.Write(nextGame.week_num);
-                    sw.Write(",");
-                    sw.Write(nextGame.game_date);
-                    sw.Write(",");
-                    sw.Write(nextGame.winner);
-                    sw.Write(",");
-                    sw.Write(nextGame.loser);
-                    sw.Write(",");
-                    sw.Write(nextGame.game_location);
-                    sw.Write(",");
-                    sw.Write(nextGame.pts_win);
-                    sw.Write(",");
-                    sw.Write(nextGame.pts_loss);
-                    sw.Write(",");
-                    if (nextGame.leagueType != LeagueType.NFL)
-                    {
-                        sw.Write(nextGame.leagueType.ToString());
-                    }
+                    yield return nextGame;
                 }
             }
         }
@@ -731,6 +747,14 @@ namespace NationalFootballLeagueLibrary
             public List<string> LastMatchups { get; set; }
         }
 
+        public class GameInfoComparer : IComparer<GameInfo>
+        {
+            public int Compare(GameInfo? x, GameInfo? y)
+            {
+                if (x == null || y == null) throw new InvalidOperationException();
+                return x.game_date.CompareTo(y.game_date);
+            }
+        }
 
         /// <summary>
         /// game information for matchup
@@ -751,7 +775,7 @@ namespace NationalFootballLeagueLibrary
                     winner = string.Empty,
                     game_location = string.Empty,
                     loser = string.Empty,
-                    leagueType = LeagueType.NFL,
+                    league = LeagueType.NFL,
                 };
             }
 
@@ -792,8 +816,14 @@ namespace NationalFootballLeagueLibrary
                 return mt;
             }
 
+            /// <summary>
+            /// winning team points
+            /// </summary>
             public required int pts_win { get; set; }
 
+            /// <summary>
+            /// losting team points
+            /// </summary>
             public required int pts_loss { get; set; }
 
             /// <summary>
@@ -824,7 +854,61 @@ namespace NationalFootballLeagueLibrary
             /// <summary>
             /// league type
             /// </summary>
-            public required LeagueType leagueType { get; set; }
+            public required LeagueType league { get; set; }
+        }
+
+        public class GameInfoMap : ClassMap<GameInfo>
+        {
+            public GameInfoMap()
+            {
+                Map(m => m.pts_win);
+                Map(m => m.pts_loss);
+                Map(m => m.week_num);
+                Map(m => m.game_date);
+                Map(m => m.winner);
+                Map(m => m.game_location);
+                Map(m => m.loser);
+                Map(m => m.league).TypeConverter<LeagueTypeConverter>();
+            }
+        }
+
+        public class LeagueTypeConverter : ITypeConverter
+        {
+            public object? ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
+            {
+                if (string.IsNullOrEmpty(text))
+                {
+                    return LeagueType.NFL;
+                }
+                if (Enum.TryParse<LeagueType>(text, out LeagueType result))
+                {
+                    return result;
+                }
+                throw new TypeConverterException(this, memberMapData, text, row.Context);
+            }
+
+            public string? ConvertToString(object? value, IWriterRow row, MemberMapData memberMapData)
+            {
+                return value?.ToString() ?? string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// processes all game scores from local CSV
+        /// </summary>
+        /// <param name="filePath">file path</param>
+        /// <returns>game info objects</returns>
+        public static IEnumerable<GameInfo> ProcessAllGameInfosFromCSV(string filePath)
+        {
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Context.RegisterClassMap<GameInfoMap>();
+                foreach (GameInfo gi in csv.GetRecords<GameInfo>())
+                {
+                    yield return gi;
+                }
+            }
         }
 
 
@@ -832,12 +916,9 @@ namespace NationalFootballLeagueLibrary
         /// processes all game scores from local CSV (copy from https://www.pro-football-reference.com/boxscores/game-scores.htm)
         /// </summary>
         /// <returns>enumerates through the game scores</returns>
-        public static IEnumerable<GameScoreInfo> ProcessAllGameScoresFromCSV()
+        public static IEnumerable<GameScoreInfo> ProcessAllGameScoresFromCSV(string filePath)
         {
-            string sExecutingAssemblyLocation = Assembly.GetExecutingAssembly().Location;
-            FileInfo oExecutingFile = new FileInfo(sExecutingAssemblyLocation);
-            string allGameScoresLocation = Path.Combine(oExecutingFile.Directory!.FullName, "AllGameScores.txt");
-            using (var reader = new StreamReader(allGameScoresLocation))
+            using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Context.RegisterClassMap<GameScoreRowMap>();
