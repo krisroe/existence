@@ -22,7 +22,7 @@ namespace NationalFootballLeagueLibrary
             string filePath = args[1];
             if (operation == "fromweb")
             {
-                SaveToXmlFile(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath);
+                SaveToCsvFile(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath);
             }
             else if (operation == "reprocessxml") //load from XML file
             {
@@ -130,6 +130,35 @@ namespace NationalFootballLeagueLibrary
                 }
             }
             Console.WriteLine("Overall Scorigami Percentage 1/X:" + ((double)1 / dScorigamiPercentage).ToString("F2"));
+        }
+
+        public static void SaveToCsvFile(IEnumerable<GameInfo> gameInfos, string filePath)
+        {
+            using (StreamWriter sw = new StreamWriter(filePath, true))
+            {
+                sw.WriteLine("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
+                foreach (GameInfo nextGame in gameInfos)
+                {
+                    sw.Write(nextGame.week_num);
+                    sw.Write(",");
+                    sw.Write(nextGame.game_date);
+                    sw.Write(",");
+                    sw.Write(nextGame.winner);
+                    sw.Write(",");
+                    sw.Write(nextGame.loser);
+                    sw.Write(",");
+                    sw.Write(nextGame.game_location);
+                    sw.Write(",");
+                    sw.Write(nextGame.pts_win);
+                    sw.Write(",");
+                    sw.Write(nextGame.pts_loss);
+                    sw.Write(",");
+                    if (nextGame.leagueType != LeagueType.NFL)
+                    {
+                        sw.Write(nextGame.leagueType.ToString());
+                    }
+                }
+            }
         }
 
         public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
@@ -258,8 +287,9 @@ namespace NationalFootballLeagueLibrary
         /// </summary>
         /// <param name="gsi">game score information</param>
         /// <param name="hc">http client</param>
+        /// <param name="keepTrackOfAllGames">list for keeping track of all games</param>
         /// <exception cref="InvalidOperationException"></exception>
-        public static FinalScoreInfo GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc)
+        public static FinalScoreInfo GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc, List<GameInfo> keepTrackOfAllGames)
         {
             string sURL = $"https://www.pro-football-reference.com/boxscores/game_scores_find.cgi?pts_win={gsi.PtsW}&pts_lose={gsi.PtsL}";
             HtmlDocument mainDoc = GetHtmlDocumentFromURL(sURL, hc);
@@ -272,7 +302,7 @@ namespace NationalFootballLeagueLibrary
                 iRowIndex++;
                 if (iRowIndex > 1)
                 {
-                    GameInfo nextGame = GameInfo.GetEmptyObject();
+                    GameInfo nextGame = GameInfo.GetEmptyObject(gsi.PtsW, gsi.PtsL);
                     foreach (HtmlNode nextCol in nextRow.ChildNodes.AsEnumerable())
                     {
                         string sColName = nextCol.Name;
@@ -346,6 +376,9 @@ namespace NationalFootballLeagueLibrary
                         }
                     }
                     if (!nextGame.IsValid()) throw new InvalidOperationException();
+                    DateTime dtGameDate = DateTime.ParseExact(nextGame.game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    nextGame.leagueType = DetermineLeagueType(dtGameDate, nextGame.winner, nextGame.loser);
+                    keepTrackOfAllGames.Add(nextGame);
 
                     int iComparisonValue;
 
@@ -439,6 +472,8 @@ namespace NationalFootballLeagueLibrary
                 mt = nextLastGame.GetMatchupType();
                 string lastGameVersusOrAt = nextLastGame.game_location == "N" ? "vs" : "at";
                 string lastMatchup = lastteam1 + " " + lastteam1points.ToString() + " " + lastGameVersusOrAt + " " + lastteam2points.ToString() + " " + lastteam2;
+
+                //validate the existing last matchup value (with respect to the pro football reference dataset)
                 if (string.Equals(lastMatchup, gsi.LastMatchup) ||
                     string.Equals(lastMatchup, gsi.LastMatchup.Replace(" vs ", " at ")) ||
                     string.Equals(nextLastGame.winner + " vs " + nextLastGame.loser, gsi.LastMatchup) ||
@@ -454,6 +489,7 @@ namespace NationalFootballLeagueLibrary
                     }
                     foundMatchingLastGame = true;
                 }
+
                 if (mt != MatchupType.RegularSeason)
                 {
                     lastMatchup += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
@@ -465,6 +501,59 @@ namespace NationalFootballLeagueLibrary
                 throw new InvalidOperationException();
             }
             return fsi;
+        }
+
+        private static LeagueType DetermineLeagueType(DateTime dt, string team1, string team2)
+        {
+            LeagueType ret = LeagueType.NFL;
+            if (dt.Year >= 1946 && dt.Year <= 1946)
+            {
+                HashSet<string> aafcTeams = new HashSet<string>()
+                {
+                    "Cleveland Browns",
+                    "San Francisco 49ers",
+                    "New York Yankees",
+                    "Brooklyn-New York Yankees",
+                    "Los Angeles Dons",
+                    "Buffalo Bills",
+                    "Chicago Rockets",
+                    "Chicago Hornets",
+                    "Miami Seahawks",
+                    "Baltimore Colts",
+                    "Brooklyn Dodgers",
+                };
+                bool isTeam1AAFC = aafcTeams.Contains(team1);
+                bool isTeam2AAFC = aafcTeams.Contains(team2);
+                if (isTeam1AAFC && isTeam2AAFC)
+                {
+                    ret = LeagueType.AAFC;
+                }
+                else if (!isTeam1AAFC && !isTeam2AAFC)
+                {
+                    ret = LeagueType.NFL;
+                }
+                else //inconsistent
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// league type
+        /// </summary>
+        public enum LeagueType
+        {
+            /// <summary>
+            /// national football league
+            /// </summary>
+            NFL,
+
+            /// <summary>
+            /// AAFC (1946-1949)
+            /// </summary>
+            AAFC,
         }
 
         private static IEnumerable<GameScoreInfo> GetAllGameScoresFromWeb(HttpClient hc)
@@ -561,8 +650,9 @@ namespace NationalFootballLeagueLibrary
         /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
         /// </summary>
         /// <returns>enumerates through the game scores</returns>
-        public static IEnumerable<FinalScoreInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
+        public static List<GameInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
         {
+            List<GameInfo> allGames = new List<GameInfo>();
             bool pastFirst = false;
             foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb(hc))
             {
@@ -570,8 +660,9 @@ namespace NationalFootballLeagueLibrary
                     Thread.Sleep(5000); //sleep to try to avoid being throttled
                 else
                     pastFirst = true;
-                yield return Library.GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient);
+                GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient, allGames);
             }
+            return allGames;
         }
 
         /// <summary>
@@ -650,15 +741,18 @@ namespace NationalFootballLeagueLibrary
             /// <summary>
             /// constructor
             /// </summary>
-            public static GameInfo GetEmptyObject()
+            public static GameInfo GetEmptyObject(int pts_win, int pts_loss)
             {
                 return new GameInfo()
                 {
+                    pts_win = pts_win,
+                    pts_loss = pts_loss,
                     week_num = string.Empty,
                     game_date = string.Empty,
                     winner = string.Empty,
                     game_location = string.Empty,
-                    loser = string.Empty
+                    loser = string.Empty,
+                    leagueType = LeagueType.NFL,
                 };
             }
 
@@ -699,6 +793,10 @@ namespace NationalFootballLeagueLibrary
                 return mt;
             }
 
+            public required int pts_win { get; set; }
+
+            public required int pts_loss { get; set; }
+
             /// <summary>
             /// week number
             /// </summary>
@@ -723,6 +821,11 @@ namespace NationalFootballLeagueLibrary
             /// loser
             /// </summary>
             public required string loser { get; set; }
+
+            /// <summary>
+            /// league type
+            /// </summary>
+            public required LeagueType leagueType { get; set; }
         }
 
 
