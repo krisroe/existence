@@ -266,8 +266,15 @@ namespace NationalFootballLeagueLibrary
                 XmlElement nextScore = doc.CreateElement("score");
                 nextScore.SetAttribute("score", fsi.Score);
                 nextScore.SetAttribute("count", fsi.Count.ToString());
-                nextScore.SetAttribute("firstdate", fsi.FirstDate.ToString("yyyy-MM-dd"));
-                nextScore.SetAttribute("lastdate", fsi.LastDate.ToString("yyyy-MM-dd"));
+                if (fsi.Count == 1)
+                {
+                    nextScore.SetAttribute("onlydate", fsi.FirstDate.ToString("yyyy-MM-dd"));
+                }
+                else
+                {
+                    nextScore.SetAttribute("firstdate", fsi.FirstDate.ToString("yyyy-MM-dd"));
+                    nextScore.SetAttribute("lastdate", fsi.LastDate.ToString("yyyy-MM-dd"));
+                }
                 XmlElement matchup;
 
                 //duplicate checking
@@ -323,6 +330,7 @@ namespace NationalFootballLeagueLibrary
                 {
                     string sScore = elem.GetAttribute("score");
                     int iCount = int.Parse(elem.GetAttribute("count"));
+                    string onlydate = elem.GetAttribute("onlydate");
                     string firstdate = elem.GetAttribute("firstdate");
                     string lastdate = elem.GetAttribute("lastdate");
                     List<string> first = new List<string>();
@@ -356,18 +364,24 @@ namespace NationalFootballLeagueLibrary
                             }
                         }
                     }
+                    DateTime dtFirst, dtLast;
                     if (isOnly)
                     {
                         if (exampleCount != 1 || iCount != 1) 
                             throw new InvalidOperationException();
+                        if (string.IsNullOrEmpty(onlydate) || !string.IsNullOrEmpty(firstdate) || !string.IsNullOrEmpty(lastdate))
+                            throw new InvalidOperationException();
+                        dtFirst = dtLast = DateTime.ParseExact(onlydate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     }
                     else //not is only
                     {
+                        if (!string.IsNullOrEmpty(onlydate) || string.IsNullOrEmpty(firstdate) || string.IsNullOrEmpty(lastdate))
+                            throw new InvalidOperationException();
                         if (exampleCount < 2 || iCount < 2)
                             throw new InvalidOperationException();
+                        dtFirst = DateTime.ParseExact(firstdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                        dtLast = DateTime.ParseExact(lastdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     }
-                    DateTime dtFirst = DateTime.ParseExact(firstdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                    DateTime dtLast = DateTime.ParseExact(lastdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     FinalScoreInfo fsi = new FinalScoreInfo(sScore, iCount, dtFirst, dtLast);
                     fsi.FirstMatchups.AddRange(first);
                     fsi.LastMatchups.AddRange(last);
