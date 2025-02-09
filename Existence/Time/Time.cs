@@ -11,6 +11,11 @@ namespace Existence.Time
         }
     }
 
+    public class BirthdateAttribute : YearDateAttribute
+    {
+        public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
     public class YearDateAttribute : CalendarDateAttribute
     {
         public int Year { get; set; }

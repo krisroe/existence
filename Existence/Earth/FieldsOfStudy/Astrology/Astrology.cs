@@ -1,5 +1,33 @@
-﻿namespace Existence.Earth.FieldsOfStudy.Astrology
+﻿using System;
+
+namespace Existence.Earth.FieldsOfStudy.Astrology
 {
+    public enum AstrologicalSigns
+    {
+        Aries,
+        Taurus,
+        Gemini,
+        Cancer,
+        Leo,
+        Virgo,
+        Libra,
+        Scorpio,
+        Sagittarius,
+        Capricorn,
+        Aquarius,
+        Pisces
+    }
+
+    public class AstrologicalSignAttribute : Attribute
+    {
+        public AstrologicalSigns Sign { get; set; }
+        public AstrologicalSignAttribute(AstrologicalSigns Sign)
+        {
+            this.Sign = Sign;
+        }
+    }
+
+
     public static class Astrology
     {
         public static class NotScienceAnymore { }

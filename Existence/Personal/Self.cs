@@ -1,6 +1,10 @@
-﻿
+﻿using Existence.Earth.FieldsOfStudy.Astrology;
+using Existence.Time;
+
 namespace Existence.Personal
 {
+    [AstrologicalSign(AstrologicalSigns.Sagittarius)]
+    [Birthdate(1980, 12, 6)]
     internal static class Self
     {
         public static class Name
@@ -15,11 +19,6 @@ namespace Existence.Personal
             public static class Pugs { }
             public static class Abuse { }
             public static class RemindMeNotTo { }
-        }
-
-        public static class AstrologicalSign
-        {
-            public static class Sagittarius { }
         }
         public static class Man { }
         public static class Male { }
@@ -84,22 +83,6 @@ namespace Existence.Personal
                 public static class Inpatient { }
                 public static class HOV { }
                 public static class Ambulatory { }
-            }
-        }
-
-        public static class Birth
-        {
-            public static class Year
-            {
-                public static class OneThousandNineHundredEighty { }
-            }
-            public static class Month
-            {
-                public static class December { }
-            }
-            public static class Day
-            {
-                public static class Six { }
             }
         }
 
