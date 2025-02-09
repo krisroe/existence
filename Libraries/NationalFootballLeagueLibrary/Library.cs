@@ -29,7 +29,7 @@ namespace NationalFootballLeagueLibrary
             {
                 List<GameInfo> allGameInfos = new List<GameInfo>();
                 allGameInfos.AddRange(ProcessAllGameInfosFromCSV(filePath1));
-                allGameInfos.Sort(new GameInfoComparer());
+                allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
                 WriteGameInfosToCSV(allGameInfos, filePath2);
             }
             else if (operation == "reprocessxml") //load from XML file
@@ -44,7 +44,7 @@ namespace NationalFootballLeagueLibrary
             {
                 throw new InvalidOperationException();
             }
-            Console.Out.WriteLine("Finished! Press Enter to Continue.")
+            Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
         }
 
@@ -747,12 +747,37 @@ namespace NationalFootballLeagueLibrary
             public List<string> LastMatchups { get; set; }
         }
 
+        public enum GameInfoSortType
+        {
+            Chronological,
+            ChronologicalWithinCalendarYear,
+        }
+
         public class GameInfoComparer : IComparer<GameInfo>
         {
+            private GameInfoSortType GameInfoSortType { get; set; }
+            public GameInfoComparer(GameInfoSortType GameInfoSortType)
+            {
+                this.GameInfoSortType = GameInfoSortType;
+            }
             public int Compare(GameInfo? x, GameInfo? y)
             {
                 if (x == null || y == null) throw new InvalidOperationException();
-                return x.game_date.CompareTo(y.game_date);
+                int ret;
+                if (GameInfoSortType == GameInfoSortType.Chronological)
+                {
+                    ret = x.game_date.CompareTo(y.game_date);
+                }
+                else if (GameInfoSortType == GameInfoSortType.ChronologicalWithinCalendarYear)
+                {
+                    ret = x.GetMonth().CompareTo(y.GetMonth());
+                    if (ret == 0) ret = x.GetDay().CompareTo(y.GetDay());
+                }
+                else
+                {
+                    throw new InvalidOperationException();
+                }
+                return ret;
             }
         }
 
@@ -777,6 +802,46 @@ namespace NationalFootballLeagueLibrary
                     loser = string.Empty,
                     league = LeagueType.NFL,
                 };
+            }
+
+            /// <summary>
+            /// retrieves the game info date object
+            /// </summary>
+            /// <returns>game info date object</returns>
+            public DateTime GetDateTime()
+            {
+                if (this.ParsedDate == null)
+                {
+                    this.ParsedDate = DateTime.ParseExact(game_date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
+                return this.ParsedDate.Value;
+            }
+
+            /// <summary>
+            /// retrieves the game info year
+            /// </summary>
+            /// <returns>game info year</returns>
+            public int GetYear()
+            {
+                return this.GetDateTime().Year;
+            }
+
+            /// <summary>
+            /// retrieves the game info month
+            /// </summary>
+            /// <returns>game info month</returns>
+            public int GetMonth()
+            {
+                return this.GetDateTime().Month;
+            }
+
+            /// <summary>
+            /// retrieves the game info day
+            /// </summary>
+            /// <returns>game info day</returns>
+            public int GetDay()
+            {
+                return this.GetDateTime().Day;
             }
 
             /// <summary>
@@ -835,6 +900,11 @@ namespace NationalFootballLeagueLibrary
             /// game date
             /// </summary>
             public required string game_date { get; set; }
+
+            /// <summary>
+            /// parsed date
+            /// </summary>
+            private DateTime? ParsedDate { get; set; }
 
             /// <summary>
             /// winner
