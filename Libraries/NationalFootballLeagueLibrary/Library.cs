@@ -11,6 +11,9 @@ namespace NationalFootballLeagueLibrary
 {
     public static class Library
     {
+        public const int MAXIMUM_SCORE = 73;
+        public const int STARTING_YEAR = 1920;
+
         public static int RunMain(string[] args)
         {
             if (args.Length < 2 || string.IsNullOrEmpty(args[0]) || string.IsNullOrEmpty(args[1]))
@@ -29,8 +32,9 @@ namespace NationalFootballLeagueLibrary
             {
                 List<GameInfo> allGameInfos = new List<GameInfo>();
                 allGameInfos.AddRange(ProcessAllGameInfosFromCSV(filePath1));
-                allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
-                WriteGameInfosToCSV(allGameInfos, filePath2);
+                ProcessScorigamiCountsBySeason(allGameInfos, false);
+                //allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
+                //WriteGameInfosToCSV(allGameInfos, filePath2);
             }
             else if (operation == "reprocessxml") //load from XML file
             {
@@ -46,6 +50,33 @@ namespace NationalFootballLeagueLibrary
             }
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        /// <summary>
+        /// process scorigami counts by season (useful for validating https://champsorchumps.us/summary/nfl/scorigamis-by-year)
+        /// </summary>
+        /// <param name="gameInfos">game information</param>
+        /// <param name="includeAAFC">whether to include AAFC games (Champs or Chumps does not consider these games)</param>
+        private static void ProcessScorigamiCountsBySeason(IEnumerable<GameInfo> gameInfos, bool includeAAFC)
+        {
+            int nowYear = DateTime.Now.Year;
+            bool[,] scorigamis = new bool[MAXIMUM_SCORE+1, MAXIMUM_SCORE+1];
+            int[] scorigamiCountsByYear = new int[nowYear - STARTING_YEAR + 1];
+            foreach (GameInfo gi in gameInfos)
+            {
+                if (gi.league == LeagueType.AAFC && !includeAAFC) continue;
+                int iWinnerPts = gi.pts_win;
+                int iLoserPts = gi.pts_loss;
+                if (!scorigamis[iWinnerPts, iLoserPts])
+                {
+                    scorigamis[iWinnerPts, iLoserPts] = true;
+                    scorigamiCountsByYear[gi.GetSeasonStartingYear() - STARTING_YEAR]++;
+                }
+            }
+            for (int i = 0; i < scorigamiCountsByYear.Length; i++)
+            {
+                Console.Out.WriteLine(i + STARTING_YEAR + ": " + scorigamiCountsByYear[i]);
+            }
         }
 
         private static void WriteGameInfosToCSV(IEnumerable<GameInfo> gameInfos, string filePath)
@@ -81,11 +112,10 @@ namespace NationalFootballLeagueLibrary
 
         private static void GetProbabilitiesForAllScores(IEnumerable<FinalScoreInfo> fsis, bool displayActualCounts)
         {
-            int maxScore = 73;
             int totalFinalScores = 0;
             int totalCount = 0;
-            int[] buckets = new int[maxScore+1];
-            FinalScoreInfo[,] finalScores = new FinalScoreInfo[maxScore+1, maxScore+1];
+            int[] buckets = new int[MAXIMUM_SCORE+1];
+            FinalScoreInfo[,] finalScores = new FinalScoreInfo[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
 
             foreach (FinalScoreInfo fsi in fsis)
             {
@@ -109,7 +139,7 @@ namespace NationalFootballLeagueLibrary
             if (displayActualCounts)
             {
                 Console.Out.WriteLine(totalFinalScores + " unique scores");
-                for (int i = 0; i <= maxScore; i++)
+                for (int i = 0; i <= MAXIMUM_SCORE; i++)
                 {
                     Console.Out.WriteLine(i + " points: " + buckets[i] + "/" + totalCount);
                 }
@@ -129,10 +159,10 @@ namespace NationalFootballLeagueLibrary
             buckets[71] = d72Count;
 
             double dTotalExpectedCount = 0;
-            double[,] expectedPercentage = new double[maxScore + 1, maxScore + 1];
-            double[,] expectedCount = new double[maxScore+1,maxScore+1];
+            double[,] expectedPercentage = new double[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
+            double[,] expectedCount = new double[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
             
-            for (int i = 0; i <= maxScore; i++)
+            for (int i = 0; i <= MAXIMUM_SCORE; i++)
             {
                 double dPercentageWinner = (double)buckets[i] / totalCount;
                 for (int j = i; j >= 0; j--)
@@ -156,7 +186,7 @@ namespace NationalFootballLeagueLibrary
 
             //print out expected number of games for that score
             double dScorigamiPercentage = 0;
-            for (int i = 0; i <= maxScore; i++)
+            for (int i = 0; i <= MAXIMUM_SCORE; i++)
             {
                 for (int j = i; j >= 0; j--)
                 {
@@ -516,7 +546,7 @@ namespace NationalFootballLeagueLibrary
         private static LeagueType DetermineLeagueType(DateTime dt, string team1, string team2)
         {
             LeagueType ret = LeagueType.NFL;
-            if (dt.Year >= 1946 && dt.Year <= 1946)
+            if (dt.Year >= 1946 && dt.Year <= 1949)
             {
                 HashSet<string> aafcTeams = new HashSet<string>()
                 {
@@ -842,6 +872,18 @@ namespace NationalFootballLeagueLibrary
             public int GetDay()
             {
                 return this.GetDateTime().Day;
+            }
+
+            /// <summary>
+            /// retrieves the season starting year. This assumes a season lasts from August-February (there are no games outside that window)
+            /// </summary>
+            /// <returns>season starting year</returns>
+            public int GetSeasonStartingYear()
+            {
+                int y = GetYear();
+                int m = GetMonth();
+                if (m == 1 || m == 2) y--;
+                return y;
             }
 
             /// <summary>
