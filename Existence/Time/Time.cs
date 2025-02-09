@@ -1,5 +1,36 @@
-﻿namespace Existence.Time
+﻿using System;
+
+namespace Existence.Time
 {
+    public class YearAttribute : Attribute
+    {
+        public int Year { get; set; }
+        public YearAttribute(int Year)
+        {
+            this.Year = Year;
+        }
+    }
+
+    public class YearDateAttribute : CalendarDateAttribute
+    {
+        public int Year { get; set; }
+        public YearDateAttribute(int Year, int Month, int Day) : base(Month, Day)
+        {
+            this.Year = Year;
+        }
+    }
+
+    public class CalendarDateAttribute : Attribute
+    {
+        public int Month { get; set; }
+        public int Day { get; set; }
+        public CalendarDateAttribute(int Month, int Day)
+        {
+            this.Month = Month;
+            this.Day = Day;
+        }
+    }
+
     internal class SpaceTimeContinuum
     {
         internal class Continuum

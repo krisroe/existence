@@ -1,4 +1,4 @@
-﻿namespace Existence.Earth.Alphabet
+﻿namespace Existence.Earth.Languages.English
 {
     internal class Letters
     {

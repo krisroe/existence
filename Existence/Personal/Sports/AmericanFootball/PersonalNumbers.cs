@@ -1,7 +1,9 @@
 ﻿
+using static Existence.Earth.Countries.UnitedStates.StatesAlphabetical;
+
 namespace Existence.Personal.Sports.AmericanFootball
 {
-    internal class PersonalNumbers
+    internal class PersonalNumbersSuperBowl59
     {
         /// <summary>
         /// attended BUF-GB game ending 22-0 (something scorigami related happened)
@@ -9,7 +11,7 @@ namespace Existence.Personal.Sports.AmericanFootball
         public static class TwentyTwoNothingSecondLevelScorigami { }
 
         /// <summary>
-        /// 22-0 scorigami changed to a level 14 scorigami as a reality break (?)
+        /// 22-0 scorigami changed to a level 14 scorigami as a reality break (?) (old games added to scorigami list?)
         /// </summary>
         public static class TwentyTwoNothingScorigamiChangedToFourteen { }
 
@@ -23,5 +25,12 @@ namespace Existence.Personal.Sports.AmericanFootball
         /// New England Patriots 14 at 10 Buffalo Bills
         /// </summary>
         public static class FourteenTenScorigamiHadLatestOccurrenceOnMyBirthdayEightyEight { }
+
+        /// <summary>
+        /// 29-10 (level 19)
+        /// Philadelphia Eagles 10 at 29 Baltimore Colts (1970-12-06)
+        /// Kansas City Chiefs 29 at 10 Pittsburgh Steelers (2024-12-25)
+        /// </summary>
+        public static class DecemberSixthScorigamiWithInfoHavingBothChiefsAndEagles { }
     }
 }

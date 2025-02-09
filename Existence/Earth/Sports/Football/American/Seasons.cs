@@ -1,7 +1,9 @@
 ﻿using Existence.Earth.Alphabet;
 using Existence.Earth.Companies.Insurance;
+using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.People;
+using Existence.Time;
 
 namespace Existence.Earth.Sports.Football.American
 {
@@ -72,6 +74,7 @@ namespace Existence.Earth.Sports.Football.American
         [Number(59)]
         [RomanNumeral("LIX")]
         [AlsoKnownAs("Taylor Swift Bowl")]
+        [YearDate(2025, (int)Months.February, 9)]
         public class SuperBowl
         {
             /// <summary>
