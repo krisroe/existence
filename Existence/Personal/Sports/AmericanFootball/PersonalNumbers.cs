@@ -32,5 +32,12 @@ namespace Existence.Personal.Sports.AmericanFootball
         /// Kansas City Chiefs 29 at 10 Pittsburgh Steelers (2024-12-25)
         /// </summary>
         public static class DecemberSixthScorigamiWithInfoHavingBothChiefsAndEagles { }
+
+        /// <summary>
+        /// 42-27 (level 8)
+        /// Cleveland Browns 27 at 42 Philadelphia Eagles (1953-12-13) [taylor swift b-day]
+        /// Kansas City Chiefs 42 at 27 New England Patriots (2017-09-07)
+        /// </summary>
+        public static class DecemberThirteenthScorigamiWithInfoHavingBothChiefsAndEagles { }
     }
 }

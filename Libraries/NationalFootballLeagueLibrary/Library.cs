@@ -879,6 +879,16 @@ namespace NationalFootballLeagueLibrary
             /// last matchups
             /// </summary>
             public List<string> LastMatchups { get; set; }
+
+            /// <summary>
+            /// enumerates matchups, both winners and losers
+            /// </summary>
+            /// <returns>matchups</returns>
+            public IEnumerable<string> EnumerateMatchups()
+            {
+                foreach (string next in FirstMatchups) yield return next;
+                foreach (string next in LastMatchups) yield return next;
+            }
         }
 
         public enum GameInfoSortType
