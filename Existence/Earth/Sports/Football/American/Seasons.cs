@@ -8,9 +8,9 @@ namespace Existence.Earth.Sports.Football.American
     public class Season2024to2025
     {
         /// <summary>
-        /// seven scorigamis occurred
+        /// seven level 1 scorigamis occurred (6 regular season, 1 playoffs)
         /// </summary>
-        public class Scorigamis
+        public class LevelOneScorigamis
         {
             /// <summary>
             /// Week 1 (September 9, 2024): San Francisco 49ers defeated the New York Jets with a score of 32-19.
@@ -42,13 +42,40 @@ namespace Existence.Earth.Sports.Football.American
             public class Seventh { }
         }
 
+        public class Playoffs
+        {
+            /// <summary>
+            /// Texans     32 Chargers   12 (level   1 scorigami)
+            /// Ravens     28 Steelers   14 (level  70 scorigami)
+            /// Bills      31 Broncos     7 (level  82 scorigami)
+            /// Rams       27 Vikings     9 (level  16 scorigami)
+            /// Bucs       23 Commanders 20 (level 210 scorigami)
+            /// Eagles     22 Packers    10 (level  21 scorigami)
+            /// </summary>
+            public class WildCard { }
+
+            /// <summary>
+            /// Chiefs     23 Texans     14 (level  52 scorigami) (not a one-score game)
+            /// Bills      27 Ravens     25 (level  11 scorigami)
+            /// Commanders 45 Lions      31 (level   9 scorigami)
+            /// Eagles     28 Rams       22 (level  13 scorigami)
+            /// </summary>
+            public class Divisional { }
+
+            /// <summary>
+            /// Chiefs     32 Bills      29 (level   8 scorigami) (a one-score game)
+            /// Eagles     55 Commanders 23 (level   2 scorigami)
+            /// </summary>
+            public class ConferenceChampionship { }
+        }
+
         [Number(59)]
         [RomanNumeral("LIX")]
         [AlsoKnownAs("Taylor Swift Bowl")]
         public class SuperBowl
         {
             /// <summary>
-            /// One score regular season games (11-0) and One score playoff games (1-0), making 12-0 in one score games for the season
+            /// one-score regular season games (11-0) and one-score playoff games (1-0), making 12-0 in one-score games for the season
             /// Week 1 (Sep 5): vs. Baltimore Ravens, 27–20
             /// Week 2 (Sep 15): vs. Cincinnati Bengals, 26–25
             /// Week 3 (Sep 22): at Atlanta Falcons, 22–17
@@ -56,13 +83,12 @@ namespace Existence.Earth.Sports.Football.American
             /// Week 8 (Oct 27): at Las Vegas Raiders, 27–20
             /// Week 9 (Nov 4): vs. Tampa Bay Buccaneers, 30–24 (OT)
             /// Week 10 (Nov 10): vs. Denver Broncos, 16–14
-            /// Week 11 (Nov 17): at Buffalo Bills, 21–30 (a close loss, but not a one-score game)
+            /// Week 11 (Nov 17): at Buffalo Bills, 21–30 (a close loss, but not a one-score game) (level 31 scorigami)
             /// Week 12 (Nov 24): at Carolina Panthers, 30–27
             /// Week 13 (Nov 29): vs. Las Vegas Raiders, 19–17
             /// Week 14 (Dec 8): vs. Los Angeles Chargers, 19–17
             /// Week 16 (Dec 21): vs. Houston Texans, 27–19
-            /// Divisional win over the Texans (23-14 win, not a one-score game)
-            /// Conference championship over the Bills (32-29 win, is a one-score game)
+            /// Week 17 (Jan  5): at Denver Broncos (only other loss - level 23 scorigami)
             /// </summary>
             [TeamWinLossTieRecord(15, 2, 0)]
             [Record("17 consecutive one-score victories dating back to last season")]
@@ -87,6 +113,24 @@ namespace Existence.Earth.Sports.Football.American
                 public static class CamJurgens { }
             }
 
+            /// <summary>
+            /// First game of season was 34-29 win over the Green Bay Packers in Sao Paulo Brazil (they would also defeat the packers in the NFC playoffs) (level 8 scorigami)
+            /// ---
+            /// finished the season winning 15/16 games
+            /// Cleveland Browns      20-16
+            /// New York Giants       28-3
+            /// Cincinnati Bengals    37-17
+            /// Jacksonville Jaguars  28-23
+            /// Dallas Cowboys        34-6
+            /// Washington Commanders 26-18
+            /// Los Angeles Rams      37-20
+            /// Baltimore Ravens      24-19
+            /// Carolina Panthers     22-16
+            /// Pittsburgh Steelers   27-13
+            /// Washington Commanders 33-36 (loss, but would defeat them in NFC title game) (level 7 scorigami)
+            /// Dallas Cowboys        41-7
+            /// New York Giants       20-13
+            /// </summary>
             [TeamWinLossTieRecord(14, 3, 0)]
             public static class PhiladelphiaEagles
             {
