@@ -14,6 +14,20 @@ namespace NationalFootballLeagueLibrary
         public const int MAXIMUM_SCORE = 73;
         public const int STARTING_YEAR = 1920;
 
+        public const string SPECIAL_WEEK_NUM_WILDCARD = "Wild Card";
+        public const string SPECIAL_WEEK_NUM_DIVISIONAL = "Division";
+        public const string SPECIAL_WEEK_NUM_CONF_CHAMP = "Conf. Champ";
+
+        /// <summary>
+        /// pre-Super-Bowl-era championships
+        /// </summary>
+        public const string SPECIAL_WEEK_NUM_CHAMPIONSHIP = "Champ";
+
+        /// <summary>
+        /// super bowl as nfl championship
+        /// </summary>
+        public const string SPECIAL_WEEK_NUM_SUPER_BOWL = "Super Bowl";
+
         public static int RunMain(string[] args)
         {
             if (args.Length < 2 || string.IsNullOrEmpty(args[0]) || string.IsNullOrEmpty(args[1]))
@@ -1267,15 +1281,15 @@ namespace NationalFootballLeagueLibrary
                 MatchupType mt;
                 if (int.TryParse(week_num, out _))
                     mt = MatchupType.RegularSeason;
-                else if (week_num == "Wild Card")
+                else if (week_num == SPECIAL_WEEK_NUM_WILDCARD)
                     mt = MatchupType.WildCard;
-                else if (week_num == "Division")
+                else if (week_num == SPECIAL_WEEK_NUM_DIVISIONAL)
                     mt = MatchupType.Division;
-                else if (week_num == "Conf. Champ")
+                else if (week_num == SPECIAL_WEEK_NUM_CONF_CHAMP)
                     mt = MatchupType.ConferenceChampionship;
-                else if (week_num == "Champ")
+                else if (week_num == SPECIAL_WEEK_NUM_CHAMPIONSHIP)
                     mt = MatchupType.Championship;
-                else if (week_num == "Super Bowl")
+                else if (week_num == SPECIAL_WEEK_NUM_SUPER_BOWL)
                     mt = MatchupType.SuperBowl;
                 else
                     throw new InvalidOperationException();
@@ -1475,9 +1489,11 @@ namespace NationalFootballLeagueLibrary
                     case MatchupType.Championship:
                         append = "Champ";
                         break;
+                    case MatchupType.ConferenceChampionship:
+                        append = "ConfChamp";
+                        break;
                     case MatchupType.WildCard:
                     case MatchupType.Division:
-                    case MatchupType.ConferenceChampionship:
                         append = "Playoff";
                         break;
                     default:
