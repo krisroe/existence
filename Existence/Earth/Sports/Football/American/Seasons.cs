@@ -387,7 +387,7 @@ namespace Existence.Earth.Sports.Football.American
         /// <summary>
         /// 1963-12-29 New York Giants 10 at 14 Chicago Bears
         /// </summary>
-        [Champion("ChicagoBears")] //x7
+        [Champion("ChicagoBears")] //x8
         [ChampionshipLoser("NewYorkGiants")]
         public class NFL { }
     }
@@ -703,7 +703,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 1978-01-15 Dallas Cowboys 27 vs 10 Denver Broncos
         /// </summary>
         [SuperBowlNumber(12)]
-        [Champion("DallasCowboys")]
+        [Champion("DallasCowboys")] //x2
         [ChampionshipLoser("DenverBroncos")]
         public class NFL
         {
@@ -879,7 +879,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 1986-01-26 Chicago Bears 46 vs 10 New England Patriots
         /// </summary>
         [SuperBowlNumber(20)]
-        [Champion("ChicagoBears")] //x8
+        [Champion("ChicagoBears")] //x9
         [ChampionshipLoser("NewEnglandPatriots")]
         public class NFL
         {
@@ -1035,7 +1035,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 1993-01-31 Dallas Cowboys 52 vs 17 Buffalo Bills
         /// </summary>
         [SuperBowlNumber(27)]
-        [Champion("DallasCowboys")] //x2
+        [Champion("DallasCowboys")] //x3
         [ChampionshipLoser("BuffaloBills")]
         public class NFL
         {
@@ -1057,7 +1057,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 1994-01-30 Dallas Cowboys 30 vs 13 Buffalo Bills
         /// </summary>
         [SuperBowlNumber(28)]
-        [Champion("DallasCowboys")] //x3
+        [Champion("DallasCowboys")] //x4
         [ChampionshipLoser("BuffaloBills")]
         public class NFL
         {
@@ -1773,7 +1773,7 @@ namespace Existence.Earth.Sports.Football.American
                 [YearDate(2025, (int)Months.February, 9)]
                 [GamePointsWinnerAndLoserScore(40, 22)]
                 [ScorigamiLevel(2)]
-                [Winner("PhiladelphiaEagles")]
+                [Winner("PhiladelphiaEagles")] //5th NFL championship
                 [MVP("JalenHurts")]
                 public class SuperBowl
                 {
