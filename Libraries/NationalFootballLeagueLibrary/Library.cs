@@ -5,6 +5,7 @@ using CsvHelper.TypeConversion;
 using HtmlAgilityPack;
 using LibraryShared;
 using System.Globalization;
+using System.Text;
 using System.Xml;
 
 namespace NationalFootballLeagueLibrary
@@ -78,212 +79,104 @@ namespace NationalFootballLeagueLibrary
 
         private static void ProcessTeamScorigamiCounts(IEnumerable<FinalScoreInfo> fsis)
         {
-            List<string> mappedTeams = new List<string>()
-                {
-                    "Arizona Cardinals",
-                    "Atlanta Falcons",
-                    "Baltimore Ravens",
-                    "Buffalo Bills",
-                    "Carolina Panthers",
-                    "Chicago Bears",
-                    "Cincinnati Bengals",
-                    "Cleveland Browns",
-                    "Dallas Cowboys",
-                    "Denver Broncos",
-                    "Detroit Lions",
-                    "Green Bay Packers",
-                    "Houston Texans",
-                    "Indianapolis Colts",
-                    "Jacksonville Jaguars",
-                    "Kansas City Chiefs",
-                    "Las Vegas Raiders",
-                    "Los Angeles Chargers",
-                    "Los Angeles Rams",
-                    "Miami Dolphins",
-                    "Minnesota Vikings",
-                    "New England Patriots",
-                    "New Orleans Saints",
-                    "New York Giants",
-                    "New York Jets",
-                    "Philadelphia Eagles",
-                    "Pittsburgh Steelers",
-                    "San Francisco 49ers",
-                    "Seattle Seahawks",
-                    "Tampa Bay Buccaneers",
-                    "Tennessee Titans",
-                    "Washington Commanders",
-                };
-            List<string> teams = new List<string>()
-                {
-                    "Arizona Cardinals",
-                    "Chicago Cardinals",
-                    "St. Louis Cardinals",
-
-                    "Atlanta Falcons",
-
-                    "Baltimore Ravens",
-
-                    "Buffalo Bills",
-
-                    "Carolina Panthers",
-
-                    "Chicago Bears",
-                    "Chicago Staleys",
-                    "Decatur Staleys",
-
-                    "Cincinnati Bengals",
-                    "Cleveland Browns",
-
-                    "Dallas Cowboys",
-
-                    "Denver Broncos",
-
-                    "Detroit Lions",
-                    "Portsmouth Spartans",
-
-                    "Green Bay Packers",
-
-                    "Houston Texans",
-
-                    "Baltimore Colts",
-                    "Indianapolis Colts",
-
-                    "Jacksonville Jaguars",
-
-                    "Dallas Texans",
-                    "Kansas City Chiefs",
-
-                    "Las Vegas Raiders",
-                    "Los Angeles Raiders",
-                    "Oakland Raiders",
-
-                    "Los Angeles Chargers",
-                    "San Diego Chargers",
-
-                    "Cleveland Rams",
-                    "Los Angeles Rams",
-                    "St. Louis Rams",
-
-                    "Miami Dolphins",
-
-                    "Minnesota Vikings",
-
-                    "Boston Patriots",
-                    "New England Patriots",
-
-                    "New Orleans Saints",
-
-                    "New York Giants",
-
-                    "New York Jets",
-                    "New York Titans",
-
-                    "Philadelphia Eagles",
-
-                    "Pittsburgh Pirates",
-                    "Pittsburgh Steelers",
-
-                    "San Francisco 49ers",
-
-                    "Seattle Seahawks",
-
-                    "Tampa Bay Buccaneers",
-
-                    "Houston Oilers",
-                    "Tennessee Oilers",
-                    "Tennessee Titans",
-
-                    "Boston Braves",
-                    "Boston Redskins",
-                    "Washington Commanders",
-                    "Washington Football Team",
-                    "Washington Redskins",
-                };
-            Dictionary<string, string> teamMapping = new Dictionary<string, string>()
-                {
-                    {"Arizona Cardinals", "Arizona Cardinals" },
-                    {"Atlanta Falcons", "Atlanta Falcons" },
-                    {"Baltimore Colts","Indianapolis Colts" },
-                    {"Baltimore Ravens", "Baltimore Ravens" },
-                    {"Boston Braves", "Washington Commanders" },
-                    {"Boston Patriots", "New England Patriots" },
-                    {"Boston Redskins", "Washington Commanders" },
-                    {"Buffalo Bills", "Buffalo Bills" },
-                    {"Carolina Panthers", "Carolina Panthers"},
-                    {"Chicago Bears","Chicago Bears" },
-                    {"Chicago Cardinals", "Arizona Cardinals" },
-                    {"Chicago Staleys" , "Chicago Bears" },
-                    {"Cincinnati Bengals", "Cincinnati Bengals" },
-                    {"Cleveland Browns", "Cleveland Browns" },
-                    {"Cleveland Rams", "Los Angeles Rams" },
-                    {"Dallas Cowboys", "Dallas Cowboys" },
-                    {"Dallas Texans", "Kansas City Chiefs" },
-                    {"Decatur Staleys" , "Chicago Bears" },
-                    {"Denver Broncos", "Denver Broncos" },
-                    {"Detroit Lions", "Detroit Lions" },
-                    {"Green Bay Packers", "Green Bay Packers"},
-                    {"Houston Oilers", "Tennessee Titans" },
-                    {"Houston Texans", "Houston Texans" },
-                    {"Indianapolis Colts","Indianapolis Colts" },
-                    {"Jacksonville Jaguars", "Jacksonville Jaguars" },
-                    {"Kansas City Chiefs", "Kansas City Chiefs" },
-                    {"Las Vegas Raiders", "Las Vegas Raiders" },
-                    {"Los Angeles Chargers", "Los Angeles Chargers" },
-                    {"Los Angeles Raiders", "Los Angeles Raiders" },
-                    {"Los Angeles Rams", "Los Angeles Rams" },
-                    {"Miami Dolphins", "Miami Dolphins" },
-                    {"Minnesota Vikings", "Minnesota Vikings" },
-                    {"New England Patriots", "New England Patriots" },
-                    {"New Orleans Saints", "New Orleans Saints" },
-                    {"New York Giants", "New York Giants" },
-                    {"New York Jets", "New York Jets" },
-                    {"New York Titans", "New York Jets" },
-                    {"Oakland Raiders", "Las Vegas Raiders" },
-                    {"Philadelphia Eagles", "Philadelphia Eagles" },
-                    {"Pittsburgh Pirates", "Pittsburgh Steelers" },
-                    {"Pittsburgh Steelers", "Pittsburgh Steelers" },
-                    {"Portsmouth Spartans", "Detroit Lions" },
-                    {"San Diego Chargers", "Los Angeles Chargers" },
-                    {"San Francisco 49ers", "San Francisco 49ers" },
-                    {"Seattle Seahawks", "Seattle Seahawks" },
-                    {"St. Louis Cardinals", "Arizona Cardinals" },
-                    {"St. Louis Rams", "Los Angeles Rams" },
-                    {"Tampa Bay Buccaneers", "Tampa Bay Buccaneers" },
-                    {"Tennessee Oilers", "Tennessee Titans" },
-                    {"Tennessee Titans", "Tennessee Titans" },
-                    {"Washington Commanders","Washington Commanders" },
-                    {"Washington Football Team", "Washington Commanders" },
-                    {"Washington Redskins", "Washington Commanders" },
-                };
+            FranchiseInfo fi = new FranchiseInfo();
             Dictionary<string, int> teamScorigamis = new Dictionary<string, int>();
             foreach (FinalScoreInfo fsi in fsis)
             {
                 DateTime dtFirstDate = fsi.FirstDate;
                 foreach (string nextMatchup in fsi.FirstMatchups)
                 {
-                    foreach (string nextTeam in teams)
+                    string[] strings = nextMatchup.Split(' ');
+                    int iLastIndex = strings.Length - 1;
+                    while (strings[iLastIndex].StartsWith("("))
                     {
-                        if (nextMatchup.Contains(nextTeam))
+                        iLastIndex--;
+                    }
+                    int iStartTokens = 0;
+                    bool startOK = false;
+                    for (int i = 0; i < iLastIndex; i++)
+                    {
+                        if (int.TryParse(strings[i], out int foundScore))
                         {
-                            string mappedTeam = teamMapping[nextTeam];
-                            int iValue;
-                            if (!teamScorigamis.TryGetValue(mappedTeam, out iValue))
-                            {
-                                iValue = 0;
-                            }
-                            if (mappedTeam == "Indianapolis Colts" && dtFirstDate.Year < 1953)
-                            {
-                                continue; //skip the original Miami Seahawks / Baltimore Colts franchise
-                            }
-                            teamScorigamis[mappedTeam] = iValue + 1;
+                            startOK = true;
+                            break;
                         }
+                        else
+                        {
+                            iStartTokens++;
+                        }
+                    }
+                    if (!startOK || iStartTokens == 0) throw new InvalidOperationException();
+                    int iEndTokens = 0;
+                    bool endOK = false;
+                    for (int i = iLastIndex; i >= 0; i--)
+                    {
+                        if (int.TryParse(strings[i], out int foundScore))
+                        {
+                            endOK = true;
+                            break;
+                        }
+                        else
+                        {
+                            iEndTokens++;
+                        }
+                    }
+                    if (!endOK || iEndTokens == 0) throw new InvalidOperationException();
+
+                    StringBuilder sbFirstTeam = new StringBuilder();
+                    for (int i = 0; i < iStartTokens; i++)
+                    {
+                        if (i != 0) sbFirstTeam.Append(' ');
+                        sbFirstTeam.Append(strings[i]);
+                    }
+                    string firstTeam = sbFirstTeam.ToString();
+
+                    StringBuilder sbSecondTeam = new StringBuilder();
+                    bool pastFirst = false;
+                    for (int i = iLastIndex - iEndTokens + 1; i <= iLastIndex; i++)
+                    {
+                        if (pastFirst)
+                        {
+                            sbSecondTeam.Append(' ');
+                        }
+                        else
+                        {
+                            pastFirst = true;
+                        }
+                        sbSecondTeam.Append(strings[i]);
+                    }
+                    string secondTeam = sbSecondTeam.ToString();
+                    Franchise? f1 = fi.GetFranchiseByName(firstTeam, dtFirstDate);
+                    Franchise? f2 = fi.GetFranchiseByName(secondTeam, dtFirstDate);
+                    int iValue;
+                    string sFranchiseName1 = string.Empty;
+                    string sFranchiseName2 = string.Empty;
+                    if (f1 != null)
+                    {
+                        sFranchiseName1 = f1.FranchiseName;
+                        if (!teamScorigamis.TryGetValue(sFranchiseName1, out iValue))
+                        {
+                            iValue = 0;
+                        }
+                        teamScorigamis[sFranchiseName1] = iValue + 1;
+                    }
+                    if (f2 != null)
+                    {
+                        sFranchiseName2 = f2.FranchiseName;
+                        if (!teamScorigamis.TryGetValue(sFranchiseName2, out iValue))
+                        {
+                            iValue = 0;
+                        }
+                        teamScorigamis[sFranchiseName2] = iValue + 1;
                     }
                 }
             }
-            mappedTeams.Sort();
-            foreach (string nextTeam in mappedTeams)
+            List<Franchise> list = new List<Franchise>();
+            list.AddRange(fi.Franchises);
+            list.Sort((a, b) => teamScorigamis[b.FranchiseName].CompareTo(teamScorigamis[a.FranchiseName]));
+            foreach (Franchise f in list)
             {
-                Console.Out.WriteLine(teamScorigamis[nextTeam].ToString().PadLeft(3, '0') + " " + nextTeam);
+                Console.Out.WriteLine(teamScorigamis[f.FranchiseName].ToString().PadLeft(3, '0') + " " + f.FranchiseName);
             }
         }
 

@@ -512,7 +512,7 @@ namespace Existence.Earth.Sports.Football.American
         /// <summary>
         /// 1970-01-11 Kansas City Chiefs 23 vs 7 Minnesota Vikings
         /// </summary>
-        [Champion("KansasCityChiefs")]
+        [Champion("KansasCityChiefs")] //x2
         [ChampionshipLoser("MinnesotaVikings")]
         [SuperBowlNumber(4)]
         public class SuperBowl
@@ -1102,7 +1102,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 1996-01-28 Dallas Cowboys 27 vs 17 Pittsburgh Steelers
         /// </summary>
         [SuperBowlNumber(30)]
-        [Champion("DallasCowboys")] //x4
+        [Champion("DallasCowboys")] //x5
         [ChampionshipLoser("PittsburghSteelers")]
         public class NFL
         {
@@ -1632,7 +1632,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 2020-02-02 Kansas City Chiefs 31 vs 20 San Francisco 49ers
         /// </summary>
         [SuperBowlNumber(54)]
-        [Champion("Kansas City Chiefs")] //x2
+        [Champion("Kansas City Chiefs")] //x3
         [ChampionshipLoser("San Francisco 49ers")]
         public class NFL
         {
@@ -1698,7 +1698,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 2023-02-12 Kansas City Chiefs 38 vs 35 Philadelphia Eagles
         /// </summary>
         [SuperBowlNumber(57)]
-        [Champion("KansasCityChiefs")] //x3
+        [Champion("KansasCityChiefs")] //x4
         [ChampionshipLoser("PhiladelphiaEagles")]
         public class NFL
         {
@@ -1720,7 +1720,7 @@ namespace Existence.Earth.Sports.Football.American
         /// 2024-02-11 Kansas City Chiefs 25 vs 22 San Francisco 49ers
         /// </summary>
         [SuperBowlNumber(58)]
-        [Champion("KansasCityChiefs")] //x4
+        [Champion("KansasCityChiefs")] //x5
         [ChampionshipLoser("SanFrancisco49ers")]
         public class NFL
         {
