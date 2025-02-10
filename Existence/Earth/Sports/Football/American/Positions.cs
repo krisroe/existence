@@ -1,5 +1,4 @@
 ﻿using System;
-using Existence.Earth.Sports.Football.American.Coaches;
 using Existence.Earth.Sports.Football.American.Players.Defensive;
 
 namespace Existence.Earth.Sports.Football.American
@@ -27,6 +26,24 @@ namespace Existence.Earth.Sports.Football.American
         public CoachTypeAttribute(CoachType CoachType)
         {
             this.CoachType = CoachType;
+        }
+    }
+
+    public class AnnouncerTypeAttribute : Attribute
+    {
+        public AnnouncerType AnnouncerType { get; set; }
+        public AnnouncerTypeAttribute(AnnouncerType AnnouncerType)
+        {
+            this.AnnouncerType = AnnouncerType;
+        }
+    }
+
+    public class CoverageTypeAttribute : Attribute
+    {
+        public CoverageType CoverageType { get; set; }
+        public CoverageTypeAttribute(CoverageType CoverageType)
+        {
+            this.CoverageType = CoverageType;
         }
     }
 
@@ -70,11 +87,20 @@ namespace Existence.Earth.Sports.Football.American
             }
         }
     }
-    namespace Coaches
+    public enum CoverageType
     {
-        public enum CoachType
-        {
-            HeadCoach,
-        }
+        Radio,
+        Television,
+    }
+    public enum AnnouncerType
+    {
+        Color,
+        PlayByPlay,
+    }
+    public enum CoachType
+    {
+        HeadCoach,
+        OffensiveCoordinator,
+        DefensiveCoordinator,
     }
 }

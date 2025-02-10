@@ -10,6 +10,24 @@ namespace Existence.Earth.Alphabet
             this.Text = Text;
         }
     }
+
+    public class LocationAttribute : TextAttribute
+    {
+        public string Place
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public LocationAttribute(string AKA) : base(AKA)
+        {
+        }
+    }
     public class AlsoKnownAsAttribute : TextAttribute
     {
         public string AKA

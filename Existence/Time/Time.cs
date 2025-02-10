@@ -2,6 +2,31 @@
 
 namespace Existence.Time
 {
+    public class TimeChangeMinutesAttribute : TimeMinutesAttribute
+    {
+        public TimeChangeMinutesAttribute(int Minutes, int Seconds) : base(Minutes, Seconds)
+        {
+        }
+    }
+
+    public class TimeDurationMinutesAttribute : TimeMinutesAttribute
+    {
+        public TimeDurationMinutesAttribute(int Minutes, int Seconds) : base(Minutes, Seconds)
+        {
+        }
+    }
+
+    public class TimeMinutesAttribute : Attribute
+    {
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+        public TimeMinutesAttribute(int Minutes, int Seconds)
+        {
+            this.Minutes = Minutes;
+            this.Seconds = Seconds;
+        }
+    }
+
     public class YearAttribute : Attribute
     {
         public int Year { get; set; }

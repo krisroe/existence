@@ -71,12 +71,15 @@ namespace Existence.Earth.Sports.Football.American
             public class ConferenceChampionship { }
         }
 
+        [AlsoKnownAs("Taylor Swift Bowl")]
         [Number(59)]
         [RomanNumeral("LIX")]
-        [AlsoKnownAs("Taylor Swift Bowl")]
+        [Location("New Orleans, Louisiana")]
         [YearDate(2025, (int)Months.February, 9)]
         public class SuperBowl
         {
+            [TeamWinLossTieRecord(15, 2, 0)]
+            [Record("17 consecutive one-score victories dating back to last season")]
             /// <summary>
             /// one-score regular season games (11-0) and one-score playoff games (1-0), making 12-0 in one-score games for the season
             /// Week 1 (Sep 5): vs. Baltimore Ravens, 27–20
@@ -93,13 +96,17 @@ namespace Existence.Earth.Sports.Football.American
             /// Week 16 (Dec 21): vs. Houston Texans, 27–19
             /// Week 17 (Jan  5): at Denver Broncos (only other loss - level 23 scorigami)
             /// </summary>
-            [TeamWinLossTieRecord(15, 2, 0)]
-            [Record("17 consecutive one-score victories dating back to last season")]
             public static class KansasCityChiefs
             {
-                [CoachType(Coaches.CoachType.HeadCoach)]
+                [CoachType(CoachType.HeadCoach)]
                 [Insurance(InsuranceCompanies.StateFarm)]
                 public static class AndyReid { }
+
+                [CoachType(CoachType.OffensiveCoordinator)]
+                public static class MattNagy { }
+
+                [CoachType(CoachType.DefensiveCoordinator)]
+                public static class SteveSpagnuolo { }
 
                 [PlayerType(Players.Offensive.PlayerType.Quarterback)]
                 [Insurance(InsuranceCompanies.StateFarm)]
@@ -116,6 +123,7 @@ namespace Existence.Earth.Sports.Football.American
                 public static class CamJurgens { }
             }
 
+            [TeamWinLossTieRecord(14, 3, 0)]
             /// <summary>
             /// First game of season was 34-29 win over the Green Bay Packers in Sao Paulo Brazil (they would also defeat the packers in the NFC playoffs) (level 8 scorigami)
             /// ---
@@ -134,11 +142,16 @@ namespace Existence.Earth.Sports.Football.American
             /// Dallas Cowboys        41-7
             /// New York Giants       20-13
             /// </summary>
-            [TeamWinLossTieRecord(14, 3, 0)]
             public static class PhiladelphiaEagles
             {
-                [CoachType(Coaches.CoachType.HeadCoach)]
+                [CoachType(CoachType.HeadCoach)]
                 public static class NickSirianni { }
+
+                [CoachType(CoachType.OffensiveCoordinator)]
+                public static class KellenMoore { }
+
+                [CoachType(CoachType.DefensiveCoordinator)]
+                public static class VicFangio { }
 
                 [PlayerType(Players.Offensive.PlayerType.Quarterback)]
                 public static class JalenHurts { }
@@ -159,6 +172,15 @@ namespace Existence.Earth.Sports.Football.American
                 [Retired(true)]
                 public static class JasonKelce { }
             }
+
+            [CoverageType(CoverageType.Television)]
+            [AnnouncerType(AnnouncerType.Color)]
+            public static class TomBrady { }
+
+            [CoverageType(CoverageType.Television)]
+            [AnnouncerType(AnnouncerType.PlayByPlay)]
+            public static class KevinBurkhardt { }
+
         }
     }
 }
