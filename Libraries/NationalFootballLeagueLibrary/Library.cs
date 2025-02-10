@@ -45,8 +45,26 @@ namespace NationalFootballLeagueLibrary
             }
             else if (operation == "fromcsv") //load from all games csv file
             {
-                List<GameInfo> allGameInfos = new List<GameInfo>();
-                allGameInfos.AddRange(ProcessAllGameInfosFromCSV(filePath1));
+                /*
+                List<GameInfo> gis = new List<GameInfo>();
+                FranchiseInfo fi = new FranchiseInfo();
+                foreach (GameInfo gi in ProcessAllGameInfosFromCSV(filePath1))
+                {
+                    string winner = gi.winner;
+                    Franchise? f = fi.GetFranchiseByName(gi.winner, gi.GetDateObject());
+                    if (f != null)
+                    {
+                        gi.winner_franchise = f.FranchiseName;
+                    }
+                    f = fi.GetFranchiseByName(gi.loser, gi.GetDateObject());
+                    if (f != null)
+                    {
+                        gi.loser_franchise = f.FranchiseName;
+                    }
+                    gis.Add(gi);
+                }
+                WriteGameInfosToCSV(gis, filePath2);
+                */
                 //ProcessScorigamiCountsBySeason(allGameInfos, false);
                 //allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
                 //WriteGameInfosToCSV(allGameInfos, filePath2);
@@ -264,7 +282,7 @@ namespace NationalFootballLeagueLibrary
             if (File.Exists(filePath)) throw new InvalidOperationException();
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                sw.Write("week_num,game_date,winner,loser,game_location,pts_win,pts_loss,league");
+                sw.Write("week_num,game_date,winner,winner_franchise,loser,loser_franchise,game_location,pts_win,pts_loss,league");
                 foreach (GameInfo gi in gameInfos)
                 {
                     sw.WriteLine();
@@ -274,7 +292,11 @@ namespace NationalFootballLeagueLibrary
                     sw.Write(",");
                     sw.Write(gi.winner);
                     sw.Write(",");
+                    sw.Write(gi.winner_franchise);
+                    sw.Write(",");
                     sw.Write(gi.loser);
+                    sw.Write(",");
+                    sw.Write(gi.loser_franchise);
                     sw.Write(",");
                     sw.Write(gi.game_location);
                     sw.Write(",");
@@ -1094,8 +1116,10 @@ namespace NationalFootballLeagueLibrary
                     week_num = string.Empty,
                     game_date = string.Empty,
                     winner = string.Empty,
+                    winner_franchise = string.Empty,
                     game_location = string.Empty,
                     loser = string.Empty,
+                    loser_franchise = string.Empty,
                     league = LeagueType.NFL,
                 };
             }
@@ -1215,9 +1239,14 @@ namespace NationalFootballLeagueLibrary
             private DateTime? ParsedDate { get; set; }
 
             /// <summary>
-            /// winner
+            /// winning team relative to when the game was played
             /// </summary>
             public required string winner { get; set; }
+
+            /// <summary>
+            /// winning franchise, if the team remains around today
+            /// </summary>
+            public required string winner_franchise { get; set; }
 
             /// <summary>
             /// game location
@@ -1225,9 +1254,14 @@ namespace NationalFootballLeagueLibrary
             public required string game_location { get; set; }
 
             /// <summary>
-            /// loser
+            /// losing team relative to when the game was played
             /// </summary>
             public required string loser { get; set; }
+
+            /// <summary>
+            /// losing franchise, if the team remains around today
+            /// </summary>
+            public required string loser_franchise { get; set; }
 
             /// <summary>
             /// league type
