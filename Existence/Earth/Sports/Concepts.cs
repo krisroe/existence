@@ -1,4 +1,5 @@
 ﻿using System;
+using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Time;
 
@@ -15,6 +16,64 @@ namespace Existence.Earth.Sports
         public RecordAttribute(string Record)
         {
             this.Record = Record;
+        }
+    }
+
+    public class ScorigamiLevel : NumberAttribute
+    {
+        public int Level
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public ScorigamiLevel(int Level) : base(Level)
+        {
+
+        }
+    }
+
+    public class WinnerAttribute : TextAttribute
+    {
+        public string Winner
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public WinnerAttribute(string Winner) : base(Winner)
+        {
+        }
+    }
+
+    /// <summary>
+    /// MVP = most valuable player
+    /// </summary>
+    public class MVPAttribute : TextAttribute
+    {
+        public string MVP
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public MVPAttribute(string MVP) : base(MVP)
+        {
         }
     }
 

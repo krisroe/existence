@@ -76,6 +76,10 @@ namespace Existence.Earth.Sports.Football.American
         [RomanNumeral("LIX")]
         [Location("New Orleans, Louisiana")]
         [YearDate(2025, (int)Months.February, 9)]
+        [GamePointsWinnerAndLoserScore(40, 22)]
+        [ScorigamiLevel(2)]
+        [Winner("PhiladelphiaEagles")]
+        [MVP("JalenHurts")]
         public class SuperBowl
         {
             [TeamWinLossTieRecord(15, 2, 0)]
