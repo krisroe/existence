@@ -36,6 +36,17 @@ namespace Existence.Time
         }
     }
 
+    public class YearRangeAttribute : Attribute
+    {
+        public int StartYear { get; set; }
+        public int EndYear { get; set; }
+        public YearRangeAttribute(int StartYear, int EndYear)
+        {
+            this.StartYear = StartYear;
+            this.EndYear = EndYear;
+        }
+    }
+
     public class BirthdateAttribute : YearDateAttribute
     {
         public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }

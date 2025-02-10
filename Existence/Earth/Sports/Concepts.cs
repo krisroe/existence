@@ -10,6 +10,49 @@ namespace Existence.Earth.Sports
         public RetiredWhenAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
+    public class ChampionshipLoserAttribute : TextAttribute
+    {
+        public string Loser
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public ChampionshipLoserAttribute(string Loser) : base(Loser)
+        {
+
+        }
+    }
+
+    public class ChampionAttribute : TextAttribute
+    {
+        public string Champion
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public ChampionAttribute(string Champion) : base(Champion)
+        {
+
+        }
+    }
+
+    public class SuperBowlNumberAttribute : NumberAttribute
+    {
+        public SuperBowlNumberAttribute(int Number) : base(Number) { }        
+    }
+
     public class RecordAttribute : Attribute
     {
         public string Record { get; set; }
