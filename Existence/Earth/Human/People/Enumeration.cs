@@ -2,6 +2,15 @@
 
 namespace Existence.Earth.Human.People
 {
+    public class MarriedAttribute : Attribute
+    {
+        public bool IsMarried { get; set; }
+        public MarriedAttribute(bool IsMarried)
+        {
+            this.IsMarried = IsMarried;
+        }
+    }
+
     public class InRelationshipWithAttribute : Attribute
     {
         PeopleEnumerated Person { get; set; }
@@ -28,6 +37,5 @@ namespace Existence.Earth.Human.People
     public enum PeopleEnumerated
     {
         TaylorSwift,
-        TravisKelce,
     }
 }

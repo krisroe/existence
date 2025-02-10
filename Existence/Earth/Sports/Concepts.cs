@@ -1,15 +1,12 @@
 ﻿using System;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Time;
 
 namespace Existence.Earth.Sports
 {
-    public class RetiredAttribute : Attribute
+    public class RetiredWhenAttribute : YearDateAttribute
     {
-        public bool Retired { get; set; }
-        public RetiredAttribute(bool Retired)
-        {
-            this.Retired = Retired;
-        }
+        public RetiredWhenAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
     public class RecordAttribute : Attribute

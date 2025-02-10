@@ -108,15 +108,21 @@ namespace Existence.Earth.Sports.Football.American
                 [CoachType(CoachType.DefensiveCoordinator)]
                 public static class SteveSpagnuolo { }
 
-                [PlayerType(Players.Offensive.PlayerType.Quarterback)]
-                [Insurance(InsuranceCompanies.StateFarm)]
-                public static class PatrickMahomes { }
+                [Married(true)]
+                public static class Marriage
+                {
+                    [PlayerType(Players.Offensive.PlayerType.Quarterback)]
+                    [Insurance(InsuranceCompanies.StateFarm)]
+                    public static class PatrickMahomes { }
+                    public static class BrittanyMahomes { }
+                }
 
                 [PlayerType(Players.Offensive.PlayerType.RunningBack)]
                 public static class IsaiahPacheco { }
 
                 [PlayerType(Players.Offensive.PlayerType.TightEnd)]
                 [InRelationshipWith(PeopleEnumerated.TaylorSwift, Level.Serious)]
+                [Married(false)]
                 public static class TravisKelce { }
 
                 [PlayerType(Players.Offensive.PlayerType.Center)]
@@ -166,10 +172,11 @@ namespace Existence.Earth.Sports.Football.American
                 public static class CreedHumphrey { }
 
                 /// <summary>
-                /// retired 2024-03-04, between the last and current season
+                /// retired between the last and current season, so not playing for the Eagles
                 /// </summary>
                 [PlayerType(Players.Offensive.PlayerType.Center)]
-                [Retired(true)]
+                [RetiredWhen(2024, 3, 4)]
+                [Married(true)]
                 public static class JasonKelce { }
             }
 
