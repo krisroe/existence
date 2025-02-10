@@ -290,7 +290,7 @@ namespace NationalFootballLeagueLibrary
                 DateTime dtDateObject = gi.GetDateObject();
                 FinalScoreInfo existingFSI = scorigamis[iWinnerPts, iLoserPts];
                 bool isScorigami = existingFSI == null || existingFSI.FirstDate == dtDateObject;
-                string matchupString = GetMatchupString(gi.game_location, gi.winner, gi.loser, gi.pts_win, gi.pts_loss, gi.GetMatchupType());
+                string matchupString = gi.GetMatchupString();
                 if (isScorigami)
                 {
                     if (existingFSI == null)
@@ -750,7 +750,7 @@ namespace NationalFootballLeagueLibrary
 
             foreach (GameInfo nextFirstGame in firstGames)
             {
-                fsi.FirstMatchups.Add(GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.loser, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
+                fsi.FirstMatchups.Add(GameInfo.GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.loser, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
             }
             bool foundMatchingLastGame = false;
             foreach (GameInfo nextLastGame in lastGames)
@@ -803,33 +803,6 @@ namespace NationalFootballLeagueLibrary
                 throw new InvalidOperationException();
             }
             return fsi;
-        }
-
-        private static string GetMatchupString(string game_location, string winner, string loser, int PtsW, int PtsL, MatchupType mt)
-        {
-            string firstteam1, firstteam2;
-            int firstteam1points, firstteam2points;
-            if (game_location == "@" || game_location == "N")
-            {
-                firstteam1 = winner;
-                firstteam1points = PtsW;
-                firstteam2 = loser;
-                firstteam2points = PtsL;
-            }
-            else
-            {
-                firstteam1 = loser;
-                firstteam1points = PtsL;
-                firstteam2 = winner;
-                firstteam2points = PtsW;
-            }
-            string firstGameVersusOrAt = game_location == "N" ? "vs" : "at";
-            string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
-            if (mt != MatchupType.RegularSeason)
-            {
-                sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
-            }
-            return sMatchupString;
         }
 
         private static LeagueType DetermineLeagueType(DateTime dt, string team1, string team2)
@@ -1165,6 +1138,43 @@ namespace NationalFootballLeagueLibrary
         /// </summary>
         public class GameInfo
         {
+            public void WriteToConsole()
+            {
+                Console.WriteLine(game_date + " " + GetMatchupString());
+            }
+
+            public string GetMatchupString()
+            {
+                return GetMatchupString(game_location, winner, loser, pts_win, pts_loss, GetMatchupType());
+            }
+
+            public static string GetMatchupString(string game_location, string winner, string loser, int PtsW, int PtsL, MatchupType mt)
+            {
+                string firstteam1, firstteam2;
+                int firstteam1points, firstteam2points;
+                if (game_location == "@" || game_location == "N")
+                {
+                    firstteam1 = winner;
+                    firstteam1points = PtsW;
+                    firstteam2 = loser;
+                    firstteam2points = PtsL;
+                }
+                else
+                {
+                    firstteam1 = loser;
+                    firstteam1points = PtsL;
+                    firstteam2 = winner;
+                    firstteam2points = PtsW;
+                }
+                string firstGameVersusOrAt = game_location == "N" ? "vs" : "at";
+                string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
+                if (mt != MatchupType.RegularSeason)
+                {
+                    sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
+                }
+                return sMatchupString;
+            }
+
             /// <summary>
             /// constructor
             /// </summary>
