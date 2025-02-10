@@ -9,6 +9,13 @@ namespace Existence.Earth.Time
     /// not to be interpreted as actual time. A hypothetical global catastrophe is represented by midnight 
     /// on the Clock, with the Bulletin's opinion on how close the world is to one represented by a 
     /// certain number of minutes or seconds to midnight, which is reassessed in January of each year.
+    /// 
+    /// The clock's original focus was the thread of nuclear war, but as the threat of actual nuclear conflict
+    /// has gone down, other potential threats (first climate change and then artificial intelligence) have come
+    /// to the fore. This can be reasonable assessed as mission creep, as while a global nuclear war would
+    /// undoubtedly be catastrophic, it is not clear climate change and artificial intelligence actually pose
+    /// a similar level of risk. But people worry about these things, so the doomsday clock remains a barometer
+    /// of what scientists worry about (rational or not).
     /// </summary>
     public static class DoomsdayClock
     {
