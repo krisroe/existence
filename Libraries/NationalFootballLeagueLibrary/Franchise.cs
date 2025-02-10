@@ -28,7 +28,10 @@ namespace NationalFootballLeagueLibrary
                 new Franchise("Arizona Cardinals", "Chicago Cardinals", "St. Louis Cardinals"),
                 new Franchise("Atlanta Falcons"),
                 new Franchise("Baltimore Ravens"),
-                new Franchise("Buffalo Bills"),
+                new Franchise("Buffalo Bills")
+                {
+                    StartingYear = 1960 //ignore AAFC version of Buffalo Bills
+                },
                 new Franchise("Carolina Panthers"),
                 new Franchise("Chicago Bears", "Chicago Staleys", "Decatur Staleys"),
                 new Franchise("Cincinnati Bengals"),

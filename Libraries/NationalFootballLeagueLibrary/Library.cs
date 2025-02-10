@@ -45,31 +45,18 @@ namespace NationalFootballLeagueLibrary
             }
             else if (operation == "fromcsv") //load from all games csv file
             {
-                /*
-                List<GameInfo> gis = new List<GameInfo>();
-                FranchiseInfo fi = new FranchiseInfo();
-                foreach (GameInfo gi in ProcessAllGameInfosFromCSV(filePath1))
-                {
-                    string winner = gi.winner;
-                    Franchise? f = fi.GetFranchiseByName(gi.winner, gi.GetDateObject());
-                    if (f != null)
-                    {
-                        gi.winner_franchise = f.FranchiseName;
-                    }
-                    f = fi.GetFranchiseByName(gi.loser, gi.GetDateObject());
-                    if (f != null)
-                    {
-                        gi.loser_franchise = f.FranchiseName;
-                    }
-                    gis.Add(gi);
-                }
-                WriteGameInfosToCSV(gis, filePath2);
-                */
+                //List<GameInfo> gis = new List<GameInfo>();
+                //FranchiseInfo fi = new FranchiseInfo();
+                //WriteGameInfosToCSV(gis, filePath2);
+                //
+                //
+                //gis.AddRange(ProcessAllGameInfosFromCSV(filePath1));
+                //WriteGameInfosToCSV(gis, filePath2);
                 //ProcessScorigamiCountsBySeason(allGameInfos, false);
                 //allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
-                //WriteGameInfosToCSV(allGameInfos, filePath2);
-                bool includeAAFC = true;
-                SaveToXmlFile(ProcessScorigamiInfo(ProcessAllGameInfosFromCSV(filePath1), includeAAFC), filePath2);
+                //
+                //bool includeAAFC = false;
+                //SaveToXmlFile(ProcessScorigamiInfo(ProcessAllGameInfosFromCSV(filePath1), includeAAFC), filePath2);
             }
             else if (operation == "reprocessxml") //load from XML file
             {
@@ -679,7 +666,7 @@ namespace NationalFootballLeagueLibrary
 
             foreach (GameInfo nextFirstGame in firstGames)
             {
-                fsi.FirstMatchups.Add(GameInfo.GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.loser, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
+                fsi.FirstMatchups.Add(GameInfo.GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.winner_franchise, nextFirstGame.loser, nextFirstGame.loser_franchise, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
             }
             bool foundMatchingLastGame = false;
             foreach (GameInfo nextLastGame in lastGames)
@@ -1074,32 +1061,45 @@ namespace NationalFootballLeagueLibrary
 
             public string GetMatchupString()
             {
-                return GetMatchupString(game_location, winner, loser, pts_win, pts_loss, GetMatchupType());
+                return GetMatchupString(game_location, winner, winner_franchise, loser, loser_franchise, pts_win, pts_loss, GetMatchupType());
             }
 
-            public static string GetMatchupString(string game_location, string winner, string loser, int PtsW, int PtsL, MatchupType mt)
+            public static string GetMatchupString(string game_location, string winner, string winner_franchise, string loser, string loser_franchise, int PtsW, int PtsL, MatchupType mt)
             {
                 string firstteam1, firstteam2;
                 int firstteam1points, firstteam2points;
+                string firstteam1franchise, firstteam2franchise;
                 if (game_location == "@" || game_location == "N")
                 {
                     firstteam1 = winner;
                     firstteam1points = PtsW;
+                    firstteam1franchise = winner_franchise;
                     firstteam2 = loser;
                     firstteam2points = PtsL;
+                    firstteam2franchise = loser_franchise;
                 }
                 else
                 {
                     firstteam1 = loser;
                     firstteam1points = PtsL;
+                    firstteam1franchise = loser_franchise;
                     firstteam2 = winner;
                     firstteam2points = PtsW;
+                    firstteam2franchise = winner_franchise;
                 }
                 string firstGameVersusOrAt = game_location == "N" ? "vs" : "at";
                 string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
                 if (mt != MatchupType.RegularSeason)
                 {
                     sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
+                }
+                if (!string.IsNullOrEmpty(firstteam1franchise))
+                {
+                    sMatchupString = "(" + firstteam1franchise + ") " + sMatchupString;
+                }
+                if(!string.IsNullOrEmpty(firstteam2franchise))
+                {
+                    sMatchupString = sMatchupString + " (" + firstteam2franchise + ")";
                 }
                 return sMatchupString;
             }
@@ -1278,8 +1278,10 @@ namespace NationalFootballLeagueLibrary
                 Map(m => m.week_num);
                 Map(m => m.game_date);
                 Map(m => m.winner);
+                Map(m => m.winner_franchise);
                 Map(m => m.game_location);
                 Map(m => m.loser);
+                Map(m => m.loser_franchise);
                 Map(m => m.league).TypeConverter<LeagueTypeConverter>();
             }
         }

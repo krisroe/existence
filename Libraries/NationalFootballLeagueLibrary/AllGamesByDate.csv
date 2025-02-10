@@ -1820,16 +1820,16 @@ Champ,1946-12-15,Chicago Bears,Chicago Bears,New York Giants,New York Giants,@,2
 Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 1,1947-08-29,Los Angeles Dons,,Chicago Rockets,,@,24,21,AAFC
 1,1947-08-31,San Francisco 49ers,San Francisco 49ers,Brooklyn Dodgers,, ,23,7,AAFC
-1,1947-08-31,Buffalo Bills,Buffalo Bills,New York Yankees,, ,28,24,AAFC
+1,1947-08-31,Buffalo Bills,,New York Yankees,, ,28,24,AAFC
 2,1947-09-05,New York Yankees,,Chicago Rockets,, ,48,26,AAFC
-2,1947-09-05,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, ,30,14,AAFC
+2,1947-09-05,Cleveland Browns,Cleveland Browns,Buffalo Bills,, ,30,14,AAFC
 2,1947-09-07,Baltimore Colts,,Brooklyn Dodgers,, ,16,7,AAFC
 2,1947-09-07,San Francisco 49ers,San Francisco 49ers,Los Angeles Dons,, ,17,14,AAFC
 3,1947-09-12,New York Yankees,,Los Angeles Dons,,@,30,14,AAFC
 3,1947-09-12,Cleveland Browns,Cleveland Browns,Brooklyn Dodgers,,@,55,7,AAFC
-3,1947-09-14,Buffalo Bills,Buffalo Bills,Chicago Rockets,, ,28,20,AAFC
+3,1947-09-14,Buffalo Bills,,Chicago Rockets,, ,28,20,AAFC
 3,1947-09-14,San Francisco 49ers,San Francisco 49ers,Baltimore Colts,, ,14,7,AAFC
-4,1947-09-19,Buffalo Bills,Buffalo Bills,Chicago Rockets,,@,31,14,AAFC
+4,1947-09-19,Buffalo Bills,,Chicago Rockets,,@,31,14,AAFC
 4,1947-09-19,Los Angeles Dons,,Brooklyn Dodgers,, ,48,21,AAFC
 1,1947-09-21,Pittsburgh Steelers,Pittsburgh Steelers,Detroit Lions,Detroit Lions, ,17,10,
 4,1947-09-21,Cleveland Browns,Cleveland Browns,Baltimore Colts,, ,28,0,AAFC
@@ -1837,7 +1837,7 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 5,1947-09-26,Cleveland Browns,Cleveland Browns,Chicago Rockets,,@,41,21,AAFC
 5,1947-09-28,New York Yankees,,Baltimore Colts,,@,21,7,AAFC
 2,1947-09-28,Chicago Cardinals,Arizona Cardinals,Detroit Lions,Detroit Lions, ,45,21,
-5,1947-09-28,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,Buffalo Bills,@,41,24,AAFC
+5,1947-09-28,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,,@,41,24,AAFC
 2,1947-09-28,Green Bay Packers,Green Bay Packers,Chicago Bears,Chicago Bears, ,29,20,
 2,1947-09-28,Philadelphia Eagles,Philadelphia Eagles,Washington Redskins,Washington Commanders, ,45,42,
 2,1947-09-29,New York Giants,New York Giants,Boston Yanks,,@,7,7,
@@ -1850,17 +1850,17 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 6,1947-10-05,San Francisco 49ers,San Francisco 49ers,Baltimore Colts,,@,28,28,AAFC
 3,1947-10-05,Philadelphia Eagles,Philadelphia Eagles,New York Giants,New York Giants, ,23,0,
 3,1947-10-05,Green Bay Packers,Green Bay Packers,Los Angeles Rams,Los Angeles Rams, ,17,14,
-6,1947-10-05,Buffalo Bills,Buffalo Bills,Los Angeles Dons,,@,27,25,AAFC
+6,1947-10-05,Buffalo Bills,,Los Angeles Dons,,@,27,25,AAFC
 4,1947-10-12,Washington Redskins,Washington Commanders,New York Giants,New York Giants, ,28,20,
 4,1947-10-12,Los Angeles Rams,Los Angeles Rams,Detroit Lions,Detroit Lions,@,27,13,
-7,1947-10-12,Buffalo Bills,Buffalo Bills,Baltimore Colts,, ,20,15,AAFC
+7,1947-10-12,Buffalo Bills,,Baltimore Colts,, ,20,15,AAFC
 7,1947-10-12,San Francisco 49ers,San Francisco 49ers,Chicago Rockets,, ,42,28,AAFC
 4,1947-10-12,Pittsburgh Steelers,Pittsburgh Steelers,Boston Yanks,,@,30,14,
 4,1947-10-12,Chicago Bears,Chicago Bears,Philadelphia Eagles,Philadelphia Eagles, ,40,7,
 4,1947-10-12,Chicago Cardinals,Arizona Cardinals,Green Bay Packers,Green Bay Packers,@,14,10,
 7,1947-10-12,New York Yankees,,Brooklyn Dodgers,, ,31,7,AAFC
 7,1947-10-12,Los Angeles Dons,,Cleveland Browns,Cleveland Browns,@,13,10,AAFC
-8,1947-10-17,Brooklyn Dodgers,,Buffalo Bills,Buffalo Bills, ,14,14,AAFC
+8,1947-10-17,Brooklyn Dodgers,,Buffalo Bills,, ,14,14,AAFC
 8,1947-10-19,Los Angeles Dons,,Baltimore Colts,,@,38,10,AAFC
 5,1947-10-19,Green Bay Packers,Green Bay Packers,Washington Redskins,Washington Commanders, ,27,10,
 5,1947-10-19,Pittsburgh Steelers,Pittsburgh Steelers,Philadelphia Eagles,Philadelphia Eagles, ,35,24,
@@ -1876,7 +1876,7 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 6,1947-10-26,Chicago Cardinals,Arizona Cardinals,Boston Yanks,, ,27,7,
 6,1947-10-26,Green Bay Packers,Green Bay Packers,Detroit Lions,Detroit Lions, ,34,17,
 9,1947-10-26,Los Angeles Dons,,Baltimore Colts,, ,56,0,AAFC
-9,1947-10-26,Buffalo Bills,Buffalo Bills,Brooklyn Dodgers,, ,35,7,AAFC
+9,1947-10-26,Buffalo Bills,,Brooklyn Dodgers,, ,35,7,AAFC
 10,1947-10-31,Brooklyn Dodgers,,Chicago Rockets,, ,7,3,AAFC
 7,1947-11-02,Pittsburgh Steelers,Pittsburgh Steelers,Green Bay Packers,Green Bay Packers,@,18,17,
 7,1947-11-02,Chicago Cardinals,Arizona Cardinals,Los Angeles Rams,Los Angeles Rams, ,17,10,
@@ -1885,13 +1885,13 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 7,1947-11-02,Chicago Bears,Chicago Bears,Boston Yanks,,@,28,24,
 10,1947-11-02,New York Yankees,,Baltimore Colts,, ,35,21,AAFC
 7,1947-11-02,Detroit Lions,Detroit Lions,New York Giants,New York Giants, ,35,7,
-10,1947-11-02,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills,@,28,7,AAFC
+10,1947-11-02,Cleveland Browns,Cleveland Browns,Buffalo Bills,,@,28,7,AAFC
 11,1947-11-07,Chicago Rockets,,Baltimore Colts,, ,27,21,AAFC
 8,1947-11-09,Chicago Cardinals,Arizona Cardinals,Detroit Lions,Detroit Lions,@,17,7,
 8,1947-11-09,Boston Yanks,,Los Angeles Rams,Los Angeles Rams,@,27,16,
 11,1947-11-09,New York Yankees,,San Francisco 49ers,San Francisco 49ers, ,24,16,AAFC
 8,1947-11-09,Philadelphia Eagles,Philadelphia Eagles,New York Giants,New York Giants,@,41,24,
-11,1947-11-09,Buffalo Bills,Buffalo Bills,Los Angeles Dons,, ,25,0,AAFC
+11,1947-11-09,Buffalo Bills,,Los Angeles Dons,, ,25,0,AAFC
 11,1947-11-09,Cleveland Browns,Cleveland Browns,Brooklyn Dodgers,, ,13,12,AAFC
 8,1947-11-09,Pittsburgh Steelers,Pittsburgh Steelers,Washington Redskins,Washington Commanders, ,21,14,
 8,1947-11-09,Chicago Bears,Chicago Bears,Green Bay Packers,Green Bay Packers, ,20,17,
@@ -1908,14 +1908,14 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 10,1947-11-23,New York Giants,New York Giants,Green Bay Packers,Green Bay Packers, ,24,24,
 10,1947-11-23,Chicago Bears,Chicago Bears,Pittsburgh Steelers,Pittsburgh Steelers, ,49,7,
 10,1947-11-23,Boston Yanks,,Philadelphia Eagles,Philadelphia Eagles, ,21,14,
-13,1947-11-23,Buffalo Bills,Buffalo Bills,Baltimore Colts,,@,33,14,AAFC
+13,1947-11-23,Buffalo Bills,,Baltimore Colts,,@,33,14,AAFC
 10,1947-11-23,Washington Redskins,Washington Commanders,Chicago Cardinals,Arizona Cardinals, ,45,21,
 13,1947-11-23,New York Yankees,,Cleveland Browns,Cleveland Browns, ,28,28,AAFC
 10,1947-11-23,Los Angeles Rams,Los Angeles Rams,Detroit Lions,Detroit Lions, ,28,17,
 11,1947-11-27,Chicago Bears,Chicago Bears,Detroit Lions,Detroit Lions,@,34,14,
 14,1947-11-27,San Francisco 49ers,San Francisco 49ers,Brooklyn Dodgers,,@,21,7,AAFC
 14,1947-11-27,Cleveland Browns,Cleveland Browns,Los Angeles Dons,,@,27,17,AAFC
-14,1947-11-30,New York Yankees,,Buffalo Bills,Buffalo Bills, ,35,13,AAFC
+14,1947-11-30,New York Yankees,,Buffalo Bills,, ,35,13,AAFC
 11,1947-11-30,New York Giants,New York Giants,Chicago Cardinals,Arizona Cardinals, ,35,31,
 11,1947-11-30,Philadelphia Eagles,Philadelphia Eagles,Pittsburgh Steelers,Pittsburgh Steelers, ,21,0,
 11,1947-11-30,Green Bay Packers,Green Bay Packers,Los Angeles Rams,Los Angeles Rams,@,30,10,
@@ -1925,7 +1925,7 @@ Champ,1946-12-22,Cleveland Browns,Cleveland Browns,New York Yankees,, ,14,9,AAFC
 12,1947-12-07,New York Giants,New York Giants,Washington Redskins,Washington Commanders, ,35,10,
 12,1947-12-07,Los Angeles Rams,Los Angeles Rams,Chicago Bears,Chicago Bears,@,17,14,
 15,1947-12-07,Los Angeles Dons,,Chicago Rockets,, ,34,14,AAFC
-15,1947-12-07,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,Buffalo Bills, ,21,21,AAFC
+15,1947-12-07,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,, ,21,21,AAFC
 12,1947-12-07,Green Bay Packers,Green Bay Packers,Detroit Lions,Detroit Lions,@,35,14,
 12,1947-12-07,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philadelphia Eagles,@,45,21,
 15,1947-12-07,New York Yankees,,Brooklyn Dodgers,,@,20,17,AAFC
@@ -1939,15 +1939,15 @@ Division,1947-12-21,Philadelphia Eagles,Philadelphia Eagles,Pittsburgh Steelers,
 Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philadelphia Eagles, ,28,21,
 1,1948-08-27,New York Yankees,,Brooklyn Dodgers,,@,21,3,AAFC
 1,1948-08-27,Los Angeles Dons,,Chicago Rockets,,@,7,0,AAFC
-1,1948-08-29,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,Buffalo Bills, ,35,14,AAFC
+1,1948-08-29,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,, ,35,14,AAFC
 2,1948-09-03,Cleveland Browns,Cleveland Browns,Los Angeles Dons,, ,19,14,AAFC
 2,1948-09-05,San Francisco 49ers,San Francisco 49ers,Brooklyn Dodgers,, ,36,20,AAFC
 2,1948-09-05,Baltimore Colts,,New York Yankees,, ,45,28,AAFC
-2,1948-09-06,Buffalo Bills,Buffalo Bills,Chicago Rockets,, ,42,7,AAFC
+2,1948-09-06,Buffalo Bills,,Chicago Rockets,, ,42,7,AAFC
 3,1948-09-10,Chicago Rockets,,Baltimore Colts,, ,21,14,AAFC
 3,1948-09-10,Los Angeles Dons,,Brooklyn Dodgers,, ,17,7,AAFC
 3,1948-09-12,San Francisco 49ers,San Francisco 49ers,New York Yankees,, ,41,0,AAFC
-3,1948-09-12,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills,@,42,13,AAFC
+3,1948-09-12,Cleveland Browns,Cleveland Browns,Buffalo Bills,,@,42,13,AAFC
 4,1948-09-16,Baltimore Colts,,New York Yankees,,@,27,14,AAFC
 1,1948-09-17,Green Bay Packers,Green Bay Packers,Boston Yanks,,@,31,0,
 4,1948-09-17,Cleveland Browns,Cleveland Browns,Chicago Rockets,,@,28,7,AAFC
@@ -1958,14 +1958,14 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 2,1948-09-26,Chicago Bears,Chicago Bears,Green Bay Packers,Green Bay Packers,@,45,7,
 2,1948-09-26,Washington Redskins,Washington Commanders,Pittsburgh Steelers,Pittsburgh Steelers, ,17,14,
 5,1948-09-26,Cleveland Browns,Cleveland Browns,Chicago Rockets,, ,21,10,AAFC
-5,1948-09-26,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,Buffalo Bills,@,38,28,AAFC
+5,1948-09-26,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,,@,38,28,AAFC
 5,1948-09-26,Baltimore Colts,,Brooklyn Dodgers,, ,35,20,AAFC
 5,1948-09-29,Los Angeles Dons,,New York Yankees,, ,20,10,AAFC
 6,1948-10-01,San Francisco 49ers,San Francisco 49ers,Chicago Rockets,,@,31,14,AAFC
 3,1948-10-03,Green Bay Packers,Green Bay Packers,Detroit Lions,Detroit Lions, ,33,21,
 3,1948-10-03,Washington Redskins,Washington Commanders,New York Giants,New York Giants, ,41,10,
 3,1948-10-03,Los Angeles Rams,Los Angeles Rams,Philadelphia Eagles,Philadelphia Eagles, ,28,28,
-6,1948-10-03,Buffalo Bills,Buffalo Bills,Brooklyn Dodgers,, ,31,21,AAFC
+6,1948-10-03,Buffalo Bills,,Brooklyn Dodgers,, ,31,21,AAFC
 3,1948-10-03,Pittsburgh Steelers,Pittsburgh Steelers,Boston Yanks,, ,24,14,
 3,1948-10-04,Chicago Bears,Chicago Bears,Chicago Cardinals,Arizona Cardinals,@,28,17,
 6,1948-10-05,Cleveland Browns,Cleveland Browns,Baltimore Colts,,@,14,10,AAFC
@@ -1977,12 +1977,12 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 7,1948-10-10,San Francisco 49ers,San Francisco 49ers,Baltimore Colts,,@,56,14,AAFC
 4,1948-10-10,Chicago Bears,Chicago Bears,Los Angeles Rams,Los Angeles Rams, ,42,21,
 4,1948-10-10,Pittsburgh Steelers,Pittsburgh Steelers,Washington Redskins,Washington Commanders, ,10,7,
-7,1948-10-10,New York Yankees,,Buffalo Bills,Buffalo Bills,@,14,13,AAFC
+7,1948-10-10,New York Yankees,,Buffalo Bills,,@,14,13,AAFC
 8,1948-10-15,Brooklyn Dodgers,,Chicago Rockets,, ,21,7,AAFC
 8,1948-10-15,Baltimore Colts,,Los Angeles Dons,,@,29,14,AAFC
 5,1948-10-17,Philadelphia Eagles,Philadelphia Eagles,Washington Redskins,Washington Commanders,@,45,0,
 5,1948-10-17,Boston Yanks,,Pittsburgh Steelers,Pittsburgh Steelers, ,13,7,
-8,1948-10-17,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, ,31,14,AAFC
+8,1948-10-17,Cleveland Browns,Cleveland Browns,Buffalo Bills,, ,31,14,AAFC
 5,1948-10-17,Chicago Cardinals,Arizona Cardinals,New York Giants,New York Giants,@,63,35,
 5,1948-10-17,Chicago Bears,Chicago Bears,Detroit Lions,Detroit Lions, ,28,0,
 5,1948-10-17,Green Bay Packers,Green Bay Packers,Los Angeles Rams,Los Angeles Rams, ,16,0,
@@ -1992,7 +1992,7 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 9,1948-10-24,Brooklyn Dodgers,,Chicago Rockets,,@,35,14,AAFC
 6,1948-10-24,New York Giants,New York Giants,Pittsburgh Steelers,Pittsburgh Steelers, ,34,27,
 6,1948-10-24,Los Angeles Rams,Los Angeles Rams,Detroit Lions,Detroit Lions,@,34,27,
-9,1948-10-24,Buffalo Bills,Buffalo Bills,Los Angeles Dons,,@,35,21,AAFC
+9,1948-10-24,Buffalo Bills,,Los Angeles Dons,,@,35,21,AAFC
 9,1948-10-24,Cleveland Browns,Cleveland Browns,New York Yankees,, ,35,7,AAFC
 9,1948-10-24,San Francisco 49ers,San Francisco 49ers,Baltimore Colts,, ,21,10,AAFC
 6,1948-10-24,Chicago Cardinals,Arizona Cardinals,Boston Yanks,, ,49,27,
@@ -2000,7 +2000,7 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 7,1948-10-31,Chicago Cardinals,Arizona Cardinals,Los Angeles Rams,Los Angeles Rams,@,27,22,
 7,1948-10-31,Philadelphia Eagles,Philadelphia Eagles,Pittsburgh Steelers,Pittsburgh Steelers,@,34,7,
 7,1948-10-31,Detroit Lions,Detroit Lions,Green Bay Packers,Green Bay Packers, ,24,20,
-10,1948-10-31,Buffalo Bills,Buffalo Bills,Baltimore Colts,, ,35,17,AAFC
+10,1948-10-31,Buffalo Bills,,Baltimore Colts,, ,35,17,AAFC
 10,1948-10-31,Los Angeles Dons,,Brooklyn Dodgers,,@,17,0,AAFC
 7,1948-10-31,Washington Redskins,Washington Commanders,Boston Yanks,, ,59,21,
 7,1948-10-31,Chicago Bears,Chicago Bears,New York Giants,New York Giants, ,35,14,
@@ -2011,13 +2011,13 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 11,1948-11-07,Cleveland Browns,Cleveland Browns,Baltimore Colts,, ,28,7,AAFC
 8,1948-11-07,Chicago Cardinals,Arizona Cardinals,Detroit Lions,Detroit Lions, ,56,20,
 11,1948-11-07,New York Yankees,,Los Angeles Dons,, ,38,6,AAFC
-11,1948-11-07,Buffalo Bills,Buffalo Bills,Brooklyn Dodgers,,@,26,21,AAFC
+11,1948-11-07,Buffalo Bills,,Brooklyn Dodgers,,@,26,21,AAFC
 11,1948-11-07,San Francisco 49ers,San Francisco 49ers,Chicago Rockets,, ,44,21,AAFC
 12,1948-11-14,Cleveland Browns,Cleveland Browns,San Francisco 49ers,San Francisco 49ers, ,14,7,AAFC
 9,1948-11-14,Chicago Cardinals,Arizona Cardinals,Pittsburgh Steelers,Pittsburgh Steelers,@,24,7,
 9,1948-11-14,Washington Redskins,Washington Commanders,Detroit Lions,Detroit Lions, ,46,21,
 12,1948-11-14,Baltimore Colts,,Chicago Rockets,, ,38,24,AAFC
-12,1948-11-14,Los Angeles Dons,,Buffalo Bills,Buffalo Bills,@,27,20,AAFC
+12,1948-11-14,Los Angeles Dons,,Buffalo Bills,,@,27,20,AAFC
 9,1948-11-14,Philadelphia Eagles,Philadelphia Eagles,Boston Yanks,, ,45,0,
 9,1948-11-14,Chicago Bears,Chicago Bears,Green Bay Packers,Green Bay Packers, ,7,6,
 9,1948-11-14,Los Angeles Rams,Los Angeles Rams,New York Giants,New York Giants,@,52,37,
@@ -2031,7 +2031,7 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 13,1948-11-21,Los Angeles Dons,,Baltimore Colts,,@,17,14,AAFC
 10,1948-11-21,Philadelphia Eagles,Philadelphia Eagles,Washington Redskins,Washington Commanders, ,42,21,
 14,1948-11-25,Cleveland Browns,Cleveland Browns,Los Angeles Dons,,@,31,14,AAFC
-14,1948-11-25,Buffalo Bills,Buffalo Bills,Chicago Rockets,,@,39,35,AAFC
+14,1948-11-25,Buffalo Bills,,Chicago Rockets,,@,39,35,AAFC
 11,1948-11-25,Chicago Cardinals,Arizona Cardinals,Detroit Lions,Detroit Lions,@,28,14,
 14,1948-11-28,Cleveland Browns,Cleveland Browns,San Francisco 49ers,San Francisco 49ers,@,31,28,AAFC
 11,1948-11-28,Chicago Bears,Chicago Bears,Washington Redskins,Washington Commanders, ,48,13,
@@ -2039,30 +2039,30 @@ Champ,1947-12-28,Chicago Cardinals,Arizona Cardinals,Philadelphia Eagles,Philade
 11,1948-11-28,New York Giants,New York Giants,Boston Yanks,, ,28,14,
 11,1948-11-28,Philadelphia Eagles,Philadelphia Eagles,Pittsburgh Steelers,Pittsburgh Steelers, ,17,0,
 14,1948-11-28,Baltimore Colts,,Brooklyn Dodgers,,@,38,20,AAFC
-14,1948-11-28,Buffalo Bills,Buffalo Bills,New York Yankees,,@,35,14,AAFC
+14,1948-11-28,Buffalo Bills,,New York Yankees,,@,35,14,AAFC
 15,1948-12-04,New York Yankees,,Chicago Rockets,,@,28,7,AAFC
 12,1948-12-05,Chicago Cardinals,Arizona Cardinals,Green Bay Packers,Green Bay Packers, ,42,7,
-15,1948-12-05,Baltimore Colts,,Buffalo Bills,Buffalo Bills, ,35,15,AAFC
+15,1948-12-05,Baltimore Colts,,Buffalo Bills,, ,35,15,AAFC
 12,1948-12-05,Los Angeles Rams,Los Angeles Rams,Washington Redskins,Washington Commanders,@,41,13,
 15,1948-12-05,Cleveland Browns,Cleveland Browns,Brooklyn Dodgers,,@,31,21,AAFC
 12,1948-12-05,Boston Yanks,,Philadelphia Eagles,Philadelphia Eagles, ,37,14,
 12,1948-12-05,Chicago Bears,Chicago Bears,Detroit Lions,Detroit Lions,@,42,14,
 12,1948-12-05,Pittsburgh Steelers,Pittsburgh Steelers,New York Giants,New York Giants, ,38,28,
 15,1948-12-05,San Francisco 49ers,San Francisco 49ers,Los Angeles Dons,,@,38,21,AAFC
-Division,1948-12-12,Buffalo Bills,Buffalo Bills,Baltimore Colts,,@,28,17,AAFC
+Division,1948-12-12,Buffalo Bills,,Baltimore Colts,,@,28,17,AAFC
 13,1948-12-12,Washington Redskins,Washington Commanders,New York Giants,New York Giants,@,28,21,
 13,1948-12-12,Chicago Cardinals,Arizona Cardinals,Chicago Bears,Chicago Bears,@,24,21,
 13,1948-12-12,Philadelphia Eagles,Philadelphia Eagles,Detroit Lions,Detroit Lions, ,45,21,
 13,1948-12-12,Los Angeles Rams,Los Angeles Rams,Pittsburgh Steelers,Pittsburgh Steelers, ,31,14,
 Champ,1948-12-19,Philadelphia Eagles,Philadelphia Eagles,Chicago Cardinals,Arizona Cardinals, ,7,0,
-Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, ,49,7,AAFC
-1,1949-08-26,Chicago Hornets,,Buffalo Bills,Buffalo Bills, ,17,14,AAFC
+Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,, ,49,7,AAFC
+1,1949-08-26,Chicago Hornets,,Buffalo Bills,, ,17,14,AAFC
 1,1949-08-28,San Francisco 49ers,San Francisco 49ers,Baltimore Colts,, ,31,17,AAFC
 2,1949-09-02,Los Angeles Dons,,Baltimore Colts,, ,49,17,AAFC
 2,1949-09-04,San Francisco 49ers,San Francisco 49ers,Chicago Hornets,, ,42,7,AAFC
-2,1949-09-05,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills,@,28,28,AAFC
+2,1949-09-05,Cleveland Browns,Cleveland Browns,Buffalo Bills,,@,28,28,AAFC
 3,1949-09-09,Chicago Hornets,,Los Angeles Dons,,@,23,21,AAFC
-3,1949-09-11,New York Yankees,,Buffalo Bills,Buffalo Bills,@,17,14,AAFC
+3,1949-09-11,New York Yankees,,Buffalo Bills,,@,17,14,AAFC
 3,1949-09-11,Cleveland Browns,Cleveland Browns,Baltimore Colts,, ,21,0,AAFC
 4,1949-09-16,Chicago Hornets,,Baltimore Colts,,@,35,7,AAFC
 4,1949-09-18,San Francisco 49ers,San Francisco 49ers,Los Angeles Dons,, ,42,14,AAFC
@@ -2073,14 +2073,14 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 1,1949-09-25,Pittsburgh Steelers,Pittsburgh Steelers,New York Giants,New York Giants, ,28,7,
 5,1949-09-25,Cleveland Browns,Cleveland Browns,Baltimore Colts,,@,28,20,AAFC
 1,1949-09-25,Chicago Bears,Chicago Bears,Green Bay Packers,Green Bay Packers,@,17,0,
-5,1949-09-25,Buffalo Bills,Buffalo Bills,San Francisco 49ers,San Francisco 49ers, ,28,17,AAFC
+5,1949-09-25,Buffalo Bills,,San Francisco 49ers,San Francisco 49ers, ,28,17,AAFC
 1,1949-09-26,Chicago Cardinals,Arizona Cardinals,Washington Redskins,Washington Commanders, ,38,7,
 2,1949-09-30,New York Giants,New York Giants,New York Bulldogs,,@,38,14,
 6,1949-09-30,San Francisco 49ers,San Francisco 49ers,Chicago Hornets,,@,42,24,AAFC
 2,1949-10-02,Chicago Bears,Chicago Bears,Chicago Cardinals,Arizona Cardinals,@,17,7,
 2,1949-10-02,Los Angeles Rams,Los Angeles Rams,Green Bay Packers,Green Bay Packers,@,48,7,
 6,1949-10-02,Cleveland Browns,Cleveland Browns,Los Angeles Dons,, ,42,7,AAFC
-6,1949-10-02,Baltimore Colts,,Buffalo Bills,Buffalo Bills,@,35,28,AAFC
+6,1949-10-02,Baltimore Colts,,Buffalo Bills,,@,35,28,AAFC
 2,1949-10-03,Washington Redskins,Washington Commanders,Pittsburgh Steelers,Pittsburgh Steelers,@,27,14,
 2,1949-10-03,Philadelphia Eagles,Philadelphia Eagles,Detroit Lions,Detroit Lions,@,22,14,
 3,1949-10-07,Green Bay Packers,Green Bay Packers,New York Bulldogs,,@,19,0,
@@ -2090,10 +2090,10 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 3,1949-10-09,Los Angeles Rams,Los Angeles Rams,Chicago Bears,Chicago Bears,@,31,16,
 3,1949-10-09,New York Giants,New York Giants,Washington Redskins,Washington Commanders,@,45,35,
 7,1949-10-09,San Francisco 49ers,San Francisco 49ers,Cleveland Browns,Cleveland Browns, ,56,28,AAFC
-7,1949-10-09,Los Angeles Dons,,Buffalo Bills,Buffalo Bills, ,42,28,AAFC
+7,1949-10-09,Los Angeles Dons,,Buffalo Bills,, ,42,28,AAFC
 8,1949-10-14,Cleveland Browns,Cleveland Browns,Los Angeles Dons,,@,61,14,AAFC
 4,1949-10-16,Chicago Cardinals,Arizona Cardinals,Green Bay Packers,Green Bay Packers,@,39,17,
-8,1949-10-16,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,Buffalo Bills, ,51,7,AAFC
+8,1949-10-16,San Francisco 49ers,San Francisco 49ers,Buffalo Bills,, ,51,7,AAFC
 4,1949-10-16,Pittsburgh Steelers,Pittsburgh Steelers,New York Giants,New York Giants,@,21,17,
 4,1949-10-16,Los Angeles Rams,Los Angeles Rams,Detroit Lions,Detroit Lions,@,21,10,
 4,1949-10-16,Chicago Bears,Chicago Bears,Philadelphia Eagles,Philadelphia Eagles, ,38,21,
@@ -2103,7 +2103,7 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 5,1949-10-23,Pittsburgh Steelers,Pittsburgh Steelers,New York Bulldogs,, ,24,13,
 9,1949-10-23,Chicago Hornets,,Baltimore Colts,,@,17,7,AAFC
 5,1949-10-23,New York Giants,New York Giants,Chicago Bears,Chicago Bears, ,35,28,
-9,1949-10-23,Buffalo Bills,Buffalo Bills,Los Angeles Dons,, ,17,14,AAFC
+9,1949-10-23,Buffalo Bills,,Los Angeles Dons,, ,17,14,AAFC
 5,1949-10-23,Philadelphia Eagles,Philadelphia Eagles,Washington Redskins,Washington Commanders, ,49,14,
 5,1949-10-23,Detroit Lions,Detroit Lions,Chicago Cardinals,Arizona Cardinals,@,24,7,
 5,1949-10-23,Los Angeles Rams,Los Angeles Rams,Green Bay Packers,Green Bay Packers, ,35,7,
@@ -2122,12 +2122,12 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 7,1949-11-06,Chicago Bears,Chicago Bears,Green Bay Packers,Green Bay Packers, ,24,3,
 11,1949-11-06,Cleveland Browns,Cleveland Browns,Chicago Hornets,, ,35,2,AAFC
 7,1949-11-06,Philadelphia Eagles,Philadelphia Eagles,Los Angeles Rams,Los Angeles Rams, ,38,14,
-11,1949-11-06,Buffalo Bills,Buffalo Bills,New York Yankees,,@,17,14,AAFC
+11,1949-11-06,Buffalo Bills,,New York Yankees,,@,17,14,AAFC
 8,1949-11-13,Philadelphia Eagles,Philadelphia Eagles,Washington Redskins,Washington Commanders,@,44,21,
 8,1949-11-13,Chicago Cardinals,Arizona Cardinals,New York Bulldogs,,@,65,20,
 12,1949-11-13,New York Yankees,,Chicago Hornets,, ,14,10,AAFC
 8,1949-11-13,Chicago Bears,Chicago Bears,Detroit Lions,Detroit Lions, ,27,24,
-12,1949-11-13,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, ,7,7,AAFC
+12,1949-11-13,Cleveland Browns,Cleveland Browns,Buffalo Bills,, ,7,7,AAFC
 8,1949-11-13,Los Angeles Rams,Los Angeles Rams,Pittsburgh Steelers,Pittsburgh Steelers,@,7,7,
 8,1949-11-13,New York Giants,New York Giants,Green Bay Packers,Green Bay Packers,@,30,10,
 12,1949-11-13,San Francisco 49ers,San Francisco 49ers,Los Angeles Dons,,@,41,24,AAFC
@@ -2135,7 +2135,7 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 13,1949-11-20,Cleveland Browns,Cleveland Browns,New York Yankees,,@,31,0,AAFC
 9,1949-11-20,Philadelphia Eagles,Philadelphia Eagles,New York Bulldogs,, ,42,0,
 9,1949-11-20,Pittsburgh Steelers,Pittsburgh Steelers,Green Bay Packers,Green Bay Packers,@,30,7,
-13,1949-11-20,Buffalo Bills,Buffalo Bills,Chicago Hornets,, ,10,0,AAFC
+13,1949-11-20,Buffalo Bills,,Chicago Hornets,, ,10,0,AAFC
 9,1949-11-20,Los Angeles Rams,Los Angeles Rams,Chicago Cardinals,Arizona Cardinals,@,28,28,
 9,1949-11-20,Detroit Lions,Detroit Lions,New York Giants,New York Giants,@,45,21,
 13,1949-11-20,Los Angeles Dons,,Baltimore Colts,,@,21,10,AAFC
@@ -2147,10 +2147,10 @@ Champ,1948-12-19,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, 
 14,1949-11-27,San Francisco 49ers,San Francisco 49ers,New York Yankees,, ,35,14,AAFC
 10,1949-11-27,New York Giants,New York Giants,Washington Redskins,Washington Commanders, ,23,7,
 10,1949-11-27,Philadelphia Eagles,Philadelphia Eagles,Pittsburgh Steelers,Pittsburgh Steelers, ,34,17,
-14,1949-11-27,Buffalo Bills,Buffalo Bills,Baltimore Colts,,@,38,14,AAFC
+14,1949-11-27,Buffalo Bills,,Baltimore Colts,,@,38,14,AAFC
 11,1949-12-04,Philadelphia Eagles,Philadelphia Eagles,New York Giants,New York Giants,@,24,3,
 11,1949-12-04,Washington Redskins,Washington Commanders,Green Bay Packers,Green Bay Packers, ,30,0,
-Division,1949-12-04,Cleveland Browns,Cleveland Browns,Buffalo Bills,Buffalo Bills, ,31,21,AAFC
+Division,1949-12-04,Cleveland Browns,Cleveland Browns,Buffalo Bills,, ,31,21,AAFC
 11,1949-12-04,Chicago Cardinals,Arizona Cardinals,Los Angeles Rams,Los Angeles Rams,@,31,27,
 11,1949-12-04,Chicago Bears,Chicago Bears,Pittsburgh Steelers,Pittsburgh Steelers, ,30,21,
 11,1949-12-04,Detroit Lions,Detroit Lions,New York Bulldogs,, ,28,27,
