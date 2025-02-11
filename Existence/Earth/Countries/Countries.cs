@@ -10,6 +10,16 @@ namespace Existence.Earth.Countries
             this.Capital = Capital;
         }
     }
+
+    public class LargestCityAttribute : Attribute
+    {
+        public int LargestCity { get; set; }
+        public LargestCityAttribute(int LargestCity)
+        {
+            this.LargestCity = LargestCity;
+        }
+    }
+
     public static class CountriesAlphabetical
     {
         public static class Afghanistan { }
