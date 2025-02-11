@@ -140,6 +140,7 @@ namespace Existence.Earth.Countries.UnitedStates
         NorthDakota,
 
         [Capital((int)USCities.OhioColumbus)]
+        [LargestCity((int)USCities.OhioColumbus)]
         Ohio,
 
         [Capital((int)USCities.OklahomaOklahomaCity)]
