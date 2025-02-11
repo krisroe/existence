@@ -1,6 +1,16 @@
-﻿
+﻿using System;
+
 namespace Existence.Earth.Countries.UnitedStates
 {
+    public class USStatesAndTerritoriesAttribute : Attribute
+    {
+        public USStatesAndTerritories[] Locations { get; set; }
+        public USStatesAndTerritoriesAttribute(params USStatesAndTerritories[] Locations)
+        {
+            this.Locations = Locations;
+        }
+    }
+
     public enum USStatesAndTerritories
     {
         [Capital((int)USCities.AlabamaMontgomery)]
@@ -244,5 +254,92 @@ namespace Existence.Earth.Countries.UnitedStates
         [Capital((int)USCities.AmericanSamoaPagoPago)]
         [LargestCity((int)USCities.AmericanSamoaTafuna)]
         AmericanSamoa,
+    }
+
+    public enum StateSupremeCourtJusticeChoice
+    {
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alaska,
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Indiana,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthDakota,
+            USStatesAndTerritories.Tennessee,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Wyoming
+            )]
+        CommissionRecommendationsGubernatorialAppointmentFromListRetentionElection,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Vermont)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterSixYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Hawaii)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterTenYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Delaware)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterTwelveYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.NewYork)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterFourteenYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.RhodeIsland)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationLifeTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Connecticut)]
+        CommissionRecommendationsGubernatorialAppointmentPotentiallyNotFromListLegislativeConfirmationRepeatProcessAfterEightYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Maryland)]
+        CommissionRecommendationsGubernatorialAppointmentPotentiallyNotFromListLegislativeConfirmationRepeatProcessAfterTenYearTerm,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Massachusetts,
+            USStatesAndTerritories.NewHampshire
+            )]
+        GubernatorialAppointmentLegislativeConfirmationLifeTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.California)]
+        GubernatorialAppointmentCommissionConfirmationRepeatProcessAfterTwelveYearTerm,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Maine, 
+            USStatesAndTerritories.NewJersey)]
+        GubernatorialAppointmentStateSenateConfirmationRepeatProcessAfterSevenYearTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.SouthCarolina, USStatesAndTerritories.Virginia)]
+        LegislativeAppointment,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Arkansas,
+            USStatesAndTerritories.Georgia,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Michigan,
+            USStatesAndTerritories.Minnesota,
+            USStatesAndTerritories.Mississippi,
+            USStatesAndTerritories.Montana,
+            USStatesAndTerritories.Nevada,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Oregon,
+            USStatesAndTerritories.Washington,
+            USStatesAndTerritories.Wisconsin,
+            USStatesAndTerritories.WestVirginia)]
+        NonpartisanElections,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Illinois,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.NewMexico,
+            USStatesAndTerritories.NorthCarolina,
+            USStatesAndTerritories.Ohio,
+            USStatesAndTerritories.Texas)]
+        PartisanElections,
     }
 }
