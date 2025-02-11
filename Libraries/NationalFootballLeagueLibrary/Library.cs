@@ -45,29 +45,21 @@ namespace NationalFootballLeagueLibrary
             }
             else if (operation == "fromcsv") //load from all games csv file
             {
-                //List<GameInfo> gis = new List<GameInfo>();
-                //FranchiseInfo fi = new FranchiseInfo();
-                //WriteGameInfosToCSV(gis, filePath2);
-                //
-                //
-                //gis.AddRange(ProcessAllGameInfosFromCSV(filePath1));
-                //WriteGameInfosToCSV(gis, filePath2);
-                //ProcessScorigamiCountsBySeason(allGameInfos, false);
-                //allGameInfos.Sort(new GameInfoComparer(GameInfoSortType.ChronologicalWithinCalendarYear));
-                //
+                IEnumerable<GameInfo> gis = ProcessAllGameInfosFromCSV(filePath1);
+                //DisplayClevelandBrowns2005Games(gis);
+                //DisplaySuperBowlMatchupsThatHaveOccurredMultipleTimes(gis);
+
+                //process scorigamis and save to the XML file
                 //bool includeAAFC = false;
-                //SaveToXmlFile(ProcessScorigamiInfo(ProcessAllGameInfosFromCSV(filePath1), includeAAFC), filePath2);
-            }
-            else if (operation == "reprocessxml") //load from XML file
-            {
-                //SaveToXmlFile(GetFinalScoreInfosFromXML(filePath1), filePath1);
+                //SaveToXmlFile(ProcessScorigamiInfo(gis, includeAAFC), filePath2);
             }
             else if (operation == "loadxml")
             {
                 IEnumerable<FinalScoreInfo> fsis = GetFinalScoreInfosFromXML(filePath1);
                 //DisplayDoubleScorigamisFromXML(fsis);
                 //ProcessTeamScorigamiCounts(fsis);
-                GetProbabilitiesForAllScores(fsis, false);
+                //GetProbabilitiesForAllScores(fsis, false);
+                DisplayInterestingScorigamisForMatchups(fsis);
             }
             else
             {
@@ -75,6 +67,99 @@ namespace NationalFootballLeagueLibrary
             }
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        private static void DisplayInterestingScorigamisForMatchups(IEnumerable<FinalScoreInfo> fsis)
+        {
+            //interesting matchups to check (sample is super bowl matchups that have occurred multiple times)
+            HashSet<string> matchupsToCheck = new HashSet<string>()
+                {
+                    "Dallas CowboysPittsburgh Steelers",
+                    "Miami DolphinsWashington Commanders",
+                    "Cincinnati BengalsSan Francisco 49ers",
+                    "Buffalo BillsDallas Cowboys",
+                    "New England PatriotsNew York Giants",
+                    "New England PatriotsPhiladelphia Eagles",
+                    "Los Angeles RamsNew England Patriots",
+                    "Kansas City ChiefsSan Francisco 49ers",
+                    "Kansas City ChiefsPhiladelphia Eagles"
+                };
+            foreach (FinalScoreInfo fsi in fsis)
+            {
+                if (fsi.Count <= 2)
+                {
+                    bool matches = false;
+                    foreach (FinalScoreMatchup fsm in fsi.EnumerateMatchups())
+                    {
+                        string sFranchise1 = fsm.Team1Franchise;
+                        string sFranchise2 = fsm.Team2Franchise;
+                        if (!string.IsNullOrEmpty(sFranchise1) && !string.IsNullOrEmpty(sFranchise2))
+                        {
+                            if (sFranchise1.CompareTo(sFranchise2) > 0)
+                            {
+                                string sTemp = sFranchise1;
+                                sFranchise1 = sFranchise2;
+                                sFranchise2 = sTemp;
+                            }
+                            if (matchupsToCheck.Contains(sFranchise1 + sFranchise2))
+                            {
+                                matches = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (matches)
+                    {
+                        fsi.WriteToConsole(ScorigamiMatchupInfoToDisplay.FirstAndLast);
+                    }
+                }
+            }
+        }
+
+        private static void DisplayClevelandBrowns2005Games(IEnumerable<GameInfo> gis)
+        {
+            foreach (GameInfo next in gis)
+            {
+                if (next.GetSeasonStartingYear() == 2005 && (next.winner_franchise == "Cleveland Browns" || next.loser_franchise == "Cleveland Browns"))
+                {
+                    next.WriteToConsole();
+                }
+            }
+        }
+
+        private static void DisplaySuperBowlMatchupsThatHaveOccurredMultipleTimes(IEnumerable<GameInfo> gis)
+        {
+            Dictionary<string, int> matchupCount = new Dictionary<string, int>();
+            foreach (GameInfo next in gis)
+            {
+                if (next.week_num == SPECIAL_WEEK_NUM_SUPER_BOWL)
+                {
+                    string sFranchise1 = next.winner_franchise;
+                    string sFranchise2 = next.loser_franchise;
+                    if (string.IsNullOrEmpty(sFranchise1)) throw new InvalidOperationException();
+                    if (string.IsNullOrEmpty(sFranchise2)) throw new InvalidOperationException();
+                    if (sFranchise1 == sFranchise2) throw new InvalidOperationException();
+                    if (sFranchise1.CompareTo(sFranchise2) > 0)
+                    {
+                        string sTemp = sFranchise1;
+                        sFranchise1 = sFranchise2;
+                        sFranchise2 = sTemp;
+                    }
+                    string combination = sFranchise1 + sFranchise2;
+                    if (!matchupCount.TryGetValue(combination, out int iValue))
+                    {
+                        iValue = 0;
+                    }
+                    matchupCount[combination] = iValue + 1;
+                }
+            }
+            foreach (var next in matchupCount)
+            {
+                if (next.Value > 1)
+                {
+                    Console.Out.WriteLine(next.Key + " " + next.Value);
+                }
+            }
         }
 
         private static void DisplayDoubleScorigamisFromXML(IEnumerable<FinalScoreInfo> fsis)

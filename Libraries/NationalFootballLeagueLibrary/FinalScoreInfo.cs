@@ -30,7 +30,7 @@ namespace NationalFootballLeagueLibrary
         /// <param name="DisplayInfo">display information</param>
         public void WriteToConsole(ScorigamiMatchupInfoToDisplay DisplayInfo)
         {
-            Console.Out.WriteLine(this.Score + " " + this.Count);
+            Console.Out.WriteLine(this.Score + " " + this.Count.ToString().PadLeft(3, '0'));
             if (DisplayInfo == ScorigamiMatchupInfoToDisplay.First || DisplayInfo == ScorigamiMatchupInfoToDisplay.FirstAndLast)
             {
                 Console.Out.WriteLine(" " + this.FirstDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
@@ -39,7 +39,7 @@ namespace NationalFootballLeagueLibrary
                     Console.Out.WriteLine("  " + fsm.ToString());
                 }
             }
-            if (DisplayInfo == ScorigamiMatchupInfoToDisplay.Last || DisplayInfo == ScorigamiMatchupInfoToDisplay.FirstAndLast)
+            if (this.FirstDate != this.LastDate && (DisplayInfo == ScorigamiMatchupInfoToDisplay.Last || DisplayInfo == ScorigamiMatchupInfoToDisplay.FirstAndLast))
             {
                 Console.Out.WriteLine(" " + this.LastDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
                 foreach (FinalScoreMatchup fsm in LastMatchups)
@@ -83,10 +83,10 @@ namespace NationalFootballLeagueLibrary
         /// enumerates matchups, both winners and losers
         /// </summary>
         /// <returns>matchups</returns>
-        public IEnumerable<string> EnumerateMatchups()
+        public IEnumerable<FinalScoreMatchup> EnumerateMatchups()
         {
-            foreach (FinalScoreMatchup fsm1 in FirstMatchups) yield return fsm1.ToString();
-            foreach (FinalScoreMatchup fsm2 in LastMatchups) yield return fsm2.ToString();
+            foreach (FinalScoreMatchup fsm1 in FirstMatchups) yield return fsm1;
+            foreach (FinalScoreMatchup fsm2 in LastMatchups) yield return fsm2;
         }
     }
 
@@ -197,7 +197,7 @@ namespace NationalFootballLeagueLibrary
                 if (GameWeekSpecial != MatchupType.RegularSeason)
                 {
                     sb.Append("(");
-                    sb.Append(Team2Franchise);
+                    sb.Append(GameWeekSpecial);
                     sb.Append(")");
                 }
                 if (League != LeagueType.NFL)

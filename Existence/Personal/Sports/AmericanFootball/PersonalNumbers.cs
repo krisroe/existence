@@ -37,7 +37,22 @@ namespace Existence.Personal.Sports.AmericanFootball
         /// 42-27 (level 8)
         /// Cleveland Browns 27 at 42 Philadelphia Eagles (1953-12-13) [taylor swift b-day]
         /// Kansas City Chiefs 42 at 27 New England Patriots (2017-09-07)
+        /// This was my score prediction as communicated to my father
         /// </summary>
         public static class DecemberThirteenthScorigamiWithInfoHavingBothChiefsAndEagles { }
+
+        /// <summary>
+        /// actual super bowl score was 40-22, which was a level 2 scorigami. Interestingly, the
+        /// first occurrence of this score was between the New England Patriots and St. Louis Rams, another
+        /// matchup previously played in the super bowl multiple times.
+        /// </summary>
+        public static class SuperBowlActual { }
+
+        /// <summary>
+        /// There were two existing scorigamis (with franchise matchups that have occurred in multiple super bowls):
+        /// 21-8  12/05/1993 (Cincinnati Bengals 8 at 21 San Francisco 49ers). Both Super Bowls had already been played at this point.
+        /// 40-22 11/07/2004 (New England Patriots 40 at 22 St Louis Rams). Only 1 Super Bowl had already been played at this point.
+        /// </summary>
+        public static class PreviousSuperBowlMatchupLevelOneScorigamis { }
     }
 }
