@@ -309,7 +309,7 @@ namespace Existence.Earth.Countries.UnitedStates
             [USCities(USCities.NewMexicoAlbuquerque, USCities.UtahSaltLakeCity)]
             public static class TenthCircuit
             {
-                [USCity(USCities.CheyenneWyoming)]
+                [USCity(USCities.WyomingCheyenne)]
                 public static class Wyoming { }
 
                 [USCity(USCities.ColoradoDenver)]

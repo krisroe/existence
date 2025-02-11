@@ -1,5 +1,15 @@
-﻿namespace Existence.Earth.Countries
+﻿using System;
+
+namespace Existence.Earth.Countries
 {
+    public class CapitalAttribute : Attribute
+    {
+        public int Capital { get; set; }
+        public CapitalAttribute(int Capital)
+        {
+            this.Capital = Capital;
+        }
+    }
     public static class CountriesAlphabetical
     {
         public static class Afghanistan { }
