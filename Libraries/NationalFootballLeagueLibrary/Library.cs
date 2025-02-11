@@ -60,19 +60,14 @@ namespace NationalFootballLeagueLibrary
             }
             else if (operation == "reprocessxml") //load from XML file
             {
-                SaveToXmlFile(GetFinalScoreInfosFromXML(filePath1), filePath1);
+                //SaveToXmlFile(GetFinalScoreInfosFromXML(filePath1), filePath1);
             }
             else if (operation == "loadxml")
             {
-                foreach (FinalScoreInfo fsi in GetFinalScoreInfosFromXML(filePath1))
-                {
-                    if (fsi.FirstMatchups.Count > 1)
-                    {
-                        fsi.WriteToConsole(ScorigamiMatchupInfoToDisplay.First);
-                    }
-                }
-                //ProcessTeamScorigamiCounts(GetFinalScoreInfosFromXML(filePath1));
-                //GetProbabilitiesForAllScores(null, true);
+                IEnumerable<FinalScoreInfo> fsis = GetFinalScoreInfosFromXML(filePath1);
+                //DisplayDoubleScorigamisFromXML(fsis);
+                //ProcessTeamScorigamiCounts(fsis);
+                GetProbabilitiesForAllScores(fsis, false);
             }
             else
             {
@@ -82,6 +77,17 @@ namespace NationalFootballLeagueLibrary
             return Common.READ_NEWLINE;
         }
 
+        private static void DisplayDoubleScorigamisFromXML(IEnumerable<FinalScoreInfo> fsis)
+        {
+            foreach (FinalScoreInfo fsi in fsis)
+            {
+                if (fsi.FirstMatchups.Count > 1)
+                {
+                    fsi.WriteToConsole(ScorigamiMatchupInfoToDisplay.First);
+                }
+            }
+        }
+
         private static void ProcessTeamScorigamiCounts(IEnumerable<FinalScoreInfo> fsis)
         {
             FranchiseInfo fi = new FranchiseInfo();
@@ -89,90 +95,27 @@ namespace NationalFootballLeagueLibrary
             foreach (FinalScoreInfo fsi in fsis)
             {
                 DateTime dtFirstDate = fsi.FirstDate;
-                foreach (string nextMatchup in fsi.FirstMatchups)
+                foreach (FinalScoreMatchup nextMatchup in fsi.FirstMatchups)
                 {
-                    string[] strings = nextMatchup.Split(' ');
-                    int iLastIndex = strings.Length - 1;
-                    while (strings[iLastIndex].StartsWith("("))
-                    {
-                        iLastIndex--;
-                    }
-                    int iStartTokens = 0;
-                    bool startOK = false;
-                    for (int i = 0; i < iLastIndex; i++)
-                    {
-                        if (int.TryParse(strings[i], out int foundScore))
-                        {
-                            startOK = true;
-                            break;
-                        }
-                        else
-                        {
-                            iStartTokens++;
-                        }
-                    }
-                    if (!startOK || iStartTokens == 0) throw new InvalidOperationException();
-                    int iEndTokens = 0;
-                    bool endOK = false;
-                    for (int i = iLastIndex; i >= 0; i--)
-                    {
-                        if (int.TryParse(strings[i], out int foundScore))
-                        {
-                            endOK = true;
-                            break;
-                        }
-                        else
-                        {
-                            iEndTokens++;
-                        }
-                    }
-                    if (!endOK || iEndTokens == 0) throw new InvalidOperationException();
+                    string franchise1name = nextMatchup.Team1Franchise;
+                    string franchise2name = nextMatchup.Team2Franchise;
 
-                    StringBuilder sbFirstTeam = new StringBuilder();
-                    for (int i = 0; i < iStartTokens; i++)
-                    {
-                        if (i != 0) sbFirstTeam.Append(' ');
-                        sbFirstTeam.Append(strings[i]);
-                    }
-                    string firstTeam = sbFirstTeam.ToString();
+                    //validate franchises are valid
+                    Franchise? f1 = fi.GetFranchiseByName(franchise1name, dtFirstDate);
+                    Franchise? f2 = fi.GetFranchiseByName(franchise2name, dtFirstDate);
+                    if (f1 == null && !string.IsNullOrEmpty(franchise1name)) throw new InvalidOperationException();
+                    if (f2 == null && !string.IsNullOrEmpty(franchise2name)) throw new InvalidOperationException();
 
-                    StringBuilder sbSecondTeam = new StringBuilder();
-                    bool pastFirst = false;
-                    for (int i = iLastIndex - iEndTokens + 1; i <= iLastIndex; i++)
-                    {
-                        if (pastFirst)
-                        {
-                            sbSecondTeam.Append(' ');
-                        }
-                        else
-                        {
-                            pastFirst = true;
-                        }
-                        sbSecondTeam.Append(strings[i]);
-                    }
-                    string secondTeam = sbSecondTeam.ToString();
-                    Franchise? f1 = fi.GetFranchiseByName(firstTeam, dtFirstDate);
-                    Franchise? f2 = fi.GetFranchiseByName(secondTeam, dtFirstDate);
-                    int iValue;
-                    string sFranchiseName1 = string.Empty;
-                    string sFranchiseName2 = string.Empty;
+                                        int iValue;
                     if (f1 != null)
                     {
-                        sFranchiseName1 = f1.FranchiseName;
-                        if (!teamScorigamis.TryGetValue(sFranchiseName1, out iValue))
-                        {
-                            iValue = 0;
-                        }
-                        teamScorigamis[sFranchiseName1] = iValue + 1;
+                        if (!teamScorigamis.TryGetValue(franchise1name, out iValue)) iValue = 0;
+                        teamScorigamis[franchise1name] = iValue + 1;
                     }
                     if (f2 != null)
                     {
-                        sFranchiseName2 = f2.FranchiseName;
-                        if (!teamScorigamis.TryGetValue(sFranchiseName2, out iValue))
-                        {
-                            iValue = 0;
-                        }
-                        teamScorigamis[sFranchiseName2] = iValue + 1;
+                        if (!teamScorigamis.TryGetValue(franchise2name, out iValue)) iValue = 0;
+                        teamScorigamis[franchise2name] = iValue + 1;
                     }
                 }
             }
@@ -202,7 +145,7 @@ namespace NationalFootballLeagueLibrary
                 DateTime dtDateObject = gi.GetDateObject();
                 FinalScoreInfo existingFSI = scorigamis[iWinnerPts, iLoserPts];
                 bool isScorigami = existingFSI == null || existingFSI.FirstDate == dtDateObject;
-                string matchupString = gi.GetMatchupString();
+                FinalScoreMatchup fsm = FinalScoreMatchup.CreateFromGameInformation(gi.game_location, gi.winner, gi.winner_franchise, gi.loser, gi.loser_franchise, iWinnerPts, iLoserPts, gi.GetMatchupType(), gi.league);
                 if (isScorigami)
                 {
                     if (existingFSI == null)
@@ -210,7 +153,7 @@ namespace NationalFootballLeagueLibrary
                         existingFSI = new FinalScoreInfo(gi.pts_win.ToString().PadLeft(2, '0') + "-" + gi.pts_loss.ToString().PadLeft(2, '0'), 0, dtDateObject, dtDateObject);
                         scorigamis[iWinnerPts, iLoserPts] = existingFSI;
                     }
-                    existingFSI.FirstMatchups.Add(matchupString);
+                    existingFSI.FirstMatchups.Add(fsm);
                 }
                 else
                 {
@@ -220,7 +163,7 @@ namespace NationalFootballLeagueLibrary
                         existingFSI.LastDate = dtDateObject;
                         existingFSI.LastMatchups.Clear();
                     }
-                    existingFSI.LastMatchups.Add(matchupString);
+                    existingFSI.LastMatchups.Add(fsm);
                 }
                 existingFSI.Count++;
             }
@@ -245,7 +188,7 @@ namespace NationalFootballLeagueLibrary
         private static void ProcessScorigamiCountsBySeason(IEnumerable<GameInfo> gameInfos, bool includeAAFC)
         {
             int nowYear = DateTime.Now.Year;
-            bool[,] scorigamis = new bool[MAXIMUM_SCORE+1, MAXIMUM_SCORE+1];
+            bool[,] scorigamis = new bool[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
             int[] scorigamiCountsByYear = new int[nowYear - STARTING_YEAR + 1];
             foreach (GameInfo gi in gameInfos)
             {
@@ -303,7 +246,7 @@ namespace NationalFootballLeagueLibrary
         {
             int totalFinalScores = 0;
             int totalCount = 0;
-            int[] buckets = new int[MAXIMUM_SCORE+1];
+            int[] buckets = new int[MAXIMUM_SCORE + 1];
             FinalScoreInfo[,] finalScores = new FinalScoreInfo[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
 
             foreach (FinalScoreInfo fsi in fsis)
@@ -335,22 +278,18 @@ namespace NationalFootballLeagueLibrary
             }
 
             //adjust to account for zeroes at 67/68/69 and 71 (1 point is left at zero). This means probabilities add up to slightly over 100%
-            int d70Count = buckets[70];
-            if (buckets[66] != d70Count) throw new InvalidOperationException();
-            if (buckets[67] != 0) throw new InvalidOperationException();
-            if (buckets[68] != 0) throw new InvalidOperationException();
-            if (buckets[69] != 0) throw new InvalidOperationException();
-            buckets[67] = d70Count;
-            buckets[68] = d70Count;
-            buckets[69] = d70Count;
-            int d72Count = buckets[72];
-            if (d72Count != buckets[73]) throw new InvalidOperationException();
-            buckets[71] = d72Count;
+            for (int i = 2; i <= MAXIMUM_SCORE; i++)
+            {
+                if (buckets[i] == 0)
+                {
+                    buckets[i] = 1;
+                }
+            }
 
             double dTotalExpectedCount = 0;
             double[,] expectedPercentage = new double[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
             double[,] expectedCount = new double[MAXIMUM_SCORE + 1, MAXIMUM_SCORE + 1];
-            
+
             for (int i = 0; i <= MAXIMUM_SCORE; i++)
             {
                 double dPercentageWinner = (double)buckets[i] / totalCount;
@@ -361,7 +300,7 @@ namespace NationalFootballLeagueLibrary
                     if (i == j) //tie
                     {
                         dPercentageForCell = dPercentageLoser * dPercentageLoser;
-                        
+
                     }
                     else //counts for double since either team could win
                     {
@@ -373,6 +312,11 @@ namespace NationalFootballLeagueLibrary
                 }
             }
 
+            //Validate the total percentage adds to nearly one (it will be slightly higher because empty values are filled in with one game)
+            //Console.Out.WriteLine("Total Expected Count: " + dTotalExpectedCount.ToString());
+
+            List<PotentialScorigami> ps = new List<PotentialScorigami>();
+
             //print out expected number of games for that score
             double dScorigamiPercentage = 0;
             for (int i = 0; i <= MAXIMUM_SCORE; i++)
@@ -383,13 +327,47 @@ namespace NationalFootballLeagueLibrary
                     {
                         double nextExpectedScorigamiPercentage = expectedPercentage[i, j];
                         dScorigamiPercentage += nextExpectedScorigamiPercentage;
-                        Console.WriteLine("Scorigami Percentage 1/X " + i + "-" + j + ": " + ((double)1 / nextExpectedScorigamiPercentage).ToString("F4"));
+                        double nextPerXGames = ((double)1 / nextExpectedScorigamiPercentage);
+                        if (nextPerXGames != double.PositiveInfinity)
+                        {
+                            ps.Add(new PotentialScorigami(i.ToString().PadLeft(2, '0') + "-" + j.ToString().PadLeft(2, '0'), nextPerXGames));
+                        }
                     }
-                    //Console.WriteLine(i.ToString().PadLeft(2, '0') + "-" + j.ToString().PadLeft(2, '0') + ":" + expectedCount[i, j].ToString("F2"));
                 }
             }
+
+            //Overall likelihood of any scorigami occurring in a particular game
             Console.WriteLine("Overall Scorigami Percentage 1/X:" + ((double)1 / dScorigamiPercentage).ToString("F2"));
+            ps.Sort((a, b) =>
+            {
+                return a.PerXGames.CompareTo(b.PerXGames);
+            });
+            Console.WriteLine("Most Likely Scorigamis (1/X Games):");
+            foreach (PotentialScorigami potentialScorigami in ps)
+            {
+                Console.Out.WriteLine(potentialScorigami.Score + " " + potentialScorigami.PerXGames.ToString("F0"));
+            }
         }
+
+        private class PotentialScorigami
+        {
+            public PotentialScorigami(string Score, double PerXGames)
+            {
+                this.Score = Score;
+                this.PerXGames = PerXGames;
+            }
+
+            /// <summary>
+            /// game score
+            /// </summary>
+            public string Score { get; set; }
+
+            /// <summary>
+            /// per X games
+            /// </summary>
+            public double PerXGames { get; set; }
+        }
+
         public static void SaveToXmlFile(IEnumerable<FinalScoreInfo> fsis, string filePath)
         {
             XmlDocument doc = new XmlDocument();
@@ -411,40 +389,29 @@ namespace NationalFootballLeagueLibrary
                 }
                 XmlElement matchup;
 
-                //duplicate checking
-                HashSet<string> matchups = new HashSet<string>();
-                foreach (string nextMatchup in fsi.FirstMatchups)
-                {
-                    if (matchups.Contains(nextMatchup)) throw new InvalidOperationException();
-                    matchups.Add(nextMatchup);
-                }
-                foreach (string nextMatchup in fsi.LastMatchups)
-                {
-                    if (matchups.Contains(nextMatchup)) throw new InvalidOperationException();
-                    matchups.Add(nextMatchup);
-                }
-
                 int iFirstCount = fsi.FirstMatchups.Count;
                 int iLastCount = fsi.LastMatchups.Count;
 
-                if (iFirstCount + iLastCount == 1)
+                if (iFirstCount == 0) throw new InvalidOperationException();
+
+                if (iFirstCount == 1 && iLastCount == 0)
                 {
                     matchup = doc.CreateElement("Only");
-                    matchup.InnerText = matchups.First();
+                    AddMatchupAttributes(matchup, fsi.FirstMatchups[0]);
                     nextScore.AppendChild(matchup);
                 }
                 else //both first and last
                 {
-                    foreach (string nextMatchup in fsi.FirstMatchups)
+                    foreach (FinalScoreMatchup fsm in fsi.FirstMatchups)
                     {
                         matchup = doc.CreateElement("First");
-                        matchup.InnerText = nextMatchup;
+                        AddMatchupAttributes(matchup, fsm);
                         nextScore.AppendChild(matchup);
                     }
-                    foreach (string nextMatchup in fsi.LastMatchups)
+                    foreach (FinalScoreMatchup fsm in fsi.LastMatchups)
                     {
                         matchup = doc.CreateElement("Last");
-                        matchup.InnerText = nextMatchup;
+                        AddMatchupAttributes(matchup, fsm);
                         nextScore.AppendChild(matchup);
                     }
                 }
@@ -452,6 +419,25 @@ namespace NationalFootballLeagueLibrary
             }
             Common.WriteToFile(doc, filePath);
             Console.Out.WriteLine("Wrote game score info to " + filePath);
+        }
+
+        private static void AddMatchupAttributes(XmlElement entry, FinalScoreMatchup matchup)
+        {
+            if (!string.IsNullOrEmpty(matchup.Team1Franchise)) entry.SetAttribute("team1franchise", matchup.Team1Franchise);
+            entry.SetAttribute("team1name", matchup.Team1Name);
+            entry.SetAttribute("team1pts", matchup.Team1Points.ToString());
+            if (matchup.IsNeutralSite) entry.SetAttribute("neutral", "true");
+            entry.SetAttribute("team2pts", matchup.Team2Points.ToString());
+            entry.SetAttribute("team2name", matchup.Team2Name);
+            if (!string.IsNullOrEmpty(matchup.Team2Franchise)) entry.SetAttribute("team2franchise", matchup.Team2Franchise);
+            if (matchup.GameWeekSpecial != MatchupType.RegularSeason)
+            {
+                entry.SetAttribute("gameweekspecial", matchup.GameWeekSpecial.ToString());
+            }
+            if (matchup.League != LeagueType.NFL)
+            {
+                entry.SetAttribute("league", matchup.League.ToString());
+            }
         }
 
         public static IEnumerable<FinalScoreInfo> GetFinalScoreInfosFromXML(string filePath)
@@ -467,29 +453,38 @@ namespace NationalFootballLeagueLibrary
                     string onlydate = elem.GetAttribute("onlydate");
                     string firstdate = elem.GetAttribute("firstdate");
                     string lastdate = elem.GetAttribute("lastdate");
-                    List<string> first = new List<string>();
-                    List<string> last = new List<string>();
+                    List<FinalScoreMatchup> first = new List<FinalScoreMatchup>();
+                    List<FinalScoreMatchup> last = new List<FinalScoreMatchup>();
                     int exampleCount = 0;
                     bool isOnly = false;
                     foreach (XmlNode exampleNode in elem.ChildNodes)
                     {
                         if (exampleNode is XmlElement exampleelem)
                         {
-                            string sText = exampleelem.InnerText;
+                            string team1franchise = exampleelem.GetAttribute("team1franchise");
+                            string team1name = exampleelem.GetAttribute("team1name");
+                            string team1points = exampleelem.GetAttribute("team1pts");
+                            string team2points = exampleelem.GetAttribute("team2pts");
+                            string team2name = exampleelem.GetAttribute("team2name");
+                            string team2franchise = exampleelem.GetAttribute("team2franchise");
+                            string neutral = exampleelem.GetAttribute("neutral");
+                            string gameweekspecial = exampleelem.GetAttribute("gameweekspecial");
+                            string league = exampleelem.GetAttribute("league");
+                            FinalScoreMatchup fsm = FinalScoreMatchup.CreateFromXMLInformation(team1franchise, team1name, team1points, team2points, team2name, team2franchise, neutral, gameweekspecial, league);
                             if (exampleelem.Name == "Only")
                             {
-                                first.Add(sText);
+                                first.Add(fsm);
                                 exampleCount++;
                                 isOnly = true;
                             }
                             else if (exampleelem.Name == "First")
                             {
-                                first.Add(sText);
+                                first.Add(fsm);
                                 exampleCount++;
                             }
                             else if (exampleelem.Name == "Last")
                             {
-                                last.Add(sText);
+                                last.Add(fsm);
                                 exampleCount++;
                             }
                             else
@@ -501,7 +496,7 @@ namespace NationalFootballLeagueLibrary
                     DateTime dtFirst, dtLast;
                     if (isOnly)
                     {
-                        if (exampleCount != 1 || iCount != 1) 
+                        if (exampleCount != 1 || iCount != 1)
                             throw new InvalidOperationException();
                         if (string.IsNullOrEmpty(onlydate) || !string.IsNullOrEmpty(firstdate) || !string.IsNullOrEmpty(lastdate))
                             throw new InvalidOperationException();
@@ -557,7 +552,7 @@ namespace NationalFootballLeagueLibrary
                             switch (dataStat)
                             {
                                 case "ranker":
-                                    if (!int.TryParse(sValue, out _)) 
+                                    if (!int.TryParse(sValue, out _))
                                         throw new InvalidOperationException();
                                     break;
                                 case "to_lose":
@@ -636,7 +631,7 @@ namespace NationalFootballLeagueLibrary
                     {
                         isFirstGame = true;
                     }
-                    if (isFirstGame) 
+                    if (isFirstGame)
                         firstGames.Add(nextGame);
 
                     //determine if the game works as a last game for that score
@@ -666,7 +661,7 @@ namespace NationalFootballLeagueLibrary
 
             foreach (GameInfo nextFirstGame in firstGames)
             {
-                fsi.FirstMatchups.Add(GameInfo.GetMatchupString(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.winner_franchise, nextFirstGame.loser, nextFirstGame.loser_franchise, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType()));
+                fsi.FirstMatchups.Add(FinalScoreMatchup.CreateFromGameInformation(nextFirstGame.game_location, nextFirstGame.winner, nextFirstGame.winner_franchise, nextFirstGame.loser, nextFirstGame.loser_franchise, gsi.PtsW, gsi.PtsL, nextFirstGame.GetMatchupType(), nextFirstGame.league));
             }
             bool foundMatchingLastGame = false;
             foreach (GameInfo nextLastGame in lastGames)
@@ -712,7 +707,7 @@ namespace NationalFootballLeagueLibrary
                 {
                     lastMatchup += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
                 }
-                fsi.LastMatchups.Add(lastMatchup);
+                fsi.LastMatchups.Add(FinalScoreMatchup.CreateFromGameInformation(nextLastGame.game_location, nextLastGame.winner, nextLastGame.winner_franchise, nextLastGame.loser, nextLastGame.loser_franchise, gsi.PtsW, gsi.PtsL, nextLastGame.GetMatchupType(), nextLastGame.league));
             }
             if (!foundMatchingLastGame)
             {
@@ -888,131 +883,12 @@ namespace NationalFootballLeagueLibrary
             }
         }
 
-        public enum FinalScoreInfoSortType
-        {
-            TotalCountDescending,
-            ByScore,
-        }
-
-        public class FinalScoreInfoSorter : IComparer<FinalScoreInfo>
-        {
-            private FinalScoreInfoSortType SortType { get; set; }
-            public FinalScoreInfoSorter(FinalScoreInfoSortType SortType)
-            {
-                this.SortType = SortType;
-            }
-            public int Compare(FinalScoreInfo? x, FinalScoreInfo? y)
-            {
-                if (x == null || y == null) throw new InvalidOperationException();
-                int ret;
-                if (SortType == FinalScoreInfoSortType.TotalCountDescending)
-                {
-                    ret = y.Count.CompareTo(x.Count);
-                }
-                else if (SortType == FinalScoreInfoSortType.ByScore)
-                {
-                    ret = x.Score.CompareTo(y.Score);
-                }
-                else
-                {
-                    throw new InvalidOperationException();
-                }
-                return ret;
-            }
-        }
-
         public enum ScorigamiMatchupInfoToDisplay
         {
             None,
             First,
             Last,
             FirstAndLast,
-        }
-
-        /// <summary>
-        /// final score info
-        /// </summary>
-        public class FinalScoreInfo
-        {
-            /// <summary>
-            /// final score info constructor
-            /// </summary>
-            public FinalScoreInfo(string Score, int Count, DateTime FirstDate, DateTime LastDate)
-            {
-                FirstMatchups = new List<string>();
-                LastMatchups = new List<string>();
-                this.Score = Score;
-                this.Count = Count;
-                this.FirstDate = FirstDate;
-                this.LastDate = LastDate;
-            }
-
-
-
-            /// <summary>
-            /// writes the information to console
-            /// </summary>
-            /// <param name="DisplayInfo">display information</param>
-            public void WriteToConsole(ScorigamiMatchupInfoToDisplay DisplayInfo)
-            {
-                Console.Out.WriteLine(this.Score + " " + this.Count);
-                if (DisplayInfo == ScorigamiMatchupInfoToDisplay.First || DisplayInfo == ScorigamiMatchupInfoToDisplay.FirstAndLast)
-                {
-                    Console.Out.WriteLine(" " + this.FirstDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    foreach (string next in FirstMatchups)
-                    {
-                        Console.Out.WriteLine("  " + next);
-                    }
-                }
-                if (DisplayInfo == ScorigamiMatchupInfoToDisplay.Last || DisplayInfo == ScorigamiMatchupInfoToDisplay.FirstAndLast)
-                {
-                    Console.Out.WriteLine(" " + this.LastDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    foreach (string next in LastMatchups)
-                    {
-                        Console.Out.WriteLine("  " + next);
-                    }
-                }
-            }
-
-            /// <summary>
-            /// score
-            /// </summary>
-            public string Score { get; set; }
-
-            /// <summary>
-            /// number of games
-            /// </summary>
-            public int Count { get; set; }
-
-            /// <summary>
-            /// date for the first game
-            /// </summary>
-            public DateTime FirstDate { get; set; }
-
-            /// <summary>
-            /// date for the last game
-            /// </summary>
-            public DateTime LastDate { get; set; }
-
-            /// <summary>
-            /// first matchup or matchups
-            /// </summary>
-            public List<string> FirstMatchups { get; set; }
-
-            /// <summary>
-            /// last matchups
-            /// </summary>
-            public List<string> LastMatchups { get; set; }
-
-            /// <summary>
-            /// enumerates matchups, both winners and losers
-            /// </summary>
-            /// <returns>matchups</returns>
-            public IEnumerable<string> EnumerateMatchups()
-            {
-                foreach (string next in FirstMatchups) yield return next;
-                foreach (string next in LastMatchups) yield return next;
-            }
         }
 
         public enum GameInfoSortType
@@ -1056,52 +932,12 @@ namespace NationalFootballLeagueLibrary
         {
             public void WriteToConsole()
             {
-                Console.WriteLine(game_date + " " + GetMatchupString());
+                Console.WriteLine(game_date + " " + GetMatchup().ToString());
             }
 
-            public string GetMatchupString()
+            public FinalScoreMatchup GetMatchup()
             {
-                return GetMatchupString(game_location, winner, winner_franchise, loser, loser_franchise, pts_win, pts_loss, GetMatchupType());
-            }
-
-            public static string GetMatchupString(string game_location, string winner, string winner_franchise, string loser, string loser_franchise, int PtsW, int PtsL, MatchupType mt)
-            {
-                string firstteam1, firstteam2;
-                int firstteam1points, firstteam2points;
-                string firstteam1franchise, firstteam2franchise;
-                if (game_location == "@" || game_location == "N")
-                {
-                    firstteam1 = winner;
-                    firstteam1points = PtsW;
-                    firstteam1franchise = winner_franchise;
-                    firstteam2 = loser;
-                    firstteam2points = PtsL;
-                    firstteam2franchise = loser_franchise;
-                }
-                else
-                {
-                    firstteam1 = loser;
-                    firstteam1points = PtsL;
-                    firstteam1franchise = loser_franchise;
-                    firstteam2 = winner;
-                    firstteam2points = PtsW;
-                    firstteam2franchise = winner_franchise;
-                }
-                string firstGameVersusOrAt = game_location == "N" ? "vs" : "at";
-                string sMatchupString = firstteam1 + " " + firstteam1points.ToString() + " " + firstGameVersusOrAt + " " + firstteam2points.ToString() + " " + firstteam2;
-                if (mt != MatchupType.RegularSeason)
-                {
-                    sMatchupString += (" (" + GameScoreInfo.GetMatchupTypeString(mt) + ")");
-                }
-                if (!string.IsNullOrEmpty(firstteam1franchise))
-                {
-                    sMatchupString = "(" + firstteam1franchise + ") " + sMatchupString;
-                }
-                if(!string.IsNullOrEmpty(firstteam2franchise))
-                {
-                    sMatchupString = sMatchupString + " (" + firstteam2franchise + ")";
-                }
-                return sMatchupString;
+                return FinalScoreMatchup.CreateFromGameInfoObject(this);
             }
 
             /// <summary>
@@ -1413,7 +1249,7 @@ namespace NationalFootballLeagueLibrary
                 switch (mt)
                 {
                     case MatchupType.SuperBowl:
-                        append = "SB";
+                        append = "SuperBowl";
                         break;
                     case MatchupType.Championship:
                         append = "Champ";
@@ -1422,8 +1258,10 @@ namespace NationalFootballLeagueLibrary
                         append = "ConfChamp";
                         break;
                     case MatchupType.WildCard:
+                        append = "WildCardPlayoff";
+                        break;
                     case MatchupType.Division:
-                        append = "Playoff";
+                        append = "DivisionalPlayoff";
                         break;
                     default:
                         throw new InvalidOperationException();
@@ -1474,7 +1312,7 @@ namespace NationalFootballLeagueLibrary
                 default:
                     throw new InvalidOperationException();
             }
-            this.LastMatchup = sMatchupInfo.Substring(0, previousSpace).Replace("vs.", "vs");                        
+            this.LastMatchup = sMatchupInfo.Substring(0, previousSpace).Replace("vs.", "vs");
         }
 
         /// <summary>
@@ -1495,7 +1333,7 @@ namespace NationalFootballLeagueLibrary
         /// <summary>
         /// last matchup
         /// </summary>
-        public string LastMatchup { get; set;  }
+        public string LastMatchup { get; set; }
     }
 
     public enum MatchupType
