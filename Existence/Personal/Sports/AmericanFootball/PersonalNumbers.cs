@@ -1,6 +1,4 @@
 ﻿
-using static Existence.Earth.Countries.UnitedStates.StatesAlphabetical;
-
 namespace Existence.Personal.Sports.AmericanFootball
 {
     internal class PersonalNumbersSuperBowl59

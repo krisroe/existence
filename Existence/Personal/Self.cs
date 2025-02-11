@@ -28,7 +28,10 @@ namespace Existence.Personal
 
         public static class PoliticalPhilosophiesRanked
         {
-            public static class Libertarian { }
+            public static class Libertarian
+            {
+                public static class LowerCaselibertarianSharesPoliticalPhilosophyButNotPersonallyPartyMember { }
+            }
             public static class Conservative { }
             public static class Liberal { }
             public static class Environmentalist { }
