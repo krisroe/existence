@@ -256,65 +256,188 @@ namespace Existence.Earth.Countries.UnitedStates
         AmericanSamoa,
     }
 
-    public enum StateSupremeCourtJusticeChoice
+    /// <summary>
+    /// mandatory retirement age, in years
+    /// </summary>
+    public enum StateSupremeCourtJusticeMandatoryRetirementAge
     {
         [USStatesAndTerritories(
             USStatesAndTerritories.Alaska,
             USStatesAndTerritories.Arizona,
-            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Connecticut,
+            USStatesAndTerritories.Delaware,
+            USStatesAndTerritories.Hawaii,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Maine,
+            USStatesAndTerritories.Maryland,
+            USStatesAndTerritories.Massachusetts,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.NewHampshire,
+            USStatesAndTerritories.NewJersey,
+            USStatesAndTerritories.NewMexico,
+            USStatesAndTerritories.SouthDakota,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Vermont,
+            USStatesAndTerritories.Virginia,
+            USStatesAndTerritories.Wyoming,
+            USStatesAndTerritories.PuertoRico,
+            USStatesAndTerritories.Guam,
+            USStatesAndTerritories.NorthernMarianaIslands
+            )]
+        Seventy,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Colorado)]
+        SeventyTwo,
+
+        [USStatesAndTerritories(
             USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Oregon,
+            USStatesAndTerritories.Pennsylvania,
+            USStatesAndTerritories.Washington,
+            USStatesAndTerritories.Wisconsin
+            )]
+        SeventyFive,
+
+        /// <summary>
+        /// election (retention or otherwise) or legislative confirmation required to serve additional terms
+        /// New York note: New York Supreme Court uses partisan elections, while the New York Court of Appeals uses gubernatorial/legislative process.
+        /// </summary>
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Arkansas,
+            USStatesAndTerritories.California,
+            USStatesAndTerritories.Georgia,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Illinois,
             USStatesAndTerritories.Indiana,
             USStatesAndTerritories.Iowa,
-            USStatesAndTerritories.Kansas,
-            USStatesAndTerritories.Missouri,
-            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.Michigan,
+            USStatesAndTerritories.Minnesota,
+            USStatesAndTerritories.Mississippi,
+            USStatesAndTerritories.Montana,
+            USStatesAndTerritories.Nebraska, 
+            USStatesAndTerritories.Nevada,
+            USStatesAndTerritories.NewYork,
+            USStatesAndTerritories.NorthCarolina,
             USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Ohio,
             USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthCarolina,
+            USStatesAndTerritories.Tennessee,
+            USStatesAndTerritories.Texas,
+            USStatesAndTerritories.WestVirginia,
+            USStatesAndTerritories.WashingtonDC,
+            USStatesAndTerritories.UnitedStatesVirginIslands
+            )]
+        NoneButHaveProcessToServeMoreTerms,
+
+        /// <summary>
+        /// life term and can only be removed by impeachment
+        /// </summary>
+        [USStatesAndTerritories(USStatesAndTerritories.RhodeIsland)]
+
+        NoneImpeachmentOnly,
+    }
+
+    public enum StateSupremeCourtJusticeTermLength
+    {
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.Michigan,
+            USStatesAndTerritories.Minnesota,
+            USStatesAndTerritories.Mississippi,
+            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.Nevada,
+            USStatesAndTerritories.NorthCarolina,
+            USStatesAndTerritories.Ohio,
+            USStatesAndTerritories.Oregon,
+            USStatesAndTerritories.Texas,
+            USStatesAndTerritories.Vermont,
+            USStatesAndTerritories.Washington,
+            USStatesAndTerritories.Wisconsin
+            )]
+        SixYear,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Arkansas,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Indiana,
+            USStatesAndTerritories.Maryland,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.Montana,
+            USStatesAndTerritories.NewMexico,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthCarolina,
             USStatesAndTerritories.SouthDakota,
             USStatesAndTerritories.Tennessee,
-            USStatesAndTerritories.Utah,
             USStatesAndTerritories.Wyoming
             )]
-        CommissionRecommendationsGubernatorialAppointmentFromListRetentionElection,
+        EightYear,
 
-        [USStatesAndTerritories(USStatesAndTerritories.Vermont)]
-        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterSixYearTerm,
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alaska,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Hawaii,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Pennsylvania,
+            USStatesAndTerritories.WestVirginia,
+            USStatesAndTerritories.UnitedStatesVirginIslands
+            )]
+        TenYear,
 
-        [USStatesAndTerritories(USStatesAndTerritories.Hawaii)]
-        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterTenYearTerm,
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.California,
+            USStatesAndTerritories.Connecticut,
+            USStatesAndTerritories.Delaware,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Illinois,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Maine,
+            USStatesAndTerritories.NewJersey,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Virginia
+            )]
+        TwelveYear,
 
-        [USStatesAndTerritories(USStatesAndTerritories.Delaware)]
-        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterTwelveYearTerm,
-
+        /// <summary>
+        /// 14 year terms for both the New York Supreme Court and New York Court of Appeals
+        /// </summary>
         [USStatesAndTerritories(USStatesAndTerritories.NewYork)]
-        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterFourteenYearTerm,
+        FourteenYear,
 
-        [USStatesAndTerritories(USStatesAndTerritories.RhodeIsland)]
-        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationLifeTerm,
+        [USStatesAndTerritories(USStatesAndTerritories.WashingtonDC)]
+        FifteenYear,
 
-        [USStatesAndTerritories(USStatesAndTerritories.Connecticut)]
-        CommissionRecommendationsGubernatorialAppointmentPotentiallyNotFromListLegislativeConfirmationRepeatProcessAfterEightYearTerm,
-
-        [USStatesAndTerritories(USStatesAndTerritories.Maryland)]
-        CommissionRecommendationsGubernatorialAppointmentPotentiallyNotFromListLegislativeConfirmationRepeatProcessAfterTenYearTerm,
+        [USStatesAndTerritories(USStatesAndTerritories.Georgia)]
+        SixteenYear,
 
         [USStatesAndTerritories(
             USStatesAndTerritories.Massachusetts,
-            USStatesAndTerritories.NewHampshire
+            USStatesAndTerritories.NewHampshire,
+            USStatesAndTerritories.PuertoRico,
+            USStatesAndTerritories.Guam,
+            USStatesAndTerritories.NorthernMarianaIslands
             )]
-        GubernatorialAppointmentLegislativeConfirmationLifeTerm,
+        UntilRetirementAge,
 
-        [USStatesAndTerritories(USStatesAndTerritories.California)]
-        GubernatorialAppointmentCommissionConfirmationRepeatProcessAfterTwelveYearTerm,
+        /// <summary>
+        /// only removable by impeachment
+        /// </summary>
+        [USStatesAndTerritories(USStatesAndTerritories.RhodeIsland)]
+        Lifetime,
+    }
 
-        [USStatesAndTerritories(
-            USStatesAndTerritories.Maine, 
-            USStatesAndTerritories.NewJersey)]
-        GubernatorialAppointmentStateSenateConfirmationRepeatProcessAfterSevenYearTerm,
-
-        [USStatesAndTerritories(USStatesAndTerritories.SouthCarolina, USStatesAndTerritories.Virginia)]
-        LegislativeAppointment,
-
+    /// <summary>
+    /// New York note: The New York Supreme Court is actually a trial court of general jurisdiction and uses partisan elections
+    /// </summary>
+    public enum StateSupremeCourtElectionType
+    {
         [USStatesAndTerritories(
             USStatesAndTerritories.Arkansas,
             USStatesAndTerritories.Georgia,
@@ -334,12 +457,174 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [USStatesAndTerritories(
             USStatesAndTerritories.Alabama,
-            USStatesAndTerritories.Illinois,
             USStatesAndTerritories.Louisiana,
-            USStatesAndTerritories.NewMexico,
             USStatesAndTerritories.NorthCarolina,
             USStatesAndTerritories.Ohio,
             USStatesAndTerritories.Texas)]
         PartisanElections,
+
+        /// <summary>
+        /// First term won through partisan election (in New Mexico may be appointed first until next partisan election)
+        /// </summary>
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Illinois, 
+            USStatesAndTerritories.NewMexico, 
+            USStatesAndTerritories.Pennsylvania)]
+        PartisanElectionsWithRetention,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alaska,
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.California,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Indiana,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Maryland,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthDakota,
+            USStatesAndTerritories.Tennessee,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Wyoming
+            )]
+        RetentionElections,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Connecticut,
+            USStatesAndTerritories.Delaware,
+            USStatesAndTerritories.Hawaii,
+            USStatesAndTerritories.Maine,
+            USStatesAndTerritories.Massachusetts,
+            USStatesAndTerritories.NewHampshire,
+            USStatesAndTerritories.NewJersey,
+            USStatesAndTerritories.NewYork, //New York Court of Appeals is the anologue to other State Supreme Courts
+            USStatesAndTerritories.RhodeIsland,
+            USStatesAndTerritories.SouthCarolina,
+            USStatesAndTerritories.Vermont,
+            USStatesAndTerritories.Virginia,
+            USStatesAndTerritories.WashingtonDC,
+            USStatesAndTerritories.PuertoRico,
+            USStatesAndTerritories.Guam,
+            USStatesAndTerritories.UnitedStatesVirginIslands,
+            USStatesAndTerritories.NorthernMarianaIslands
+            )]
+        NoElections,
+    }
+
+    public enum StateSupremeCourtJusticeChoice
+    {
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Arkansas,
+            USStatesAndTerritories.Georgia,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Michigan,
+            USStatesAndTerritories.Minnesota,
+            USStatesAndTerritories.Mississippi,
+            USStatesAndTerritories.Montana,
+            USStatesAndTerritories.Nevada,
+            USStatesAndTerritories.Oregon,
+            USStatesAndTerritories.Washington,
+            USStatesAndTerritories.WestVirginia,
+            USStatesAndTerritories.Wisconsin
+            )]
+        NonPartisanElectionsWithoutRetention,
+
+        [USStatesAndTerritories(USStatesAndTerritories.Ohio)]
+        NonpartisanElectionsWithRetention,
+
+        /// <summary>
+        /// First term won through partisan election (in New Mexico may be appointed first until next partisan election)
+        /// </summary>
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Illinois,
+            USStatesAndTerritories.NewMexico,
+            USStatesAndTerritories.Pennsylvania)]
+        PartisanElectionsWithRetention,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.NorthCarolina,
+            USStatesAndTerritories.Texas
+            )]
+        PartisanElectionsWithoutRetention,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Alaska,
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Indiana,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthDakota,
+            USStatesAndTerritories.Tennessee,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Wyoming
+            )]
+        CommissionRecommendationsGubernatorialAppointmentFromListRetentionElection,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Connecticut,
+            USStatesAndTerritories.Maryland
+            )]
+        CommissionRecommendationsGubernatorialAppointmentPotentiallyNotFromListLegislativeConfirmationRepeatProcessAfterTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.California)]
+        GubernatorialAppointmentCommissionConfirmationRepeatProcessAfterTerm,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Maine, 
+            USStatesAndTerritories.UnitedStatesVirginIslands)]
+        GubernatorialAppointmentLegislatureConfirmationRepeatProcessAfterTerm,
+
+        [USStatesAndTerritories(USStatesAndTerritories.NewJersey)]
+        GubernatorialAppointmentLegislativeConfirmationRepeatAfterNextTermAndThenGetLifeTermToRetirementAge,
+
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Delaware,
+            USStatesAndTerritories.NewYork, //New York Court of Appeals
+            USStatesAndTerritories.Vermont,
+            USStatesAndTerritories.WashingtonDC //US president performs governor-equivalent work
+            )]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationRepeatProcessAfterTerm,
+
+        /// <summary>
+        /// commission decides on retention, not requiring the same confirmation process for subsequent terms
+        /// </summary>
+        [USStatesAndTerritories(USStatesAndTerritories.Hawaii)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationCommissionDecidesRetention,
+
+        /// <summary>
+        /// legislative appointment must be redone at the end of the next term
+        /// </summary>
+        [USStatesAndTerritories(USStatesAndTerritories.SouthCarolina, USStatesAndTerritories.Virginia)]
+        LegislativeAppointmentRepeatProcessAfterTerm,
+
+        /// <summary>
+        /// no need to repeat any process for successive terms, but leave office at retirement age
+        /// </summary>
+        [USStatesAndTerritories(
+            USStatesAndTerritories.Massachusetts,
+            USStatesAndTerritories.NewHampshire,
+            USStatesAndTerritories.PuertoRico,
+            USStatesAndTerritories.Guam,
+            USStatesAndTerritories.NorthernMarianaIslands
+            )]
+        GubernatorialAppointmentLegislativeConfirmationTermUntilRetirementAge,
+
+        /// <summary>
+        /// life term, can only be removed via impeachment
+        /// </summary>
+        [USStatesAndTerritories(USStatesAndTerritories.RhodeIsland)]
+        CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationLifeTerm,
     }
 }
