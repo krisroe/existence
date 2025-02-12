@@ -84,6 +84,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1935-12-15 New York Giants 7 at 26 Detroit Lions
     /// </summary>
     [Year(1935)]
+    [RegularSeasonGameCount(12)]
     [Champion("DetroitLions")]
     [ChampionshipLoser("NewYorkGiants")]
     public class v016 { }
@@ -92,6 +93,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1936-12-13 Green Bay Packers 21 at 6 Boston Redskins
     /// </summary>
     [Year(1936)]
+    [RegularSeasonGameCount(12)]
     [Champion("GreenBayPackers")] //4rd
     [ChampionshipLoser("BostonRedskins")]
     public class v017 { }
@@ -100,6 +102,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1937-12-12 Washington Redskins 28 at 21 Chicago Bears
     /// </summary>
     [Year(1937)]
+    [RegularSeasonGameCount(12)]
     [Champion("WashingtonRedskins")]
     [ChampionshipLoser("ChicagoBears")]
     public class v018 { }
@@ -108,6 +111,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1938-12-11 Green Bay Packers 17 at 23 New York Giants
     /// </summary>
     [Year(1938)]
+    [RegularSeasonGameCount(12)]
     [Champion("NewYorkGiants")] //3rd
     [ChampionshipLoser("GreenBayPackers")]
     public class v019 { }
@@ -116,6 +120,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1939-12-10 New York Giants 0 at 27 Green Bay Packers
     /// </summary>
     [Year(1939)]
+    [RegularSeasonGameCount(12)]
     [Champion("GreenBayPackers")] //5th
     [ChampionshipLoser("NewYorkGiants")]
     public class v020 { }
@@ -124,6 +129,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1940-12-08 Chicago Bears 73 at 0 Washington Redskins
     /// </summary>
     [Year(1940)]
+    [RegularSeasonGameCount(12)]
     [Champion("ChicagoBears")] //4th
     [ChampionshipLoser("WashingtonRedskins")]
     public class v021 { }
@@ -132,6 +138,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1941-12-21 New York Giants 9 at 37 Chicago Bears
     /// </summary>
     [Year(1941)]
+    [RegularSeasonGameCount(12)]
     [Champion("ChicagoBears")] //5th
     [ChampionshipLoser("NewYorkGiants")]
     public class v022 { }
@@ -140,6 +147,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1942-12-13 Chicago Bears 6 at 14 Washington Redskins
     /// </summary>
     [Year(1942)]
+    [RegularSeasonGameCount(12)]
     [Champion("WashingtonRedskins")] //x2
     [ChampionshipLoser("ChicagoBears")]
     public class v023 { }
@@ -148,6 +156,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1943-12-26 Washington Redskins 21 at 41 Chicago Bears
     /// </summary>
     [Year(1943)]
+    [RegularSeasonGameCount(10)]
     [Champion("ChicagoBears")] //x6
     [ChampionshipLoser("WashingtonRedskins")]
     public class v024 { }
@@ -156,6 +165,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1944-12-17 Green Bay Packers 14 at 7 New York Giants
     /// </summary>
     [Year(1944)]
+    [RegularSeasonGameCount(10)]
     [Champion("GreenBayPackers")] //x6
     [ChampionshipLoser("NewYorkGiants")]
     public class v025 { }
@@ -164,6 +174,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1945-12-16 Washington Redskins 14 at 15 Cleveland Rams
     /// </summary>
     [Year(1945)]
+    [RegularSeasonGameCount(10)]
     [Champion("ClevelandRams")]
     [ChampionshipLoser("WashingtonRedskins")]
     public class v026 { }
@@ -176,6 +187,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("ClevelandBrowns")] //not recognized as an NFL championship
         [ChampionshipLoser("NewYorkYankees")]
+        [RegularSeasonGameCount(14)]
         public static class AAFC { }
 
         /// <summary>
@@ -183,6 +195,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("ChicagoBears")] //x7
         [ChampionshipLoser("NewYorkGiants")]
+        [RegularSeasonGameCount(12)]
         public static class NFL { }
     }
 
@@ -194,6 +207,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("ClevelandBrowns")] //not recognized as an NFL championship
         [ChampionshipLoser("NewYorkYankees")]
+        [RegularSeasonGameCount(14)]
         public static class AAFC { }
 
         /// <summary>
@@ -201,6 +215,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("ChicagoCardinals")]
         [ChampionshipLoser("PhiladelphiaEagles")]
+        [RegularSeasonGameCount(12)]
         public static class NFL { }
     }
 
@@ -212,6 +227,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("ClevelandBrowns")] //not recognized as an NFL championship
         [ChampionshipLoser("BuffaloBills")]
+        [RegularSeasonGameCount(14)]
         public static class AAFC { }
 
         /// <summary>
@@ -219,10 +235,12 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("PhiladelphiaEagles")]
         [ChampionshipLoser("ChicagoCardinals")]
+        [RegularSeasonGameCount(12)]
         public static class NFL { }
     }
 
     [Year(1949)]
+    [RegularSeasonGameCount(12)]
     public class v030
     {
         /// <summary>
@@ -244,6 +262,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1950-12-24 Los Angeles Rams 28 at 30 Cleveland Browns
     /// </summary>
     [Year(1950)]
+    [RegularSeasonGameCount(12)]
     [Champion("ClevelandBrowns")]
     [ChampionshipLoser("LosAngelesRams")]
     public class v031 { }
@@ -252,6 +271,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1951-12-23 Cleveland Browns 17 at 24 Los Angeles Rams
     /// </summary>
     [Year(1951)]
+    [RegularSeasonGameCount(12)]
     [Champion("LosAngelesRams")] //x2
     [ChampionshipLoser("ClevelandBrowns")]
     public class v032 { }
@@ -260,6 +280,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1952-12-28 Detroit Lions 17 at 7 Cleveland Browns
     /// </summary>
     [Year(1952)]
+    [RegularSeasonGameCount(12)]
     [Champion("DetroitLions")] //x2
     [ChampionshipLoser("ClevelandBrowns")]
     public class v033 { }
@@ -268,6 +289,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1953-12-27 Cleveland Browns 16 at 17 Detroit Lions
     /// </summary>
     [Year(1953)]
+    [RegularSeasonGameCount(12)]
     [Champion("DetroitLions")] //x3
     [ChampionshipLoser("ClevelandBrowns")]
     public class v034 { }
@@ -276,6 +298,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1954-12-26 Detroit Lions 10 at 56 Cleveland Browns
     /// </summary>
     [Year(1954)]
+    [RegularSeasonGameCount(12)]
     [Champion("ClevelandBrowns")] //x2
     [ChampionshipLoser("DetroitLions")]
     public class v035 { }
@@ -284,6 +307,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1955-12-26 Cleveland Browns 38 at 14 Los Angeles Rams
     /// </summary>
     [Year(1955)]
+    [RegularSeasonGameCount(12)]
     [Champion("ClevelandBrowns")] //x3
     [ChampionshipLoser("LosAngelesRams")]
     public class v036 { }
@@ -292,6 +316,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1956-12-30 Chicago Bears 7 at 47 New York Giants
     /// </summary>
     [Year(1956)]
+    [RegularSeasonGameCount(12)]
     [Champion("NewYorkGiants")] //x4
     [ChampionshipLoser("ChicagoBears")]
     public class v037 { }
@@ -300,6 +325,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1957-12-29 Cleveland Browns 14 at 59 Detroit Lions
     /// </summary>
     [Year(1957)]
+    [RegularSeasonGameCount(12)]
     [Champion("DetroitLions")] //x4
     [ChampionshipLoser("ClevelandBrowns")]
     public class v038 { }
@@ -308,6 +334,7 @@ namespace Existence.Earth.Sports.Football.American
     /// 1958-12-28 Baltimore Colts 23 at 17 New York Giants
     /// </summary>
     [Year(1958)]
+    [RegularSeasonGameCount(12)]
     [Champion("BaltimoreColts")]
     [ChampionshipLoser("NewYorkGiants")]
     public class v39 { }
@@ -328,6 +355,7 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("HoustonOilers")]
         [ChampionshipLoser("LosAngelesChargers")]
+        [RegularSeasonGameCount(14)]
         public class AFL { }
 
         /// <summary>
@@ -335,10 +363,12 @@ namespace Existence.Earth.Sports.Football.American
         /// </summary>
         [Champion("PhiladelphiaEagles")] //x3
         [ChampionshipLoser("GreenBayPackers")]
+        [RegularSeasonGameCount(12)]
         public class NFL { }
     }
 
     [Year(1961)]
+    [RegularSeasonGameCount(14)]
     public class v042
     {
         /// <summary>
@@ -357,6 +387,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [Year(1962)]
+    [RegularSeasonGameCount(14)]
     public class v043
     {
         /// <summary>
@@ -375,6 +406,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1963, 1964)]
+    [RegularSeasonGameCount(14)]
     public class v044
     {
         /// <summary>
@@ -393,6 +425,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [Year(1964)]
+    [RegularSeasonGameCount(14)]
     public class v045
     {
         /// <summary>
@@ -411,6 +444,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1965, 1966)]
+    [RegularSeasonGameCount(14)]
     public class v046
     {
         /// <summary>
@@ -428,6 +462,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1966, 1967)]
+    [RegularSeasonGameCount(14)]
     public class v047
     {
         /// <summary>
@@ -455,6 +490,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1967, 1968)]
+    [RegularSeasonGameCount(14)]
     public class v049
     {
         /// <summary>
@@ -481,6 +517,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1968, 1969)]
+    [RegularSeasonGameCount(14)]
     public class v050
     {
         /// <summary>
@@ -507,6 +544,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1969, 1970)]
+    [RegularSeasonGameCount(14)]
     public class v051
     {
         /// <summary>
@@ -536,6 +574,7 @@ namespace Existence.Earth.Sports.Football.American
     /// first season after the NFL/NFL merger
     /// </summary>
     [YearRange(1970, 1971)]
+    [RegularSeasonGameCount(14)]
     public class v052
     {
         /// <summary>
@@ -562,6 +601,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1971, 1972)]
+    [RegularSeasonGameCount(14)]
     public class v053
     {
         /// <summary>
@@ -587,6 +627,7 @@ namespace Existence.Earth.Sports.Football.American
     /// Miami Dolphins undefeated season
     /// </summary>
     [YearRange(1972, 1973)]
+    [RegularSeasonGameCount(14)]
     public class v054
     {
         /// <summary>
@@ -609,6 +650,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1973, 1974)]
+    [RegularSeasonGameCount(14)]
     public class v055
     {
         /// <summary>
@@ -631,6 +673,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1974, 1975)]
+    [RegularSeasonGameCount(14)]
     public class v056
     {
         /// <summary>
@@ -653,6 +696,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1975, 1976)]
+    [RegularSeasonGameCount(14)]
     public class v057
     {
         /// <summary>
@@ -675,6 +719,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1976, 1977)]
+    [RegularSeasonGameCount(14)]
     public class v058
     {
         /// <summary>
@@ -697,6 +742,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1977, 1978)]
+    [RegularSeasonGameCount(14)]
     public class v059
     {
         /// <summary>
@@ -719,6 +765,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1978, 1979)]
+    [RegularSeasonGameCount(16)]
     public class v060
     {
         /// <summary>
@@ -741,6 +788,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1979, 1980)]
+    [RegularSeasonGameCount(16)]
     public class v061
     {
         /// <summary>
@@ -763,6 +811,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1980, 1981)]
+    [RegularSeasonGameCount(16)]
     public class v062
     {
         /// <summary>
@@ -785,6 +834,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1981, 1982)]
+    [RegularSeasonGameCount(16)]
     public class v063
     {
         /// <summary>
@@ -807,6 +857,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1982, 1983)]
+    [RegularSeasonGameCount(16)]
     public class v064
     {
         /// <summary>
@@ -829,6 +880,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1983, 1984)]
+    [RegularSeasonGameCount(16)]
     public class v065
     {
         /// <summary>
@@ -851,6 +903,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1984, 1985)]
+    [RegularSeasonGameCount(16)]
     public class v066
     {
         /// <summary>
@@ -873,6 +926,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1985, 1986)]
+    [RegularSeasonGameCount(16)]
     public class v067
     {
         /// <summary>
@@ -896,6 +950,7 @@ namespace Existence.Earth.Sports.Football.American
 
 
     [YearRange(1986, 1987)]
+    [RegularSeasonGameCount(16)]
     public class v068
     {
         /// <summary>
@@ -918,6 +973,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1987, 1988)]
+    [RegularSeasonGameCount(16)]
     public class v069
     {
         /// <summary>
@@ -940,6 +996,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1988, 1989)]
+    [RegularSeasonGameCount(16)]
     public class v070
     {
         /// <summary>
@@ -962,6 +1019,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1989, 1990)]
+    [RegularSeasonGameCount(16)]
     public class v071
     {
         /// <summary>
@@ -984,6 +1042,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1990, 1991)]
+    [RegularSeasonGameCount(16)]
     public class v072
     {
         /// <summary>
@@ -1007,6 +1066,7 @@ namespace Existence.Earth.Sports.Football.American
 
 
     [YearRange(1991, 1992)]
+    [RegularSeasonGameCount(16)]
     public class v073
     {
         /// <summary>
@@ -1029,6 +1089,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1992, 1993)]
+    [RegularSeasonGameCount(16)]
     public class v074
     {
         /// <summary>
@@ -1051,6 +1112,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1993, 1994)]
+    [RegularSeasonGameCount(16)]
     public class v075
     {
         /// <summary>
@@ -1074,6 +1136,7 @@ namespace Existence.Earth.Sports.Football.American
 
 
     [YearRange(1994, 1995)]
+    [RegularSeasonGameCount(16)]
     public class v076
     {
         /// <summary>
@@ -1096,6 +1159,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1995, 1996)]
+    [RegularSeasonGameCount(16)]
     public class v077
     {
         /// <summary>
@@ -1118,6 +1182,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1996, 1997)]
+    [RegularSeasonGameCount(16)]
     public class v078
     {
         /// <summary>
@@ -1140,6 +1205,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1997, 1998)]
+    [RegularSeasonGameCount(16)]
     public class v079
     {
         /// <summary>
@@ -1162,6 +1228,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1998, 1999)]
+    [RegularSeasonGameCount(16)]
     public class v080
     {
         /// <summary>
@@ -1184,6 +1251,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(1999, 2000)]
+    [RegularSeasonGameCount(16)]
     public class v081
     {
         /// <summary>
@@ -1207,6 +1275,7 @@ namespace Existence.Earth.Sports.Football.American
 
 
     [YearRange(2000, 2001)]
+    [RegularSeasonGameCount(16)]
     public class v082
     {
         /// <summary>
@@ -1229,6 +1298,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2001, 2002)]
+    [RegularSeasonGameCount(16)]
     public class v083
     {
         /// <summary>
@@ -1251,6 +1321,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2002, 2003)]
+    [RegularSeasonGameCount(16)]
     public class v084
     {
         /// <summary>
@@ -1273,6 +1344,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2003, 2004)]
+    [RegularSeasonGameCount(16)]
     public class v085
     {
         /// <summary>
@@ -1295,6 +1367,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2004, 2005)]
+    [RegularSeasonGameCount(16)]
     public class v086
     {
         /// <summary>
@@ -1317,6 +1390,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2005, 2006)]
+    [RegularSeasonGameCount(16)]
     public class v087
     {
         /// <summary>
@@ -1340,6 +1414,7 @@ namespace Existence.Earth.Sports.Football.American
 
 
     [YearRange(2006, 2007)]
+    [RegularSeasonGameCount(16)]
     public class v088
     {
         /// <summary>
@@ -1362,6 +1437,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2007, 2008)]
+    [RegularSeasonGameCount(16)]
     public class v089
     {
         /// <summary>
@@ -1384,6 +1460,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2008, 2009)]
+    [RegularSeasonGameCount(16)]
     public class v090
     {
         /// <summary>
@@ -1406,6 +1483,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2009, 2010)]
+    [RegularSeasonGameCount(16)]
     public class v091
     {
         /// <summary>
@@ -1428,6 +1506,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2010, 2011)]
+    [RegularSeasonGameCount(16)]
     public class v092
     {
         /// <summary>
@@ -1450,6 +1529,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2011, 2012)]
+    [RegularSeasonGameCount(16)]
     public class v093
     {
         /// <summary>
@@ -1472,6 +1552,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2012, 2013)]
+    [RegularSeasonGameCount(16)]
     public class v094
     {
         /// <summary>
@@ -1494,6 +1575,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2013, 2014)]
+    [RegularSeasonGameCount(16)]
     public class v095
     {
         /// <summary>
@@ -1516,6 +1598,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2014, 2015)]
+    [RegularSeasonGameCount(16)]
     public class v096
     {
         /// <summary>
@@ -1538,6 +1621,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2015, 2016)]
+    [RegularSeasonGameCount(16)]
     public class v097
     {
         /// <summary>
@@ -1560,6 +1644,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2016, 2017)]
+    [RegularSeasonGameCount(16)]
     public class v098
     {
         /// <summary>
@@ -1582,6 +1667,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2017, 2018)]
+    [RegularSeasonGameCount(16)]
     public class v099
     {
         /// <summary>
@@ -1604,6 +1690,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2018, 2019)]
+    [RegularSeasonGameCount(16)]
     public class v100
     {
         /// <summary>
@@ -1626,6 +1713,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2019, 2020)]
+    [RegularSeasonGameCount(16)]
     public class v101
     {
         /// <summary>
@@ -1648,6 +1736,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2020, 2021)]
+    [RegularSeasonGameCount(16)]
     public class v102
     {
         /// <summary>
@@ -1670,6 +1759,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2021, 2022)]
+    [RegularSeasonGameCount(17)]
     public class v103
     {
         /// <summary>
@@ -1692,6 +1782,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2022, 2023)]
+    [RegularSeasonGameCount(17)]
     public class v104
     {
         /// <summary>
@@ -1714,6 +1805,7 @@ namespace Existence.Earth.Sports.Football.American
     }
 
     [YearRange(2023, 2024)]
+    [RegularSeasonGameCount(17)]
     public class v105
     {
         /// <summary>
@@ -1735,7 +1827,8 @@ namespace Existence.Earth.Sports.Football.American
         }
     }
 
-
+    [YearRange(2024, 2025)]
+    [RegularSeasonGameCount(17)]
     public class v106
     {
         public class NFL

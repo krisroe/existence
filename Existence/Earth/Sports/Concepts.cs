@@ -48,6 +48,11 @@ namespace Existence.Earth.Sports
         }
     }
 
+    public class RegularSeasonGameCountAttribute : NumberAttribute
+    {
+        public RegularSeasonGameCountAttribute(int Number) : base(Number) { }
+    }
+
     public class SuperBowlNumberAttribute : NumberAttribute
     {
         public SuperBowlNumberAttribute(int Number) : base(Number) { }        

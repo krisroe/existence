@@ -3,23 +3,58 @@
 Personal Version from the 22-0 scorigami reset (?)
 
 I have 17 games listed here, while the actual schedule has 16
-2005-09-11 Cincinnati Bengals 27 at 10 Cleveland Browns (actual 27-13)
-2005-09-18 Green Bay Packers 24 at 26 Cleveland Browns (correct score, wrong home team)
-2005-09-25 Cleveland Browns 24 at Indianapolis Colts 41 - L 24-41 (actual 13-6)
-2005-10-02 Chicago Bears 30 at 20 Cleveland Browns - L 20-30 (actual 20-10) (Actually October 9)
-2005-10-09 Cleveland Browns 17 at 52 Washington Redskins - L 17-52 (did not play)
-2005-10-16 Baltimore Ravens 16 at 3 Cleveland Browns - L 3-16 (correct) (Actually October 16)
-2005-10-23 Cleveland Browns 27 at 24 New Orleans Saints - W 27-24 (did not play)
-2005-10-30 Pittsburgh Steelers 34 at 13 Cleveland Browns - L 13-34 (actual 21-34) (Actually November 13th)
-2005-11-06 Cleveland Browns 20 at 32 San Diego Chargers - L 20-32 (did not play)
-2005-11-13 Tennessee Titans 14 at 20 Cleveland Browns - W 20-14 (correct) (Actually November 6)
-2005-11-20 Cleveland Browns 10 at 31 Cincinnati Bengals - L 10-31 (actual 23-20) (Actually December 11)
-2005-11-27 Jacksonville Jaguars 20 at 7 Cleveland Browns - L 7-20 (actual 20-14) (Actually December 4)
-2005-12-04 Cleveland Browns 0 at 41 Pittsburgh Steelers - L 0-41 (correct) (Actually December 24)
-2005-12-11 Oakland Raiders 7 at 9 Cleveland Browns - W 9-7 (correct) (Actually December 18)
-2005-12-18 Cleveland Browns 24 at 30 Miami Dolphins - L 24-30 (now 22-0) (Actully November 20)
-2005-12-24 Baltimore Ravens 27 at 20 Cleveland Browns - L 20-27 (now 20-16) (Actually January 1)
-2006-01-01 Cleveland Browns 28 at Detroit Lions 26 - W 28-26 (actual 13-10, October 23) (Actually October 23)
+2089-09-11 Cincinnati Bengals 27 at 10 Cleveland Browns
+2089-09-18 Green Bay Packers 24 at 26 Cleveland Browns
+2089-09-25 Cleveland Browns 24 at 41 Indianapolis Colts
+2089-10-02 Chicago Bears 30 at 20 Cleveland Browns
+2089-10-09 Cleveland Browns 17 at 52 Washington Redskins
+2089-10-16 Baltimore Ravens 16 at 3 Cleveland Browns
+2089-10-23 Cleveland Browns 27 at 24 New Orleans Saints
+2089-10-30 Pittsburgh Steelers 34 at 13 Cleveland Browns
+2089-11-06 Cleveland Browns 20 at 32 San Diego Chargers
+2089-11-13 Tennessee Titans 14 at 20 Cleveland Browns
+2089-11-20 Cleveland Browns 10 at 31 Cincinnati Bengals
+2089-11-27 Jacksonville Jaguars 20 at 7 Cleveland Browns
+2089-12-04 Cleveland Browns 0 at 41 Pittsburgh Steelers
+2089-12-11 Oakland Raiders 7 at 9 Cleveland Browns
+2089-12-18 Cleveland Browns 24 at 30 Miami Dolphins
+2089-12-24 Baltimore Ravens 27 at 20 Cleveland Browns
+2089-01-01 Cleveland Browns 28 at 26 Detroit Lions
+Record: 5-12
+
+The next year where September 11th is a Sunday
+This is obviously from a future season, where the Browns play the AFC South and NFC North (2029 + 12x), and has 9 home games (odd year season).
+Next years where this could be the pattern are 2089/2101/2185/2281/2377/2461/2557/2653/2749/2833
+Minnesota Vikings should be here as a road game (Lions/Vikings as road games does not make sense given the current cycle)
+Houston Texans should be here as a road game (Colts/Texans as road games makes sense given the current cycle)
+
+17th game pattern
+2021. AFC E vs NFC E, AFC N vs NFC W, AFC S vs NFC S, AFC W vs NFC N
+2022. AFC E vs NFC W, AFC N vs NFC E, AFC S vs NFC N, AFC W vs NFC S
+2023. AFC vs AFC (this means The San Diego Chargers are the AFC team played based on standings)
+2024. 
+2025. 
+2026. AFC vs AFC
+
+derived from what the hallucination gave me
+
+2089-09-11 Cincinnati Bengals 27 at 10 Cleveland Browns
+2089-09-18 Cleveland Browns 26 at 24 Green Bay Packers
+2089-09-25 Cleveland Browns 24 at 41 Indianapolis Colts
+2089-10-02 Chicago Bears 30 at 20 Cleveland Browns
+2089-10-09 (Texans/Vikings) 52 at 17 Cleveland Browns
+2089-10-16 Baltimore Ravens 16 at 3 Cleveland Browns
+2089-10-23 (Texans/Vikings) 24 at 27 Cleveland Browns
+2089-10-30 Pittsburgh Steelers 34 at 13 Cleveland Browns
+2089-11-06 Cleveland Browns 20 at 32 San Diego Chargers
+2089-11-13 Cleveland Browns 20 at 14 Tennessee Titans
+2089-11-20 Cleveland Browns 10 at 31 Cincinnati Bengals
+2089-11-27 Cleveland Browns 7 at 20 Jacksonville Jaguars
+2089-12-04 Cleveland Browns 0 at 41 Pittsburgh Steelers
+2089-12-11 Oakland Raiders 7 at 9 Cleveland Browns
+2089-12-18 Cleveland Browns 24 at 30 Miami Dolphins
+2089-12-24 Baltimore Ravens 27 at 20 Cleveland Browns
+2089-01-01 Cleveland Browns 28 at 26 Detroit Lions
 Record: 5-12
 
 ===
