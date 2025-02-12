@@ -16,6 +16,11 @@ namespace Existence.Earth.FieldsOfStudy.Astrology
         public static class TikTokSuspendedUSOperations { }
 
         /// <summary>
+        /// 1/19/2025 00:00 PM EST
+        /// </summary>
+        public static class PAFACAGoesIntoEffectButJoeBidenNotEnforcingIt { }
+
+        /// <summary>
         /// 1/19/2025 12:00 PM EST
         /// (following assurances from President-elect Donald Trump that he would grant an extension upon taking office)
         /// TikTok was inaccessible for ~13.5 hours
