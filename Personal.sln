@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabasePopulator", "Person
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDeployer", "Personal\YouTubeChannel\LocalDeployer\LocalDeployer.csproj", "{B4DE2D99-94DB-425E-9337-FE8CC3574D3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldHuman", "HelloWorldHuman\HelloWorldHuman.csproj", "{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldHuman", "Personal\HelloWorldHuman\HelloWorldHuman.csproj", "{92CF3A29-EB9D-4864-A3C8-672FB7DA03F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

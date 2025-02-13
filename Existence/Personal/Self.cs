@@ -104,11 +104,14 @@ namespace Existence.Personal
         public static class MagicPhrases
         {
             public const string Phrase1 = "NO HACKING ALLOWED";
-            public const string Phrase2 = "PSYCHOLOGY IS BULLSHIT";
+            public const string Phrase2 = "ASTROLOGY IS BULLSHIT";
+            public const string Phrase3 = "PSYCHOLOGY IS BULLSHIT";
             public const string Phrase4 = "DELETE MY PRODUCTION ENVIRONMENT";
             public const string Phrase5 = "YOU'RE/I'M REALLY GOOD AT THIS";
             public const string Phrase6 = "EMERGENCY CONTACT";
             public const string Phrase7 = "FAILSAFE";
+            public const string Phrase8 = "I AM CHRIS ROWE";
+            public const string Phrase9 = "I AM TAYLOR SWIFT";
         }
 
         public static class Death

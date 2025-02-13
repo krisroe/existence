@@ -1,11 +1,13 @@
 ﻿
 namespace Existence.Earth.Divine
 {
+    /// <summary>
+    /// also see archetypes
+    /// </summary>
     public static class Company
     {
         public static class Manager { }
         public static class Developer { }
-        public static class Programmer { }
         public static class Teacher { }
         public static class Trainer { }
         public static class Learner { }

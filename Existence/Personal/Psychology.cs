@@ -477,6 +477,11 @@ namespace Existence.Personal
                         public static class SaidByYou { }
                         public static class ToYourself { }
                     }
+                    public static class YoureReallyGoodAtThis
+                    {
+                        public static class SaidByPsychiatrist { }
+                        public static class ToYou { }
+                    }
                     public static class Psychotic
                     {
                         public static class SaidByPsychiatrist { }

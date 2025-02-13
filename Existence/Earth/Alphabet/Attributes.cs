@@ -45,4 +45,23 @@ namespace Existence.Earth.Alphabet
         {
         }
     }
+
+    public class QuoteAttribute : TextAttribute
+    {
+        public string Quote 
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public QuoteAttribute(string Quote) : base(Quote)
+        {
+
+        }
+    }
 }

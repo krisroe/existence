@@ -1,4 +1,6 @@
 ﻿
+using Existence.Earth.Alphabet;
+
 namespace Existence.Earth.People.Famous.Physics
 {
     public static class Physics
@@ -45,6 +47,7 @@ namespace Existence.Earth.People.Famous.Physics
         }
         private static class Modern
         {
+            [Quote("God does not play dice with the universe")]
             private static class AlbertEinstein 
             {
                 private static class TheoryOfRelativity { }
