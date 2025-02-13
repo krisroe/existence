@@ -2,6 +2,42 @@
 
 namespace Existence.Earth.Countries.UnitedStates
 {
+    public enum BallotMeasureTypes
+    {
+        /// <summary>
+        /// advisory question
+        /// </summary>
+        AQ,
+
+        /// <summary>
+        /// Legislatively Referred Constitutional Amendment
+        /// </summary>
+        LRCA,
+
+        /// <summary>
+        /// Legislatively Referred State Statute
+        /// </summary>
+        LRSS,
+    }
+
+    public class BallotMeasureTypeAttribute : Attribute
+    {
+        public BallotMeasureTypes Type { get; set; }
+        public BallotMeasureTypeAttribute(BallotMeasureTypes Type)
+        {
+            this.Type = Type;
+        }
+    }
+
+    public class BallotMeasurePassFailAttribute : Attribute
+    {
+        public bool Passed { get; set; }
+        public BallotMeasurePassFailAttribute(bool Passed)
+        {
+            this.Passed = Passed;
+        }
+    }
+
     public class USStatesAndTerritoriesAttribute : Attribute
     {
         public USStatesAndTerritories[] Locations { get; set; }
