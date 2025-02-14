@@ -10,7 +10,7 @@ namespace Existence.Earth.Countries.UnitedStates
                 /// <summary>
                 /// confirmed 53-47 on 2025-02-06
                 /// </summary>
-                public static class RussellVoight { }
+                public static class RussellVought { }
             }
 
             public static class Cabinet
@@ -18,7 +18,7 @@ namespace Existence.Earth.Countries.UnitedStates
                 public static class SecretaryOfState
                 {
                     /// <summary>
-                    /// confirmed unanimously (99-0) on 2025-01-21
+                    /// confirmed unanimously (99-0, did not vote on his own nomination) on 2025-01-20
                     /// </summary>
                     public static class MarcoRubio { }
                 }
@@ -46,13 +46,16 @@ namespace Existence.Earth.Countries.UnitedStates
                 public static class SecretaryOfTheInterior
                 {
                     /// <summary>
-                    /// confirmed 79-18 on 2025-01-30
+                    /// confirmed 80-17 on 2025-01-30
                     /// </summary>
                     public static class DougBergum { }
                 }
                 public static class SecretaryOfAgriculture
                 {
-                    public static class BrookeRollinsPENDING { }
+                    /// <summary>
+                    /// confirmed 72-28 on 2025-02-13
+                    /// </summary>
+                    public static class BrookeRollins { }
                 }
                 public static class SecretaryOfCommerce
                 {
@@ -64,7 +67,10 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
                 public static class SecretaryOfHealthAndHumanServices
                 {
-                    public static class RobertFKennedyJrPENDING { }
+                    /// <summary>
+                    /// confirmed 52-48 on 2025-02-13
+                    /// </summary>
+                    public static class RobertFKennedyJr { }
                 }
                 public static class SecretaryOfHousingAndUrbanDevelopment
                 {
@@ -116,16 +122,52 @@ namespace Existence.Earth.Countries.UnitedStates
 
             public static class IndependentAgencies
             {
-                /// <summary>
-                /// confirmed 56-42 on 01-29-2025
-                /// </summary>
-                public static class AdministratorOfEnvironmentalProtectionAgency { }
+                public static class AdministratorOfEnvironmentalProtectionAgency
+                {
+                    /// <summary>
+                    /// confirmed 56-42 on 01-29-2025
+                    /// </summary>
+                    public static class LeeZeldin { }
+                }
+
+                public static class AdministratorOfSmallBusinessAdministration
+                {
+                    public static class KellyLoeffler { }
+                }
 
                 /// <summary>
                 /// confimred 74-25 on 2025-01-23
                 /// </summary>
                 public static class DirectoryOfCentralIntelligenceAgency { }
             }
+
+            /*
+Administrator of the General Services Administration: Stephen Ehikian
+Confirmed: January 30, 2025
+Vote: 73-27
+
+Administrator of the National Aeronautics and Space Administration: Jared Isaacman
+Confirmed: January 29, 2025
+Vote: 82-18
+
+Administrator of the U.S. Agency for International Development: Marco Rubio
+Pending confirmation
+Vote: Not yet scheduled
+
+Director of the Consumer Financial Protection Bureau: Jonathan McKernan
+Confirmed: February 6, 2025
+Vote: 58-42
+
+Chairman of the Federal Communications Commission: did Brendan Carr as FCC board member under biden administration.
+
+Chairman of the Federal Trade Commission: Andrew N. Ferguson
+Confirmed: January 31, 2025
+Vote: 75-25
+
+Chairman of the Securities and Exchange Commission: Paul S. Atkins
+Confirmed: February 1, 2025
+Vote: 67-33* 
+             */
         }
     }
 }
