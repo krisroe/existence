@@ -1,8 +1,139 @@
 ﻿
+using Existence.Time;
+
 namespace Existence.Earth.Countries.UnitedStates
 {
     public class Trump2
     {
+        [YearDate(2025, 1, 20)]
+        public static class ActingPositions
+        {
+            public static class SecretaryOfAgriculture
+            {
+                public static class GaryWashington { }
+            }
+            public static class SecretaryOfCommerce
+            {
+                public static class JeremyPelter { }
+            }
+            public static class SecretaryOfDefense
+            {
+                public static class RobertSalesses { }
+            }
+            public static class SecretaryOfTheArmy
+            {
+                public static class MarkAverill { }
+            }
+            public static class SecretaryOfTheNavy
+            {
+                public static class TerenceEmmert { }
+            }
+            public static class SecretaryOfTheAirForce
+            {
+                public static class GaryAshworth { }
+            }
+            public static class  SecretaryOfEducation
+            {
+                public static class DeniseCarter { }
+            }
+            public static class SecretaryOfEnergy
+            {
+                public static class IngridKolb { }
+            }
+            public static class SecretaryOfHealthAndHumanServices
+            {
+                public static class DorothyFink { }
+            }
+            public static class SecretaryOfHomelandSecurity
+            {
+                public static class BenjamineHuffman { }
+            }
+            public static class SecretaryOfHousingAndUrbanDevelopment
+            {
+                public static class MatthewAmmon { }
+            }
+            public static class SecretaryOfTheInterior
+            {
+                public static class WalterCruickshank { }
+            }
+            public static class AttorneyGeneral
+            {
+                public static class JamesMcHenry { }
+            }
+            public static class SecretaryOfLabor
+            {
+                public static class VincentMicone { }
+            }
+            public static class SecretaryOfState
+            {
+                public static class LissaKenna { }
+            }
+            public static class SecretaryOfTheTreasury
+            {
+                public static class DavidLebryk { }
+            }
+            public static class SecretaryOfTransportation
+            {
+                public static class JudithKaleta { }
+            }
+            public static class SecretaryOfVeteransAffairs
+            {
+                public static class ToddHunter { }
+            }
+            public static class AdministratorOfTheEnvironmnentalProtectionAgency
+            {
+                public static class JamesPayne { }
+            }
+            public static class AdministratorOfTheSmallBusinessAdministration
+            {
+                public static class EverettWoodel { }
+            }
+            public static class DirectorOfTheOfficeOfManagementAndBudget
+            {
+                public static class MatthewVaeth { }
+            }
+            public static class DirectorOfNationalIntelligence
+            {
+                public static class StaceyDixon { }
+            }
+            public static class UnitedStatesTradeRepresentative
+            {
+                public static class JuanMillan { }
+            }
+            public static class DirectorOfTheCentralIntelligenceAgency
+            {
+                public static class ThomasSylvesterJr { }
+            }
+            public static class DirectorOfTheOfficeOfPersonnelManagement
+            {
+                public static class CharlesEzell { }
+            }
+            public static class AdministratorOfGeneralServices
+            {
+                public static class StephenEhikian { }
+            }
+            public static class CommissionerOfSocialSecurity
+            {
+                public static class MichelleKing { }
+            }
+            public static class DirectorOfTheFederalBureauOfInvestigation
+            {
+                public static class BrianDriscoll { }
+            }
+            public static class AdministratorOfTheUnitedStatesAgencyForInternationalDevelopment
+            {
+                public static class JasonGray { }
+            }
+            public static class AdministratorOfTheNationalAeronauticsAndSpaceAdministration
+            {
+                public static class JanetPetro { }
+            }
+            public static class DirectorOfUSImmigrationAndCustomsEnforcement
+            {
+                public static class CalebVitello { }
+            }
+        }
+
         public static class ExecutiveOfficeOfThePresident
         {
             public static class DirectorOfOfficeManagementAndBudget
@@ -130,44 +261,75 @@ namespace Existence.Earth.Countries.UnitedStates
                     public static class LeeZeldin { }
                 }
 
+                public static class AdministratorOfTheGeneralServicesAdministration
+                {
+                    public static class NoNomineeYetPENDING { }
+                }
+
+                public static class AdministratorOfTheNationalAeronauticsAndSpaceAdministration
+                {
+                    public static class JaredIsaacmanPENDING { }
+                }
+
                 public static class AdministratorOfSmallBusinessAdministration
                 {
-                    public static class KellyLoeffler { }
+                    public static class KellyLoefflerPENDING { }
+                }
+
+                public static class DirectoryOfCentralIntelligenceAgency
+                {
+                    /// <summary>
+                    /// confimred 74-25 on 2025-01-23
+                    /// </summary>
+                    public static class JohnRatcliffe { }
                 }
 
                 /// <summary>
-                /// confimred 74-25 on 2025-01-23
+                /// USAID (temporarily headed by the Secretary of State)
                 /// </summary>
-                public static class DirectoryOfCentralIntelligenceAgency { }
+                public static class AdministratorOfTheUSAgencyForInternationalDevelopment
+                {
+                    public static class NoNomineeYetPENDING { }
+                }
+
+                public static class DirectoryOfTheConsumerFinancialProtectionBureau
+                {
+                    public static class JohathanMcKernanPENDING { }
+                }
+
+                public static class ChairmanOfTheFederalCommunicationsCommission
+                {
+                    /// <summary>
+                    /// no confirmation required, was already on the FCC board
+                    /// </summary>
+                    public static class BrendanCarr { }
+                }
+
+                public static class ChairmanOfTheFederalTradeCommission
+                {
+                    /// <summary>
+                    /// no confirmation required, was already on the FTC board
+                    /// </summary>
+                    public static class AndrewNFerguson { }
+                }
+
+                [YearDate(2025, 1, 20)]
+                public static class ChairmanOfTheSecuritiesAndExchangeCommissionActing
+                {
+                    /// <summary>
+                    /// no confirmation required, was already on the SEC board
+                    /// </summary>
+                    public static class MarkTUyeda { }
+                }
+
+                public static class ChairmanOfTheSecuritiesAndExchangeCommission
+                {
+                    /// <summary>
+                    /// not currently on the board, so required senate confirmation
+                    /// </summary>
+                    public static class PaulSAtkinsPENDING { }
+                }
             }
-
-            /*
-Administrator of the General Services Administration: Stephen Ehikian
-Confirmed: January 30, 2025
-Vote: 73-27
-
-Administrator of the National Aeronautics and Space Administration: Jared Isaacman
-Confirmed: January 29, 2025
-Vote: 82-18
-
-Administrator of the U.S. Agency for International Development: Marco Rubio
-Pending confirmation
-Vote: Not yet scheduled
-
-Director of the Consumer Financial Protection Bureau: Jonathan McKernan
-Confirmed: February 6, 2025
-Vote: 58-42
-
-Chairman of the Federal Communications Commission: did Brendan Carr as FCC board member under biden administration.
-
-Chairman of the Federal Trade Commission: Andrew N. Ferguson
-Confirmed: January 31, 2025
-Vote: 75-25
-
-Chairman of the Securities and Exchange Commission: Paul S. Atkins
-Confirmed: February 1, 2025
-Vote: 67-33* 
-             */
         }
     }
 }

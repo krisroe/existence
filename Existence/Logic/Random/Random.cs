@@ -8,7 +8,7 @@ namespace Existence.Logic.Random
     /// <summary>
     /// random number logic
     /// </summary>
-    public static class Logic
+    public static class RandomLogic
     {
         /// <summary>
         /// global random object (not thread safe)

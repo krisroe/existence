@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Existence.Logic.Random;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +23,11 @@ namespace Existence.Tests
 
             Assert.ThrowsException<ArgumentNullException>(() =>
             {
-                Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(
+                RandomLogic.DoFisherYatesKnuthRandomizer(
                     nullList,
                     r,
-                    Existence.Logic.Random.Logic.RandomType.Global,
-                    Existence.Logic.Random.Logic.LinqHandling.None
+                    RandomLogic.RandomType.Global,
+                    RandomLogic.LinqHandling.None
                 );
             });
         }
@@ -36,7 +37,7 @@ namespace Existence.Tests
         {
             List<int> list = new List<int> { 42 };
             Random? r = null;
-            var result = Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(list, r, Existence.Logic.Random.Logic.RandomType.Global, Existence.Logic.Random.Logic.LinqHandling.None);
+            var result = RandomLogic.DoFisherYatesKnuthRandomizer(list, r, RandomLogic.RandomType.Global, RandomLogic.LinqHandling.None);
 
             // Assert
             Assert.AreEqual(1, result.Count);
@@ -53,7 +54,7 @@ namespace Existence.Tests
             var seededRandom = new Random(42);
 
             // Act
-            List<int> shuffled = (List<int>)Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(list, seededRandom, Existence.Logic.Random.Logic.RandomType.Specified, Existence.Logic.Random.Logic.LinqHandling.None);
+            List<int> shuffled = (List<int>)RandomLogic.DoFisherYatesKnuthRandomizer(list, seededRandom, RandomLogic.RandomType.Specified, RandomLogic.LinqHandling.None);
 
             // Assert that the shuffled list is a permutation of the original.
             // Using CollectionAssert.AreEquivalent to check that all elements exist regardless of order.
@@ -74,7 +75,7 @@ namespace Existence.Tests
             Random seededRandom = new Random(123);
 
             // Act: Use the LINQ in-place shuffle option.
-            List<int> result = (List<int>)Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(list, seededRandom, Existence.Logic.Random.Logic.RandomType.Specified, Existence.Logic.Random.Logic.LinqHandling.ShuffleInPlace);
+            List<int> result = (List<int>)RandomLogic.DoFisherYatesKnuthRandomizer(list, seededRandom, RandomLogic.RandomType.Specified, RandomLogic.LinqHandling.ShuffleInPlace);
 
             // Assert: The result should be a permutation of the original.
             CollectionAssert.AreEquivalent(originalList, result);
@@ -89,7 +90,7 @@ namespace Existence.Tests
 
             // Act
             // This should throw because RandomType.Specified requires a non-null random instance.
-            Existence.Logic.Random.Logic.DoFisherYatesKnuthRandomizer(list, null, Existence.Logic.Random.Logic.RandomType.Specified, Existence.Logic.Random.Logic.LinqHandling.None);
+            RandomLogic.DoFisherYatesKnuthRandomizer(list, null, RandomLogic.RandomType.Specified, RandomLogic.LinqHandling.None);
         }
 
         // You can add additional tests to cover:
