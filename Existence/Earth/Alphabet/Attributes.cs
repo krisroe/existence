@@ -34,7 +34,7 @@ namespace Existence.Earth.Alphabet
         {
             get
             {
-                return base.Text;    
+                return base.Text;
             }
             set
             {
@@ -48,7 +48,7 @@ namespace Existence.Earth.Alphabet
 
     public class QuoteAttribute : TextAttribute
     {
-        public string Quote 
+        public string Quote
         {
             get
             {
@@ -62,6 +62,43 @@ namespace Existence.Earth.Alphabet
         public QuoteAttribute(string Quote) : base(Quote)
         {
 
+        }
+    }
+
+    public class ObservationAttribute : TextAttribute
+    {
+        public string Observation
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public ObservationAttribute(string Observation) : base(Observation)
+        {
+
+        }
+    }
+
+    public class TODOAttribute : TextAttribute
+    {
+        public string TODO
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public TODOAttribute(string TODO) : base(TODO)
+        {
         }
     }
 }

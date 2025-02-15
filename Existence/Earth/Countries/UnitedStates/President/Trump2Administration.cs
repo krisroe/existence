@@ -1,4 +1,4 @@
-﻿
+﻿using Existence.Earth.Alphabet;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates
@@ -190,11 +190,13 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
                 public static class SecretaryOfCommerce
                 {
-                    public static class HowardLutnickPENDING { }
+                    [TODO("Confirmation Details")]
+                    public static class HowardLutnick { }
                 }
                 public static class SecretaryOfLabor
                 {
-                    public static class LoriChavezDeRemerPENDING { }
+                    [TODO("Confirmation Details")]
+                    public static class LoriChavezDeRemer { }
                 }
                 public static class SecretaryOfHealthAndHumanServices
                 {
@@ -226,7 +228,8 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
                 public static class SecretaryOfEducation
                 {
-                    public static class LindaMcMahonPENDING { }
+                    [TODO("Confirmation Details")]
+                    public static class LindaMcMahon { }
                 }
                 public static class SecretaryOfVeteransAffairs
                 {
@@ -263,17 +266,20 @@ namespace Existence.Earth.Countries.UnitedStates
 
                 public static class AdministratorOfTheGeneralServicesAdministration
                 {
-                    public static class NoNomineeYetPENDING { }
+                    [TODO("Details")]
+                    public static class NoNomineeYet { }
                 }
 
                 public static class AdministratorOfTheNationalAeronauticsAndSpaceAdministration
                 {
-                    public static class JaredIsaacmanPENDING { }
+                    [TODO("Confirmation Details")]
+                    public static class JaredIsaacman { }
                 }
 
                 public static class AdministratorOfSmallBusinessAdministration
                 {
-                    public static class KellyLoefflerPENDING { }
+                    [TODO("Confirmation Details")]
+                    public static class KellyLoeffler { }
                 }
 
                 public static class DirectoryOfCentralIntelligenceAgency
@@ -289,12 +295,14 @@ namespace Existence.Earth.Countries.UnitedStates
                 /// </summary>
                 public static class AdministratorOfTheUSAgencyForInternationalDevelopment
                 {
-                    public static class NoNomineeYetPENDING { }
+                    [TODO("Details")]
+                    public static class NoNomineeYet { }
                 }
 
                 public static class DirectoryOfTheConsumerFinancialProtectionBureau
                 {
-                    public static class JohathanMcKernanPENDING { }
+                    [TODO("Details")]
+                    public static class JohathanMcKernan { }
                 }
 
                 public static class ChairmanOfTheFederalCommunicationsCommission
@@ -327,7 +335,8 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// <summary>
                     /// not currently on the board, so required senate confirmation
                     /// </summary>
-                    public static class PaulSAtkinsPENDING { }
+                    [TODO("Details")]
+                    public static class PaulSAtkins { }
                 }
             }
         }
