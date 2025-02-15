@@ -324,7 +324,7 @@ namespace Existence.Earth.Countries.UnitedStates
                     public static class RussellVought { }
 
                     [TODO("Details")]
-                    public static class JohathanMcKernan { }
+                    public static class JonathanMcKernan { }
                 }
 
                 public static class UnitedStatesTradeRepresentative
