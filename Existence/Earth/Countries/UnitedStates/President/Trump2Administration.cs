@@ -295,12 +295,22 @@ namespace Existence.Earth.Countries.UnitedStates
                 /// </summary>
                 public static class AdministratorOfTheUSAgencyForInternationalDevelopment
                 {
-                    [TODO("Details")]
-                    public static class NoNomineeYet { }
+                    /// <summary>
+                    /// appointed acting on 2025-02-03 after becoming secretary of state
+                    /// </summary>
+                    public static class MarcoRubio { }
+
+                    [TODO("Final Details")]
+                    public static class PermanentAppointmentNotYetMade { }
                 }
 
                 public static class DirectoryOfTheConsumerFinancialProtectionBureau
                 {
+                    /// <summary>
+                    /// appointed acting on 2025-02-07 after becoming director of OMB
+                    /// </summary>
+                    public static class RussellVought { }
+
                     [TODO("Details")]
                     public static class JohathanMcKernan { }
                 }
