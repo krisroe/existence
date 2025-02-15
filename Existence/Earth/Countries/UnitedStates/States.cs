@@ -10,6 +10,16 @@ namespace Existence.Earth.Countries.UnitedStates
         AQ,
 
         /// <summary>
+        /// citizen initiated constitutional amendment
+        /// </summary>
+        CICA,
+
+        /// <summary>
+        /// initiative to the legislature
+        /// </summary>
+        ITL,
+
+        /// <summary>
         /// Legislatively Referred Constitutional Amendment
         /// </summary>
         LRCA,
@@ -18,6 +28,11 @@ namespace Existence.Earth.Countries.UnitedStates
         /// Legislatively Referred State Statute
         /// </summary>
         LRSS,
+
+        /// <summary>
+        /// veto referendum
+        /// </summary>
+        VR,
     }
 
     public class BallotMeasureTypeAttribute : Attribute
