@@ -132,10 +132,22 @@ namespace Existence.Earth.Countries.UnitedStates
             {
                 public static class CalebVitello { }
             }
+            public static class AmbassadorToTheUnitedNations
+            {
+                public static class DorothyShea { }
+            }
         }
 
         public static class ExecutiveOfficeOfThePresident
         {
+            public static class WhiteHouseChiefOfStaff
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class SusieWiles { }
+            }
+
             public static class DirectorOfOfficeManagementAndBudget
             {
                 /// <summary>
@@ -313,6 +325,18 @@ namespace Existence.Earth.Countries.UnitedStates
 
                     [TODO("Details")]
                     public static class JohathanMcKernan { }
+                }
+
+                public static class UnitedStatesTradeRepresentative
+                {
+                    [TODO("Senate Confirmation")]
+                    public static class JamiesonGreer { }
+                }
+
+                public static class AmbassadorToTheUnitedNations
+                {
+                    [TODO("Senate Confirmation")]
+                    public static class EliseStefanik { }
                 }
 
                 public static class ChairmanOfTheFederalCommunicationsCommission
