@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Existence.Earth.Alphabet;
 using Existence.Time;
 
@@ -27,6 +28,78 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
     public static class StateLaws
     {
+        public static List<USStatesAndTerritories> OverturningRoevWadeHadNoEffectPerStateLaw = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
+            USStatesAndTerritories.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
+            USStatesAndTerritories.Colorado, //State law (Reproductive Health Equity Act, 2022) explicitly protects abortion rights.
+            USStatesAndTerritories.Connecticut, //State law (1990 law) codifies Roe v. Wade protections.
+            USStatesAndTerritories.Delaware, //State law (2017 law) protects abortion rights.
+            USStatesAndTerritories.Hawaii, //State law (1970 law, before Roe) guarantees abortion rights.
+            USStatesAndTerritories.Illinois, //State law (Reproductive Health Act, 2019) protects abortion access.
+            USStatesAndTerritories.Kansas, //state supreme court decision from 2019, although poltical battle continued
+            USStatesAndTerritories.Maine, //State law (1993 law) guarantees abortion access.
+            USStatesAndTerritories.Maryland, //State law (1991 law, confirmed by a 1992 referendum) protects abortion rights.
+            USStatesAndTerritories.Massachusetts, //State law (ROE Act, 2020) guarantees abortion access.
+            USStatesAndTerritories.Minnesota, //State constitution protects abortion rights (Doe v. Gomez, 1995).
+            USStatesAndTerritories.Nevada, //State law (1990 voter referendum) guarantees abortion rights.
+            USStatesAndTerritories.NewHampshire, //limited effect because law only bans abortion after 24 weeks
+            USStatesAndTerritories.NewJersey, //State law (Freedom of Reproductive Choice Act, 2022) protects abortion access.
+            USStatesAndTerritories.NewMexico, //State law (2021 repeal of pre-Roe ban) protects abortion access.
+            USStatesAndTerritories.NewYork, //State law (Reproductive Health Act, 2019) protects abortion rights.
+            USStatesAndTerritories.Oregon, //	State law (Reproductive Health Equity Act, 2017) guarantees abortion access.
+            USStatesAndTerritories.Pennsylvania, //abortion banned after 24 weeks
+            USStatesAndTerritories.RhodeIsland, //State law (Reproductive Privacy Act, 2019) protects abortion rights.
+            USStatesAndTerritories.Vermont, //State constitution guarantees abortion rights (affirmed by Proposal 5, 2022).
+            USStatesAndTerritories.Washington, //State law (1991 voter-approved law) guarantees abortion rights.
+            USStatesAndTerritories.WashingtonDC, //right to access abortion services without mandatory waiting periods, parental involvement, or spousal consent since 1970s
+            USStatesAndTerritories.PuertoRico,
+            USStatesAndTerritories.Guam, //abortion is legal but no local healthcare provider support it
+            USStatesAndTerritories.UnitedStatesVirginIslands, //legal up to 24 weeks
+        };
+        public static List<USStatesAndTerritories> PostDobbsAbortionRights = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Arizona, //2024 ballot initiative Proposition 139
+            USStatesAndTerritories.Michigan, //2022 ballot initiative Proposal 3
+            USStatesAndTerritories.Missouri, //2024 ballot initiative Amendment 3
+            USStatesAndTerritories.Montana, //2024 ballot initiative
+            USStatesAndTerritories.Ohio, //2023 ballot initiative Issue 1
+        };
+        public static List<USStatesAndTerritories> PerhapsResolvedByFutureBallotInitiative = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Virginia
+        };
+        public static List<USStatesAndTerritories> LawsYetToBeResolvedInLegalSystem = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Georgia, //6 weeks
+            USStatesAndTerritories.NorthDakota, //total
+            USStatesAndTerritories.SouthCarolina, //6 weeks
+            USStatesAndTerritories.Utah, //18 weeks or total
+            USStatesAndTerritories.Wisconsin, //1849 ban treated as total ban
+            USStatesAndTerritories.Wyoming //fetal viability or total
+        };
+        public static List<USStatesAndTerritories> AbortionGenerallyIllegalPerStateLaw = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alabama, //total
+            USStatesAndTerritories.Arkansas, //total
+            USStatesAndTerritories.Florida, //6 weeks
+            USStatesAndTerritories.Idaho, //total
+            USStatesAndTerritories.Iowa, //6 weeks
+            USStatesAndTerritories.Indiana, //total
+            USStatesAndTerritories.Kentucky, //total
+            USStatesAndTerritories.Louisiana, //total
+            USStatesAndTerritories.Mississippi, //total
+            USStatesAndTerritories.Nebraska, //12 week ban
+            USStatesAndTerritories.NorthCarolina, //12 week ban (less restrictive than other southern states)
+            USStatesAndTerritories.Oklahoma, //total
+            USStatesAndTerritories.SouthDakota, //total
+            USStatesAndTerritories.Tennessee, //total
+            USStatesAndTerritories.Texas, //total
+            USStatesAndTerritories.WestVirginia, //total
+            USStatesAndTerritories.NorthernMarianaIslands, //total
+            USStatesAndTerritories.AmericanSamoa, //total
+        };
+
         public static class Alabama
         {
             public static class v2022
@@ -94,6 +167,45 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [StateLawSubject(StateLawSubjects.Abortion)]
                 public static class TriggerLaw { }
+            }
+        }
+
+        public static class Indiana
+        {
+            public static class v2023
+            {
+                /// <summary>
+                /// Senate Enrolled Act 1 (SEA 1)
+                /// Total abortion ban with limited exceptions:
+                /// 1. Rape or incest (only allowed up to 10 weeks post-fertilization).
+                /// 2. Fetal anomalies (if the fetus has a lethal abnormality).
+                /// 3. To save the life or prevent serious harm to the pregnant individual.
+                /// Abortions can only be performed in hospitals or hospital-owned outpatient centers.
+                /// Abortion clinics were forced to close (Planned Parenthood clinics in Indiana no longer perform abortions).
+                /// Felony charges for doctors who perform abortions outside of exceptions.
+                /// License revocation for violating the law.
+                /// </summary>
+                [StateLawSubject(StateLawSubjects.Abortion)]
+                public static class NearTotalAbortionBan { }
+            }
+        }
+
+        public static class Iowa
+        {
+            public static class v2023
+            {
+                /// <summary>
+                /// Ban on abortion after 6 weeks
+                /// Exceptions:
+                /// 1. Rape (must be reported within 45 days).
+                /// 2. Incest (must be reported within 140 days).
+                /// 3. Fetal abnormalities deemed "incompatible with life".
+                /// 4. To save the life of the pregnant woman or prevent serious risk of substantial bodily harm.
+                /// Doctors who perform an abortion in violation of the law could lose their medical license.
+                /// House File 732
+                /// </summary>
+                [StateLawSubject(StateLawSubjects.Abortion)]
+                public static class FetalHeartbeatLaw { }
             }
         }
 
@@ -184,6 +296,25 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [Observation("Only partially in force due to 2024 ballot initiative (still relevent for parental notification and bans post-viability abortion)")]
                 [StateLawSubject(StateLawSubjects.Abortion)]
                 public static class MissouriStandsForTheUnbornAct { }
+            }
+        }
+
+        public static class NewHampshire
+        {
+            public static class v2021
+            {
+                /// <summary>
+                /// House Bill 2 (HB 2) 
+                /// Bans abortion after 24 weeks of pregnancy except in cases of
+                /// * Fatal fetal anomalies
+                /// * Risk to the life or health of the pregnant person
+                /// No exceptions for rape or incest.
+                /// Requires an ultrasound before any abortion, regardless of gestational age.
+                /// Doctors who perform an abortion after 24 weeks face felony charges (Class B felony).
+                /// The law allows civil lawsuits to be filed against doctors who perform post-24-week abortions.
+                /// </summary>
+                [StateLawSubject(StateLawSubjects.Abortion)]
+                public static class FetalLifeProtectionAct { }
             }
         }
 
