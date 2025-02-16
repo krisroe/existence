@@ -5,28 +5,6 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States
 {
-    public enum StateLawSubjects
-    {
-        Abortion,
-        PhotoVoterID,
-    }
-
-    public class StateLawSubjectAttribute : Attribute
-    {
-        public StateLawSubjects Subject { get; set; }
-        public StateLawSubjectAttribute(StateLawSubjects Subject)
-        {
-            this.Subject = Subject;
-        }
-    }
-
-    public class LawEnactedAttribute : YearDateAttribute
-    {
-        public LawEnactedAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
-        {
-        }
-    }
-
     public static class StateLaws
     {
         public static class AbortionLists

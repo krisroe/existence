@@ -1,13 +1,6 @@
 ﻿
 namespace Existence.Earth.Countries.UnitedStates
 {
-    public enum FederalGovernmentBranches
-    {
-        Executive,
-        Judicial,
-        Legislative
-    }
-
     //per the Presidential Succession Act of 1947, referenced in the 25th amendment
     public static class PresidentialSuccession
     {

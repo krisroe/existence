@@ -4,25 +4,6 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States
 {
-    public enum BallotInitiativeSubjects
-    {
-        Abortion,
-        BallotInitiatives,
-        PrimaryElections,
-        RankedChoiceVoting,
-        PhotoIDForVoting,
-        NonCitizenVoting,
-    }
-
-    public class BallotInitiativeSubjectsAttribute : Attribute
-    {
-        public BallotInitiativeSubjects[] Subjects { get; set; }
-        public BallotInitiativeSubjectsAttribute(params BallotInitiativeSubjects[] Subjects)
-        {
-            this.Subjects = Subjects;
-        }
-    }
-
     public static class BallotInitiatives
     {
         public static class Alabama
