@@ -7,7 +7,8 @@ namespace Existence.Earth.Countries.UnitedStates.States
 {
     public enum StateLawSubjects
     {
-        Abortion
+        Abortion,
+        PhotoVoterID,
     }
 
     public class StateLawSubjectAttribute : Attribute
@@ -115,6 +116,69 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.Oklahoma, //HB 3156 (2024-04-29)
             USStatesAndTerritories.SouthDakota, //SB 55 (2023-03-27)
             USStatesAndTerritories.Tennessee, //HB 1868, SB 1820 (2022-03-07)
+        };
+        //taken from ballotpedia
+        public static List<USStatesAndTerritories> VoterPhotoIDRequired = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Arkansas,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Georgia,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Indiana,
+            USStatesAndTerritories.Kansas,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.Michigan,
+            USStatesAndTerritories.Mississippi,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.Montana,
+            USStatesAndTerritories.Nebraska,
+            USStatesAndTerritories.NewHampshire,
+            USStatesAndTerritories.NorthCarolina,
+            USStatesAndTerritories.Ohio,
+            USStatesAndTerritories.RhodeIsland,
+            USStatesAndTerritories.SouthDakota,
+            USStatesAndTerritories.SouthCarolina,
+            USStatesAndTerritories.Texas,
+            USStatesAndTerritories.Tennessee,
+            USStatesAndTerritories.Wisconsin,
+        };
+        //from ballotpedia
+        public static List<USStatesAndTerritories> VoterNonPhotoIDRequired = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alaska,
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Connecticut,
+            USStatesAndTerritories.Delaware,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.Utah,
+            USStatesAndTerritories.Virginia,
+            USStatesAndTerritories.WestVirginia,
+            USStatesAndTerritories.Wyoming,
+        };
+        //from ballotpedia
+        public static List<USStatesAndTerritories> NoVoterIDRequired = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.California,
+            USStatesAndTerritories.Hawaii,
+            USStatesAndTerritories.Illinois,
+            USStatesAndTerritories.Maine,
+            USStatesAndTerritories.Maryland,
+            USStatesAndTerritories.Massachusetts,
+            USStatesAndTerritories.Minnesota,
+            USStatesAndTerritories.Nevada,
+            USStatesAndTerritories.NewJersey,
+            USStatesAndTerritories.NewMexico,
+            USStatesAndTerritories.NewYork,
+            USStatesAndTerritories.Oregon,
+            USStatesAndTerritories.Pennsylvania,
+            USStatesAndTerritories.Vermont,
+            USStatesAndTerritories.Washington,
+            USStatesAndTerritories.WashingtonDC,
         };
 
         public static class Alabama
@@ -491,6 +555,15 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [StateLawSubject(StateLawSubjects.Abortion)]
                 [Year(1849)]
                 public static class WisconsinAbortionBan { }
+            }
+            public static class v2011
+            {
+                /// <summary>
+                /// mandates that voters provide a government-issued photo identification before casting a ballot
+                /// </summary>
+                [StateLawSubject(StateLawSubjects.PhotoVoterID)]
+                [YearDate(2011, 5, 25)]
+                public static class Act23 { }
             }
         }
 
