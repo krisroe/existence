@@ -28,7 +28,9 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
     public static class StateLaws
     {
-        public static List<USStatesAndTerritories> OverturningRoevWadeHadNoEffectPerStateLaw = new List<USStatesAndTerritories>()
+        public static class AbortionLists
+        {
+            public static List<USStatesAndTerritories> OverturningRoevWadeHadNoEffectPerStateLaw = new List<USStatesAndTerritories>()
         {
             USStatesAndTerritories.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
             USStatesAndTerritories.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
@@ -57,7 +59,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.Guam, //abortion is legal but no local healthcare provider support it
             USStatesAndTerritories.UnitedStatesVirginIslands, //legal up to 24 weeks
         };
-        public static List<USStatesAndTerritories> PostDobbsAbortionRights = new List<USStatesAndTerritories>()
+            public static List<USStatesAndTerritories> PostDobbsAbortionRights = new List<USStatesAndTerritories>()
         {
             USStatesAndTerritories.Arizona, //2024 ballot initiative Proposition 139
             USStatesAndTerritories.Michigan, //2022 ballot initiative Proposal 3
@@ -65,11 +67,11 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.Montana, //2024 ballot initiative
             USStatesAndTerritories.Ohio, //2023 ballot initiative Issue 1
         };
-        public static List<USStatesAndTerritories> PerhapsResolvedByFutureBallotInitiative = new List<USStatesAndTerritories>()
+            public static List<USStatesAndTerritories> PerhapsResolvedByFutureBallotInitiative = new List<USStatesAndTerritories>()
         {
             USStatesAndTerritories.Virginia
         };
-        public static List<USStatesAndTerritories> LawsYetToBeResolvedInLegalSystem = new List<USStatesAndTerritories>()
+            public static List<USStatesAndTerritories> LawsYetToBeResolvedInLegalSystem = new List<USStatesAndTerritories>()
         {
             USStatesAndTerritories.Georgia, //6 weeks
             USStatesAndTerritories.NorthDakota, //total
@@ -78,7 +80,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.Wisconsin, //1849 ban treated as total ban
             USStatesAndTerritories.Wyoming //fetal viability or total
         };
-        public static List<USStatesAndTerritories> AbortionGenerallyIllegalPerStateLaw = new List<USStatesAndTerritories>()
+            public static List<USStatesAndTerritories> AbortionGenerallyIllegalPerStateLaw = new List<USStatesAndTerritories>()
         {
             USStatesAndTerritories.Alabama, //total
             USStatesAndTerritories.Arkansas, //total
@@ -98,6 +100,21 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.WestVirginia, //total
             USStatesAndTerritories.NorthernMarianaIslands, //total
             USStatesAndTerritories.AmericanSamoa, //total
+        };
+        }
+        public static List<USStatesAndTerritories> RankedChoiceVotingIllegal = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alabama, //SB 1886 (2024-05-10)
+            USStatesAndTerritories.Florida, //S 524 (2022-04-26)
+            USStatesAndTerritories.Idaho, //H 179 (2023-03-24)
+            USStatesAndTerritories.Kentucky, //HB 44 (2024-04-12)
+            USStatesAndTerritories.Louisiana, //SB 101 (2024-05-28)
+            USStatesAndTerritories.Mississippi, //SB 2144 (2024-05-13)
+            USStatesAndTerritories.Mississippi, //2024-11-05 ballot initiative Amendment 7
+            USStatesAndTerritories.Montana, //HB 598 (2023-04-27)
+            USStatesAndTerritories.Oklahoma, //HB 3156 (2024-04-29)
+            USStatesAndTerritories.SouthDakota, //SB 55 (2023-03-27)
+            USStatesAndTerritories.Tennessee, //HB 1868, SB 1820 (2022-03-07)
         };
 
         public static class Alabama

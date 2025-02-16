@@ -15,6 +15,21 @@ namespace Existence.Earth.Countries.UnitedStates
         CICA,
 
         /// <summary>
+        /// citizen initiated state statute
+        /// </summary>
+        CISS,
+
+        /// <summary>
+        /// indirect initiated state statute
+        /// </summary>
+        IndISS,
+
+        /// <summary>
+        /// initiative
+        /// </summary>
+        Initiative,
+
+        /// <summary>
         /// initiative to the legislature
         /// </summary>
         ITL,
