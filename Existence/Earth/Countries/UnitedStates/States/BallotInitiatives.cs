@@ -1,5 +1,4 @@
-﻿using System;
-using Existence.Earth.Alphabet;
+﻿using Existence.Earth.Alphabet;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States
@@ -461,18 +460,304 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
             public static class v2022
             {
-                /// <summary>
-                /// A "yes" vote supported amending the Louisiana Constitution to provide that "No person who is not a citizen of the United States shall be allowed to register and vote 
-                /// in this state."
-                /// Result:
-                /// Yes: 314,678 73.44%
-                /// No : 113.808 26.56%
-                /// </summary>
+                [YearDate(2022, 11, 8)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supported adopting the following changes to property tax exemptions for certain disabled veterans and their surviving spouses:
+                    /// 1. after the first $7,500 homestead property tax exemption, exempting the next $2,500 of assessed value from property taxes for veterans with a 
+                    /// service-related disability rating of 50% or more but below 70%;
+                    /// 2. after the first $7,500 homestead property tax exemption, exempting the next $4,500 of assessed value from property taxes for veterans with a 
+                    /// service-related disability rating of 70% or more but below 100%;
+                    /// 3. exempting the total assessed value from property taxes for veterans that are totally disabled or that are 100% unemployable; and
+                    /// 4. extending the property tax exemptions to the surviving spouse of a deceased disabled veteran whether or not the exemption was claimed on the 
+                    /// property prior to the veteran's death.
+                    /// Result:
+                    /// Yes: 973,937 72.94%
+                    /// No : 361,378 27.06%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported allowing local governments to waive water charges for customers if water is lost due to water delivery infrastructure 
+                    /// damages that were not caused by the customer's actions or the customer's failure to act.
+                    /// Result:
+                    /// Yes: 994,361 74.95%
+                    /// No : 332,306 25.05%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment4 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported removing the requirement to annually recertify income for homeowners that are permanently and totally disabled in 
+                    /// order to keep their special assessment level for property taxes.
+                    /// Result:
+                    /// Yes: 717,702 54.72%
+                    /// No : 593,863 45.28%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment8 { }
+                }
+
                 [YearDate(2022, 12, 10)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
-                [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotMeasurePassFail(true)]
-                public static class Amendment1 { }
+                public static class December
+                {
+                    /// <summary>
+                    /// A "yes" vote supported amending the Louisiana Constitution to provide that "No person who is not a citizen of the United States shall be allowed to register and vote 
+                    /// in this state."
+                    /// Result:
+                    /// Yes: 314,678 73.44%
+                    /// No : 113.808 26.56%
+                    /// </summary>
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring senate confirmation of State Civil Service Commission appointees after they are appointed by the governor.
+                    /// Result:
+                    /// Yes: 300,635 70.92%
+                    /// No : 123,250 29.08%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring Senate confirmation of State Police Commission appointees after they are appointed by the governor.
+                    /// Result:
+                    /// Yes: 305,007 72.01%
+                    /// No : 118,538 27.99%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment3 { }
+                }
+            }
+
+            public static class v2023
+            {
+                [YearDate(2023, 10, 14)]
+                public static class October
+                {
+                    /// <summary>
+                    /// A "yes" vote supported prohibiting state and local governments from using funds, goods, and services donated by foreign governments or 
+                    /// nongovernmental (private) sources for the purpose of conducting elections.
+                    /// Result:
+                    /// Yes: 734,324 72.57%
+                    /// No : 277,564 27.43%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported:
+                    /// 1. providing in the state constitution that "the freedom to worship in a church or other place of worship is a fundamental right that is 
+                    /// worthy of the highest order of protection;" and
+                    /// 2. providing that a legal challenge brought against a state or a local government action for conflicting with the right would be required to be 
+                    /// examined by a court with strict scrutiny.
+                    /// Result:
+                    /// Yes: 805,676 79.20%
+                    /// No : 211,621 20.80%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring a minimum of 25% of state revenue that is designated as nonrecurring  to be applied to the balance of the 
+                    /// unfunded liability of the state retirement system.
+                    /// Result:
+                    /// Yes: 559,540 56.16%
+                    /// No : 436,717 43.84%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported prohibiting a nonprofit organization from receiving a property tax exemption if they own residential property that is in 
+                    /// such a state of disrepair that it is dangerous to the public's health or safety, as determined by the governing authority of the municipality or 
+                    /// parish the property is located in.
+                    /// Result:
+                    /// Yes: 661,332 66.00%
+                    /// No : 340,632 34.00%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment4 { }
+                }
+                [YearDate(2023, 11, 18)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supported providing that:
+                    /// 1. the governor's deadline to act on a bill is based on the legislative session in which the bill was passed rather than whether or not the 
+                    /// legislature is in session; and
+                    /// 2. the legislature may consider vetoed bills during a regular or extraordinary session rather than convening a separate veto session.
+                    /// Result:
+                    /// Yes: 387,207 61.03%
+                    /// No : 247,266 38.97%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported repealing constitutional provisions establishing various state funds that are now inactive and allows for remaining 
+                    /// money in the funds to be transferred to the state general fund.
+                    /// Result:
+                    /// Yes: 346,766 54.70%
+                    /// No : 287,211 45.30%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported authorizing local governments to provide an additional property tax exemption of up to $2,500 for first responders 
+                    /// including fire fighters, emergency medical service personnel, emergency response dispatchers, peace officers, police officers, and sheriffs.
+                    /// Result:
+                    /// Yes: 338,823 53.00%
+                    /// No : 300,477 47.00%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported allowing the state legislature, through a two-thirds supermajority vote, to use up to $250 million of funds in the 
+                    /// Revenue Stabilization Trust Fund to alleviate a budget deficit.
+                    /// Result:
+                    /// No : 353,622 55.99%
+                    /// Yes: 278,009 44.01%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment4 { }
+                }
+            }
+
+            public static class v2024
+            {
+                [YearDate(2024, 11, 5)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supported requiring federal revenue received from alternative and renewable energy production in the Outer Continental Shelf (OCS) 
+                    /// to be deposited in the Coastal Protection and Restoration Fund.
+                    /// Result:
+                    /// Yes: 1,367,876 73.10%
+                    /// No :   503,275 26.90%
+                    /// </summary>
+                    [BallotMeasurePassFail(true)]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    public static class OuterContinentalShelfRevenuesForCoastalProtectionAndRestorationFundAmendment { }
+                }
+                [YearDate(2024, 12, 7)]
+                public static class December
+                {
+                    /// <summary>
+                    /// A "yes" vote supported:
+                    /// 1. increasing the membership of the judiciary commission by five members;
+                    /// 2. adding malfeasance while in office to the list of specific actions that the state supreme court can pursue disciplinary action against a 
+                    /// judge; and
+                    /// 3. providing that the judiciary commission is responsible for investigating and recommending disciplinary actions.
+                    /// Result:
+                    /// Yes: 176,864 53%
+                    /// No : 155,252 47%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported prohibiting the consideration of a conference committee report or senate amendments on an appropriations bill until 
+                    /// 48 hours after the bill and a summary of the proposed changes is distributed to all legislators.
+                    /// Result:
+                    /// Yes: 219,103 66%
+                    /// No : 112,938 34%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A  "yes" vote supported allowing the state legislature to extend its regular session by two-day increments, up to a maximum of six days, 
+                    /// in order to pass a bill appropriating money.
+                    /// Result:
+                    /// Yes: 191,729 58%
+                    /// No : 140,452 42%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported:
+                    /// 1. authorizing the state legislature to provide for property tax sales in state law;
+                    /// 2. providing that tax payment postponements can only be granted during emergencies declared by the governor under the Louisiana Homeland Security
+                    /// and Emergency Assistance and Disaster Act; and
+                    /// 3. allowing the state legislature to give tax collectors the authority to waive penalties for good cause.
+                    /// Result:
+                    /// Yes: 180,856 55%
+                    /// No : 150,423 45%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment4 { }
+                }
+            }
+
+            public static class v2025
+            {
+                [YearDate(2025, 3, 29)]
+                public static class March
+                {
+                    /// <summary>
+                    /// A "yes" vote supports this constitutional amendment to: 
+                    /// 1. provide the Louisiana Supreme Court with original jurisdiction to discipline out-of-state lawyers, not just members of the state bar, and
+                    /// 2. allow the state legislature to establish trial courts with limited or specialized jurisdiction, such as business courts, through a 
+                    /// two-thirds vote in both the House and Senate.
+                    /// </summary>
+                    [TODO("result")]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports amending the state constitution concerning taxes and the state budget, including the following:
+                    /// 1. reduce the maximum income tax rate;
+                    /// 2. increase income tax deductions for individuals 65 and older;
+                    /// 3. establish a government growth limit; and
+                    /// 4. provide a permanent increase to teacher salaries by requiring a surplus payment to teacher retirement debt.
+                    /// </summary>
+                    [TODO("result")]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports allowing the state legislature to determine in state law which specific felony crimes can result in a juvenile being 
+                    /// tried as an adult.
+                    /// </summary>
+                    [TODO("result")]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports providing that judicial vacancies should be filled in a special election at earliest available date pursuant to state law, 
+                    /// and shall be held at the next gubernatorial or congressional election if the election is within twelve months of the date the vacancy occurred, 
+                    /// rather than current law, which provides for calling a special election within 12 months after the day the vacancy occurs.
+                    /// </summary>
+                    [TODO("result")]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    public static class Amendment4 { }
+                }
             }
         }
 
