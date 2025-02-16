@@ -11,6 +11,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
         PrimaryElections,
         RankedChoiceVoting,
         PhotoIDForVoting,
+        NonCitizenVoting,
     }
 
     public class BallotInitiativeSubjectsAttribute : Attribute
@@ -40,6 +41,20 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2018, 11, 6)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment2 { }
+            }
+            public static class v2020
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the Alabama Constitution to state that “only a citizen” of the U.S. who is 18 years old or older can vote in Alabama.
+                /// Result:
+                /// Yes: 1,535,862 77.01%
+                /// No :   458,487 22.99%
+                /// </summary>
+                [YearDate(2020, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
                 [BallotMeasurePassFail(true)]
                 public static class Amendment2 { }
             }
@@ -88,6 +103,25 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         public static class Arizona
         {
+            public static class v2004
+            {
+                /// <summary>
+                /// requires
+                /// (a) persons to provide proof of citizenship to register to vote; 
+                /// (b) voters to present a photo identification before receiving a ballot at the polling place; and 
+                /// (c) state and local agencies to verify the identity and eligibility, based on immigration status, 
+                /// of applicants for non-federally mandated public benefits
+                /// Result:
+                /// Yes (56%) (wikipedia)
+                /// No  (44%)
+                /// </summary>
+                [YearDate(2004, 11, 2)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Proposition200 { }
+            }
+
             public static class v2022
             {
                 /// <summary>
@@ -196,6 +230,23 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         public static class Colorado
         {
+            public static class v2020
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the Colorado Constitution to state that “only a citizen” of the U.S. who is 18 years of age or older can vote in 
+                /// Colorado. This replaces language saying "every citizen" who is 18 years of age or older can vote in Colorado.
+                /// Result:
+                /// Yes: 1,985,239 62.90% (55% supermajority achieved)
+                /// No : 1,171,137 37.10%
+                /// </summary>
+                [YearDate(2020, 11, 3)]
+
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment76 { }
+            }
+
             public static class v2024
             {
                 [YearDate(2024, 11, 5)]
@@ -266,6 +317,19 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 public static class Amendment6 { }
             }
 
+            public static class v2020
+            {
+
+                /// <summary>
+                /// A "yes" vote supports amending the Florida Constitution to state that “only a citizen” of the U.S. who is 18 years old or older can vote in Florida.
+                /// </summary>
+                [YearDate(2020, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment1 { }
+            }
+
             public static class v2024
             {
                 /// <summary>
@@ -290,19 +354,53 @@ namespace Existence.Earth.Countries.UnitedStates.States
         {
             public static class v2024
             {
+                [YearDate(2024, 11, 5)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supported establishing top-four primaries and ranked-choice voting for general
+                    /// elections, which would apply to congressional, gubernatorial, and state, and county elected 
+                    /// offices.
+                    /// Result:
+                    /// No : 618,753 69.62%
+                    /// Yes: 269,960 30.38%
+                    /// </summary>
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PrimaryElections, BallotInitiativeSubjects.RankedChoiceVoting)]
+                    [BallotMeasureType(BallotMeasureTypes.CISS)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Proposition1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported amending the Idaho Constitution to provide that only a citizen of the United States can vote in the state.
+                    /// Result:
+                    /// Yes: 572,865 64.93%
+                    /// No : 309.456 35.07%
+                    /// </summary>
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotMeasurePassFail(true)]
+                    public static class HJR5 { }
+                }
+            }
+        }
+
+        public static class Iowa
+        {
+            public static class v2024
+            {
                 /// <summary>
-                /// A "yes" vote supported establishing top-four primaries and ranked-choice voting for general
-                /// elections, which would apply to congressional, gubernatorial, and state, and county elected 
-                /// offices.
+                /// A "yes" vote supported prohibiting local governments from allowing noncitizens to vote by providing in the state constitution that only a citizen 
+                /// of the U.S., rather than every citizen of the U.S., can vote; and supported allowing 17-year-olds who will be 18 by the general election to vote 
+                /// in primary elections.
                 /// Result:
-                /// No : 618,753 69.62%
-                /// Yes: 269,960 30.38%
+                /// Yes: 1,150,332 77.13%
+                /// No :   341,034 22.87%
                 /// </summary>
                 [YearDate(2024, 11, 5)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PrimaryElections, BallotInitiativeSubjects.RankedChoiceVoting)]
-                [BallotMeasureType(BallotMeasureTypes.CISS)]
-                [BallotMeasurePassFail(false)]
-                public static class Proposition1 { }
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment1 { }
             }
         }
 
@@ -345,6 +443,21 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(false)]
                 public static class ConstitutionalAmendment2 { }
             }
+
+            public static class v2024
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the constitution to require U.S. citizenship to be able to vote in the state.
+                /// Result:
+                /// Yes: 1,208,898 62.43%
+                /// No :   727,515 37.57%
+                /// </summary>
+                [YearDate(2024, 11, 5)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotMeasurePassFail(true)]
+                public static class ConstitutionalAmendment1 { }
+            }
         }
 
         public static class Louisiana
@@ -362,6 +475,21 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2020, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment1 { }
+            }
+            public static class v2022
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the Louisiana Constitution to provide that "No person who is not a citizen of the United States shall be allowed to register and vote 
+                /// in this state."
+                /// Result:
+                /// Yes: 314,678 73.44%
+                /// No : 113.808 26.56%
+                /// </summary>
+                [YearDate(2022, 12, 10)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
                 public static class Amendment1 { }
             }
@@ -532,7 +660,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// Yes: 1,966,852 68.44%
                     /// No :   906,851 31.56%
                     /// </summary>
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PrimaryElections, BallotInitiativeSubjects.RankedChoiceVoting)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PrimaryElections, BallotInitiativeSubjects.RankedChoiceVoting, BallotInitiativeSubjects.NonCitizenVoting)]
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
                     [BallotMeasurePassFail(true)]
                     public static class Amendment7 { }
@@ -745,12 +873,69 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// Yes: 4,757,097 62.47%
                 /// No : 2,857,663 37.53%
                 /// </summary>
+                [YearDate(2024, 11, 5)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
+                [BallotMeasurePassFail(true)]
                 public static class Proposal1 { }
+            }
+        }
+
+        public static class NorthCarolina
+        {
+            public static class v2024
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the state constitution to provide that only U.S. citizens who are 18 years old or older can vote in elections.
+                /// Result:
+                /// Yes: 4,184,680 77.59%
+                /// No : 1,208,865 22.41%
+                /// </summary>
+                [YearDate(2024, 11, 5)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class CitizenRequirementForVotingAmendment { }
+            }
+        }
+
+        public static class NorthDakota
+        {
+            public static class v2018
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the North Dakota Constitution to state that “only a citizen” of the U.S. can vote in federal, state, and 
+                /// local elections.
+                /// Result:
+                /// Yes: 208,499 65.93%
+                /// No : 107,751 34.07%
+                /// </summary>
+                [YearDate(2018, 11, 6)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasurePassFail(true)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                public static class Measure2 { }
             }
         }
 
         public static class Ohio
         {
+            public static class v2022
+            {
+                /// <summary>
+                /// A "yes" vote supported prohibiting local governments from allowing noncitizens or those who lack the qualifications of an elector 
+                /// to vote in local elections.
+                /// Result:
+                /// Yes: 3,099,868 76.90%
+                /// No :   931,205 23.10%
+                /// </summary>
+                [YearDate(2022, 11, 8)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotMeasurePassFail(true)]
+                public static class Issue1 { }
+            }
+
             public static class v2023
             {
                 /// <summary>
@@ -772,6 +957,24 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
         }
 
+        public static class Oklahoma
+        {
+            public static class v2024
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the state constitution to provide that only U.S. citizens who are 18 years old or older can vote in elections.
+                /// Result:
+                /// Yes: 1,207,520 80.73%
+                /// No :   288,267 19.27%
+                /// </summary>
+                [YearDate(2024, 11, 5)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotMeasurePassFail(true)]
+                public static class StateQuestion834 { }
+            }
+        }
+
         public static class Oregon
         {
             public static class v2024
@@ -788,6 +991,24 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.LRSS)]
                 [BallotMeasurePassFail(false)]
                 public static class Measure117 { }
+            }
+        }
+
+        public static class SouthCarolina
+        {
+            public static class v2024
+            {
+                /// <summary>
+                /// A "yes" vote supported amending the state constitution to add language that only U.S. citizens who are 18 years old or older can vote in elections.
+                /// Result:
+                /// Yes: 1,982,956 85.94%
+                /// No :   324,432 14.06%
+                /// </summary>
+                [YearDate(2024, 11, 5)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotMeasurePassFail(true)]
+                public static class CitizenshipRequiredForVotingAmendment { }
             }
         }
 
@@ -1245,6 +1466,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
                     [BallotMeasurePassFail(true)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
                     [Observation("This slammed the door on any-non-citizen voting permitted by the 2000 voting rights ballot initiative")]
                     public static class CitizenVotingRequirementAmendment { }
                 }

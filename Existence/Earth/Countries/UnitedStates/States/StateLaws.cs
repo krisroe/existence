@@ -180,6 +180,24 @@ namespace Existence.Earth.Countries.UnitedStates.States
             USStatesAndTerritories.Washington,
             USStatesAndTerritories.WashingtonDC,
         };
+        public static List<USStatesAndTerritories> NonCitizenVotingProhibitedStateAndLocalLevelWithStateConstitutionalAmendments = new List<USStatesAndTerritories>()
+        {
+            USStatesAndTerritories.Alabama,
+            USStatesAndTerritories.Arizona,
+            USStatesAndTerritories.Colorado,
+            USStatesAndTerritories.Florida,
+            USStatesAndTerritories.Idaho,
+            USStatesAndTerritories.Iowa,
+            USStatesAndTerritories.Kentucky,
+            USStatesAndTerritories.Louisiana,
+            USStatesAndTerritories.Missouri,
+            USStatesAndTerritories.NorthCarolina,
+            USStatesAndTerritories.NorthDakota,
+            USStatesAndTerritories.Ohio,
+            USStatesAndTerritories.Oklahoma,
+            USStatesAndTerritories.SouthCarolina,
+            USStatesAndTerritories.Wisconsin
+        };
 
         public static class Alabama
         {
@@ -335,7 +353,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// brought by states with anti-LGBTQ+ laws.
                 /// </summary>
                 [StateLawSubject(StateLawSubjects.Abortion)]
-                
+
                 public static class ActExpandingProtectionsForReproductiveAndGenderAffirmingCare { }
             }
         }
