@@ -82,6 +82,15 @@ namespace Existence.Earth.Countries.UnitedStates
         }
     }
 
+    public class RequiresAnotherSuccessfulVoteAttribute : Attribute
+    {
+        public bool RequiresAnotherSuccessfulVote { get; set; }
+        public RequiresAnotherSuccessfulVoteAttribute(bool RequiresAnotherSuccessfulVote)
+        {
+            this.RequiresAnotherSuccessfulVote = RequiresAnotherSuccessfulVote;
+        }
+    }
+
     public enum USStatesAndTerritories
     {
         [Capital((int)USCities.AlabamaMontgomery)]
