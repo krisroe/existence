@@ -35,6 +35,11 @@ namespace Existence.Earth.Countries.UnitedStates
         ITL,
 
         /// <summary>
+        /// initiative to the people
+        /// </summary>
+        ITP,
+
+        /// <summary>
         /// Legislatively Referred Constitutional Amendment
         /// </summary>
         LRCA,

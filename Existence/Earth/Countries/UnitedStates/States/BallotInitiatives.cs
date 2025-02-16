@@ -144,6 +144,22 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         public static class California
         {
+            public static class v2010
+            {
+                /// <summary>
+                /// A "yes" vote supported adopting a top-two primary system for congressional or state elective 
+                /// offices.
+                /// Result:
+                /// Yes: 2,868,945 53.73%
+                /// No : 2,470,658 46.27%
+                /// </summary>
+                [YearDate(2010, 6, 8)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubject(BallotInitiativeSubjects.VotingMethod)]
+                [BallotMeasurePassFail(true)]
+                public static class Proposition14 { }
+            }
+
             public static class v2022
             {
                 /// <summary>
@@ -808,6 +824,17 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.ITL)]
                 [BallotMeasurePassFail(true)]
                 public static class Initiative120 { }
+            }
+            public static class v2004
+            {
+                /// <summary>
+                /// A “yes” vote supported replacing the system of separate primaries with a top-two primary system.
+                /// </summary>
+                [YearDate(2004, 11, 2)]
+                [BallotInitiativeSubject(BallotInitiativeSubjects.VotingMethod)]
+                [BallotMeasureType(BallotMeasureTypes.ITP)]
+                [BallotMeasurePassFail(true)]
+                public static class Initiative872 { }
             }
         }
 
