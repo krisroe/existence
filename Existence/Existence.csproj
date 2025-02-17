@@ -22,7 +22,6 @@
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
    <Folder Include="Earth\Characters\" />
-   <Folder Include="Earth\Songs\Folk\" />
    <Folder Include="Earth\Songs\Musical\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Personal\Skills\" />
