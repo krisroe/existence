@@ -47,6 +47,11 @@ namespace Existence.Time
         }
     }
 
+    public class DeathdateAttribute : YearDateAttribute
+    {
+        public DeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
     public class BirthdateAttribute : YearDateAttribute
     {
         public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }

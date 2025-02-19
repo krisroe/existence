@@ -50,4 +50,9 @@ namespace Existence.Simulation
     public static class Development { }
     public static class LocalMachine { }
     public static class Energy { }
+    public static class UniverseSpaceTimeIsProbablyNotInfinite
+    {
+        public static class UniverseAreFarmedWithinTheSpaceTime { }
+        public static class UniversesCanBeCulledOrMovedWithinTheSpaceTime { }
+    }
 }

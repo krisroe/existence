@@ -94,6 +94,19 @@ namespace Existence.Personal
             public static class Alive { }
             public static class Year { }
             public static class TwoThousandTwentyFive { }
+
+            /// <summary>
+            /// death date if I tied the longest lived human.
+            /// The male human number is probably more realistic.
+            /// </summary>
+            [YearDate(2103, 5, 20)]
+            public static class MaxPossibleDeathDateAllHumans { }
+
+            /// <summary>
+            /// death date if I tied the longest lived male human
+            /// </summary>
+            [YearDate(2097, 1, 28)]
+            public static class MaxPossibleDeathDateMaleHumans { }
         }
 
         public static class  Skills
