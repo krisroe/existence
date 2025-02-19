@@ -1,4 +1,7 @@
-﻿using System.Xml;
+﻿using System.Globalization;
+using System.Xml;
+using CsvHelper;
+using CsvHelper.Configuration;
 
 namespace LibraryShared
 {
@@ -60,6 +63,24 @@ namespace LibraryShared
             s.Indent = true;
             s.IndentChars = " ";
             return s;
+        }
+
+        /// <summary>
+        /// processes all game scores from local CSV
+        /// </summary>
+        /// <param name="filePath">file path</param>
+        /// <returns>game info objects</returns>
+        public static IEnumerable<T> ProcessCSV<T,U>(string filePath) where U : ClassMap
+        {
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Context.RegisterClassMap<U>();
+                foreach (T gi in csv.GetRecords<T>())
+                {
+                    yield return gi;
+                }
+            }
         }
     }
 }

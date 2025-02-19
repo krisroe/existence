@@ -45,7 +45,7 @@ namespace NationalFootballLeagueLibrary
             }
             else if (operation == "fromcsv") //load from all games csv file
             {
-                IEnumerable<GameInfo> gis = ProcessAllGameInfosFromCSV(filePath1);
+                IEnumerable<GameInfo> gis = LibraryShared.Common.ProcessCSV<GameInfo, GameInfoMap>(filePath1);
                 //DisplayClevelandBrowns2005Games(gis);
                 //DisplaySuperBowlMatchupsThatHaveOccurredMultipleTimes(gis);
 
@@ -1227,25 +1227,6 @@ namespace NationalFootballLeagueLibrary
                 return value?.ToString() ?? string.Empty;
             }
         }
-
-        /// <summary>
-        /// processes all game scores from local CSV
-        /// </summary>
-        /// <param name="filePath">file path</param>
-        /// <returns>game info objects</returns>
-        public static IEnumerable<GameInfo> ProcessAllGameInfosFromCSV(string filePath)
-        {
-            using (var reader = new StreamReader(filePath))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                csv.Context.RegisterClassMap<GameInfoMap>();
-                foreach (GameInfo gi in csv.GetRecords<GameInfo>())
-                {
-                    yield return gi;
-                }
-            }
-        }
-
 
         /// <summary>
         /// processes all game scores from local CSV (copy from https://www.pro-football-reference.com/boxscores/game-scores.htm)
