@@ -107,6 +107,14 @@ namespace Existence.Personal
             /// </summary>
             [YearDate(2097, 1, 28)]
             public static class MaxPossibleDeathDateMaleHumans { }
+
+            /// <summary>
+            /// Using 2021 life table downloaded from CDC web site.
+            /// Expected additional years for 45 year old white male is 32.5 years
+            /// I'm optimistic I'll beat this by some amount.
+            /// </summary>
+            [YearDate(2058, 6, 6)]
+            public static class ExpectedDeathDateForMyDemographics { }
         }
 
         public static class  Skills
