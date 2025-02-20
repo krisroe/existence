@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Data;
+using System.Text;
 using CsvHelper.Configuration;
 using LibraryShared;
 namespace WorldConflict
@@ -9,8 +11,20 @@ namespace WorldConflict
         {
             string filePath = args[0];
             Dictionary<string, List<UcdpPrioConflict>> conflictsByYear = new Dictionary<string, List<UcdpPrioConflict>>();
-
+            Dictionary<int, string> sides = new Dictionary<int, string>()
+            {
+                { 204, "PLO" },
+                { 297, "Ittihad-i Islami Bara-yi Azadi-yi Afghanistan" },
+                { 298, "Harakat-i Islami-yi Afghanistan" },
+                { 315, "UNLF" },
+                { 442, "Islamic Legion" },
+                { 481, "NRA" },
+                { 486, "UPA" },
+                { 557, "MPIGO" },
+            };
             List<string> years = new List<string>();
+            List<UcdpPrioConflict> needToProcess = new List<UcdpPrioConflict>();
+
             foreach (UcdpPrioConflict c in Common.ProcessCSV<UcdpPrioConflict, UcdpPrioConflictMap>(filePath))
             {
                 List<UcdpPrioConflict>? conflicts;
@@ -20,19 +34,186 @@ namespace WorldConflict
                     conflictsByYear[c.year] = conflicts;
                     years.Add(c.year);
                 }
-                conflicts!.Add(c);                
+                conflicts.Add(c);
+
+                bool sideAParsed = int.TryParse(c.side_a_id, out int iSideA);
+                bool sideBParsed = int.TryParse(c.side_b_id, out int iSideB);
+                string? sSide;
+                if (sideAParsed)
+                {
+                    if (sides.TryGetValue(iSideA, out sSide))
+                    {
+                        if (c.side_a != sSide!)
+                        {
+                            throw new InvalidOperationException();
+                        }
+                    }
+                    else
+                    {
+                        sides[iSideA] = c.side_a;
+                    }
+                }
+                if (sideBParsed)
+                {
+                    if (sides.TryGetValue(iSideB, out sSide))
+                    {
+                        if (c.side_b != sSide!)
+                        {
+                            Console.Out.WriteLine(c.ToString());
+                            throw new InvalidOperationException();
+                        }
+                    }
+                    else
+                    {
+                        sides[iSideB] = c.side_b;
+                    }
+                }
+                if (!sideAParsed || !sideBParsed)
+                {
+                    needToProcess.Add(c);
+                }
             }
+
+            List<UcdpPrioConflict> next = ProcessMultiples(needToProcess, sides, null);
+            while (next.Count != needToProcess.Count)
+            {
+                needToProcess = next;
+                next = ProcessMultiples(needToProcess, sides, null);
+            }
+
+            if (next.Count > 0)
+            {
+                ProcessMultiples(next, sides, new HashSet<string>());
+            }
+
+            foreach (UcdpPrioConflict c in next)
+            {
+                Console.Out.WriteLine(c.ToString());
+            }
+
             years.Sort();
             foreach (string nextYear in years)
             {
-                foreach (UcdpPrioConflict c in conflictsByYear[nextYear])
-                {
-                    Console.Out.WriteLine(c.ToString());
-                }
-                break;
             }
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        public static List<UcdpPrioConflict> ProcessMultiples(List<UcdpPrioConflict> input, Dictionary<int, string> sides, HashSet<string>? displayInfo)
+        {
+            List<UcdpPrioConflict> needProcessing = new List<UcdpPrioConflict>();
+            foreach (UcdpPrioConflict c in input)
+            {
+                bool sideAParsed = int.TryParse(c.side_a_id, out int iSideA);
+                bool sideBParsed = int.TryParse(c.side_b_id, out int iSideB);
+                bool sideADone;
+                if (sideAParsed)
+                {
+                    sideADone = true;
+                }
+                else
+                {
+                    sideADone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo);
+                }
+                bool sideBDone;
+                if (sideBParsed)
+                {
+                    sideBDone = true;
+                }
+                else
+                {
+                    sideBDone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo);
+                }
+                if (!sideADone || !sideBDone)
+                {
+                    needProcessing.Add(c);
+                }
+            }
+            return needProcessing;
+        }
+
+        public static bool ProcessSides(UcdpPrioConflict c, string sides, string ids, Dictionary<int, string> sidemap, HashSet<string>? displayInfo)
+        {
+            bool ret;
+            List<string> oParties = new List<string>();
+            List<int> oIDs = new List<int>();
+            string[] sParties = GetParties(sides);
+            string[] sIds = ids.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            if (sParties.Length != sIds.Length)
+                throw new InvalidOperationException();
+            for (int i = 0; i < sParties.Length; i++)
+            {
+                oParties.Add(sParties[i].Trim());
+                oIDs.Add(int.Parse(sIds[i].Trim()));
+            }
+            for (int i = oIDs.Count - 1; i >= 0; i--)
+            {
+                int iNext = oIDs[i];
+                string? sFoundSide;
+                if (sidemap.TryGetValue(iNext, out sFoundSide))
+                {
+                    if (oParties.Contains(sFoundSide))
+                    {
+                        oParties.Remove(sFoundSide);
+                        oIDs.RemoveAt(i);
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                }
+            }
+            if (oIDs.Count == 0)
+            {
+                ret = true;
+            }
+            else if (oIDs.Count == 1)
+            {
+                int iSide = oIDs[0];
+                string? sSide;
+                if (sidemap.TryGetValue(iSide, out sSide))
+                {
+                    if (oParties[0] != sSide!)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                }
+                else
+                {
+                    sidemap[iSide] = oParties[0];
+                }
+                ret = true;
+            }
+            else
+            {
+                if (displayInfo != null)
+                {
+                    oParties.Sort();
+                    oIDs.Sort();
+                    string fullInfo = string.Join(',', oIDs.ToArray()) + " " + string.Join(",", oParties.ToArray());
+                    if (!displayInfo.Contains(fullInfo))
+                    {
+                        displayInfo.Add(fullInfo);
+                        Console.Out.WriteLine(fullInfo);
+                    }
+                }
+                ret = false;
+            }
+            return ret;
+        }
+
+        public static string[] GetParties(string text)
+        {
+            string[] ret;
+            if (text == "CPP, Military faction (forces of Honasan, Abenina & Zumel)")
+            {
+                return new string[] { "CPP", "Military faction (forces of Honasan, Abenina & Zumel)" }; 
+            }
+            else
+            {
+                ret = text.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            }
+            return ret;
         }
     }
 
