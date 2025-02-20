@@ -337,6 +337,20 @@ namespace WorldConflict
         }
     }
 
+    public class Conflict
+    {
+        public Conflict(int id, string location)
+        {
+            this.id = id;
+            this.location = location;
+            this.detail = new List<UcdpPrioConflict>();
+        }
+
+        public int id { get; set; }
+        public string location { get; set; }
+        public List<UcdpPrioConflict> detail { get; set; }
+    }
+
     public class UcdpPrioConflict
     {
         public override string ToString()
