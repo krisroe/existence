@@ -202,7 +202,9 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
                 public static class SecretaryOfCommerce
                 {
-                    [TODO("Confirmation Details")]
+                    /// <summary>
+                    /// confirmed 51-45 on 2025-02-18
+                    /// </summary>
                     public static class HowardLutnick { }
                 }
                 public static class SecretaryOfLabor
