@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Text;
 using CsvHelper.Configuration;
@@ -11,91 +12,91 @@ namespace WorldConflict
         {
             string filePath = args[0];
             Dictionary<string, List<UcdpPrioConflict>> conflictsByYear = new Dictionary<string, List<UcdpPrioConflict>>();
+            List<KeyValuePair<int, string>> knownSideIDs = new List<KeyValuePair<int, string>>();
+            /*
+            knownSideIDs.Add(new KeyValuePair<int, string>(204, "PLO"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(297, "Ittihad-i Islami Bara-yi Azadi-yi Afghanistan"));                ,
+            knownSideIDs.Add(new KeyValuePair<int, string>(298, "Harakat-i Islami-yi Afghanistan"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(315, "UNLF"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(442, "Islamic Legion"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(481, "NRA"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(486, "UPA"));
+            knownSideIDs.Add(new KeyValuePair<int, string>(557, "MPIGO"));
+            */
+            List<KeyValuePair<int, string>> unknownSideIDs = new List<KeyValuePair<int, string>>();
+            /*
+            unknownSideIDs.Add(new KeyValuePair<int, string>(172, "LNPA"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(173, "LTS(p)A"));
 
-            List<KeyValuePair<int, string>> knownSideIDs = new List<KeyValuePair<int, string>>()
-            {
-                new KeyValuePair<int, string>(204, "PLO"),
-                new KeyValuePair<int, string>(297, "Ittihad-i Islami Bara-yi Azadi-yi Afghanistan"),
-                new KeyValuePair<int, string>(298, "Harakat-i Islami-yi Afghanistan"),
-                new KeyValuePair<int, string>(315, "UNLF"),
-                new KeyValuePair<int, string>(442, "Islamic Legion"),
-                new KeyValuePair<int, string>(481, "NRA"),
-                new KeyValuePair<int, string>(486, "UPA"),
-                new KeyValuePair<int, string>(557, "MPIGO")
-            };
-            List<KeyValuePair<int, string>> unknownSideIDs = new List<KeyValuePair<int, string>>()
-            {
-                new KeyValuePair<int, string>(172, "LNPA"),
-                new KeyValuePair<int, string>(173, "LTS(p)A"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(218, "Permesta Movement"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(219, "PRRI"));
 
-                new KeyValuePair<int, string>(218, "Permesta Movement"),
-                new KeyValuePair<int, string>(219, "PRRI"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(229, "Military faction (forces of Abd as-Salam Arif)"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(230, "NCRC"));
 
-                new KeyValuePair<int, string>(229, "Military faction (forces of Abd as-Salam Arif)"),
-                new KeyValuePair<int, string>(230, "NCRC"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(293, "Harakat-i Inqilab-i Islami-yi Afghanistan"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(295, "Jabha-yi Nijat-i Milli-yi Afghanistan"));
 
-                new KeyValuePair<int, string>(293, "Harakat-i Inqilab-i Islami-yi Afghanistan"),
-                new KeyValuePair<int, string>(295, "Jabha-yi Nijat-i Milli-yi Afghanistan"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(317, "KCP"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(318, "PREPAK"));
 
-                new KeyValuePair<int, string>(317, "KCP"),
-                new KeyValuePair<int, string>(318, "PREPAK"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(443, "MOSANAT"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(444, "Revolutionary Forces of 1 April"));
 
-                new KeyValuePair<int, string>(443, "MOSANAT"),
-                new KeyValuePair<int, string>(444, "Revolutionary Forces of 1 April"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(447, "CNR"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(448, "CSNPD"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(450, "FNT"));
 
-                new KeyValuePair<int, string>(447, "CNR"),
-                new KeyValuePair<int, string>(448, "CSNPD"),
-                new KeyValuePair<int, string>(450, "FNT"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(470, "NRF"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(471, "SLM/A - MM"));
 
-                new KeyValuePair<int, string>(470, "NRF"),
-                new KeyValuePair<int, string>(471, "SLM/A - MM"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(478, "Fronasa"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(479, "UNLF"));
 
-                new KeyValuePair<int, string>(478, "Fronasa"),
-                new KeyValuePair<int, string>(479, "UNLF"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(483, "HSM"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(484, "UPDA"));
 
-                new KeyValuePair<int, string>(483, "HSM"),
-                new KeyValuePair<int, string>(484, "UPDA"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(748, "ELN"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(749, "MIR"));
 
-                new KeyValuePair<int, string>(748, "ELN"),
-                new KeyValuePair<int, string>(749, "MIR"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(753, "ERP"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(754, "FPL"));
 
-                new KeyValuePair<int, string>(753, "ERP"),
-                new KeyValuePair<int, string>(754, "FPL"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(765, "FLRN"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(766, "OP Lavalas"));
 
-                new KeyValuePair<int, string>(765, "FLRN"),
-                new KeyValuePair<int, string>(766, "OP Lavalas"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(1126, "Forces of Muammar Gaddafi"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(1127, "NTC"));
 
-                new KeyValuePair<int, string>(1126, "Forces of Muammar Gaddafi"),
-                new KeyValuePair<int, string>(1127, "NTC"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(329, "Military faction (forces of Nicolae Ceausescu)"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6137, "NSF"));
 
-                new KeyValuePair<int, string>(329, "Military faction (forces of Nicolae Ceausescu)"),
-                new KeyValuePair<int, string>(6137, "NSF"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(736, "Military faction (forces of Eduardo A. Lonardi Doucet)"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(1113, "Military faction (forces of Samuel Toranzo Calderón)"));
 
-                new KeyValuePair<int, string>(736, "Military faction (forces of Eduardo A. Lonardi Doucet)"),
-                new KeyValuePair<int, string>(1113, "Military faction (forces of Samuel Toranzo Calderón)"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(2034, "TAK"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6689, "Yurtta Sulh Konseyi"));
 
-                new KeyValuePair<int, string>(2034, "TAK"),
-                new KeyValuePair<int, string>(6689, "Yurtta Sulh Konseyi"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6814, "Forces of Khalifa al-Ghawil"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6893, "PFLL"));
 
-                new KeyValuePair<int, string>(6814, "Forces of Khalifa al-Ghawil"),
-                new KeyValuePair<int, string>(6893, "PFLL"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6896, "Mayi Mayi Biloze Bishambuke"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(7107, "Mayi Mayi Kyandenga"));
 
-                new KeyValuePair<int, string>(6896, "Mayi Mayi Biloze Bishambuke"),
-                new KeyValuePair<int, string>(7107, "Mayi Mayi Kyandenga"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6187, "FPB"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6297, "Military faction (forces of Godefroid Niyombare)"));
 
-                new KeyValuePair<int, string>(6187, "FPB"),
-                new KeyValuePair<int, string>(6297, "Military faction (forces of Godefroid Niyombare)"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6578, "al-Harakat al-Islamiyah"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6998, "Maute group"));
 
-                new KeyValuePair<int, string>(6578, "al-Harakat al-Islamiyah"),
-                new KeyValuePair<int, string>(6998, "Maute group"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(5801, "FDLR-RUD"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(6684, "RMDC"));
 
-                new KeyValuePair<int, string>(5801, "FDLR-RUD"),
-                new KeyValuePair<int, string>(6684, "RMDC"),
+            unknownSideIDs.Add(new KeyValuePair<int, string>(8639, "LSR"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(8640, "RDK"));
+            unknownSideIDs.Add(new KeyValuePair<int, string>(8650, "Wagner"));
+            */
 
-                new KeyValuePair<int, string>(8639, "LSR"),
-                new KeyValuePair<int, string>(8640, "RDK"),
-                new KeyValuePair<int, string>(8650, "Wagner"),
-            };
             Dictionary<int, string> sides = new Dictionary<int, string>();
             foreach (var nextSide in knownSideIDs)
             {
@@ -109,9 +110,11 @@ namespace WorldConflict
 
             List<string> years = new List<string>();
             List<UcdpPrioConflict> needToProcess = new List<UcdpPrioConflict>();
+            List<UcdpPrioConflict> allConflictRecords = new List<UcdpPrioConflict>();
 
             foreach (UcdpPrioConflict c in Common.ProcessCSV<UcdpPrioConflict, UcdpPrioConflictMap>(filePath))
             {
+                allConflictRecords.Add(c);
                 List<UcdpPrioConflict>? conflicts;
                 if (!conflictsByYear.TryGetValue(c.year, out conflicts))
                 {
@@ -170,18 +173,107 @@ namespace WorldConflict
             {
                 ProcessMultiples(next, sides, new HashSet<string>());
             }
-
-            foreach (UcdpPrioConflict c in next)
+            List<Conflict> allConflictsAsList = new List<Conflict>();
+            Dictionary<int, Conflict> allConflicts = new Dictionary<int, Conflict>();
+            foreach (UcdpPrioConflict c in allConflictRecords)
             {
-                Console.Out.WriteLine(c.ToString());
+                int iConflictID = int.Parse(c.conflict_id);
+                int iYear = int.Parse(c.year);
+                int iIntensity = int.Parse(c.intensity_level);
+                if (iIntensity != 1 && iIntensity != 2)
+                {
+                    throw new InvalidOperationException();
+                }
+                int iCumulativeIntensity = int.Parse(c.cumulative_intensity);
+                if (iCumulativeIntensity != 0 && iCumulativeIntensity != 1)
+                {
+                    throw new InvalidOperationException();
+                }
+                if (iIntensity == 2 && iCumulativeIntensity != 1)
+                {
+                    throw new InvalidOperationException();
+                }
+                if (allConflicts.TryGetValue(iConflictID, out Conflict? conflict))
+                {
+                    if (!string.Equals(conflict.location, c.location))
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    if (conflict.first_year > iYear)
+                    {
+                        conflict.first_year = iYear;
+                    }
+                    if (conflict.last_year < iYear)
+                    {
+                        conflict.last_year = iYear;
+                    }
+                    if (iCumulativeIntensity < (int)conflict.cumulative_intensity)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    if (iCumulativeIntensity > (int)conflict.cumulative_intensity)
+                    {
+                        conflict.cumulative_intensity = (ConflictCumulativeIntensity)iCumulativeIntensity;
+                    }
+                }
+                else
+                {
+                    conflict = new Conflict(iConflictID, c.location, iYear, iCumulativeIntensity);
+                    allConflicts[iConflictID] = conflict;
+                    allConflictsAsList.Add(conflict);
+                }
+                conflict!.detail.Add(c);
             }
 
-            years.Sort();
-            foreach (string nextYear in years)
+            allConflictsAsList.Sort((a, b) =>
             {
+                int ret = a.first_year.CompareTo(b.first_year);
+                if (ret == 0) ret = a.last_year.CompareTo(b.last_year);
+                return ret;
+            });
+            Dictionary<int, int> totalWarsByYear = new Dictionary<int, int>();
+            foreach (Conflict c in allConflictsAsList)
+            {
+                foreach (UcdpPrioConflict upc in c.detail)
+                {
+                    int iYear = int.Parse(upc.year);
+                    if (upc.intensity_level == "2")
+                    {
+                        if (!totalWarsByYear.TryGetValue(iYear, out int count))
+                        {
+                            totalWarsByYear[iYear] = 0;
+                        }
+                        totalWarsByYear[iYear]++;
+                    }
+                }
             }
+            List<YearWars> yw = new List<YearWars>();
+            foreach (var nextYear in totalWarsByYear)
+            {
+                yw.Add(new YearWars(nextYear.Key, nextYear.Value));
+            }
+            yw.Sort((a, b) =>
+            {
+                return a.Year.CompareTo(b.Year);
+            });
+            foreach (var nextYear in yw)
+            {
+                Console.Out.WriteLine(nextYear.Year + " " + nextYear.NumberOfWars);
+            }
+
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        private class YearWars
+        {
+            public YearWars(int Year, int NumberOfWars)
+            {
+                this.Year = Year;
+                this.NumberOfWars = NumberOfWars;
+            }
+            public int Year { get; set; }
+            public int NumberOfWars { get; set; }
         }
 
         public static List<UcdpPrioConflict> ProcessMultiples(List<UcdpPrioConflict> input, Dictionary<int, string> sides, HashSet<string>? displayInfo)
@@ -339,16 +431,27 @@ namespace WorldConflict
 
     public class Conflict
     {
-        public Conflict(int id, string location)
+        public Conflict(int id, string location, int year, int intensity)
         {
             this.id = id;
             this.location = location;
+            this.first_year = this.last_year = year;
+            this.cumulative_intensity = (ConflictCumulativeIntensity)intensity;
             this.detail = new List<UcdpPrioConflict>();
         }
 
         public int id { get; set; }
         public string location { get; set; }
+        public int first_year { get; set; }
+        public int last_year { get; set; }
+        public ConflictCumulativeIntensity cumulative_intensity { get; set; }
         public List<UcdpPrioConflict> detail { get; set; }
+    }
+
+    public enum ConflictCumulativeIntensity
+    {
+        LessSerious = 0,
+        MoreSerious = 1
     }
 
     public class UcdpPrioConflict
