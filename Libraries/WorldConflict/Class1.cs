@@ -11,7 +11,6 @@ namespace WorldConflict
         public static int RunMain(string[] args)
         {
             string filePath = args[0];
-            Dictionary<string, List<UcdpPrioConflict>> conflictsByYear = new Dictionary<string, List<UcdpPrioConflict>>();
             List<KeyValuePair<int, string>> knownSideIDs = new List<KeyValuePair<int, string>>();
             /*
             knownSideIDs.Add(new KeyValuePair<int, string>(204, "PLO"));
@@ -107,18 +106,36 @@ namespace WorldConflict
                 sides[nextSide.Key] = nextSide.Value;
             }
 
+            bool isdyadic = filePath.ToLower().Contains("dyadic");
+            int ret;
+            if (isdyadic)
+            {
+                ret = ParseDataSet<Dyadic, DyadicMap>(isdyadic, filePath, sides);
+            }
+            else
+            {
+                ret = ParseDataSet<UcdpPrioConflict, UcdpPrioConflictMap>(isdyadic, filePath, sides);
+            }
+            return ret;
+        }
 
+        public static int ParseDataSet<T, U>(bool isdyadic, string filePath, Dictionary<int, string> sides)
+            where T : UcdpPrioConflict
+            where U : ClassMap<T>
+        {
+            
+            Dictionary<string, List<T>> conflictsByYear = new Dictionary<string, List<T>>();
             List<string> years = new List<string>();
-            List<UcdpPrioConflict> needToProcess = new List<UcdpPrioConflict>();
-            List<UcdpPrioConflict> allConflictRecords = new List<UcdpPrioConflict>();
+            List<T> needToProcess = new List<T>();
+            List<T> allConflictRecords = new List<T>();
 
-            foreach (UcdpPrioConflict c in Common.ProcessCSV<UcdpPrioConflict, UcdpPrioConflictMap>(filePath))
+            foreach (T c in Common.ProcessCSV<T, U>(filePath))
             {
                 allConflictRecords.Add(c);
-                List<UcdpPrioConflict>? conflicts;
+                List<T>? conflicts;
                 if (!conflictsByYear.TryGetValue(c.year, out conflicts))
                 {
-                    conflicts = new List<UcdpPrioConflict>();
+                    conflicts = new List<T>();
                     conflictsByYear[c.year] = conflicts;
                     years.Add(c.year);
                 }
@@ -162,7 +179,7 @@ namespace WorldConflict
                 }
             }
 
-            List<UcdpPrioConflict> next = ProcessMultiples(needToProcess, sides, null);
+            List<T> next = ProcessMultiples(needToProcess, sides, null);
             while (next.Count != needToProcess.Count && next.Count > 0)
             {
                 needToProcess = next;
@@ -184,14 +201,22 @@ namespace WorldConflict
                 {
                     throw new InvalidOperationException();
                 }
-                int iCumulativeIntensity = int.Parse(c.cumulative_intensity);
-                if (iCumulativeIntensity != 0 && iCumulativeIntensity != 1)
+                int iCumulativeIntensity;
+                if (isdyadic)
                 {
-                    throw new InvalidOperationException();
+                    iCumulativeIntensity = 0;
                 }
-                if (iIntensity == 2 && iCumulativeIntensity != 1)
+                else
                 {
-                    throw new InvalidOperationException();
+                    iCumulativeIntensity = int.Parse(c.cumulative_intensity);
+                    if (iCumulativeIntensity != 0 && iCumulativeIntensity != 1)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    if (iIntensity == 2 && iCumulativeIntensity != 1)
+                    {
+                        throw new InvalidOperationException();
+                    }
                 }
                 if (allConflicts.TryGetValue(iConflictID, out Conflict? conflict))
                 {
@@ -276,10 +301,11 @@ namespace WorldConflict
             public int NumberOfWars { get; set; }
         }
 
-        public static List<UcdpPrioConflict> ProcessMultiples(List<UcdpPrioConflict> input, Dictionary<int, string> sides, HashSet<string>? displayInfo)
+        public static List<T> ProcessMultiples<T>(List<T> input, Dictionary<int, string> sides, HashSet<string>? displayInfo)
+            where T : UcdpPrioConflict
         {
-            List<UcdpPrioConflict> needProcessing = new List<UcdpPrioConflict>();
-            foreach (UcdpPrioConflict c in input)
+            List<T> needProcessing = new List<T>();
+            foreach (T c in input)
             {
                 bool sideAParsed = int.TryParse(c.side_a_id, out int iSideA);
                 bool sideBParsed = int.TryParse(c.side_b_id, out int iSideB);
@@ -309,7 +335,8 @@ namespace WorldConflict
             return needProcessing;
         }
 
-        public static bool ProcessSides(UcdpPrioConflict c, string sides, string ids, Dictionary<int, string> sidemap, HashSet<string>? displayInfo)
+        public static bool ProcessSides<T>(T c, string sides, string ids, Dictionary<int, string> sidemap, HashSet<string>? displayInfo)
+            where T : UcdpPrioConflict
         {
             bool ret;
             List<string> oParties = new List<string>();
@@ -394,6 +421,42 @@ namespace WorldConflict
         }
     }
 
+    /// <summary>
+    /// dyadic CSV map: from UcdpConflict add dyad_id and 
+    /// remove cumulative intensity, ep_end, ep_end_date, ep_end_prec
+    /// </summary>
+    public class DyadicMap : ClassMap<Dyadic>
+    {
+        public DyadicMap()
+        {
+            Map(m => m.dyad_id);
+            Map(m => m.conflict_id);
+            Map(m => m.location);
+            Map(m => m.side_a);
+            Map(m => m.side_a_id);
+            Map(m => m.side_a_2nd);
+            Map(m => m.side_b);
+            Map(m => m.side_b_id);
+            Map(m => m.side_b_2nd);
+            Map(m => m.incompatibility);
+            Map(m => m.territory_name);
+            Map(m => m.year);
+            Map(m => m.intensity_level);
+            Map(m => m.type_of_conflict);
+            Map(m => m.start_date);
+            Map(m => m.start_prec);
+            Map(m => m.start_date2);
+            Map(m => m.start_prec2);
+            Map(m => m.gwno_a);
+            Map(m => m.gwno_a_2nd);
+            Map(m => m.gwno_b);
+            Map(m => m.gwno_b_2nd);
+            Map(m => m.gwno_loc);
+            Map(m => m.region);
+            Map(m => m.version);
+        }
+    }
+
     public class UcdpPrioConflictMap : ClassMap<UcdpPrioConflict>
     {
         public UcdpPrioConflictMap()
@@ -452,6 +515,16 @@ namespace WorldConflict
     {
         LessSerious = 0,
         MoreSerious = 1
+    }
+
+    public class Dyadic : UcdpPrioConflict
+    {
+        public override string ToString()
+        {
+            return dyad_id + "," + base.ToString();
+        }
+
+        public required string dyad_id { get; set; }
     }
 
     public class UcdpPrioConflict
