@@ -28,7 +28,7 @@ namespace Existence.Earth.Countries
         }
     }
 
-    public static class CountriesAlphabetical
+    public static class UnitedNationsCountries
     {
         [UnitedNationsMembership(1946, 11, 19)]
         [Capital((int)WorldCities.AfghanistanKabul)]
@@ -119,6 +119,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1960, 9, 20)]
         public static class BurkinaFaso { }
 
+        [UnitedNationsMembership(1948, 4, 19)]
         public static class Burma
         {
             public const string LocalName = "Myanmar";
@@ -416,22 +417,66 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1968, 4, 24)]
         public static class Mauritius { }
 
+        [UnitedNationsMembership(1945, 11, 7)]
         public static class Mexico { }
+
+        /// <summary>
+        /// Federated States of Micronesia
+        /// </summary>
+        [UnitedNationsMembership(1991, 9, 17)]
         public static class Micronesia { }
+
+        /// <summary>
+        /// Republic of Moldova
+        /// </summary>
+        [UnitedNationsMembership(1992, 3, 2)]
         public static class Moldova { }
+
+        [UnitedNationsMembership(1993, 5, 28)]
         public static class Monaco { }
+
+        [UnitedNationsMembership(1961, 10, 27)]
         public static class Mongolia { }
-        public static class Mozambique { }
+
+        [UnitedNationsMembership(2006, 6, 28)]
         public static class Montenegro { }
+
+        [UnitedNationsMembership(1956, 11, 12)]
         public static class Morocco { }
+
+        [UnitedNationsMembership(1975, 9, 16)]
+        public static class Mozambique { }
+
+        [UnitedNationsMembership(1990, 4, 23)]
         public static class Namibia { }
+
+        [UnitedNationsMembership(1999, 9, 14)]
         public static class Nauru { }
+
+        [UnitedNationsMembership(1955, 12, 14)]
         public static class Nepal { }
+
+        /// <summary>
+        /// Kingdom of the Netherlands
+        /// </summary>
+        [UnitedNationsMembership(1945, 12, 10)]
         public static class Netherlands { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class NewZealand { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Nicaragua { }
+
+        [UnitedNationsMembership(1960, 9, 20)]
         public static class Niger { }
+
+        [UnitedNationsMembership(1960, 10, 7)]
         public static class Nigeria { }
+
+        /// <summary>
+        /// Democratic People's Republic of Korea
+        /// </summary>
 
         [UnitedNationsMembership(1991, 9, 17)]
         public static class NorthKorea
@@ -441,30 +486,82 @@ namespace Existence.Earth.Countries
             public static class PursuingNuclearWeapons { }
         }
 
+        [UnitedNationsMembership(1993, 4, 8)]
         public static class NorthMacedonia { }
+
+        [UnitedNationsMembership(1945, 11, 27)]
         public static class Norway { }
+
+        [UnitedNationsMembership(1971, 10, 7)]
         public static class Oman { }
+
+        [UnitedNationsMembership(1947, 9, 30)]
         public static class Pakistan { }
+
+        [UnitedNationsMembership(1994, 12, 15)]
         public static class Palau { }
+
+        [UnitedNationsMembership(1945, 11, 13)]
         public static class Panama { }
+
+        [UnitedNationsMembership(1975, 10, 10)]
         public static class PapuaNewGuinea { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Paraguay { }
+
+        [UnitedNationsMembership(1945, 10, 31)]
         public static class Peru { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Philippines { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Poland { }
+
+        [UnitedNationsMembership(1955, 12, 14)]
         public static class Portugal { }
+
+        [UnitedNationsMembership(1971, 9, 21)]
         public static class Qatar { }
+
+        [UnitedNationsMembership(1955, 12, 14)]
         public static class Romania { }
+
+        /// <summary>
+        /// Russian Federation
+        /// </summary>
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Russia { }
+
+        [UnitedNationsMembership(1962, 9, 18)]
         public static class Rwanda { }
+
+        [UnitedNationsMembership(1983, 9, 23)]
         public static class SaintKittsAndNevis { }
+
+        [UnitedNationsMembership(1979, 9, 18)]
         public static class SaintLucia { }
+
+        [UnitedNationsMembership(1980, 9, 16)]
         public static class SaintVincentAndTheGrenadines { }
+
+        [UnitedNationsMembership(1976, 12, 15)]
         public static class Samoa { }
+
+        [UnitedNationsMembership(1992, 3, 2)]
         public static class SanMarino { }
+
+        [UnitedNationsMembership(1975, 9, 16)]
         public static class SaoTomeAndPrincipe { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class SaudiArabia { }
+
+        [UnitedNationsMembership(1960, 9, 28)]
         public static class Senegal { }
+
+        [UnitedNationsMembership(2000, 11, 1)]
         public static class Serbia
         {
             public static class Breakaway
@@ -475,23 +572,56 @@ namespace Existence.Earth.Countries
                 }
             }
         }
+
+        [UnitedNationsMembership(1976, 9, 21)]
         public static class Seychelles { }
+
+        [UnitedNationsMembership(1961, 9, 27)]
         public static class SierraLeone { }
+
+        [UnitedNationsMembership(1965, 9, 21)]
         public static class Singapore { }
+
+        [UnitedNationsMembership(1993, 1, 19)]
         public static class Slovakia { }
+
+        [UnitedNationsMembership(1992, 5, 22)]
         public static class Slovenia { }
+
+        [UnitedNationsMembership(1978, 9, 19)]
         public static class SolomonIslands { }
+
+        [UnitedNationsMembership(1960, 9, 20)]
         public static class Somalia { }
+
+        [UnitedNationsMembership(1945, 11, 7)]
         public static class SouthAfrica { }
+
+        /// <summary>
+        /// Republic of Korea
+        /// </summary>
+        [UnitedNationsMembership(1991, 9, 17)]
         public static class SouthKorea
         {
             public static class SupportedByCountriesSupportingBothHumanFreedomAndCapitalism { }
         }
+
+        [UnitedNationsMembership(2011, 7, 14)]
         public static class SouthSudan { }
+
+        [UnitedNationsMembership(1955, 12, 14)]
         public static class Spain { }
+
+        [UnitedNationsMembership(1955, 12, 14)]
         public static class SriLanka { }
+
+        [UnitedNationsMembership(1956, 11, 12)]
         public static class Sudan { }
+
+        [UnitedNationsMembership(1975, 12, 4)]
         public static class Suriname { }
+
+        [UnitedNationsMembership(1946, 11, 19)]
         public static class Sweden { }
 
         [UnitedNationsMembership(1968, 9, 24)]
@@ -499,40 +629,92 @@ namespace Existence.Earth.Countries
         {
             public const string LocalName = "Eswatini";
         }
+
+        [UnitedNationsMembership(2002, 9, 10)]
         public static class Switzerland { }
+
+        /// <summary>
+        /// Syrian Arab Republic
+        /// </summary>
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Syria { }
 
-        public static class Taiwan
+        [UnitedNationsMembership(1992, 3, 2)]
+        public static class Tajikistan { }
+
+        /// <summary>
+        /// United Republic of Tanzania
+        /// </summary>
+        [UnitedNationsMembership(1961, 12, 14)]
+        public static class Tanzania { }
+
+        [UnitedNationsMembership(1946, 12, 15)]
+        public static class Thailand { }
+
+        [UnitedNationsMembership(1960, 9, 20)]
+        public static class Togo { }
+
+        [UnitedNationsMembership(1999, 9, 14)]
+        public static class Tonga { }
+
+        [UnitedNationsMembership(1962, 9, 18)]
+        public static class TrinidadAndTobago { }
+
+        [UnitedNationsMembership(1956, 11, 12)]
+        public static class Tunisia { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        public static class Turkey
         {
-            public static class SupportedByCountriesSupportingBothHumanFreedomAndCapitalism { }
-            public static class ButSupportIsTacitToAvoidOffendingChina { }
-            public static class DeFactoIndependent { }
-            public const string FullName = "Republic of China";
-            public static class ROC { }
-            public static class PresumablyWillBeEventuallyIndependent { }
+            public const string LocalName = "Türkiye";
         }
 
-        public static class Tajikistan { }
-        public static class Tanzania { }
-        public static class Thailand { }
-        public static class Togo { }
-        public static class Tonga { }
-        public static class TrinidadAndTobago { }
-        public static class Tunisia { }
-        public static class Turkey { }
-        public static class Tuvalu { }
+        [UnitedNationsMembership(1992, 3, 2)]
         public static class Turkmenistan { }
+
+        [UnitedNationsMembership(2000, 9, 5)]
+        public static class Tuvalu { }
+
+        [UnitedNationsMembership(1962, 10, 25)]
         public static class Uganda { }
+
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class Ukraine { }
+
+        [UnitedNationsMembership(1971, 12, 9)]
         public static class UnitedArabEmirates { }
+
+        /// <summary>
+        /// United Kingdom of Great Britain and Northern Ireland
+        /// </summary>
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class UnitedKingdom { }
+
+        /// <summary>
+        /// United States of America
+        /// </summary>
+        [UnitedNationsMembership(1945, 10, 24)]
         public static class UnitedStates { }
+
+        [UnitedNationsMembership(1945, 12, 18)]
         public static class Uruguay { }
+
+        [UnitedNationsMembership(1992, 3, 2)]
         public static class Uzbekistan { }
+
+        [UnitedNationsMembership(1981, 9, 15)]
         public static class Vanuatu { }
-        public static class VaticanCity { }
+
+        /// <summary>
+        /// Bolivarian Republic of Venezuela
+        /// </summary>
+        [UnitedNationsMembership(1945, 11, 15)]
         public static class Venezuela { }
+
+        [UnitedNationsMembership(1977, 9, 20)]
         public static class Vietnam { }
+
+        [UnitedNationsMembership(1947, 9, 30)]
         public static class Yemen { }
 
         [UnitedNationsMembership(1960, 9, 20)]
@@ -541,9 +723,32 @@ namespace Existence.Earth.Countries
             public const string FullName = "Democratic Republic of the Congo";
             public static class DRC { }
         }
+
+        [UnitedNationsMembership(1964, 12, 1)]
         public static class Zambia { }
+
+        [UnitedNationsMembership(1980, 8, 25)]
         public static class Zimbabwe { }
     }
+
+    public static class UnitedNationsNonMemberObserverStates
+    {
+        /// <summary>
+        /// holds sovereignty over Vatican City
+        /// gained all rights of full membership except voting on 2004-07-01
+        /// </summary>
+        [UnitedNationsMembership(1964, 4, 6)]
+        public static class HolySee { }
+
+        [UnitedNationsMembership(1974, 11, 22)]
+        public static class Palestine { }
+
+        /// <summary>
+        /// not a sovereign state but an entity, has observer status
+        /// </summary>
+        public static class SovereignMilitaryOrderOfMalta { }
+    }
+
 
     public static class HistoricalPalestine
     {
@@ -574,6 +779,18 @@ namespace Existence.Earth.Countries
     public static class Korea
     {
         public static class CivilWarAtStalemate { }
-        public static class EventuallyNorthKoreaWillBeAbsorbedIntoSouthKorea { }
+        public static class CouldEventuallyBeAbsorbedIntoSouthKorea { }
+        public static class OrMaybeChinaWillAssumeControl { }
+    }
+
+    public static class Taiwan
+    {
+        public static class SupportedByCountriesSupportingBothHumanFreedomAndCapitalism { }
+        public static class ButSupportIsTacitToAvoidOffendingChina { }
+        public static class DeFactoIndependent { }
+        public const string FullName = "Republic of China";
+        public static class ROC { }
+        public static class PresumablyWillBeEventuallyIndependent { }
     }
 }
+
