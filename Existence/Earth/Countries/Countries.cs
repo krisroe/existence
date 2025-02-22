@@ -1846,6 +1846,282 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// population estimates are maximum during the warmer season
+    /// </summary>
+    public static class Antarctica
+    {
+        /// <summary>
+        /// Operating Country: USA
+        /// Location: Ross Island, near the Antarctic coast
+        /// Operational Since: 1956
+        /// Purpose: It is the largest research station in Antarctica and serves 
+        /// as a logistics hub for scientific expeditions. McMurdo supports 
+        /// research in glaciology, biology, astronomy, and environmental science.
+        /// 150-200 population in winter
+        /// </summary>
+        [PopulationEstimate(1200)]
+        public static class McMurdoStation { }
+
+        /// <summary>
+        /// Operating Country: USA
+        /// Location: At the geographic South Pole
+        /// Operational Since: 1956
+        /// Purpose: This station is dedicated to scientific research related to 
+        /// astronomy, climate studies, and glaciology. It is also a critical hub 
+        /// for studying the Earth's climate history.
+        /// ~50 population in winter
+        /// </summary>
+        [PopulationEstimate(250)]
+        public static class AmundsenScottSouthPoleStation { }
+
+        /// <summary>
+        /// Operating Country: USA
+        /// Location: Antarctic Peninsula
+        /// Operational Since: 1965
+        /// Purpose: This station is smaller than McMurdo and Amundsen-Scott but 
+        /// plays a vital role in marine biology, glaciology, and environmental 
+        /// monitoring.
+        /// </summary>
+        [PopulationEstimate(50)]
+        public static class PalmerStation { }
+
+        /// <summary>
+        /// Operating Country: Russia
+        /// Location: Central East Antarctica, near Lake Vostok
+        /// Operational Since: 1957
+        /// Purpose: This Russian station is known for its work in glaciology, 
+        /// especially studying the subglacial lake beneath the station. It is 
+        /// one of the coldest places on Earth, with temperatures reaching below 
+        /// -70°C (-94°F).
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class VostokStation { }
+
+        /// <summary>
+        /// Operating Country: United Kingdom
+        /// Location: Antarctic Peninsula
+        /// Operational Since: 1975
+        /// Purpose: The station supports research on biology, glaciology, 
+        /// meteorology, and environmental science, particularly focusing on 
+        /// the Antarctic marine ecosystem.
+        /// </summary>
+        [PopulationEstimate(100)]
+        public static class RotheraResearchStation { }
+
+        /// <summary>
+        /// Operating Country: Australia
+        /// Location: Antarctic coast on the Atka Bay, East Antarctica
+        /// Operational Since: 1954
+        /// Purpose: Mawson is involved in research in glaciology, marine biology, 
+        /// and atmospheric science, with an emphasis on climate change.
+        /// </summary>
+        [PopulationEstimate(100)]
+        public static class MawsonStation { }
+
+        /// <summary>
+        /// Operating Country: Argentina
+        /// Location: Antarctic Peninsula
+        /// Operational Since: 1953
+        /// Purpose: Esperanza is one of the few stations with a permanent 
+        /// Argentine population and is involved in a wide range of studies, 
+        /// including biology, geology, and atmospheric sciences.
+        /// </summary>
+        [PopulationEstimate(70)]
+        public static class EsperanzaBase { }
+
+        /// <summary>
+        /// Operating Country: Argentina
+        /// Location: Interior of the Antarctic Peninsula
+        /// Operational Since: 1979
+        /// Purpose: This Argentine base is focused on research related to ice 
+        /// cores, meteorology, and glaciology.
+        /// </summary>
+        [PopulationEstimate(25)]
+        public static class BelgranoIIStation { }
+
+        /// <summary>
+        /// Operating Countries: France/Italy
+        /// Location: Dome C, Central Antarctica
+        /// Operational Since: 2005
+        /// Purpose: Concordia is a joint French-Italian station dedicated to 
+        /// studying ice cores, astronomy, climate research, and long-term 
+        /// environmental changes in Antarctica.
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class ConcordiaStation { }
+
+        /// <summary>
+        /// Operating Country: Japan
+        /// Location: East Antarctica, near the coast
+        /// Operational Since: 1957
+        /// Purpose: This Japanese station conducts research on glaciology, 
+        /// geology, and biology, as well as the effects of climate change.
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class ShowaStation { }
+
+        /// <summary>
+        /// Operating Country: Chile
+        /// Location: on King George Island, near the Antarctic Peninsula
+        /// Operational Since: 1969
+        /// Chile operates this station, which supports research in biology, 
+        /// atmospheric studies, and glaciology.
+        /// </summary>
+        [PopulationEstimate(100)]
+        public static class BasePresidenteFreiMontalva { }
+
+        /// <summary>
+        /// Operating Country: Brazil
+        /// Location: King George Island
+        /// Operational Since: 1984
+        /// Brazil's station conducts research on biology, glaciology, and 
+        /// climate change, and it plays an important role in regional 
+        /// cooperation with other Latin American countries.
+        /// </summary>
+        [PopulationEstimate(70)]
+        public static class ComandanteFerrazAntarcticStation { }
+
+        /// <summary>
+        /// Operating Country: Germany
+        /// Location: At the coast of the Weddell Sea
+        /// Operational Since: 2009
+        /// The station focuses on atmospheric science, ice research, and geophysics. 
+        /// Germany also operates several smaller scientific projects on the continent.
+        /// </summary>
+        [PopulationEstimate(50)]
+        public static class NeumayerIIIStation { }
+
+        /// <summary>
+        /// Operating Country: Belgium
+        /// Location: East Antarctica
+        /// Operational Since: 2009
+        /// This is a modern station focused on climate research, atmospheric studies, 
+        /// and environmental monitoring, with a focus on sustainability.
+        /// </summary>
+        [PopulationEstimate(25)]
+        public static class PrincessElisabethAntarctica { }
+
+        /// <summary>
+        /// Operating Country: New Zealand
+        /// Location: on the Ross Sea, near McMurdo Station
+        /// Operational Since: 1957
+        /// Scott Base supports research in glaciology, marine biology, and climate change, 
+        /// often collaborating with other nations, including the United States.
+        /// </summary>
+        [PopulationEstimate(100)]
+        public static class ScottBase { }
+
+        /// <summary>
+        /// Operating Country: South Korea
+        /// Location: King George Island
+        /// Operational Since: 1988
+        /// South Korea's station conducts research in biology, geology, and meteorology.
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class KingSejongStation { }
+
+        /// <summary>
+        /// Operating Country: China
+        /// Location: King George Island
+        /// Operational Since: 1985
+        /// China's station supports a wide range of scientific disciplines, including 
+        /// biology, environmental studies, and geophysics. China also operates other 
+        /// research initiatives in Antarctica.
+        /// </summary>
+        [PopulationEstimate(50)]
+        public static class GreatWallStation { }
+
+        /// <summary>
+        /// Operating Country: Poland
+        /// Location: King George Island
+        /// Operational Since: 1977
+        /// Poland's research station focuses on geology, ice studies, and marine biology.
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class HenrykArctowskiAntarcticStation { }
+
+        /// <summary>
+        /// Operating Country: Ukraine
+        /// Location: on Galindez Island, near the Antarctic Peninsula
+        /// Operational Since: 1996 (formerly British-operated as Faraday Station)
+        /// Ukraine's base is involved in biological, geological, and meteorological 
+        /// research, especially in the Antarctic marine environment.
+        /// </summary>
+        [PopulationEstimate(25)]
+        public static class VernadskyResearchBase { }
+
+        /// <summary>
+        /// Operating Country: India
+        /// Location: in Schirmacher Oasis
+        /// Operational Since: 1989
+        /// India’s Maitri Station focuses on glaciology, climate science, and 
+        /// atmospheric research.
+        /// </summary>
+        [PopulationEstimate(150)]
+        public static class MaitriStation { }
+
+        /// <summary>
+        /// Operating Country: India
+        /// Location: Larsen Ice Shelf, East Antarctica
+        /// Coordinates: 69° 24′S 76° 11′E
+        /// Inaugurated: 2012
+        /// Bharati Station is used for research in several scientific fields, including:
+        /// Glaciology: Studying ice sheets and glaciers to understand global sea level rise.
+        /// Meteorology: Collecting data on atmospheric pressure, temperature, and wind 
+        /// patterns.
+        /// Environmental Monitoring: Observing the impacts of climate change in the polar 
+        /// region.
+        /// Astronomy: Bharati also contributes to international efforts to understand 
+        /// cosmic phenomena, benefiting from the clear skies over Antarctica.
+        /// Biology and Ecology: Studying life forms in extreme environments and their 
+        /// adaptations to cold temperatures.
+        /// The station contributes to the International Polar Year and broader research 
+        /// efforts related to global climate change and Antarctic ecosystems.
+        /// </summary>
+        [PopulationEstimate(30)]
+        public static class BharatiStation { }
+
+        /// <summary>
+        /// Operating Country: South Africa
+        /// Location: coastal region of the Antarctic continent
+        /// Operational Since: 1997
+        /// South Africa's research station supports studies in geology, atmospheric 
+        /// science, and meteorology.
+        /// </summary>
+        [PopulationEstimate(15)]
+        public static class SANAEIV { }
+
+        /// <summary>
+        /// Operating Country: Norway
+        /// Location: in Queen Maud Land, East Antarctica
+        /// Operational Since: 1990
+        /// Norway’s station is involved in research on climate change, glaciology, and 
+        /// atmospheric sciences.
+        /// </summary>
+        [PopulationEstimate(40)]
+        public static class TrollStation { }
+
+        /// <summary>
+        /// Operating Country: Czech Republic
+        /// Location: on James Ross Island
+        /// Operational since: 2006
+        /// The Czech station focuses on biological and environmental research.
+        /// </summary>
+        [PopulationEstimate(20)]
+        public static class CzechAntarcticStation { }
+
+        /// <summary>
+        /// Operating Country: Spain
+        /// Location: on Livingston Island
+        /// Operational Since: 1988
+        /// Spain’s research focuses on marine biology, meteorology, and geology, 
+        /// particularly in relation to the Antarctic ecosystem.
+        /// </summary>
+        [PopulationEstimate(25)]
+        public static class JuanCarlosIStation { }
+    }
+
     public static class NuclearWeaponStates
     {
         /// <summary>
