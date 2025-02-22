@@ -27,6 +27,41 @@ namespace Existence.Earth.Countries
         }
     }
 
+    public class LegislativeCapitalAttribute : CapitalAttribute
+    {
+        public LegislativeCapitalAttribute(int Capital) : base(Capital)
+        {
+        }
+    }
+
+    public class JudicialCapitalAttribute : CapitalAttribute
+    {
+        public JudicialCapitalAttribute(int Capital) : base(Capital)
+        {
+        }
+    }
+
+    public class RoyalCapitalAttribute : CapitalAttribute
+    {
+        public RoyalCapitalAttribute(int Capital) : base(Capital)
+        {
+        }
+    }
+
+    public class DeFactoCapitalAttribute : CapitalAttribute
+    {
+        public DeFactoCapitalAttribute(int Capital) : base(Capital)
+        {
+        }
+    }
+
+    public class ClaimedCapitalAttribute : CapitalAttribute
+    {
+        public ClaimedCapitalAttribute(int Capital) : base(Capital)
+        {
+        }
+    }
+
     public class PlannedCapitalAttribute : CapitalAttribute
     {
         public PlannedCapitalAttribute(int Capital) : base(Capital)
@@ -66,6 +101,16 @@ namespace Existence.Earth.Countries
         public LocalNameAttribute(string LocalName) : base(LocalName)
         {
 
+        }
+    }
+
+    public class PopulationEstimateAttribute : Attribute
+    {
+        public int Number { get; set; }
+
+        public PopulationEstimateAttribute(int Number)
+        {
+            this.Number = Number;
         }
     }
 
@@ -311,20 +356,9 @@ namespace Existence.Earth.Countries
         public static class Cuba { }
 
         [UnitedNationsMembership(1960, 9, 20)]
-        [Capital((int)WorldCities.CyprusNicosia)]
-        [LargestCity((int)WorldCities.CyprusNicosia)]
-        public static class Cyprus
-        {
-            public static class Breakaway
-            {
-                public static class NorthernCyprus
-                {
-                    public static class SupportedByTurkey { }
-                    public const string FullName = "Turkish Republic of Northern Cyprus";
-                    public static class TRNC { }
-                }
-            }
-        }
+        [Capital((int)WorldCities.CyprusSouthNicosia)]
+        [LargestCity((int)WorldCities.CyprusSouthNicosia)]
+        public static class Cyprus { }
 
         [UnitedNationsMembership(1993, 1, 19)]
         [LocalName("Czechia")]
@@ -801,218 +835,340 @@ namespace Existence.Earth.Countries
         public static class Palau { }
 
         [UnitedNationsMembership(1945, 11, 13)]
+        [Capital((int)WorldCities.PanamaPanamaCity)]
+        [LargestCity((int)WorldCities.PanamaPanamaCity)]
         public static class Panama { }
 
         [UnitedNationsMembership(1975, 10, 10)]
+        [Capital((int)WorldCities.PapuaNewGuineaPortMoresby)]
+        [LargestCity((int)WorldCities.PapuaNewGuineaPortMoresby)]
         public static class PapuaNewGuinea { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.ParaguayAsunción)]
+        [LargestCity((int)WorldCities.ParaguayAsunción)]
         public static class Paraguay { }
 
         [UnitedNationsMembership(1945, 10, 31)]
+        [Capital((int)WorldCities.PeruLima)]
+        [LargestCity((int)WorldCities.PeruLima)]
         public static class Peru { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.PhilippinesManila)]
+        [LargestCity((int)WorldCities.PhilippinesQuezonCity)]
         public static class Philippines { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.PolandWarsaw)]
+        [LargestCity((int)WorldCities.PolandWarsaw)]
         public static class Poland { }
 
         [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.PortugalLisbon)]
+        [LargestCity((int)WorldCities.PortugalLisbon)]
         public static class Portugal { }
 
         [UnitedNationsMembership(1971, 9, 21)]
+        [Capital((int)WorldCities.QatarDoha)]
+        [LargestCity((int)WorldCities.QatarDoha)]
         public static class Qatar { }
 
         [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.RomaniaBucharest)]
+        [LargestCity((int)WorldCities.RomaniaBucharest)]
         public static class Romania { }
 
         /// <summary>
         /// Russian Federation
         /// </summary>
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.RussiaMoscow)]
+        [LargestCity((int)WorldCities.RussiaMoscow)]
         public static class Russia { }
 
         [UnitedNationsMembership(1962, 9, 18)]
+        [Capital((int)WorldCities.RwandaKigali)]
+        [LargestCity((int)WorldCities.RwandaKigali)]
         public static class Rwanda { }
 
         [UnitedNationsMembership(1983, 9, 23)]
+        [Capital((int)WorldCities.SaintKittsAndNevisBasseterre)]
+        [LargestCity((int)WorldCities.SaintKittsAndNevisBasseterre)]
         public static class SaintKittsAndNevis { }
 
         [UnitedNationsMembership(1979, 9, 18)]
+        [Capital((int)WorldCities.SaintLuciaCastries)]
+        [LargestCity((int)WorldCities.SaintLuciaCastries)]
         public static class SaintLucia { }
 
         [UnitedNationsMembership(1980, 9, 16)]
+        [Capital((int)WorldCities.SaintVincentAndTheGrenadinesKingstown)]
+        [LargestCity((int)WorldCities.SaintVincentAndTheGrenadinesKingstown)]
         public static class SaintVincentAndTheGrenadines { }
 
         [UnitedNationsMembership(1976, 12, 15)]
+        [Capital((int)WorldCities.SamoaApia)]
+        [LargestCity((int)WorldCities.SamoaApia)]
         public static class Samoa { }
 
         [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.SanMarinoSanMarinoCity)]
+        [LargestCity((int)WorldCities.SanMarinoSanMarinoCity)]
         public static class SanMarino { }
 
         [UnitedNationsMembership(1975, 9, 16)]
-        public static class SaoTomeAndPrincipe { }
+        [Capital((int)WorldCities.SãoToméandPríncipeSãoTomé)]
+        [LargestCity((int)WorldCities.SãoToméandPríncipeSãoTomé)]
+        public static class SãoToméandPríncipe { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.SaudiArabiaRiyadh)]
+        [LargestCity((int)WorldCities.SaudiArabiaJeddah)]
         public static class SaudiArabia { }
 
         [UnitedNationsMembership(1960, 9, 28)]
+        [Capital((int)WorldCities.SenegalDakar)]
+        [LargestCity((int)WorldCities.SenegalDakar)]
         public static class Senegal { }
 
         [UnitedNationsMembership(2000, 11, 1)]
-        public static class Serbia
-        {
-            public static class Breakaway
-            {
-                public static class Kosovo
-                {
-                    public static class SupportedByMostOfTheWorldButStatesWithOwnBreakawayProblemsDontAcknowledgeOtherBreakawayStates { }
-                }
-            }
-        }
+        [Capital((int)WorldCities.SerbiaBelgrade)]
+        [LargestCity((int)WorldCities.SerbiaBelgrade)]
+        public static class Serbia { }
 
         [UnitedNationsMembership(1976, 9, 21)]
+        [Capital((int)WorldCities.SeychellesVictoria)]
+        [LargestCity((int)WorldCities.SeychellesVictoria)]
         public static class Seychelles { }
 
         [UnitedNationsMembership(1961, 9, 27)]
+        [Capital((int)WorldCities.SierraLeoneFreetown)]
+        [LargestCity((int)WorldCities.SierraLeoneFreetown)]
         public static class SierraLeone { }
 
+        /// <summary>
+        /// city-state
+        /// </summary>
         [UnitedNationsMembership(1965, 9, 21)]
+        [Capital((int)WorldCities.SingaporeSingapore)]
+        [LargestCity((int)WorldCities.SingaporeSingapore)]
         public static class Singapore { }
 
         [UnitedNationsMembership(1993, 1, 19)]
+        [Capital((int)WorldCities.SlovakiaBratislava)]
+        [LargestCity((int)WorldCities.SlovakiaBratislava)]
         public static class Slovakia { }
 
         [UnitedNationsMembership(1992, 5, 22)]
+        [Capital((int)WorldCities.SloveniaLjubljana)]
+        [LargestCity((int)WorldCities.SloveniaLjubljana)]
         public static class Slovenia { }
 
         [UnitedNationsMembership(1978, 9, 19)]
+        [Capital((int)WorldCities.SolomanIslandsHoniara)]
+        [LargestCity((int)WorldCities.SolomanIslandsHoniara)]
         public static class SolomonIslands { }
 
         [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.SomaliaMogadishu)]
+        [LargestCity((int)WorldCities.SomaliaMogadishu)]
         public static class Somalia { }
 
         [UnitedNationsMembership(1945, 11, 7)]
+        [AdministrativeCapital((int)WorldCities.SouthAfricaPretoria)]
+        [LegislativeCapital((int)WorldCities.SouthAfricaCapeTown)]
+        [JudicialCapital((int)WorldCities.SouthAfricaBloemfontein)]
+        [LargestCity((int)WorldCities.SouthAfricaJohannesburg)]
         public static class SouthAfrica { }
 
         /// <summary>
         /// Republic of Korea
         /// </summary>
         [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.SouthKoreaSeoul)]
+        [LargestCity((int)WorldCities.SouthKoreaSeoul)]
         public static class SouthKorea
         {
             public static class SupportedByCountriesSupportingBothHumanFreedomAndCapitalism { }
         }
 
         [UnitedNationsMembership(2011, 7, 14)]
+        [Capital((int)WorldCities.SouthSudanJuba)]
+        [LargestCity((int)WorldCities.SouthSudanJuba)]
         public static class SouthSudan { }
 
         [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.SpainMadrid)]
+        [LargestCity((int)WorldCities.SpainMadrid)]
         public static class Spain { }
 
         [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.SriLankaSriJayawardenepuraKotte)]
+        [LargestCity((int)WorldCities.SriLankaColombo)]
         public static class SriLanka { }
 
         [UnitedNationsMembership(1956, 11, 12)]
+        [Capital((int)WorldCities.SudanKhartoum)]
+        [LargestCity((int)WorldCities.SudanKhartoum)]
         public static class Sudan { }
 
         [UnitedNationsMembership(1975, 12, 4)]
+        [Capital((int)WorldCities.SurinameParamaribo)]
+        [LargestCity((int)WorldCities.SurinameParamaribo)]
         public static class Suriname { }
 
         [UnitedNationsMembership(1946, 11, 19)]
+        [Capital((int)WorldCities.SwedenStockholm)]
+        [LargestCity((int)WorldCities.SwedenStockholm)]
         public static class Sweden { }
 
         [UnitedNationsMembership(1968, 9, 24)]
+        [AdministrativeCapital((int)WorldCities.SwazilandMbabane)]
+        [LegislativeCapital((int)WorldCities.SwazilandLobamba)]
+        [RoyalCapital((int)WorldCities.SwazilandLobamba)]
+        [LargestCity((int)WorldCities.SwazilandManzini)]
         [LocalName("Eswatini")]
         public static class Swaziland { }
 
         [UnitedNationsMembership(2002, 9, 10)]
+        [Capital((int)WorldCities.SwitzerlandBern)]
+        [LargestCity((int)WorldCities.SwitzerlandZurich)]
         public static class Switzerland { }
 
         /// <summary>
         /// Syrian Arab Republic
         /// </summary>
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.SyriaDamascus)]
+        [LargestCity((int)WorldCities.SyriaDamascus)]
         public static class Syria { }
 
         [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.TajikistanDushanbe)]
+        [LargestCity((int)WorldCities.TajikistanDushanbe)]
         public static class Tajikistan { }
 
         /// <summary>
         /// United Republic of Tanzania
         /// </summary>
         [UnitedNationsMembership(1961, 12, 14)]
+        [Capital((int)WorldCities.TanzaniaDodoma)]
+        [LargestCity((int)WorldCities.TanzaniaDaresSalaam)]
         public static class Tanzania { }
 
         [UnitedNationsMembership(1946, 12, 15)]
+        [Capital((int)WorldCities.ThailandBangkok)]
+        [LargestCity((int)WorldCities.ThailandBangkok)]
         public static class Thailand { }
 
         [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.TogoLomé)]
+        [LargestCity((int)WorldCities.TogoLomé)]
         public static class Togo { }
 
         [UnitedNationsMembership(1999, 9, 14)]
+        [Capital((int)WorldCities.TongaNukualofa)]
+        [LargestCity((int)WorldCities.TongaNukualofa)]
         public static class Tonga { }
 
         [UnitedNationsMembership(1962, 9, 18)]
+        [Capital((int)WorldCities.TrinidadAndTobagoPortofSpain)]
+        [LargestCity((int)WorldCities.TrinidadAndTobagoSanFernando)]
         public static class TrinidadAndTobago { }
 
         [UnitedNationsMembership(1956, 11, 12)]
+        [Capital((int)WorldCities.TunisiaTunis)]
+        [LargestCity((int)WorldCities.TunisiaTunis)]
         public static class Tunisia { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.TurkeyAnkara)]
+        [LargestCity((int)WorldCities.TurkeyIstanbul)]
         [LocalName("Türkiye")]
         public static class Turkey { }
 
         [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.TurkmenistanAshgabat)]
+        [LargestCity((int)WorldCities.TurkmenistanAshgabat)]
         public static class Turkmenistan { }
 
         [UnitedNationsMembership(2000, 9, 5)]
+        [Capital((int)WorldCities.TuvaluFunafuti)]
+        [LargestCity((int)WorldCities.TuvaluFunafuti)]
         public static class Tuvalu { }
 
         [UnitedNationsMembership(1962, 10, 25)]
+        [Capital((int)WorldCities.UgandaKampala)]
+        [LargestCity((int)WorldCities.UgandaKampala)]
         public static class Uganda { }
 
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.UkraineKiev)]
+        [LargestCity((int)WorldCities.UkraineKiev)]
         public static class Ukraine { }
 
         [UnitedNationsMembership(1971, 12, 9)]
+        [Capital((int)WorldCities.UnitedArabEmiratesAbuDhabi)]
+        [LargestCity((int)WorldCities.UnitedArabEmiratesDubai)]
         public static class UnitedArabEmirates { }
 
         /// <summary>
         /// United Kingdom of Great Britain and Northern Ireland
         /// </summary>
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.UnitedKingdomLondon)]
+        [LargestCity((int)WorldCities.UnitedKingdomLondon)]
         public static class UnitedKingdom { }
 
         /// <summary>
         /// United States of America
         /// </summary>
         [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.UnitedStatesWashingtonDC)]
+        [LargestCity((int)WorldCities.UnitedStatesNewYorkCity)]
         public static class UnitedStates { }
 
         [UnitedNationsMembership(1945, 12, 18)]
+        [Capital((int)WorldCities.UruguayMontevideo)]
+        [LargestCity((int)WorldCities.UruguayMontevideo)]
         public static class Uruguay { }
 
         [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.UzbekistanTashkent)]
+        [LargestCity((int)WorldCities.UzbekistanTashkent)]
         public static class Uzbekistan { }
 
         [UnitedNationsMembership(1981, 9, 15)]
+        [Capital((int)WorldCities.VanuatuPortVila)]
+        [LargestCity((int)WorldCities.VanuatuPortVila)]
         public static class Vanuatu { }
 
         /// <summary>
         /// Bolivarian Republic of Venezuela
         /// </summary>
         [UnitedNationsMembership(1945, 11, 15)]
+        [Capital((int)WorldCities.VenezuelaCaracas)]
+        [LargestCity((int)WorldCities.VenezuelaCaracas)]
         public static class Venezuela { }
 
         [UnitedNationsMembership(1977, 9, 20)]
+        [Capital((int)WorldCities.VietnamHanoi)]
+        [LargestCity((int)WorldCities.VietnamHoChiMinhCity)]
         public static class Vietnam { }
 
+        /// <summary>
+        /// de facto capital is Aden since the Houthi's control Sana'a
+        /// </summary>
         [UnitedNationsMembership(1947, 9, 30)]
+        [Capital((int)WorldCities.YemenSanaa)]
+        [DeFactoCapital((int)WorldCities.YemenAden)]
+        [LargestCity((int)WorldCities.YemenSanaa)]
         public static class Yemen { }
 
         [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.ZaireKinshasa)]
+        [LargestCity((int)WorldCities.ZaireKinshasa)]
         public static class Zaire
         {
             public const string FullName = "Democratic Republic of the Congo";
@@ -1020,9 +1176,13 @@ namespace Existence.Earth.Countries
         }
 
         [UnitedNationsMembership(1964, 12, 1)]
+        [Capital((int)WorldCities.ZambiaLusaka)]
+        [LargestCity((int)WorldCities.ZambiaLusaka)]
         public static class Zambia { }
 
         [UnitedNationsMembership(1980, 8, 25)]
+        [Capital((int)WorldCities.ZimbabweHarare)]
+        [LargestCity((int)WorldCities.ZimbabweHarare)]
         public static class Zimbabwe { }
     }
 
@@ -1035,13 +1195,304 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1964, 4, 6)]
         public static class HolySee { }
 
+        /// <summary>
+        /// the fatah controlled element of palestine
+        /// </summary>
         [UnitedNationsMembership(1974, 11, 22)]
+        [DeFactoCapital((int)WorldCities.WestBankRamallah)]
+        [ClaimedCapital((int)WorldCities.IsraelEastJerusalem)]
+        [LargestCity((int)WorldCities.WestBankRamallah)]
         public static class Palestine { }
 
         /// <summary>
         /// not a sovereign state but an entity, has observer status
         /// </summary>
         public static class SovereignMilitaryOrderOfMalta { }
+    }
+
+    public static class CountryLikeThings
+    {
+        /// <summary>
+        /// In 2008, Kosovo declared independence from Serbia, but Serbia does not recognize it 
+        /// as an independent state and still claims it as part of its territory.
+        /// To be a fully recognized country, Kosovo would need UN membership, which requires 
+        /// approval from the UN Security Council (currently blocked by Russia and China)
+        /// Some key countries do not recognize Kosovo, including India/Brazil.
+        /// Within the EU, five member states do not recognize Kosovo due to concerns with their
+        /// own separatist movements (Spain, Greece, Slovakia, Romania, and Cyprus).
+        /// Kosovo has been recognized by International Monetary Fund (IMF) and the World Bank
+        /// </summary>
+        /// Some Taiwanese politicians favor formal independence, while others prefer to maintain the current ambiguous status to prevent conflict.
+        [Capital((int)WorldCities.KosovoPristina)]
+        [LargestCity((int)WorldCities.KosovoPristina)]
+        [PopulationEstimate(1800000)] //1.8 million
+        public static class Kosovo { }
+
+        /// <summary>
+        /// Taiwan has functioned as an independent state since 1949 when ROC government
+        /// retreated to the island after losing the Chinese Civil War
+        /// In 1971, China's UN seat transferred from ROC to PRC.
+        /// China (PRC) considers it a breakaway province, insisting on "One China", and 
+        /// pressures other countries not to recognize it, and blocks UN membership
+        /// Only about 12-13 countries (mostly small nations like Paraguay, Palau, and the 
+        /// Vatican) recognize Taiwan diplomatically.
+        /// Most other nations (including the U.S. and Japan) engage with Taiwan unofficially 
+        /// through trade, defense cooperation, and informal diplomatic relations.
+        /// Taiwan’s government officially calls itself the Republic of China (ROC) and has never 
+        /// formally declared full independence, partly to avoid provoking a military response 
+        /// from China.
+        /// Some Taiwanese politicians favor formal independence, while others prefer to maintain 
+        /// the current ambiguous status to prevent conflict.
+        /// </summary>
+        [Capital((int)WorldCities.TaiwanTaipei)]
+        [LargestCity((int)WorldCities.TaiwanTaipei)]
+        [PopulationEstimate(23500000)] //23.5 million
+        public static class Taiwan { }
+
+        /// <summary>
+        /// Somaliland declared independence unilaterally on May 18, 1991, following the collapse 
+        /// of the Somali government. Somalia still claims Somaliland as part of its territory 
+        /// and strongly opposes its independence.
+        /// No UN member state or major international organization recognizes Somaliland as an 
+        /// independent country.
+        /// The African Union (AU) opposes recognizing breakaway states, fearing it could 
+        /// encourage separatist movements in other African countries.
+        /// Somaliland operates as an independent country in practice:
+        /// 1. It has its own democratically elected government and functions separately from Somalia.
+        /// 2. It maintains its own military and security forces.
+        /// 3. It has an independent economy, uses the Somaliland shilling, and trades with neighboring 
+        /// countries.
+        /// 4. Somaliland has been relatively peaceful and stable for over 30 years.
+        /// </summary>
+        [Capital((int)WorldCities.SomalilandHargeisa)]
+        [LargestCity((int)WorldCities.SomalilandHargeisa)]
+        [PopulationEstimate(4500000)] //4.5 million
+        public static class Somaliland { }
+
+        /// <summary>
+        /// Hamas-controlled area of Palestine
+        /// not internationally recognized as an independent country, but it functions as a de 
+        /// facto self-governing entity. It is officially considered part of the State of 
+        /// Palestine, but since 2007, Hamas has governed Gaza separately from the West Bank, 
+        /// which is controlled by Fatah. The ongoing Israel-Gaza conflict and lack of formal 
+        /// international recognition keep Gaza from being a fully sovereign state.
+        /// </summary>
+        [Capital((int)WorldCities.GazaGazaCity)]
+        [LargestCity((int)WorldCities.GazaGazaCity)]
+        [PopulationEstimate(2000000)] //2 million
+        public static class Gaza { }
+
+        /// <summary>
+        /// Abkhazia has a distinct ethnic identity, with the Abkhaz people being its primary 
+        /// ethnic group, with a long history of autonomous status within Georgia.
+        /// declared independence from Georgia following the 1990s conflicts, particularly 
+        /// after the collapse of the Soviet Union. Not internationally recognized 
+        /// as an independent country, except by Russia, and a few other countries that follow 
+        /// Russia's lead (such as Nicaragua, Venezuela, and a few others). Georgia, along with
+        /// most of the international community, considers tit to be part of Georgian territory.
+        /// relies heavily on Russian support, both in terms of military and economic aid.
+        /// Russian military presence is significant.
+        /// </summary>
+        [Capital((int)WorldCities.AbkhaziaSukhumi)]
+        [LargestCity((int)WorldCities.AbkhaziaSukhumi)]
+        [PopulationEstimate(250000)] //250,000
+        public static class Abkhazia { }
+
+        /// <summary>
+        /// Post-Spanish-Colonial-Withdrawal, Sahrawi Arab Democratic Republic (SADR), led by the 
+        /// Polisario Front, declared independence.
+        /// Morocco annexed most of Western Sahara and continues to control about 80% of the 
+        /// territory today, considering it as "Southern Provinces".
+        /// Western Sahara is not a UN member state, and the UN does not recognize Moroccan 
+        /// sovereignty over the region.
+        /// About 40 countries have recognized SADR at some point, but many later withdrew or
+        /// froze recognition. The African Union (AU) recognizes the SADR, but the UN and most countries 
+        /// do not. Countries with close ties to Morocco avoid recognizing Western Sahara’s independence.
+        /// The UN has maintained a peacekeeping mission (MINURSO) since 1991 to oversee a potential referendum on 
+        /// independence. No referendum has taken place due to disputes over voter eligibility.
+        /// Morocco has proposed autonomy under Moroccan sovereignty, while the Polisario Front 
+        /// insists on full independence.
+        /// </summary>
+        [DeFactoCapital((int)WorldCities.WesternSaharaLaayoune)] //under Moroccan control
+        [ClaimedCapital((int)WorldCities.WesternSaharaBirLehlou)] //not under Moroccan control
+        [PopulationEstimate(600000)] //600,000
+        public static class WesternSahara { }
+
+        /// <summary>
+        /// Transnistria declared independence from Moldova in 1990, following the collapse of 
+        /// the Soviet Union, but it has never been recognized by any UN member state.
+        /// It calls itself the Pridnestrovian Moldavian Republic (PMR) and has its own government, 
+        /// military, and currency (the Transnistrian ruble). Moldova considers Transnistria to 
+        /// be part of its territory, and the international community largely recognizes 
+        /// Transnistria as part of Moldova. The region is heavily supported by Russia, which 
+        /// provides political, economic, and military backing, but Russia does not officially 
+        /// recognize Transnistria as an independent state. Transnistria has a Russian-speaking 
+        /// majority and has maintained strong political, economic, and military ties to Russia, 
+        /// further complicating its relationship with Moldova and the international community.
+        /// </summary>
+        [Capital((int)WorldCities.TransnistriaTiraspol)]
+        [LargestCity((int)WorldCities.TransnistriaTiraspol)]
+        [PopulationEstimate(500000)] //500,000
+        public static class Transnistria { }
+
+        /// <summary>
+        /// 1974: A Greek-backed coup attempted to unite Cyprus with Greece.
+        /// Turkey invaded the northern part of the island, citing protection of Turkish Cypriots.
+        /// 1975: The Turkish Republic of Northern Cyprus (TRNC) was declared, and in 1983, it 
+        /// declared full independence.
+        /// Only Turkey recognizes Northern Cyprus as an independent state. The United Nations, 
+        /// the European Union, and most countries consider it part of the Republic of Cyprus.
+        /// The UN has a buffer zone ("Green Line") separating North and South Cyprus, patrolled 
+        /// by peacekeepers.
+        /// Cyprus is a member of the European Union (EU), but EU laws do not apply in Northern 
+        /// Cyprus due to the division. The UN supports reunification efforts through 
+        /// negotiations, such as the Annan Plan (2004) and later talks, but no agreement has 
+        /// been reached.
+        /// Northern Cyprus relies heavily on Turkey for economic, political, and military support.
+        /// It uses the Turkish lira and is economically dependent on Turkey.
+        /// </summary>
+        [ClaimedCapital((int)WorldCities.NorthernCyprusNorthNicosia)]
+        [LargestCity((int)WorldCities.NorthernCyprusNorthNicosia)]
+        [PopulationEstimate(400000)] //400,000
+        public static class NorthernCyprus { }
+
+        /// <summary>
+        /// Nagorno-Karabakh declared independence from Azerbaijan in 1991, following the collapse 
+        /// of the Soviet Union. The region's Armenian-majority population sought to break away 
+        /// from Azerbaijan, which led to a bloody conflict. Despite declaring independence, 
+        /// Nagorno-Karabakh is not internationally recognized as a sovereign state by any 
+        /// country, including Armenia, which only offers strong political, economic, and 
+        /// military support. The Republic of Nagorno-Karabakh (Artsakh) is not recognized by 
+        /// the United Nations and is considered by most of the world to be part of Azerbaijan.
+        /// Nagorno-Karabakh is considered an autonomous region of Azerbaijan by international 
+        /// law, but it operates like an independent country on the ground, with its own 
+        /// government, parliament, and president.
+        /// Nagorno-Karabakh maintains its own military forces, largely made up of ethnic
+        /// Armenians, which fought against Azerbaijan in the 1990s and 2016 clashes, and 
+        /// participated in the 2020 Nagorno-Karabakh War. Armenia is believed to provide military 
+        /// support to Nagorno-Karabakh, including training, arms supplies, and troops.
+        /// Azerbaijan, on the other hand, has a strong military and continues to assert control 
+        /// over the region, leading to frequent outbreaks of conflict. The 2020 Nagorno-Karabakh 
+        /// War was a six-week conflict between Armenia and Azerbaijan. The war resulted in 
+        /// significant Azerbaijani territorial gains and a ceasefire agreement brokered by Russia.
+        /// </summary>
+        [ClaimedCapital((int)WorldCities.ArtsakhStepanakert)]
+        [LargestCity((int)WorldCities.ArtsakhStepanakert)]
+        [PopulationEstimate(160000)]
+        public static class Artsakh { }
+        
+        /// <summary>
+        /// tied to the Ossetian people, who are ethnically and culturally related to the Ossetians in Russia’s 
+        /// North Ossetia-Alania region. Acts as a buffer zone between Russia and Georgia.
+        /// Russian military presence in South Ossetia is not as extensive as Abkhazia.
+        /// </summary>
+        [Capital((int)WorldCities.SouthOssetiaTskhinvali)]
+        [LargestCity((int)WorldCities.SouthOssetiaTskhinvali)]
+        [PopulationEstimate(60000)] //60,000
+        public static class SouthOssetia { }
+    }
+
+    public static class LessCountryLikeThings
+    {
+        /// <summary>
+        /// an autonomous community within Spain, with significant powers under the Statute of 
+        /// Autonomy and the Spanish Constitution, has its own parliament, president, and 
+        /// government (Generalitat de Catalunya), but its powers are limited by the Spanish 
+        /// constitution, which defines Spain as a unitary state.
+        /// Catalonia has pushed for independence through various referendums and political
+        /// movements, especially since the 2000s. In 2017, Catalonia held a unilateral referendum 
+        /// on independence, which was declared illegal by Spain's Constitutional Court.
+        /// The Catalan government declared independence following the referendum, but the 
+        /// Spanish government quickly rejected the declaration, dissolved the Catalan 
+        /// parliament, and imposed direct rule through Article 155 of the Spanish Constitution.
+        /// </summary>
+        [Capital((int)WorldCities.SpainBarcelona)]
+        [LargestCity((int)WorldCities.SpainBarcelona)]
+        public static class Catalonia { }
+
+        /// <summary>
+        /// considers itself an autonomous state within Somalia
+        /// recognizes the Somali federal government, but it operates with its own government, 
+        /// security forces, and administration.
+        /// has border disputes with Somaliland, especially over the Sool, Sanaag, and Cayn regions.
+        /// </summary>
+        [Capital((int)WorldCities.SomaliaGarowe)]
+        [LargestCity((int)WorldCities.SomaliaGarowe)]
+        public static class Puntland { }
+
+        public static class Kurdistan
+        {
+            /// <summary>
+            /// The Kurdish population in Turkey is estimated to be around 15-20 million, 
+            /// making up about 20% of the country’s total population. Kurds in Turkey live mainly 
+            /// in the southeastern region, which is often referred to as "Kurdish-majority areas".
+            /// However, Turkey does not officially recognize the existence of a Kurdish region 
+            /// or a Kurdish state within its borders. The Kurdistan Workers’ Party (PKK), which 
+            /// has been involved in an armed insurgency against the Turkish state since the 1980s, 
+            /// has called for greater autonomy or independence for Kurds in Turkey. The PKK has 
+            /// been labeled a terrorist organization by Turkey, the U.S., and the EU. While there 
+            /// is no official Kurdish autonomy in Turkey, some local governance areas have seen 
+            /// Kurdish political representation. The HDP (People’s Democratic Party), a left-wing 
+            /// Turkish political party with Kurdish support, has been a key advocate for Kurdish 
+            /// rights and greater autonomy. Turkey's constitution and laws oppose the recognition 
+            /// of Kurdish as an official language, though Kurdish culture and language are 
+            /// increasingly accepted in some urban areas.
+            /// </summary>
+            [LargestCity((int)WorldCities.TurkeyDiyarbakır)]
+            public static class Turkey { }
+
+            /// <summary>
+            /// Kurdish Population: Kurds in Syria number around 2-3 million, making up about
+            /// 10-15% of the Syrian population. Rojava (also known as Syrian Kurdistan) is a 
+            /// Kurdish-majority region in northern Syria. In the wake of Syria’s civil war, 
+            /// Kurdish forces (the YPG and YPJ) took control of large parts of northern Syria, 
+            /// particularly in the regions of Afrin, Kobani, and Jazira. The Kurdish region in 
+            /// Syria declared autonomy and established a system of self-rule in these areas, 
+            /// although it is not officially recognized by the Syrian government or other 
+            /// international actors. It operates under a decentralized system with autonomous 
+            /// Kurdish governance, focusing on democratic confederalism, which is based on local 
+            /// councils and cooperatives. The region has faced challenges from both Syria and 
+            /// neighboring countries like Turkey, which sees Kurdish forces (especially the YPG) 
+            /// as linked to the PKK. Turkey has carried out several military operations in 
+            /// northern Syria, especially in areas like Afrin, to push back against Kurdish 
+            /// influence.
+            /// </summary>
+            [LargestCity((int)WorldCities.SyriaQamishli)]
+            public static class RojavaInsideSyria { }
+
+            /// <summary>
+            /// The Kurdish population in Iraq is about 6-7 million, around 15-20% of Iraq’s total population.
+            /// Iraqi Kurdistan is the most established Kurdish region in the Middle East in terms 
+            /// of autonomy. The Kurdish Regional Government (KRG), based in Erbil, governs an 
+            /// autonomous Kurdish-controlled region in the northern part of Iraq. Since the 1990s, 
+            /// and particularly after the fall of Saddam Hussein’s regime in 2003, Iraq’s 
+            /// constitution recognizes Iraqi Kurdistan as an autonomous region with its own 
+            /// parliament, military (Peshmerga), and budget. In 2017, the KRG held a referendum on
+            /// independence, in which the vast majority of voters supported secession. However, 
+            /// the vote was opposed by the Iraqi government, neighboring countries (Turkey and 
+            /// Iran), and international powers. As a result, Iraq’s central government regained 
+            /// some control over disputed territories (such as Kirkuk), but Iraqi Kurdistan 
+            /// continues to function with significant autonomy.
+            /// </summary>
+            [LargestCity((int)WorldCities.IraqErbil)]
+            public static class Iraq { }
+
+            /// <summary>
+            /// Iran is home to about 8-10 million Kurds, making up roughly 10% of Iran's population.
+            /// Kurds in Iran mostly live in the northwestern provinces, including Kurdistan, 
+            /// Kermanshah, and West Azerbaijan. Kurds in Iran have faced significant repression 
+            /// and are not granted official autonomy. There is no recognized Kurdish political 
+            /// entity or autonomous region within Iran. The Kurdish Democratic Party of Iran 
+            /// (KDPI) and the PJAK (Party for a Free Life in Kurdistan), both of which seek 
+            /// Kurdish rights and autonomy, operate from the Iraqi Kurdish region but face 
+            /// repression inside Iran. The Iranian government maintains a strict stance against 
+            /// any movement toward Kurdish independence and views such movements as separatist 
+            /// threats. Kurdish political groups in Iran often face military and political 
+            /// crackdowns.
+            /// </summary>
+            [LargestCity((int)WorldCities.IranSanandaj)]
+            public static class Iran { }
+        }
     }
 
     public static class NuclearWeaponStates
@@ -1053,6 +1504,7 @@ namespace Existence.Earth.Countries
 
         /// <summary>
         /// 5580 total warheads, 1710 deployed warheads
+        /// sole nuclear successor of the Soviet Union
         /// </summary>
         public static class Russia { }
 
@@ -1079,7 +1531,7 @@ namespace Existence.Earth.Countries
         /// <summary>
         /// 170 total warheads, none deployed
         /// </summary>
-        public static class Pakistn { }
+        public static class Pakistan { }
 
         /// <summary>
         /// 90 total warheads, none deployed
@@ -1090,6 +1542,32 @@ namespace Existence.Earth.Countries
         /// 50 total warheads, none deployed
         /// </summary>
         public static class NorthKorea { }
+
+        /// <summary>
+        /// 1970s–1980s: secretly developed nuclear weapons, producing six fully operational bombs.
+        /// 1989: President F.W. de Klerk orders the dismantling of the nuclear arsenal.
+        /// 1991: South Africa signs the Nuclear Non-Proliferation Treaty (NPT) and discloses 
+        /// its past nuclear program to the International Atomic Energy Agency (IAEA).
+        /// 1993: De Klerk publicly announces that South Africa had developed and voluntarily 
+        /// dismantled its nuclear weapons.
+        /// 
+        /// South Africa remains the only country to have developed nuclear weapons and then 
+        /// voluntarily dismantled them completely.
+        /// </summary>
+        public static class SouthAfrica { }
+
+        /// <summary>
+        /// 1992 – Lisbon Protocol: Ukraine, Belarus, and Kazakhstan agreed to join the Nuclear 
+        /// Non-Proliferation Treaty (NPT) as non-nuclear states and transfer their nuclear 
+        /// weapons to Russia.
+        /// 1994 – Budapest Memorandum:
+        /// In exchange for giving up nuclear weapons, Ukraine, Belarus, and Kazakhstan received 
+        /// security assurances from Russia, the U.S., and the U.K. (including respect for their 
+        /// sovereignty and borders).
+        /// 1995-1996 nuclear weapons transferred to Russia
+        /// Ukraine, Belarus, and Kazakhstan became non-nuclear states and joined the NPT.
+        /// </summary>
+        public static class UkraineBelarusKazahkstan { }
     }
 
 
@@ -1108,14 +1586,6 @@ namespace Existence.Earth.Countries
         {
             public static class NotClearWhatGovernmentWouldEmergeIfMergedIntoSingleState { }
             public static class ResidentsWantToBeSeparateStateAndNotAbsorbedIntoIsraelOrEgyptOrJordan { }
-            public static class GazaStrip
-            {
-                public static class RuledByHamas { }
-            }
-            public static class WestBank
-            {
-                public static class RuledByFatah { }
-            }
         }
     }
 
