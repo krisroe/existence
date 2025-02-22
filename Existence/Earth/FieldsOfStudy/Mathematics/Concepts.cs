@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Existence.Earth.FieldsOfStudy.Mathematics
 {
@@ -10,6 +11,17 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
             this.Number = Number;
         }
     }
+
+    public class NumbersAttribute : Attribute
+    {
+        public int[] Numbers { get; set; }
+
+        public NumbersAttribute(params int[] Numbers)
+        {
+            this.Numbers = Numbers;
+        }
+    }
+
     public class RomanNumeralAttribute : Attribute
     {
         public string RomanNumeral { get; set; }
