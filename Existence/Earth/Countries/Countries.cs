@@ -1117,8 +1117,8 @@ namespace Existence.Earth.Countries
         /// United Kingdom of Great Britain and Northern Ireland
         /// </summary>
         [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.UnitedKingdomLondon)]
-        [LargestCity((int)WorldCities.UnitedKingdomLondon)]
+        [Capital((int)WorldCities.EnglandLondon)]
+        [LargestCity((int)WorldCities.EnglandLondon)]
         public static class UnitedKingdom { }
 
         /// <summary>
@@ -1411,14 +1411,158 @@ namespace Existence.Earth.Countries
         public static class Catalonia { }
 
         /// <summary>
-        /// considers itself an autonomous state within Somalia
-        /// recognizes the Somali federal government, but it operates with its own government, 
-        /// security forces, and administration.
-        /// has border disputes with Somaliland, especially over the Sool, Sanaag, and Cayn regions.
+        /// Flanders, the Dutch-speaking region in the northern part of Belgium, has a long 
+        /// history of seeking greater autonomy from the French-speaking southern region of 
+        /// Wallonia. This desire for autonomy grew after Belgium's creation in 1830, as 
+        /// linguistic and economic differences between the Dutch-speaking Flemings and 
+        /// French-speaking Walloons became more pronounced. The Belgian Constitution and political 
+        /// system have evolved to give Flanders significant autonomy, but the movement for 
+        /// greater independence or a more federal structure has remained prominent.
+        /// The New Flemish Alliance (N-VA) is the largest political party advocating for Flemish 
+        /// independence or greater autonomy. The party is a key player in the Flemish nationalist 
+        /// movement and supports the creation of a confederation in which Flanders would have 
+        /// greater control over its own affairs, potentially leading to full independence. 
+        /// Other political parties, such as the Flemish Interest (Vlaams Belang), also advocate 
+        /// for Flemish independence but with a more hardline stance. While these 
+        /// independence-minded parties have gained significant support, they face opposition 
+        /// from more centralist parties that seek to maintain Belgium’s unitary structure and 
+        /// keep the country united, including the French-speaking parties of Wallonia.
         /// </summary>
-        [Capital((int)WorldCities.SomaliaGarowe)]
-        [LargestCity((int)WorldCities.SomaliaGarowe)]
-        public static class Puntland { }
+        [LargestCity((int)WorldCities.BelgiumAntwerp)]
+        public static class Flanders { }
+
+        /// <summary>
+        /// The Basque Country is a region with both parts in Spain and France, and it has a long 
+        /// history of nationalist sentiment and separatism. In Spain, the region has significant 
+        /// autonomy, with the Basque Autonomous Community having its own government and police 
+        /// force. The ETA (Euskadi Ta Askatasuna), a Basque separatist group, was active in the 
+        /// late 20th century and early 2000s, advocating for independence through violence. 
+        /// The group officially disbanded in 2018. The political party EH Bildu advocates for 
+        /// Basque independence, though public support for full independence is mixed. There is 
+        /// also a desire for greater autonomy for the Basque regions in both Spain and France.
+        /// </summary>
+        [LargestCity((int)WorldCities.SpainBilbao)]
+        public static class BasqueCountry { }
+
+        public static class UnitedKingdom
+        {
+            /// <summary>
+            /// Scotland is currently a part of the United Kingdom, but there is a significant independence movement, 
+            /// primarily led by the Scottish National Party (SNP). Scotland held a referendum on 
+            /// independence in 2014, where 55% voted to stay in the UK. However, since then, the 
+            /// SNP has continued to push for another referendum, particularly in light of the 
+            /// Brexit vote in 2016 (which Scotland voted against). While the UK government has 
+            /// refused to authorize another referendum, the issue of Scottish independence remains 
+            /// a central political debate, and public opinion has fluctuated, with some polls 
+            /// suggesting growing support for independence.
+            /// </summary>
+            [Capital((int)WorldCities.ScotlandEdinburgh)]
+            [LargestCity((int)WorldCities.ScotlandEdinburgh)]
+            public static class Scotland { }
+
+            /// <summary>
+            /// Northern Ireland was created in 1921 as a separate entity within the United Kingdom,
+            /// with a Protestant majority and a Catholic minority. The partition of Ireland divided
+            /// the island into two entities: Northern Ireland (which remained part of the UK) and 
+            /// the Republic of Ireland (which became an independent state). For much of the 20th 
+            /// century, the conflict in Northern Ireland, known as The Troubles (1968-1998), 
+            /// revolved around issues of national identity, with Protestants generally supporting 
+            /// unionism (remaining part of the UK) and Catholics generally supporting nationalism 
+            /// (joining the Republic of Ireland). The Good Friday Agreement (Belfast Agreement) 
+            /// of 1998 helped end the violence of The Troubles, establishing a devolved government
+            /// in Northern Ireland and allowing for the possibility of a peaceful unification with 
+            /// the Republic of Ireland if there was sufficient support. The Sinn Féin party, 
+            /// which is the largest Irish republican party in Northern Ireland, 
+            /// has long advocated for Irish unification. In the 2022 Northern Ireland Assembly elections, 
+            /// the party became the largest party, signaling a shift toward greater support for nationalism 
+            /// and potential unification. The Democratic Unionist Party (DUP) and other unionist 
+            /// parties strongly oppose unification and favor Northern Ireland's continued 
+            /// membership in the United Kingdom.
+            /// </summary>
+            [Capital((int)WorldCities.NorthernIrelandBelfast)]
+            [LargestCity((int)WorldCities.NorthernIrelandBelfast)]
+            public static class NorthernIreland { }
+        }
+
+        public static class Italy
+        {
+            /// <summary>
+            /// Veneto and Lombardy are two wealthy regions in northern Italy where regionalist 
+            /// movements have pushed for greater autonomy or even independence. In 2017, both Veneto 
+            /// and Lombardy held referenda on autonomy, with over 90% of voters in both regions 
+            /// supporting the idea of more independence from the central Italian government. 
+            /// However, these referenda were non-binding. The League (Lega Nord) party, which 
+            /// historically supported independence for northern Italy, has evolved towards more 
+            /// federalism rather than full secession. However, the desire for greater autonomy 
+            /// remains significant in these regions.
+            /// </summary>
+            [Capital((int)WorldCities.ItalyVenice)]
+            [LargestCity((int)WorldCities.ItalyVerona)]
+            public static class Veneto { }
+            [Capital((int)WorldCities.ItalyMilan)]
+            [LargestCity((int)WorldCities.ItalyMilan)]
+            public static class Lombardy { }
+
+            /// <summary>
+            /// Sardinia, an island off the coast of Italy, has seen several regionalist and 
+            /// independence movements. Sardinia has its own distinct cultural identity, and 
+            /// while the independence movement is not as strong as in other regions of Italy, 
+            /// there have been periodic calls for greater autonomy or full independence.
+            /// Political groups such as the Sardinian Action Party have called for Sardinian 
+            /// independence or federalism within Italy. While support for full independence 
+            /// remains relatively low, the desire for greater autonomy continues.
+            /// </summary>
+            [Capital((int)WorldCities.ItalyCagliari)]
+            [LargestCity((int)WorldCities.ItalyCagliari)]
+            public static class Sardinia { }
+        }
+
+        public static class France
+        {
+            /// <summary>
+            /// Corsica, a French island, has long had a separatist movement, with a desire for 
+            /// autonomy or independence. The FLNC (National Front for the Liberation of Corsica) 
+            /// was an armed separatist group that sought independence through violent means but 
+            /// officially disbanded in 2014. Corsican nationalism now focuses more on cultural 
+            /// and political autonomy rather than full independence. The Corsican Nationalist 
+            /// Party, Femu a Corsica, advocates for greater self-governance, including 
+            /// recognition of the Corsican language and more economic control. While full 
+            /// independence is not universally supported, the desire for autonomy remains strong.
+            /// </summary>
+            [Capital((int)WorldCities.FranceAjaccio)]
+            [LargestCity((int)WorldCities.FranceAjaccio)]
+            public static class Corsica { }
+        }
+
+        public static class Denmark
+        {
+            /// <summary>
+            /// Greenland is an autonomous territory of Denmark, with its own government, but it 
+            /// remains part of the Kingdom of Denmark. Greenland has had increasing calls for full 
+            /// independence, especially in recent years as the Greenlandic government has sought 
+            /// more control over its natural resources and economic affairs. The issue has gained 
+            /// traction due to climate change and Greenland's importance in global geopolitics.
+            /// While full independence has not yet been achieved, there has been growing support for 
+            /// greater self-determination. In 2009, Greenland's Home Rule Act gave the region more 
+            /// autonomy, and a referendum on independence could take place in the future, depending 
+            /// on political developments.
+            /// </summary>
+            [Capital((int)WorldCities.GreenlandNuuk)]
+            [LargestCity((int)WorldCities.GreenlandNuuk)]
+            public static class Greenland { }
+
+            /// <summary>
+            /// The Faroe Islands are an autonomous territory of Denmark, with a self-governing parliament.
+            /// While there is no immediate push for independence, the Faroe Islands have continued 
+            /// to develop as an autonomous region, and there are periodic discussions about full 
+            /// independence. The Independence Party in the Faroe Islands advocates for a future 
+            /// referendum on independence, although the majority of the population still favors 
+            /// maintaining ties with Denmark, at least for the time being.
+            /// </summary>
+            [Capital((int)WorldCities.FaroeIslandsTórshavn)]
+            [LargestCity((int)WorldCities.FaroeIslandsTórshavn)]
+            public static class FaroeIslands { }
+        }
 
         public static class Kurdistan
         {
@@ -1492,6 +1636,213 @@ namespace Existence.Earth.Countries
             /// </summary>
             [LargestCity((int)WorldCities.IranSanandaj)]
             public static class Iran { }
+        }
+
+        /// <summary>
+        /// 1995 Referendum: The Yes side (for independence) lost by a narrow margin of 50.6% to 
+        /// 49.4%, but the result showed that separatist sentiment remained strong.
+        /// Polls today show that public support for independence hovers at around 30-35%.
+        /// Quebec’s French language and distinct culture remain central to the province’s 
+        /// identity. However, the separatist movement now focuses more on cultural preservation 
+        /// and self-governance rather than a complete break from Canada. Bill 101 (the Charter of 
+        /// the French Language) continues to be an important piece of legislation that ensures 
+        /// French remains the dominant language in Quebec's public life. Most Quebecers today 
+        /// prefer to stay within Canada but with increased powers for Quebec. The focus has 
+        /// shifted from secession to federal reform, including calls for Quebec to have more 
+        /// control over areas like immigration, taxation, and natural resources. The CAQ government 
+        /// has emphasized Quebec's autonomy within the Canadian federation, prioritizing nationalism 
+        /// and cultural preservation while not advocating for outright separation.
+        /// </summary>
+        [Capital((int)WorldCities.CanadaQuebecCity)]
+        [LargestCity((int)WorldCities.CanadaMontreal)]
+        public static class Quebec { }
+
+        /// <summary>
+        /// Public support for full independence has always been a minority viewpoint. 
+        /// Historically, it has never exceeded 5-10% in polls, and the most popular choices 
+        /// among Puerto Ricans have been statehood or the maintenance of the current commonwealth 
+        /// status. In recent years, however, the question of Puerto Rico’s status has come to the 
+        /// forefront due to issues like economic challenges, financial debt, and disaster recovery 
+        /// (e.g., following Hurricane Maria in 2017). Political and social activism in Puerto Rico, 
+        /// particularly among the younger population, has become more visible, with more people calling 
+        /// for greater self-determination or for addressing the territorial status more decisively, but
+        /// full independence remains a minority stance.
+        /// </summary>
+        [Capital((int)WorldCities.PuertoRicoSanJuan)]
+        [LargestCity((int)WorldCities.PuertoRicoSanJuan)]
+        public static class PuertoRico { }
+
+        /// <summary>
+        /// considers itself an autonomous state within Somalia
+        /// recognizes the Somali federal government, but it operates with its own government, 
+        /// security forces, and administration.
+        /// has border disputes with Somaliland, especially over the Sool, Sanaag, and Cayn regions.
+        /// </summary>
+        [Capital((int)WorldCities.SomaliaGarowe)]
+        [LargestCity((int)WorldCities.SomaliaGarowe)]
+        public static class Puntland { }
+    }
+
+    /// <summary>
+    /// western sahara is on the list but covered above
+    /// </summary>
+    public static class UNNonSelfGoverningTerritories
+    {
+        public static class FranceOVerseasCollectivities
+        {
+            /// <summary>
+            /// New Caledonia has been on the UN list since 1946. It has a high degree of autonomy 
+            /// but remains a French territory. In recent years, there have been referenda on 
+            /// independence (2018, 2020), with the majority voting to stay with France, but a 
+            /// new vote is expected in the future. The Kanak independence movement seeks full 
+            /// sovereignty, but the region is politically divided between those in favor of 
+            /// independence and those wishing to remain part of France.
+            /// </summary>
+            [Capital((int)WorldCities.NewCaledoniaNouméa)]
+            [PopulationEstimate(252000)]
+            public static class NewCaledonia { }
+
+            /// <summary>
+            /// French Polynesia has a unique political status within France, with autonomy over 
+            /// its internal affairs, although France maintains control over defense, foreign 
+            /// affairs, and security. The territory has local autonomy but is still listed by the 
+            /// UN as non-self-governing. While there are pro-independence movements, French 
+            /// Polynesia has not held a referendum on independence, and the political atmosphere 
+            /// leans toward maintaining the relationship with France.
+            /// </summary>
+            [Capital((int)WorldCities.FrenchPolynesiaPapeete)]
+            [PopulationEstimate(271000)]
+            public static class FrenchPolynesia { }
+        }
+
+        public static class UnitedKingdomBritishOverseasTerritories
+        {
+            /// <summary>
+            /// Bermuda is an autonomous territory, but its defense and foreign affairs are 
+            /// managed by the United Kingdom. It has a parliamentary system and exercises 
+            /// self-governance in most internal matters. There are pro-independence groups in 
+            /// Bermuda, though full independence has not been pursued in any serious capacity, 
+            /// and the current relationship with the UK is seen as beneficial by the majority.
+            /// </summary>
+            [Capital((int)WorldCities.BermudaHamilton)]
+            [PopulationEstimate(62000)]
+            public static class Bermuda { }
+
+            /// <summary>
+            /// The Cayman Islands has a high degree of self-governance, with a local government 
+            /// and parliament. The UK retains control over matters of defense, foreign affairs, 
+            /// and internal security. The Cayman Islands is listed as a non-self-governing 
+            /// territory due to its continued dependence on the UK for certain key matters.
+            /// </summary>
+            [Capital((int)WorldCities.CaymanIslandsGeorgeTown)]
+            [PopulationEstimate(55500)]
+            public static class CaymanIslands { }
+
+            /// <summary>
+            /// Gibraltar is a small territory located at the southern tip of the Iberian 
+            /// Peninsula. It has self-governance over most internal affairs, but the UK manages 
+            /// its defense and foreign relations. Spain claims sovereignty over the territory, 
+            /// which has led to long-standing political tensions. The Gibraltarians overwhelmingly 
+            /// voted in favor of remaining a British territory in referenda, and there is no 
+            /// strong independence movement, though the question of its status remains an ongoing 
+            /// diplomatic issue, especially in the context of Brexit.
+            /// </summary>
+            [Capital((int)WorldCities.GibraltarGibraltar)]
+            [PopulationEstimate(29752)]
+            public static class Gibraltar { }
+
+            /// <summary>
+            /// The Falkland Islands are an archipelago in the South Atlantic Ocean. They have a 
+            /// high degree of self-governance, but the UK retains control over defense, foreign
+            /// policy, and internal security. The Argentine government claims sovereignty over 
+            /// the islands, leading to a long-standing dispute. The islands' population 
+            /// overwhelmingly favors maintaining the British connection, with a strong sentiment 
+            /// against Argentine sovereignty claims. However, their non-self-governing status 
+            /// remains contentious in international diplomacy.
+            /// </summary>
+            [Capital((int)WorldCities.FalklandIslandsStanley)]
+            [PopulationEstimate(3662)]
+            public static class FalklandIslands { }
+
+            /// <summary>
+            /// The Turks and Caicos Islands enjoys a degree of self-governance, with its own 
+            /// elected government. The UK retains control over key areas such as defense, 
+            /// foreign affairs, and internal security.
+            /// </summary>
+            [Capital((int)WorldCities.TurksandCaicosIslandsCockburnTown)]
+            [PopulationEstimate(31458)]
+            public static class TurksAndCaicosIslands { }
+
+            /// <summary>
+            /// The British Virgin Islands has significant self-governance, with its own government,
+            /// assembly, and elected officials. However, the UK retains control over defense, 
+            /// foreign relations, and internal security. The BVI remains on the UN list because 
+            /// it is not fully sovereign and is under British administration.
+            /// </summary>
+            [Capital((int)WorldCities.BritishVirginIslandsRoadTown)]
+            [PopulationEstimate(28103)]
+            public static class BritishVirginIslands { }
+
+            /// <summary>
+            /// Anguilla is a small Caribbean island under British sovereignty. The island has its 
+            /// own government, but defense and foreign affairs are managed by the UK. Anguilla has 
+            /// experienced periods of civil unrest in the past over its political status. The 
+            /// independence movement in Anguilla is relatively small, and there is no major push 
+            /// for full independence at this time. The political focus remains on autonomy and 
+            /// improving local governance under the British connection.
+            /// </summary>
+            [Capital((int)WorldCities.AnguillaTheValley)]
+            [PopulationEstimate(14108)]
+            public static class Anguilla { }
+
+            /// <summary>
+            /// Saint Helena and its associated islands are remote territories in the South 
+            /// Atlantic Ocean. They are under British sovereignty but have their own governments 
+            /// that handle most local affairs. The UK maintains responsibility for defense and 
+            /// foreign relations. There is no significant independence movement, as the islands 
+            /// are very small in population and rely on the UK for key infrastructure and 
+            /// economic support.
+            /// </summary>
+            [Capital((int)WorldCities.SaintHelenaAscensionTristandaCunhaJamestown)]
+            [PopulationEstimate(5396)]
+            public static class SaintHelenaAscensionTristandaCunha { }
+
+            /// <summary>
+            /// Montserrat has self-governance in many aspects, but it is still heavily reliant 
+            /// on the UK, particularly for defense and foreign relations. Despite the island’s 
+            /// internal autonomy, Montserrat remains on the UN non-self-governing list.
+            /// </summary>
+            [Capital((int)WorldCities.MontserratPlymouth)] //disruptive volcanic eruptions here
+            [DeFactoCapital((int)WorldCities.MontserratBrades)]
+            [PopulationEstimate(5000)]
+            public static class Montserrat { }
+
+            /// <summary>
+            /// The Pitcairn Islands are a small group of islands in the South Pacific. The 
+            /// population is extremely small, mostly descendants of the HMS Bounty mutineers. 
+            /// The British government oversees defense and foreign policy, while local affairs 
+            /// are handled by the Island Council. The Pitcairn Islands have no significant 
+            /// autonomy, and independence is not a prominent political issue. However, some 
+            /// islanders have expressed the desire for greater local decision-making.
+            /// </summary>
+            [Capital((int)WorldCities.PitcairnIslandsAdamstown)]
+            [PopulationEstimate(50)]
+            public static class PitcairnIslands { }
+        }
+
+        public static class NewZealand
+        {
+            /// <summary>
+            /// Tokelau is a small group of atolls in the South Pacific. It is a self-governing 
+            /// territory under the sovereignty of New Zealand, but it is listed as 
+            /// non-self-governing because it does not have full sovereignty. The New Zealand 
+            /// government handles defense, foreign relations, and economic matters. There have 
+            /// been discussions about potential independence, but Tokelau has voted to remain 
+            /// under New Zealand's sovereignty in recent referenda (2006, 2007).
+            /// </summary>
+            [Capital((int)WorldCities.TokelauFakaofo)]
+            [PopulationEstimate(1411)]
+            public static class Tokelau { }
         }
     }
 

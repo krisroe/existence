@@ -319,6 +319,7 @@ namespace Existence.Earth.Countries.UnitedStates
         /// </summary>
         [Capital((int)USCities.GuamHagåtña)]
         [LargestCity((int)USCities.GuamDededo)]
+        [PopulationEstimate(159358)]
         Guam,
 
         /// <summary>
@@ -326,6 +327,7 @@ namespace Existence.Earth.Countries.UnitedStates
         /// </summary>
         [Capital((int)USCities.UnitedStatesVirginIslandsCharlotteAmalie)]
         [LargestCity((int)USCities.UnitedStatesVirginIslandsCharlotteAmalie)]
+        [PopulationEstimate(106405)]
         UnitedStatesVirginIslands,
 
         /// <summary>
@@ -333,6 +335,7 @@ namespace Existence.Earth.Countries.UnitedStates
         /// </summary>
         [Capital((int)USCities.AmericanSamoaPagoPago)]
         [LargestCity((int)USCities.AmericanSamoaTafuna)]
+        [PopulationEstimate(55519)]
         AmericanSamoa,
     }
 
