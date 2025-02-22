@@ -26,6 +26,12 @@ namespace Existence.Personal
         public static class Husband { }
         public static class Alive { }
 
+        public static class SinceChildhoodTheseHaveNotChangedSinceAge6Or7
+        {
+            public const int FIRST_FAVORITE_NUMBER = 24865;
+            public const int SECOND_FAVORITE_NUMBER = 4;
+        }
+
         public static class PoliticalPhilosophiesRanked
         {
             public static class Libertarian
@@ -111,7 +117,7 @@ namespace Existence.Personal
             /// <summary>
             /// Using 2021 life table downloaded from CDC web site.
             /// Expected additional years for 45 year old white male is 32.5 years
-            /// I'm optimistic I'll beat this by some amount.
+            /// I'm somewhat optimistic I'll beat this by some amount.
             /// </summary>
             [YearDate(2058, 6, 6)]
             public static class ExpectedDeathDateForMyDemographics { }
