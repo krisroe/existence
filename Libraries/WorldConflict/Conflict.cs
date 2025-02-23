@@ -174,7 +174,7 @@ namespace WorldConflict
                 {
                     List<int> sidea = new List<int>() { int.Parse(c.side_a_id) };
                     List<int> sideb = new List<int>() { int.Parse(c.side_b_id) };
-                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sidea, sideb);
+                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sidea, sideb, int.Parse(c.intensity_level));
                     allConflictRecords.Add(cdr);
                 }
             }
@@ -283,13 +283,16 @@ namespace WorldConflict
 
             allConflictsAsList.Sort((a, b) =>
             {
-                return b.GetMostRecentIntenseYear().CompareTo(a.GetMostRecentIntenseYear());
+                return a.GetCompareByYearGap(b);
             });
 
             foreach (Conflict c in allConflictsAsList)
             {
                 WarEnum we = (WarEnum)c.id;
-                if (we.ToString() == ((int)we).ToString())
+                string sWarEnum = we.ToString();
+                int iWarEnum = (int)we;
+                bool existsInEnum = sWarEnum != iWarEnum.ToString();
+                if (c.location == "Myanmar (Burma)")
                 {
                     Console.Out.WriteLine(c.id + " " + c.first_year + " " + c.last_year + " " + c.location + " " + c.GetRegions());
                     foreach (ConflictDetailRecord cdr in c.cdrs)
@@ -297,6 +300,8 @@ namespace WorldConflict
                         StringBuilder sb = new StringBuilder();
                         sb.Append(" ");
                         sb.Append(cdr.Year);
+                        sb.Append(" ");
+                        sb.Append(cdr.Intensity);
                         sb.Append(" ");
                         bool pastFirst = false;
                         foreach (int nextA in cdr.sideA)
@@ -417,7 +422,7 @@ namespace WorldConflict
                 }
                 else
                 {
-                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sideAIDs, sideBIDs);
+                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sideAIDs, sideBIDs, int.Parse(c.intensity_level));
                     cdrs.Add(cdr);
                 }
             }
@@ -586,9 +591,10 @@ namespace WorldConflict
 
     public class ConflictDetailRecord
     {
-        public ConflictDetailRecord(object o, int Year, List<int> sideA, List<int> sideB)
+        public ConflictDetailRecord(object o, int Year, List<int> sideA, List<int> sideB, int Intensity)
         {
             this.DetailRecord = o;
+            this.Intensity = Intensity;
             this.Year = Year;
             this.sideA = sideA;
             this.sideB = sideB;
@@ -596,6 +602,7 @@ namespace WorldConflict
 
         public object DetailRecord { get; set; }
         public int Year { get; set; }
+        public int Intensity { get; set; }
         public List<int> sideA { get; set; }
         public List<int> sideB { get; set; }
     }
@@ -651,6 +658,11 @@ namespace WorldConflict
                 }
             }
             return iRet;
+        }
+
+        public int GetCompareByYearGap(Conflict c2)
+        {
+            return (c2.last_year - c2.first_year).CompareTo(last_year - first_year);
         }
 
         public int CompareByFirstYear(Conflict c2)

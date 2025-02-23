@@ -30,6 +30,42 @@ namespace WorldConflict
         }
     }
 
+    public enum IndependentWarEnum
+    {
+        /// <summary>
+        /// The conflict began shortly after Myanmar gained independence from British colonial rule in January 1948. The newly formed nation-state 
+        /// included a diverse mosaic of ethnic groups, with many ethnic minorities feeling marginalized and underrepresented in the central government 
+        /// dominated by the Bamar (Burmese) majority. This led to armed insurgencies by various ethnic groups seeking greater autonomy or independence.
+        /// 
+        /// Several key ethnic armed organizations have been involved in the conflict, controlling significant territories 
+        /// within their respective regions and have been engaged in prolonged armed struggles against the central government.
+        /// 
+        /// The Myanmar military (Tatmadaw) has played a central role in the nation's politics and conflict dynamics. Military rulers have governed 
+        /// Myanmar for most of the period since independence, implementing policies that often suppressed ethnic minority rights and political dissent. 
+        /// The military's harsh tactics in dealing with ethnic insurgencies and civil opposition have led to widespread allegations of human rights 
+        /// abuses, including forced labor, rape, and extrajudicial killings.
+        /// 
+        /// Various attempts at peace have been made, including numerous ceasefires and peace talks. The most significant recent effort was the Nationwide 
+        /// Ceasefire Agreement (NCA) initiated in 2015, under the government of then-President Thein Sein. However, the agreement was only signed by
+        /// some of the ethnic armed groups, with major organizations like the KIO and the UWSA abstaining, limiting its effectiveness.
+        /// 
+        /// The conflict took a dramatic turn with the military coup on February 1, 2021, when the military ousted the elected government led by 
+        /// Aung San Suu Kyi's National League for Democracy (NLD), which had won a landslide victory in the November 2020 elections. The coup 
+        /// led to massive civil unrest, widespread protests, and the formation of the Civil Disobedience Movement (CDM). In response to brutal 
+        /// military suppression of protests, various groups formed the People’s Defense Forces (PDF), and some teamed up with established ethnic 
+        /// armed groups, escalating the conflict to new levels of violence across the country.
+        /// 
+        /// The conflict has had a devastating humanitarian impact, resulting in thousands of deaths and displacements over the decades. Large numbers 
+        /// of people have been internally displaced or have fled as refugees to neighboring countries. Civilian populations in conflict areas continue 
+        /// to suffer from lack of access to basic services, food insecurity, and human rights violations.
+        /// 
+        /// International responses have included condemnation of human rights abuses, economic sanctions against the Myanmar military, and 
+        /// humanitarian aid to displaced populations. However, geopolitical complexities, including the interests of major powers like China and 
+        /// Russia, who have historically backed the Myanmar government, complicate international efforts to resolve the conflict.
+        /// </summary>
+        Burma = 1,
+    }
+
     public enum WarEnum
     {
         /// <summary>
@@ -65,6 +101,24 @@ namespace WorldConflict
         [Locations("Israel")]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         UnitedKingdomIrgunZvaiLeuJewishInsurgencyInMandatoryPalestine = 207,
+
+        /// <summary>
+        /// Hukbalahap Rebellion (1946-1954): The Huks, short for Hukbong Bayan Laban sa Hapon (People's Army Against the Japanese), initially formed 
+        /// during World War II to fight the Japanese occupation. After the war, the movement transitioned into a struggle against the landed elite 
+        /// and the central government. Land reform was a central issue, as the Huks sought to address the grievances of poor, landless peasants in 
+        /// Central Luzon. The conflict with the government intensified under the presidency of Elpidio Quirino. The government's response combined 
+        /// military action with some attempts at land reform. The rebellion waned in the mid-1950s due to a combination of military pressure and reforms 
+        /// that addressed some of the peasants' concerns.
+        /// New People’s Army and Communist Party of the Philippines (1969-present): Founded by Jose Maria Sison in 1968, the CPP established its armed 
+        /// wing, the New People's Army (NPA), in 1969. This group aimed to overthrow the government through protracted guerrilla warfare. Inspired by 
+        /// Maoist principles, the NPA sought to mobilize support among the rural poor, addressing issues such as land reform, human rights abuses, and 
+        /// corruption. The conflict escalated during the martial law period under Ferdinand Marcos, who used the insurgency as a pretext to crack down 
+        /// on all forms of dissent.
+        /// </summary>
+        [YearRange(1946, 2023)]
+        [Locations("Philippines")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        PhilippinesLeftWingInsurgency = 209,
 
         /// <summary>
         /// The war between the Soviet Union and the Lithuanian partisans, involving groups such as the Lithuanian Nationalist Party Army (LNPA) and the 
@@ -118,41 +172,85 @@ namespace WorldConflict
         CorfuChannelIncident = 215,
 
         /// <summary>
-        /// The conflict began shortly after Myanmar gained independence from British colonial rule in January 1948. The newly formed nation-state 
-        /// included a diverse mosaic of ethnic groups, with many ethnic minorities feeling marginalized and underrepresented in the central government 
-        /// dominated by the Bamar (Burmese) majority. This led to armed insurgencies by various ethnic groups seeking greater autonomy or independence.
-        /// 
-        /// Several key ethnic armed organizations have been involved in the conflict, including the Karen National Union (KNU), the Kachin Independence 
-        /// Organization (KIO), the Shan State Army (SSA), and the United Wa State Army (UWSA), among others. These groups control significant territories 
-        /// within their respective regions and have been engaged in prolonged armed struggles against the central government.
-        /// 
-        /// The Myanmar military (Tatmadaw) has played a central role in the nation's politics and conflict dynamics. Military rulers have governed 
-        /// Myanmar for most of the period since independence, implementing policies that often suppressed ethnic minority rights and political dissent. 
-        /// The military's harsh tactics in dealing with ethnic insurgencies and civil opposition have led to widespread allegations of human rights 
-        /// abuses, including forced labor, rape, and extrajudicial killings.
-        /// 
-        /// Various attempts at peace have been made, including numerous ceasefires and peace talks. The most significant recent effort was the Nationwide 
-        /// Ceasefire Agreement (NCA) initiated in 2015, under the government of then-President Thein Sein. However, the agreement was only signed by
-        /// some of the ethnic armed groups, with major organizations like the KIO and the UWSA abstaining, limiting its effectiveness.
-        /// 
-        /// The conflict took a dramatic turn with the military coup on February 1, 2021, when the military ousted the elected government led by 
-        /// Aung San Suu Kyi's National League for Democracy (NLD), which had won a landslide victory in the November 2020 elections. The coup 
-        /// led to massive civil unrest, widespread protests, and the formation of the Civil Disobedience Movement (CDM). In response to brutal 
-        /// military suppression of protests, various groups formed the People’s Defense Forces (PDF), and some teamed up with established ethnic 
-        /// armed groups, escalating the conflict to new levels of violence across the country.
-        /// 
-        /// The conflict has had a devastating humanitarian impact, resulting in thousands of deaths and displacements over the decades. Large numbers 
-        /// of people have been internally displaced or have fled as refugees to neighboring countries. Civilian populations in conflict areas continue 
-        /// to suffer from lack of access to basic services, food insecurity, and human rights violations.
-        /// 
-        /// International responses have included condemnation of human rights abuses, economic sanctions against the Myanmar military, and 
-        /// humanitarian aid to displaced populations. However, geopolitical complexities, including the interests of major powers like China and 
-        /// Russia, who have historically backed the Myanmar government, complicate international efforts to resolve the conflict.
+        /// Groups operating in Myanmar conflict
+        /// CPB (Communist Party of Burma): 1948-1988
+        /// ABSDF (All Burma Students' Democratic Front): 1990-1994
+        /// PSLF (Palaung State Liberation Front): 2013-2019,2022-2023)
+        /// NUG (National Unity Government): 2021-2023
+        /// CNF (Chin National Front): 2023
         /// </summary>
         [YearRange(1948, 2023)]
         [Locations("Myanmar (Burma)")]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarBurma = 222,
+
+        /// <summary>
+        /// The sides listed operate in Rakhine State (APLP, Mujahid Party, ANLP, RPF, ALP, RSO, ARSA, ULA)
+        /// APLP (Arakan People's Liberation Party) (1948-1957): Specifically focuses on Rakhine State and the rights of the Rakhine people.
+        /// Mujahid Party (1948-1961): Operated in Rakhine State, advocating for the Rohingya Muslim minority's rights, particularly in the earlier decades 
+        /// following Myanmar's independence.
+        /// ANLP (Arakan National Liberation Party)(1964-1972): Also centered in Rakhine State, focusing on autonomy and rights for the local population.
+        /// RPF (Rakhine Patriotic Front)(1973-1978): Engages in activities within Rakhine State, focusing on issues pertinent to the Rakhine ethnic group.
+        /// ALP (Arakan Liberation Party)(1977): Its activities are also concentrated in Rakhine State, working for the rights and autonomy of the Rakhine people.
+        /// RSO (Rohingya Solidarity Organization)(1991,1994): Primarily active in Rakhine State, particularly among the Rohingya communities.
+        /// ARSA (Arakan Rohingya Salvation Army)(2016-2017): Specifically operates in Rakhine State and is known for its focus on Rohingya rights and responses 
+        /// to military actions.
+        /// ULA (United League of Arakan)(2018-2023): Closely associated with the Arakan Army, which is a major insurgent group in Rakhine State seeking greater 
+        /// autonomy for the Rakhine people.
+        /// CPA (Chin Progressive Alliance)(1964-1973) operates in Chin State, which borders India and Rakhine State
+        /// </summary>
+        [YearRange(1948, 2023)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarBurmaRakhineState = 223,
+
+        /// <summary>
+        /// 1948: Yemeni Imamate Revolution (1948 Civil War). involved a coup attempt against Imam Yahya, the ruler of the Kingdom of Mutawakkilite Yemen, 
+        /// by radical forces within the Yemeni military and government. Coup was initially successful but Ahmad bin Yahya mounted a counter-coup weeks later.
+        /// 1962-1970: North Yemen Civil War. began shortly after a coup d'état that overthrew the reigning Imam, Muhammad al-Badr, marking a decisive 
+        /// shift from a theocratic imamate to a republic, led to the recognition of the Yemen Arab Republic by Saudi Arabia
+        /// Border Conflict between North Yemen and South Yemen (1979)
+        /// Internal Struggles and Plots (1980-1982). North Yemen experienced various internal power struggles and plots against its leadership, 
+        /// particularly against President Ali Abdullah Saleh, who had come to power in 1978.
+        /// 2009+: Houthi conflict. Houthis fought against President Ali Abdullah Saleh's regime. Saudi Arabia intervened in 2009. President Salah
+        /// resigned in 2012 after the Arab Spring uprisings of 2011. In 2014, Houthis took the capital Sana'a. 2015 saw full-blown civil war.
+        /// </summary>
+        [YearRange(1948, 2023)]
+        [Locations("Yemen (North Yemen)")]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        OngoingConflictInYemen = 230,
+
+        /// <summary>
+        /// The 1948 Arab-Israeli War (November 1947 - July 1949). resulted in significant territorial changes and established the armistice lines known as the 
+        /// Green Line
+        /// The Suez Crisis (1956). led to a UN peacekeeping presence in the region
+        /// The Six-Day War (1967). Israel attacked preemptively, captured the Sinai Peninsula, the Gaza Strip, the West Bank, East Jerusalem, and the 
+        /// Golan Heights during this conflict.
+        /// The War of Attrition (1967-1970)
+        /// The Yom Kippur War (1973)
+        /// The 1982 Lebanon War. led to the occupation of southern Lebanon, which lasted until 2000, and the infamous siege of Beirut.
+        /// The First Intifada (1987-1993)
+        /// Oslo Accords: September 13, 1993 and September 28, 1995
+        /// The Hebron Protocol (1997) and the Wye River Memorandum (1998), addressed issues such as Israeli troop withdrawals and security cooperation
+        /// The Second Intifada (2000-2005)
+        /// The 2006 Lebanon War
+        /// Operation Cast Lead (2008-2009)
+        /// Operation Pillar of Defense (2012) and Operation Protective Edge (2014)
+        /// </summary>
+        [YearRange(1949, 2023)]
+        [Locations("Israel")]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        OngoingConflictInPalestina = 234,
+
+        /// <summary>
+        /// 1960: attempted coup d'état against Emperor Haile Selassie
+        /// 1976-1991: Ethiopian Civil War
+        /// 2020-2022: Tigray War, between the Ethiopian federal government and the Tigray People's Liberation Front (TPLF)
+        /// </summary>
+        [YearRange(1960, 2022)]
+        [Locations("Ethiopia")]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInEthopia = 267,
 
         /// <summary>
         /// An intra-party coup within the Ba'ath Party took place on February 23, 1966. This coup resulted in a radical shift of power within the 
@@ -169,7 +267,37 @@ namespace WorldConflict
         [YearRange(1966, 2023)]
         [Locations("Syria")]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
-        OngoingConflictInSyrica = 299,
+        OngoingConflictInSyria = 299,
+
+        /// <summary>
+        /// 1971: failed coup attempt against President Jaafar Nimeiry
+        /// 1976: attempted coup against President Jaafar Nimeiry, orchestrated by opponents of Nimeiry who were exiled in Libya and supported by the Libyan 
+        /// government under Muammar Gaddafi
+        /// 1983-2005: Second Sudanese Civil War
+        /// 2003+: Darfur conflict
+        /// 2005+: South Kordofan and Blue Nile Conflicts involving SPLM-North (these regions have ties to South Sudan)
+        /// April 2019: popular uprising led to the overthrow of longtime President Omar al-Bashir
+        /// October 2020: Juba Peace Agreement, but implementation is challenging and some groups didn't sign the agreement
+        /// </summary>
+        [YearRange(1971, 2023)]
+        [Locations("Sudan")]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInSudan = 309,
+
+        /// <summary>
+        /// Saur Revolution (1978). People's Democratic Party of Afghanistan (PDPA) overthrew the government of President Mohammed Daoud Khan in a coup.
+        /// Soviet-Afghan War (1979-1989). The Soviet Union invaded Afghanistan to support the faltering communist regime, sparking a brutal decade-long 
+        /// conflict. The Soviets withdrew in 1989, leaving a devastated and fragmented country.
+        /// Afghan Civil War (1989-1996)
+        /// Taliban Ascendancy and Islamic Emirate of Afghanistan (1996-2001)
+        /// US Invasion and NATO-led Intervention (2001-2014)
+        /// Resurgence of the Taliban and Continued Conflict (2014-2021)
+        /// US-Taliban Agreement and Withdrawal of US Troops (2020-2021)
+        /// </summary>
+        [YearRange(1978, 2023)]
+        [Locations("Afghanistan")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInAfghanistan = 333,
 
         /// <summary>
         /// The conflict initially began as resistance against the dictatorial regime of Siad Barre, who seized power in a military coup in 1969. By the 
@@ -227,6 +355,62 @@ namespace WorldConflict
         [Locations("Burkina Faso")]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInBurkinaFaso = 360,
+
+        /// <summary>
+        /// First Nagorno-Karabakh War (1991-1994)
+        /// Intermittent Skirmishes (1994-2016)
+        /// Second Nagorno-Karabakh War (2020). Ended in ceasefire November 10, 2020.
+        /// The ceasefire agreement included the deployment of Russian peacekeepers and the ceding of certain territories controlled by Armenians to 
+        /// Azerbaijan. Tensions and minor skirmishes continue, as the political status of Artsakh remains unresolved and a source of ongoing dispute.
+        /// </summary>
+        [YearRange(1991, 2023)]
+        [Locations("Azerbaijan")]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        OngoingConflictForArtsakh = 388,
+
+        /// <summary>
+        /// 2009-2011: The presence and activities of AQIM in northern Mali were primarily focused on kidnappings and small-scale skirmishes with Malian 
+        /// security forces.
+        /// 2012 Rebellion and Coup: The conflict intensified dramatically in 2012 following a rebellion by the MNLA (a secular Tuareg nationalist group),
+        /// which quickly spiraled into a full-scale insurgency as Islamist groups, including Ansar Dine and later AQIM and MUJAO, took control of 
+        /// significant portions of northern Mali, including cities like Timbuktu, Gao, and Kidal.
+        /// French Intervention in 2013: In response to the Islamist advance towards the capital, Bamako, France launched Operation Serval in January 2013, 
+        /// which rapidly dislodged the jihadists from major urban centers.
+        /// Post-2013 Insurgency: Despite the success of French and African troops in reclaiming territory, the jihadist groups morphed into a guerrilla 
+        /// insurgency, conducting terrorist attacks, ambushes, and IED explosions against military and civilian targets.
+        /// Formation of JNIM: The formation of JNIM in 2017 marked a significant shift, as it unified major jihadist factions in Mali, enhancing their 
+        /// operational capabilities and strategic reach.
+        /// Ongoing Violence and International Response: The conflict has persisted with varying intensity, involving Malian forces, French troops (later 
+        /// reorganized under Operation Barkhane), UN peacekeepers (MINUSMA), and increasingly, other international partners including the G5 Sahel Joint 
+        /// Force
+        /// </summary>
+        [YearRange(2009, 2023)]
+        [Locations("Mali")]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        IslamicInsurgencyInMali = 11347,
+
+        /// <summary>
+        /// Major Russian invasion of Ukraine in Februrary 2002, advances toward Kiev/Kharkiv/Kherson, Crimea land corridor, failed to topple
+        /// Ukrainian government. By the end of 2022 Ukraine had recaptured most territory outside of Donetsk/Luhansk oblasts and the Crimea land
+        /// corridor. August 2024, Ukraine invaded Russia in Kursk oblast.
+        /// </summary>
+        [YearRange(2022, 2023)]
+        [Locations("Russia (Soviet Union)", "Ukraine")]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        RussianInvasionOfUkraine = 13243,
+
+        /// <summary>
+        /// Islamic State Emergence and Expansion (2013-2014). In June 2014, after capturing large swaths of territory in Iraq and Syria, including the 
+        /// major cities of Raqqa in Syria and Mosul in Iraq, ISIS declared the establishment of a caliphate.
+        /// International Response and Initial Counteroffensives (2014-2016). US-Led Coalition and Kurdish Forces (SDF) fought against Islamic State.
+        /// Turning Point and Major Setbacks (2016-2017). Islamic State lost Palmyra, Dabiq, Mosul, and Raqqa.
+        /// Territorial Defeat and Insurgency Shift (2018-2019). Battle of Baghuz Fawqan meant the loss of significant territory.
+        /// ISIS has continued to operate as an insurgent force.
+        /// </summary>
+        [YearRange(2013, 2023)]
+        [Locations("Syria")]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        IslamicStateInSyria = 13604,
 
         /// <summary>
         /// ISWAP (Islamic State in West Africa Province) originated as a faction within Boko Haram, the jihadist group that began 

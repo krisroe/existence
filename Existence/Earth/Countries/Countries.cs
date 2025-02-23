@@ -1639,6 +1639,17 @@ namespace Existence.Earth.Countries
         }
 
         /// <summary>
+        /// National Movement for the Liberation of Azawad (MNLA), a Tuareg separatist group, declared the independence of Azawad in April 2012. 
+        /// Islamist groups took over the region by mid-2012 (Ansar Dine, Al-Qaeda in the Islamic Maghreb (AQIM), and the Movement for 
+        /// Oneness and Jihad in West Africa (MOJWA))
+        /// In January 2013, at the request of the Malian government, French military forces intervened in Mali to help regain control 
+        /// of the northern regions from Islamist militant groups. This intervention, known as Operation Serval, was later succeeded 
+        /// by Operation Barkhane and supported by a UN peacekeeping mission (MINUSMA).
+        /// The region remains under the official jurisdiction of the Malian government, but the security situation is volatile.
+        /// </summary>
+        public static class Azawad { }
+
+        /// <summary>
         /// 1995 Referendum: The Yes side (for independence) lost by a narrow margin of 50.6% to 
         /// 49.4%, but the result showed that separatist sentiment remained strong.
         /// Polls today show that public support for independence hovers at around 30-35%.
