@@ -292,7 +292,7 @@ namespace WorldConflict
                 string sWarEnum = we.ToString();
                 int iWarEnum = (int)we;
                 bool existsInEnum = sWarEnum != iWarEnum.ToString();
-                if (!existsInEnum)
+                if (c.location == "Israel")
                 {
                     Console.Out.WriteLine(c.id + " " + c.first_year + " " + c.last_year + " " + c.location + " " + c.GetRegions());
                     foreach (ConflictDetailRecord cdr in c.cdrs)

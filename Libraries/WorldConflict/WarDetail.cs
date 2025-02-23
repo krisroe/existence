@@ -265,14 +265,13 @@ namespace WorldConflict
         /// Oslo Accords: September 13, 1993 and September 28, 1995
         /// The Hebron Protocol (1997) and the Wye River Memorandum (1998), addressed issues such as Israeli troop withdrawals and security cooperation
         /// The Second Intifada (2000-2005)
-        /// The 2006 Lebanon War
         /// Operation Cast Lead (2008-2009)
         /// Operation Pillar of Defense (2012) and Operation Protective Edge (2014)
         /// </summary>
         [YearRange(1949, 2023)]
         [Locations("Israel")]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
-        OngoingConflictInPalestina = 234,
+        OngoingConflictInIsraelAndPalestine = 234,
 
         /// <summary>
         /// KNPP (Karenni National Progressive Party)
@@ -439,6 +438,20 @@ namespace WorldConflict
         [Locations("Myanmar (Burma)")]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarUnitedWaStateArmy = 422,
+
+        /// <summary>
+        /// Hezbollah was founded in 1982 during the Lebanese Civil War 
+        /// as a response to the Israeli invasion of Lebanon.
+        /// 1993: Operation Accountability
+        /// 1996: Operation Grapes of Wrath
+        /// 2006 Lebanon War
+        /// Israel opened a front with Hezbollah at the same time
+        /// as the war with Hamas following the October 7 2023 attacks
+        /// </summary>
+        [YearRange(1990, 2023)]
+        [Locations("Israel")]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        ConflictBetweenIsraelAndHezbollah = 426,
 
         /// <summary>
         /// MNDAA (Myanmar National Democratic Alliance Army)
