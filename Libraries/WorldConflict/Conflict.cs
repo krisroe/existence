@@ -292,7 +292,7 @@ namespace WorldConflict
                 string sWarEnum = we.ToString();
                 int iWarEnum = (int)we;
                 bool existsInEnum = sWarEnum != iWarEnum.ToString();
-                if (c.location == "Myanmar (Burma)")
+                if (!existsInEnum)
                 {
                     Console.Out.WriteLine(c.id + " " + c.first_year + " " + c.last_year + " " + c.location + " " + c.GetRegions());
                     foreach (ConflictDetailRecord cdr in c.cdrs)

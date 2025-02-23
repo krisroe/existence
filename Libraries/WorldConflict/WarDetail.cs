@@ -172,6 +172,18 @@ namespace WorldConflict
         CorfuChannelIncident = 215,
 
         /// <summary>
+        /// Groups operating in Myanmar conflict, Karent state
+        /// KNU (Karen National Union)
+        /// KNUP (Karen National Union Peace Council)
+        /// God's Army
+        /// DKBA 5 (Democratic Karen Buddhist Army 5)
+        /// </summary>
+        [YearRange(1949, 2023)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarBurmaKarenState = 221,
+
+        /// <summary>
         /// Groups operating in Myanmar conflict
         /// CPB (Communist Party of Burma): 1948-1988
         /// ABSDF (All Burma Students' Democratic Front): 1990-1994
@@ -205,6 +217,17 @@ namespace WorldConflict
         OngoingConflictInMyanmarBurmaRakhineState = 223,
 
         /// <summary>
+        /// MFL-MUF (Myanmar Federal League – Myanmar United Front)
+        /// MPF (Mon People’s Front)
+        /// NMSP (New Mon State Party)
+        /// BMA (Burmese Muslim Army)
+        /// </summary>
+        [YearRange(1949, 1996)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarBurmaMonState = 224,
+
+        /// <summary>
         /// 1948: Yemeni Imamate Revolution (1948 Civil War). involved a coup attempt against Imam Yahya, the ruler of the Kingdom of Mutawakkilite Yemen, 
         /// by radical forces within the Yemeni military and government. Coup was initially successful but Ahmad bin Yahya mounted a counter-coup weeks later.
         /// 1962-1970: North Yemen Civil War. began shortly after a coup d'état that overthrew the reigning Imam, Muhammad al-Badr, marking a decisive 
@@ -219,6 +242,15 @@ namespace WorldConflict
         [Locations("Yemen (North Yemen)")]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         OngoingConflictInYemen = 230,
+
+        /// <summary>
+        /// PNDF (People’s National Defense Force)
+        /// KIO (Kachin Independence Organization)
+        /// </summary>
+        [YearRange(1948, 2023)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarKachinState = 231,
 
         /// <summary>
         /// The 1948 Arab-Israeli War (November 1947 - July 1949). resulted in significant territorial changes and established the armistice lines known as the 
@@ -241,6 +273,32 @@ namespace WorldConflict
         [Locations("Israel")]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         OngoingConflictInPalestina = 234,
+
+        /// <summary>
+        /// KNPP (Karenni National Progressive Party)
+        /// </summary>
+        [YearRange(1957, 2023)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarKarenniState = 253,
+
+        /// <summary>
+        /// NSH (Naga Solidarity Union)
+        /// SSIA (Shan State Progressive Army)
+        /// SNUF (Shan Nationalities Unity Front)
+        /// SSA (Shan State Army)
+        /// SSNLO (Shan State National Liberation Organization)
+        /// SURA (Southern Shan State Armed Resistance)
+        /// SSRA (Shan State Restoration Army)
+        /// TRC (Ta'ang National Liberation Army)
+        /// MTA (Myanmar Tiger Army)
+        /// RCSS (Restoration Council of Shan State)
+        /// SSPP (Shan State Progressive Party)
+        /// </summary>
+        [YearRange(1959, 2015)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInMyanmarShanState = 264,
 
         /// <summary>
         /// 1960: attempted coup d'état against Emperor Haile Selassie
@@ -369,6 +427,44 @@ namespace WorldConflict
         OngoingConflictForArtsakh = 388,
 
         /// <summary>
+        /// UWSA (United Wa State Army). The UWSA is the military wing 
+        /// of the United Wa State Party (UWSP), a political 
+        /// organization that represents the Wa ethnic group, which 
+        /// resides primarily in northern Shan State along the 
+        /// Myanmar-China border. The Wa people are one of the ethnic 
+        /// minorities in Myanmar, with a population that spans both 
+        /// Myanmar and China.
+        /// </summary>
+        [YearRange(1997, 1997)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInMyanmarUnitedWaStateArmy = 422,
+
+        /// <summary>
+        /// MNDAA (Myanmar National Democratic Alliance Army)
+        /// The group was initially established to represent the 
+        /// political and ethnic interests of the Kokang people,
+        /// who have long sought greater autonomy and
+        /// self-determination within Myanmar.
+        /// </summary>
+        [YearRange(1991, 2007)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInMyanmarMyanmarNationalDemocraticAllianceArmy = 439,
+
+        /// <summary>
+        /// The LNUP emerged as a political organization 
+        /// primarily advocating for the rights of the Lahu 
+        /// people, aiming to secure autonomy and 
+        /// self-determination for the Lahu ethnic group in the 
+        /// broader context of ethnic federalism.
+        /// </summary>
+        [YearRange(1973, 1982)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInMyanmarLahuNationalUnitedParty = 440,
+
+        /// <summary>
         /// 2009-2011: The presence and activities of AQIM in northern Mali were primarily focused on kidnappings and small-scale skirmishes with Malian 
         /// security forces.
         /// 2012 Rebellion and Coup: The conflict intensified dramatically in 2012 following a rebellion by the MNLA (a secular Tuareg nationalist group),
@@ -388,6 +484,20 @@ namespace WorldConflict
         [Locations("Mali")]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         IslamicInsurgencyInMali = 11347,
+
+        /// <summary>
+        /// NSCN-K is a faction of the National Socialist Council
+        /// of Nagaland (NSCN), which was originally formed in 
+        /// 1980 to advocate for the independence of the Naga 
+        /// people and the creation of a Greater Nagaland 
+        /// (called Nagalim), which would span parts of India's 
+        /// Nagaland state and the Naga-inhabited areas of 
+        /// Myanmar.
+        /// </summary>
+        [YearRange(1991, 2007)]
+        [Locations("Myanmar (Burma)")]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInMyanmarNationalSocialistCouncilOfNagaland = 11475,
 
         /// <summary>
         /// Major Russian invasion of Ukraine in Februrary 2002, advances toward Kiev/Kharkiv/Kherson, Crimea land corridor, failed to topple
