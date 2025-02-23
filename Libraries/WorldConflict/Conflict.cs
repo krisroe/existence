@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Text;
+﻿using System.Text;
 using CsvHelper.Configuration;
 using LibraryShared;
 namespace WorldConflict
@@ -12,18 +9,16 @@ namespace WorldConflict
         {
             string filePath = args[0];
             List<KeyValuePair<int, string>> knownSideIDs = new List<KeyValuePair<int, string>>();
-            /*
             knownSideIDs.Add(new KeyValuePair<int, string>(204, "PLO"));
-            knownSideIDs.Add(new KeyValuePair<int, string>(297, "Ittihad-i Islami Bara-yi Azadi-yi Afghanistan"));                ,
+            knownSideIDs.Add(new KeyValuePair<int, string>(297, "Ittihad-i Islami Bara-yi Azadi-yi Afghanistan"));
             knownSideIDs.Add(new KeyValuePair<int, string>(298, "Harakat-i Islami-yi Afghanistan"));
             knownSideIDs.Add(new KeyValuePair<int, string>(315, "UNLF"));
             knownSideIDs.Add(new KeyValuePair<int, string>(442, "Islamic Legion"));
             knownSideIDs.Add(new KeyValuePair<int, string>(481, "NRA"));
             knownSideIDs.Add(new KeyValuePair<int, string>(486, "UPA"));
             knownSideIDs.Add(new KeyValuePair<int, string>(557, "MPIGO"));
-            */
+
             List<KeyValuePair<int, string>> unknownSideIDs = new List<KeyValuePair<int, string>>();
-            /*
             unknownSideIDs.Add(new KeyValuePair<int, string>(172, "LNPA"));
             unknownSideIDs.Add(new KeyValuePair<int, string>(173, "LTS(p)A"));
 
@@ -94,7 +89,6 @@ namespace WorldConflict
             unknownSideIDs.Add(new KeyValuePair<int, string>(8639, "LSR"));
             unknownSideIDs.Add(new KeyValuePair<int, string>(8640, "RDK"));
             unknownSideIDs.Add(new KeyValuePair<int, string>(8650, "Wagner"));
-            */
 
             Dictionary<int, string> sides = new Dictionary<int, string>();
             foreach (var nextSide in knownSideIDs)
@@ -127,11 +121,10 @@ namespace WorldConflict
             Dictionary<string, List<T>> conflictsByYear = new Dictionary<string, List<T>>();
             List<string> years = new List<string>();
             List<T> needToProcess = new List<T>();
-            List<T> allConflictRecords = new List<T>();
+            List<ConflictDetailRecord> allConflictRecords = new List<ConflictDetailRecord>();
 
             foreach (T c in Common.ProcessCSV<T, U>(filePath))
             {
-                allConflictRecords.Add(c);
                 List<T>? conflicts;
                 if (!conflictsByYear.TryGetValue(c.year, out conflicts))
                 {
@@ -177,26 +170,52 @@ namespace WorldConflict
                 {
                     needToProcess.Add(c);
                 }
+                else //easy to add the sides here since there is only one per side
+                {
+                    List<int> sidea = new List<int>() { int.Parse(c.side_a_id) };
+                    List<int> sideb = new List<int>() { int.Parse(c.side_b_id) };
+                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sidea, sideb);
+                    allConflictRecords.Add(cdr);
+                }
             }
 
-            List<T> next = ProcessMultiples(needToProcess, sides, null);
+            List<T> next = ProcessMultiples(needToProcess, sides, null, allConflictRecords);
             while (next.Count != needToProcess.Count && next.Count > 0)
             {
                 needToProcess = next;
-                next = ProcessMultiples(needToProcess, sides, null);
+                next = ProcessMultiples(needToProcess, sides, null, allConflictRecords);
             }
-
             if (next.Count > 0)
             {
-                ProcessMultiples(next, sides, new HashSet<string>());
+                ProcessMultiples(next, sides, new HashSet<string>(), allConflictRecords);
             }
+
+            //sort the conflict detail records by year so they are processed in chronological order
+            allConflictRecords.Sort((a, b) =>
+            {
+                return a.Year.CompareTo(b.Year);
+            });
+
+
             List<Conflict> allConflictsAsList = new List<Conflict>();
             Dictionary<int, Conflict> allConflicts = new Dictionary<int, Conflict>();
-            foreach (UcdpPrioConflict c in allConflictRecords)
+            foreach (ConflictDetailRecord cdr in allConflictRecords)
             {
+                UcdpPrioConflict c = (UcdpPrioConflict)cdr.DetailRecord;
                 int iConflictID = int.Parse(c.conflict_id);
                 int iYear = int.Parse(c.year);
                 int iIntensity = int.Parse(c.intensity_level);
+                List<int> regions = new List<int>();
+                string[] sRegionSplit = c.region.Replace(" ", string.Empty).Split(",", StringSplitOptions.RemoveEmptyEntries);
+                foreach (string sNextRegion in sRegionSplit)
+                {
+                    int iRegion = int.Parse(sNextRegion);
+                    if (iRegion < 1 || iRegion > 5)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    regions.Add(iRegion);
+                }
                 if (iIntensity != 1 && iIntensity != 2)
                 {
                     throw new InvalidOperationException();
@@ -240,38 +259,67 @@ namespace WorldConflict
                     {
                         conflict.cumulative_intensity = (ConflictCumulativeIntensity)iCumulativeIntensity;
                     }
+                    if (conflict.regions.Count != regions.Count) //validate the regions match
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    foreach (int nextCheckRegion in regions)
+                    {
+                        if (!conflict.regions.Contains((ConflictRegion)nextCheckRegion))
+                        {
+                            throw new InvalidOperationException();
+                        }
+                    }
                 }
                 else
                 {
-                    conflict = new Conflict(iConflictID, c.location, iYear, iCumulativeIntensity);
+                    conflict = new Conflict(iConflictID, c.location, iYear, iCumulativeIntensity, regions);
                     allConflicts[iConflictID] = conflict;
                     allConflictsAsList.Add(conflict);
                 }
                 conflict!.detail.Add(c);
+                conflict!.cdrs.Add(cdr);
             }
 
             allConflictsAsList.Sort((a, b) =>
             {
-                int ret = a.first_year.CompareTo(b.first_year);
-                if (ret == 0) ret = a.last_year.CompareTo(b.last_year);
-                return ret;
+                return b.GetMostRecentIntenseYear().CompareTo(a.GetMostRecentIntenseYear());
             });
-            Dictionary<int, int> totalWarsByYear = new Dictionary<int, int>();
+
             foreach (Conflict c in allConflictsAsList)
             {
-                foreach (UcdpPrioConflict upc in c.detail)
+                WarEnum we = (WarEnum)c.id;
+                if (we.ToString() == ((int)we).ToString())
                 {
-                    int iYear = int.Parse(upc.year);
-                    if (upc.intensity_level == "2")
+                    Console.Out.WriteLine(c.id + " " + c.first_year + " " + c.last_year + " " + c.location + " " + c.GetRegions());
+                    foreach (ConflictDetailRecord cdr in c.cdrs)
                     {
-                        if (!totalWarsByYear.TryGetValue(iYear, out int count))
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append(" ");
+                        sb.Append(cdr.Year);
+                        sb.Append(" ");
+                        bool pastFirst = false;
+                        foreach (int nextA in cdr.sideA)
                         {
-                            totalWarsByYear[iYear] = 0;
+                            if (pastFirst) sb.Append(",");
+                            sb.Append(sides[nextA]);
+                            pastFirst = true;
                         }
-                        totalWarsByYear[iYear]++;
+                        sb.Append(" vs ");
+                        pastFirst = false;
+                        foreach (int nextB in cdr.sideB)
+                        {
+                            if (pastFirst) sb.Append(",");
+                            sb.Append(sides[nextB]);
+                            pastFirst = true;
+                        }
+                        Console.Out.WriteLine(sb.ToString());
                     }
                 }
             }
+
+            /*
+            Dictionary<int, int> totalWarsByYear = SplitWarsByRegion(allConflictsAsList);
             List<YearWars> yw = new List<YearWars>();
             foreach (var nextYear in totalWarsByYear)
             {
@@ -284,10 +332,43 @@ namespace WorldConflict
             foreach (var nextYear in yw)
             {
                 Console.Out.WriteLine(nextYear.Year + " " + nextYear.NumberOfWars);
-            }
+            }*/
 
             Console.Out.WriteLine("Finished! Press Enter to Continue.");
             return Common.READ_NEWLINE;
+        }
+
+        private static Dictionary<int, int> SplitWarsByRegion(List<Conflict> allConflictsAsList, params ConflictRegion[] regions)
+        {
+            Dictionary<int, int> totalWarsByYear = new Dictionary<int, int>();
+            foreach (Conflict c in allConflictsAsList)
+            {
+                bool includeConflict = false;
+                foreach (ConflictRegion cr in c.regions)
+                {
+                    if (regions.Contains(cr))
+                    {
+                        includeConflict = true;
+                        break;
+                    }
+                }
+                if (includeConflict)
+                {
+                    foreach (UcdpPrioConflict upc in c.detail)
+                    {
+                        int iYear = int.Parse(upc.year);
+                        if (upc.intensity_level == "2")
+                        {
+                            if (!totalWarsByYear.TryGetValue(iYear, out int count))
+                            {
+                                totalWarsByYear[iYear] = 0;
+                            }
+                            totalWarsByYear[iYear]++;
+                        }
+                    }
+                }
+            }
+            return totalWarsByYear;
         }
 
         private class YearWars
@@ -301,7 +382,7 @@ namespace WorldConflict
             public int NumberOfWars { get; set; }
         }
 
-        public static List<T> ProcessMultiples<T>(List<T> input, Dictionary<int, string> sides, HashSet<string>? displayInfo)
+        public static List<T> ProcessMultiples<T>(List<T> input, Dictionary<int, string> sides, HashSet<string>? displayInfo, List<ConflictDetailRecord> cdrs)
             where T : UcdpPrioConflict
         {
             List<T> needProcessing = new List<T>();
@@ -309,38 +390,47 @@ namespace WorldConflict
             {
                 bool sideAParsed = int.TryParse(c.side_a_id, out int iSideA);
                 bool sideBParsed = int.TryParse(c.side_b_id, out int iSideB);
+                List<int> sideAIDs, sideBIDs;
                 bool sideADone;
                 if (sideAParsed)
                 {
                     sideADone = true;
+                    sideAIDs = new List<int>() { iSideA };
                 }
                 else
                 {
-                    sideADone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo);
+                    sideADone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo, out sideAIDs);
                 }
                 bool sideBDone;
                 if (sideBParsed)
                 {
                     sideBDone = true;
+                    sideBIDs = new List<int>() { iSideB };
                 }
                 else
                 {
-                    sideBDone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo);
+                    sideBDone = ProcessSides(c, c.side_b, c.side_b_id, sides, displayInfo, out sideBIDs);
                 }
                 if (!sideADone || !sideBDone)
                 {
                     needProcessing.Add(c);
                 }
+                else
+                {
+                    ConflictDetailRecord cdr = new ConflictDetailRecord(c, int.Parse(c.year), sideAIDs, sideBIDs);
+                    cdrs.Add(cdr);
+                }
             }
             return needProcessing;
         }
 
-        public static bool ProcessSides<T>(T c, string sides, string ids, Dictionary<int, string> sidemap, HashSet<string>? displayInfo)
+        public static bool ProcessSides<T>(T c, string sides, string ids, Dictionary<int, string> sidemap, HashSet<string>? displayInfo, out List<int> originalIDs)
             where T : UcdpPrioConflict
         {
             bool ret;
             List<string> oParties = new List<string>();
             List<int> oIDs = new List<int>();
+            originalIDs = new List<int>();
             string[] sParties = GetParties(sides);
             string[] sIds = ids.Split(',', StringSplitOptions.RemoveEmptyEntries);
             if (sParties.Length != sIds.Length)
@@ -348,7 +438,9 @@ namespace WorldConflict
             for (int i = 0; i < sParties.Length; i++)
             {
                 oParties.Add(sParties[i].Trim());
-                oIDs.Add(int.Parse(sIds[i].Trim()));
+                int iNextID = int.Parse(sIds[i].Trim());
+                oIDs.Add(iNextID);
+                originalIDs.Add(iNextID);
             }
             for (int i = oIDs.Count - 1; i >= 0; i--)
             {
@@ -492,15 +584,50 @@ namespace WorldConflict
         }
     }
 
+    public class ConflictDetailRecord
+    {
+        public ConflictDetailRecord(object o, int Year, List<int> sideA, List<int> sideB)
+        {
+            this.DetailRecord = o;
+            this.Year = Year;
+            this.sideA = sideA;
+            this.sideB = sideB;
+        }
+
+        public object DetailRecord { get; set; }
+        public int Year { get; set; }
+        public List<int> sideA { get; set; }
+        public List<int> sideB { get; set; }
+    }
+
     public class Conflict
     {
-        public Conflict(int id, string location, int year, int intensity)
+        public Conflict(int id, string location, int year, int intensity, IEnumerable<int> regions)
         {
             this.id = id;
             this.location = location;
             this.first_year = this.last_year = year;
             this.cumulative_intensity = (ConflictCumulativeIntensity)intensity;
+            this.regions = new HashSet<ConflictRegion>();
+            foreach (int i in regions)
+            {
+                this.regions.Add((ConflictRegion)i);
+            }
             this.detail = new List<UcdpPrioConflict>();
+            this.cdrs = new List<ConflictDetailRecord>();
+        }
+
+        public string GetRegions()
+        {
+            StringBuilder sb = new StringBuilder();
+            bool pastFirst = false;
+            foreach (ConflictRegion cr in regions)
+            {
+                if (pastFirst) sb.Append(",");
+                sb.Append(cr.ToString());
+                pastFirst = true;
+            }
+            return sb.ToString();
         }
 
         public int id { get; set; }
@@ -508,7 +635,56 @@ namespace WorldConflict
         public int first_year { get; set; }
         public int last_year { get; set; }
         public ConflictCumulativeIntensity cumulative_intensity { get; set; }
+        public HashSet<ConflictRegion> regions { get; set; }
+        public List<ConflictDetailRecord> cdrs { get; set; }
         public List<UcdpPrioConflict> detail { get; set; }
+
+        public int GetMostRecentIntenseYear()
+        {
+            int iRet = 0;
+            for (int i = detail.Count - 1; i >= 0; i--)
+            {
+                if (detail[i].intensity_level == "2")
+                {
+                    iRet = int.Parse(detail[i].year);
+                    break;
+                }
+            }
+            return iRet;
+        }
+
+        public int CompareByFirstYear(Conflict c2)
+        {
+            int ret = first_year.CompareTo(c2.first_year);
+            if (ret == 0) ret = last_year.CompareTo(c2.last_year);
+            return ret;
+        }
+
+        public int CompareByLastYearDescending(Conflict c2)
+        {
+            int ret = c2.last_year.CompareTo(last_year);
+            if (ret == 0) ret = c2.first_year.CompareTo(first_year);
+            return ret;
+        }
+    }
+    public enum ConflictRegion
+    {
+        Europe = 1,
+        MiddleEast = 2,
+        Asia = 3,
+        Africa = 4,
+        Americas = 5,
+    }
+
+    [Flags]
+    public enum ConflictRegionFlags
+    {
+        None = 0,
+        Europe = 1,
+        MiddleEast = 2,
+        Asia = 4, 
+        Africa = 8,
+        Americas = 16,
     }
 
     public enum ConflictCumulativeIntensity
