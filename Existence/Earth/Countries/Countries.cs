@@ -189,6 +189,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1966, 12, 9)]
         [Capital((int)WorldCities.BarbadosBridgetown)]
         [LargestCity((int)WorldCities.BarbadosBridgetown)]
+        [PopulationEstimate(176400000)] //176.4 million
         public static class Barbados { }
 
         [UnitedNationsMembership(1945, 10, 24)]
@@ -238,6 +239,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.BrazilBrasilia)]
         [LargestCity((int)WorldCities.BrazilSaoPaulo)]
+        [PopulationEstimate(218800000)] //218.8 million
         public static class Brazil { }
 
         /// <summary>
@@ -311,6 +313,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ChinaBeijing)]
         [LargestCity((int)WorldCities.ChinaShanghai)]
+        [PopulationEstimate(1408000000)] //1.408 billion
         public static class China
         {
             public const string FullName = "People's Republic of China";
@@ -524,11 +527,13 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 10, 30)]
         [Capital((int)WorldCities.IndiaNewDelhi)]
         [LargestCity((int)WorldCities.IndiaMumbai)]
+        [PopulationEstimate(1454000000)] //1.454 billion
         public static class India { }
 
         [UnitedNationsMembership(1950, 9, 28)]
         [Capital((int)WorldCities.IndonesiaJakarta)]
         [LargestCity((int)WorldCities.IndonesiaJakarta)]
+        [PopulationEstimate(282000000)] //282-290 million
         public static class Indonesia { }
 
         /// <summary>
@@ -706,6 +711,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 11, 7)]
         [Capital((int)WorldCities.MexicoMexicoCity)]
         [LargestCity((int)WorldCities.MexicoMexicoCity)]
+        [PopulationEstimate(131700000)] //131.7 million
         public static class Mexico { }
 
         /// <summary>
@@ -793,6 +799,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1960, 10, 7)]
         [Capital((int)WorldCities.NigeriaAbuja)]
         [LargestCity((int)WorldCities.NigeriaLagos)]
+        [PopulationEstimate(234600000)] //234.6 million
         public static class Nigeria { }
 
         /// <summary>
@@ -827,6 +834,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1947, 9, 30)]
         [Capital((int)WorldCities.PakistanIslamabad)]
         [LargestCity((int)WorldCities.PakistanKarachi)]
+        [PopulationEstimate(250000000)] //250 million
         public static class Pakistan { }
 
         [UnitedNationsMembership(1994, 12, 15)]
@@ -885,6 +893,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.RussiaMoscow)]
         [LargestCity((int)WorldCities.RussiaMoscow)]
+        [PopulationEstimate(146000000)] //146 million
         public static class Russia { }
 
         [UnitedNationsMembership(1962, 9, 18)]
@@ -1127,6 +1136,7 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.UnitedStatesWashingtonDC)]
         [LargestCity((int)WorldCities.UnitedStatesNewYorkCity)]
+        [PopulationEstimate(341145670)]
         public static class UnitedStates { }
 
         [UnitedNationsMembership(1945, 12, 18)]
@@ -1222,7 +1232,6 @@ namespace Existence.Earth.Countries
         /// own separatist movements (Spain, Greece, Slovakia, Romania, and Cyprus).
         /// Kosovo has been recognized by International Monetary Fund (IMF) and the World Bank
         /// </summary>
-        /// Some Taiwanese politicians favor formal independence, while others prefer to maintain the current ambiguous status to prevent conflict.
         [Capital((int)WorldCities.KosovoPristina)]
         [LargestCity((int)WorldCities.KosovoPristina)]
         [PopulationEstimate(1800000)] //1.8 million

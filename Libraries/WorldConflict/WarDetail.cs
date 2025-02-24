@@ -14,8 +14,8 @@ namespace WorldConflict
 
     public class LocationsAttribute : Attribute
     {
-        public string[] Locations { get; set; }
-        public LocationsAttribute(params string[] Locations)
+        public ConflictLocations[] Locations { get; set; }
+        public LocationsAttribute(params ConflictLocations[] Locations)
         {
             this.Locations = Locations;
         }
@@ -30,8 +30,18 @@ namespace WorldConflict
         }
     }
 
-    public enum IndependentWarEnum
+    public enum ConflictLocations
     {
+        Afghanistan,
+        Albania,
+        Azerbaijan,
+        BurkinaFaso,
+        Ethiopia,
+        France,
+        Iran,
+        Israel,
+        Mali,
+
         /// <summary>
         /// The conflict began shortly after Myanmar gained independence from British colonial rule in January 1948. The newly formed nation-state 
         /// included a diverse mosaic of ethnic groups, with many ethnic minorities feeling marginalized and underrepresented in the central government 
@@ -63,7 +73,18 @@ namespace WorldConflict
         /// humanitarian aid to displaced populations. However, geopolitical complexities, including the interests of major powers like China and 
         /// Russia, who have historically backed the Myanmar government, complicate international efforts to resolve the conflict.
         /// </summary>
-        Burma = 1,
+        MyanmarBurma,
+
+        Nigeria,
+        Philippines,
+        RussiaSovietUnion,
+        Somalia,
+        Sudan,
+        Syria,
+        Thailand,
+        Ukraine,
+        UnitedKingdom,
+        YemenNorthYemen,
     }
 
     public enum WarEnum
@@ -79,7 +100,7 @@ namespace WorldConflict
         /// Azerbaijan and Kurdistan in late 1946.
         /// </summary>
         [YearRange(1946, 1946)]
-        [Locations("Iran")]
+        [Locations(ConflictLocations.Iran)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         AzerbaijanCrisis = 206,
 
@@ -98,7 +119,7 @@ namespace WorldConflict
         /// on British authorities, contributing to the eventual decision to leave Palestine.
         /// </summary>
         [YearRange(1946, 1946)]
-        [Locations("Israel")]
+        [Locations(ConflictLocations.Israel)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         UnitedKingdomIrgunZvaiLeuJewishInsurgencyInMandatoryPalestine = 207,
 
@@ -116,7 +137,7 @@ namespace WorldConflict
         /// on all forms of dissent.
         /// </summary>
         [YearRange(1946, 2023)]
-        [Locations("Philippines")]
+        [Locations(ConflictLocations.Philippines)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         PhilippinesLeftWingInsurgency = 209,
 
@@ -133,7 +154,7 @@ namespace WorldConflict
         /// intensity as the Soviets increased repression and gradually broke the resistance's capabilities.
         /// </summary>
         [YearRange(1946, 1946)]
-        [Locations("Russia (Soviet Union)")]
+        [Locations(ConflictLocations.RussiaSovietUnion)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         SovietUnionVersusLithuanianPartisans = 211,
 
@@ -150,7 +171,7 @@ namespace WorldConflict
         /// This effectively ended the territorial disputes initiated by the Franco-Thai War.
         /// </summary>
         [YearRange(1946, 1946)]
-        [Locations("France", "Thailand")]
+        [Locations(ConflictLocations.France, ConflictLocations.Thailand)]
         [ConflictRegions(ConflictRegionFlags.Asia | ConflictRegionFlags.Europe)]
         FrancoIndochineseThaWar = 214,
 
@@ -167,7 +188,7 @@ namespace WorldConflict
         /// without warning. This incident marked a significant point of tension between the two countries in the immediate post-war period.
         /// </summary>
         [YearRange(1946, 1946)]
-        [Locations("Albania", "United Kingdom")]
+        [Locations(ConflictLocations.Albania, ConflictLocations.UnitedKingdom)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         CorfuChannelIncident = 215,
 
@@ -179,7 +200,7 @@ namespace WorldConflict
         /// DKBA 5 (Democratic Karen Buddhist Army 5)
         /// </summary>
         [YearRange(1949, 2023)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarBurmaKarenState = 221,
 
@@ -192,7 +213,7 @@ namespace WorldConflict
         /// CNF (Chin National Front): 2023
         /// </summary>
         [YearRange(1948, 2023)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarBurma = 222,
 
@@ -212,7 +233,7 @@ namespace WorldConflict
         /// CPA (Chin Progressive Alliance)(1964-1973) operates in Chin State, which borders India and Rakhine State
         /// </summary>
         [YearRange(1948, 2023)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarBurmaRakhineState = 223,
 
@@ -223,7 +244,7 @@ namespace WorldConflict
         /// BMA (Burmese Muslim Army)
         /// </summary>
         [YearRange(1949, 1996)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarBurmaMonState = 224,
 
@@ -239,7 +260,7 @@ namespace WorldConflict
         /// resigned in 2012 after the Arab Spring uprisings of 2011. In 2014, Houthis took the capital Sana'a. 2015 saw full-blown civil war.
         /// </summary>
         [YearRange(1948, 2023)]
-        [Locations("Yemen (North Yemen)")]
+        [Locations(ConflictLocations.YemenNorthYemen)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         OngoingConflictInYemen = 230,
 
@@ -248,7 +269,7 @@ namespace WorldConflict
         /// KIO (Kachin Independence Organization)
         /// </summary>
         [YearRange(1948, 2023)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarKachinState = 231,
 
@@ -269,7 +290,7 @@ namespace WorldConflict
         /// Operation Pillar of Defense (2012) and Operation Protective Edge (2014)
         /// </summary>
         [YearRange(1949, 2023)]
-        [Locations("Israel")]
+        [Locations(ConflictLocations.Israel)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         OngoingConflictInIsraelAndPalestine = 234,
 
@@ -277,7 +298,7 @@ namespace WorldConflict
         /// KNPP (Karenni National Progressive Party)
         /// </summary>
         [YearRange(1957, 2023)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarKarenniState = 253,
 
@@ -295,7 +316,7 @@ namespace WorldConflict
         /// SSPP (Shan State Progressive Party)
         /// </summary>
         [YearRange(1959, 2015)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInMyanmarShanState = 264,
 
@@ -305,7 +326,7 @@ namespace WorldConflict
         /// 2020-2022: Tigray War, between the Ethiopian federal government and the Tigray People's Liberation Front (TPLF)
         /// </summary>
         [YearRange(1960, 2022)]
-        [Locations("Ethiopia")]
+        [Locations(ConflictLocations.Ethiopia)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInEthopia = 267,
 
@@ -322,7 +343,7 @@ namespace WorldConflict
         /// December 2024, leading to a transitional government, although conflict continued between the SDF and Turkish-backed forces.
         /// </summary>
         [YearRange(1966, 2023)]
-        [Locations("Syria")]
+        [Locations(ConflictLocations.Syria)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         OngoingConflictInSyria = 299,
 
@@ -337,7 +358,7 @@ namespace WorldConflict
         /// October 2020: Juba Peace Agreement, but implementation is challenging and some groups didn't sign the agreement
         /// </summary>
         [YearRange(1971, 2023)]
-        [Locations("Sudan")]
+        [Locations(ConflictLocations.Sudan)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInSudan = 309,
 
@@ -352,7 +373,7 @@ namespace WorldConflict
         /// US-Taliban Agreement and Withdrawal of US Troops (2020-2021)
         /// </summary>
         [YearRange(1978, 2023)]
-        [Locations("Afghanistan")]
+        [Locations(ConflictLocations.Afghanistan)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInAfghanistan = 333,
 
@@ -383,7 +404,7 @@ namespace WorldConflict
         /// Somalia and continuing to carry out terrorist attacks in urban centers, including Mogadishu.
         /// </summary>
         [YearRange(1982, 2023)]
-        [Locations("Somalia")]
+        [Locations(ConflictLocations.Somalia)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInSomalia = 337,
 
@@ -409,7 +430,7 @@ namespace WorldConflict
         /// of militants and weapons have complicated these efforts.
         /// </summary>
         [YearRange(1987, 2023)]
-        [Locations("Burkina Faso")]
+        [Locations(ConflictLocations.BurkinaFaso)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInBurkinaFaso = 360,
 
@@ -421,7 +442,7 @@ namespace WorldConflict
         /// Azerbaijan. Tensions and minor skirmishes continue, as the political status of Artsakh remains unresolved and a source of ongoing dispute.
         /// </summary>
         [YearRange(1991, 2023)]
-        [Locations("Azerbaijan")]
+        [Locations(ConflictLocations.Azerbaijan)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         OngoingConflictForArtsakh = 388,
 
@@ -435,7 +456,7 @@ namespace WorldConflict
         /// Myanmar and China.
         /// </summary>
         [YearRange(1997, 1997)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarUnitedWaStateArmy = 422,
 
@@ -449,7 +470,7 @@ namespace WorldConflict
         /// as the war with Hamas following the October 7 2023 attacks
         /// </summary>
         [YearRange(1990, 2023)]
-        [Locations("Israel")]
+        [Locations(ConflictLocations.Israel)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         ConflictBetweenIsraelAndHezbollah = 426,
 
@@ -461,7 +482,7 @@ namespace WorldConflict
         /// self-determination within Myanmar.
         /// </summary>
         [YearRange(1991, 2007)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarMyanmarNationalDemocraticAllianceArmy = 439,
 
@@ -473,7 +494,7 @@ namespace WorldConflict
         /// broader context of ethnic federalism.
         /// </summary>
         [YearRange(1973, 1982)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarLahuNationalUnitedParty = 440,
 
@@ -494,7 +515,7 @@ namespace WorldConflict
         /// Force
         /// </summary>
         [YearRange(2009, 2023)]
-        [Locations("Mali")]
+        [Locations(ConflictLocations.Mali)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         IslamicInsurgencyInMali = 11347,
 
@@ -508,7 +529,7 @@ namespace WorldConflict
         /// Myanmar.
         /// </summary>
         [YearRange(1991, 2007)]
-        [Locations("Myanmar (Burma)")]
+        [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarNationalSocialistCouncilOfNagaland = 11475,
 
@@ -518,7 +539,7 @@ namespace WorldConflict
         /// corridor. August 2024, Ukraine invaded Russia in Kursk oblast.
         /// </summary>
         [YearRange(2022, 2023)]
-        [Locations("Russia (Soviet Union)", "Ukraine")]
+        [Locations(ConflictLocations.RussiaSovietUnion, ConflictLocations.Ukraine)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         RussianInvasionOfUkraine = 13243,
 
@@ -531,7 +552,7 @@ namespace WorldConflict
         /// ISIS has continued to operate as an insurgent force.
         /// </summary>
         [YearRange(2013, 2023)]
-        [Locations("Syria")]
+        [Locations(ConflictLocations.Syria)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         IslamicStateInSyria = 13604,
 
@@ -556,7 +577,7 @@ namespace WorldConflict
         /// Humanitarian access is often hampered by insecurity and attacks on aid workers.
         /// </summary>
         [YearRange(2015, 2023)]
-        [Locations("Nigeria")]
+        [Locations(ConflictLocations.Nigeria)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         NigerianGovernmentvsIslamicState = 13641,
 
@@ -565,7 +586,7 @@ namespace WorldConflict
         /// to CMA's war with the Malian government. In April 2024, the CSP-PSD was renamed to CSP-DPA.
         /// </summary>
         [YearRange(2023, 2023)]
-        [Locations("Mali")]
+        [Locations(ConflictLocations.Mali)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         MalivsCSPPSDOverAzawad = 16038,
 
@@ -580,7 +601,7 @@ namespace WorldConflict
         /// government is complicated by broader ethnic and regional dynamics.
         /// </summary>
         [YearRange(2023, 2023)]
-        [Locations("Ethiopia")]
+        [Locations(ConflictLocations.Ethiopia)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         EthiopianGovernmentvsFano = 16069,
     }
