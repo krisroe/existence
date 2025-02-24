@@ -118,6 +118,62 @@ namespace Existence.Personal
             }
         }
 
+        public static class PsychiatricLossOfFunctionality
+        {
+            public static class PsychiatricHospitalizations
+            {
+                public static class v2012
+                {
+                    public static class ManiaFirst { }
+                    public static class DepressionSecond { }
+                }
+                public static class v2014
+                {
+                    public static class SomethingHappenedHereButIDontRememberWhatButNoHospitalization { }
+                }
+                public static class v2016
+                {
+                    public static class Mania { }
+                }
+                public static class v2018
+                {
+                    public static class PsychologicalTraumaFromActiveShooterIncidentNoHospitalization { }
+                }
+                public static class v2022
+                {
+                    public static class AugustMotherDiagnosedWithCancerStartedToLearnTruthAboutMotherPsychology { }
+                    public static class AroundThisTimeStartedExperimentingWithLoweringMedicationDoses { }
+                    public static class OctoberDiscoveredEmpathyWasAKey { }
+                }
+                public static class v2023
+                {
+                    public static class JanuaryFebruaryManicEpisodeMinimalLossOfWorkFunctionality { }
+
+                    public static class OctoberDiscoveredSocioEmotionalAgnosiaWasAKey { }
+                    public static class DecemberDiscoveredAlexithymiaWasAKey { }
+                    public static class AtSomePointDiscoveredAutismWasAKey { }
+                }
+                public static class v2024
+                {
+                    public static class WasReallyRollingWithLoserDosesOfQuetiapineEvenDosesLike100MG133MG150MG { }
+                    public static class MayDiscoveredTimeTravelWasPossible { }
+                    public static class MayJuneManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
+                    public static class MotherDiedJuly { }
+                    public static class BaselineQuetiapine200MGLithium450MG { }
+                    public static class TriedToBeMoreResponsibleWithTheMedicationTaperingThisTime { }
+                    public static class TaperedTo225MGLithiumSeptemberish { }
+                    public static class TaperedTo0LithiumDecemberish { }
+                    public static class StartedTesting100MGQuetipineWaitingForSeveralDaysAfterwardForStabilization { }
+                }
+                public static class v2025
+                {
+                    public static class FourDistinctDaysAt100MGQuetiapineTriggeredEpisode { }
+                    public static class JanuaryFebruaryManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
+                    public static class HumanConclusionIsICantExperimentWithTheMedsAnymore { }
+                }
+            }
+        }
+
         public static class Life
         {
             public static class Alive { }
@@ -140,7 +196,7 @@ namespace Existence.Personal
             /// <summary>
             /// Using 2021 life table downloaded from CDC web site.
             /// Expected additional years for 45 year old white male is 32.5 years
-            /// I'm somewhat optimistic I'll beat this by some amount.
+            /// I'm somewhat optimistic I'll beat this by some amount. Trying not to cheat at human-scale, don't understand what cheating means at atomic or cosmic scales.
             /// </summary>
             [YearDate(2058, 6, 6)]
             public static class ExpectedDeathDateForMyDemographics { }
