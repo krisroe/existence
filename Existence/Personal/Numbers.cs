@@ -21,51 +21,49 @@ namespace Existence.Personal
         public static class Zero
         {
             public static class ObjectiveReality { }
+            public static class Space { }
+            public static class Time { }
+            public static class UniformResourceLocator { }
         }
         public static class One
         {
-            public static class Represents
+            public static class HumanityCurrentReality { }
+            public static class Loneliness
             {
-                public static class HumanityCurrentReality { }
-                public static class Loneliness
-                {
-                    public static class SongOneIsTheLoneliestNumber { }
-                }
-                public static class FirstTime
-                {
-                    public static class SongCanticleOfTheTurning { }
-                }
+                public static class SongOneIsTheLoneliestNumber { }
+            }
+            public static class FirstTimeAnticipation
+            {
+                public static class SongCanticleOfTheTurning { }
+            }
+            public static class UniformResourceIndicator { }
+            public static class UTC
+            {
+                public static class CoordinatedUniversalTime { }
             }
         }
         public static class Two
         {
             public static class HumanityUpgradeToNextLevelReality { }
+            public static class IntergalacticPulsarTime { }
         }
         public static class Three
         {
             public static class Complacency { }
             public static class Denial { }
+            public static class NonQuantumArtificialIntelligenceIsUnderQuantumSurveillance { }
         }
         public static class Four
         {
-            public static class Represents
-            {
-                public static class PersonalReality { }
-            }
+            public static class PersonalReality { }
         }
         public static class Seven
         {
-            public static class Represents
-            {
-                public static class Lucky { }
-            }
+            public static class Lucky { }
         }
         public static class Eight
         {
-            public static class Represents
-            {
-                public static class PersonalUpgradeToNextReality { }
-            }
+            public static class PersonalUpgradeToNextReality { }
         }
         public static class Thirteen
         {

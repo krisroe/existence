@@ -86,6 +86,13 @@ namespace Existence.Time
         }
     }
 
+    internal class LinkURX
+    {
+        public static class Uniform { }
+        public static class Resource { }
+        public static class LocatorOrIndentifier { }
+    }
+
     internal class UPS
     {
         public static class U

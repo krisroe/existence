@@ -38,6 +38,7 @@ namespace WorldConflict
         BurkinaFaso,
         Ethiopia,
         France,
+        India,
         Iran,
         Israel,
         Mali,
@@ -249,6 +250,20 @@ namespace WorldConflict
         OngoingConflictInMyanmarBurmaMonState = 224,
 
         /// <summary>
+        /// Naxalbari Uprising (1967): A major turning point was the peasant revolt in Naxalbari, West Bengal, where local farmers and landless laborers 
+        /// took up arms against what they perceived as feudal exploitation. This uprising was inspired by Maoist ideology—emphasizing a protracted 
+        /// people's war—and marked the departure of a radical faction from the mainstream communist movement.
+        /// 
+        /// In 2004, two major groups—the People’s War Group and the Maoist Communist Centre—merged to form the Communist Party of India (Maoist).
+        /// This unification significantly intensified the insurgency by creating a more cohesive organization capable of operating over a wider 
+        /// geographical area.
+        /// </summary>
+        [YearRange(1948, 2023)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaCommunistConflict = 227,
+
+        /// <summary>
         /// 1948: Yemeni Imamate Revolution (1948 Civil War). involved a coup attempt against Imam Yahya, the ruler of the Kingdom of Mutawakkilite Yemen, 
         /// by radical forces within the Yemeni military and government. Coup was initially successful but Ahmad bin Yahya mounted a counter-coup weeks later.
         /// 1962-1970: North Yemen Civil War. began shortly after a coup d'état that overthrew the reigning Imam, Muhammad al-Badr, marking a decisive 
@@ -295,6 +310,19 @@ namespace WorldConflict
         OngoingConflictInIsraelAndPalestine = 234,
 
         /// <summary>
+        /// Naga National Council (NNC): Formed in the mid-20th century, the NNC was the principal body representing Naga aspirations soon after India’s independence.
+        /// 
+        /// In 1980, disillusionment with the moderate tactics of the NNC led to the birth of a more radical faction. Leaders such as Isak Chishi Swu and 
+        /// Thuingaleng Muivah broke away to form what eventually evolved into the NSCN, with the NSCN-IM (Isak-Muivah faction) emerging as the dominant wing. 
+        /// This group promoted a more expansive vision of Naga self-determination, arguing for a “Greater Nagaland” that would include Naga-inhabited areas 
+        /// across several states.
+        /// </summary>
+        [YearRange(1956, 2000)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaNagaConflict = 251,
+
+        /// <summary>
         /// KNPP (Karenni National Progressive Party)
         /// </summary>
         [YearRange(1957, 2023)]
@@ -329,6 +357,15 @@ namespace WorldConflict
         [Locations(ConflictLocations.Ethiopia)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInEthopia = 267,
+
+        /// <summary>
+        /// an early phase of the Mizo National Front (MNF) insurgency against the Government of India, spanning from 1966 to 1968. This episode marked the beginning 
+        /// of armed resistance in the Mizo Hills, driven by long-standing grievances among the Mizo people.
+        /// </summary>
+        [YearRange(1966, 1968)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaMNF = 296,
 
         /// <summary>
         /// An intra-party coup within the Ba'ath Party took place on February 23, 1966. This coup resulted in a radical shift of power within the 
@@ -378,6 +415,22 @@ namespace WorldConflict
         OngoingConflictInAfghanistan = 333,
 
         /// <summary>
+        /// TNV (Tripura National Volunteers): Emerging in the late 1970s, TNV was one of the early militant outfits that took up arms to highlight the 
+        /// grievances of the indigenous Tripuri people. The group’s activities were marked by guerrilla warfare tactics aimed at challenging state 
+        /// authority and drawing attention to perceived cultural and economic subjugation.
+        /// ATTF (All Tripura Tiger Force): Operating alongside other insurgent groups, ATTF also sought to secure greater autonomy or outright independence 
+        /// for Tripura. It employed similar tactics—including ambushes and targeted attacks—designed to destabilize government control and assert the demands 
+        /// of the indigenous population.
+        /// NLFT (National Liberation Front of Tripura): NLFT further broadened the insurgency’s scope by calling for a complete break from Indian rule. 
+        /// The group’s ideology was rooted in the belief that only an independent Tripura could safeguard the cultural, political, and economic interests 
+        /// of the Tripuri people.
+        /// </summary>
+        [YearRange(1979, 2004)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaTripuraInsurgencyTNV_ATTF_NLFT = 335,
+
+        /// <summary>
         /// The conflict initially began as resistance against the dictatorial regime of Siad Barre, who seized power in a military coup in 1969. By the 
         /// early 1980s, dissatisfaction with Barre’s oppressive rule had grown, leading to the formation of various armed opposition groups. One of the 
         /// earliest and most significant was the Somali Salvation Democratic Front (SSDF), followed by the Somali National Movement (SNM), United
@@ -409,6 +462,38 @@ namespace WorldConflict
         OngoingConflictInSomalia = 337,
 
         /// <summary>
+        /// In Tripura, the indigenous Tripuri population increasingly felt marginalized by the influx of non-tribal settlers, especially Bengalis, which altered
+        /// the demographic and cultural balance of the state. Many indigenous Tripuris perceived these changes as a threat to their identity, traditions, and 
+        /// political power.
+        /// 
+        /// United National Liberation Front (UNLF): Formed as a response to the socio-political challenges, the UNLF positioned itself as the main insurgent outfit 
+        /// advocating for an independent Tripura or, at a minimum, significant autonomy. It sought to address long-standing grievances through armed struggle, 
+        /// rejecting what it saw as an unresponsive political process.
+        /// 
+        /// People’s Liberation Army (PLA): Often understood as the armed wing or an affiliated faction within the broader Tripura insurgency framework, the PLA 
+        /// worked in tandem with groups like the UNLF. Its activities included guerrilla warfare tactics aimed at challenging state authority, disrupting 
+        /// administrative functions, and undermining the security apparatus.
+        /// </summary>
+        [YearRange(1982, 2009)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaTripuraInsurgencyUNLF_PLA = 347,
+
+        /// <summary>
+        /// In the early 1980s, militant groups began forming in response to growing discontent. Their activities initially included targeted attacks and 
+        /// demonstrations meant to assert Sikh demands.
+        /// Operation Blue Star (June 1984): The turning point came when the Indian government launched Operation Blue Star to flush out militants holed up in the 
+        /// Golden Temple, Sikhism’s holiest shrine. The operation resulted in significant casualties and extensive damage, deepening Sikh resentment and 
+        /// radicalizing more individuals.
+        /// Assassination and Backlash: The aftermath of Operation Blue Star set off a chain reaction. In October 1984, the assassination of Prime Minister 
+        /// Indira Gandhi by her Sikh bodyguards led to widespread anti-Sikh riots, further polarizing the community and fueling the insurgency.
+        /// </summary>
+        [YearRange(1983, 1993)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaSikhInsurgents = 351,
+
+        /// <summary>
         /// A coup d'état occurred on October 15, 1987. This coup led to the overthrow of Thomas Sankara, the revolutionary leader of Burkina Faso, 
         /// who was often referred to as "Africa's Che Guevara" due to his progressive and pan-African policies.
         /// 
@@ -435,6 +520,31 @@ namespace WorldConflict
         OngoingConflictInBurkinaFaso = 360,
 
         /// <summary>
+        /// The roots of the Kashmir issue date back to the partition of India in 1947, when the princely state of Jammu and Kashmir became a disputed territory 
+        /// between India and Pakistan. While previous decades saw sporadic unrest and political agitation, the insurgency dramatically escalated in the late 1980s 
+        /// and early 1990s.
+        /// 
+        /// While the intensity of violence has seen fluctuations over the years—with periods of relative calm followed by spikes in militancy—the underlying issues 
+        /// remain unresolved. The revocation of Jammu and Kashmir’s special status in 2019 is one example of how political maneuvers continue to reshape the conflict’s 
+        /// dynamics, though its full impact is still unfolding.
+        /// </summary>
+        [YearRange(1990, 2023)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaKashmirInsurgentsConflict = 364,
+
+        /// <summary>
+        /// Founded in 1979, ULFA emerged as a response to what many in Assam saw as neglect by the central government. The group’s primary demand was for a sovereign 
+        /// Assam or, at the very least, greater autonomy that could safeguard the region's cultural and economic interests. By the 1990s, the insurgency had gained 
+        /// momentum. Many indigenous Assamese felt threatened by demographic changes, illegal migration, and policies that they believed undermined local culture and 
+        /// economic opportunities. These grievances provided a fertile ground for ULFA’s armed struggle.
+        /// </summary>
+        [YearRange(1990, 2010)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaAssamConflict = 365,
+
+        /// <summary>
         /// First Nagorno-Karabakh War (1991-1994)
         /// Intermittent Skirmishes (1994-2016)
         /// Second Nagorno-Karabakh War (2020). Ended in ceasefire November 10, 2020.
@@ -445,6 +555,19 @@ namespace WorldConflict
         [Locations(ConflictLocations.Azerbaijan)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         OngoingConflictForArtsakh = 388,
+
+        /// <summary>
+        /// All Bodo Students' Union (ABSU): Initially emerging as a mass mobilization and political advocacy group, ABSU organized protests, strikes, and other 
+        /// non-violent demonstrations to highlight Bodo grievances. Over time, ABSU became a key player in articulating the demands for greater autonomy and the 
+        /// formation of a separate Bodoland, influencing both regional politics and public sentiment.
+        /// National Democratic Front of Bodoland (NDFB): Formed in the late 1980s, the NDFB took a more radical route, engaging in an armed insurgency aimed at 
+        /// carving out an independent Bodoland. The NDFB’s tactics included guerrilla warfare, ambushes, and targeted attacks on government forces and infrastructure. 
+        /// Their insurgency was marked by intermittent bursts of violence throughout the 1990s and early 2000s.
+        /// </summary>
+        [YearRange(1989, 2014)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaAssamBodoConflict = 421,
 
         /// <summary>
         /// UWSA (United Wa State Army). The UWSA is the military wing 
@@ -475,6 +598,17 @@ namespace WorldConflict
         ConflictBetweenIsraelAndHezbollah = 426,
 
         /// <summary>
+        /// captures a 2008 confrontation between the Government of India and the PULF, a localized insurgent group. Rooted in regional grievances, the 
+        /// conflict was characterized by sporadic, guerrilla-style attacks and a swift counterinsurgency response by the state. Although the violence was 
+        /// relatively contained, the episode underscores the ongoing challenges of addressing localized demands for autonomy and justice within India’s 
+        /// complex socio-political landscape.
+        /// </summary>
+        [YearRange(2008, 2008)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaConflictPULF,
+
+        /// <summary>
         /// MNDAA (Myanmar National Democratic Alliance Army)
         /// The group was initially established to represent the 
         /// political and ethnic interests of the Kokang people,
@@ -497,6 +631,16 @@ namespace WorldConflict
         [Locations(ConflictLocations.MyanmarBurma)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInMyanmarLahuNationalUnitedParty = 440,
+
+        /// <summary>
+        /// relatively low‐intensity, localized insurgency that occurred between 2012 and 2014 in the Darjeeling region. This conflict pitted the Government of 
+        /// India against the GNLA—the United National Liberation Front of Gorkhaland (commonly abbreviated as GNLA)—a militant outfit associated with the 
+        /// longstanding demand for a separate state of Gorkhaland.
+        /// </summary>
+        [YearRange(2012, 2014)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaConflictInGorkhaland = 11342,
 
         /// <summary>
         /// 2009-2011: The presence and activities of AQIM in northern Mali were primarily focused on kidnappings and small-scale skirmishes with Malian 
@@ -580,6 +724,20 @@ namespace WorldConflict
         [Locations(ConflictLocations.Nigeria)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         NigerianGovernmentvsIslamicState = 13641,
+
+        /// <summary>
+        /// The UNLFW emerged as an insurgent outfit representing ethnic and regional groups in parts of India’s northeastern or border areas. Claiming that the 
+        /// Indian state had long marginalized their political and cultural interests, the group sought either greater autonomy or outright independence for 
+        /// what they viewed as Western South East Asian territories.
+        /// 
+        /// Although the overall casualty numbers were relatively low compared to higher-intensity conflicts, local communities experienced disruption to daily life, 
+        /// intermittent violence, and the uncertainty that accompanies any prolonged low-level insurgency. Economic activities, particularly in border and rural areas, 
+        /// were adversely affected.
+        /// </summary>
+        [YearRange(2015, 2018)]
+        [Locations(ConflictLocations.India)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IndiaUNLFW = 13653,
 
         /// <summary>
         /// The CSP-PSD was a coalition of separatist movements (CMA and Platform) related to Azawad. Platform left the group in September 2023 due
