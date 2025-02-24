@@ -66,32 +66,55 @@ namespace Existence.Personal
             {
                 public static class AbsoluteSolutionsInc { }
                 public static class ASI { }
-                public static class WTS { }
+                public static class WTSParadigm { }
+
+                public static class Whipple
+                {
+                    /// <summary>
+                    /// this is a backend ID number; it doesn't mean anything.
+                    /// </summary>
+                    public static int EMPLOYEE_NUMBER = 79;
+                }
+
                 public static class Paradigm { }
-                public static class Automated { }
                 public static class AutomatedBuild { }
-                public static class Build { }
-                public static class BFS { }
-                public static class Builders { }
-                public static class First { }
-                public static class Source { }
+                public static class BFS
+                {
+                    public static class BuildersFirstSource { }
+                }
             }
             public static class Past
             {
-                public static class Epic { }
-                public static class Systems { }
-                public static class Corporation { }
-                public static class Health { }
-                public static class Care { }
-                public static class Failed
+                public static class Epic
                 {
-                    public static class Software { }
-                    public static class Test { }
-                    public static class Engineer { }
+                    public static class EpicSystemsCorporation { }
+                    public static int EMPLOYEE_NUMBER = 4083;
+                    public static class Health { }
+                    public static class Care { }
+                    public static class Failed
+                    {
+                        public static class Software { }
+                        public static class Test { }
+                        public static class Engineer { }
+                    }
+                    public static class Inpatient { }
+                    public static class HOV { }
+                    public static class Ambulatory { }
+                    public static class DLG
+                    {
+                        /// <summary>
+                        /// big notes conversion - probably wasted lots of space and left headache to those after me,
+                        /// but I really don't know for sure.
+                        /// </summary>
+                        public const int PERSONALLY_MOST_SIGNIFICANT = 94254;
+
+                        /// <summary>
+                        /// I notified Chris Theorin this was coming, and he snagged a whole bunch of them to get the
+                        /// nice round number.
+                        /// </summary>
+                        public const int OFFICEMATE_MOST_SIGNIFICANT = 100000;
+                    }
                 }
-                public static class Inpatient { }
-                public static class HOV { }
-                public static class Ambulatory { }
             }
         }
 

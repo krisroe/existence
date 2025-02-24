@@ -41,11 +41,17 @@ namespace Existence.Personal
             {
                 public static class CoordinatedUniversalTime { }
             }
+            public static class AI
+            {
+                public static class ArtificialIntelligence { }
+            }
+            public static class QuantumComputingHelloWorld { }
         }
         public static class Two
         {
             public static class HumanityUpgradeToNextLevelReality { }
             public static class IntergalacticPulsarTime { }
+            public static class QuantumComputingUseful { }
         }
         public static class Three
         {
