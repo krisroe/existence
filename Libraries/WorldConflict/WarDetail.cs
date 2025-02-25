@@ -36,11 +36,16 @@ namespace WorldConflict
         Albania,
         Azerbaijan,
         BurkinaFaso,
+        Chad,
+        Colombia,
+        DRCongoZaire,
         Ethiopia,
         France,
         India,
+        Iraq,
         Iran,
         Israel,
+        Libya,
         Mali,
 
         /// <summary>
@@ -76,13 +81,20 @@ namespace WorldConflict
         /// </summary>
         MyanmarBurma,
 
+        Nepal,
         Nigeria,
+        Pakistan,
         Philippines,
         RussiaSovietUnion,
+        Rwanda,
         Somalia,
+        SouthSudan,
+        SriLanka,
         Sudan,
         Syria,
         Thailand,
+        Turkey,
+        Uganda,
         Ukraine,
         UnitedKingdom,
         YemenNorthYemen,
@@ -331,6 +343,23 @@ namespace WorldConflict
         OngoingConflictInMyanmarKarenniState = 253,
 
         /// <summary>
+        /// 1958 Iraqi Coup (July 14 Revolution)
+        /// 1963 Ba'athist Coup and Political Instability (1963–1968)
+        /// 1968: The Ba'ath Party, led by Ahmed Hassan al-Bakr and Saddam Hussein, seized power.
+        /// Kurdish Insurgencies (1961–1991)
+        /// Iran-Iraq War (1980–1988)
+        /// Gulf War (1990–1991)
+        /// U.S. Invasion and Iraq War (2003–2011)
+        /// 2014: ISIS captured Mosul, Fallujah, and large parts of Iraq.
+        /// 2014–2017: Iraqi forces, backed by U.S. airstrikes and Iran-backed militias, defeated ISIS.
+        /// 2017: Mosul was liberated; ISIS lost its last Iraqi stronghold.
+        /// </summary>
+        [YearRange(1958, 2023)]
+        [Locations(ConflictLocations.Iraq)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        OngoingConflictInIraq = 259,
+
+        /// <summary>
         /// NSH (Naga Solidarity Union)
         /// SSIA (Shan State Progressive Army)
         /// SNUF (Shan Nationalities Unity Front)
@@ -359,6 +388,84 @@ namespace WorldConflict
         OngoingConflictInEthopia = 267,
 
         /// <summary>
+        /// 1960: King Mahendra dissolved the democratic government and established the Panchayat system, banning political parties.
+        /// 1979–1980: Protests led to a referendum, but the monarchy retained control.
+        /// 1990: A popular movement forced King Birendra to allow a constitutional monarchy with multi-party democracy.
+        /// 1996: The Maoist Communist Party of Nepal (CPN-M), led by Prachanda, launched an armed insurgency demanding the abolition 
+        /// of the monarchy and land reforms.
+        /// 2001: The Nepalese royal massacre killed King Birendra and the royal family, bringing King Gyanendra to power.
+        /// 2002–2005: King Gyanendra dismissed the government and ruled directly, intensifying conflict
+        /// 2006: The People’s Movement (Jana Andolan II) forced King Gyanendra to restore democracy
+        /// November 2006: The government and Maoists signed the Comprehensive Peace Agreement (CPA), ending the war.
+        /// 2008: Nepal abolished the monarchy, becoming a federal democratic republic.
+        /// 2015: A new Constitution of Nepal was adopted, but tensions with Madhesi ethnic groups led to protests.
+        /// 2017: The Maoist and Communist parties merged, forming a dominant political force.
+        /// 2020–2023: Political instability continued with frequent leadership changes and conflicts over governance.
+        /// Ethnic tensions and border disputes with India persist.
+        /// </summary>
+        [YearRange(1960, 2006)]
+        [Locations(ConflictLocations.Nepal)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInNepal = 269,
+
+        /// <summary>
+        /// Congo Crisis (1960–1965). Background: Following independence from Belgium in 1960, the DRC faced immediate instability.
+        /// Mobutu's Coup (1965) – General Mobutu Sese Seko seized power in a coup, establishing a dictatorship.
+        /// Mobutu’s Dictatorship and Insurgencies (1965–1996)
+        /// First Congo War (1996–1997). Rwanda and Uganda, along with other regional actors, supported a rebellion against Mobutu.
+        /// 1997: Kabila’s forces overthrew Mobutu, ending 32 years of dictatorship.
+        /// Second Congo War (1998–2003). Kabila turned against Rwanda and Uganda, leading to a regional war. Estimated 5.4 million deaths (deadliest 
+        /// war since World War II).
+        /// Kivu Conflict & Ongoing Insurgencies (2004–Present)
+        /// </summary>
+        [YearRange(1964, 2023)]
+        [Locations(ConflictLocations.DRCongoZaire)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInZaire = 283,
+
+        /// <summary>
+        /// 1966: The FROLINAT (Front for the National Liberation of Chad), a rebel group from the Muslim north, began an insurgency 
+        /// against the government of François Tombalbaye.
+        /// 1975: Tombalbaye was assassinated in a coup led by General Félix Malloum.
+        /// 1979: The war ended with rebels capturing N'Djamena, leading to a power struggle.
+        /// 1979: Rebel factions fought for power, leading to a collapse of central authority
+        /// 1982: Hissène Habré seized power with U.S. and French support
+        /// 1983–1987: Libya, under Muammar Gaddafi, intervened, occupying northern Chad
+        /// 1987: Chad defeated Libya in the "Toyota War", pushing Libyan forces out
+        /// 1990: Idriss Déby overthrew Habré and became president
+        /// 2005–2010: Rebel groups, including UFDD and FUC, launched attacks
+        /// 2008: Rebels reached N'Djamena but were repelled with French military support.
+        /// 2015–2020: Chad faced attacks from Boko Haram and ISIS-West Africa in the Lake Chad region.
+        /// April 2021: Déby was killed in battle against FACT rebels; his son Mahamat Déby took power.
+        /// 2022: Protests erupted against military rule.
+        /// 2023–Present: Armed groups continue to challenge the government, but Chad remains under military control.
+        /// </summary>
+        [YearRange(1966, 2023)]
+        [Locations(ConflictLocations.Chad)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInChad = 288,
+
+        /// <summary>
+        /// 1964: The Revolutionary Armed Forces of Colombia (FARC) and the National Liberation Army (ELN) were founded as Marxist guerrilla groups.
+        /// 1970s: Drug cartels, including Medellín (Pablo Escobar) and Cali Cartels, became powerful.
+        /// 1980s: Right-wing paramilitary groups (AUC) formed to fight guerrillas.
+        /// 1984: The first peace talks failed.
+        /// 1990s: FARC, ELN, and paramilitaries increased attacks, kidnappings, and drug trafficking.
+        /// 2002: President Álvaro Uribe launched a major military offensive against FARC.
+        /// 2003: The AUC demobilized, reducing paramilitary violence.
+        /// 2008: FARC leader Raúl Reyes was killed; the group weakened.
+        /// 2012–2016: Peace talks between the government and FARC.
+        /// 2016: The FARC peace deal was signed, officially ending its insurgency.
+        /// 2017: FARC disarmed, but dissident factions and ELN continued fighting.
+        /// 2018–2023: Drug cartels, ELN, and new paramilitary groups controlled rural areas.
+        /// 2022: President Gustavo Petro began peace talks with ELN and FARC dissidents.
+        /// </summary>
+        [YearRange(1964, 2023)]
+        [Locations(ConflictLocations.Colombia)]
+        [ConflictRegions(ConflictRegionFlags.Americas)]
+        OngoingConflictInColombia = 289,
+
+        /// <summary>
         /// an early phase of the Mizo National Front (MNF) insurgency against the Government of India, spanning from 1966 to 1968. This episode marked the beginning 
         /// of armed resistance in the Mizo Hills, driven by long-standing grievances among the Mizo people.
         /// </summary>
@@ -366,6 +473,36 @@ namespace WorldConflict
         [Locations(ConflictLocations.India)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         IndiaMNF = 296,
+
+        /// <summary>
+        /// There were two coups in Nigeria in 1966, this entry refers to Boko Haram conflict from 2009-2023
+        ///The conflict between the Government of Nigeria and Jama'atu Ahlis Sunna Lidda'awati wal-Jihad (JAS), commonly known as 
+        ///Boko Haram, began in 2009 and has evolved into one of the deadliest insurgencies in Africa. Below is a structured
+        ///timeline outlining key phases of the conflict.
+        ///2002: Boko Haram was founded by Mohammed Yusuf in Maiduguri, Borno State, advocating for an Islamic state and 
+        ///rejecting Western education.
+        ///July 2009: A violent uprising led by Boko Haram resulted in a government crackdown; Yusuf was killed in police custody, 
+        ///and the group went underground.
+        ///2010–2011: Under new leader Abubakar Shekau, Boko Haram re-emerged, launching deadly attacks, including:
+        ///2011: Suicide bombing of the UN headquarters in Abuja.
+        ///2013: Nigerian President Goodluck Jonathan declared a state of emergency in Borno, Yobe, and Adamawa States.
+        ///Chibok Schoolgirls Kidnapping – Over 276 girls were abducted, sparking global outrage (#BringBackOurGirls).
+        ///2015: The Nigerian military, supported by Chad, Cameroon, and Niger, launched counter-offensives, regaining key towns.
+        ///2016: A leadership dispute led to a split in Boko Haram
+        ///JAS (Boko Haram) under Shekau – Continued targeting civilians and using suicide bombers.
+        ///ISIS-West Africa Province (ISWAP) under Abu Musab al-Barnawi – Focused on attacking military and government targets.
+        ///2017–2018
+        ///Nigerian forces recaptured Boko Haram strongholds, but insurgents resorted to hit-and-run tactics.
+        ///Abduction of 110 schoolgirls in Dapchi, with most later released except Leah Sharibu.
+        ///ISWAP became more powerful, gaining support from ISIS.
+        ///Intensified Violence and Shekau’s Death (2019–2021)
+        ///2019: President Muhammadu Buhari claimed Boko Haram was "technically defeated," but attacks continued.
+        ///2020: Boko Haram massacred over 110 farmers in Zabarmari, Borno.
+        /// </summary>
+        [YearRange(1966, 2023)]
+        [Locations(ConflictLocations.Nigeria)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        NigeriaBokoHaram = 297,
 
         /// <summary>
         /// An intra-party coup within the Ba'ath Party took place on February 23, 1966. This coup resulted in a radical shift of power within the 
@@ -398,6 +535,29 @@ namespace WorldConflict
         [Locations(ConflictLocations.Sudan)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInSudan = 309,
+
+        /// <summary>
+        /// 1971: General Idi Amin overthrew President Milton Obote in a coup.
+        /// 1972–1979: Amin’s regime committed mass killings, with an estimated 300,000 deaths.
+        /// 1978–1979: Amin invaded Tanzania, but Tanzania and Ugandan exiles defeated him.
+        /// April 1979: Amin was overthrown; he fled into exile.
+        /// 1979–1980: Political instability after Amin’s fall; multiple factions vied for power.
+        /// 1980: Milton Obote returned to power, but his rule was met with armed resistance.
+        /// 1981–1986: Ugandan Bush War. Yoweri Museveni’s National Resistance Army (NRA) fought against Obote’s government.
+        /// 1985: Obote was overthrown in a coup by General Tito Okello.
+        /// 1986: Museveni’s NRA defeated Okello and seized power.
+        /// 1987: Joseph Kony formed the Lord’s Resistance Army (LRA) in northern Uganda.
+        /// 1990s–2000s: LRA committed mass killings, child soldier recruitment, and abductions.
+        /// 2002–2006: Uganda launched military operations against the LRA
+        /// 2006–2008: LRA peace talks failed, and Kony fled into Central Africa.
+        /// 2000s: Armed cattle raiders in Karamoja caused local conflicts.
+        /// 2010: Al-Shabaab bombed Kampala, killing over 70 people.
+        /// 2020s: Uganda continues counterterrorism efforts against Islamist extremists.
+        /// </summary>
+        [YearRange(1971, 2017)]
+        [Locations(ConflictLocations.Uganda)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInUganda = 314,
 
         /// <summary>
         /// Saur Revolution (1978). People's Democratic Party of Afghanistan (PDPA) overthrew the government of President Mohammed Daoud Khan in a coup.
@@ -494,6 +654,56 @@ namespace WorldConflict
         IndiaSikhInsurgents = 351,
 
         /// <summary>
+        /// Ethnic tensions between the Sinhalese majority and the Tamil minority escalated after independence in 1948.
+        /// The LTTE (Tamil Tigers), led by Velupillai Prabhakaran, launched an armed struggle for an independent Tamil state (Tamil Eelam).
+        /// 1984–1987: LTTE insurgency escalated in northern and eastern Sri Lanka.
+        /// 1987–1990: Indian Peacekeeping Force (IPKF) intervened but withdrew after fighting the LTTE.
+        /// 1991–2001: LTTE carried out suicide bombings and assassinations, including
+        /// - 1991: Assassination of Indian PM Rajiv Gandhi.
+        /// - 1993: Assassination of Sri Lankan President Ranasinghe Premadasa.
+        /// 2001: Attack on Bandaranaike International Airport.
+        /// 2002–2005: A ceasefire was signed, but peace talks collapsed.
+        /// 2006: The Sri Lankan military launched a major counteroffensive.
+        /// 2008: Government forces captured LTTE strongholds
+        /// May 18, 2009: LTTE leader Prabhakaran was killed, ending the war.
+        /// Allegations of war crimes against the government and LTTE
+        /// Tamil political activism and demands for autonomy continued.
+        /// 2019 Easter Bombings: Islamist extremists carried out suicide bombings, killing over 250 people.
+        /// 2022 Sri Lankan Protests
+        /// - Economic collapse led to mass protests against the Rajapaksa government.
+        /// - President Gotabaya Rajapaksa fled the country; a new government was formed.
+        /// 2023–Present: Political instability continues, but Sri Lanka remains at peace.
+        /// </summary>
+        [YearRange(1984, 2009)]
+        [Locations(ConflictLocations.SriLanka)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInSriLanka = 352,
+
+        /// <summary>
+        /// 1978: Abdullah Öcalan founded the PKK (Partiya Karkerên Kurdistanê), advocating for Kurdish independence from Turkey.
+        /// 1980: The Turkish military coup led to crackdowns on Kurdish activism.
+        /// 1984: The PKK launched armed attacks against Turkish security forces, marking the official start of the insurgency.
+        /// 1980s–1990s: The PKK conducted ambushes, bombings, and assassinations.
+        /// 1992–1995: Turkey launched large-scale military operations, including cross-border strikes in northern Iraq, where the 
+        /// PKK had bases.
+        /// 1995–1998: Turkish forces invaded northern Iraq multiple times to destroy PKK strongholds.
+        /// 1999: Abdullah Öcalan was captured in Kenya (with CIA help) and sentenced to death (later commuted to life imprisonment).
+        /// The PKK declared a unilateral ceasefire.
+        /// 2000–2004: A period of relative calm, with PKK reducing attacks
+        /// 2004: The PKK resumed attacks, citing government failure to recognize Kurdish rights.
+        /// 2009–2013: Peace Process: The Turkish government and Öcalan engaged in negotiations. 2013: A ceasefire was declared.
+        /// 2015: Peace talks collapsed after deadly bombings and assassinations
+        /// 2015–2016: Turkey launched massive counterinsurgency operations in southeastern Turkey.
+        /// 2016–2018: Turkish offensives in northern Syria targeted the YPG, considered an affiliate of the PKK.
+        /// 2019: Operation Peace Spring targeted Kurdish-controlled areas in Syria.
+        /// 2020s: Turkey intensified cross-border strikes in Iraq and Syria.
+        /// </summary>
+        [YearRange(1984, 2023)]
+        [Locations(ConflictLocations.Turkey)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        TurkeyPKKConflict = 354,
+
+        /// <summary>
         /// A coup d'état occurred on October 15, 1987. This coup led to the overthrow of Thomas Sankara, the revolutionary leader of Burkina Faso, 
         /// who was often referred to as "Africa's Che Guevara" due to his progressive and pan-African policies.
         /// 
@@ -545,6 +755,31 @@ namespace WorldConflict
         IndiaAssamConflict = 365,
 
         /// <summary>
+        /// October 1, 1990: The Rwandan Patriotic Front (RPF), led by Paul Kagame, launched an invasion from Uganda to overthrow the 
+        /// Hutu-led government.
+        /// 1991–1993: The war continued with periodic ceasefires, but violence escalated.
+        /// August 1993: The Arusha Accords were signed, aiming for a power-sharing government.
+        /// April 6, 1994: The plane carrying President Juvénal Habyarimana (Hutu) was shot down, triggering mass killings.
+        /// April–July 1994: Hutu extremists (Interahamwe militias and government forces) massacred 800,000–1,000,000 Tutsis and 
+        /// moderate Hutus.
+        /// July 1994: The RPF defeated the government forces and took control of Rwanda.
+        /// Aftermath: Two million Hutus fled to Zaire (now DRC), fearing reprisals.
+        /// 1996: The Rwandan government, under Paul Kagame, supported an invasion of Zaire to remove Hutu militias (ex-FAR, 
+        /// Interahamwe).
+        /// 1997: Zaire’s leader, Mobutu Sese Seko, was overthrown; Laurent-Désiré Kabila took power in what became the Democratic 
+        /// Republic of the Congo (DRC).
+        /// 1998: Rwanda supported a rebel movement (RCD) against Kabila, leading to a regional war involving nine African countries.
+        /// 2003: Rwanda officially withdrew from the DRC, but conflicts continued.
+        /// 2004–2009: Rwanda was accused of supporting the CNDP, a rebel group in eastern DRC.
+        /// 2012–2013: Rwanda allegedly backed the M23 rebellion in DRC, leading to international condemnation.
+        /// 2021–Present: M23 resurfaced, with Rwanda and DRC exchanging accusations of supporting rival militias.
+        /// </summary>
+        [YearRange(1990, 2023)]
+        [Locations(ConflictLocations.Rwanda)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInRwanda = 374,
+
+        /// <summary>
         /// First Nagorno-Karabakh War (1991-1994)
         /// Intermittent Skirmishes (1994-2016)
         /// Second Nagorno-Karabakh War (2020). Ended in ceasefire November 10, 2020.
@@ -555,6 +790,48 @@ namespace WorldConflict
         [Locations(ConflictLocations.Azerbaijan)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         OngoingConflictForArtsakh = 388,
+
+        /// <summary>
+        /// 1991: After the fall of the Soviet Union, Chechnya declared independence under Dzhokhar Dudayev.
+        /// 1994: Russia, under Boris Yeltsin, refused to recognize Chechen independence and launched a military offensive.
+        /// December 1994: Russian troops invaded Chechnya.
+        /// 1995: Heavy fighting in Grozny; Russia faced fierce resistance.
+        /// June 1995: Budennovsk hospital hostage crisis—Chechen rebels took 1,500 hostages in southern Russia.
+        /// August 1996: Battle of Grozny—Chechen forces recaptured the capital.
+        /// 1996 Khasavyurt Accord ended the war; Russia withdrew
+        /// Chechnya gained de facto independence, but instability remained.
+        /// 1999: Chechen militants, led by Shamil Basayev, invaded Dagestan, prompting Russian intervention.
+        /// September 1999: Apartment bombings in Moscow and other cities (blamed on Chechen rebels) led to a new war.
+        /// October 1999: Russian forces invaded Chechnya under Vladimir Putin.
+        /// February 2000: Russia recaptured Grozny, declaring victory.
+        /// 2000–2002: Chechen rebels shifted to guerrilla warfare and terrorism.
+        /// 2003: Russia established a pro-Moscow government in Chechnya
+        /// 2005: Chechen leader Aslan Maskhadov was killed
+        /// 2006: Shamil Basayev was killed, weakening the insurgency.
+        /// 2004: Beslan school siege—Chechen terrorists took 1,100 hostages; over 330 people died.
+        /// 2005–2007: Russian forces suppressed most rebel groups
+        /// 2007: Russia declared the war officially over.
+        /// </summary>
+        [YearRange(1994, 2007)]
+        [Locations(ConflictLocations.RussiaSovietUnion)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        ChechnyaSeparatism = 401,
+
+        /// <summary>
+        /// The MQM (Muttahida Qaumi Movement) was founded in 1984 by Altaf Hussain as a political movement for Muhajirs (Indian 
+        /// immigrants in Pakistan).
+        /// By the 1990s, the MQM had armed factions and was accused of organized crime, extortion, and violence in Karachi.
+        /// 1995: Prime Minister Benazir Bhutto intensified military-police operations, targeting MQM strongholds.
+        /// 1999: General Pervez Musharraf took power in a coup; MQM tensions reduced temporarily.
+        /// The Tehrik-i-Taliban Pakistan (TTP) was formed in 2007, inspired by the Afghan Taliban.
+        /// The TTP aimed to impose Sharia law and overthrow the Pakistani government.
+        /// 2014: Peshawar school massacre – TTP militants killed over 140 children.
+        /// 2015–2016: Pakistan’s military launched "Operation Zarb-e-Azb", killing thousands of militants.
+        /// </summary>
+        [YearRange(1990, 2023)]
+        [Locations(ConflictLocations.Pakistan)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        OngoingConflictInPakistan = 404,
 
         /// <summary>
         /// All Bodo Students' Union (ABSU): Initially emerging as a mass mobilization and political advocacy group, ABSU organized protests, strikes, and other 
@@ -643,6 +920,52 @@ namespace WorldConflict
         IndiaConflictInGorkhaland = 11342,
 
         /// <summary>
+        /// July 9, 2011: South Sudan became an independent country after a referendum.
+        /// President Salva Kiir (Dinka ethnic group) and Vice President Riek Machar (Nuer ethnic group) had political rivalries.
+        /// 2012: South Sudan and Sudan clashed over oil-rich border regions (e.g., Heglig).
+        /// December 2013: Kiir accused Machar of plotting a coup, sparking civil war.
+        /// December 2013: Fighting erupted in Juba, spreading nationwide.
+        /// 2014: Rebels loyal to Machar captured parts of Jonglei, Unity, and Upper Nile states.
+        /// 2015: A peace agreement was signed but quickly collapsed.
+        /// July 2016: Renewed fighting in Juba forced Machar to flee.
+        /// 2017–2018: Famine and mass displacement affected millions.
+        /// September 2018: The Revitalized Peace Agreement was signed.
+        /// 2019: Ceasefires largely held, but local clashes persisted.
+        /// 2020: A unity government was formed, with Machar reinstated as Vice President.
+        /// 2021–2022: Ethnic and militia violence continued, especially in Jonglei and Upper Nile.
+        /// 2023: Delays in implementing peace agreements raised concerns about elections in 2024.
+        /// </summary>
+        [YearRange(2011, 2021)]
+        [Locations(ConflictLocations.SouthSudan)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInSouthSudan = 11345,
+
+        /// <summary>
+        /// October 2011: The National Transitional Council (NTC) took control of Libya after Qaddafi’s fall.
+        /// 2012: Libya held elections for the General National Congress (GNC), but the government struggled to control armed militias, many of which had 
+        /// fought against Qaddafi.
+        /// 2013–2014: Islamist and secular factions within the GNC clashed, leading to political gridlock.
+        /// 2014: General Khalifa Haftar, a former Qaddafi-era officer, launched "Operation Dignity" against Islamist militias in Benghazi. This 
+        /// triggered the Second Libyan Civil War.
+        /// 2014: Libya split into two competing governments:
+        /// 1. Tripoli-based Government of National Accord (GNA) – backed by the United Nations, Turkey, and Qatar.
+        /// 2. Tobruk-based House of Representatives (HoR) – allied with Khalifa Haftar’s Libyan National Army (LNA), supported by Egypt, the UAE, and Russia.
+        /// 2015: The Skhirat Agreement, brokered by the UN, attempted to unify the rival factions but failed to end the fighting.
+        /// 2016: Haftar’s LNA captured Benghazi, strengthening his control over eastern Libya
+        /// 2018: Haftar took control of the oil-rich Sirte Basin.
+        /// April 2019: Haftar launched an offensive on Tripoli, seeking to overthrow the GNA
+        /// 2019–2020: Heavy fighting in Tripoli led to thousands of casualties and displacement.
+        /// Turkey intervened in early 2020, sending troops and drones to support the GNA.
+        /// Russia, through the Wagner Group, increased its backing of Haftar’s LNA.
+        /// June 2020: The GNA counteroffensive, backed by Turkish drones, pushed Haftar’s forces back from Tripoli.
+        /// October 2020: A ceasefire agreement was signed under UN mediation, ending large-scale fighting.
+        /// </summary>
+        [YearRange(2011, 2020)]
+        [Locations(ConflictLocations.Libya)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        LibyaPostQaddafiInstability = 11346,
+
+        /// <summary>
         /// 2009-2011: The presence and activities of AQIM in northern Mali were primarily focused on kidnappings and small-scale skirmishes with Malian 
         /// security forces.
         /// 2012 Rebellion and Coup: The conflict intensified dramatically in 2012 following a rebellion by the MNLA (a secular Tuareg nationalist group),
@@ -688,6 +1011,47 @@ namespace WorldConflict
         RussianInvasionOfUkraine = 13243,
 
         /// <summary>
+        /// see 13247
+        /// </summary>
+        [YearRange(2014, 2014)]
+        [Locations(ConflictLocations.Ukraine)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        UkrainevsDPRIn2014 = 13246,
+
+        /// <summary>
+        /// February 2014: Ukraine’s Euromaidan Revolution led to the overthrow of pro-Russian President Viktor Yanukovych.
+        /// March 2014: Russia annexed Crimea, escalating tensions.
+        /// April 2014: Pro-Russian separatists in Donetsk and Luhansk declared independence, forming the DPR and LPR.
+        /// Armed militants seized government buildings in Donetsk, Luhansk, and Sloviansk.
+        /// April 13, 2014: Ukraine launched the "Anti-Terrorist Operation" (ATO) against separatists.
+        /// Heavy clashes occurred in Sloviansk, Kramatorsk, and Mariupol.
+        /// The Ukrainian military recaptured Sloviansk in July.
+        /// June 2014: The separatists received Russian fighters and weapons.
+        /// July 17, 2014: Malaysia Airlines Flight MH17 was shot down over DPR-held territory by a Russian-supplied Buk missile.
+        /// August 2014: Ukrainian forces made major gains but were countered by Russian troops, who entered Donbas in late August.
+        /// August 2014: Ukraine launched an offensive to retake Ilovaisk but was ambushed by Russian forces.
+        /// Ukrainian troops suffered heavy losses, with over 300 killed.
+        /// September 2014: The Minsk I ceasefire was signed, but fighting continued.
+        /// </summary>
+        [YearRange(2014, 2014)]
+        [Locations(ConflictLocations.Ukraine)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        UkrainevsLPRIn2014 = 13247,
+
+        /// <summary>
+        /// Since 2014, DPR and LPR controlled parts of Donetsk and Luhansk in eastern Ukraine, backed by Russia.
+        /// 2021: Russia massed troops along Ukraine’s border, raising fears of an invasion.
+        /// February 2022:
+        /// DPR and LPR declared full independence, with Russia recognizing them.
+        /// Russia sent “peacekeeping forces”, effectively setting the stage for a wider conflict.
+        /// </summary>
+        [YearRange(2014, 2022)]
+        [Locations(ConflictLocations.Ukraine)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+
+        SeparatismOfDonetskAndLuhanskInUkraine = 13306,
+
+        /// <summary>
         /// Islamic State Emergence and Expansion (2013-2014). In June 2014, after capturing large swaths of territory in Iraq and Syria, including the 
         /// major cities of Raqqa in Syria and Mosul in Iraq, ISIS declared the establishment of a caliphate.
         /// International Response and Initial Counteroffensives (2014-2016). US-Led Coalition and Kurdish Forces (SDF) fought against Islamic State.
@@ -699,6 +1063,20 @@ namespace WorldConflict
         [Locations(ConflictLocations.Syria)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
         IslamicStateInSyria = 13604,
+
+        /// <summary>
+        /// 2015: ISIS-K was founded as a regional branch of the Islamic State, operating mainly in eastern Afghanistan (Nangarhar and Kunar provinces).
+        /// 2015–2021: The Afghan Republic vs. ISIS-K. The Afghan government fought ISIS-K with the support of U.S. airstrikes and special forces.
+        /// 2021–Present: Taliban Rule and ISIS-K Insurgency
+        /// August 2021: The Taliban took over Afghanistan after the U.S. withdrawal and the fall of the Afghan Republic.
+        /// August 26, 2021: ISIS-K bombed Kabul airport, killing over 180 people, including 13 U.S. soldiers.
+        /// The Taliban government launched an anti-ISIS campaign, using both military force and intelligence operations.
+        /// ISIS-K responded with assassinations, bombings, and attacks on Taliban targets, foreign embassies, and religious minorities.
+        /// </summary>
+        [YearRange(2015, 2023)]
+        [Locations(ConflictLocations.Afghanistan)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IslamicStateInAfghanistan = 13637,
 
         /// <summary>
         /// ISWAP (Islamic State in West Africa Province) originated as a faction within Boko Haram, the jihadist group that began 
@@ -738,6 +1116,56 @@ namespace WorldConflict
         [Locations(ConflictLocations.India)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         IndiaUNLFW = 13653,
+
+        /// <summary>
+        /// 2015: ISIS captured Sirte, establishing it as its main stronghold outside Iraq and Syria.
+        /// January: ISIS attacked the Corinthia Hotel in Tripoli, killing 10 people.
+        /// February: ISIS executed 21 Egyptian Christians on a Libyan beach.
+        /// March–June: ISIS seized Nofaliya and Harawa near Sirte
+        /// Late 2015: The Government of National Accord (GNA), backed by the UN, was formed but was too weak to counter ISIS effectively.
+        /// March 2016: ISIS began expanding from Sirte toward Misrata but faced resistance from Libyan forces.
+        /// May–December 2016: Battle of Sirte. The GNA, backed by U.S. airstrikes, launched an offensive to retake Sirte.
+        /// December 2016: ISIS was expelled from Sirte, marking its biggest territorial loss in Libya.
+        /// 2017: ISIS retreated into the desert and southern Libya, resorting to hit-and-run attacks.
+        /// 2018: ISIS regrouped and carried out
+        /// 1.Bombings and assassinations in Tripoli, Misrata, and the Fezzan region.
+        /// 2. May 2018: ISIS attacked the Electoral Commission in Tripoli, killing 14.
+        /// 3. September 2018: Attack on NOC headquarters in Tripoli.
+        /// 2019: ISIS targeted Libyan National Army (LNA) forces under Khalifa Haftar in the south.
+        /// April 2019: LNA launched a crackdown on ISIS in Fezzan, reducing its operational capacity
+        /// </summary>
+        [YearRange(2015, 2019)]
+        [Locations(ConflictLocations.Libya)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        IslamicStateInLibya = 13694,
+
+        /// <summary>
+        /// October 10, 2015: Ankara bombing – ISIS suicide bombers killed over 100 people, Turkey’s deadliest terror attack.
+        /// Turkey allowed the U.S. to use Incirlik Air Base for airstrikes against ISIS.
+        /// Turkish forces began airstrikes and artillery attacks on ISIS positions in Syria.
+        /// January 2016: ISIS bombing in Istanbul killed 13 tourists.
+        /// March 2016: ISIS attacked Ankara and Istanbul, killing civilians.
+        /// August 2016: Turkey launched Operation Euphrates Shield:
+        /// December 2016–January 2017
+        /// Istanbul nightclub attack (New Year's Eve) – An ISIS gunman killed 39 people.
+        /// Turkish forces launched final operations in Al-Bab, one of ISIS’s last strongholds in Syria.
+        /// February 2017: Turkish-backed forces captured Al-Bab, effectively ending ISIS’s presence near the Turkish border.
+        /// </summary>
+        [YearRange(2015, 2017)]
+        [Locations(ConflictLocations.Turkey)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        IslamicStateInTurkey = 13903,
+
+        /// <summary>
+        /// The Abu Sayyaf Group (ASG) and other extremist groups were active in Mindanao since the 1990s.
+        /// In 2014–2015, several Islamist groups pledged allegiance to ISIS, forming ISIS-Philippines.
+        /// 2016–2017: Rise of ISIS in Mindanao
+        /// 2018–2020: ISIS Resurgence and Counterinsurgency
+        /// </summary>
+        [YearRange(2016, 2023)]
+        [Locations(ConflictLocations.Philippines)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        PhilippinesAgainstIslamicState = 14275,
 
         /// <summary>
         /// The CSP-PSD was a coalition of separatist movements (CMA and Platform) related to Azawad. Platform left the group in September 2023 due
