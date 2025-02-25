@@ -46,12 +46,14 @@ namespace Existence.Personal
                 public static class ArtificialIntelligence { }
             }
             public static class QuantumComputingHelloWorld { }
+            public static class CovidWasCausedByAnimalSpillover { }
         }
         public static class Two
         {
             public static class HumanityUpgradeToNextLevelReality { }
             public static class IntergalacticPulsarTime { }
             public static class QuantumComputingUseful { }
+            public static class CovidWasCausedByALabLeak { }
         }
         public static class Three
         {
