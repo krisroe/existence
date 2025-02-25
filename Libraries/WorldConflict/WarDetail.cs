@@ -34,17 +34,23 @@ namespace WorldConflict
     {
         Afghanistan,
         Albania,
+        Algeria,
+        Angola,
+        Australlia,
         Azerbaijan,
         BurkinaFaso,
+        Burundi,
         Chad,
         Colombia,
         DRCongoZaire,
+        Eritrea,
         Ethiopia,
         France,
         India,
         Iraq,
         Iran,
         Israel,
+        Liberia,
         Libya,
         Mali,
 
@@ -87,6 +93,7 @@ namespace WorldConflict
         Philippines,
         RussiaSovietUnion,
         Rwanda,
+        SerbiaYugoslavia,
         Somalia,
         SouthSudan,
         SriLanka,
@@ -97,6 +104,7 @@ namespace WorldConflict
         Uganda,
         Ukraine,
         UnitedKingdom,
+        UnitedStatesOfAmerica,
         YemenNorthYemen,
     }
 
@@ -424,6 +432,23 @@ namespace WorldConflict
         OngoingConflictInZaire = 283,
 
         /// <summary>
+        /// 1965: A failed Hutu-led coup against the Tutsi-dominated government led to mass killings of Hutu leaders.
+        /// 1966: Tutsi military officer Michel Micombero staged a coup, establishing a Tutsi-led military dictatorship.
+        /// April 1972: A Hutu uprising led to massacres of Tutsis.
+        /// August 1988: Ethnic violence erupted between Hutu rebels and the Tutsi military.
+        /// 1993: Melchior Ndadaye, the first democratically elected Hutu president, was assassinated by Tutsi soldiers.
+        /// 1993–2005: A full-scale civil war erupted between Hutu rebel groups (e.g., FDD, FNL) and the Tutsi-led army.
+        /// 2000: The Arusha Accords were signed but fighting continued.
+        /// 2005: A peace agreement led to Hutu rebel leader Pierre Nkurunziza becoming president.
+        /// 2015: Nkurunziza ran for a third term, violating the constitution.
+        /// 2020: Nkurunziza died; Évariste Ndayishimiye became president.
+        /// </summary>
+        [YearRange(1965, 2023)]
+        [Locations(ConflictLocations.Burundi)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInBurundi = 287,
+
+        /// <summary>
         /// 1966: The FROLINAT (Front for the National Liberation of Chad), a rebel group from the Muslim north, began an insurgency 
         /// against the government of François Tombalbaye.
         /// 1975: Tombalbaye was assassinated in a coup led by General Félix Malloum.
@@ -522,6 +547,16 @@ namespace WorldConflict
         OngoingConflictInSyria = 299,
 
         /// <summary>
+        /// MIM – Mindanao Independence Movement (1970s). Founded in 1968,  Independence for Muslim Mindanao from the Philippine government
+        /// MILF – Moro Islamic Liberation Front (1980s–2019). Objective: Establish an autonomous Islamic state in Mindanao.
+        /// ASG – Abu Sayyaf Group (1991–Present). Objective: Establish an Islamic caliphate in Mindanao.
+        /// </summary>
+        [YearRange(1970, 2020)]
+        [Locations(ConflictLocations.Philippines)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        IslamistAndSeparatistMovementsInMindanao = 308,
+
+        /// <summary>
         /// 1971: failed coup attempt against President Jaafar Nimeiry
         /// 1976: attempted coup against President Jaafar Nimeiry, orchestrated by opponents of Nimeiry who were exiled in Libya and supported by the Libyan 
         /// government under Muammar Gaddafi
@@ -558,6 +593,27 @@ namespace WorldConflict
         [Locations(ConflictLocations.Uganda)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInUganda = 314,
+
+        /// <summary>
+        /// Angolan War of Independence (1961–1975) against Portuguese colonial rule
+        /// November 11, 1975: Angola gained independence, but the three factions turned on each other, starting a civil war.
+        /// 1975–1976: The MPLA seized power in Luanda and declared itself the government. Cuba sent 36,000 troops to support the MPLA
+        /// South Africa and the U.S. supported UNITA, fearing Soviet expansion.
+        /// 1980s: Heavy fighting between MPLA and UNITA across the country. South Africa invaded Angola to target Namibian SWAPO rebels.
+        /// The Soviet Union provided weapons, while the U.S. supplied UNITA via Zaire.
+        /// 1988: The Battle of Cuito Cuanavale – The largest battle in Africa since World War II
+        /// 1991: The Bicesse Accords led to a temporary ceasefire and elections.
+        /// 1992 Elections: MPLA’s José Eduardo dos Santos won, but UNITA rejected the results, restarting the war.
+        /// 1993–1994: Heavy fighting; UNITA lost key cities.
+        /// 1994: Lusaka Protocol signed but failed to stop fighting.
+        /// 1997–1999: UNITA resumed war after failed peace agreements.
+        /// Jonas Savimbi (UNITA leader) was killed in battle on February 22, 2022
+        /// UNITA surrendered; a peace agreement was signed in April.
+        /// </summary>
+        [YearRange(1975, 2002)]
+        [Locations(ConflictLocations.Angola)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        CivilWarInAngola = 327,
 
         /// <summary>
         /// Saur Revolution (1978). People's Democratic Party of Afghanistan (PDPA) overthrew the government of President Mohammed Daoud Khan in a coup.
@@ -620,6 +676,25 @@ namespace WorldConflict
         [Locations(ConflictLocations.Somalia)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         OngoingConflictInSomalia = 337,
+
+        /// <summary>
+        /// 1980: Master Sergeant Samuel Doe led a military coup against President William R. Tolbert Jr.
+        /// December 24, 1989: Charles Taylor’s National Patriotic Front of Liberia (NPFL) launched a rebellion against President Samuel Doe.
+        /// Taylor’s forces gained territory, but a splinter group, the Independent National Patriotic Front of Liberia (INPFL), led by Prince Johnson, 
+        /// also fought against Doe.
+        /// September 1990: Prince Johnson’s forces captured and executed Samuel Doe.
+        /// A transitional government was formed, but fighting between factions continued.
+        /// 1991–1996: The war became a multi-faction conflict, with various rebel groups fighting for power. The ECOWAS peacekeeping force (ECOMOG) 
+        /// intervened but struggled to restore order.
+        /// 1996: A final peace agreement was reached after years of failed ceasefires.
+        /// 1997: Charles Taylor won elections, effectively ending the war.
+        /// Taylor’s presidency was marked by dictatorship and war crimes, leading to a second civil war (1999-2003)
+        /// In 2003, Taylor was forced to resign and go into exile in Nigeria.
+        /// </summary>
+        [YearRange(1980, 2003)]
+        [Locations(ConflictLocations.Liberia)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        ConflictInLiberia = 341,
 
         /// <summary>
         /// In Tripura, the indigenous Tripuri population increasingly felt marginalized by the influx of non-tribal settlers, especially Bengalis, which altered
@@ -780,6 +855,26 @@ namespace WorldConflict
         OngoingConflictInRwanda = 374,
 
         /// <summary>
+        /// 1988: Anti-government protests led to political reforms allowing multiparty elections.
+        /// 1991: The Islamic Salvation Front (FIS) won the first round of elections, threatening to establish an Islamist state.
+        /// 1992: The military canceled elections, banned the FIS, and took power.
+        /// Islamist insurgents, including the Armed Islamic Group (GIA), launched a violent rebellion.
+        /// 1994-1996: Massacres of civilians, particularly in rural areas. GIA and other jihadist groups attacked civilians, journalists, and foreigners.
+        /// Government crackdowns intensified.
+        /// 1997: Moderate Islamist factions negotiated a ceasefire.
+        /// 1999: President Abdelaziz Bouteflika offered amnesty to militants.
+        /// 2002: The civil war officially ended, but terrorism continued.
+        /// 2003: GIA remnants rebranded as Al-Qaeda in the Islamic Maghreb (AQIM).
+        /// 2007: AQIM carried out suicide bombings in Algiers.
+        /// 2013: AQIM and allied militants seized the In Amenas gas plant, leading to an Algerian military assault.
+        /// 2019: Mass protests ("Hirak Movement") forced President Bouteflika to resign after 20 years.
+        /// </summary>
+        [YearRange(1991, 2020)]
+        [Locations(ConflictLocations.Algeria)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        OngoingConflictInAlgeria = 386,
+
+        /// <summary>
         /// First Nagorno-Karabakh War (1991-1994)
         /// Intermittent Skirmishes (1994-2016)
         /// Second Nagorno-Karabakh War (2020). Ended in ceasefire November 10, 2020.
@@ -832,6 +927,55 @@ namespace WorldConflict
         [Locations(ConflictLocations.Pakistan)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInPakistan = 404,
+
+        /// <summary>
+        /// 1993: Eritrea gained independence from Ethiopia after a 30-year war.
+        /// 1998: Border disputes over the town of Badme led to war.
+        /// May 1998: Eritrean troops occupied Badme; Ethiopia launched a counteroffensive.
+        /// 1999: Ethiopia recaptured Badme.
+        /// 2000: Ethiopia launched a final offensive, pushing deep into Eritrea. The Algiers Peace Agreement was signed in December, ending active fighting.
+        /// </summary>
+        [YearRange(1998, 2016)]
+        [Locations(ConflictLocations.Eritrea)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        EritreaEthiopiaWar = 409,
+
+        /// <summary>
+        /// Kosovo, a province of Serbia, had a majority ethnic Albanian population.
+        /// 1990s: Serbian President Slobodan Milošević imposed harsh repression on Kosovo Albanians.
+        /// 1996: The UÇK emerged, launching attacks on Serbian police and military.
+        /// February 1998: Serbia began a military crackdown in Kosovo.
+        /// March–June 1998: Serbian forces launched major offensives, targeting UÇK strongholds.
+        /// September 1998: NATO issued warnings to Serbia but took no immediate action.
+        /// January 1999: The Račak massacre (45 Albanians killed) intensified global outrage.
+        /// March 24, 1999: NATO launched a 78-day bombing campaign against Serbian forces
+        /// April–June 1999: Ethnic cleansing intensified: Over 800,000 Kosovars were expelled by Serbian forces.
+        /// June 10, 1999: Serbia agreed to withdraw from Kosovo, and NATO troops entered as peacekeepers.
+        /// </summary>
+        [YearRange(1998, 1999)]
+        [Locations(ConflictLocations.SerbiaYugoslavia)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        SerbiaKosovoLiberationArmyWar = 412,
+
+        /// <summary>
+        /// 9/11 Attacks and U.S. Response (2001)
+        /// U.S. Invasion of Afghanistan and Al-Qaida’s Dispersal (2001–2006)
+        /// Iraq War and Rise of Al-Qaida in Iraq (2003–2011)
+        /// Global Drone Strikes and Special Operations (2006–2011)
+        /// Al-Qaida’s Fragmentation and Decline (2012–2019). Al-Qaida lost influence as ISIS emerged as a rival group.
+        /// </summary>
+        [YearRange(2001, 2019)]
+        [Locations(ConflictLocations.UnitedStatesOfAmerica)]
+        [ConflictRegions(ConflictRegionFlags.Americas)]
+        UnitedStatesvsalQaida = 418,
+
+        /// <summary>
+        /// Invasion of Iraq per intelligence believing there were weapons of mass destruction present
+        /// </summary>
+        [YearRange(2003, 2003)]
+        [Locations(ConflictLocations.Australlia, ConflictLocations.Iraq, ConflictLocations.UnitedKingdom, ConflictLocations.UnitedStatesOfAmerica)]
+        [ConflictRegions(ConflictRegionFlags.Europe | ConflictRegionFlags.MiddleEast | ConflictRegionFlags.Asia | ConflictRegionFlags.Americas)]
+        InvasionOfIraqIn2003 = 420,
 
         /// <summary>
         /// All Bodo Students' Union (ABSU): Initially emerging as a mass mobilization and political advocacy group, ABSU organized protests, strikes, and other 
@@ -1118,6 +1262,14 @@ namespace WorldConflict
         IndiaUNLFW = 13653,
 
         /// <summary>
+        /// post 9/11 invasion of Afghanistan against al-Qaida and the Taliban who ruled Afghanistan at the time
+        /// </summary>
+        [YearRange(2001, 2001)]
+        [Locations(ConflictLocations.Afghanistan, ConflictLocations.UnitedKingdom, ConflictLocations.UnitedStatesOfAmerica)]
+        [ConflictRegions(ConflictRegionFlags.Europe | ConflictRegionFlags.Asia | ConflictRegionFlags.Americas)]
+        InvasionOfAfghanistanPostNineEleven = 13692,
+
+        /// <summary>
         /// 2015: ISIS captured Sirte, establishing it as its main stronghold outside Iraq and Syria.
         /// January: ISIS attacked the Corinthia Hotel in Tripoli, killing 10 people.
         /// February: ISIS executed 21 Egyptian Christians on a Libyan beach.
@@ -1154,7 +1306,7 @@ namespace WorldConflict
         [YearRange(2015, 2017)]
         [Locations(ConflictLocations.Turkey)]
         [ConflictRegions(ConflictRegionFlags.MiddleEast)]
-        IslamicStateInTurkey = 13903,
+        IslamicStateInTurkey = 13902,
 
         /// <summary>
         /// The Abu Sayyaf Group (ASG) and other extremist groups were active in Mindanao since the 1990s.
