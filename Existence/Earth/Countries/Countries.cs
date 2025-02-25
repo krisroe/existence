@@ -2177,6 +2177,9 @@ namespace Existence.Earth.Countries
 
         /// <summary>
         /// 170 total warheads, none deployed
+        /// 
+        /// In December 2024, the United States imposed sanctions on entities involved in Pakistan's missile program, citing concerns over the development of long-range ballistic missiles 
+        /// capable of reaching U.S. targets. Pakistan denied these allegations, asserting that its nuclear and missile programs are intended solely as deterrents against Indian aggression.
         /// </summary>
         public static class Pakistan { }
 
@@ -2217,6 +2220,14 @@ namespace Existence.Earth.Countries
         public static class UkraineBelarusKazahkstan { }
     }
 
+    public static class NuclearWeaponsCooperation
+    {
+        /// <summary>
+        /// India and Pakistan have been exchanging information about their nuclear assets annually since 1992. This practice is part of an agreement known as the Prohibition of Attack against 
+        /// Nuclear Installations and Facilities Agreement. The agreement was signed by both countries in 1988 and came into effect in 1991.
+        /// </summary>
+        public static class IndiaPakistanCooperation { }
+    }
 
     public static class HistoricalPalestine
     {
