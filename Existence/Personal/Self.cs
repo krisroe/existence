@@ -137,7 +137,31 @@ namespace Existence.Personal
                 }
                 public static class v2018
                 {
-                    public static class PsychologicalTraumaFromActiveShooterIncidentNoHospitalization { }
+                    public static class September18ActiveShooterIncident
+                    {
+                        public static class WorkWasOffForFullWeek { }
+                        public static class RecoveredFromPsychologicalTraumaWithDesensitizationNoPsychiatricHospitalization { }
+                    }
+                    public static class September30PackersBillsGame
+                    {
+                        public static class DadAndISnuckWaterBottleIntoTheGameEvenThoughItWasntAllowed { }
+                        public static class SangNationalAnthemPrettyWell { }
+                        public static class PackersWonInShutoutTwentyTwoToZero
+                        {
+                            public static class YearsLaterBelievedToBeLevelTwoScorigami { }
+                            public static class EvenLaterUnderstoodWasActuallyLevelFourteenScorigami { }
+                        }
+                        public static class AtTheTimeBelievedSingingOfNationalAnthemTriggeredButterflyEffectSoPackersGotShutoutWin
+                        {
+                            public static class YearsLaterBelievedCausedSomethingScorigamiRelated { }
+                        }
+                        /// <summary>
+                        /// was worried about the water bottle incident, I deliberately emptied my pockets to show I was not a thread
+                        /// </summary>
+                        public static class ThoughtPoliceWereAdvancingOnMeBeforeRollOutTheBarrelButNothingHappenedExceptSingingTheSong { }
+
+                        public static class OnTheDriveHomeSawPoliceCarsAndAccidentConcludedUsingButterflyEffectHadNegativeConsequencesAndFeltGuiltyAboutIt { }
+                    }
                 }
                 public static class v2022
                 {
@@ -155,7 +179,11 @@ namespace Existence.Personal
                 }
                 public static class v2024
                 {
-                    public static class WasReallyRollingWithLoserDosesOfQuetiapineEvenDosesLike100MG133MG150MG { }
+                    /// <summary>
+                    /// 133 MG Quetiapine = 100/100/200 in three day cycle
+                    /// 150 MG Quetiapine = 100/200 in two day cycle
+                    /// </summary>
+                    public static class WasReallyRollingWithLoserDosesOfQuetiapineEvenEffectiveDosesLike100MG133MG150MG { }
                     public static class MayDiscoveredTimeTravelWasPossible { }
                     public static class MayJuneManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
                     public static class MotherDiedJuly { }
@@ -163,6 +191,9 @@ namespace Existence.Personal
                     public static class TriedToBeMoreResponsibleWithTheMedicationTaperingThisTime { }
                     public static class TaperedTo225MGLithiumSeptemberish { }
                     public static class TaperedTo0LithiumDecemberish { }
+                    /// <summary>
+                    /// never got to a stable cycle
+                    /// </summary>
                     public static class StartedTesting100MGQuetipineWaitingForSeveralDaysAfterwardForStabilization { }
                 }
                 public static class v2025
