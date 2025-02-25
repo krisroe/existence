@@ -38,10 +38,13 @@ namespace WorldConflict
         Angola,
         Australlia,
         Azerbaijan,
+        BosniaHerzegovina,
         BurkinaFaso,
         Burundi,
         Chad,
         Colombia,
+        Congo,
+        Croatia,
         DRCongoZaire,
         Eritrea,
         Ethiopia,
@@ -94,11 +97,13 @@ namespace WorldConflict
         RussiaSovietUnion,
         Rwanda,
         SerbiaYugoslavia,
+        SierraLeone,
         Somalia,
         SouthSudan,
         SriLanka,
         Sudan,
         Syria,
+        Tajikistan,
         Thailand,
         Turkey,
         Uganda,
@@ -855,6 +860,22 @@ namespace WorldConflict
         OngoingConflictInRwanda = 374,
 
         /// <summary>
+        /// 1991: The Revolutionary United Front (RUF), led by Foday Sankoh, launched a rebellion against the government of Joseph Momoh.
+        /// 1991–1993: RUF, backed by Liberia, seized large areas in eastern and southern Sierra Leone.
+        /// 1995–1996: South African mercenaries (Executive Outcomes) helped push back RUF.
+        /// 1996 Peace Agreement (Abidjan Accord) failed.
+        /// 1997: A military coup by Major Johnny Paul Koroma allied with RUF.
+        /// 1998: West African peacekeepers (ECOMOG) intervened, restoring civilian rule under Ahmad Tejan Kabbah.
+        /// 1999: RUF attacked Freetown ("Operation No Living Thing"). Lomé Peace Agreement was signed, granting RUF political power.
+        /// 2000: British troops intervened (Operation Palliser), defeating RUF.
+        /// 2001: United Nations disarmed rebels, war officially ended
+        /// </summary>
+        [YearRange(1991, 2001)]
+        [Locations(ConflictLocations.SierraLeone)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        ConflictInSierraLeone = 382,
+
+        /// <summary>
         /// 1988: Anti-government protests led to political reforms allowing multiparty elections.
         /// 1991: The Islamic Salvation Front (FIS) won the first round of elections, threatening to establish an Islamist state.
         /// 1992: The military canceled elections, banned the FIS, and took power.
@@ -885,6 +906,57 @@ namespace WorldConflict
         [Locations(ConflictLocations.Azerbaijan)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         OngoingConflictForArtsakh = 388,
+
+        /// <summary>
+        /// 1991: Yugoslavia began to break apart; Slovenia and Croatia declared independence.
+        /// March 1992: Bosnia held a referendum for independence, which was boycotted by Bosnian Serbs.
+        /// April 1992: Bosnia was recognized as an independent state, but Bosnian Serbs opposed secession.
+        /// April 1992: The Bosnian Serb Army of Republika Srpska (VRS), led by Ratko Mladić, began an offensive.
+        /// Siege of Sarajevo (April 1992–1996): Serbian forces besieged Bosnia’s capital, cutting off supplies and bombarding civilians.
+        /// Ethnic Cleansing and Massacres: Serb forces expelled and killed Bosniak civilians in eastern Bosnia.
+        /// 1993: Fighting escalated between Bosniak and Croat forces, despite their common enemy (Serbs)
+        /// 1994: Washington Agreement: The U.S. brokered a Bosniak-Croat alliance, ending their infighting
+        /// UN declared “safe zones” in cities like Srebrenica, Goražde, and Žepa, but these areas were poorly defended.
+        /// July 1995: Srebrenica Massacre – Over 8,000 Bosniak men and boys were executed by Serb forces.
+        /// August 1995: Operation Storm: Croatia recaptured Serb-held Krajina, weakening Serb forces.
+        /// August–September 1995: NATO Airstrikes: NATO bombed Bosnian Serb positions, forcing them into negotiations.
+        /// December 1995: The Dayton Peace Agreement was signed, ending the war.
+        /// Bosnia was divided into two entities:Federation of Bosnia and Herzegovina (Bosniak-Croat controlled),Republika Srpska (Serb-controlled).
+        /// </summary>
+        [YearRange(1992, 1995)]
+        [Locations(ConflictLocations.BosniaHerzegovina)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        ConflictInBosniaHerzegovina = 389,
+
+        /// <summary>
+        /// 1991: Croatia declared independence from Yugoslavia, leading to war.
+        /// 1992: United Nations-brokered ceasefire (Vance Plan) led to the deployment of UN peacekeepers (UNPROFOR).
+        /// Croatia was internationally recognized as an independent state, but Serb forces controlled one-third of the country.
+        /// 1992-1994: Croatia launched small-scale operations to regain territory from the Republic of Serbian Krajina (RSK).
+        /// 1993: Operation Maslenica – Croatia recaptured key coastal areas.
+        /// 1994: Operation Winter '94 – Croatia advanced against Serb positions in Bosnia.
+        /// May 1995: Operation Flash – Croatia recaptured Western Slavonia.
+        /// August 1995: Operation Storm: Largest battle of the war; Croatia retook Krajina in four days.
+        /// November 1995: Erdut Agreement – Croatia and Serb forces agreed to a peaceful reintegration of Eastern Slavonia.
+        /// </summary>
+        [YearRange(1992, 1995)]
+        [Locations(ConflictLocations.Croatia)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        ConflictInCroatia = 390,
+
+        /// <summary>
+        /// 1991: Tajikistan gained independence from the Soviet Union.
+        /// 1992: Power struggles between pro-communist force and Islamists/democrats (Islamist-led United Tajik Opposition (UTO))
+        /// May 1992: War broke out between government forces and the UTO.
+        /// 1992-1994: Fighting concentrated in Dushanbe and southern Tajikistan. Ethnic cleansing, mass displacement, and warlord rule.
+        /// Russia and Uzbekistan supported the government, while UTO received backing from Afghanistan and Iran.
+        /// 1994-1997: Government offensives pushed UTO fighters into Afghanistan.
+        /// 1997 Peace Agreement signed in Moscow under UN mediation.
+        /// </summary>
+        [YearRange(1992, 2011)]
+        [Locations(ConflictLocations.Tajikistan)]
+        [ConflictRegions(ConflictRegionFlags.Asia)]
+        ConflictInTajikistan = 395,
 
         /// <summary>
         /// 1991: After the fall of the Soviet Union, Chechnya declared independence under Dzhokhar Dudayev.
@@ -927,6 +999,23 @@ namespace WorldConflict
         [Locations(ConflictLocations.Pakistan)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         OngoingConflictInPakistan = 404,
+
+        /// <summary>
+        /// 1993: Presidential elections, Lissouba’s victory led to violent clashes between militias backing different candidates.
+        /// 1994: A peace agreement was signed, but tensions remained.
+        /// First Congolese Civil War (1997)
+        /// 1997: Lissouba attempted to disarm militias, triggering war. Denis Sassou Nguesso, backed by Angola, overthrew Lissouba and returned to power.
+        /// Second Congolese Civil War (1998–1999)
+        /// 1998: Militias loyal to Lissouba and former PM Bernard Kolélas launched an insurgency.
+        /// 1999: Government forces, with Angolan military support, crushed the rebellion.
+        /// 2002: "Ninja" rebels, led by Frédéric Bintsamou (Pastor Ntumi), resumed fighting against the government.
+        /// 2003-2016: Ongoing clashes between government forces and Ninja militias in the Pool region.
+        /// 2016: Sassou Nguesso won a disputed election, sparking new rebel attacks.
+        /// </summary>
+        [YearRange(1993, 2016)]
+        [Locations(ConflictLocations.Congo)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        ConflictInCongo = 408,
 
         /// <summary>
         /// 1993: Eritrea gained independence from Ethiopia after a 30-year war.
