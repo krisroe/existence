@@ -46,16 +46,20 @@ namespace WorldConflict
         Congo,
         Croatia,
         DRCongoZaire,
+        ElSalvador,
         Eritrea,
         Ethiopia,
         France,
+        Georgia,
         India,
         Iraq,
         Iran,
         Israel,
+        Kuwait,
         Liberia,
         Libya,
         Mali,
+        Mozambique,
 
         /// <summary>
         /// The conflict began shortly after Myanmar gained independence from British colonial rule in January 1948. The newly formed nation-state 
@@ -93,6 +97,7 @@ namespace WorldConflict
         Nepal,
         Nigeria,
         Pakistan,
+        Peru,
         Philippines,
         RussiaSovietUnion,
         Rwanda,
@@ -422,6 +427,51 @@ namespace WorldConflict
         ConflictInNepal = 269,
 
         /// <summary>
+        /// 1961: The KDP, led by Mustafa Barzani, launched an armed rebellion against the Iraqi government.
+        /// Iraq responded with brutal counterinsurgency operations, but the Kurds held strong positions in the north.
+        /// 1963: A Ba'athist coup temporarily removed Qasim, and Iraq sought negotiations, but fighting resumed.
+        /// 1970: A peace agreement (March 11 Agreement) granted Kurdish autonomy, but implementation was delayed.
+        /// 1974: Iraq implemented a weakened version of autonomy, which the Kurds rejected.
+        /// 1974–1975: Full-scale war erupted between Iraq and the KDP.
+        /// Iran and the U.S. supported the Kurds, but in 1975, the Algiers Agreement between Iraq and Iran ended Iranian support.
+        /// 1975: The Kurdish rebellion collapsed, and Barzani fled to Iran, marking a major Iraqi victory.
+        /// 1975: Jalal Talabani formed the PUK, leading to a rival Kurdish movement.
+        /// 1976–1980: The PUK and KDP launched separate insurgencies against Iraq.
+        /// 1980-1988 Iran/Iraq war: The Kurds allied with Iran against Iraq.
+        /// Iraq launched the Anfal Campaign (1986–1989), a genocidal attack on Kurds, killing 50,000–100,000 people.
+        /// The Halabja chemical attack (1988) killed 5,000 Kurds in a poison gas attack by Saddam Hussein.
+        /// 1991: After the Gulf War, the KDP and PUK led a Kurdish uprising against Saddam Hussein.
+        /// Iraq responded with brutal suppression, causing massive Kurdish refugee crises.
+        /// April 1991: The U.S. and allies established a no-fly zone over northern Iraq, protecting Kurds from Iraqi airstrikes.
+        /// The Kurdish region gained de facto autonomy, governed by the KDP and PUK.
+        /// 1994–1996: A KDP-PUK civil war erupted over power struggles and resource control
+        /// 1996: The KDP, backed by Iraq (Saddam Hussein), captured Erbil from the PUK.
+        /// The PUK later regained territory with U.S. support, but tensions remained.
+        /// </summary>
+        [YearRange(1961, 1996)]
+        [Locations(ConflictLocations.Iraq)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        IraqConflictWithKurdishGroupsKDPandPUK = 271,
+
+        /// <summary>
+        /// 1961: The Eritrean Liberation Front (ELF), led by Hamada Idris Awate, launched an armed struggle.
+        /// 1964: Ethiopia escalated military operations against the ELF.
+        /// 1970s: The ELF faced internal splits, leading to the rise of the Eritrean People's Liberation Front (EPLF) in 1972, led by Isaias Afwerki.
+        /// 1974: Ethiopian Emperor Haile Selassie was overthrown by the Derg military junta, led by Mengistu Haile Mariam.
+        /// 1975–1977: The ELF and EPLF gained control over rural areas in Eritrea.
+        /// 1978–1981: Ethiopia, backed by Soviet weapons and Cuban troops, launched major offensives, pushing the ELF into exile in Sudan.
+        /// The EPLF, however, continued to resist Ethiopian forces.
+        /// 1988: The EPLF won the Battle of Afabet, seizing major Ethiopian positions.
+        /// 1990: The EPLF captured Massawa, cutting off Ethiopian supply routes.
+        /// 1991: The EPLF captured Asmara (May 24), while Ethiopian rebels (EPRDF) overthrew Mengistu in Addis Ababa.
+        /// 1993: A UN-sponsored referendum led to Eritrean independence.
+        /// </summary>
+        [YearRange(1964, 1991)]
+        [Locations(ConflictLocations.Ethiopia)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        EthiopiasEritreanWarOfIndependence = 275,
+
+        /// <summary>
         /// Congo Crisis (1960–1965). Background: Following independence from Belgium in 1960, the DRC faced immediate instability.
         /// Mobutu's Coup (1965) – General Mobutu Sese Seko seized power in a coup, establishing a dictatorship.
         /// Mobutu’s Dictatorship and Insurgencies (1965–1996)
@@ -494,6 +544,29 @@ namespace WorldConflict
         [Locations(ConflictLocations.Colombia)]
         [ConflictRegions(ConflictRegionFlags.Americas)]
         OngoingConflictInColombia = 289,
+
+        /// <summary>
+        /// Inspired by the Cuban Revolution (1959), leftist guerrilla groups launched small-scale uprisings against the government.
+        /// Shining Path (Sendero Luminoso), a Maoist guerrilla group led by Abimael Guzmán, began an armed insurgency in 1980.
+        /// Tens of thousands killed as Shining Path expanded attacks to urban areas, including Lima.
+        /// 1983–1984: Government counterinsurgency efforts included death squads and military operations, often killing innocent civilians.
+        /// 1985–1990: President Alan García attempted political solutions but failed to control the violence.
+        /// 1991–1992: Shining Path bombings escalate, including the Tarata bombing in Lima (1992).
+        /// 1992: Abimael Guzmán captured, leading to the decline of the Shining Path
+        /// 1995: The insurgency lost most of its strength but remnants persisted
+        /// 2000: Shining Path effectively defeated, though some splinter factions remained active in drug trafficking.
+        /// The Túpac Amaru Revolutionary Movement (MRTA) (1984–1997)
+        /// 1996–1997: The MRTA’s most infamous attack was the Japanese Embassy hostage crisis in Lima, where they held 72 hostages for four months.
+        /// April 1997: Peruvian special forces raided the embassy, killing all MRTA fighters and rescuing the hostages.
+        /// President Alberto Fujimori (1990–2000) used harsh counterterrorism tactics to defeat insurgents.
+        /// Remnants of the Shining Path (2000s–2020s)
+        /// Splinter groups shifted focus to drug trafficking in the VRAEM region (Valley of the Apurímac, Ene, and Mantaro Rivers).
+        /// Occasional attacks on security forces but no large-scale insurgency.
+        /// </summary>
+        [YearRange(1965, 2010)]
+        [Locations(ConflictLocations.Peru)]
+        [ConflictRegions(ConflictRegionFlags.Americas)]
+        ConflictInPeru = 292,
 
         /// <summary>
         /// an early phase of the Mizo National Front (MNF) insurgency against the Government of India, spanning from 1966 to 1968. This episode marked the beginning 
@@ -600,6 +673,28 @@ namespace WorldConflict
         OngoingConflictInUganda = 314,
 
         /// <summary>
+        /// 1972: The opposition leader José Napoleón Duarte "wins" the election, but the military overturns the results, sparking protests.
+        /// 1972: Duarte's election annulled; military cracks down on protests.
+        /// 1975–1979: Leftist guerrilla groups emerge, carrying out kidnappings, assassinations, and small-scale attacks.
+        /// 1977: The military rigs another election; massive protests are violently repressed.
+        /// 1979: A military junta seizes power, promising reforms, but fails to end repression.
+        /// 1980: Archbishop Óscar Romero assassinated while calling for an end to violence.
+        /// 1980–1981: FMLN forms (uniting five guerrilla groups) and begins full-scale war against the government.
+        /// Government death squads (e.g., ARENA-linked paramilitaries) commit mass killings, including the El Mozote Massacre (1981, ~800 civilians killed).
+        /// The U.S. increases military aid to the Salvadoran government under Reagan.
+        /// 1982–1984:U.S. sends over $1 billion in military aid, training Salvadoran forces. Heavy fighting in rural areas, with massacres, disappearances, and torture.
+        /// 1984: Duarte finally wins a fair election but fails to negotiate peace.
+        /// 1989: FMLN launches a major offensive in San Salvador, proving the war is unwinnable militarily.
+        /// 1989: Jesuit priests assassinated, increasing international pressure to end the war.
+        /// 1990: The UN brokers peace negotiations.
+        /// 1991: A ceasefire is agreed upon, paving the way for the 1992 Chapultepec Peace Accords.
+        /// </summary>
+        [YearRange(1972, 1991)]
+        [Locations(ConflictLocations.ElSalvador)]
+        [ConflictRegions(ConflictRegionFlags.Americas)]
+        ConflictInElSalvador = 316,
+
+        /// <summary>
         /// Angolan War of Independence (1961–1975) against Portuguese colonial rule
         /// November 11, 1975: Angola gained independence, but the three factions turned on each other, starting a civil war.
         /// 1975–1976: The MPLA seized power in Luanda and declared itself the government. Cuba sent 36,000 troops to support the MPLA
@@ -619,6 +714,27 @@ namespace WorldConflict
         [Locations(ConflictLocations.Angola)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         CivilWarInAngola = 327,
+
+        /// <summary>
+        /// 1975: Mozambique gained independence from Portugal after a war led by Frelimo (Front for the Liberation of Mozambique).
+        /// 1977: The Mozambican Civil War broke out between the Marxist-Leninist Frelimo government and the anti-communist Renamo, supported by Rhodesia 
+        /// (Zimbabwe) and South Africa.
+        /// 1980: After Rhodesia's fall, South Africa continues supporting Renamo.
+        /// 1983–1986: Intense fighting, mass atrocities, and civilian massacres.
+        /// 1986: President Samora Machel dies in a plane crash; Joaquim Chissano takes over.
+        /// 1992: The Rome General Peace Accords are signed, ending the war.
+        /// 2013: Renamo leader Afonso Dhlakama withdraws from peace accords, restarting conflict.
+        /// 2014–2017: Sporadic attacks and government offensives.
+        /// 2019: A new peace deal is signed, integrating Renamo into the government.
+        /// 2017: ASWJ begins attacking villages in Cabo Delgado province
+        /// 2020: Militants capture Mocímboa da Praia, a key port town
+        /// 2021: Rwanda and SADC send troops to help Mozambique fight insurgents.
+        /// 2023–Present: Fighting continues, but government forces have regained key areas
+        /// </summary>
+        [YearRange(1977, 2019)]
+        [Locations(ConflictLocations.Mozambique)]
+        [ConflictRegions(ConflictRegionFlags.Africa)]
+        ConflictInMozambique = 332,
 
         /// <summary>
         /// Saur Revolution (1978). People's Democratic Party of Afghanistan (PDPA) overthrew the government of President Mohammed Daoud Khan in a coup.
@@ -835,6 +951,15 @@ namespace WorldConflict
         IndiaAssamConflict = 365,
 
         /// <summary>
+        /// The Iraqi invasion of Kuwait (August 2, 1990 – February 28, 1991) was a major conflict that led to the Gulf War. It involved Iraq’s 
+        /// occupation of Kuwait, international condemnation, and a U.S.-led coalition intervention to liberate Kuwait.
+        /// </summary>
+        [YearRange(1990, 1991)]
+        [Locations(ConflictLocations.Iraq, ConflictLocations.Kuwait)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        IraqiInvasionOfKuwait = 371,
+
+        /// <summary>
         /// October 1, 1990: The Rwandan Patriotic Front (RPF), led by Paul Kagame, launched an invasion from Uganda to overthrow the 
         /// Hutu-led government.
         /// 1991–1993: The war continued with periodic ceasefires, but violence escalated.
@@ -874,6 +999,18 @@ namespace WorldConflict
         [Locations(ConflictLocations.SierraLeone)]
         [ConflictRegions(ConflictRegionFlags.Africa)]
         ConflictInSierraLeone = 382,
+
+        /// <summary>
+        /// part of Croatian War of Independence (1991–1995)
+        /// Croatian Air Force Strikes on Serbian Targets (1991–1992)
+        /// Croatian forces bombed a JNA airbase in Serbia (near Zrenjanin).
+        /// This was a rare case of Croatian military action targeting Serbian territory.
+        /// Some reports claim Croatian artillery fired toward Serbian border villages, but no full-scale offensives occurred.
+        /// </summary>
+        [YearRange(1991, 1992)]
+        [Locations(ConflictLocations.SerbiaYugoslavia)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        CroatianWarOfIndependenceInSerbia = 385,
 
         /// <summary>
         /// 1988: Anti-government protests led to political reforms allowing multiparty elections.
@@ -945,6 +1082,27 @@ namespace WorldConflict
         ConflictInCroatia = 390,
 
         /// <summary>
+        /// Abkhazia was an autonomous region within Soviet Georgia, but after Georgia declared independence in 1991, tensions escalated between the 
+        /// Georgian government and Abkhaz separatists. Abkhazia sought full independence, fearing Georgian nationalism and policies under Georgian 
+        /// President Zviad Gamsakhurdia, and later Eduard Shevardnadze. The situation worsened after the Georgian Civil War (1991–1992), which weakened 
+        /// Georgia internally.
+        /// August 14, 1992: The Georgian National Guard, under Shevardnadze, entered Abkhazia to restore control and secure a strategic railway line.
+        /// Georgian forces quickly captured Sukhumi, the capital of Abkhazia, forcing the separatist Abkhaz government into exile in the town of Gudauta.
+        /// The Abkhaz leadership, under Vladislav Ardzinba, called for support from Russia, North Caucasian militants (including Chechens), and Cossack volunteers.
+        /// With Russian support, Abkhaz forces regrouped and launched a counteroffensive in October 1992.
+        /// Fierce fighting took place along the Gumista River, with Abkhazian, Russian, and North Caucasian fighters facing Georgian troops.
+        /// Russian military and intelligence units provided indirect logistical and air support to the separatists, while Georgia struggled with internal instability.
+        /// In September 1993, Abkhaz forces launched a final assault on Sukhumi.
+        /// September 27, 1993: The city fell, and Georgian troops, officials, and civilians were either killed or forced to flee.
+        /// Eduard Shevardnadze barely escaped with his life, as Abkhaz forces executed Georgian officials.
+        /// In the aftermath, ethnic cleansing of Georgians in Abkhazia occurred, with over 200,000 to 250,000 ethnic Georgians forced to flee.
+        /// </summary>
+        [YearRange(1992, 1993)]
+        [Locations(ConflictLocations.Georgia)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        GeorgiaWarInAbkhazia = 392,
+
+        /// <summary>
         /// 1991: Tajikistan gained independence from the Soviet Union.
         /// 1992: Power struggles between pro-communist force and Islamists/democrats (Islamist-led United Tajik Opposition (UTO))
         /// May 1992: War broke out between government forces and the UTO.
@@ -957,6 +1115,48 @@ namespace WorldConflict
         [Locations(ConflictLocations.Tajikistan)]
         [ConflictRegions(ConflictRegionFlags.Asia)]
         ConflictInTajikistan = 395,
+
+        /// <summary>
+        /// Bosnia and Herzegovina declared independence from Yugoslavia in 1992, triggering a war involving Bosniaks (Bosnian Muslims), Croats, and Serbs.
+        /// While most Bosniaks supported the government of Alija Izetbegović, Fikret Abdić, a former businessman and politician, opposed Izetbegović 
+        /// and pursued his own separatist policies.
+        /// In September 1993, Abdić declared the Autonomous Province of Western Bosnia (APWB) in the Velika Kladuša region (northwestern Bosnia), 
+        /// aligning himself with Serbia and Croatia, refusing to recognize Sarajevo's authority.
+        /// He aligns with Bosnian Serb and Croatian forces, receiving military and logistical support.
+        /// The Bosnian government (ARBiH – Army of the Republic of Bosnia and Herzegovina) launched an offensive in late 1993 and early 1994 to reclaim 
+        /// the region.
+        /// August 1994: The Bosnian Army captures Velika Kladuša, and Abdić flees to Croatia, leading to the temporary collapse of APWB.
+        /// October 1994: With Croatian backing, Abdić returns and retakes Velika Kladuša, re-establishing the APWB.
+        /// He sets up a puppet government aligned with Serbs and Croats, providing them with strategic advantages.
+        /// Summer 1995: The Bosnian Army, with support from the Croatian military (Operation Storm), launches a final offensive.
+        /// August 1995: APWB is defeated, and Abdić flees to Croatia, marking the end of the breakaway region.
+        /// </summary>
+        [YearRange(1993, 1995)]
+        [Locations(ConflictLocations.BosniaHerzegovina)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        BosnianWarAutonomousProvinceOfWesternBosnia = 397,
+
+        /// <summary>
+        /// The Croat–Bosniak War (1992–1994) was a conflict within the broader Bosnian War (1992–1995), fought between Bosniak (Bosnian Muslim) forces 
+        /// and the Croatian Defence Council (HVO), the military wing of the self-proclaimed Croatian Republic of Herzeg-Bosnia.
+        /// April 1992: The Croatian Defence Council (HVO) and the Bosnian Army (ARBiH) fight together against Serb forces.
+        /// October 1992: The first clashes occur between the two sides in Prozor, where the HVO expels Bosniaks.
+        /// The conflict escalates due to HVO-imposed restrictions on Bosniaks, leading to an open war in 1993.
+        /// January 1993: Armed clashes spread to central Bosnia, including Gornji Vakuf and Busovača.
+        /// April 1993: The HVO attacks Bosniak areas, leading to massacres, ethnic cleansing, and forced expulsions in places like Ahmići (April 16, 1993),
+        /// where HVO forces killed 116 Bosniak civilians.
+        /// May–June 1993: The Croat forces lay siege to Mostar, a major Bosniak and Croat-populated city, severely damaging the Stari Most (Old Bridge) 
+        /// and committing war crimes.
+        /// Summer 1993: Bosnian Army counterattacks, pushing the HVO out of several areas, but the war remains brutal.
+        /// Late 1993–Early 1994: The tide turns against the HVO, as the Bosnian Army gains the upper hand, and pressure mounts from the United States and 
+        /// Croatia to end the conflict.
+        /// March 1994: The Washington Agreement is signed under U.S. mediation, ending the conflict between Bosniaks and Croats.
+        /// The agreement dissolves Herzeg-Bosnia and creates the Federation of Bosnia and Herzegovina, a joint entity within Bosnia.
+        /// </summary>
+        [YearRange(1992, 1994)]
+        [Locations(ConflictLocations.BosniaHerzegovina)]
+        [ConflictRegions(ConflictRegionFlags.Europe)]
+        CroatBosniakWar = 398,
 
         /// <summary>
         /// 1991: After the fall of the Soviet Union, Chechnya declared independence under Dzhokhar Dudayev.
@@ -983,6 +1183,20 @@ namespace WorldConflict
         [Locations(ConflictLocations.RussiaSovietUnion)]
         [ConflictRegions(ConflictRegionFlags.Europe)]
         ChechnyaSeparatism = 401,
+
+        /// <summary>
+        /// War of Succession
+        /// Yemen was unified in 1990, merging North Yemen (Yemen Arab Republic, YAR) and South Yemen (People's Democratic Republic of Yemen, PDRY) 
+        /// into a single country.
+        /// In May 1994, fighting erupted between forces loyal to President Ali Abdullah Saleh (North Yemen) and Vice President Ali Salem al-Beidh (South Yemen).
+        /// On May 21, 1994, the south declared independence, forming the Democratic Republic of Yemen.
+        /// By July 7, 1994, the northern forces captured the southern capital Aden, marking the end of the war.
+        /// The war resulted in the reunification of Yemen under northern control, with Ali Abdullah Saleh consolidating power.
+        /// </summary>
+        [YearRange(1994, 1994)]
+        [Locations(ConflictLocations.YemenNorthYemen)]
+        [ConflictRegions(ConflictRegionFlags.MiddleEast)]
+        YemenWarOfSuccession = 402,
 
         /// <summary>
         /// The MQM (Muttahida Qaumi Movement) was founded in 1984 by Altaf Hussain as a political movement for Muhajirs (Indian 

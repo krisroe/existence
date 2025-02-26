@@ -410,39 +410,70 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
 
                 public static class Mind
                 {
+                    public static class Consciousness
+                    {
+                        public static class UnifiedConsciousness
+                        {
+                            public static class ConsciousAwarenessOfFiveSenses { }
+                            public static class CommunicationTrafficCop { }
+                            public static class CognitiveBiases
+                            {
+                                public static class InappropriateAvoidanceOfJudgment { }
+                            }
+                            public static class DevilAndAngelOnYourShouldersMetaphor
+                            {
+                                public static class ThisOversimplifiesAsSecondaryConsciousEntitiesAreNotIntrinsicallyGoodOrEvil { }
+                                public static class ButSometimesTheyDisagreeSoTheMetaphorSometimesWorks { }
+                            }
+                        }
+                        public static class LogicalMind
+                        {
+                            public static class FeltOnLeftNeck
+                            {
+                                public static class PhysicalLevelHandledByRightHemisphere { }
+                                public static class NonPhysicalLevelHandledByLeftHemisphere { }
+                            }
+                            public static class LogicalReasoningUsingEthicalPrinciples { }
+                            public static class CognitiveBiases
+                            {
+                                public static class DoesThingsAlone { }
+                                public static class PrefersPrecisionInLanguage { }
+                            }
+                        }
+
+                        public static class RightMind
+                        {
+                            public static class FeltOnRightNeck 
+                            {
+                                public static class PhysicalLevelHandledByLeftHemisphere { }
+                                public static class NonPhysicalLevelHandledByRightHemisphere { }
+                            }
+                            public static class IntuitiveSenseOfRightAndWrong { }
+                            public static class CognitiveBiases
+                            {
+                                public static class CertaintyPreference { }
+                                public static class SelfCenteredness { }
+                                public static class Judgmentalness { }
+                            }
+                        }
+
+                        public static class CommmunicationMechanisms
+                        {
+                            public static class ThroatFeelings
+                            {
+                                public static class No { }
+                                public static class VaryingDegreesOfStress { }
+                                /// <summary>
+                                /// only at high levels of elevation
+                                /// </summary>
+                                public static class Applause { }
+                            }
+                        }
+                    }
+
                     public static class SelfAwareness
                     {
                         public static class DisruptedByExcessiveElevation { }
-                    }
-
-                    public static class Ethics
-                    {
-                        public static class Comprises
-                        {
-                            public static class Consciousness
-                            {
-                                public static class LogicalReasoning { }
-                                public static class EthicalPrinciples { }
-                            }
-                            public static class Subconscious
-                            {
-                                public static class SenseOfRightAndWrong 
-                                {
-                                    public static class Figurative
-                                    {
-                                        public static class DevilAndAngelOnYourShoulders { }
-                                    }
-                                    public static class Literal
-                                    {
-                                        public static class FeelingsOnRightAndLeftSideOfThroat
-                                        {
-                                            public static class Applause { }
-                                            public static class No { }
-                                        }
-                                    }
-                                }
-                            }
-                        }
                     }
 
                     public static class FreeWill { }
