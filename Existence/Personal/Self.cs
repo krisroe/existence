@@ -7,9 +7,41 @@ namespace Existence.Personal
     [Birthdate(1980, 12, 6)]
     internal static class Self
     {
-        public static class Name
+        public static class Characteristics
         {
-            public static class Personal { }
+            public static class Male { }
+            public static class Alive { }
+            public static class Name
+            {
+                public static class Personal { }
+            }
+            public static class SinceChildhoodTheseHaveNotChangedSinceAge6Or7
+            {
+                public const int FIRST_FAVORITE_NUMBER = 24865;
+                public const int SECOND_FAVORITE_NUMBER = 4;
+            }
+        }
+
+        /// <summary>
+        /// ambiguous pisces/aquarius without more information
+        /// </summary>
+        [Birthdate(1952, 2, 18)]
+        public static class Mother { }
+
+        [AstrologicalSign(AstrologicalSigns.Cancer)]
+        [Birthdate(1952, 7, 4)]
+        public static class Father { }
+
+        [AstrologicalSign(AstrologicalSigns.Capricorn)]
+        [Birthdate(1982, 12, 31)]
+        public static class Sister { }
+
+        public static class Married
+        {
+            [Birthdate(1973, 7, 18)]
+            [AstrologicalSign(AstrologicalSigns.Cancer)]
+            public static class FemaleSpouse { }
+            public static class Alive { }
         }
 
         public static class YouTubeChannel
@@ -19,17 +51,6 @@ namespace Existence.Personal
             public static class Pugs { }
             public static class Abuse { }
             public static class RemindMeNotTo { }
-        }
-        public static class Man { }
-        public static class Male { }
-        public static class Spouse { }
-        public static class Husband { }
-        public static class Alive { }
-
-        public static class SinceChildhoodTheseHaveNotChangedSinceAge6Or7
-        {
-            public const int FIRST_FAVORITE_NUMBER = 24865;
-            public const int SECOND_FAVORITE_NUMBER = 4;
         }
 
         public static class PoliticalPhilosophiesRanked
@@ -43,21 +64,6 @@ namespace Existence.Personal
             public static class Environmentalist { }
             public static class Socialist { }
             public static class Communist { }
-        }
-
-
-        public static class Married
-        {
-            public static class One { }
-            public static class Spouse { }
-            public static class Wife { }
-            public static class Woman { }
-            public static class Female { }
-            public static class AstrologicalSign
-            {
-                public static class Cancer { }
-            }
-            public static class Alive { }
         }
 
         public static class Employers
@@ -253,12 +259,41 @@ namespace Existence.Personal
             /// <summary>
             /// 1 name on the Vietnam Memorial Wall
             /// </summary>
-            public static class Grimm { }
+            public static class Grimm
+            {
+                /// <summary>
+                /// Michael Joseph Grimm (died 7/7/1970 Thua Thien) (Army Corporal)
+                /// Panel/Line 9W/127
+                /// Birth Date: 1/20/1950
+                /// Home of Record: Carthage, NC, Moore County
+                /// Curious because: only one Grimm?
+                /// </summary>
+                public static class CuriousNameOnVietnamWarMemorial { }
+            }
 
             /// <summary>
             /// 12 names on the Vietnam Memorial Wall
             /// </summary>
-            public static class Rowe { }
+            public static class Rowe
+            {
+                /// <summary>
+                /// Bruce Philip Rowe (died 2/18/1972 Offshore, PR&MR Unknown) (Navy Lieutenant)
+                /// Panel/Line 2W/108
+                /// Birth Date: 1/10/1945
+                /// Home of Record: Arcadia, CA, Los Angeles County)
+                /// Curious because: double for my mother's birthday (ambiguous Aquarius/Pisces)
+                /// </summary>
+                public static class CuriousNameOnVietnamMemorial1 { }
+
+                /// <summary>
+                /// Michael T Rowe (died 2/19/1969, Tay Ninh) (Army Corporal)
+                /// Panel/Line 32W/63
+                /// Birth Date: 6/15/1948
+                /// Home of Record: Statesboro, GA, Bulloch County
+                /// Curious because: double for my mother's birthday (ambiguous Aquarius/Pisces)
+                /// </summary>
+                public static class CuriousNameOnVietnamMemorial2 { }
+            }
 
             /// <summary>
             /// 0 names on the Vietnam Memorial Wall
@@ -267,14 +302,19 @@ namespace Existence.Personal
 
             /// <summary>
             /// 4 names on the Vietnam Memorial Wal
-            /// 
             /// Curious name:
-            /// Derald Dean Swift (died December 7, 1966 Bien HOA) (Air Force Captain)
-            /// Panel/Line 13E/19
-            /// Birth Date: 12/14/1937
-            /// Home of Record: Vale, OR, Malheur County
             /// </summary>
-            public static class Swift { }
+            public static class Swift
+            {
+                /// <summary>
+                /// Derald Dean Swift (died December 7, 1966 Bien Hoa) (Air Force Captain)
+                /// Panel/Line 13E/19
+                /// Birth Date: 12/14/1937
+                /// Home of Record: Vale, OR, Malheur County
+                /// Curious because: birth date one day before Taylor Swift's, death date one day after mine
+                /// </summary>
+                public static class CuriousNameOnVietnamMemorial { }
+            }
         }
 
         public static class MagicPhrases

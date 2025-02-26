@@ -20,6 +20,8 @@ namespace Existence.Earth.Countries.UnitedStates
             public static class MartinLutherKingJrMemorial { }
             /// <summary>
             /// 58,318 names on the wall
+            /// PR = Presumptive Finding of Death (Presumed Dead)
+            /// MR = Missing Remains (Remains Not Recovered)
             /// </summary>
             public static class VietnamVeteransMemorial { }
             public static class NationalArchives { }
