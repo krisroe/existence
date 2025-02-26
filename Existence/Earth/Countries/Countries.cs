@@ -114,181 +114,207 @@ namespace Existence.Earth.Countries
         }
     }
 
-    public static class UnitedNationsCountries
+    public enum CountryLikeThings
     {
         [UnitedNationsMembership(1946, 11, 19)]
         [Capital((int)WorldCities.AfghanistanKabul)]
         [LargestCity((int)WorldCities.AfghanistanKabul)]
-        public static class Afghanistan { }
+        [PopulationEstimate(43000000)] //43 million
+        Afghanistan,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.AlbaniaTirana)]
         [LargestCity((int)WorldCities.AlbaniaTirana)]
-        public static class Albania { }
+        [PopulationEstimate(2800000)] //2.8 million
+        Albania,
 
         [UnitedNationsMembership(1962, 10, 8)]
         [Capital((int)WorldCities.AlgeriaAlgiers)]
         [LargestCity((int)WorldCities.AlgeriaAlgiers)]
-        public static class Algeria { }
+        [PopulationEstimate(46000000)]
+        Algeria,
 
         [UnitedNationsMembership(1993, 7, 28)]
         [Capital((int)WorldCities.AndorraAndorraLaVella)]
         [LargestCity((int)WorldCities.AndorraAndorraLaVella)]
-        public static class Andorra { }
+        [PopulationEstimate(80000)]
+        Andorra,
 
         [UnitedNationsMembership(1976, 12, 1)]
         [Capital((int)WorldCities.AngolaLuanda)]
         [LargestCity((int)WorldCities.AngolaLuanda)]
-        public static class Angola { }
+        [PopulationEstimate(37000000)] //37 million
+        Angola,
 
         [UnitedNationsMembership(1981, 11, 11)]
         [Capital((int)WorldCities.AntiguaAndBarbudaStJohns)]
         [LargestCity((int)WorldCities.AntiguaAndBarbudaStJohns)]
-        public static class AntiguaAndBarbuda { }
+        [PopulationEstimate(100000)]
+        AntiguaAndBarbuda,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ArgentinaBuenosAires)]
         [LargestCity((int)WorldCities.ArgentinaBuenosAires)]
-        public static class Argentina { }
+        [PopulationEstimate(46000000)] //46 million
+        Argentina,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.ArmeniaYerevan)]
         [LargestCity((int)WorldCities.ArmeniaYerevan)]
-        public static class Armenia { }
+        [PopulationEstimate(2800000)] //2.8 million
+        Armenia,
 
         [UnitedNationsMembership(1945, 11, 1)]
         [Capital((int)WorldCities.AustraliaCanberra)]
         [LargestCity((int)WorldCities.AustraliaSydney)]
-        public static class Australia { }
+        [PopulationEstimate(26500000)] //26.5 million
+        Australia,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.AustriaVienna)]
         [LargestCity((int)WorldCities.AustriaVienna)]
-        public static class Austria { }
+        [PopulationEstimate(9100000)] //9.1 million
+        Austria,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.AzerbaijanBaku)]
         [LargestCity((int)WorldCities.AzerbaijanBaku)]
-        public static class Azerbaijan { }
+        [PopulationEstimate(10400000)] //10.4 million
+        Azerbaijan,
 
         [UnitedNationsMembership(1973, 9, 18)]
         [Capital((int)WorldCities.BahamasNassau)]
         [LargestCity((int)WorldCities.BahamasNassau)]
-        public static class Bahamas { }
+        [PopulationEstimate(400000)]
+        Bahamas,
 
         [UnitedNationsMembership(1971, 9, 21)]
         [Capital((int)WorldCities.BahrainManama)]
         [LargestCity((int)WorldCities.BahrainManama)]
-        public static class Bahrain { }
+        [PopulationEstimate(1500000)] //1.5 million
+        Bahrain,
 
         [UnitedNationsMembership(1974, 9, 17)]
         [Capital((int)WorldCities.BangladeshDhaka)]
         [LargestCity((int)WorldCities.BangladeshDhaka)]
-        public static class Bangladesh { }
+        [PopulationEstimate(174950000)] //174.95 million
+        Bangladesh,
 
         [UnitedNationsMembership(1966, 12, 9)]
         [Capital((int)WorldCities.BarbadosBridgetown)]
         [LargestCity((int)WorldCities.BarbadosBridgetown)]
-        [PopulationEstimate(176400000)] //176.4 million
-        public static class Barbados { }
+        [PopulationEstimate(280000)]
+        Barbados,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.BelarusMinsk)]
         [LargestCity((int)WorldCities.BelarusMinsk)]
-        public static class Belarus { }
+        [PopulationEstimate(9200000)] //9.2 million
+        Belarus,
 
         [UnitedNationsMembership(1945, 12, 27)]
         [Capital((int)WorldCities.BelgiumBrussels)]
         [LargestCity((int)WorldCities.BelgiumBrussels)]
-        public static class Belgium { }
+        [PopulationEstimate(11700000)] //11.7 million
+        Belgium,
 
         [UnitedNationsMembership(1981, 9, 25)]
         [Capital((int)WorldCities.BelizeBelmopan)]
         [LargestCity((int)WorldCities.BelizeBelizeCity)]
-        public static class Belize { }
+        [PopulationEstimate(420000)]
+        Belize,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.BeninPortoNovo)]
         [LargestCity((int)WorldCities.BeninCotonou)]
-        public static class Benin { }
+        [PopulationEstimate(13700000)] //13.7 million
+        Benin,
 
         [UnitedNationsMembership(1971, 9, 21)]
         [Capital((int)WorldCities.BhutanThimphu)]
         [LargestCity((int)WorldCities.BhutanThimphu)]
-        public static class Bhutan { }
+        [PopulationEstimate(780000)]
+        Bhutan,
 
-        /// <summary>
-        /// Plurinational State of Bolivia
-        /// </summary>
+        [FullName("Plurinational State of Bolivia")]
         [UnitedNationsMembership(1945, 11, 14)]
         [ConstitutionalCapital((int)WorldCities.BoliviaSucre)]
         [AdministrativeCapital((int)WorldCities.BoliviaLaPaz)]
         [LargestCity((int)WorldCities.BoliviaSantaCruzDeLaSierra)]
-        public static class Bolivia { }
+        [PopulationEstimate(12200000)] //12.2 million
+        Bolivia,
 
         [UnitedNationsMembership(1992, 5, 22)]
         [Capital((int)WorldCities.BosniaAndHerzegovinaSarajevo)]
         [LargestCity((int)WorldCities.BosniaAndHerzegovinaSarajevo)]
-        public static class BosniaAndHerzegovina { }
+        [PopulationEstimate(3200000)] //3.2 million
+        BosniaAndHerzegovina,
 
         [UnitedNationsMembership(1966, 10, 17)]
         [Capital((int)WorldCities.BotswanaGaborone)]
         [LargestCity((int)WorldCities.BotswanaGaborone)]
-        public static class Botswana { }
+        [PopulationEstimate(2600000)] //2.6 million
+        Botswana,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.BrazilBrasilia)]
         [LargestCity((int)WorldCities.BrazilSaoPaulo)]
         [PopulationEstimate(218800000)] //218.8 million
-        public static class Brazil { }
+        Brazil,
 
-        /// <summary>
-        /// Brunei Darussalam
-        /// </summary>
+        [FullName("Brunei Darussalam")]
         [UnitedNationsMembership(1984, 9, 21)]
         [Capital((int)WorldCities.BruneiBandarSeriBegawan)]
         [LargestCity((int)WorldCities.BruneiBandarSeriBegawan)]
-        public static class Brunei { }
+        [PopulationEstimate(460000)]
+        Brunei,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.BulgariaSofia)]
         [LargestCity((int)WorldCities.BulgariaSofia)]
-        public static class Bulgaria { }
+        [PopulationEstimate(6500000)] //6.5 million
+        Bulgaria,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.BurkinaFasoOuagadougou)]
         [LargestCity((int)WorldCities.BurkinaFasoOuagadougou)]
-        public static class BurkinaFaso { }
+        [PopulationEstimate(22500000)] //22.5 million
+        BurkinaFaso,
 
-        /// <summary>
-        /// official name is Myanmar
-        /// </summary>
         [UnitedNationsMembership(1948, 4, 19)]
         [Capital((int)WorldCities.BurmaNaypyidaw)]
         [LargestCity((int)WorldCities.BurmaRangoon)]
         [LocalName("Myanmar")]
-        public static class Burma { }
+        [PopulationEstimate(55000000)] //55 million
+        Burma,
 
         [UnitedNationsMembership(1962, 9, 18)]
         [Capital((int)WorldCities.BurundiGitega)]
         [LargestCity((int)WorldCities.BurundiBujumbura)]
-        public static class Burundi { }
+        [PopulationEstimate(13000000)] //13 million
+        Burundi,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.CambodiaPhnomPenh)]
         [LargestCity((int)WorldCities.CambodiaPhnomPenh)]
-        public static class Cambodia { }
+        [PopulationEstimate(17000000)] //17 million
+        Cambodia,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CameroonYaounde)]
         [LargestCity((int)WorldCities.CameroonDouala)]
-        public static class Cameroon { }
+        [PopulationEstimate(30150000)] //30.15 million
+        Cameroon,
 
         [UnitedNationsMembership(1945, 11, 9)]
         [Capital((int)WorldCities.CanadaOttawa)]
         [LargestCity((int)WorldCities.CanadaToronto)]
-        public static class Canada { }
+        [PopulationEstimate(41700000)] //41.7 million
+        Canada,
+    }
 
+    public static class UnitedNationsCountries
+    {
         [UnitedNationsMembership(1975, 9, 16)]
         [Capital((int)WorldCities.CapeVerdePraia)]
         [LargestCity((int)WorldCities.CapeVerdePraia)]
@@ -1176,14 +1202,12 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.YemenSanaa)]
         public static class Yemen { }
 
+        [FullName("Democratic Republic of the Congo")]
+        [Abbreviation("DRC")]
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.ZaireKinshasa)]
         [LargestCity((int)WorldCities.ZaireKinshasa)]
-        public static class Zaire
-        {
-            public const string FullName = "Democratic Republic of the Congo";
-            public static class DRC { }
-        }
+        public static class Zaire { }
 
         [UnitedNationsMembership(1964, 12, 1)]
         [Capital((int)WorldCities.ZambiaLusaka)]
@@ -1220,7 +1244,7 @@ namespace Existence.Earth.Countries
         public static class SovereignMilitaryOrderOfMalta { }
     }
 
-    public static class CountryLikeThings
+    public static class CountryLikeThingsThatAreNotCountries
     {
         /// <summary>
         /// In 2008, Kosovo declared independence from Serbia, but Serbia does not recognize it 

@@ -101,4 +101,42 @@ namespace Existence.Earth.Alphabet
         {
         }
     }
+
+    public class FullNameAttribute : TextAttribute
+    {
+        public string FullName
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public FullNameAttribute(string FullName) : base(FullName)
+        {
+
+        }
+    }
+
+    public class AbbreviationAttribute : TextAttribute
+    {
+        public string Abbreviation
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public AbbreviationAttribute(string Abbreviation) : base(Abbreviation)
+        {
+
+        }
+    }
 }

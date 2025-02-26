@@ -3,31 +3,31 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 
 namespace Existence.Earth.War
 {
-    internal class IsraelHamasHostages
+    /// <summary>
+    /// see https://www.cnn.com/interactive/2023/12/world/hostage-israel-hamas-deal-dg/
+    /// </summary>
+    public class IsraelHamasHostages
     {
         public static class v2023
         {
             /// <summary>
-            ///  Hamas had also held the bodies of two slain Israeli soldiers, Hadar Goldin and Oron Shaul, since the 2014 Operation Protective Edge.
-            ///  Hamas was already holding two Israelis hostage: Ethiopian Israeli Avera Mengistu (since 2014) and Bedouin Israeli Hisham al-Sayed (since 2015)
+            ///  Hamas had also held the bodies of two slain Israeli soldiers (since 2014 Operation Protective Edge)
+            ///  Hadar Goldin
+            ///  Oron Shaul (reovered by Israeli military 1-19-2025)
+            ///  Hamas was already holding two Israelis hostage
+            ///  Ethiopian Israeli Avera Mengistu (since 2014). Released February 22, 2025.
+            ///  Bedouin Israeli Hisham al-Sayed (since 2015). Released February 22, 2025.
             /// </summary>
             public static class PriorToOctober7 { }
 
             /// <summary>
-            /// Efrat Katz was likely killed by an Israeli helicopter gunship responding to the assault. The helicopter targeted a vehicle 
-            /// carrying Hamas gunmen, unaware that hostages were also inside
-            /// </summary>
-            [Number(1)]
-            public static class October7 { }
-
-            /// <summary>
-            /// Israeli-American Judith/Natalie Raanan
+            /// released Israeli-American Judith/Natalie Raanan
             /// </summary>
             [Number(2)]
             public static class October20 { }
 
             /// <summary>
-            /// elderly Israeli women (Yokheved Lifshitz and Nurit Yitzhak [Nurit Cooper])
+            /// released elderly Israeli women (Yokheved Lifshitz and Nurit Yitzhak [Nurit Cooper])
             /// </summary>
             [Number(2)]
             public static class October23 { }
@@ -39,28 +39,72 @@ namespace Existence.Earth.War
             public static class October30 { }
 
             /// <summary>
-            /// An IDF airstrike targeting Hamas's northern Gaza brigade chief, Ahmed Ghandour, killed three hostages, but their
-            /// bodies were not recovered util December 15th.
-            /// </summary>
-            [Number(0)]
-            public static class November14 { }
-
-            /// <summary>
             /// recovered bodies of Yehudit Weiss and Corporal Noa Marciano, from buildings adjacent to Al-Shifa hospital
             /// </summary>
             [Number(2)]
-            public static class November16 { }
+            public static class November1617 { }
 
             /// <summary>
             /// Ceasefire agreement led to releases over several days (81 Israelis, 23 Thais, 1 Filipino), November 24-30.
-            /// 
-            /// Includes Rimon Buchshstav, Margalit Moses (77-year-old member of Kibbutz Nir Or)
             /// </summary>
             [Number(105)]
             public static class November21
             {
                 /// <summary>
-                /// Siblings Bilal (18) and Aisha Ziyadne (17), Ilana Gritzewsky, Nili Margalit; Shani Goren, Amit Soussana (50), Sapir Cohen, Mia Schem (21)
+                /// Yafa Adar, Daniel Aloni, Emilia Aloni, Aviv Asher, Doron Katz Asher, Raz Asher, Hannah Katzir, Margalit Moses (77-year-old member of Kibbutz Nir Or)
+                /// Adina Moshe, Keren Munder, Ohad Munder, Ruth Munder, Nattaware Munkan, Hanna Peri, Santi Boonprom, Vichai Kalaprat
+                /// Bancha Kongmanee, Gelienor "Jimmy" Pacheco, Boonthom Pankhong, Mongkol Phachuabboon, Vetoon Phoome, Buddhee Saengboon, Uthai Saengnuan, Uthai Toonsri
+                /// </summary>
+                [Number(24)]
+                public static class November24 { }
+
+                /// <summary>
+                /// Noam Avigdori, Sharon Avigdori, Emily Hand, Shoshan Haran, Alma Or, Noam Or, Maya Regev, Adi Shoham
+                /// Nave Shoham, Yahel Shoham, Hila Rotem Shoshani, Noga Weiss, Shiri Weiss, Anucha Angkaew, Komkrit Chombua, Manee Jirachart
+                /// Natthaporn Onkaew
+                /// </summary>
+                [Number(17)]
+                public static class November25 { }
+
+                /// <summary>
+                /// Elma Avraham, Hagar Brodutch, Ofri Brodutch, Uriah Brodutch, Yuval Brodutch, Abigail Edan, Dafna Elyakim, Ela Elyakim
+                /// Agam Goldstein-Almog, Chen Goldstein-Almog, Gal Goldstein-Almog, Tal Goldstein-Almog, Roni Kriboy, Adrienne Siegel, Surin Kesoognern, Pornsawan Pinakalow
+                /// Vichian Temthong
+                /// </summary>
+                [Number(17)]
+                public static class November26 { }
+
+                /// <summary>
+                /// Sharon Olani Cunio, Emma Cunion, Yuli Cunio, Karina Engel-Bart, Mika Engel, Yuval Engel, Or Jacob, Yagil Jacob
+                /// Erez Kalderon, Sahar Kalderon, Eitan Yahaloni
+                /// </summary>
+                [Number(11)]
+                public static class November27 { }
+
+                /// <summary>
+                /// Noralin Babadilla, Ditza Heiman, Rimon Kirsht, Gabriela Leimberg, Mia Leimbert, Clara Merman, Tamar Metzger, Ofelia Roitman
+                /// Ada Sagi, Owas Suriyasri, Meirav Tal, Pattanayut Tornsokree
+                /// </summary>
+                [Number(12)]
+                public static class November28A { }
+
+                /// <summary>
+                /// Rimon Buchshstav (not listed on CNN site)
+                /// </summary>
+                [Number(1)]
+                public static class November28B { }
+
+                /// <summary>
+                /// Ofir Tzarfati, Liat Beinin, Raz Ben-Ami, Ofir Engel, Yarden Roman-Gat, Liam Or, Itay Regev, Raaya Rotem
+                /// Amit Shani, Gali Tarshansky, Moran Stela Yanai, Paiboon Ratanin, Kong Saelao, Chalermchai Sangkaew, Jakkrapan Srikeina
+                /// Yelena Troufanov, Irena Tati (mother of Yelena Troufanov)
+                /// </summary>
+                [Number(17)]
+                public static class November29 { }
+
+                /// <summary>
+                /// Siblings Bilal (18) and Aisha Ziyadne (17), Ilana Gritzewsky, Nili Margalit; Shani Goren, Amit Soussana (50), Mia Schem (21)
+                /// Sapir Cohen (girlfriend of Alexandre (Sasha) Troufanov)
                 /// </summary>
                 [Number(8)]
                 public static class November30 { }
@@ -73,13 +117,14 @@ namespace Existence.Earth.War
             public static class November29 { }
 
             /// <summary>
-            /// The IDF recovers the bodies of Eden Zechariah and Ziv Dado in underground tunnels in Jabalia, Gaza
+            /// The IDF recovers the bodies of Eden Zechariah and Staff Sergeant Major Ziv Dado in underground tunnels in Jabalia, Gaza
             /// </summary>
             [Number(2)]
             public static class December12 { }
 
             /// <summary>
-            /// recovery of bodies of Sgt. Ron Sherman, Cpl. Nik Beizer, and civilian Elia Toledano, killed by IDF airstrike on November 14th
+            /// An IDF airstrike targeting Hamas's northern Gaza brigade chief, Ahmed Ghandour, killed three hostages, but their
+            /// bodies were not recovered util December 15th (Sgt. Ron Sherman, Cpl. Nik Beizer, and civilian Elia Toledano)
             /// </summary>
             [Number(3)]
             public static class December15A { }
@@ -94,7 +139,7 @@ namespace Existence.Earth.War
         public static class v2024
         {
             /// <summary>
-            /// Operation Golden Hand: rescued Fernando Merman (60) and Luis Har (70) in Rafah, Gaza
+            /// Operation Golden Hand: rescued Fernando Simon Merman (60) and Luis Har (70) in Rafah, Gaza
             /// </summary>
             [Number(2)]
             public static class February12 { }
@@ -142,7 +187,7 @@ namespace Existence.Earth.War
 
             /// <summary>
             ///  bodies of the six hostages recovered by the IDF from southern Gaza’s Khan Younis 
-            ///  (Alex Dancyg, Yagev Buchshtav, Chaim Peri, Yoram Metzger, Nadav Popplewell, and Avraham Munder)
+            ///  (Alexander Dancyg, Yagev Buchshtav, Chaim Peri, Yoram Metzger, Nadav Popplewell, and Avraham Munder)
             /// </summary>
             [Number(6)]
             public static class August1920 { }
@@ -170,22 +215,90 @@ namespace Existence.Earth.War
         public static class v2025
         {
             /// <summary>
-            /// bodies: Oded Lifshitz, Ariel/Kfir Bibas
-            /// </summary>
-            [Number(3)]
-            public static class February20 { }
-
-            /// <summary>
-            /// body: Shiri Bibas
+            /// Body recovered by Israeli Military: Yousef Alziadana
             /// </summary>
             [Number(1)]
-            public static class February21 { }
+            public static class January8 { }
 
             /// <summary>
-            /// released: Omer Wenkert, Omer Shem Tov, Eliya Cohen, Tal Shoham, Avera Mengistu, Hisham al-Sayed
+            /// Body Recovered by Israeli Military: Hamza Alziadana
             /// </summary>
-            [Number(6)]
-            public static class February22 { }
+            [Number(1)]
+            public static class January10 { }
+
+            [Number(33)]
+            public static class January15HostageReturnAgreementPhase1
+            {
+                /// <summary>
+                /// Released: Emily Damari 28, Romi Gonen 24, Doron Steinbrecher 31
+                /// </summary>
+                [Number(3)]
+                public static class January19Release { }
+
+                /// <summary>
+                /// Released: Liri Albag, Karina Ariev, Daniella Gilboa, Naama Levy
+                /// </summary>
+                [Number(3)]
+                public static class January25 { }
+
+                /// <summary>
+                /// Released: Arbel Yehoud 29, Agam Berger 20, Gadi Moses 80, Surasak Romneo, Bannawat Saethao, Watchara Sriaoun, Pongsak Thaenna, Sathian Suwannakham
+                /// </summary>
+                [Number(8)]
+                public static class January30 { }
+
+                /// <summary>
+                /// Released: Ofer Kalderon 54, Yarden Bibas 35, Keith Siegel 65
+                /// </summary>
+                [Number(3)]
+                public static class February1 { }
+
+                /// <summary>
+                /// Released: Ohad Ben Ami, Eli Sharabi, Or Levy
+                /// </summary>
+                [Number(3)]
+                public static class February8 { }
+
+                /// <summary>
+                /// Released: Sagui Dekel-Chen, Alexandre (Sasha) Troufanov, Iair Horn 46
+                /// </summary>
+                [Number(3)]
+                public static class February15 { }
+
+                /// <summary>
+                /// bodies: Oded Lifshitz, Ariel/Kfir Bibas
+                /// </summary>
+                [Number(3)]
+                public static class February20 { }
+
+                /// <summary>
+                /// body: Shiri Bibas
+                /// </summary>
+                [Number(1)]
+                public static class February21 { }
+
+                /// <summary>
+                /// released: Omer Wenkert, Omer Shem Tov, Eliya Cohen, Tal Shoham
+                /// Avera Mengistu (held by Hamas prior to 2023-10-7)
+                /// Hisham al-Sayed (held by Hamas prior to 2023-10-7)
+                /// </summary>
+                [Number(6)]
+                public static class February22 { }
+            }
+
+            public static class BelievedDeceased
+            {
+                /// <summary>
+                /// Iraq-born 86-year-old from Kibbutz Kissufim
+                /// </summary>
+                public static class ShlomoMansour { }
+
+                /// <summary>
+                /// Efrat Katz was likely killed 2023-10-7 by an Israeli helicopter gunship responding to the assault. The helicopter targeted a vehicle 
+                /// carrying Hamas gunmen, unaware that hostages were also inside.
+                /// </summary>
+                public static class EfratKatz { }
+            }
         }
     }
 }

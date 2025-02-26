@@ -44,6 +44,20 @@ namespace Existence.Personal
             public static class Alive { }
         }
 
+        [Birthdate(2011, 6, 28)]
+        [AstrologicalSign(AstrologicalSigns.Cancer)]
+        public static class Child1
+        {
+            public static class Female { }
+        }
+
+        [Birthdate(2013, 4, 11)]
+        [AstrologicalSign(AstrologicalSigns.Aries)]
+        public static class Child2
+        {
+            public static class Male { }
+        }
+
         public static class YouTubeChannel
         {
             public static class Destroy { }
@@ -314,6 +328,34 @@ namespace Existence.Personal
                 /// Curious because: birth date one day before Taylor Swift's, death date one day after mine
                 /// </summary>
                 public static class CuriousNameOnVietnamMemorial { }
+            }
+        }
+
+        public static class ConnectedFirstName
+        {
+            public static class Beverly
+            {
+                /// <summary>
+                /// Beverly Lee Barnhart (died April 11, 1969 Quong Nam) (Marine SSGT)
+                /// Panel/Line 27W/54
+                /// Birth Date: 10/22/1936
+                /// Home of Record: Wenatchee, WA, Chelan County
+                /// Curious because: daughter's name, died on son's birthday
+                /// </summary>
+                public static class CuriousNameOnVietnamMemorial1 { }
+
+                /// <summary>
+                /// Beverly Costner Ware (died 4/26/1969 Long Khanh) (Army SP4)
+                /// Panel/Line 26W/58
+                /// Birth Date: 8/29/1944
+                /// Home of Record: Mt. Holly, NC, Gaston County
+                /// </summary>
+                public static class CuriousNameOnVietnamMemorial2 { }
+
+                /// <summary>
+                /// there are also three names with Beverly as a middle name
+                /// </summary>
+                public static class VietnamMemorialInfo { }
             }
         }
 
