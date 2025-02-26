@@ -238,6 +238,45 @@ namespace Existence.Personal
             public static class Diffing { }
         }
 
+        public static class ConnectedLastName
+        {
+            /// <summary>
+            /// 0 names on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Deiches { }
+
+            /// <summary>
+            /// 0 names on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Gerbitz { }
+
+            /// <summary>
+            /// 1 name on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Grimm { }
+
+            /// <summary>
+            /// 12 names on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Rowe { }
+
+            /// <summary>
+            /// 0 names on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Steuerwald { }
+
+            /// <summary>
+            /// 4 names on the Vietnam Memorial Wal
+            /// 
+            /// Curious name:
+            /// Derald Dean Swift (died December 7, 1966 Bien HOA) (Air Force Captain)
+            /// Panel/Line 13E/19
+            /// Birth Date: 12/14/1937
+            /// Home of Record: Vale, OR, Malheur County
+            /// </summary>
+            public static class Swift { }
+        }
+
         public static class MagicPhrases
         {
             public const string Phrase1 = "NO HACKING ALLOWED";
