@@ -26,6 +26,7 @@ namespace Existence.Personal
         /// ambiguous pisces/aquarius without more information
         /// </summary>
         [Birthdate(1952, 2, 18)]
+        [Deathdate(2024, 7, 21)]
         public static class Mother { }
 
         [AstrologicalSign(AstrologicalSigns.Cancer)]
@@ -56,6 +57,27 @@ namespace Existence.Personal
         public static class Child2
         {
             public static class Male { }
+        }
+
+        public static class Cousins
+        {
+            public static class MotherSide
+            {
+                /// <summary>
+                /// born on April Fools's Day
+                /// </summary>
+                public static class OnlyFemaleCousin {}
+
+                /// <summary>
+                /// five
+                /// </summary>
+                public static class MaleCousins { }
+            }
+
+            public static class FatherSide
+            {
+                //a bunch
+            }
         }
 
         public static class YouTubeChannel
@@ -144,6 +166,7 @@ namespace Existence.Personal
             {
                 public static class v2012
                 {
+                    public static class TorturedSlashAbusedAPug { }
                     public static class ManiaFirst { }
                     public static class DepressionSecond { }
                 }
@@ -223,6 +246,19 @@ namespace Existence.Personal
                     public static class HumanConclusionIsICantExperimentWithTheMedsAnymore { }
                 }
             }
+        }
+
+        public static class CharitableHistory
+        {
+            public static class GaveMoneyToBlackWomanWhoAccostedMeInCollege { }
+            public static class Around2012AskedSpouseToDonateMoreToChurchOnMyAccountWasNotPsychologicallyWell { }
+            public static class GeneralFeelingThatHomelessBeggingAreOutToHelpMeInSomeVagueWay { }
+            public static class SmallDonationsToNAMIMadisonAlthoughNoConnectionToTheOrganization { }
+            public static class BecameConvincedLaterHomelessBeggarsShouldLookForAvailableServices { }
+            /// <summary>
+            /// probably did not do the right thing here
+            /// </summary>
+            public static class SometimeIn2024DidNotHelpDriverWhoAccostedWantedGasMoneyPointedHimToTheGasStation { }
         }
 
         public static class Life
@@ -308,6 +344,11 @@ namespace Existence.Personal
                 /// </summary>
                 public static class CuriousNameOnVietnamMemorial2 { }
             }
+
+            /// <summary>
+            /// 5 names on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Soule { }
 
             /// <summary>
             /// 0 names on the Vietnam Memorial Wall

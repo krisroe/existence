@@ -1,4 +1,5 @@
 ﻿
+using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using System;
 
@@ -19,385 +20,919 @@ namespace Existence.Earth.War
     public enum HostageList
     {
         /// <summary>
+        /// released
+        /// </summary>
+        AdarYafa = 1,
+        /// <summary>
         /// Staff Sergeant, body recovered
         /// </summary>
-        AhimasTomerYaakov,
+        AhimasTomerYaakov = 2,
+        /// <summary>
+        /// released
+        /// </summary>
+        AloniDaniel = 3,
+        /// <summary>
+        /// released
+        /// </summary>
+        AloniEmelia = 4,
         /// <summary>
         /// released, held by Hamas prior to 2023-10-7
         /// </summary>
-        AlSayedHishamShaaban,
+        AlSayedHishamShaaban = 5,
         /// <summary>
         /// body recovered
         /// </summary>
-        AlZayadniHamzah,
+        AlZayadniHamzah = 6,
         /// <summary>
         /// body recovered
         /// </summary>
-        AlZayadniYosef,
+        AlZayadniYosef = 7,
         /// <summary>
         /// released
         /// </summary>
-        AlbagLiri,
-        AlexanderEdan,
+        AlbagLiri = 8,
+
+        [TODO("")]
+        AlexanderEdan = 9,
+
         /// <summary>
         /// rescued
         /// </summary>
-        AlkadiQaidFarhan,
-        AngrestMatan,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        ArgamaniNoa,
+        AlkadiQaidFarhan = 10,
         /// <summary>
         /// released
         /// </summary>
-        ArievKarina,
+        AngkaewAnucha = 11,
+
+        [TODO("")]
+        AngrestMatan = 12,
+
+        /// <summary>
+        /// rescued
+        /// </summary>
+        ArgamaniNoa = 13,
+        /// <summary>
+        /// released
+        /// </summary>
+        ArievKarina = 14,
+        /// <summary>
+        /// released
+        /// </summary>
+        AsherAviv = 15,
+        /// <summary>
+        /// released
+        /// </summary>
+        AsherDoronKatz = 16,
+        /// <summary>
+        /// released
+        /// </summary>
+        AsherRaz = 17,
+        /// <summary>
+        /// released
+        /// </summary>
+        AvigdoriNoam = 18,
+        /// <summary>
+        /// released
+        /// </summary>
+        AvigdoriSharon = 19,
+        /// <summary>
+        /// released
+        /// </summary>
+        AvrihamElma = 20,
+        /// <summary>
+        /// released
+        /// </summary>
+        BabadillaNoralin = 21,
+        /// <summary>
+        /// released
+        /// </summary>
+        BeininLiat = 22,
         /// <summary>
         /// body recovered, killed in IDF airstrike (Corporal)
         /// </summary>
-        BeizerNik,
+        BeizerNik = 23,
         /// <summary>
         /// released
         /// </summary>
-        BenAmiOhad,
+        BenAmiOhad = 24,
+        /// <summary>
+        /// released
+        /// </summary>
+        BenAmiRaz = 25,
         /// <summary>
         /// body recovered
         /// </summary>
-        BenjaminRon,
+        BenjaminRon = 26,
         /// <summary>
         /// released
         /// </summary>
-        BergerAgam,
-        BermanGali,
-        BermanZiv,
+        BergerAgam = 27,
+
+        [TODO("")]
+        BermanGali = 28,
+
+        [TODO("")]
+        BermanZiv = 29,
+
         /// <summary>
         /// released body
         /// </summary>
-        BibasAriel,
+        BibasAriel = 30,
         /// <summary>
         /// released body
         /// </summary>
-        BibasKfir,
+        BibasKfir = 31,
         /// <summary>
         /// released body
         /// </summary>
-        BibasShiri,
+        BibasShiri = 32,
         /// <summary>
         /// released
         /// </summary>
-        BibasYarden,
-        BohbotElkana,
-        BraslavskiRom,
-        /// <summary>
-        /// Sergeant, body recovered
-        /// </summary>
-        BrodskiKiril,
-        /// <summary>
-        /// body recovered (Buckshtav?)
-        /// </summary>
-        BuchshtabYagev,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        BuskilaEstherAmit,
-        /// <summary>
-        /// released
-        /// </summary>
-        CohenEliya,
-        CohenNimrod,
-        CooperAmiram,
-        CunioAriel,
-        CunioDavid,
-        /// <summary>
-        /// released
-        /// </summary>
-        DamariEmily,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        DancygAlexander,
-        /// <summary>
-        /// body recovered, executed by Hamas
-        /// </summary>
-        DaninoOri,
-        DavidEvyatar,
-        /// <summary>
-        /// released
-        /// </summary>
-        DekelChenSagui,
-        /// <summary>
-        /// body released
-        /// </summary>
-        ElgaratItzhk,
-        /// <summary>
-        /// body recovered, executed by Hamas
-        /// </summary>
-        GatCarmel,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        GelerenterItzhak,
-        /// <summary>
-        /// released
-        /// </summary>
-        GilboaDaniella, //site said Daniel
-        GilboaDalalGuy,
-        /// <summary>
-        /// body recovered, executed by Hamas (American)
-        /// </summary>
-        GoldbergPolinHersh,
-        GoldinHadar,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        GoldinOren,
-        /// <summary>
-        /// released
-        /// </summary>
-        GonenRomi,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        GorenMaya,
-        GviliRan,
-        HaggaiGad,
-        /// <summary>
-        /// body recovered, killed by friendly fire while surrendering
-        /// </summary>
-        HaimYotam,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        HarLuis,
-        HerkinMaxim,
-        HernandezOryon,
-        HornEitan,
-        /// <summary>
-        /// released
-        /// </summary>
-        HornIair,
-        /// <summary>
-        /// body released
-        /// </summary>
-        IdanTsachi,
-        JoshiBipin,
-        /// <summary>
-        /// released
-        /// </summary>
-        KalderonOfer,
-        KalfonSegev,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        KatznirElad,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        KatzRavid,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        KozlovAndrey,
-        KupershteinBar,
-        /// <summary>
-        /// released
-        /// </summary>
-        LevyNaama,
-        /// <summary>
-        /// released
-        /// </summary>
-        LevyOr,
-        /// <summary>
-        /// released body
-        /// </summary>
-        LifshitzOded,
-        /// <summary>
-        /// released elderly Israli woman
-        /// </summary>
-        LifshitzYokheved,
-        /// <summary>
-        /// body recovered, executed by Hamas
-        /// </summary>
-        LobanovAlexander,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        LoukShani,
-        /// <summary>
-        /// body released
-        /// </summary>
-        MansourShlomo,
-        /// <summary>
-        /// recovered body (corporal)
-        /// </summary>
-        MarcianoNoa,
-        /// <summary>
-        /// rescued female Israeli soldier
-        /// </summary>
-        MegidishOri,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        MeirJanAlmog,
-        /// <summary>
-        /// released (held by Hamas prior to 2023-10-7)
-        /// </summary>
-        MengistuAvera,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        MermanFernandoSimon,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        MetzgerYoram,
-        MiranOmri,
-        MorEitanAbraham,
-        /// <summary>
-        /// released
-        /// </summary>
-        MozesGadiMoshe,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        MunderAbraham,
-        NeutraOmer,
-        NimrodTamir,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        NisenbaumMichel,
-        OhanaYosef,
-        OhelAlon,
-        OrAvinathan,
-        OrDror,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        PeriChaim,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        PopplewellNadav,
-        /// <summary>
-        /// Israeli-American, released
-        /// </summary>
-        RaananJudith,
-        /// <summary>
-        /// Israeli-American, released
-        /// </summary>
-        RaananNatalie,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        RadouxOriónHernández,
-        RudaeffLior,
-        /// <summary>
-        /// body recovered, executed by Hamas
-        /// </summary>
-        SarusiAlmog,
-        /// <summary>
-        /// body recovered, killed by friendly fire while surrendering
-        /// </summary>
-        ShamrizAlon,
-        /// <summary>
-        /// released
-        /// </summary>
-        SharabiEli,
-        ShaulOron,
-        /// <summary>
-        /// released
-        /// </summary>
-        ShemTovOmer,
-        /// <summary>
-        /// bodies recovered, killed in IDF airstrike (Sergeant)
-        /// </summary>
-        ShermanRon,
-        /// <summary>
-        /// released
-        /// </summary>
-        ShohamTal,
-        ShtiviIdan,
-        /// <summary>
-        /// released
-        /// </summary>
-        SiegelSamuelKeith,
-        /// <summary>
-        /// released
-        /// </summary>
-        SteinbrecherDoron,
-        /// <summary>
-        /// body recovered
-        /// </summary>
-        SvirskyItai,
-        /// <summary>
-        /// body recovered, killed by friendly fire while surrendering
-        /// </summary>
-        TalalkaSamer,
-        /// <summary>
-        /// body recovered, killed in IDF airstrike (civilian)
-        /// </summary>
-        ToledanoElia,
-        /// <summary>
-        /// released
-        /// </summary>
-        TrupanobAlexanderSasha,
-        WeissIlan,
-        /// <summary>
-        /// recovered body
-        /// </summary>
-        WeissYehudit,
-        /// <summary>
-        /// released
-        /// </summary>
-        WenkertOmer,
-        /// <summary>
-        /// rescued (hanan?)
-        /// </summary>
-        YablonkaChanan,
-        /// <summary>
-        /// body released
-        /// </summary>
-        YahalomiOhad,
-        /// <summary>
-        /// released
-        /// </summary>
-        YehoudArbel,
-        YehoudDolev,
-        /// <summary>
-        /// body recovered, executed by Hamas
-        /// </summary>
-        YerushalmiEden,
-        /// <summary>
-        /// released elderly Israli woman (goes by Cooper)
-        /// </summary>
-        YitzhakNuritCooper,
-        ZangaukerMatan,
-        /// <summary>
-        /// rescued
-        /// </summary>
-        ZivShlomi,
+        BibasYarden = 33,
+
+        [TODO("")]
+        BohbotElkana = 34,
 
         /// <summary>
         /// released
         /// </summary>
-        RomneoSurasak,
+        BoonpromSanti = 35,
+
+        [TODO("")]
+        BraslavskiRom = 36,
+
+        /// <summary>
+        /// Sergeant, body recovered
+        /// </summary>
+        BrodskiKiril = 37,
         /// <summary>
         /// released
         /// </summary>
-        SaethaoBannawat,
+        BrodutchHagar = 38,
         /// <summary>
         /// released
         /// </summary>
-        SriaounWatchara,
+        BrodutchOfri = 39,
         /// <summary>
         /// released
         /// </summary>
-        ThaennaPongsak,
+        BrodutchUriah = 40,
         /// <summary>
         /// released
         /// </summary>
-        SuwannakhamSathian,
+        BrodutchYuval = 41,
+        /// <summary>
+        /// released
+        /// </summary>
+        BuchshtavRimon = 42,
+        /// <summary>
+        /// body recovered (Buckshtav?)
+        /// </summary>
+        BuchshtabYagev = 43,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        BuskilaEstherAmit = 44,
+        /// <summary>
+        /// released
+        /// </summary>
+        ChombuaKomkrit = 45,
+        /// <summary>
+        /// released
+        /// </summary>
+        CohenEliya = 46,
+
+        [TODO("")]
+        CohenNimrod = 47,
+
+        /// <summary>
+        /// released (girlfriend of Alexandre (Sasha) Troufanov)
+        /// </summary>
+        CohenSapir = 48,
+
+        [TODO("")]
+        CooperAmiram = 49,
+
+        [TODO("")]
+        CunioAriel = 50,
+
+        [TODO("")]
+        CunioDavid = 51,
+
+        /// <summary>
+        /// released? cunio?
+        /// </summary>
+        CunionEmma = 52,
+        /// <summary>
+        /// released
+        /// </summary>
+        CunioSharonOlani = 53,
+        /// <summary>
+        /// released
+        /// </summary>
+        CunioYuli = 54,
+        /// <summary>
+        /// body recovered, staff sergeant major
+        /// </summary>
+        DadoZiv = 55,
+        /// <summary>
+        /// released
+        /// </summary>
+        DamariEmily = 56,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        DancygAlexander = 57,
+        /// <summary>
+        /// body recovered, executed by Hamas
+        /// </summary>
+        DaninoOri = 58,
+
+        [TODO("")]
+        DavidEvyatar = 59,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        DekelChenSagui = 60,
+        /// <summary>
+        /// released
+        /// </summary>
+        EdanAbigail = 61,
+        /// <summary>
+        /// body released
+        /// </summary>
+        ElgaratItzhk = 62,
+        /// <summary>
+        /// released
+        /// </summary>
+        ElyakimDafna = 63,
+        /// <summary>
+        /// released
+        /// </summary>
+        ElyakimEla = 64,
+        /// <summary>
+        /// released
+        /// </summary>
+        EngelBartKarina = 65,
+        /// <summary>
+        /// released
+        /// </summary>
+        EngelMika = 66,
+        /// <summary>
+        /// released
+        /// </summary>
+        EngelOfir = 67,
+        /// <summary>
+        /// released
+        /// </summary>
+        EngelYuval = 68,
+        /// <summary>
+        /// body recovered, executed by Hamas
+        /// </summary>
+        GatCarmel = 69,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        GelerenterItzhak = 70,
+        /// <summary>
+        /// released
+        /// </summary>
+        GilboaDaniella = 71, //site said Daniel
+
+        [TODO("")]
+        GilboaDalalGuy = 72,
+
+        /// <summary>
+        /// body recovered, executed by Hamas (American)
+        /// </summary>
+        GoldbergPolinHersh = 73,
+
+        [TODO("")]
+        GoldinHadar = 74,
+
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        GoldinOren = 75,
+        /// <summary>
+        /// released
+        /// </summary>
+        GoldsteinAlmogAgam = 76,
+        /// <summary>
+        /// released
+        /// </summary>
+        GoldsteinAlmogChen = 77,
+        /// <summary>
+        /// released
+        /// </summary>
+        GoldsteinAlmogGal = 78,
+        /// <summary>
+        /// released
+        /// </summary>
+        GoldsteinAlmogTal = 79,
+        /// <summary>
+        /// released
+        /// </summary>
+        GonenRomi = 80,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        GorenMaya = 81,
+        /// <summary>
+        /// released
+        /// </summary>
+        GorenShani = 82,
+        /// <summary>
+        /// released
+        /// </summary>
+        GritzewskyIlana = 83,
+
+        [TODO("")]
+        GviliRan = 84,
+
+        [TODO("")]
+        HaggaiGad = 85,
+
+        /// <summary>
+        /// body recovered, killed by friendly fire while surrendering
+        /// </summary>
+        HaimYotam = 86,
+        /// <summary>
+        /// released
+        /// </summary>
+        HandEmily = 87,
+        /// <summary>
+        /// released
+        /// </summary>
+        HaranShoshan = 88,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        HarLuis = 89,
+        /// <summary>
+        /// released
+        /// </summary>
+        HeimanDitza = 90,
+
+        [TODO("")]
+        HerkinMaxim = 91,
+
+        [TODO("")]
+        HernandezOryon = 92,
+
+        [TODO("")]
+        HornEitan = 93,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        HornIair = 94,
+        /// <summary>
+        /// body released
+        /// </summary>
+        IdanTsachi = 95,
+        /// <summary>
+        /// released
+        /// </summary>
+        JacobOr = 96,
+        /// <summary>
+        /// released
+        /// </summary>
+        JacobYagil = 97,
+        /// <summary>
+        /// released
+        /// </summary>
+        JirachartManee = 98,
+
+        [TODO("")]
+        JoshiBipin = 99,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        KalapratVichai = 100,
+        /// <summary>
+        /// released
+        /// </summary>
+        KalderonErez = 101,
+        /// <summary>
+        /// released
+        /// </summary>
+        KalderonOfer = 102,
+        /// <summary>
+        /// released
+        /// </summary>
+        KalderonSahar = 103,
+
+        [TODO("")]
+        KalfonSegev = 104,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        KatzirHannah = 105,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        KatznirElad = 106,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        KatzRavid = 107,
+        /// <summary>
+        /// released
+        /// </summary>
+        KesoognernSurin = 108,
+        /// <summary>
+        /// released
+        /// </summary>
+        KirshtRimon = 109,
+        /// <summary>
+        /// released
+        /// </summary>
+        KongmaneeBancha = 110,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        KozlovAndrey = 111,
+        /// <summary>
+        /// released
+        /// </summary>
+        KriboyRoni = 112,
+
+        [TODO("")]
+        KupershteinBar = 113,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        LeimbergGabriela = 114,
+        /// <summary>
+        /// released
+        /// </summary>
+        LeimbertMia = 115,
+        /// <summary>
+        /// released
+        /// </summary>
+        LevyNaama = 116,
+        /// <summary>
+        /// released
+        /// </summary>
+        LevyOr = 117,
+        /// <summary>
+        /// released body
+        /// </summary>
+        LifshitzOded = 118,
+        /// <summary>
+        /// released elderly Israli woman
+        /// </summary>
+        LifshitzYokheved = 119,
+        /// <summary>
+        /// body recovered, executed by Hamas
+        /// </summary>
+        LobanovAlexander = 120,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        LoukShani = 121,
+        /// <summary>
+        /// body released
+        /// </summary>
+        MansourShlomo = 122,
+        /// <summary>
+        /// recovered body (corporal)
+        /// </summary>
+        MarcianoNoa = 123,
+        /// <summary>
+        /// released
+        /// </summary>
+        MargalitNili = 124,
+        /// <summary>
+        /// rescued female Israeli soldier
+        /// </summary>
+        MegidishOri = 125,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        MeirJanAlmog = 126,
+        /// <summary>
+        /// released (held by Hamas prior to 2023-10-7)
+        /// </summary>
+        MengistuAvera = 127,
+        /// <summary>
+        /// released
+        /// </summary>
+        MermanClara = 128,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        MermanFernandoSimon = 129,
+        /// <summary>
+        /// released
+        /// </summary>
+        MetzgerTamar = 130,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        MetzgerYoram = 131,
+
+        [TODO("")]
+        MiranOmri = 132,
+
+        [TODO("")]
+        MorEitanAbraham = 133,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        MosheAdina = 134,
+        /// <summary>
+        /// released, 77-year-old member of Kibbutz Nir Or
+        /// </summary>
+        MosesMargalit = 135,
+        /// <summary>
+        /// released
+        /// </summary>
+        MozesGadiMoshe = 136,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        MunderAbraham = 137,
+        /// <summary>
+        /// released
+        /// </summary>
+        MunderKeren = 138,
+        /// <summary>
+        /// released 
+        /// </summary>
+        MunderOhad = 139,
+        /// <summary>
+        /// released
+        /// </summary>
+        MunderRuth = 140,
+        /// <summary>
+        /// released
+        /// </summary>
+        MunkanNattaware = 141,
+
+        [TODO("")]
+        NeutraOmer = 142,
+
+        [TODO("")]
+        NimrodTamir = 143,
+
+        /// <summary>
+        /// rescued
+        /// </summary>
+        NisenbaumMichel = 144,
+
+        [TODO("")]
+        OhanaYosef = 145,
+
+        [TODO("")]
+        OhelAlon = 146,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        OnkaewNatthaporn = 147,
+        /// <summary>
+        /// released
+        /// </summary>
+        OrAlma = 148,
+
+        [TODO("")]
+        OrAvinathan = 149,
+
+        [TODO("")]
+        OrDror = 150,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        OrLiam = 151,
+        /// <summary>
+        /// released
+        /// </summary>
+        OrNoam = 152,
+        /// <summary>
+        /// released
+        /// </summary>
+        PachecoGelienorJimmy = 153,
+        /// <summary>
+        /// released
+        /// </summary>
+        PankhongBoonthom = 154,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        PeriChaim = 155,
+        /// <summary>
+        /// released
+        /// </summary>
+        PeriHanna = 156,
+        /// <summary>
+        /// released
+        /// </summary>
+        PhachuabboonMongkol = 157,
+        /// <summary>
+        /// released
+        /// </summary>
+        PhoomeVetoon = 158,
+        /// <summary>
+        /// released
+        /// </summary>
+        PinakalowPornsawan = 159,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        PopplewellNadav = 160,
+        /// <summary>
+        /// Israeli-American, released
+        /// </summary>
+        RaananJudith = 161,
+        /// <summary>
+        /// Israeli-American, released
+        /// </summary>
+        RaananNatalie = 162,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        RadouxOriónHernández = 163,
+        /// <summary>
+        /// released
+        /// </summary>
+        RataninPaiboon = 164,
+        /// <summary>
+        /// released
+        /// </summary>
+        RegevItay = 165,
+        /// <summary>
+        /// released
+        /// </summary>
+        RegevMaya = 166,
+        /// <summary>
+        /// released
+        /// </summary>
+        RoitmanOfelia = 167,
+        /// <summary>
+        /// released
+        /// </summary>
+        RomanGatYarden = 168,
+        /// <summary>
+        /// released
+        /// </summary>
+        RomneoSurasak = 169,
+        /// <summary>
+        /// released
+        /// </summary>
+        RotemRaaya = 170,
+
+        [TODO("")]
+        RudaeffLior = 171,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        SaelaoKong = 172,
+        /// <summary>
+        /// released
+        /// </summary>
+        SaengboonBuddhee = 173,
+        /// <summary>
+        /// released
+        /// </summary>
+        SaengnuanUthai = 174,
+        /// <summary>
+        /// released
+        /// </summary>
+        SaethaoBannawat = 175,
+        /// <summary>
+        /// released
+        /// </summary>
+        SagiAda = 176,
+        /// <summary>
+        /// released
+        /// </summary>
+        SangkaewChalermchai = 177,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        SarfatiOphir = 178,
+        /// <summary>
+        /// body recovered, executed by Hamas
+        /// </summary>
+        SarusiAlmog = 179,
+        /// <summary>
+        /// released
+        /// </summary>
+        SchemMia = 180,
+        /// <summary>
+        /// body recovered, killed by friendly fire while surrendering
+        /// </summary>
+        ShamrizAlon = 181,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShaniAmit = 182,
+        /// <summary>
+        /// released
+        /// </summary>
+        SharabiEli = 183,
+
+        [TODO("")]
+        ShaulOron = 184,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        ShemTovOmer = 185,
+        /// <summary>
+        /// bodies recovered, killed in IDF airstrike (Sergeant)
+        /// </summary>
+        ShermanRon = 186,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShohamAdi = 187,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShohamNave = 188,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShohamTal = 189,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShohamYahel = 190,
+        /// <summary>
+        /// released
+        /// </summary>
+        ShoshaniHilaRotem = 191,
+
+        [TODO("")]
+        ShtiviIdan = 192,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        SiegelAdrienne = 193,
+        /// <summary>
+        /// released
+        /// </summary>
+        SiegelSamuelKeith = 194,
+        /// <summary>
+        /// released
+        /// </summary>
+        SoussanaAmit = 195,
+        /// <summary>
+        /// released
+        /// </summary>
+        SriaounWatchara = 196,
+        /// <summary>
+        /// released
+        /// </summary>
+        SrikeinaJakkrapan = 197,
+        /// <summary>
+        /// released
+        /// </summary>
+        SteinbrecherDoron = 198,
+        /// <summary>
+        /// released
+        /// </summary>
+        SuriyasriOwas = 199,
+        /// <summary>
+        /// released
+        /// </summary>
+        SuwannakhamSathian = 200,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        SvirskyItai = 201,
+        /// <summary>
+        /// body recovered, killed by friendly fire while surrendering
+        /// </summary>
+        TalalkaSamer = 202,
+        /// <summary>
+        /// released
+        /// </summary>
+        TalMeirav = 203,
+        /// <summary>
+        /// released
+        /// </summary>
+        TarshanskyGali = 204,
+        /// <summary>
+        /// released, mother of Yelena Troufanov
+        /// </summary>
+        TatiIrena = 205,
+        /// <summary>
+        /// released
+        /// </summary>
+        TemthongVichian = 206,
+        /// <summary>
+        /// released
+        /// </summary>
+        ThaennaPongsak = 207,
+        /// <summary>
+        /// body recovered, killed in IDF airstrike (civilian)
+        /// </summary>
+        ToledanoElia = 208,
+        /// <summary>
+        /// released
+        /// </summary>
+        ToonsriUthai = 209,
+        /// <summary>
+        /// released
+        /// </summary>
+        TornsokreePattanayut = 210,
+        /// <summary>
+        /// released
+        /// </summary>
+        TroufanovYelena = 211,
+        /// <summary>
+        /// released
+        /// </summary>
+        TrupanobAlexanderSasha = 212,
+        /// <summary>
+        /// released
+        /// </summary>
+        TzarfatiOfir = 213,
+
+        [TODO("")]
+        WeissIlan = 214,
+
+        /// <summary>
+        /// released
+        /// </summary>
+        WeissNoga = 215,
+        /// <summary>
+        /// released
+        /// </summary>
+        WeissShiri = 216,
+        /// <summary>
+        /// recovered body
+        /// </summary>
+        WeissYehudit = 217,
+        /// <summary>
+        /// released
+        /// </summary>
+        WenkertOmer = 218,
+        /// <summary>
+        /// rescued (hanan?)
+        /// </summary>
+        YablonkaChanan = 219,
+        /// <summary>
+        /// released
+        /// </summary>
+        YahalomiEitan = 220,
+        /// <summary>
+        /// body released
+        /// </summary>
+        YahalomiOhad = 221,
+        /// <summary>
+        /// released
+        /// </summary>
+        YanaiMoranStela = 222,
+        /// <summary>
+        /// released
+        /// </summary>
+        YehoudArbel = 223,
+
+        [TODO("")]
+        YehoudDolev = 224,
+
+        /// <summary>
+        /// body recovered, executed by Hamas
+        /// </summary>
+        YerushalmiEden = 225,
+        /// <summary>
+        /// released elderly Israli woman (goes by Cooper)
+        /// </summary>
+        YitzhakNuritCooper = 226,
+
+        [TODO("")]
+        ZangaukerMatan = 227,
+
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        ZechariahEden = 228,
+        /// <summary>
+        /// rescued
+        /// </summary>
+        ZivShlomi = 229,
+        /// <summary>
+        /// released
+        /// </summary>
+        ZiyadneAisha = 230,
+        /// <summary>
+        /// released
+        /// </summary>
+        ZiyadneBilal = 231,
     }
 
     /// <summary>
@@ -457,6 +992,31 @@ namespace Existence.Earth.War
                 /// Bancha Kongmanee, Gelienor "Jimmy" Pacheco, Boonthom Pankhong, Mongkol Phachuabboon, Vetoon Phoome, Buddhee Saengboon, Uthai Saengnuan, Uthai Toonsri
                 /// </summary>
                 [Number(24)]
+                [Hostages(
+                    HostageList.AdarYafa,
+                    HostageList.AloniDaniel,
+                    HostageList.AloniEmelia,
+                    HostageList.AsherAviv,
+                    HostageList.AsherDoronKatz,
+                    HostageList.AsherRaz,
+                    HostageList.KatzirHannah,
+                    HostageList.MosesMargalit,
+                    HostageList.MosheAdina,
+                    HostageList.MunderKeren,
+                    HostageList.MunderOhad,
+                    HostageList.MunderRuth,
+                    HostageList.MunkanNattaware,
+                    HostageList.PeriHanna,
+                    HostageList.BoonpromSanti,
+                    HostageList.KalapratVichai,
+                    HostageList.KongmaneeBancha,
+                    HostageList.PachecoGelienorJimmy,
+                    HostageList.PankhongBoonthom,
+                    HostageList.PhachuabboonMongkol,
+                    HostageList.PhoomeVetoon,
+                    HostageList.SaengboonBuddhee,
+                    HostageList.SaengnuanUthai,
+                    HostageList.ToonsriUthai)]
                 public static class November24 { }
 
                 /// <summary>
@@ -465,6 +1025,24 @@ namespace Existence.Earth.War
                 /// Natthaporn Onkaew
                 /// </summary>
                 [Number(17)]
+                [Hostages(
+                    HostageList.AvigdoriNoam,
+                    HostageList.AvigdoriSharon,
+                    HostageList.HandEmily,
+                    HostageList.HaranShoshan,
+                    HostageList.OrAlma,
+                    HostageList.OrNoam,
+                    HostageList.RegevMaya,
+                    HostageList.ShohamAdi,
+                    HostageList.ShohamNave,
+                    HostageList.ShohamYahel,
+                    HostageList.ShoshaniHilaRotem,
+                    HostageList.WeissNoga,
+                    HostageList.WeissShiri,
+                    HostageList.AngkaewAnucha,
+                    HostageList.ChombuaKomkrit,
+                    HostageList.JirachartManee,
+                    HostageList.OnkaewNatthaporn)]
                 public static class November25 { }
 
                 /// <summary>
@@ -473,6 +1051,24 @@ namespace Existence.Earth.War
                 /// Vichian Temthong
                 /// </summary>
                 [Number(17)]
+                [Hostages(
+                    HostageList.AvrihamElma,
+                    HostageList.BrodutchHagar,
+                    HostageList.BrodutchOfri,
+                    HostageList.BrodutchUriah,
+                    HostageList.BrodutchYuval,
+                    HostageList.EdanAbigail,
+                    HostageList.ElyakimDafna,
+                    HostageList.ElyakimEla,
+                    HostageList.GoldsteinAlmogAgam,
+                    HostageList.GoldsteinAlmogChen,
+                    HostageList.GoldsteinAlmogGal,
+                    HostageList.GoldsteinAlmogTal,
+                    HostageList.KriboyRoni,
+                    HostageList.SiegelAdrienne,
+                    HostageList.KesoognernSurin,
+                    HostageList.PinakalowPornsawan,
+                    HostageList.TemthongVichian)]
                 public static class November26 { }
 
                 /// <summary>
@@ -480,6 +1076,18 @@ namespace Existence.Earth.War
                 /// Erez Kalderon, Sahar Kalderon, Eitan Yahaloni
                 /// </summary>
                 [Number(11)]
+                [Hostages(
+                    HostageList.CunioSharonOlani,
+                    HostageList.CunionEmma,
+                    HostageList.CunioYuli,
+                    HostageList.EngelBartKarina,
+                    HostageList.EngelMika,
+                    HostageList.EngelYuval,
+                    HostageList.JacobOr,
+                    HostageList.JacobYagil,
+                    HostageList.KalderonErez,
+                    HostageList.KalderonSahar,
+                    HostageList.YahalomiEitan)]
                 public static class November27 { }
 
                 /// <summary>
@@ -487,12 +1095,26 @@ namespace Existence.Earth.War
                 /// Ada Sagi, Owas Suriyasri, Meirav Tal, Pattanayut Tornsokree
                 /// </summary>
                 [Number(12)]
+                [Hostages(
+                    HostageList.BabadillaNoralin,
+                    HostageList.HeimanDitza,
+                    HostageList.KirshtRimon,
+                    HostageList.LeimbergGabriela,
+                    HostageList.LeimbertMia,
+                    HostageList.MermanClara,
+                    HostageList.MetzgerTamar,
+                    HostageList.RoitmanOfelia,
+                    HostageList.SagiAda,
+                    HostageList.SuriyasriOwas,
+                    HostageList.TalMeirav,
+                    HostageList.TornsokreePattanayut)]
                 public static class November28A { }
 
                 /// <summary>
                 /// Rimon Buchshstav (not listed on CNN site)
                 /// </summary>
                 [Number(1)]
+                [Hostages(HostageList.BuchshtavRimon)]
                 public static class November28B { }
 
                 /// <summary>
@@ -501,6 +1123,24 @@ namespace Existence.Earth.War
                 /// Yelena Troufanov, Irena Tati (mother of Yelena Troufanov)
                 /// </summary>
                 [Number(17)]
+                [Hostages(
+                    HostageList.TzarfatiOfir,
+                    HostageList.BeininLiat,
+                    HostageList.BenAmiRaz,
+                    HostageList.EngelOfir,
+                    HostageList.RomanGatYarden,
+                    HostageList.OrLiam,
+                    HostageList.RegevItay,
+                    HostageList.RotemRaaya,
+                    HostageList.ShaniAmit,
+                    HostageList.TarshanskyGali,
+                    HostageList.YanaiMoranStela,
+                    HostageList.RataninPaiboon,
+                    HostageList.SaelaoKong,
+                    HostageList.SangkaewChalermchai,
+                    HostageList.SrikeinaJakkrapan,
+                    HostageList.TroufanovYelena,
+                    HostageList.TatiIrena)]
                 public static class November29 { }
 
                 /// <summary>
@@ -508,6 +1148,15 @@ namespace Existence.Earth.War
                 /// Sapir Cohen (girlfriend of Alexandre (Sasha) Troufanov)
                 /// </summary>
                 [Number(8)]
+                [Hostages(
+                    HostageList.ZiyadneAisha,
+                    HostageList.ZiyadneBilal,
+                    HostageList.GritzewskyIlana,
+                    HostageList.MargalitNili,
+                    HostageList.GorenShani,
+                    HostageList.SoussanaAmit,
+                    HostageList.SchemMia,
+                    HostageList.CohenSapir)]
                 public static class November30 { }
             }
 
@@ -515,12 +1164,14 @@ namespace Existence.Earth.War
             /// The IDF and Shin Bet announce they have recovered the body of deceased hostage Ophir Sarfati in recent days
             /// </summary>
             [Number(1)]
+            [Hostages(HostageList.SarfatiOphir)]
             public static class November29 { }
 
             /// <summary>
             /// The IDF recovers the bodies of Eden Zechariah and Staff Sergeant Major Ziv Dado in underground tunnels in Jabalia, Gaza
             /// </summary>
             [Number(2)]
+            [Hostages(HostageList.ZechariahEden, HostageList.DadoZiv)]
             public static class December12 { }
 
             /// <summary>
