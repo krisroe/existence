@@ -16,7 +16,12 @@ namespace Existence.Personal
         }
         public static class NegativeOne
         {
-            public static class SubconsciousReality { }
+            public static class SubconsciousReality
+            {
+                public static class LeftAndRightMindBothOperatingAtLevelZero { }
+                public static class RightMindNotReadyForPermanentUpgradeToSomePoint { }
+                public static class LeftMindMoreOpenForPermanentUpgradeToSomePoint { }
+            }
         }
         public static class Zero
         {
@@ -72,6 +77,10 @@ namespace Existence.Personal
         }
         public static class Eight
         {
+            /// <summary>
+            /// almost 256 hostages
+            /// </summary>
+            public static class GazaWarHostageCrisisIsLevelEightEvent { }
             public static class PersonalUpgradeToNextReality { }
         }
         public static class Thirteen
