@@ -160,91 +160,123 @@ namespace Existence.Personal
             }
         }
 
-        public static class PsychiatricLossOfFunctionality
+        public static class Timeline
         {
-            public static class PsychiatricHospitalizations
+            public static class v2012
             {
-                public static class v2012
+                public static class TorturedSlashAbusedAPug { }
+                public static class ManiaFirstPsychiatricHospitalization { }
+                public static class DepressionSecondPsychiatricHospitalizationNotSureWhatWasReallyGoingOn { }
+            }
+            public static class v2014
+            {
+                public static class SomethingHappenedHereButIDontRememberWhatButNoHospitalization { }
+            }
+            public static class v2016
+            {
+                public static class ManiaPsychiatricHospitalization
                 {
-                    public static class TorturedSlashAbusedAPug { }
-                    public static class ManiaFirst { }
-                    public static class DepressionSecond { }
+                    public static class PresidentialCampaignInFullSwing { }
                 }
-                public static class v2014
+            }
+            public static class v2018
+            {
+                public static class September18ActiveShooterIncident
                 {
-                    public static class SomethingHappenedHereButIDontRememberWhatButNoHospitalization { }
+                    public static class WorkWasOffForFullWeek { }
+                    public static class RecoveredFromPsychologicalTraumaWithDesensitizationNoPsychiatricHospitalization { }
                 }
-                public static class v2016
+                public static class September30PackersBillsGame
                 {
-                    public static class Mania { }
-                }
-                public static class v2018
-                {
-                    public static class September18ActiveShooterIncident
+                    public static class DadAndISnuckWaterBottleIntoTheGameEvenThoughItWasntAllowed { }
+                    public static class SangNationalAnthemPrettyWell { }
+                    public static class PackersWonInShutoutTwentyTwoToZero
                     {
-                        public static class WorkWasOffForFullWeek { }
-                        public static class RecoveredFromPsychologicalTraumaWithDesensitizationNoPsychiatricHospitalization { }
+                        public static class YearsLaterBelievedToBeLevelTwoScorigami { }
+                        public static class EvenLaterUnderstoodWasActuallyLevelFourteenScorigami { }
                     }
-                    public static class September30PackersBillsGame
+                    public static class AtTheTimeBelievedSingingOfNationalAnthemTriggeredButterflyEffectSoPackersGotShutoutWin
                     {
-                        public static class DadAndISnuckWaterBottleIntoTheGameEvenThoughItWasntAllowed { }
-                        public static class SangNationalAnthemPrettyWell { }
-                        public static class PackersWonInShutoutTwentyTwoToZero
-                        {
-                            public static class YearsLaterBelievedToBeLevelTwoScorigami { }
-                            public static class EvenLaterUnderstoodWasActuallyLevelFourteenScorigami { }
-                        }
-                        public static class AtTheTimeBelievedSingingOfNationalAnthemTriggeredButterflyEffectSoPackersGotShutoutWin
-                        {
-                            public static class YearsLaterBelievedCausedSomethingScorigamiRelated { }
-                        }
-                        /// <summary>
-                        /// was worried about the water bottle incident, I deliberately emptied my pockets to show I was not a thread
-                        /// </summary>
-                        public static class ThoughtPoliceWereAdvancingOnMeBeforeRollOutTheBarrelButNothingHappenedExceptSingingTheSong { }
-
-                        public static class OnTheDriveHomeSawPoliceCarsAndAccidentConcludedUsingButterflyEffectHadNegativeConsequencesAndFeltGuiltyAboutIt { }
+                        public static class YearsLaterBelievedCausedSomethingScorigamiRelated { }
                     }
-                }
-                public static class v2022
-                {
-                    public static class AugustMotherDiagnosedWithCancerStartedToLearnTruthAboutMotherPsychology { }
-                    public static class AroundThisTimeStartedExperimentingWithLoweringMedicationDoses { }
-                    public static class OctoberDiscoveredEmpathyWasAKey { }
-                }
-                public static class v2023
-                {
-                    public static class JanuaryFebruaryManicEpisodeMinimalLossOfWorkFunctionality { }
+                    /// <summary>
+                    /// was worried about the water bottle incident, I deliberately emptied my pockets to show I was not a thread
+                    /// </summary>
+                    public static class ThoughtPoliceWereAdvancingOnMeBeforeRollOutTheBarrelButNothingHappenedExceptSingingTheSong { }
 
-                    public static class OctoberDiscoveredSocioEmotionalAgnosiaWasAKey { }
-                    public static class DecemberDiscoveredAlexithymiaWasAKey { }
-                    public static class AtSomePointDiscoveredAutismWasAKey { }
+                    public static class OnTheDriveHomeSawPoliceCarsAndAccidentConcludedUsingButterflyEffectHadNegativeConsequencesAndFeltGuiltyAboutIt { }
                 }
-                public static class v2024
+            }
+
+            public static class v2022
+            {
+                public static class AugustMarkedTheReasonableIncidentWithSpouse
                 {
-                    /// <summary>
-                    /// 133 MG Quetiapine = 100/100/200 in three day cycle
-                    /// 150 MG Quetiapine = 100/200 in two day cycle
-                    /// </summary>
-                    public static class WasReallyRollingWithLoserDosesOfQuetiapineEvenEffectiveDosesLike100MG133MG150MG { }
-                    public static class MayDiscoveredTimeTravelWasPossible { }
-                    public static class MayJuneManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
-                    public static class MotherDiedJuly { }
-                    public static class BaselineQuetiapine200MGLithium450MG { }
-                    public static class TriedToBeMoreResponsibleWithTheMedicationTaperingThisTime { }
-                    public static class TaperedTo225MGLithiumSeptemberish { }
-                    public static class TaperedTo0LithiumDecemberish { }
-                    /// <summary>
-                    /// never got to a stable cycle
-                    /// </summary>
-                    public static class StartedTesting100MGQuetipineWaitingForSeveralDaysAfterwardForStabilization { }
+                    public static class IHaveSinceDiscussedTheObjectiveReasonablenessIssueWithDaughterWhoHasSameIssueWithSon { }
                 }
-                public static class v2025
+                public static class AugustMotherDiagnosedWithCancerStartedToLearnTruthAboutMotherPsychology { }
+                public static class AroundThisTimeStartedExperimentingWithLoweringMedicationDoses { }
+                public static class OctoberDiscoveredEmpathyWasAKey
                 {
-                    public static class FourDistinctDaysAt100MGQuetiapineTriggeredEpisode { }
-                    public static class JanuaryFebruaryManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
-                    public static class HumanConclusionIsICantExperimentWithTheMedsAnymore { }
+                    public static class FoundInspirationOnWalkNorthOnThirdAvenue { }
+                    public static class MyWalksWereUsuallySouth { }
+                    public static class IEvenThoughtAtTheTimeItWasASignificantDateMaybeOctober6Or12ButHaveForgotten { }
                 }
+            }
+
+            public static class v2023
+            {
+                public static class JanuaryFebruaryManicEpisodeMinimalLossOfWorkFunctionality
+                {
+                    public static class VeryOddWakeupBehaviorPretendingIWasQAingTheWorldAndSpouseWasTheDeveloper { }
+                    public static class HadVisionOnComputerWorldWasConvertedToLibertarianismPutThereBySubconscious
+                    {
+                        public static class ClearlyNotRealityLibertarianismIsntGoingToRuleThingsForAwhileIfEver { }
+                    }
+                    public static class DelusionalBeliefIDidAHackOfTheFabricOfRealityButInsteadCreatedACovidLikeApocalypticEvent { }
+                    public static class SharedWithMotherSheThoughtIwasBeingGrandioseAndNotWrong { }
+
+                    public static class AdditionalEpisodeWhereIthoughtIwasHavingAnAneurysm
+                    {
+                        public static class WasHavingTroubleWithWhetherIHadFreeWill { }
+                        public static class EmergencyMedicalPersonnelCameButIDidNotGoToHospital
+                        {
+                            public static class OwedAFairChunkOfChangeToTheAmbulanceServiceThough { }
+                        }
+                    }
+                    public static class IRememberABitOfDisorientationForPsychiatristVisitButNoFullscaleRebootHappened { }
+                }
+
+                public static class OctoberDiscoveredSocioEmotionalAgnosiaWasAKey { }
+                public static class DecemberDiscoveredAlexithymiaWasAKey { }
+                public static class AtSomePointDiscoveredAutismWasAKey { }
+            }
+
+            public static class v2024
+            {
+                /// <summary>
+                /// 133 MG Quetiapine = 100/100/200 in three day cycle
+                /// 150 MG Quetiapine = 100/200 in two day cycle
+                /// </summary>
+                public static class WasReallyRollingWithLoserDosesOfQuetiapineEvenEffectiveDosesLike100MG133MG150MG { }
+                public static class MarchDiscoveredPersonalCapacityForReligiousBelief { }
+                public static class MayDiscoveredCausalityViolationWasPossible { }
+                public static class MayJuneManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
+                public static class MotherDiedJuly { }
+                public static class BaselineQuetiapine200MGLithium450MG { }
+                public static class TriedToBeMoreResponsibleWithTheMedicationTaperingThisTime { }
+                public static class TaperedTo225MGLithiumSeptemberish { }
+                public static class TaperedTo0LithiumDecemberish { }
+                /// <summary>
+                /// never got to a stable cycle
+                /// </summary>
+                public static class StartedTesting100MGQuetipineWaitingForSeveralDaysAfterwardForStabilization { }
+            }
+            public static class v2025
+            {
+                public static class FourDistinctDaysAt100MGQuetiapineTriggeredEpisode { }
+                public static class JanuaryFebruaryManicAndSchizophrenicEpisodeMissedWeeksOfWork { }
+                public static class HumanConclusionIsICantExperimentWithTheMedsAnymore { }
             }
         }
 

@@ -542,22 +542,6 @@ namespace Existence.Personal
                         }
                     }
 
-                    public static class SeeVisionOnComputerOfWorldSwitchedToLibertarianism
-                    {
-                        public static class Impossible
-                        {
-                            public static class IHackedIntoTheFabricOfRealityAndChangedTheGeneralPoliticsToLibertarianism { }
-                            public static class AndSomehowCreatedAnApocalypticEventAnalogousToCovid { }
-                            public static class AndSharedSomeOfThisWithMyMother { }
-                            public static class ConsequenceRebootReality { }
-                        }
-                        public static class Possible
-                        {
-                            public static class VisionProducedByMySubconscious { }
-                            public static class SolutionReinforceExistingBeliefStructureAroundLibertarianismItsNotGoingToDominateAndThatsOK { }
-                        }
-                    }
-
                     public static class SeeMessageBoxFromCodeIHaventWrittenYet
                     {
                         public static class Interpretation
