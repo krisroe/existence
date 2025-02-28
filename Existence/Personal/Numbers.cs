@@ -18,9 +18,7 @@ namespace Existence.Personal
         {
             public static class SubconsciousReality
             {
-                public static class LeftAndRightMindBothOperatingAtLevelZero { }
-                public static class RightMindNotReadyForPermanentUpgradeToSomePoint { }
-                public static class LeftMindMoreOpenForPermanentUpgradeToSomePoint { }
+                public static class LeftAndRightMindBothOperatingAtConsciousLevel { }
             }
         }
         public static class Zero
@@ -68,7 +66,10 @@ namespace Existence.Personal
         }
         public static class Four
         {
-            public static class PersonalReality { }
+            public static class UnifiedConsciousnessAndLeftMindReality
+            {
+                public static class UpgradeToLevelEightOnTheTable { }
+            }
             public static class TheTruthAboutCovidExists { }
         }
         public static class Seven
@@ -81,7 +82,7 @@ namespace Existence.Personal
             /// almost 256 hostages
             /// </summary>
             public static class GazaWarHostageCrisisIsLevelEightEvent { }
-            public static class PersonalUpgradeToNextReality { }
+            public static class RightMindReality { }
         }
         public static class Thirteen
         {
