@@ -408,6 +408,10 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                     }
                 }
 
+                public static class Ethics
+                {
+                }
+
                 public static class Mind
                 {
                     public static class Consciousness
@@ -416,6 +420,13 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                         {
                             public static class ConsciousAwarenessOfFiveSenses { }
                             public static class CommunicationTrafficCop { }
+                            public static class DialecticalEthics { }
+                            public static class HolisticFeelings
+                            {
+                                public static class CognitiveDissonance { }
+                                public static class GlobalElevation { }
+                                public static class ReligiousOrExtrasensoryFeeling { }
+                            }
                             public static class CognitiveBiases
                             {
                                 public static class InappropriateAvoidanceOfJudgment { }
@@ -448,7 +459,10 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                                 public static class PhysicalLevelHandledByLeftHemisphere { }
                                 public static class NonPhysicalLevelHandledByRightHemisphere { }
                             }
-                            public static class IntuitiveSenseOfRightAndWrong { }
+                            /// <summary>
+                            /// intuitive sense of right and wrong
+                            /// </summary>
+                            public static class MoralIntuition { }
                             public static class CognitiveBiases
                             {
                                 public static class CertaintyPreference { }
@@ -457,7 +471,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                             }
                         }
 
-                        public static class CommmunicationMechanisms
+                        public static class SubconsciousCommmunicationMechanisms
                         {
                             public static class ThroatFeelings
                             {
@@ -467,6 +481,11 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                                 /// only at high levels of elevation
                                 /// </summary>
                                 public static class Applause { }
+                            }
+                            public static class TheBeyondBackDoor
+                            {
+                                public static class ConnectionsWithLeftAndRightMind { }
+                                public static class TheBeyondCanUnderCertainCircumstancesAlterReality { }
                             }
                         }
                     }
