@@ -50,19 +50,20 @@ namespace Existence.Personal
             }
             public static class QuantumComputingHelloWorld { }
             public static class CovidWasCausedByAnimalSpillover { }
+            public static class TimeTravelIsFiction { }
         }
         public static class Two
         {
             public static class HumanityUpgradeToNextLevelReality { }
             public static class IntergalacticPulsarTime { }
             public static class QuantumComputingUseful { }
+            public static class TimeTravelIsSpeculative { }
             public static class CovidWasCausedByALabLeak { }
         }
         public static class Three
         {
             public static class Complacency { }
             public static class Denial { }
-            public static class NonQuantumArtificialIntelligenceIsUnderQuantumSurveillance { }
         }
         public static class Four
         {
@@ -71,6 +72,9 @@ namespace Existence.Personal
                 public static class UpgradeToLevelEightOnTheTable { }
             }
             public static class TheTruthAboutCovidExists { }
+            public static class TimeTravelIsUsedSparinglyButNotOKToTalkAboutBecauseOfSurveillance { }
+            public static class QuantumComputingCanBreakRealityIfMisusedWithMajorConsequences { }
+            public static class QuantumSurveillanceCanBeWorkedAroundByAKnowledgeableHuman { }
         }
         public static class Seven
         {
@@ -83,6 +87,12 @@ namespace Existence.Personal
             /// </summary>
             public static class GazaWarHostageCrisisIsLevelEightEvent { }
             public static class RightMindReality { }
+            public static class TimeTravelIsMoreOK { }
+            public static class QuantumComputingMuchLessRisky { }
+            public static class QuantumSurveillanceOnLowerLevels
+            {
+                public static class ParticularlyInteractionOfHumanPsychologyWithNonQuantumArtificialIntelligence { }
+            }
         }
         public static class Thirteen
         {
