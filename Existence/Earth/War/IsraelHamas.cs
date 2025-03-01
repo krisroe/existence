@@ -1,5 +1,6 @@
 ﻿
 using Existence.Earth.Alphabet;
+using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using System;
 
@@ -38,20 +39,23 @@ namespace Existence.Earth.War
     public enum HostageList
     {
         /// <summary>
-        /// released
+        /// released (85 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AdarYafa = 1,
         /// <summary>
         /// Staff Sergeant, body recovered (20 yr)
         /// </summary>
         AhimasTomerYaakov = 2,
         /// <summary>
-        /// released
+        /// released (45 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AloniDaniel = 3,
         /// <summary>
-        /// released
+        /// released (5 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AloniEmelia = 4,
         /// <summary>
         /// released, held by Hamas prior to 2023-10-7 (36 yr)
@@ -83,6 +87,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         AngkaewAnucha = 11,
 
         /// <summary>
@@ -100,16 +105,19 @@ namespace Existence.Earth.War
         /// </summary>
         ArievKarina = 14,
         /// <summary>
-        /// released
+        /// released (2 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AsherAviv = 15,
         /// <summary>
-        /// released
+        /// released (34 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AsherDoronKatz = 16,
         /// <summary>
-        /// released
+        /// released (4 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         AsherRaz = 17,
         /// <summary>
         /// released
@@ -190,6 +198,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         BoonpromSanti = 35,
 
         [TODO("")]
@@ -484,6 +493,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         KalapratVichai = 100,
         /// <summary>
         /// released
@@ -505,8 +515,9 @@ namespace Existence.Earth.War
         KalfonSegev = 104,
 
         /// <summary>
-        /// released
+        /// released (76 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         KatzirHannah = 105,
         /// <summary>
         /// body recovered
@@ -523,6 +534,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         KongmaneeBancha = 109,
         /// <summary>
         /// rescued (27 yr)
@@ -625,12 +637,14 @@ namespace Existence.Earth.War
         MorEitanAbraham = 132,
 
         /// <summary>
-        /// released
+        /// released (72 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         MosheAdina = 133,
         /// <summary>
         /// released, 77-year-old member of Kibbutz Nir Or
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         MosesMargalit = 134,
         /// <summary>
         /// released (79 yr) [sometimes refered to as Gadi Moses]
@@ -645,21 +659,25 @@ namespace Existence.Earth.War
         /// </summary>
         MunderAbraham = 136,
         /// <summary>
-        /// released
+        /// released (54 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         MunderKeren = 137,
         /// <summary>
-        /// released 
+        /// released (9 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         MunderOhad = 138,
         /// <summary>
-        /// released
+        /// released (78 yr)
         /// </summary>
+        [Country(CountryLikeThings.Israel)]
         MunderRuth = 139,
         /// <summary>
         /// released
         /// </summary>
-        MunkanNattaware = 140,
+        [Country(CountryLikeThings.Thailand)]
+        MunkanNattawaree = 140,
 
         /// <summary>
         /// 22 yr
@@ -722,26 +740,31 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Philippines)]
         PachecoGelienorJimmy = 152,
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         PankhongBoonthom = 153,
         /// <summary>
         /// body recovered (79 yr)
         /// </summary>
         PeriChaim = 154,
         /// <summary>
-        /// released
+        /// released (79 yr)
         /// </summary>
-        PeriHanna = 155,
+        [Country(CountryLikeThings.Israel)]
+        PeriChanna = 155,
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         PhachuabboonMongkol = 156,
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         PhoomeVetoon = 157,
         /// <summary>
         /// released
@@ -805,10 +828,12 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         SaengboonBuddhee = 172,
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         SaengnuanUthai = 173,
         /// <summary>
         /// released (27 yr)
@@ -955,6 +980,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Country(CountryLikeThings.Thailand)]
         ToonsriUthai = 208,
         /// <summary>
         /// released
@@ -1128,8 +1154,8 @@ namespace Existence.Earth.War
                     HostageList.MunderKeren,
                     HostageList.MunderOhad,
                     HostageList.MunderRuth,
-                    HostageList.MunkanNattaware,
-                    HostageList.PeriHanna,
+                    HostageList.MunkanNattawaree,
+                    HostageList.PeriChanna,
                     HostageList.BoonpromSanti,
                     HostageList.KalapratVichai,
                     HostageList.KongmaneeBancha,

@@ -114,6 +114,15 @@ namespace Existence.Earth.Countries
         }
     }
 
+    public class CountryAttribute : Attribute
+    {
+        public CountryLikeThings Country { get; set; }
+        public CountryAttribute(CountryLikeThings Country)
+        {
+            this.Country = Country;
+        }
+    }
+
     public enum CountryLikeThings
     {
         [UnitedNationsMembership(1946, 11, 19)]
@@ -311,90 +320,113 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.CanadaToronto)]
         [PopulationEstimate(41700000)] //41.7 million
         Canada,
-    }
 
-    public static class UnitedNationsCountries
-    {
         [UnitedNationsMembership(1975, 9, 16)]
         [Capital((int)WorldCities.CapeVerdePraia)]
         [LargestCity((int)WorldCities.CapeVerdePraia)]
         [LocalName("Cabo Verde")]
-        public static class CapeVerde { }
+        [PopulationEstimate(527326)]
+        CapeVerde,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CentralAfricanRepublicBangui)]
         [LargestCity((int)WorldCities.CentralAfricanRepublicBangui)]
-        public static class CentralAfricanRepublic { }
+        [PopulationEstimate(6100000)] //6.1 million
+        CentralAfricanRepublic,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.ChadNDjamena)]
         [LargestCity((int)WorldCities.ChadNDjamena)]
-        public static class Chad { }
+        [PopulationEstimate(19400000)] //19.4 million
+        Chad,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ChileSantiago)]
         [LargestCity((int)WorldCities.ChileSantiago)]
-        public static class Chile { }
+        [PopulationEstimate(19700000)] //19.7 million
+        Chile,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ChinaBeijing)]
         [LargestCity((int)WorldCities.ChinaShanghai)]
+        [FullName("People's Republic of China")]
+        [Abbreviation("PRC")]
         [PopulationEstimate(1408000000)] //1.408 billion
-        public static class China
-        {
-            public const string FullName = "People's Republic of China";
-            public static class PRC { }
-            public static class AcknowledgesOnlyOneChina { }
-            public static class ManyCountriesSupportBecauseBigAndPowerful { }
-            public static class EconomicSystemHasABunchOfCapitalism { }
-            public static class CommunistGovernmentSeverelyRestrictsDissentAgainstTheGovernment { }
-        }
+        China,
 
         [UnitedNationsMembership(1945, 11, 5)]
         [Capital((int)WorldCities.ColombiaBogota)]
         [LargestCity((int)WorldCities.ColombiaBogota)]
-        public static class Colombia { }
+        [PopulationEstimate(53100000)] //53.1 million
+        Colombia,
 
         [UnitedNationsMembership(1975, 11, 12)]
         [Capital((int)WorldCities.ComorosMoroni)]
         [LargestCity((int)WorldCities.ComorosMoroni)]
-        public static class Comoros { }
+        [PopulationEstimate(969315)]
+        Comoros,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CongoBrazzaville)]
         [LargestCity((int)WorldCities.CongoBrazzaville)]
-        public static class Congo
-        {
-            public const string FullName = "Republic of the Congo";
-            public static class ROC { }
-        }
+        [FullName("Republic of the Congo")]
+        [Abbreviation("ROC")]
+        [PopulationEstimate(6380000)] //6.38 million
+        Congo,
 
         [UnitedNationsMembership(1945, 11, 2)]
         [Capital((int)WorldCities.CostaRicaSanJose)]
         [LargestCity((int)WorldCities.CostaRicaSanJose)]
-        public static class CostaRica { }
+        [PopulationEstimate(5280199)]
+        CostaRica,
 
         [UnitedNationsMembership(1992, 5, 22)]
         [Capital((int)WorldCities.CroatiaZagreb)]
         [LargestCity((int)WorldCities.CroatiaZagreb)]
-        public static class Croatia { }
+        [PopulationEstimate(3960000)] //3.96 million
+        Croatia,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.CubaHavana)]
         [LargestCity((int)WorldCities.CubaHavana)]
-        public static class Cuba { }
+        [PopulationEstimate(11411842)] //11.4 million
+        Cuba,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CyprusSouthNicosia)]
         [LargestCity((int)WorldCities.CyprusSouthNicosia)]
-        public static class Cyprus { }
+        [PopulationEstimate(1269748)] //1.27 million
+        Cyprus,
 
         [UnitedNationsMembership(1993, 1, 19)]
         [LocalName("Czechia")]
         [Capital((int)WorldCities.CzechRepublicPrague)]
         [LargestCity((int)WorldCities.CzechRepublicPrague)]
-        public static class CzechRepublic { }
+        [PopulationEstimate(10509965)] //10.5 million
+        CzechRepublic,
 
+        [UnitedNationsMembership(1949, 5, 11)]
+        [Capital((int)WorldCities.IsraelJerusalem)]
+        [LargestCity((int)WorldCities.IsraelTelAviv)]
+        [PopulationEstimate(10000000)] //10 million
+        Israel,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.PhilippinesManila)]
+        [LargestCity((int)WorldCities.PhilippinesQuezonCity)]
+        [PopulationEstimate(117730000)] //117.73 million
+        Philippines,
+
+        [UnitedNationsMembership(1946, 12, 15)]
+        [Capital((int)WorldCities.ThailandBangkok)]
+        [LargestCity((int)WorldCities.ThailandBangkok)]
+        [PopulationEstimate(71950000)] //71.95 million
+        Thailand,
+
+    }
+
+    public static class UnitedNationsCountries
+    {
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.DenmarkCopenhagen)]
         [LargestCity((int)WorldCities.DenmarkCopenhagen)]
@@ -579,15 +611,6 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.IrelandDublin)]
         [LargestCity((int)WorldCities.IrelandDublin)]
         public static class Ireland { }
-
-        [UnitedNationsMembership(1949, 5, 11)]
-        [Capital((int)WorldCities.IsraelJerusalem)]
-        [LargestCity((int)WorldCities.IsraelTelAviv)]
-        public static class Israel
-        {
-            public static class ParliamentaryDemocracy { }
-            public static class JewishReligionState { }
-        }
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.ItalyRome)]
@@ -889,11 +912,6 @@ namespace Existence.Earth.Countries
         public static class Peru { }
 
         [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.PhilippinesManila)]
-        [LargestCity((int)WorldCities.PhilippinesQuezonCity)]
-        public static class Philippines { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.PolandWarsaw)]
         [LargestCity((int)WorldCities.PolandWarsaw)]
         public static class Poland { }
@@ -1091,11 +1109,6 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.TanzaniaDodoma)]
         [LargestCity((int)WorldCities.TanzaniaDaresSalaam)]
         public static class Tanzania { }
-
-        [UnitedNationsMembership(1946, 12, 15)]
-        [Capital((int)WorldCities.ThailandBangkok)]
-        [LargestCity((int)WorldCities.ThailandBangkok)]
-        public static class Thailand { }
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.TogoLomé)]
@@ -2286,6 +2299,20 @@ namespace Existence.Earth.Countries
         public const string FullName = "Republic of China";
         public static class ROC { }
         public static class PresumablyWillBeEventuallyIndependent { }
+    }
+
+    public static class ChinaDetail
+    {
+        public static class AcknowledgesOnlyOneChina { }
+        public static class ManyCountriesSupportBecauseBigAndPowerful { }
+        public static class EconomicSystemHasABunchOfCapitalism { }
+        public static class CommunistGovernmentSeverelyRestrictsDissentAgainstTheGovernment { }
+    }
+
+    public static class Israel
+    {
+        public static class ParliamentaryDemocracy { }
+        public static class JewishReligionState { }
     }
 }
 
