@@ -405,6 +405,177 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(10509965)] //10.5 million
         CzechRepublic,
 
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.DenmarkCopenhagen)]
+        [LargestCity((int)WorldCities.DenmarkCopenhagen)]
+        [PopulationEstimate(5800000)] //5.8 million
+        Denmark,
+
+        [UnitedNationsMembership(1977, 9, 20)]
+        [Capital((int)WorldCities.DjiboutiDjiboutiCity)]
+        [LargestCity((int)WorldCities.DjiboutiDjiboutiCity)]
+        [PopulationEstimate(1000000)] //1 million
+        Djibouti,
+
+        [UnitedNationsMembership(1978, 12, 18)]
+        [Capital((int)WorldCities.DominicaRoseau)]
+        [LargestCity((int)WorldCities.DominicaRoseau)]
+        [PopulationEstimate(72000)]
+        Dominica,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.DominicanRepublicSantoDomingo)]
+        [LargestCity((int)WorldCities.DominicanRepublicSantoDomingo)]
+        [PopulationEstimate(11000000)] //11 million
+        DominicanRepublic,
+
+        [UnitedNationsMembership(2002, 9, 27)]
+        [LocalName("Timor-Leste")]
+        [Capital((int)WorldCities.EastTimorDili)]
+        [LargestCity((int)WorldCities.EastTimorDili)]
+        [PopulationEstimate(1300000)] //1.3 million
+        EastTimor,
+
+        [UnitedNationsMembership(1945, 12, 21)]
+        [Capital((int)WorldCities.EcuadorQuito)]
+        [LargestCity((int)WorldCities.EcuadorGuayaquil)]
+        [PopulationEstimate(17700000)] //17.7 million
+        Ecuador,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.EgyptCairo)]
+        [LargestCity((int)WorldCities.EgyptCairo)]
+        [PopulationEstimate(104000000)] //104 million
+        Egypt,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.ElSalvadorSanSalvador)]
+        [LargestCity((int)WorldCities.ElSalvadorSanSalvador)]
+        [PopulationEstimate(6500000)] //6.5 million
+        ElSalvador,
+
+        [UnitedNationsMembership(1968, 11, 12)]
+        [Capital((int)WorldCities.EquatorialGuineaMalabo)]
+        [PlannedCapital((int)WorldCities.EquatorialGuineaCiudadDeLaPaz)]
+        [LargestCity((int)WorldCities.EquatorialGuineaBata)]
+        [PopulationEstimate(1400000)] //1.4 million
+        EquitorialGuinea,
+
+        [UnitedNationsMembership(1993, 5, 28)]
+        [Capital((int)WorldCities.EritreaAsmara)]
+        [LargestCity((int)WorldCities.EritreaAsmara)]
+        [PopulationEstimate(3600000)] //3.6 million
+        Eritrea,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.EstoniaTalinn)]
+        [LargestCity((int)WorldCities.EstoniaTalinn)]
+        [PopulationEstimate(1300000)] //1.3 million
+        Estonia,
+
+        [UnitedNationsMembership(1945, 11, 13)]
+        [Capital((int)WorldCities.EthiopiaAddisAbaba)]
+        [LargestCity((int)WorldCities.EthiopiaAddisAbaba)]
+        [PopulationEstimate(120000000)] //120 million
+        Ethiopia,
+
+        [UnitedNationsMembership(1970, 10, 13)]
+        [Capital((int)WorldCities.FijiSuva)]
+        [LargestCity((int)WorldCities.FijiSuva)]
+        [PopulationEstimate(896000)]
+        Fiji,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.FinlandHelsinki)]
+        [LargestCity((int)WorldCities.FinlandHelsinki)]
+        [PopulationEstimate(5500000)] //5.5 million
+        Finland,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.FranceParis)]
+        [LargestCity((int)WorldCities.FranceParis)]
+        [PopulationEstimate(67000000)] //67 million
+        France,
+
+        [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.GabonLibreville)]
+        [LargestCity((int)WorldCities.GabonLibreville)]
+        [PopulationEstimate(2300000)] //2.3 million
+        Gabon,
+
+        [UnitedNationsMembership(1965, 9, 21)]
+        [Capital((int)WorldCities.GambiaBanjul)]
+        [LargestCity((int)WorldCities.GambiaSerekunda)]
+        [FullName("Republic of the Gambia")]
+        [PopulationEstimate(2400000)] //2.4 million
+        Gambia,
+
+        [UnitedNationsMembership(1992, 7, 31)]
+        [Capital((int)WorldCities.GeorgiaTbilisi)]
+        [LargestCity((int)WorldCities.GeorgiaTbilisi)]
+        [PopulationEstimate(3700000)] //3.7 million
+        Georgia,
+
+        [UnitedNationsMembership(1973, 9, 18)]
+        [Capital((int)WorldCities.GermanyBerlin)]
+        [LargestCity((int)WorldCities.GermanyBerlin)]
+        [PopulationEstimate(83000000)] //83 million
+        Germany,
+
+        [UnitedNationsMembership(1957, 3, 8)]
+        [Capital((int)WorldCities.GhanaAccra)]
+        [LargestCity((int)WorldCities.GhanaAccra)]
+        [PopulationEstimate(32000000)] //32 million
+        Ghana,
+
+        [UnitedNationsMembership(1945, 10, 25)]
+        [Capital((int)WorldCities.GreeceAthens)]
+        [LargestCity((int)WorldCities.GreeceAthens)]
+        [PopulationEstimate(10400000)] //10.4 million
+        Greece,
+
+        [UnitedNationsMembership(1974, 9, 17)]
+        [Capital((int)WorldCities.GrenadaStGeorges)]
+        [LargestCity((int)WorldCities.GrenadaStGeorges)]
+        [PopulationEstimate(113000)]
+        Greneda,
+
+        [UnitedNationsMembership(1945, 11, 21)]
+        [Capital((int)WorldCities.GuatemalaGuatemalaCity)]
+        [LargestCity((int)WorldCities.GuatemalaGuatemalaCity)]
+        [PopulationEstimate(18500000)] //18.5 million
+        Guatemala,
+
+        [UnitedNationsMembership(1958, 12, 12)]
+        [Capital((int)WorldCities.GuineaConakry)]
+        [LargestCity((int)WorldCities.GuineaConakry)]
+        [PopulationEstimate(13500000)] //13.5 million
+        Guinea,
+
+        [UnitedNationsMembership(1974, 9, 17)]
+        [Capital((int)WorldCities.GuineaBissauBissau)]
+        [LargestCity((int)WorldCities.GuineaBissauBissau)]
+        [PopulationEstimate(2000000)] //2 million
+        GuineaBissau,
+
+        [UnitedNationsMembership(1966, 9, 20)]
+        [Capital((int)WorldCities.GuyanaGeorgetown)]
+        [LargestCity((int)WorldCities.GuyanaGeorgetown)]
+        [PopulationEstimate(790000)]
+        Guyana,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.HaitiPortauPrince)]
+        [LargestCity((int)WorldCities.HaitiPortauPrince)]
+        [PopulationEstimate(11400000)] //11.4 million
+        Haiti,
+
+        [UnitedNationsMembership(1945, 12, 17)]
+        [Capital((int)WorldCities.HondurasTegucigalpa)]
+        [LargestCity((int)WorldCities.HondurasSanPedroSula)]
+        [PopulationEstimate(10000000)] //10 million
+        Honduras,
+
         [UnitedNationsMembership(1949, 5, 11)]
         [Capital((int)WorldCities.IsraelJerusalem)]
         [LargestCity((int)WorldCities.IsraelTelAviv)]
@@ -422,154 +593,10 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.ThailandBangkok)]
         [PopulationEstimate(71950000)] //71.95 million
         Thailand,
-
     }
 
     public static class UnitedNationsCountries
     {
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.DenmarkCopenhagen)]
-        [LargestCity((int)WorldCities.DenmarkCopenhagen)]
-        public static class Denmark { }
-
-        [UnitedNationsMembership(1977, 9, 20)]
-        [Capital((int)WorldCities.DjiboutiDjiboutiCity)]
-        [LargestCity((int)WorldCities.DjiboutiDjiboutiCity)]
-        public static class Djibouti { }
-
-        [UnitedNationsMembership(1978, 12, 18)]
-        [Capital((int)WorldCities.DominicaRoseau)]
-        [LargestCity((int)WorldCities.DominicaRoseau)]
-        public static class Dominica { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.DominicanRepublicSantoDomingo)]
-        [LargestCity((int)WorldCities.DominicanRepublicSantoDomingo)]
-        public static class DominicanRepublic { }
-
-        [UnitedNationsMembership(2002, 9, 27)]
-        [LocalName("Timor-Leste")]
-        [Capital((int)WorldCities.EastTimorDili)]
-        [LargestCity((int)WorldCities.EastTimorDili)]
-        public static class EastTimor { }
-
-        [UnitedNationsMembership(1945, 12, 21)]
-        [Capital((int)WorldCities.EcuadorQuito)]
-        [LargestCity((int)WorldCities.EcuadorGuayaquil)]
-        public static class Ecuador { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.EgyptCairo)]
-        [LargestCity((int)WorldCities.EgyptCairo)]
-        public static class Egypt { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.ElSalvadorSanSalvador)]
-        [LargestCity((int)WorldCities.ElSalvadorSanSalvador)]
-        public static class ElSalvador { }
-
-        [UnitedNationsMembership(1968, 11, 12)]
-        [Capital((int)WorldCities.EquatorialGuineaMalabo)]
-        [PlannedCapital((int)WorldCities.EquatorialGuineaCiudadDeLaPaz)]
-        [LargestCity((int)WorldCities.EquatorialGuineaBata)]
-        public static class EquatorialGuinea { }
-
-        [UnitedNationsMembership(1993, 5, 28)]
-        [Capital((int)WorldCities.EritreaAsmara)]
-        [LargestCity((int)WorldCities.EritreaAsmara)]
-        public static class Eritrea { }
-
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.EstoniaTalinn)]
-        [LargestCity((int)WorldCities.EstoniaTalinn)]
-        public static class Estonia { }
-
-        [UnitedNationsMembership(1945, 11, 13)]
-        [Capital((int)WorldCities.EthiopiaAddisAbaba)]
-        [LargestCity((int)WorldCities.EthiopiaAddisAbaba)]
-        public static class Ethiopia { }
-
-        [UnitedNationsMembership(1970, 10, 13)]
-        [Capital((int)WorldCities.FijiSuva)]
-        [LargestCity((int)WorldCities.FijiSuva)]
-        public static class Fiji { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.FinlandHelsinki)]
-        [LargestCity((int)WorldCities.FinlandHelsinki)]
-        public static class Finland { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.FranceParis)]
-        [LargestCity((int)WorldCities.FranceParis)]
-        public static class France { }
-
-        [UnitedNationsMembership(1960, 9, 20)]
-        [Capital((int)WorldCities.GabonLibreville)]
-        [LargestCity((int)WorldCities.GabonLibreville)]
-        public static class Gabon { }
-
-        /// <summary>
-        /// Republic of the Gambia
-        /// </summary>
-        [UnitedNationsMembership(1965, 9, 21)]
-        [Capital((int)WorldCities.GambiaBanjul)]
-        [LargestCity((int)WorldCities.GambiaSerekunda)]
-        public static class Gambia { }
-
-        [UnitedNationsMembership(1992, 7, 31)]
-        [Capital((int)WorldCities.GeorgiaTbilisi)]
-        [LargestCity((int)WorldCities.GeorgiaTbilisi)]
-        public static class Georgia { }
-
-        [UnitedNationsMembership(1973, 9, 18)]
-        [Capital((int)WorldCities.GermanyBerlin)]
-        [LargestCity((int)WorldCities.GermanyBerlin)]
-        public static class Germany { }
-
-        [UnitedNationsMembership(1957, 3, 8)]
-        [Capital((int)WorldCities.GhanaAccra)]
-        [LargestCity((int)WorldCities.GhanaAccra)]
-        public static class Ghana { }
-
-        [UnitedNationsMembership(1945, 10, 25)]
-        [Capital((int)WorldCities.GreeceAthens)]
-        [LargestCity((int)WorldCities.GreeceAthens)]
-        public static class Greece { }
-
-        [UnitedNationsMembership(1974, 9, 17)]
-        [Capital((int)WorldCities.GrenadaStGeorges)]
-        [LargestCity((int)WorldCities.GrenadaStGeorges)]
-        public static class Grenada { }
-
-        [UnitedNationsMembership(1945, 11, 21)]
-        [Capital((int)WorldCities.GuatemalaGuatemalaCity)]
-        [LargestCity((int)WorldCities.GuatemalaGuatemalaCity)]
-        public static class Guatemala { }
-
-        [UnitedNationsMembership(1958, 12, 12)]
-        [Capital((int)WorldCities.GuineaConakry)]
-        [LargestCity((int)WorldCities.GuineaConakry)]
-        public static class Guinea { }
-
-        [UnitedNationsMembership(1974, 9, 17)]
-        [Capital((int)WorldCities.GuineaBissauBissau)]
-        [LargestCity((int)WorldCities.GuineaBissauBissau)]
-        public static class GuineaBissau { }
-
-        [UnitedNationsMembership(1966, 9, 20)]
-        [Capital((int)WorldCities.GuyanaGeorgetown)]
-        [LargestCity((int)WorldCities.GuyanaGeorgetown)]
-        public static class Guyana { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.HaitiPortauPrince)]
-        [LargestCity((int)WorldCities.HaitiPortauPrince)]
-        public static class Haiti { }
-
-        [UnitedNationsMembership(1945, 12, 17)]
-        [Capital((int)WorldCities.HondurasTegucigalpa)]
-        [LargestCity((int)WorldCities.HondurasSanPedroSula)]
         public static class Honduras { }
 
         [UnitedNationsMembership(1955, 12, 14)]
