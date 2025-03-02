@@ -13,6 +13,14 @@ namespace Existence.Earth.Countries
         }
     }
 
+    public class UnofficialCapitalAttribute : CapitalAttribute
+    {
+        public UnofficialCapitalAttribute(int Capital) : base(Capital)
+        {
+
+        }
+    }
+
     public class AdministrativeCapitalAttribute : CapitalAttribute
     {
         public AdministrativeCapitalAttribute(int Capital) : base(Capital)
@@ -809,11 +817,182 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(115536)]
         Micronesia,
 
+        [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.MoldovaChișinău)]
+        [LargestCity((int)WorldCities.MoldovaChișinău)]
+        [FullName("Republic of Moldova")]
+        [PopulationEstimate(2600000)] //2.6 million
+        Moldova,
+
+        [UnitedNationsMembership(1993, 5, 28)]
+        [Capital((int)WorldCities.MonacoMonacoCity)]
+        [LargestCity((int)WorldCities.MonacoMonacoCity)]
+        [PopulationEstimate(38000)]
+        Monoco,
+
+        [UnitedNationsMembership(1961, 10, 27)]
+        [Capital((int)WorldCities.MongoliaUlaanbaatar)]
+        [LargestCity((int)WorldCities.MongoliaUlaanbaatar)]
+        [PopulationEstimate(3300000)] //3.3 million
+        Mongolia,
+
+        [UnitedNationsMembership(2006, 6, 28)]
+        [Capital((int)WorldCities.MontenegroPodgorica)]
+        [LargestCity((int)WorldCities.MontenegroPodgorica)]
+        [PopulationEstimate(620000)]
+        Montenegro,
+
+        [UnitedNationsMembership(1956, 11, 12)]
+        [Capital((int)WorldCities.MoroccoRabat)]
+        [LargestCity((int)WorldCities.MoroccoCasablanca)]
+        [PopulationEstimate(37000000)] //37 million
+        Morocco,
+
+        [UnitedNationsMembership(1975, 9, 16)]
+        [Capital((int)WorldCities.MozambiqueMaputo)]
+        [LargestCity((int)WorldCities.MozambiqueMaputo)]
+        [PopulationEstimate(33000000)] //33 million
+        Mozambique,
+
+        [UnitedNationsMembership(1990, 4, 23)]
+        [Capital((int)WorldCities.NamibiaWindhoek)]
+        [LargestCity((int)WorldCities.NamibiaWindhoek)]
+        [PopulationEstimate(2600000)] //2.6 million
+        Namibia,
+
+        [UnitedNationsMembership(1999, 9, 14)]
+        [UnofficialCapital((int)WorldCities.NauruYaren)]
+        [LargestCity((int)WorldCities.NauruYaren)]
+        [PopulationEstimate(10000)]
+        Nauru,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.NepalKathmandu)]
+        [LargestCity((int)WorldCities.NepalKathmandu)]
+        [PopulationEstimate(30000000)] //30 million
+        Nepal,
+
+        [UnitedNationsMembership(1945, 12, 10)]
+        [Capital((int)WorldCities.NetherlandsAmsterdam)]
+        [LargestCity((int)WorldCities.NetherlandsTheHague)]
+        [FullName("Kingdom of the Netherlands")]
+        [PopulationEstimate(17500000)] //17.5 million
+        Netherlands,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.NewZealandWellington)]
+        [LargestCity((int)WorldCities.NewZealandAuckland)]
+        [PopulationEstimate(5100000)] //5.1 million
+        NewZealand,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.NicaraguaManagua)]
+        [LargestCity((int)WorldCities.NicaraguaManagua)]
+        [PopulationEstimate(6700000)] //6.7 million
+        Nicaragua,
+
+        [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.NigerNiamey)]
+        [LargestCity((int)WorldCities.NigerNiamey)]
+        [PopulationEstimate(25000000)] //25 million
+        Niger,
+
+        [UnitedNationsMembership(1960, 10, 7)]
+        [Capital((int)WorldCities.NigeriaAbuja)]
+        [LargestCity((int)WorldCities.NigeriaLagos)]
+        [PopulationEstimate(234600000)] //234.6 million
+        Nigeria,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.NorthKoreaPyongyang)]
+        [LargestCity((int)WorldCities.NorthKoreaPyongyang)]
+        [FullName("Democratic People's Republic of Korea")]
+        [PopulationEstimate(25000000)] //25 million
+        NorthKorea,
+
+        [UnitedNationsMembership(1993, 4, 8)]
+        [Capital((int)WorldCities.NorthMacedoniaSkopje)]
+        [LargestCity((int)WorldCities.NorthMacedoniaSkopje)]
+        [PopulationEstimate(2100000)] //2.1 million
+        NorthMacedonia,
+
+        [UnitedNationsMembership(1945, 11, 27)]
+        [Capital((int)WorldCities.NorwayOslo)]
+        [LargestCity((int)WorldCities.NorwayOslo)]
+        [PopulationEstimate(5400000)] //5.4 million
+        Norway,
+
+        [UnitedNationsMembership(1971, 10, 7)]
+        [Capital((int)WorldCities.OmanMuscat)]
+        [LargestCity((int)WorldCities.OmanMuscat)]
+        [PopulationEstimate(4800000)] //4.8 million
+        Oman,
+
+        [UnitedNationsMembership(1947, 9, 30)]
+        [Capital((int)WorldCities.PakistanIslamabad)]
+        [LargestCity((int)WorldCities.PakistanKarachi)]
+        [PopulationEstimate(250000000)] //250 million
+        Pakistan,
+
+        [UnitedNationsMembership(1994, 12, 15)]
+        [Capital((int)WorldCities.PalauNgerulmud)]
+        [LargestCity((int)WorldCities.PalauKoror)]
+        [PopulationEstimate(18000)]
+        Palau,
+
+        [UnitedNationsMembership(1945, 11, 13)]
+        [Capital((int)WorldCities.PanamaPanamaCity)]
+        [LargestCity((int)WorldCities.PanamaPanamaCity)]
+        [PopulationEstimate(4300000)] //4.3 million
+        Panama,
+
+        [UnitedNationsMembership(1975, 10, 10)]
+        [Capital((int)WorldCities.PapuaNewGuineaPortMoresby)]
+        [LargestCity((int)WorldCities.PapuaNewGuineaPortMoresby)]
+        [PopulationEstimate(9200000)] //9.2 million
+        PapuaNewGuinea,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.ParaguayAsunción)]
+        [LargestCity((int)WorldCities.ParaguayAsunción)]
+        [PopulationEstimate(7300000)] //7.3 million
+        Paraguay,
+
+        [UnitedNationsMembership(1945, 10, 31)]
+        [Capital((int)WorldCities.PeruLima)]
+        [LargestCity((int)WorldCities.PeruLima)]
+        [PopulationEstimate(33000000)] //33 million
+        Peru,
+
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.PhilippinesManila)]
         [LargestCity((int)WorldCities.PhilippinesQuezonCity)]
         [PopulationEstimate(117730000)] //117.73 million
         Philippines,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.PolandWarsaw)]
+        [LargestCity((int)WorldCities.PolandWarsaw)]
+        [PopulationEstimate(38000000)] //38 million
+        Poland,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.PortugalLisbon)]
+        [LargestCity((int)WorldCities.PortugalLisbon)]
+        [PopulationEstimate(10300000)] //10.3 million
+        Portugal,
+
+        [UnitedNationsMembership(1971, 9, 21)]
+        [Capital((int)WorldCities.QatarDoha)]
+        [LargestCity((int)WorldCities.QatarDoha)]
+        [PopulationEstimate(2900000)] //2.9 million
+        Qatar,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.RomaniaBucharest)]
+        [LargestCity((int)WorldCities.RomaniaBucharest)]
+        [PopulationEstimate(19000000)] //19 million
+        Romania,
 
         [UnitedNationsMembership(1946, 12, 15)]
         [Capital((int)WorldCities.ThailandBangkok)]
@@ -824,166 +1003,6 @@ namespace Existence.Earth.Countries
 
     public static class UnitedNationsCountries
     {
-        /// <summary>
-        /// Republic of Moldova
-        /// </summary>
-        [UnitedNationsMembership(1992, 3, 2)]
-        [Capital((int)WorldCities.MoldovaChișinău)]
-        [LargestCity((int)WorldCities.MoldovaChișinău)]
-        public static class Moldova { }
-
-        [UnitedNationsMembership(1993, 5, 28)]
-        [Capital((int)WorldCities.MonacoMonacoCity)]
-        [LargestCity((int)WorldCities.MonacoMonacoCity)]
-        public static class Monaco { }
-
-        [UnitedNationsMembership(1961, 10, 27)]
-        [Capital((int)WorldCities.MongoliaUlaanbaatar)]
-        [LargestCity((int)WorldCities.MongoliaUlaanbaatar)]
-        public static class Mongolia { }
-
-        [UnitedNationsMembership(2006, 6, 28)]
-        [Capital((int)WorldCities.MontenegroPodgorica)]
-        [LargestCity((int)WorldCities.MontenegroPodgorica)]
-        public static class Montenegro { }
-
-        [UnitedNationsMembership(1956, 11, 12)]
-        [Capital((int)WorldCities.MoroccoRabat)]
-        [LargestCity((int)WorldCities.MoroccoCasablanca)]
-        public static class Morocco { }
-
-        [UnitedNationsMembership(1975, 9, 16)]
-        [Capital((int)WorldCities.MozambiqueMaputo)]
-        [LargestCity((int)WorldCities.MozambiqueMaputo)]
-        public static class Mozambique { }
-
-        [UnitedNationsMembership(1990, 4, 23)]
-        [Capital((int)WorldCities.NamibiaWindhoek)]
-        [LargestCity((int)WorldCities.NamibiaWindhoek)]
-        public static class Namibia { }
-
-        /// <summary>
-        /// does not have an official capital city
-        /// </summary>
-        [UnitedNationsMembership(1999, 9, 14)]
-        [Capital((int)WorldCities.NauruYaren)]
-        [LargestCity((int)WorldCities.NauruYaren)]
-        public static class Nauru { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.NepalKathmandu)]
-        [LargestCity((int)WorldCities.NepalKathmandu)]
-        public static class Nepal { }
-
-        /// <summary>
-        /// Kingdom of the Netherlands
-        /// </summary>
-        [UnitedNationsMembership(1945, 12, 10)]
-        [Capital((int)WorldCities.NetherlandsAmsterdam)]
-        [LargestCity((int)WorldCities.NetherlandsTheHague)]
-        public static class Netherlands { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.NewZealandWellington)]
-        [LargestCity((int)WorldCities.NewZealandAuckland)]
-        public static class NewZealand { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.NicaraguaManagua)]
-        [LargestCity((int)WorldCities.NicaraguaManagua)]
-        public static class Nicaragua { }
-
-        [UnitedNationsMembership(1960, 9, 20)]
-        [Capital((int)WorldCities.NigerNiamey)]
-        [LargestCity((int)WorldCities.NigerNiamey)]
-        public static class Niger { }
-
-        [UnitedNationsMembership(1960, 10, 7)]
-        [Capital((int)WorldCities.NigeriaAbuja)]
-        [LargestCity((int)WorldCities.NigeriaLagos)]
-        [PopulationEstimate(234600000)] //234.6 million
-        public static class Nigeria { }
-
-        /// <summary>
-        /// Democratic People's Republic of Korea
-        /// </summary>
-
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.NorthKoreaPyongyang)]
-        [LargestCity((int)WorldCities.NorthKoreaPyongyang)]
-        public static class NorthKorea
-        {
-            public static class SupportedByRussiaToSomeExtent { }
-            public static class SupportedByChinaToSomeExtent { }
-            public static class PursuingNuclearWeapons { }
-        }
-
-        [UnitedNationsMembership(1993, 4, 8)]
-        [Capital((int)WorldCities.NorthMacedoniaSkopje)]
-        [LargestCity((int)WorldCities.NorthMacedoniaSkopje)]
-        public static class NorthMacedonia { }
-
-        [UnitedNationsMembership(1945, 11, 27)]
-        [Capital((int)WorldCities.NorwayOslo)]
-        [LargestCity((int)WorldCities.NorwayOslo)]
-        public static class Norway { }
-
-        [UnitedNationsMembership(1971, 10, 7)]
-        [Capital((int)WorldCities.OmanMuscat)]
-        [LargestCity((int)WorldCities.OmanMuscat)]
-        public static class Oman { }
-
-        [UnitedNationsMembership(1947, 9, 30)]
-        [Capital((int)WorldCities.PakistanIslamabad)]
-        [LargestCity((int)WorldCities.PakistanKarachi)]
-        [PopulationEstimate(250000000)] //250 million
-        public static class Pakistan { }
-
-        [UnitedNationsMembership(1994, 12, 15)]
-        [Capital((int)WorldCities.PalauNgerulmud)]
-        [LargestCity((int)WorldCities.PalauKoror)]
-        public static class Palau { }
-
-        [UnitedNationsMembership(1945, 11, 13)]
-        [Capital((int)WorldCities.PanamaPanamaCity)]
-        [LargestCity((int)WorldCities.PanamaPanamaCity)]
-        public static class Panama { }
-
-        [UnitedNationsMembership(1975, 10, 10)]
-        [Capital((int)WorldCities.PapuaNewGuineaPortMoresby)]
-        [LargestCity((int)WorldCities.PapuaNewGuineaPortMoresby)]
-        public static class PapuaNewGuinea { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.ParaguayAsunción)]
-        [LargestCity((int)WorldCities.ParaguayAsunción)]
-        public static class Paraguay { }
-
-        [UnitedNationsMembership(1945, 10, 31)]
-        [Capital((int)WorldCities.PeruLima)]
-        [LargestCity((int)WorldCities.PeruLima)]
-        public static class Peru { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.PolandWarsaw)]
-        [LargestCity((int)WorldCities.PolandWarsaw)]
-        public static class Poland { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.PortugalLisbon)]
-        [LargestCity((int)WorldCities.PortugalLisbon)]
-        public static class Portugal { }
-
-        [UnitedNationsMembership(1971, 9, 21)]
-        [Capital((int)WorldCities.QatarDoha)]
-        [LargestCity((int)WorldCities.QatarDoha)]
-        public static class Qatar { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.RomaniaBucharest)]
-        [LargestCity((int)WorldCities.RomaniaBucharest)]
-        public static class Romania { }
-
         /// <summary>
         /// Russian Federation
         /// </summary>
@@ -2343,6 +2362,14 @@ namespace Existence.Earth.Countries
         public static class CouldEventuallyBeAbsorbedIntoSouthKorea { }
         public static class OrMaybeChinaWillAssumeControl { }
     }
+
+    public static class NorthKorea
+    {
+        public static class SupportedByRussiaToSomeExtent { }
+        public static class SupportedByChinaToSomeExtent { }
+        public static class PursuingNuclearWeapons { }
+    }
+
 
     public static class Taiwan
     {
