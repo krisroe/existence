@@ -25,7 +25,13 @@ namespace Existence.Personal
         {
             public static class ObjectiveReality { }
             public static class Space { }
-            public static class Time { }
+            public static class Time
+            {
+                public static class UTC
+                {
+                    public static class CoordinatedUniversalTime { }
+                }
+            }
             public static class UniformResourceLocator { }
         }
         public static class One
@@ -40,10 +46,6 @@ namespace Existence.Personal
                 public static class SongCanticleOfTheTurning { }
             }
             public static class UniformResourceIndicator { }
-            public static class UTC
-            {
-                public static class CoordinatedUniversalTime { }
-            }
             public static class AI
             {
                 public static class ArtificialIntelligence { }
@@ -69,7 +71,7 @@ namespace Existence.Personal
         {
             public static class UnifiedConsciousnessAndLeftMindReality
             {
-                public static class UpgradeToLevelEightOnTheTable { }
+                public static class SomethingInvolvingLevelEightOnTheTable { }
             }
             public static class TheTruthAboutCovidExists { }
             public static class TimeTravelIsUsedSparinglyButNotOKToTalkAboutBecauseOfSurveillance { }

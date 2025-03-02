@@ -576,11 +576,238 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(10000000)] //10 million
         Honduras,
 
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.HungaryBudapest)]
+        [LargestCity((int)WorldCities.HungaryBudapest)]
+        [PopulationEstimate(9600000)] //9.6 million
+        Hungary,
+
+        [UnitedNationsMembership(1946, 11, 19)]
+        [Capital((int)WorldCities.IcelandReykjavik)]
+        [LargestCity((int)WorldCities.IcelandReykjavik)]
+        [PopulationEstimate(380000)]
+        Iceland,
+
+        [UnitedNationsMembership(1945, 10, 30)]
+        [Capital((int)WorldCities.IndiaNewDelhi)]
+        [LargestCity((int)WorldCities.IndiaMumbai)]
+        [PopulationEstimate(1454000000)] //1.454 billion
+        India,
+
+        [UnitedNationsMembership(1950, 9, 28)]
+        [Capital((int)WorldCities.IndonesiaJakarta)]
+        [LargestCity((int)WorldCities.IndonesiaJakarta)]
+        [PopulationEstimate(282000000)] //282-290 million
+        Indonesia,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.IranTehran)]
+        [LargestCity((int)WorldCities.IranTehran)]
+        [FullName("Islamic Republic of Iran")]
+        [PopulationEstimate(92420000)] //92.42 million
+        Iran,
+
+        [UnitedNationsMembership(1945, 12, 21)]
+        [Capital((int)WorldCities.IraqBaghdad)]
+        [LargestCity((int)WorldCities.IraqBaghdad)]
+        [PopulationEstimate(46680000)] //46.68 million
+        Iraq,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.IrelandDublin)]
+        [LargestCity((int)WorldCities.IrelandDublin)]
+        [PopulationEstimate(5290000)] //5.29 million
+        Ireland,
+
         [UnitedNationsMembership(1949, 5, 11)]
         [Capital((int)WorldCities.IsraelJerusalem)]
         [LargestCity((int)WorldCities.IsraelTelAviv)]
         [PopulationEstimate(10000000)] //10 million
         Israel,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.ItalyRome)]
+        [LargestCity((int)WorldCities.ItalyRome)]
+        [PopulationEstimate(59212298)] //59 million
+        Italy,
+
+        [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.IvoryCoastYamoussoukro)]
+        [LargestCity((int)WorldCities.IvoryCoastAbidjan)]
+        [LocalName("Côte D'Ivoire")]
+        [PopulationEstimate(32440000)] //32.44 million
+        IvoryCoast,
+
+        [UnitedNationsMembership(1962, 9, 18)]
+        [Capital((int)WorldCities.JamaicaKingston)]
+        [LargestCity((int)WorldCities.JamaicaKingston)]
+        [PopulationEstimate(2837783)] //2.8 million
+        Jamaica,
+
+        [UnitedNationsMembership(1956, 12, 18)]
+        [Capital((int)WorldCities.JapanTokyo)]
+        [LargestCity((int)WorldCities.JapanTokyo)]
+        [PopulationEstimate(123321241)] //123 million
+        Japan,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.JordanAmman)]
+        [LargestCity((int)WorldCities.JordanAmman)]
+        [PopulationEstimate(11531768)] //11.5 million
+        Jordan,
+
+        [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.KazakhstanNurSultan)]
+        [LargestCity((int)WorldCities.KazakhstanAlmaty)]
+        [PopulationEstimate(20758104)] //20.8 million
+        Kazakhstan,
+
+        [UnitedNationsMembership(1963, 12, 16)]
+        [Capital((int)WorldCities.KenyaNairobi)]
+        [LargestCity((int)WorldCities.KenyaNairobi)]
+        [PopulationEstimate(57532493)] //57.5 million
+        Kenya,
+
+        [UnitedNationsMembership(1999, 9, 14)]
+        [Capital((int)WorldCities.KiribatiTarawa)]
+        [LargestCity((int)WorldCities.KiribatiTarawa)]
+        [PopulationEstimate(137984)]
+        Kiribati,
+
+        [UnitedNationsMembership(1963, 5, 14)]
+        [Capital((int)WorldCities.KuwaitKuwaitCity)]
+        [LargestCity((int)WorldCities.KuwaitKuwaitCity)]
+        [PopulationEstimate(4390000)] //4.39 million
+        Kuwait,
+
+        [UnitedNationsMembership(1992, 3, 2)]
+        [Capital((int)WorldCities.KyrgyzstanBishkek)]
+        [LargestCity((int)WorldCities.KyrgyzstanBishkek)]
+        [PopulationEstimate(7027900)] //7.0 million
+        Kyrgyzstan,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.LaosVientiane)]
+        [LargestCity((int)WorldCities.LaosVientiane)]
+        [FullName("Lao People’s Democratic Republic")]
+        [PopulationEstimate(7840000)] //7.84 million
+        Laos,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.LatviaRiga)]
+        [LargestCity((int)WorldCities.LatviaRiga)]
+        [PopulationEstimate(1790000)] //1.79 million
+        Latvia,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.LebanonBeirut)]
+        [LargestCity((int)WorldCities.LebanonBeirut)]
+        [PopulationEstimate(5850000)] //5.85 million
+        Lebanon,
+
+        [UnitedNationsMembership(1966, 10, 17)]
+        [Capital((int)WorldCities.LesothoMaseru)]
+        [LargestCity((int)WorldCities.LesothoMaseru)]
+        [PopulationEstimate(2380000)] //2.38 million
+        Lesotho,
+
+        [UnitedNationsMembership(1945, 11, 2)]
+        [Capital((int)WorldCities.LiberiaMonrovia)]
+        [LargestCity((int)WorldCities.LiberiaMonrovia)]
+        [PopulationEstimate(5680000)] //5.68 million
+        Liberia,
+
+        [UnitedNationsMembership(1955, 12, 14)]
+        [Capital((int)WorldCities.LibyaTripoli)]
+        [LargestCity((int)WorldCities.LibyaTripoli)]
+        [PopulationEstimate(7038380)] //7.0 million
+        Libya,
+
+        [UnitedNationsMembership(1990, 9, 18)]
+        [Capital((int)WorldCities.LiechtensteinVaduz)]
+        [LargestCity((int)WorldCities.LiechtensteinVaduz)]
+        [PopulationEstimate(40000)]
+        Liechtenstein,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.LithuaniaVilnius)]
+        [LargestCity((int)WorldCities.LithuaniaVilnius)]
+        [PopulationEstimate(2890000)] //2.89 million
+        Lithuania,
+
+        [UnitedNationsMembership(1945, 10, 24)]
+        [Capital((int)WorldCities.LuxembourgLuxembourgCity)]
+        [LargestCity((int)WorldCities.LuxembourgLuxembourgCity)]
+        [PopulationEstimate(672050)]
+        Luxembourg,
+
+        [UnitedNationsMembership(1960, 9, 20)]
+        [Capital((int)WorldCities.MadagascarAntananarivo)]
+        [LargestCity((int)WorldCities.MadagascarAntananarivo)]
+        [PopulationEstimate(31800000)] //31.8 million
+        Madagascar,
+
+        [UnitedNationsMembership(1964, 12, 1)]
+        [Capital((int)WorldCities.MalawiLilongwe)]
+        [LargestCity((int)WorldCities.MalawiLilongwe)]
+        [PopulationEstimate(22000000)] //22 million
+        Malawi,
+
+        [UnitedNationsMembership(1957, 9, 17)]
+        [Capital((int)WorldCities.MalaysiaKualaLumpur)]
+        [AdministrativeCapital((int)WorldCities.MalaysiaPutrajaya)]
+        [LargestCity((int)WorldCities.MalaysiaKualaLumpur)]
+        [PopulationEstimate(35800000)] //35.8 million
+        Malaysia,
+
+        [UnitedNationsMembership(1965, 9, 21)]
+        [Capital((int)WorldCities.MaldivesMale)]
+        [LargestCity((int)WorldCities.MaldivesMale)]
+        [PopulationEstimate(585332)]
+        Maldives,
+
+        [UnitedNationsMembership(1960, 9, 28)]
+        [Capital((int)WorldCities.MaliBamako)]
+        [LargestCity((int)WorldCities.MaliBamako)]
+        [PopulationEstimate(24760000)] //24.76 million
+        Mali,
+
+        [UnitedNationsMembership(1964, 12, 1)]
+        [Capital((int)WorldCities.MaltaValletta)]
+        [LargestCity((int)WorldCities.MaltaValletta)]
+        [PopulationEstimate(538297)]
+        Malta,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.MarshallIslandsMajuro)]
+        [LargestCity((int)WorldCities.MarshallIslandsMajuro)]
+        [PopulationEstimate(42819)]
+        MarshallIslands,
+
+        [UnitedNationsMembership(1961, 10, 27)]
+        [Capital((int)WorldCities.MauritaniaNouakchott)]
+        [LargestCity((int)WorldCities.MauritaniaNouakchott)]
+        [PopulationEstimate(5130000)] //5.13 million
+        Mauritania,
+
+        [UnitedNationsMembership(1968, 4, 24)]
+        [Capital((int)WorldCities.MauritiusPortLouis)]
+        [LargestCity((int)WorldCities.MauritiusPortLouis)]
+        [PopulationEstimate(1303210)] //1.3 million
+        Mauritius,
+
+        [UnitedNationsMembership(1945, 11, 7)]
+        [Capital((int)WorldCities.MexicoMexicoCity)]
+        [LargestCity((int)WorldCities.MexicoMexicoCity)]
+        [PopulationEstimate(131700000)] //131.7 million
+        Mexico,
+
+        [UnitedNationsMembership(1991, 9, 17)]
+        [Capital((int)WorldCities.MicronesiaPalikir)]
+        [LargestCity((int)WorldCities.MicronesiaPalikir)]
+        [FullName("Federated States of Micronesia")]
+        [PopulationEstimate(115536)]
+        Micronesia,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.PhilippinesManila)]
@@ -597,207 +824,6 @@ namespace Existence.Earth.Countries
 
     public static class UnitedNationsCountries
     {
-        public static class Honduras { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.HungaryBudapest)]
-        [LargestCity((int)WorldCities.HungaryBudapest)]
-        public static class Hungary { }
-
-        [UnitedNationsMembership(1946, 11, 19)]
-        [Capital((int)WorldCities.IcelandReykjavik)]
-        [LargestCity((int)WorldCities.IcelandReykjavik)]
-        public static class Iceland { }
-
-        [UnitedNationsMembership(1945, 10, 30)]
-        [Capital((int)WorldCities.IndiaNewDelhi)]
-        [LargestCity((int)WorldCities.IndiaMumbai)]
-        [PopulationEstimate(1454000000)] //1.454 billion
-        public static class India { }
-
-        [UnitedNationsMembership(1950, 9, 28)]
-        [Capital((int)WorldCities.IndonesiaJakarta)]
-        [LargestCity((int)WorldCities.IndonesiaJakarta)]
-        [PopulationEstimate(282000000)] //282-290 million
-        public static class Indonesia { }
-
-        /// <summary>
-        /// Islamic Republic of Iran
-        /// </summary>
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.IranTehran)]
-        [LargestCity((int)WorldCities.IranTehran)]
-        public static class Iran { }
-
-        [UnitedNationsMembership(1945, 12, 21)]
-        [Capital((int)WorldCities.IraqBaghdad)]
-        [LargestCity((int)WorldCities.IraqBaghdad)]
-        public static class Iraq { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.IrelandDublin)]
-        [LargestCity((int)WorldCities.IrelandDublin)]
-        public static class Ireland { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.ItalyRome)]
-        [LargestCity((int)WorldCities.ItalyRome)]
-        public static class Italy { }
-
-        [UnitedNationsMembership(1960, 9, 20)]
-        [Capital((int)WorldCities.IvoryCoastYamoussoukro)]
-        [LargestCity((int)WorldCities.IvoryCoastAbidjan)]
-        [LocalName("Côte D'Ivoire")]
-        public static class IvoryCoast { }
-
-        [UnitedNationsMembership(1962, 9, 18)]
-        [Capital((int)WorldCities.JamaicaKingston)]
-        [LargestCity((int)WorldCities.JamaicaKingston)]
-        public static class Jamaica { }
-
-        [UnitedNationsMembership(1956, 12, 18)]
-        [Capital((int)WorldCities.JapanTokyo)]
-        [LargestCity((int)WorldCities.JapanTokyo)]
-        public static class Japan { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.JordanAmman)]
-        [LargestCity((int)WorldCities.JordanAmman)]
-        public static class Jordan { }
-
-        [UnitedNationsMembership(1992, 3, 2)]
-        [Capital((int)WorldCities.KazakhstanNurSultan)]
-        [LargestCity((int)WorldCities.KazakhstanAlmaty)]
-        public static class Kazakhstan { }
-
-        [UnitedNationsMembership(1963, 12, 16)]
-        [Capital((int)WorldCities.KenyaNairobi)]
-        [LargestCity((int)WorldCities.KenyaNairobi)]
-        public static class Kenya { }
-
-        [UnitedNationsMembership(1999, 9, 14)]
-        [Capital((int)WorldCities.KiribatiTarawa)]
-        [LargestCity((int)WorldCities.KiribatiTarawa)]
-        public static class Kiribati { }
-
-        [UnitedNationsMembership(1963, 5, 14)]
-        [Capital((int)WorldCities.KuwaitKuwaitCity)]
-        [LargestCity((int)WorldCities.KuwaitKuwaitCity)]
-        public static class Kuwait { }
-
-        [UnitedNationsMembership(1992, 3, 2)]
-        [Capital((int)WorldCities.KyrgyzstanBishkek)]
-        [LargestCity((int)WorldCities.KyrgyzstanBishkek)]
-        public static class Kyrgyzstan { }
-
-        /// <summary>
-        /// Lao People’s Democratic Republic
-        /// </summary>
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.LaosVientiane)]
-        [LargestCity((int)WorldCities.LaosVientiane)]
-        public static class Laos { }
-
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.LatviaRiga)]
-        [LargestCity((int)WorldCities.LatviaRiga)]
-        public static class Latvia { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.LebanonBeirut)]
-        [LargestCity((int)WorldCities.LebanonBeirut)]
-        public static class Lebanon { }
-
-        [UnitedNationsMembership(1966, 10, 17)]
-        [Capital((int)WorldCities.LesothoMaseru)]
-        [LargestCity((int)WorldCities.LesothoMaseru)]
-        public static class Lesotho { }
-
-        [UnitedNationsMembership(1945, 11, 2)]
-        [Capital((int)WorldCities.LiberiaMonrovia)]
-        [LargestCity((int)WorldCities.LiberiaMonrovia)]
-        public static class Liberia { }
-
-        [UnitedNationsMembership(1955, 12, 14)]
-        [Capital((int)WorldCities.LibyaTripoli)]
-        [LargestCity((int)WorldCities.LibyaTripoli)]
-        public static class Libya { }
-
-        [UnitedNationsMembership(1990, 9, 18)]
-        [Capital((int)WorldCities.LiechtensteinVaduz)]
-        [LargestCity((int)WorldCities.LiechtensteinVaduz)]
-        public static class Liechtenstein { }
-
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.LithuaniaVilnius)]
-        [LargestCity((int)WorldCities.LithuaniaVilnius)]
-        public static class Lithuania { }
-
-        [UnitedNationsMembership(1945, 10, 24)]
-        [Capital((int)WorldCities.LuxembourgLuxembourgCity)]
-        [LargestCity((int)WorldCities.LuxembourgLuxembourgCity)]
-        public static class Luxembourg { }
-
-        [UnitedNationsMembership(1960, 9, 20)]
-        [Capital((int)WorldCities.MadagascarAntananarivo)]
-        [LargestCity((int)WorldCities.MadagascarAntananarivo)]
-        public static class Madagascar { }
-
-        [UnitedNationsMembership(1964, 12, 1)]
-        [Capital((int)WorldCities.MalawiLilongwe)]
-        [LargestCity((int)WorldCities.MalawiLilongwe)]
-        public static class Malawi { }
-
-        [UnitedNationsMembership(1957, 9, 17)]
-        [Capital((int)WorldCities.MalaysiaKualaLumpur)]
-        [AdministrativeCapital((int)WorldCities.MalaysiaPutrajaya)]
-        [LargestCity((int)WorldCities.MalaysiaKualaLumpur)]
-        public static class Malaysia { }
-
-        [UnitedNationsMembership(1965, 9, 21)]
-        [Capital((int)WorldCities.MaldivesMale)]
-        [LargestCity((int)WorldCities.MaldivesMale)]
-        public static class Maldives { }
-
-        [UnitedNationsMembership(1960, 9, 28)]
-        [Capital((int)WorldCities.MaliBamako)]
-        [LargestCity((int)WorldCities.MaliBamako)]
-        public static class Mali { }
-
-        [UnitedNationsMembership(1964, 12, 1)]
-        [Capital((int)WorldCities.MaltaValletta)]
-        [LargestCity((int)WorldCities.MaltaValletta)]
-        public static class Malta { }
-
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.MarshallIslandsMajuro)]
-        [LargestCity((int)WorldCities.MarshallIslandsMajuro)]
-        public static class MarshallIslands { }
-
-        [UnitedNationsMembership(1961, 10, 27)]
-        [Capital((int)WorldCities.MauritaniaNouakchott)]
-        [LargestCity((int)WorldCities.MauritaniaNouakchott)]
-        public static class Mauritania { }
-
-        [UnitedNationsMembership(1968, 4, 24)]
-        [Capital((int)WorldCities.MauritiusPortLouis)]
-        [LargestCity((int)WorldCities.MauritiusPortLouis)]
-        public static class Mauritius { }
-
-        [UnitedNationsMembership(1945, 11, 7)]
-        [Capital((int)WorldCities.MexicoMexicoCity)]
-        [LargestCity((int)WorldCities.MexicoMexicoCity)]
-        [PopulationEstimate(131700000)] //131.7 million
-        public static class Mexico { }
-
-        /// <summary>
-        /// Federated States of Micronesia
-        /// </summary>
-        [UnitedNationsMembership(1991, 9, 17)]
-        [Capital((int)WorldCities.MicronesiaPalikir)]
-        [LargestCity((int)WorldCities.MicronesiaPalikir)]
-        public static class Micronesia { }
-
         /// <summary>
         /// Republic of Moldova
         /// </summary>
