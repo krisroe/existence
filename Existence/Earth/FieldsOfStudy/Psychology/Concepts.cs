@@ -425,11 +425,11 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                             {
                                 public static class CognitiveDissonance { }
                                 public static class GlobalElevation { }
-                                public static class ReligiousOrExtrasensoryFeeling { }
                             }
                             public static class CognitiveBiases
                             {
                                 public static class InappropriateAvoidanceOfJudgment { }
+                                public static class CommunicationWithLessConfidenceThanIsAppropriate { }
                             }
                             public static class DevilAndAngelOnYourShouldersMetaphor
                             {
@@ -458,6 +458,10 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                             {
                                 public static class PhysicalLevelHandledByLeftHemisphere { }
                                 public static class NonPhysicalLevelHandledByRightHemisphere { }
+                            }
+                            public static class HolisticFeelings
+                            {
+                                public static class ReligiousFeeling { }
                             }
                             /// <summary>
                             /// intuitive sense of right and wrong
