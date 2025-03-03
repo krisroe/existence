@@ -33,6 +33,12 @@ namespace Existence.Personal
                 }
             }
             public static class UniformResourceLocator { }
+            public static class CommonplacePsychologicalMechanisms
+            {
+                public static class Empathy { }
+                public static class Projection { }
+            }
+
         }
         public static class One
         {
