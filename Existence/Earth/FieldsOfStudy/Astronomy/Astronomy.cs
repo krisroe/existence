@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Existence.Time;
+using System;
 using System.Drawing;
 
 namespace Existence.Earth.FieldsOfStudy.Astronomy
@@ -22,6 +23,18 @@ namespace Existence.Earth.FieldsOfStudy.Astronomy
             {
                 this.Age = Age;
                 this.From = From;
+            }
+        }
+
+        public static class Timeline
+        {
+            public static class HalleysComet
+            {
+                [YearDate(1986, 2, 9)]
+                public static class v1986Perihelion { }
+
+                [YearDate(2061, 7, 28)] //estimated within ~1-2 days
+                public static class v2061Perihelion { }
             }
         }
 

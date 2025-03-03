@@ -300,11 +300,21 @@ namespace Existence.Personal
             public static class TwoThousandTwentyFive { }
 
             /// <summary>
-            /// death date if I tied the longest lived human.
-            /// The male human number is probably more realistic.
+            /// Using 2021 life table downloaded from CDC web site.
+            /// Expected additional years for 45 year old white male is 32.5 years
+            /// I'm somewhat optimistic I'll beat this by some amount. Trying not to cheat at human-scale, don't understand what cheating means at atomic or cosmic scales.
             /// </summary>
-            [YearDate(2103, 5, 20)]
-            public static class MaxPossibleDeathDateAllHumans { }
+            [YearDate(2058, 6, 6)]
+            public static class AverageDeathDateForMyDemographics { }
+
+            /// <summary>
+            /// Gives me the chance to see halley's comet, which I missed the first time around (I was 5 years old).
+            /// I get to my birthday, one week past to taylor swift's birthday (guessing she's not around at that point
+            /// even though I am nine years old). I survive one week past that point. Mercifully, I skip the
+            /// Christmas/New-Years holiday season entirely.
+            /// </summary>
+            [YearDate(2061, 12, 20)]
+            public static class ProposedDeathDate { }
 
             /// <summary>
             /// death date if I tied the longest lived male human
@@ -313,12 +323,11 @@ namespace Existence.Personal
             public static class MaxPossibleDeathDateMaleHumans { }
 
             /// <summary>
-            /// Using 2021 life table downloaded from CDC web site.
-            /// Expected additional years for 45 year old white male is 32.5 years
-            /// I'm somewhat optimistic I'll beat this by some amount. Trying not to cheat at human-scale, don't understand what cheating means at atomic or cosmic scales.
+            /// death date if I tied the longest lived human.
+            /// The male human number is probably more realistic.
             /// </summary>
-            [YearDate(2058, 6, 6)]
-            public static class ExpectedDeathDateForMyDemographics { }
+            [YearDate(2103, 5, 20)]
+            public static class MaxPossibleDeathDateAllHumans { }
         }
 
         public static class  Skills
