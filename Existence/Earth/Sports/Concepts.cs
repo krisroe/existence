@@ -212,4 +212,43 @@ namespace Existence.Earth.Sports
         {
         }
     }
+
+    public class StartsAttribute: NumberAttribute
+    {
+        public int Starts
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+
+        public StartsAttribute(int Starts) : base(Starts)
+        {
+
+        }
+    }
+
+    public class GamesAttribute: NumberAttribute
+    {
+        public int Games
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public GamesAttribute(int Games) : base (Games)
+        {
+
+        }
+    }
 }

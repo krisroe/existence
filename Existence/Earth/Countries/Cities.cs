@@ -300,6 +300,7 @@ namespace Existence.Earth.Countries
         VenezuelaCaracas,
         VietnamHanoi,
         VietnamHoChiMinhCity,
+        WestBankJericho,
         WestBankRamallah,
         /// <summary>
         /// El Aaiún

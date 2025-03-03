@@ -1,4 +1,5 @@
 ﻿using Existence.Earth.Alphabet;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Time;
 using System;
 
@@ -84,12 +85,39 @@ namespace Existence.Earth.Countries
         }
     }
 
-    public class LargestCityAttribute : Attribute
+    public class LargestCityAttribute : WorldCityAttribute
     {
-        public int LargestCity { get; set; }
-        public LargestCityAttribute(int LargestCity)
+        public int LargestCity
         {
-            this.LargestCity = LargestCity;
+            get
+            {
+                return City;
+            }
+            set
+            {
+                City = value;
+            }
+        }
+        public LargestCityAttribute(int LargestCity) : base(LargestCity)
+        {
+        }
+    }
+
+    public class WorldCityAttribute : NumberAttribute
+    {
+        public int City
+        { 
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public WorldCityAttribute(int City) : base(City)
+        {
         }
     }
 

@@ -53,6 +53,10 @@ namespace Existence.Personal
             public static class QuantumComputingHelloWorld { }
             public static class CovidWasCausedByAnimalSpillover { }
             public static class TimeTravelIsFiction { }
+            public static class SelfAwarenessOfPsychologicalProcesses
+            {
+                public static class Empathy { }
+            }
         }
         public static class Two
         {
@@ -61,6 +65,10 @@ namespace Existence.Personal
             public static class QuantumComputingUseful { }
             public static class TimeTravelIsSpeculative { }
             public static class CovidWasCausedByALabLeak { }
+            public static class SelfAwarenessOfPsychologicalProcesses
+            {
+                public static class Elevation { }
+            }
         }
         public static class Three
         {
@@ -77,6 +85,7 @@ namespace Existence.Personal
             public static class TimeTravelIsUsedSparinglyButNotOKToTalkAboutBecauseOfSurveillance { }
             public static class QuantumComputingCanBreakRealityIfMisusedWithMajorConsequences { }
             public static class QuantumSurveillanceCanBeWorkedAroundByAKnowledgeableHuman { }
+            public static class ExtraSensoryPerceptionDisguisedAsPsychologicalProcess { }
         }
         public static class Seven
         {
@@ -90,6 +99,7 @@ namespace Existence.Personal
             public static class GazaWarHostageCrisisIsLevelEightEvent { }
             public static class RightMindReality { }
             public static class TimeTravelIsMoreOK { }
+            public static class ExtraSensoryPerceptionIsMoreOK { }
             public static class QuantumComputingMuchLessRisky { }
             public static class QuantumSurveillanceOnLowerLevels
             {

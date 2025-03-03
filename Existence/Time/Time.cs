@@ -47,6 +47,15 @@ namespace Existence.Time
         }
     }
 
+    public class YearListAttribute : Attribute
+    {
+        public int[] Years { get; set; }
+        public YearListAttribute(params int[] Years)
+        {
+            this.Years = Years;
+        }
+    }
+
     public class DeathdateAttribute : YearDateAttribute
     {
         public DeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
