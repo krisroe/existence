@@ -56,6 +56,7 @@ namespace Existence.Personal
             public static class SelfAwarenessOfPsychologicalProcesses
             {
                 public static class Empathy { }
+                public static class Apophenia { }
             }
         }
         public static class Two
@@ -68,6 +69,7 @@ namespace Existence.Personal
             public static class SelfAwarenessOfPsychologicalProcesses
             {
                 public static class Elevation { }
+                public static class Synethesia { }
             }
         }
         public static class Three
@@ -85,6 +87,12 @@ namespace Existence.Personal
             public static class TimeTravelIsUsedSparinglyButNotOKToTalkAboutBecauseOfSurveillance { }
             public static class QuantumComputingCanBreakRealityIfMisusedWithMajorConsequences { }
             public static class QuantumSurveillanceCanBeWorkedAroundByAKnowledgeableHuman { }
+            public static class SelfAwarenessOfPsychologicalProcesses
+            {
+                public static class Alexithymia { }
+                public static class SocioEmotionalAgnosia { }
+                public static class LeftBrainRightBrainDissociation { }
+            }
             public static class ExtraSensoryPerceptionDisguisedAsPsychologicalProcess { }
         }
         public static class Seven
