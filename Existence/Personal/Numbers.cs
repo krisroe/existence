@@ -33,12 +33,13 @@ namespace Existence.Personal
                 }
             }
             public static class UniformResourceLocator { }
+            public static class Pseudorandomness { }
             public static class CommonplacePsychologicalMechanisms
             {
                 public static class Empathy { }
                 public static class Projection { }
+                public static class ReligiousFeeling { }
             }
-
         }
         public static class One
         {
@@ -64,6 +65,7 @@ namespace Existence.Personal
                 public static class Empathy { }
                 public static class Apophenia { }
             }
+            public static class ThereAreRulesAboutSoulmates { }
         }
         public static class Two
         {
@@ -82,6 +84,7 @@ namespace Existence.Personal
         {
             public static class Complacency { }
             public static class Denial { }
+            public static class SensorySurvillance { }
         }
         public static class Four
         {
@@ -100,18 +103,27 @@ namespace Existence.Personal
                 public static class LeftBrainRightBrainDissociation { }
             }
             public static class ExtraSensoryPerceptionDisguisedAsPsychologicalProcess { }
+            public static class TheSoulmateRulesProblemIsAbsurd { }
+        }
+        public static class FiveAndSix
+        {
+            public static class TheSoulmateRulesProblemNeedsToBeSolved { }
         }
         public static class Seven
         {
             public static class Lucky { }
+            public static class ESPAwareSurveillance { }
         }
         public static class Eight
         {
+            public static class TrueRandomness { }
+
             /// <summary>
             /// almost 256 hostages
             /// </summary>
             public static class GazaWarHostageCrisisIsLevelEightEvent { }
-            public static class RightMindReality { }
+
+            public static class TheSoulmatesRulesProblemIsNotAProblemPeriod { }
             public static class TimeTravelIsMoreOK { }
             public static class ExtraSensoryPerceptionIsMoreOK { }
             public static class QuantumComputingMuchLessRisky { }
@@ -119,6 +131,8 @@ namespace Existence.Personal
             {
                 public static class ParticularlyInteractionOfHumanPsychologyWithNonQuantumArtificialIntelligence { }
             }
+
+            public static class MyPersonalRightMindReality { }
         }
         public static class Thirteen
         {

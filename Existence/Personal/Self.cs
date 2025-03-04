@@ -20,6 +20,19 @@ namespace Existence.Personal
                 public const int FIRST_FAVORITE_NUMBER = 24865;
                 public const int SECOND_FAVORITE_NUMBER = 4;
             }
+
+            public static class FavoriteMovies
+            {
+                /// <summary>
+                /// I just might be able to break the whole damn system! (Internet says the movie says "crash")
+                /// </summary>
+                public static class Sneakers { }
+
+                /// <summary>
+                /// I wish this was my favorite movie, but my teaching skills aren't up to it at human-scale.
+                /// </summary>
+                public static class ChocolateWar { }
+            }
         }
 
         /// <summary>
@@ -127,34 +140,64 @@ namespace Existence.Personal
             }
             public static class Past
             {
-                public static class Epic
-                {
-                    public static class EpicSystemsCorporation { }
-                    public static int EMPLOYEE_NUMBER = 4083;
-                    public static class Health { }
-                    public static class Care { }
-                    public static class Failed
-                    {
-                        public static class Software { }
-                        public static class Test { }
-                        public static class Engineer { }
-                    }
-                    public static class Inpatient { }
-                    public static class HOV { }
-                    public static class Ambulatory { }
-                    public static class DLG
-                    {
-                        /// <summary>
-                        /// big notes conversion - probably wasted lots of space and left headache to those after me,
-                        /// but I really don't know for sure.
-                        /// </summary>
-                        public const int PERSONALLY_MOST_SIGNIFICANT = 94254;
+                /// <summary>
+                /// helped at grandfather's farm: cleaned out combine since I was small, helped move corn with augurs and
+                /// grain bins, moved the lawn (fair amount of sunburn), helped pickup and distribute hay bales (first
+                /// time driving was a stick truck for this), helped with cow milking, didn't really help with pigs (too
+                /// young), picked rocks, drove skid-loader, occasionally drove tractor for disking
+                /// </summary>
+                public static class vChildhoodAndAdolescence { }
 
-                        /// <summary>
-                        /// I notified Chris Theorin this was coming, and he snagged a whole bunch of them to get the
-                        /// nice round number.
-                        /// </summary>
-                        public const int OFFICEMATE_MOST_SIGNIFICANT = 100000;
+                public static class v1998
+                {
+                    /// <summary>
+                    /// assisted with survey remonumentation, assisted with CAD for certified survey maps
+                    /// </summary>
+                    public static class GrothmanAndAssociates { }
+                }
+
+                public static class v2002to2003
+                {
+                    /// <summary>
+                    /// computerized data entry. Last day was May 2, 2003 (Friday)
+                    /// </summary>
+                    public static class BossInternational { }
+                }
+
+                public static class v20032006
+                {
+                    /// <summary>
+                    /// first date was May 5, 2003 (Monday)
+                    /// </summary>
+                    public static class Epic
+                    {
+                        public static class EpicSystemsCorporation { }
+                        public static int EMPLOYEE_NUMBER = 4083;
+                        public static class Health { }
+                        public static class Care { }
+                        public static class Failed
+                        {
+                            public static class Software { }
+                            public static class Test { }
+                            public static class Engineer { }
+                        }
+                        public static class Inpatient { }
+                        public static class HOV { }
+                        public static class Ambulatory { }
+                        public static class DLG
+                        {
+                            /// <summary>
+                            /// big notes conversion - probably wasted lots of space and left headache to those after me,
+                            /// but I really don't know for sure.
+                            /// </summary>
+                            public const int PERSONALLY_MOST_SIGNIFICANT = 94254;
+
+                            /// <summary>
+                            /// I notified Chris Theorin this was coming, and he snagged a whole bunch of them to get the
+                            /// nice round number.
+                            /// </summary>
+                            public const int OFFICEMATE_MOST_SIGNIFICANT = 100000;
+                        }
                     }
                 }
             }
