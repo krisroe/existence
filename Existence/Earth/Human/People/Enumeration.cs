@@ -25,6 +25,38 @@ namespace Existence.Earth.Human.People
         }
     }
 
+    public class HumanSexAttribute : Attribute
+    {
+        public HumanSex Sex { get; set; }
+        public HumanSexAttribute(HumanSex Sex)
+        {
+            this.Sex = Sex;
+        }
+    }
+
+    public enum HumanSex
+    {
+        Female,
+        Male,
+        Unclear,
+    }
+
+    public class HumanGenderAttribute : Attribute
+    {
+        public HumanGender Gender { get; set; }
+        public HumanGenderAttribute(HumanGender Gender)
+        {
+            this.Gender = Gender;
+        }
+    }
+
+    public enum HumanGender
+    {
+        Female,
+        Male,
+        Nonbinary,
+    }
+
     public enum Level
     {
         None,

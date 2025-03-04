@@ -1,6 +1,5 @@
 ﻿
 using Existence.Earth.Alphabet;
-using Existence.Earth.FieldsOfStudy.Mathematics;
 using System;
 
 namespace Existence.Earth
@@ -24,6 +23,10 @@ namespace Existence.Earth
     public class CosmicHumanLevelAttribute : HumanLevelAttribute
     {
         public CosmicHumanLevelAttribute(HumanLevel CosmicHumanLevel) : base(CosmicHumanLevel) { }
+    }
+    public class ZHumanLevelAttribute : HumanLevelAttribute
+    {
+        public ZHumanLevelAttribute(HumanLevel ZHumanLevel) : base(ZHumanLevel) { }
     }
 
     public class ZLevelAttribute : Attribute

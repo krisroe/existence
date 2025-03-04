@@ -149,8 +149,11 @@ namespace Existence.Earth.Countries.UnitedStates
         WashingtonSpokane,
         WestVirginiaCharleston,
         WestVirginiaWheeling,
+        WisconsinEndeavor,
+        WisconsinHarmonyGrove,
         WisconsinMadison,
         WisconsinMilwaukee,
+        WisconsinWisconsinDells,
         WyomingCheyenne,
     }
 }

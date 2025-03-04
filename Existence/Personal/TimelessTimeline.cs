@@ -1,7 +1,9 @@
 ﻿
 using Existence.Earth;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Human.People;
 using Existence.Logic.Random;
 using Existence.Time;
 using System;
@@ -11,23 +13,26 @@ using System.Text;
 
 namespace Existence.Personal
 {
-    internal class TimelessTimelinePreBirthToGrowingUp
+    [HumanGender(HumanGender.Male)]
+    [HumanSex(HumanSex.Male)]
+    internal class Timeless { }
+
+    internal class BirthToGrowingUp
     {
-        public TimelessTimelinePreBirthToGrowingUp()
+        public BirthToGrowingUp()
         {
-            BaseEvent male = new BaseEvent("Male");
-            Birth birthEvent = new Birth(male);
+            Birth birthEvent = new Birth();
             SiblingBirth siblingBirthEvent = new SiblingBirth(birthEvent);
-            HomeInHarmonyGroveWI home1Event = new HomeInHarmonyGroveWI(siblingBirthEvent);
-            HomeInEndeavorWI home2Event = new HomeInEndeavorWI(home1Event);
-            ChurchInWisconsinDellsWI churchEvent = new ChurchInWisconsinDellsWI(home2Event);
+            HomeInSpecificCity1 home1Event = new HomeInSpecificCity1(siblingBirthEvent);
+            HomeInSpecificCity2 home2Event = new HomeInSpecificCity2(home1Event);
+            ChurchInSpecificCity3 churchEvent = new ChurchInSpecificCity3(home2Event);
             ActionsHaveConsequences actionsHaveConsequences = new ActionsHaveConsequences(churchEvent);
-            DoubletEvent postHomeEndeavorWIEvents = new DoubletEvent("Age 6ish",
+            DoubletEvent newHomeEvents = new DoubletEvent("Age 6ish",
                 new BaseEvent("StartedPianoLessons"),
                 new FavoriteNumbers(), actionsHaveConsequences);
             DoubletEvent age7ish = new DoubletEvent("Age 7ish",
                 new BaseEvent("StartedUsingComputers"),
-                new SonyasDumb(), postHomeEndeavorWIEvents);
+                new FirstParodySong(), newHomeEvents);
             EventuallyIWillDie eventuallyWillDie = new EventuallyIWillDie(age7ish);
             DoubletEvent age9ish = new DoubletEvent("Age 9ish",
                 new LifesNotFair(),
@@ -44,7 +49,7 @@ namespace Existence.Personal
                 this.Event1 = Event1;
                 this.Event2 = Event2;
 
-                //randomize
+                //randomize event #1 vis-a-vis event #2
                 List<BaseEvent> list = new List<BaseEvent>() { Event1, Event2 };
                 RandomLogic.RandomType randomValue = (RandomLogic.RandomType)RandomNumberGenerator.GetInt32(0, 4);
                 RandomLogic.LinqHandling linqHandling = (RandomLogic.LinqHandling)RandomNumberGenerator.GetInt32(0, 3);
@@ -66,20 +71,12 @@ namespace Existence.Personal
             }
         }
 
-        public class HomeEvent : BaseEvent
-        {
-            public HomeEvent(string Home, params BaseEvent[] PreviousEvents) : base(Home, PreviousEvents)
-            {
-                this.EventName = Home;
-                this.PreviousEvents = PreviousEvents;
-            }
-        }
-
         [YearDate(1980, 12, 6)]
+        [HumanSex(HumanSex.Male)]
         [PersonalHumanLevel(HumanLevel.Baby)]
         public class Birth : BaseEvent
         {
-            public Birth(params BaseEvent[] PreviousEvents) : base("Birth", PreviousEvents) { }
+            public Birth() : base("Birth") { }
         }
 
         [YearDate(1982, 12, 31)]
@@ -89,26 +86,35 @@ namespace Existence.Personal
             public SiblingBirth(params BaseEvent[] PreviousEvents) : base("Sibling Birth", PreviousEvents) { }
         }
 
+        /// <summary>
+        /// first memory of touching the bark of the birch trees outside
+        /// </summary>
         [PersonalFirst("Memory")]
         [PersonalHumanLevel(HumanLevel.Childhood)]
-        public class HomeInHarmonyGroveWI : HomeEvent
+        [USCity(USCities.WisconsinHarmonyGrove)]
+        public class HomeInSpecificCity1 : BaseEvent
         {
-            public HomeInHarmonyGroveWI(params BaseEvent[] PreviousEvents) : base("Home=HarmonyGroveWI", PreviousEvents)
+            public HomeInSpecificCity1(params BaseEvent[] PreviousEvents) : base("Home=HarmonyGroveWI", PreviousEvents)
             {
             }
         }
 
-        public class HomeInEndeavorWI : HomeEvent
+        /// <summary>
+        /// early memory of warming myself in the morning by the radiator
+        /// </summary>
+        [USCity(USCities.WisconsinEndeavor)]
+        public class HomeInSpecificCity2 : BaseEvent
         {
-            public HomeInEndeavorWI(params BaseEvent[] PreviousEvents) : base("Home=EndeavorWI", PreviousEvents)
+            public HomeInSpecificCity2(params BaseEvent[] PreviousEvents) : base("Home=EndeavorWI", PreviousEvents)
             {
             }
         }
 
         [DivineHumanLevel(HumanLevel.Childhood)]
-        public class ChurchInWisconsinDellsWI : BaseEvent
+        [USCity(USCities.WisconsinWisconsinDells)]
+        public class ChurchInSpecificCity3 : BaseEvent
         {
-            public ChurchInWisconsinDellsWI(params BaseEvent[] PreviousEvents) : base("Church=WisconsinDellsWI", PreviousEvents)
+            public ChurchInSpecificCity3(params BaseEvent[] PreviousEvents) : base("Church=WisconsinDellsWI", PreviousEvents)
             {
             }
         }
@@ -152,9 +158,10 @@ namespace Existence.Personal
         }
 
         [PersonalFirst("Parody Song")]
-        public class SonyasDumb : ParodySong
+        [ZHumanLevel(HumanLevel.Childhood)]
+        public class FirstParodySong : ParodySong
         {
-            public SonyasDumb() : base("Sonya's Dumb", "Rain, Rain, Go Away")
+            public FirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
             {
             }
 
@@ -173,8 +180,8 @@ namespace Existence.Personal
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("The song is insulting the sibling for being dumb.");
-                sb.AppendLine("Although my analytical skills are significantly beyond hers,");
-                sb.AppendLine("As humans go she is normal to a bit above normal intelligence.");
+                sb.AppendLine("Although my analytical skills are significantly beyond the sibling's,");
+                sb.AppendLine("As humans go the sibling was normal to a bit above normal intelligence.");
                 return sb.ToString();
             }
         }
@@ -196,6 +203,9 @@ namespace Existence.Personal
             public LifesNotFair(params BaseEvent[] PreviousEvents) : base("Life's Not Fair", PreviousEvents) { }
         }
 
+        /// <summary>
+        /// took a standardized test in 3rd grade, receiving "post high school" pretty much across the board
+        /// </summary>
         [ApproximateAge(9)]
         [CosmicHumanLevel(HumanLevel.GrowingUp)]
         public class SelfAwarenessOfAdultLevelOfAnalyticalThinking : BaseEvent
