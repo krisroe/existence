@@ -120,7 +120,7 @@ namespace Existence.Personal
         }
 
         /// <summary>
-        /// This refers to an incident at the Endeavor house with sticking my finger in exposed light outlets.
+        /// This refers to an incident at the house #2 with sticking my finger in exposed light outlets.
         /// There were no discernable consequences, but the lesson was learned nonetheless.
         /// </summary>
         public class ActionsHaveConsequences : BaseEvent
@@ -181,7 +181,7 @@ namespace Existence.Personal
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("The song is insulting the sibling for being dumb.");
                 sb.AppendLine("Although my analytical skills are significantly beyond the sibling's,");
-                sb.AppendLine("As humans go the sibling was normal to a bit above normal intelligence.");
+                sb.AppendLine("As humans go the sibling was actually normal to a bit above normal intelligence.");
                 return sb.ToString();
             }
         }
