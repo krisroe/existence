@@ -1,4 +1,5 @@
 ﻿
+using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using System;
 
@@ -15,6 +16,10 @@ namespace Existence.Earth
     public class PersonalHumanLevelAttribute : HumanLevelAttribute
     {
         public PersonalHumanLevelAttribute(HumanLevel PersonalHumanLevel) : base(PersonalHumanLevel) { }
+    }
+    public class DivineHumanLevelAttribute : HumanLevelAttribute
+    {
+        public DivineHumanLevelAttribute(HumanLevel DivineHumanLevel) : base(DivineHumanLevel) { }
     }
     public class CosmicHumanLevelAttribute : HumanLevelAttribute
     {
@@ -38,8 +43,23 @@ namespace Existence.Earth
         public PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
     }
 
-    public class FirstMemoryAttribute : Attribute
+    public class PersonalFirst : TextAttribute
     {
+        public string Thing
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public PersonalFirst(string Thing) : base(Thing)
+        {
+
+        }
     }
 
     public enum ZLevel

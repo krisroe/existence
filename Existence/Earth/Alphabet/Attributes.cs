@@ -145,4 +145,22 @@ namespace Existence.Earth.Alphabet
 
         }
     }
+
+    public class FirstNameAttribute : TextAttribute
+    {
+        public string FirstName
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public FirstNameAttribute(string FirstName) : base(FirstName)
+        {
+        }
+    }
 }
