@@ -12,6 +12,44 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
+    public class FavoriteNumberAttribute : NumberAttribute
+    {
+        public int FavoriteNumber
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public FavoriteNumberAttribute(int FavoriteNumber) : base(FavoriteNumber)
+        {
+
+        }
+    }
+
+    public class SecondFavoriteNumberAttribute : NumberAttribute
+    {
+        public int SecondFavoriteNumber
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public SecondFavoriteNumberAttribute(int SecondFavoriteNumber) : base(SecondFavoriteNumber)
+        {
+
+        }
+    }
+
     public class AgeAttribute : NumberAttribute
     {
         public int Age

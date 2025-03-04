@@ -1,25 +1,62 @@
 ﻿
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using System;
 
 namespace Existence.Earth
 {
-
-    public class UpgradeToLevelAttribute : NumberAttribute
+    public class HumanLevelAttribute : Attribute
     {
-        public int NewLevel
+        public HumanLevel HumanLevel { get; set; }
+        public HumanLevelAttribute(HumanLevel HumanLevel)
         {
-            get
-            {
-                return base.Number;
-            }
-            set
-            {
-                base.Number = value;
-            }
+            this.HumanLevel = HumanLevel;
         }
-        public UpgradeToLevelAttribute(int NewLevel) : base(NewLevel)
+    }
+    public class PersonalHumanLevelAttribute : HumanLevelAttribute
+    {
+        public PersonalHumanLevelAttribute(HumanLevel PersonalHumanLevel) : base(PersonalHumanLevel) { }
+    }
+    public class CosmicHumanLevelAttribute : HumanLevelAttribute
+    {
+        public CosmicHumanLevelAttribute(HumanLevel CosmicHumanLevel) : base(CosmicHumanLevel) { }
+    }
+
+    public class ZLevelAttribute : Attribute
+    {
+        public ZLevel ZLevel { get; set; }
+        public ZLevelAttribute(ZLevel ZLevel)
         {
+            this.ZLevel = ZLevel;
         }
+    }
+    public class CosmicZLevelAttribute : ZLevelAttribute
+    {
+        public CosmicZLevelAttribute(ZLevel CosmicZLevel) : base(CosmicZLevel) { }
+    }
+    public class PersonalZLevelAttribute : ZLevelAttribute
+    {
+        public PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
+    }
+
+    public class FirstMemoryAttribute : Attribute
+    {
+    }
+
+    public enum ZLevel
+    {
+        Zero = 0,
+        One = 1,
+        Two = 2,
+        Four = 4,
+    }
+
+    public enum HumanLevel
+    {
+        Baby = 0,
+        Childhood = 1,
+        GrowingUp = 2,
+        Teenager = 3,
+        Adult = 4,
     }
 
     public static class Numbers
