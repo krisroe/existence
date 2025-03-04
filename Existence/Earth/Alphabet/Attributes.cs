@@ -46,22 +46,28 @@ namespace Existence.Earth.Alphabet
         }
     }
 
-    public class QuoteAttribute : TextAttribute
+    public class QuoteAttribute : Attribute
     {
-        public string Quote
+        public string Location { get; set; }
+        public string Quote { get; set; }
+        public string Company { get; set; }
+        public QuoteAttribute(string Quote)
         {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-            }
+            this.Quote = Quote;
+            this.Location = string.Empty;
+            this.Company = string.Empty;
         }
-        public QuoteAttribute(string Quote) : base(Quote)
+        public QuoteAttribute(string Quote, string Location)
         {
-
+            this.Quote = Quote;
+            this.Location = Location;
+            this.Company = string.Empty;
+        }
+        public QuoteAttribute(string Quote, string Location, string Company)
+        {
+            this.Quote = Quote;
+            this.Location = Location;
+            this.Company = Company;
         }
     }
 

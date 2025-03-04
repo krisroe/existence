@@ -12,6 +12,44 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
+    public class AgeAttribute : NumberAttribute
+    {
+        public int Age
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public AgeAttribute(int Age) : base(Age)
+        {
+
+        }
+    }
+
+    public class ApproximateAgeAttribute : AgeAttribute
+    {
+        public int ApproximateAge
+        {
+            get
+            {
+                return base.Age;
+            }
+            set
+            {
+                base.Age = value;
+            }
+        }
+        public ApproximateAgeAttribute(int ApproximateAge) : base(ApproximateAge)
+        {
+        }
+    }
+
+
     public class NumbersAttribute : Attribute
     {
         public int[] Numbers { get; set; }

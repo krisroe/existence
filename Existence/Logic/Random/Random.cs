@@ -28,27 +28,27 @@ namespace Existence.Logic.Random
             /// <summary>
             /// Uses a global Random instance
             /// </summary>
-            Global,
-
-            /// <summary>
-            /// Uses .NET 6+ Random.Shared (thread-safe)
-            /// </summary>
-            RandomShared,
-
-            /// <summary>
-            /// Uses the provided Random object
-            /// </summary>
-            Specified,
+            Global = 0,
 
             /// <summary>
             /// Creates a new Random instance
             /// </summary>
-            New,
+            New = 1,
+
+            /// <summary>
+            /// Uses .NET 6+ Random.Shared (thread-safe)
+            /// </summary>
+            RandomShared = 2,
 
             /// <summary>
             /// Uses ThreadLocal Random (one per thread)
             /// </summary>
-            ThreadLocalRandomNew
+            ThreadLocalRandomNew = 3,
+
+            /// <summary>
+            /// Uses the provided Random object
+            /// </summary>
+            Specified = 4,
         }
 
         /// <summary>
@@ -59,17 +59,17 @@ namespace Existence.Logic.Random
             /// <summary>
             /// do not use linq
             /// </summary>
-            None,
+            None = 0,
 
             /// <summary>
             /// shuffle in place
             /// </summary>
-            ShuffleInPlace,
+            ShuffleInPlace = 1,
 
             /// <summary>
             /// shuffle in place
             /// </summary>
-            Linq,
+            Linq = 2,
         }
 
         /// <summary>
@@ -124,6 +124,10 @@ namespace Existence.Logic.Random
                 else if (list.IsReadOnly)
                 {
                     return list.OrderBy(_ => r!.Next()).ToList();
+                }
+                else
+                {
+                    throw new InvalidOperationException("Invalid list for Linq Shuffling");
                 }
             }
             else // In-place Fisher-Yates shuffle (O(n))
