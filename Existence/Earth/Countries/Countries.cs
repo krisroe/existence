@@ -162,6 +162,15 @@ namespace Existence.Earth.Countries
         }
     }
 
+    public class CountriesAttribute : Attribute
+    {
+        public CountryLikeThings[] Countries { get; set; }
+        public CountriesAttribute(params CountryLikeThings[] Countries)
+        {
+            this.Countries = Countries;
+        }
+    }
+
     public enum CountryLikeThings
     {
         [UnitedNationsMembership(1946, 11, 19)]
@@ -431,11 +440,32 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(11411842)] //11.4 million
         Cuba,
 
+        /// <summary>
+        /// 1974: A Greek-backed coup attempted to unite Cyprus with Greece.
+        /// Turkey invaded the northern part of the island, citing protection of Turkish Cypriots.
+        /// 1975: The Turkish Republic of Northern Cyprus (TRNC) was declared, and in 1983, it 
+        /// declared full independence.
+        /// Only Turkey recognizes Northern Cyprus as an independent state. The United Nations, 
+        /// the European Union, and most countries consider it part of the Republic of Cyprus.
+        /// The UN has a buffer zone ("Green Line") separating North and South Cyprus, patrolled 
+        /// by peacekeepers.
+        /// Cyprus is a member of the European Union (EU), but EU laws do not apply in Northern 
+        /// Cyprus due to the division. The UN supports reunification efforts through 
+        /// negotiations, such as the Annan Plan (2004) and later talks, but no agreement has 
+        /// been reached.
+        /// Northern Cyprus relies heavily on Turkey for economic, political, and military support.
+        /// It uses the Turkish lira and is economically dependent on Turkey.
+        /// </summary>
+        [ClaimedCapital((int)WorldCities.NorthernCyprusNorthNicosia)]
+        [LargestCity((int)WorldCities.NorthernCyprusNorthNicosia)]
+        [PopulationEstimate(400000)]
+        CyprusNorth,
+
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CyprusSouthNicosia)]
         [LargestCity((int)WorldCities.CyprusSouthNicosia)]
         [PopulationEstimate(1269748)] //1.27 million
-        Cyprus,
+        CyprusSouth,
 
         [UnitedNationsMembership(1993, 1, 19)]
         [LocalName("Czechia")]
@@ -817,6 +847,14 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(538297)]
         Malta,
 
+        /// <summary>
+        /// not a sovereign state but an entity, has observer status
+        /// </summary>
+        [UnitedNationsMembership(1994, 8, 24)]
+        [FullName("Sovereign Military Order of Malta")]
+        [PopulationEstimate(13500)]
+        MaltaSovereignMilitaryOrder,
+
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.MarshallIslandsMajuro)]
         [LargestCity((int)WorldCities.MarshallIslandsMajuro)]
@@ -934,6 +972,30 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(234600000)] //234.6 million
         Nigeria,
 
+        /// <summary>
+        /// Northern Ireland was created in 1921 as a separate entity within the United Kingdom,
+        /// with a Protestant majority and a Catholic minority. The partition of Ireland divided
+        /// the island into two entities: Northern Ireland (which remained part of the UK) and 
+        /// the Republic of Ireland (which became an independent state). For much of the 20th 
+        /// century, the conflict in Northern Ireland, known as The Troubles (1968-1998), 
+        /// revolved around issues of national identity, with Protestants generally supporting 
+        /// unionism (remaining part of the UK) and Catholics generally supporting nationalism 
+        /// (joining the Republic of Ireland). The Good Friday Agreement (Belfast Agreement) 
+        /// of 1998 helped end the violence of The Troubles, establishing a devolved government
+        /// in Northern Ireland and allowing for the possibility of a peaceful unification with 
+        /// the Republic of Ireland if there was sufficient support. The Sinn Féin party, 
+        /// which is the largest Irish republican party in Northern Ireland, 
+        /// has long advocated for Irish unification. In the 2022 Northern Ireland Assembly elections, 
+        /// the party became the largest party, signaling a shift toward greater support for nationalism 
+        /// and potential unification. The Democratic Unionist Party (DUP) and other unionist 
+        /// parties strongly oppose unification and favor Northern Ireland's continued 
+        /// membership in the United Kingdom.
+        /// </summary>
+        [Capital((int)WorldCities.NorthernIrelandBelfast)]
+        [LargestCity((int)WorldCities.NorthernIrelandBelfast)]
+        [PopulationEstimate(1920400)] //1.92 million
+        NorthernIreland,
+
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.NorthKoreaPyongyang)]
         [LargestCity((int)WorldCities.NorthKoreaPyongyang)]
@@ -970,6 +1032,29 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.PalauKoror)]
         [PopulationEstimate(18000)]
         Palau,
+
+        /// <summary>
+        /// Hamas-controlled area of Palestine
+        /// not internationally recognized as an independent country, but it functions as a de 
+        /// facto self-governing entity. It is officially considered part of the State of 
+        /// Palestine, but since 2007, Hamas has governed Gaza separately from the West Bank, 
+        /// which is controlled by Fatah. The ongoing Israel-Gaza conflict and lack of formal 
+        /// international recognition keep Gaza from being a fully sovereign state.
+        /// </summary>
+        [Capital((int)WorldCities.GazaGazaCity)]
+        [LargestCity((int)WorldCities.GazaGazaCity)]
+        [PopulationEstimate(2000000)] //2 million
+        PalestineGaza,
+
+        /// <summary>
+        /// west bank area of palestine (~3.19 million Palestinians, 670000 Israeli settlers)
+        /// </summary>
+        [UnitedNationsMembership(1974, 11, 22)]
+        [DeFactoCapital((int)WorldCities.WestBankRamallah)]
+        [ClaimedCapital((int)WorldCities.IsraelEastJerusalem)]
+        [LargestCity((int)WorldCities.WestBankRamallah)]
+        [PopulationEstimate(3800000)] //3.8 million
+        PalestineWestBank,
 
         [UnitedNationsMembership(1945, 11, 13)]
         [Capital((int)WorldCities.PanamaPanamaCity)]
@@ -1080,6 +1165,21 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(37757000)] //37.757 million
         SaudiArabia,
 
+        /// <summary>
+        /// Scotland is currently a part of the United Kingdom, but there is a significant independence movement, 
+        /// primarily led by the Scottish National Party (SNP). Scotland held a referendum on 
+        /// independence in 2014, where 55% voted to stay in the UK. However, since then, the 
+        /// SNP has continued to push for another referendum, particularly in light of the 
+        /// Brexit vote in 2016 (which Scotland voted against). While the UK government has 
+        /// refused to authorize another referendum, the issue of Scottish independence remains 
+        /// a central political debate, and public opinion has fluctuated, with some polls 
+        /// suggesting growing support for independence.
+        /// </summary>
+        [Capital((int)WorldCities.ScotlandEdinburgh)]
+        [LargestCity((int)WorldCities.ScotlandEdinburgh)]
+        [PopulationEstimate(5490100)] //5.49 million
+        Scotland,
+        
         [UnitedNationsMembership(1960, 9, 28)]
         [Capital((int)WorldCities.SenegalDakar)]
         [LargestCity((int)WorldCities.SenegalDakar)]
@@ -1322,6 +1422,15 @@ namespace Existence.Earth.Countries
         [PopulationEstimate(330000)]
         Vanuatu,
 
+        /// <summary>
+        /// Holy See holds sovereignty over Vatican City
+        /// gained all rights of full UN membership except voting on 2004-07-01
+        /// </summary>
+        [UnitedNationsMembership(1964, 4, 6)]
+        [PopulationEstimate(764)]
+        [FullName("Holy See")]
+        VaticanCity,
+
         [UnitedNationsMembership(1945, 11, 15)]
         [Capital((int)WorldCities.VenezuelaCaracas)]
         [LargestCity((int)WorldCities.VenezuelaCaracas)]
@@ -1364,30 +1473,6 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.ZimbabweHarare)]
         [PopulationEstimate(19956000)] //19.956 million
         Zimbabwe,
-    }
-
-    public static class UnitedNationsNonMemberObserverStates
-    {
-        /// <summary>
-        /// holds sovereignty over Vatican City
-        /// gained all rights of full membership except voting on 2004-07-01
-        /// </summary>
-        [UnitedNationsMembership(1964, 4, 6)]
-        public static class HolySee { }
-
-        /// <summary>
-        /// the fatah controlled element of palestine
-        /// </summary>
-        [UnitedNationsMembership(1974, 11, 22)]
-        [DeFactoCapital((int)WorldCities.WestBankRamallah)]
-        [ClaimedCapital((int)WorldCities.IsraelEastJerusalem)]
-        [LargestCity((int)WorldCities.WestBankRamallah)]
-        public static class Palestine { }
-
-        /// <summary>
-        /// not a sovereign state but an entity, has observer status
-        /// </summary>
-        public static class SovereignMilitaryOrderOfMalta { }
     }
 
     public static class CountryLikeThingsThatAreNotCountries
@@ -1449,19 +1534,6 @@ namespace Existence.Earth.Countries
         public static class Somaliland { }
 
         /// <summary>
-        /// Hamas-controlled area of Palestine
-        /// not internationally recognized as an independent country, but it functions as a de 
-        /// facto self-governing entity. It is officially considered part of the State of 
-        /// Palestine, but since 2007, Hamas has governed Gaza separately from the West Bank, 
-        /// which is controlled by Fatah. The ongoing Israel-Gaza conflict and lack of formal 
-        /// international recognition keep Gaza from being a fully sovereign state.
-        /// </summary>
-        [Capital((int)WorldCities.GazaGazaCity)]
-        [LargestCity((int)WorldCities.GazaGazaCity)]
-        [PopulationEstimate(2000000)] //2 million
-        public static class Gaza { }
-
-        /// <summary>
         /// Abkhazia has a distinct ethnic identity, with the Abkhaz people being its primary 
         /// ethnic group, with a long history of autonomous status within Georgia.
         /// declared independence from Georgia following the 1990s conflicts, particularly 
@@ -1513,27 +1585,6 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.TransnistriaTiraspol)]
         [PopulationEstimate(500000)] //500,000
         public static class Transnistria { }
-
-        /// <summary>
-        /// 1974: A Greek-backed coup attempted to unite Cyprus with Greece.
-        /// Turkey invaded the northern part of the island, citing protection of Turkish Cypriots.
-        /// 1975: The Turkish Republic of Northern Cyprus (TRNC) was declared, and in 1983, it 
-        /// declared full independence.
-        /// Only Turkey recognizes Northern Cyprus as an independent state. The United Nations, 
-        /// the European Union, and most countries consider it part of the Republic of Cyprus.
-        /// The UN has a buffer zone ("Green Line") separating North and South Cyprus, patrolled 
-        /// by peacekeepers.
-        /// Cyprus is a member of the European Union (EU), but EU laws do not apply in Northern 
-        /// Cyprus due to the division. The UN supports reunification efforts through 
-        /// negotiations, such as the Annan Plan (2004) and later talks, but no agreement has 
-        /// been reached.
-        /// Northern Cyprus relies heavily on Turkey for economic, political, and military support.
-        /// It uses the Turkish lira and is economically dependent on Turkey.
-        /// </summary>
-        [ClaimedCapital((int)WorldCities.NorthernCyprusNorthNicosia)]
-        [LargestCity((int)WorldCities.NorthernCyprusNorthNicosia)]
-        [PopulationEstimate(400000)] //400,000
-        public static class NorthernCyprus { }
 
         /// <summary>
         /// Nagorno-Karabakh declared independence from Azerbaijan in 1991, following the collapse 
@@ -1622,46 +1673,6 @@ namespace Existence.Earth.Countries
         /// </summary>
         [LargestCity((int)WorldCities.SpainBilbao)]
         public static class BasqueCountry { }
-
-        public static class UnitedKingdom
-        {
-            /// <summary>
-            /// Scotland is currently a part of the United Kingdom, but there is a significant independence movement, 
-            /// primarily led by the Scottish National Party (SNP). Scotland held a referendum on 
-            /// independence in 2014, where 55% voted to stay in the UK. However, since then, the 
-            /// SNP has continued to push for another referendum, particularly in light of the 
-            /// Brexit vote in 2016 (which Scotland voted against). While the UK government has 
-            /// refused to authorize another referendum, the issue of Scottish independence remains 
-            /// a central political debate, and public opinion has fluctuated, with some polls 
-            /// suggesting growing support for independence.
-            /// </summary>
-            [Capital((int)WorldCities.ScotlandEdinburgh)]
-            [LargestCity((int)WorldCities.ScotlandEdinburgh)]
-            public static class Scotland { }
-
-            /// <summary>
-            /// Northern Ireland was created in 1921 as a separate entity within the United Kingdom,
-            /// with a Protestant majority and a Catholic minority. The partition of Ireland divided
-            /// the island into two entities: Northern Ireland (which remained part of the UK) and 
-            /// the Republic of Ireland (which became an independent state). For much of the 20th 
-            /// century, the conflict in Northern Ireland, known as The Troubles (1968-1998), 
-            /// revolved around issues of national identity, with Protestants generally supporting 
-            /// unionism (remaining part of the UK) and Catholics generally supporting nationalism 
-            /// (joining the Republic of Ireland). The Good Friday Agreement (Belfast Agreement) 
-            /// of 1998 helped end the violence of The Troubles, establishing a devolved government
-            /// in Northern Ireland and allowing for the possibility of a peaceful unification with 
-            /// the Republic of Ireland if there was sufficient support. The Sinn Féin party, 
-            /// which is the largest Irish republican party in Northern Ireland, 
-            /// has long advocated for Irish unification. In the 2022 Northern Ireland Assembly elections, 
-            /// the party became the largest party, signaling a shift toward greater support for nationalism 
-            /// and potential unification. The Democratic Unionist Party (DUP) and other unionist 
-            /// parties strongly oppose unification and favor Northern Ireland's continued 
-            /// membership in the United Kingdom.
-            /// </summary>
-            [Capital((int)WorldCities.NorthernIrelandBelfast)]
-            [LargestCity((int)WorldCities.NorthernIrelandBelfast)]
-            public static class NorthernIreland { }
-        }
 
         public static class Italy
         {

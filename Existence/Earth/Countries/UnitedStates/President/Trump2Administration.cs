@@ -242,7 +242,9 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
                 public static class SecretaryOfEducation
                 {
-                    [TODO("Confirmation Details")]
+                    /// <summary>
+                    /// confirmed 81-19 on 2025-02-14
+                    /// </summary>
                     public static class LindaMcMahon { }
                 }
                 public static class SecretaryOfVeteransAffairs
@@ -292,14 +294,16 @@ namespace Existence.Earth.Countries.UnitedStates
 
                 public static class AdministratorOfSmallBusinessAdministration
                 {
-                    [TODO("Confirmation Details")]
+                    /// <summary>
+                    /// confirmed 52-46 2025-02-19
+                    /// </summary>
                     public static class KellyLoeffler { }
                 }
 
                 public static class DirectoryOfCentralIntelligenceAgency
                 {
                     /// <summary>
-                    /// confimred 74-25 on 2025-01-23
+                    /// confirmed 74-25 on 2025-01-23
                     /// </summary>
                     public static class JohnRatcliffe { }
                 }
@@ -331,7 +335,9 @@ namespace Existence.Earth.Countries.UnitedStates
 
                 public static class UnitedStatesTradeRepresentative
                 {
-                    [TODO("Senate Confirmation")]
+                    /// <summary>
+                    /// confirmed 56-43 2025-02-26
+                    /// </summary>
                     public static class JamiesonGreer { }
                 }
 

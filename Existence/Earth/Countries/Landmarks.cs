@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Existence.Earth.Alphabet;
 
 namespace Existence.Earth.Countries
 {
@@ -44,7 +45,55 @@ namespace Existence.Earth.Countries
         [WorldCity((int)WorldCities.TurkeyIstanbul)]
         public static class WallsOfConstantinople { }
 
+        [Country(CountryLikeThings.PalestineWestBank)]
         [WorldCity((int)WorldCities.WestBankJericho)]
         public static class WallsOfJericho { }
+
+        /// <summary>
+        /// highly fortified border wall and security barriers dividing North and South Korea
+        /// </summary>
+        [Countries(CountryLikeThings.NorthKorea, CountryLikeThings.SouthKorea)]
+        public static class KoreanDemilitarizedZone { }
+
+        /// <summary>
+        /// dividing wall and buffer zone separating the Greek Cypriot and Turkish Cypriot communities in Cyprus.
+        /// </summary>
+        [Countries(CountryLikeThings.CyprusSouth, CountryLikeThings.CyprusNorth)]
+        public static class CyprusGreenLine { }
+
+        /// <summary>
+        /// A series of barriers and fencing along the U.S.-Mexico border, built for immigration control and national security.
+        /// </summary>
+        [Countries(CountryLikeThings.UnitedStates, CountryLikeThings.Mexico)]
+        public static class USMexicoBorderWall { }
+
+        [Countries(CountryLikeThings.Poland)]
+        [WorldCity((int)WorldCities.PolandOświęcim)]
+        public static class AuschwitzConcentrationCampWall { }
+
+        /// <summary>
+        /// The legendary city walls of ancient Troy, made famous by Homer’s Iliad, although the connection between the
+        /// real walls and the Iliad is questionable
+        /// </summary>
+        [Countries(CountryLikeThings.Turkey)]
+        [WorldCity((int)WorldCities.TurkeyHisarlık)]
+        public static class WallsOfTroy { }
+
+        /// <summary>
+        /// A graffiti-covered wall in Prague that became a symbol of freedom and resistance against oppression.
+        /// </summary>
+        [Countries(CountryLikeThings.CzechRepublic)]
+        [WorldCity((int)WorldCities.CzechRepublicPrague)]
+        public static class LennonWall { }
+
+        /// <summary>
+        /// Walls built to separate Protestant and Catholic communities in Belfast and other areas during The Troubles.
+        /// </summary>
+        [Countries(CountryLikeThings.NorthernIreland)]
+        [WorldCity((int)WorldCities.NorthernIrelandBelfast)]
+        public static class PeaceWalls { }
+
+        [TODO("something")]
+        public static class PinkFloydsTheWall { }
     }
 }
