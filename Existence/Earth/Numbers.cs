@@ -143,6 +143,7 @@ namespace Existence.Earth
             public static class SelfAwarenessOfPsychologicalProcesses
             {
                 public static class Empathy { }
+                public static class Catharsis { }
                 public static class Apophenia { }
             }
             public static class ThereAreRulesAboutSoulmates { }
