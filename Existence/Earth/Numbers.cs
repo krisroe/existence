@@ -30,50 +30,6 @@ namespace Existence.Earth
         public ZHumanLevelAttribute(HumanLevel ZHumanLevel) : base(ZHumanLevel) { }
     }
 
-    public class ZLevelAttribute : Attribute
-    {
-        public ZLevel ZLevel { get; set; }
-        public ZLevelAttribute(ZLevel ZLevel)
-        {
-            this.ZLevel = ZLevel;
-        }
-    }
-    public class CosmicZLevelAttribute : ZLevelAttribute
-    {
-        public CosmicZLevelAttribute(ZLevel CosmicZLevel) : base(CosmicZLevel) { }
-    }
-    public class PersonalZLevelAttribute : ZLevelAttribute
-    {
-        public PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
-    }
-
-    public class PersonalFirst : TextAttribute
-    {
-        public string Thing
-        {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-            }
-        }
-        public PersonalFirst(string Thing) : base(Thing)
-        {
-
-        }
-    }
-
-    public enum ZLevel
-    {
-        Zero = 0,
-        One = 1,
-        Two = 2,
-        Four = 4,
-    }
-
     public enum HumanLevel
     {
         Baby = 0,
