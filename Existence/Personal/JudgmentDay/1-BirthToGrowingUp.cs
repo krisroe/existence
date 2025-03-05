@@ -17,22 +17,44 @@ namespace Existence.Personal.JudgmentDay
     public class Timeless
     {
         [Archetypes(Archetypes.Programmer)]
+        [FavoriteColor(KnownColor.Transparent)]
         [HumanGender(HumanGender.Male)]
         [HumanSex(HumanSex.Male)]
-        [FavoriteColor(KnownColor.Transparent)]
-        [Birthdate(1980, 12, 6)]
-        public class Self { }
+        [FavoriteNumber(24865)]
+        [SecondFavoriteNumber(4)]
+        public class Self
+        {
+            [URI("https://github.com/krisroe")]
+            public static class Repositories
+            {
+                [RepositoryName("existence")]
+                public static class Existence { }
 
-        [Birthdate(1952, 2, 18)]
-        public class Mother { }
+                [RepositoryName("musicnotes")]
+                public static class Music { }
+            }
+        }
 
-        [FavoriteColor(KnownColor.Green)]
-        [Birthdate(1952, 7, 4)]
-        public class Father { }
+        public class FirstNuclearFamilyUnit
+        {
+            [Birthdate(1952, 2, 18)]
+            public class Mother { }
 
-        [Birthdate(1980, 12, 31)]
-        public class Sister { }
+            [FavoriteColor(KnownColor.Green)]
+            [Birthdate(1952, 7, 4)]
+            public class Father { }
+
+            [FavoriteColor(KnownColor.Red)]
+            [Birthdate(1980, 12, 6)]
+            public class Brother { }
+
+            [Birthdate(1980, 12, 31)]
+            public class Sister { }
+        }
     }
+
+    [PersonalFirst("Judgment Day")]
+    [JudgmentDayLevel(4)]
     public class BirthToGrowingUp
     {
         public BirthToGrowingUp()
@@ -42,13 +64,15 @@ namespace Existence.Personal.JudgmentDay
                 new BaseEvent("ActionsHaveConsequences"),
                 new Birth(),
                 new SisterName(),
-                new HomeInSpecificCity1(),
-                new HomeInSpecificCity2(),
-                new ChurchInSpecificCity3(),
-                new MultiEvent("Age 6ish", [new BaseEvent("StartedPianoLessons") , new SimpleFavorites()]),
+                new AnnotatedPlaceEvent1(PlaceType.Home, USCities.WisconsinHarmonyGrove, string.Empty),
+                new AnnotatedPlaceEvent2(PlaceType.Home, USCities.WisconsinEndeavor, string.Empty),
+                new AnnotatedPlaceEvent3(PlaceType.Church, USCities.WisconsinWisconsinDells, "ELCA Lutheran"),
+                new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinWisconsinDells, "Kindergarden"),
+                new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinBriggsville, "Grades 1-3"),
+                new MultiEvent("Age 6ish", [new BaseEvent("StartedPianoLessons") , new EstablishedFavoriteNumbers()]),
                 new MultiEvent("Age 7ish", [new BaseEvent("StartedUsingComputers"), new FirstParodySong()]),
-                new ContemplatedEventuallyIWillDie(),
-                new MultiEvent("Age 9ish", [new LifesNotFair(), new SelfAwarenessOfAdultLevelOfAnalyticalThinking()]),
+                new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
+                new SelfAwarenessOfAdultLevelOfAnalyticalThinking(),
                 new SkepticismOfReligion()
             };
             for (int i = 0; i < chainedEvents.Count; i++)
@@ -84,8 +108,12 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
-        [HumanSex(HumanSex.Male)]
         [PersonalHumanLevel(HumanLevel.Baby)]
+        [DivineHumanLevel(HumanLevel.Baby)]
+        [CosmicHumanLevel(HumanLevel.Baby)]
+        [ZHumanLevel(HumanLevel.Baby)]
+        [PersonalZLevel(ZLevel.Zero)]
+        [CosmicZLevel(ZLevel.Zero)]
         public class Birth : BaseEvent
         {
             public Birth() : base("Birth") { }
@@ -97,47 +125,47 @@ namespace Existence.Personal.JudgmentDay
             public SisterName() : base("Sister Name") { }
         }
 
-        /// <summary>
-        /// first memory of touching the bark of the birch trees outside
-        /// </summary>
         [PersonalFirst("Memory")]
+        [SignificantMemory("touching the bark of the birch trees outside")]
         [PersonalHumanLevel(HumanLevel.Childhood)]
         [USCity(USCities.WisconsinHarmonyGrove)]
-        public class HomeInSpecificCity1 : BaseEvent
+        public class AnnotatedPlaceEvent1 : PlaceInSpecificCity
         {
-            public HomeInSpecificCity1() : base("Home=HarmonyGroveWI")
-            {
-            }
+            public AnnotatedPlaceEvent1(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
         }
 
-        /// <summary>
-        /// early memory of warming myself in the morning by the radiator
-        /// </summary>
         [USCity(USCities.WisconsinEndeavor)]
-        public class HomeInSpecificCity2 : BaseEvent
+        [SignificantMemory("early memory of warming myself in the morning by the radiator")]
+        public class AnnotatedPlaceEvent2 : PlaceInSpecificCity
         {
-            public HomeInSpecificCity2() : base("Home=EndeavorWI")
-            {
-            }
+            public AnnotatedPlaceEvent2(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
         }
 
         [DivineHumanLevel(HumanLevel.Childhood)]
-        [USCity(USCities.WisconsinWisconsinDells)]
-        public class ChurchInSpecificCity3 : BaseEvent
+        public class AnnotatedPlaceEvent3 : PlaceInSpecificCity
         {
-            public ChurchInSpecificCity3() : base("Church=WisconsinDellsWI")
+            public AnnotatedPlaceEvent3(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
+        }
+
+        public class PlaceInSpecificCity : BaseEvent
+        {
+            public PlaceType PlaceType { get; set; }
+            public USCities City { get; set; }
+            public string Detail { get; set; }
+            public PlaceInSpecificCity(PlaceType PlaceType, USCities City, string Detail) : 
+                base(PlaceType.ToString() + "=" + City.ToString() + (string.IsNullOrEmpty(Detail) ? string.Empty : " " + Detail))
             {
+                this.PlaceType = PlaceType;
+                this.City = City;
+                this.Detail = Detail;
             }
         }
 
-        [FavoriteNumber(24865)]
-        [SecondFavoriteNumber(4)]
-        [FavoriteColor(KnownColor.Red)]
         [CosmicZLevel(ZLevel.One)]
         [CosmicHumanLevel(HumanLevel.Childhood)]
-        public class SimpleFavorites : BaseEvent
+        public class EstablishedFavoriteNumbers : BaseEvent
         {
-            public SimpleFavorites() : base("Simple Favorites") { }
+            public EstablishedFavoriteNumbers() : base("Established Favorite Numbers") { }
         }
 
         public abstract class ParodySong : BaseEvent
@@ -154,6 +182,21 @@ namespace Existence.Personal.JudgmentDay
             public ParodySong(string SongName, string Parodies) : base(SongName)
             {
                 this.Parodies = Parodies;
+            }
+        }
+
+        public abstract class OriginalSong : BaseEvent
+        {
+            public virtual string GetLyrics()
+            {
+                throw new InvalidOperationException();
+            }
+            public virtual string GetMeaning()
+            {
+                throw new InvalidOperationException();
+            }
+            public OriginalSong(string SongName) : base(SongName)
+            {
             }
         }
 
@@ -186,7 +229,6 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
-        [ApproximateAge(8)]
         public class ContemplatedEventuallyIWillDie : BaseEvent
         {
             public ContemplatedEventuallyIWillDie() : base("Eventually I will Die") { }
@@ -208,7 +250,6 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
-        [ApproximateAge(9)]
         [PersonalHumanLevel(HumanLevel.GrowingUp)]
         [PersonalZLevel(ZLevel.One)]
         public class LifesNotFair : BaseEvent
