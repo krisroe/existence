@@ -1,6 +1,7 @@
 ﻿
 using Existence.Earth.Alphabet;
 using System;
+using System.Drawing;
 
 namespace Existence.Earth
 {
@@ -80,6 +81,15 @@ namespace Existence.Earth
         GrowingUp = 2,
         Teenager = 3,
         Adult = 4,
+    }
+
+    public class FavoriteColorAttribute : Attribute
+    {   
+        public KnownColor FavoriteColor { get; set; }
+        public FavoriteColorAttribute(KnownColor FavoriteColor)
+        {
+            this.FavoriteColor = FavoriteColor;
+        }
     }
 
     public static class Numbers

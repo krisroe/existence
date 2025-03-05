@@ -8,70 +8,82 @@ using Existence.Logic.Random;
 using Existence.Time;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Existence.Personal
 {
-    [HumanGender(HumanGender.Male)]
-    [HumanSex(HumanSex.Male)]
-    internal class Timeless { }
+    internal class Timeless
+    {
+        [HumanGender(HumanGender.Male)]
+        [HumanSex(HumanSex.Male)]
+        [FavoriteColor(KnownColor.Transparent)]
+        [Birthdate(1980, 12, 6)]
+        public class Self { }
+
+        [Birthdate(1952, 2, 18)]
+        public class Mother { }
+
+        [FavoriteColor(KnownColor.Green)]
+        [Birthdate(1952, 7, 4)]
+        public class Father { }
+
+        [Birthdate(1980, 12, 31)]
+        public class Sister { }
+    }
 
     internal class BirthToGrowingUp
     {
         public BirthToGrowingUp()
         {
-            Birth birthEvent = new Birth();
-            SiblingBirth siblingBirthEvent = new SiblingBirth(birthEvent);
-            HomeInSpecificCity1 home1Event = new HomeInSpecificCity1(siblingBirthEvent);
-            HomeInSpecificCity2 home2Event = new HomeInSpecificCity2(home1Event);
-            ChurchInSpecificCity3 churchEvent = new ChurchInSpecificCity3(home2Event);
-            ActionsHaveConsequences actionsHaveConsequences = new ActionsHaveConsequences(churchEvent);
-            DoubletEvent newHomeEvents = new DoubletEvent("Age 6ish",
-                new BaseEvent("StartedPianoLessons"),
-                new FavoriteNumbers(), actionsHaveConsequences);
-            DoubletEvent age7ish = new DoubletEvent("Age 7ish",
-                new BaseEvent("StartedUsingComputers"),
-                new FirstParodySong(), newHomeEvents);
-            EventuallyIWillDie eventuallyWillDie = new EventuallyIWillDie(age7ish);
-            DoubletEvent age9ish = new DoubletEvent("Age 9ish",
-                new LifesNotFair(),
-                new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), eventuallyWillDie);
-            new SkepticismOfReligion(age9ish);
+            List<BaseEvent> chainedEvents = new List<BaseEvent>()
+            {
+                new Birth(),
+                new SisterName(),
+                new HomeInSpecificCity1(),
+                new HomeInSpecificCity2(),
+                new ChurchInSpecificCity3(),
+                new ActionsHaveConsequences(),
+                new MultiEvent("Age 6ish", [new BaseEvent("StartedPianoLessons") , new SimpleFavorites()]),
+                new MultiEvent("Age 7ish", [new BaseEvent("StartedUsingComputers"), new FirstParodySong()]),
+                new EventuallyIWillDie(),
+                new MultiEvent("Age 9ish", [new LifesNotFair(), new SelfAwarenessOfAdultLevelOfAnalyticalThinking()]),
+                new SkepticismOfReligion()
+            };
+            for (int i = 0; i < chainedEvents.Count; i++)
+            {
+                if (i > 0)
+                {
+                    chainedEvents[i].PreviousEvent = chainedEvents[i - 1];
+                }
+            }
         }
 
-        public class DoubletEvent : BaseEvent
+        public class MultiEvent : BaseEvent
         {
-            public BaseEvent Event1 { get; set; }
-            public BaseEvent Event2 { get; set; }
-            public DoubletEvent(string EventName, BaseEvent Event1, BaseEvent Event2, params BaseEvent[] PreviousEvents) : base(EventName, PreviousEvents)
+            public IList<BaseEvent> Events;
+            public MultiEvent(string EventName, BaseEvent[] Events) : base(EventName)
             {
-                this.Event1 = Event1;
-                this.Event2 = Event2;
-
-                //randomize event #1 vis-a-vis event #2
-                List<BaseEvent> list = new List<BaseEvent>() { Event1, Event2 };
+                List<BaseEvent> baseEvents = new List<BaseEvent>(Events);
                 RandomLogic.RandomType randomValue = (RandomLogic.RandomType)RandomNumberGenerator.GetInt32(0, 4);
                 RandomLogic.LinqHandling linqHandling = (RandomLogic.LinqHandling)RandomNumberGenerator.GetInt32(0, 3);
-                IList<BaseEvent> randomized = RandomLogic.DoFisherYatesKnuthRandomizer(list, null, randomValue, linqHandling);
-                Event1 = randomized[0];
-                Event2 = randomized[1];
+                this.Events = RandomLogic.DoFisherYatesKnuthRandomizer(baseEvents, null, randomValue, linqHandling);
             }
         }
 
         public class BaseEvent
         {
             public string EventName { get; set; }
-            public BaseEvent[]? PreviousEvents;
+            public BaseEvent? PreviousEvent;
 
-            public BaseEvent(string EventName, params BaseEvent[] PreviousEvents)
+            public BaseEvent(string EventName)
             {
                 this.EventName = EventName;
-                this.PreviousEvents = PreviousEvents;
+                this.PreviousEvent = null;
             }
         }
 
-        [YearDate(1980, 12, 6)]
         [HumanSex(HumanSex.Male)]
         [PersonalHumanLevel(HumanLevel.Baby)]
         public class Birth : BaseEvent
@@ -79,11 +91,10 @@ namespace Existence.Personal
             public Birth() : base("Birth") { }
         }
 
-        [YearDate(1982, 12, 31)]
         [FirstName("Sonya")]
-        public class SiblingBirth : BaseEvent
+        public class SisterName : BaseEvent
         {
-            public SiblingBirth(params BaseEvent[] PreviousEvents) : base("Sibling Birth", PreviousEvents) { }
+            public SisterName() : base("Sister Name") { }
         }
 
         /// <summary>
@@ -94,7 +105,7 @@ namespace Existence.Personal
         [USCity(USCities.WisconsinHarmonyGrove)]
         public class HomeInSpecificCity1 : BaseEvent
         {
-            public HomeInSpecificCity1(params BaseEvent[] PreviousEvents) : base("Home=HarmonyGroveWI", PreviousEvents)
+            public HomeInSpecificCity1() : base("Home=HarmonyGroveWI")
             {
             }
         }
@@ -105,7 +116,7 @@ namespace Existence.Personal
         [USCity(USCities.WisconsinEndeavor)]
         public class HomeInSpecificCity2 : BaseEvent
         {
-            public HomeInSpecificCity2(params BaseEvent[] PreviousEvents) : base("Home=EndeavorWI", PreviousEvents)
+            public HomeInSpecificCity2() : base("Home=EndeavorWI")
             {
             }
         }
@@ -114,7 +125,7 @@ namespace Existence.Personal
         [USCity(USCities.WisconsinWisconsinDells)]
         public class ChurchInSpecificCity3 : BaseEvent
         {
-            public ChurchInSpecificCity3(params BaseEvent[] PreviousEvents) : base("Church=WisconsinDellsWI", PreviousEvents)
+            public ChurchInSpecificCity3() : base("Church=WisconsinDellsWI")
             {
             }
         }
@@ -125,19 +136,19 @@ namespace Existence.Personal
         /// </summary>
         public class ActionsHaveConsequences : BaseEvent
         {
-            public ActionsHaveConsequences(params BaseEvent[] PreviousEvents) : base("Actions Have Consequences", PreviousEvents)
+            public ActionsHaveConsequences() : base("Actions Have Consequences")
             {
             }
         }
 
-        [ApproximateAge(6)]
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
+        [FavoriteColor(KnownColor.Red)]
         [CosmicZLevel(ZLevel.One)]
         [CosmicHumanLevel(HumanLevel.Childhood)]
-        public class FavoriteNumbers : BaseEvent
+        public class SimpleFavorites : BaseEvent
         {
-            public FavoriteNumbers(params BaseEvent[] PreviousEvents) : base("Favorite Numbers", PreviousEvents) { }
+            public SimpleFavorites() : base("Simple Favorites") { }
         }
 
         public abstract class ParodySong : BaseEvent
@@ -151,7 +162,7 @@ namespace Existence.Personal
             {
                 throw new InvalidOperationException();
             }
-            public ParodySong(string SongName, string Parodies, params BaseEvent[] PreviousEvents) : base(SongName, PreviousEvents)
+            public ParodySong(string SongName, string Parodies) : base(SongName)
             {
                 this.Parodies = Parodies;
             }
@@ -187,12 +198,12 @@ namespace Existence.Personal
         }
 
         /// <summary>
-        /// subject deferred to age 16
+        /// subject contemplated, further processing deferred to age 16
         /// </summary>
         [ApproximateAge(8)]
         public class EventuallyIWillDie : BaseEvent
         {
-            public EventuallyIWillDie(params BaseEvent[] PreviousEvents) : base("Eventually I will Die", PreviousEvents) { }
+            public EventuallyIWillDie() : base("Eventually I will Die") { }
         }
 
         [ApproximateAge(9)]
@@ -200,7 +211,7 @@ namespace Existence.Personal
         [PersonalZLevel(ZLevel.One)]
         public class LifesNotFair : BaseEvent
         {
-            public LifesNotFair(params BaseEvent[] PreviousEvents) : base("Life's Not Fair", PreviousEvents) { }
+            public LifesNotFair() : base("Life's Not Fair") { }
         }
 
         /// <summary>
@@ -210,7 +221,7 @@ namespace Existence.Personal
         [CosmicHumanLevel(HumanLevel.GrowingUp)]
         public class SelfAwarenessOfAdultLevelOfAnalyticalThinking : BaseEvent
         {
-            public SelfAwarenessOfAdultLevelOfAnalyticalThinking(params BaseEvent[] PreviousEvents) : base("Post High School", PreviousEvents)
+            public SelfAwarenessOfAdultLevelOfAnalyticalThinking() : base("Post High School")
             {
             }
         }
@@ -220,7 +231,7 @@ namespace Existence.Personal
         [Quote("I have no sin.", "My Bedroom", "Alone")]
         public class SkepticismOfReligion : BaseEvent
         {
-            public SkepticismOfReligion(params BaseEvent[] PreviousEvents) : base("Skepticism of Religion", PreviousEvents) { }
+            public SkepticismOfReligion() : base("Skepticism of Religion") { }
         }
     }
 }
