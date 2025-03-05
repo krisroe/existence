@@ -146,6 +146,7 @@ namespace Existence.Earth
         {
             public static class Lucky { }
             public static class ESPAwareSurveillance { }
+            public static class Repression { }
         }
         public static class Eight
         {
