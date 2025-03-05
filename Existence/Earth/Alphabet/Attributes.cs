@@ -46,26 +46,33 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class BiblePassageAttribute : Attribute
+    {
+        public string Verse { get; set; }
+
+        public BiblePassageAttribute(string Verse)
+        {
+            this.Verse = Verse;
+        }
+    }
+
     public class QuoteAttribute : Attribute
     {
         public string Location { get; set; }
         public string Quote { get; set; }
         public string Company { get; set; }
+        public string SaidBy { get; set; }
         public QuoteAttribute(string Quote)
         {
             this.Quote = Quote;
+            this.SaidBy = string.Empty;
             this.Location = string.Empty;
             this.Company = string.Empty;
         }
-        public QuoteAttribute(string Quote, string Location)
+        public QuoteAttribute(string Quote, string SaidBy, string Location, string Company)
         {
             this.Quote = Quote;
-            this.Location = Location;
-            this.Company = string.Empty;
-        }
-        public QuoteAttribute(string Quote, string Location, string Company)
-        {
-            this.Quote = Quote;
+            this.SaidBy = SaidBy;
             this.Location = Location;
             this.Company = Company;
         }

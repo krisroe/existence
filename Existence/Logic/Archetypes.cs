@@ -1,20 +1,32 @@
-﻿namespace Existence.Logic
+﻿using System;
+using System.Runtime.InteropServices;
+
+namespace Existence.Logic
 {
-    public static class Archetypes
+    public class ArchetypesAttribute : Attribute
+    {
+        public Archetypes[] Archetypes { get; set; }
+        public ArchetypesAttribute(params Archetypes[] Archetypes)
+        {
+            this.Archetypes = Archetypes;
+        }
+    }
+
+    public enum Archetypes
     {
         /// <summary>
         /// archetype of an anti-hero
         /// </summary>
-        public static class AntiHero { }
+        AntiHero,
 
         /// <summary>
         /// archetype of a hero
         /// </summary>
-        public static class Hero { }
+        Hero,
 
         /// <summary>
         /// archetype of a programmer
         /// </summary>
-        public static class Programmer { }
+        Programmer
     }
 }
