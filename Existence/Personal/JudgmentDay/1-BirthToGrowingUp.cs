@@ -11,6 +11,7 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Logic.Random;
 using System.Security.Cryptography;
 using Existence.Logic;
+using Existence.Earth.Code;
 
 namespace Existence.Personal.JudgmentDay
 {
@@ -24,7 +25,7 @@ namespace Existence.Personal.JudgmentDay
         [SecondFavoriteNumber(4)]
         public class Self
         {
-            [URI("https://github.com/krisroe")]
+            [SourceCodeRepositoryUser(CloudRepositoryGitProvider.GitHub, "krisroe")]
             public static class Repositories
             {
                 [RepositoryName("existence")]
@@ -35,21 +36,25 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
-        public class FirstNuclearFamilyUnit
+        [LastName("Rowe")]
+        public static class NuclearFamilyUnit
         {
-            [Birthdate(1952, 2, 18)]
-            public class Mother { }
+            public class v1
+            {
+                [Birthdate(1952, 2, 18)]
+                public class Mother { }
 
-            [FavoriteColor(KnownColor.Green)]
-            [Birthdate(1952, 7, 4)]
-            public class Father { }
+                [FavoriteColor(KnownColor.Green)]
+                [Birthdate(1952, 7, 4)]
+                public class Father { }
 
-            [FavoriteColor(KnownColor.Red)]
-            [Birthdate(1980, 12, 6)]
-            public class Brother { }
+                [FavoriteColor(KnownColor.Red)]
+                [Birthdate(1980, 12, 6)]
+                public class Brother { }
 
-            [Birthdate(1980, 12, 31)]
-            public class Sister { }
+                [Birthdate(1980, 12, 31)]
+                public class Sister { }
+            }
         }
     }
 
@@ -59,28 +64,51 @@ namespace Existence.Personal.JudgmentDay
     {
         public BirthToGrowingUp()
         {
+            BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
+            BaseEvent skepticismOfReligion = new SkepticismOfReligion();
+            BaseEvent firstOriginalSong = new FirstOriginalSong();
+
             List<BaseEvent> chainedEvents = new List<BaseEvent>()
             {
                 new BaseEvent("ActionsHaveConsequences"),
                 new Birth(),
-                new SisterName(),
+                new SelfShortFirstName(),
+                new SelfFullFirstName(),
+                new SisterFirstName(),
                 new AnnotatedPlaceEvent1(PlaceType.Home, USCities.WisconsinHarmonyGrove, string.Empty),
                 new AnnotatedPlaceEvent2(PlaceType.Home, USCities.WisconsinEndeavor, string.Empty),
                 new AnnotatedPlaceEvent3(PlaceType.Church, USCities.WisconsinWisconsinDells, "ELCA Lutheran"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinWisconsinDells, "Kindergarden"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinBriggsville, "Grades 1-3"),
-                new MultiEvent("Age 6ish", [new BaseEvent("StartedPianoLessons") , new EstablishedFavoriteNumbers()]),
-                new MultiEvent("Age 7ish", [new BaseEvent("StartedUsingComputers"), new FirstParodySong()]),
+                new EstablishedFavoriteNumbers(),
+                new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
-                new SelfAwarenessOfAdultLevelOfAnalyticalThinking(),
-                new SkepticismOfReligion()
+                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), new OrionIsaRising()]),
+                skepticismOfReligion
             };
-            for (int i = 0; i < chainedEvents.Count; i++)
+            List<BaseEvent> personalSongs = new List<BaseEvent>()
             {
-                if (i > 0)
-                {
-                    chainedEvents[i].PreviousEvent = chainedEvents[i - 1];
-                }
+                new SweetlySingsTheDonkeyAtTheBreakOfDay(),
+                new FirstParodySong(),
+                firstOriginalSong
+            };
+            ChainEvents(chainedEvents, null);
+            ChainEvents(personalSongs, startedPianoLessons);
+
+            List<BaseEvent> terminalEvents = new List<BaseEvent>()
+            {
+                skepticismOfReligion,
+                firstOriginalSong,
+            };
+
+            AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
+        }
+
+        private static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
+        {
+            for (int i = 0; i < events.Count; i++)
+            {
+                events[i].PreviousEvent = (i == 0 ? previousEvent : events[i - 1]);
             }
         }
 
@@ -93,6 +121,29 @@ namespace Existence.Personal.JudgmentDay
                 RandomLogic.RandomType randomValue = (RandomLogic.RandomType)RandomNumberGenerator.GetInt32(0, 4);
                 RandomLogic.LinqHandling linqHandling = (RandomLogic.LinqHandling)RandomNumberGenerator.GetInt32(0, 3);
                 this.Events = RandomLogic.DoFisherYatesKnuthRandomizer(baseEvents, null, randomValue, linqHandling);
+            }
+        }
+
+
+        [PersonalHumanLevel(HumanLevel.GrowingUp)]
+        [DivineHumanLevel(HumanLevel.GrowingUp)]
+        [CosmicHumanLevel(HumanLevel.GrowingUp)]
+        [ZHumanLevel(HumanLevel.Childhood)]
+        public class AnnotatedTerminalEvent : TerminalEvent
+        {
+            public AnnotatedTerminalEvent(string EventName, params BaseEvent[] PreviousEvents) : base(EventName, PreviousEvents)
+            {
+            }
+        }
+
+        public class TerminalEvent
+        {
+            public string EventName { get; set; }
+            public BaseEvent[] PreviousEvents { get; set; }
+            public TerminalEvent(string EventName, params BaseEvent[] PreviousEvents)
+            {
+                this.EventName = EventName;
+                this.PreviousEvents = PreviousEvents;
             }
         }
 
@@ -119,10 +170,25 @@ namespace Existence.Personal.JudgmentDay
             public Birth() : base("Birth") { }
         }
 
-        [FirstName("Sonya")]
-        public class SisterName : BaseEvent
+        /// <summary>
+        /// literally means "one who carries/bears Christ"
+        /// </summary>
+        [FirstName("Christopher")]
+        public class SelfFullFirstName : BaseEvent
         {
-            public SisterName() : base("Sister Name") { }
+            public SelfFullFirstName() : base("Self Full First Name") { }
+        }
+
+        [FirstName("Chris")]
+        public class SelfShortFirstName : BaseEvent
+        {
+            public SelfShortFirstName() : base("Self Short First Name") { }
+        }
+
+        [FirstName("Sonya")]
+        public class SisterFirstName : BaseEvent
+        {
+            public SisterFirstName() : base("Sister First Name") { }
         }
 
         [PersonalFirst("Memory")]
@@ -168,9 +234,8 @@ namespace Existence.Personal.JudgmentDay
             public EstablishedFavoriteNumbers() : base("Established Favorite Numbers") { }
         }
 
-        public abstract class ParodySong : BaseEvent
+        public abstract class Song : BaseEvent
         {
-            public string Parodies { get; set; }
             public virtual string GetLyrics()
             {
                 throw new InvalidOperationException();
@@ -179,6 +244,14 @@ namespace Existence.Personal.JudgmentDay
             {
                 throw new InvalidOperationException();
             }
+            public Song(string SongName) : base(SongName)
+            {
+            }
+        }
+
+        public abstract class ParodySong : Song
+        {
+            public string Parodies { get; set; }
             public ParodySong(string SongName, string Parodies) : base(SongName)
             {
                 this.Parodies = Parodies;
@@ -202,6 +275,7 @@ namespace Existence.Personal.JudgmentDay
 
         [PersonalFirst("Parody Song")]
         [ZHumanLevel(HumanLevel.Childhood)]
+        [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\SonyasDumb.wav", PeopleEnumerated.RoweChris)]
         public class FirstParodySong : ParodySong
         {
             public FirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
@@ -222,13 +296,82 @@ namespace Existence.Personal.JudgmentDay
             public override string GetMeaning()
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("The song is insulting the sibling for being dumb.");
-                sb.AppendLine("Although my analytical skills are significantly beyond the sibling's,");
-                sb.AppendLine("As humans go the sibling was actually normal to a bit above normal intelligence.");
+                sb.AppendLine("The song is insulting the sibling (Sonya) for being dumb, and the singer finds this funny (ha ha ha). There is no");
+                sb.AppendLine("particular meaning ascribed to bum other than it rhymes with dumb. \"Trum\", \"fa\", and \"la la la\" are nonsense");
+                sb.AppendLine("filler. Although the singer's analytical skills are significantly beyond the sibling's, as humans go the sibling");
+                sb.AppendLine("was actually normal to a bit above normal intelligence.");
                 return sb.ToString();
             }
         }
 
+        [PersonalFirst("Original Song")]
+        [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\2-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
+        public class FirstOriginalSong : Song
+        {
+            public FirstOriginalSong() : base("The National SID Foundation")
+            {
+                
+            }
+            public override string GetLyrics()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("The National SID Foundation is proud to commend Sonya Rowe.");
+                sb.AppendLine("For being an idiot station, and having no brains that we know.");
+                return sb.ToString();
+            }
+            public override string GetMeaning()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("SID stands for \"Sonya is Dumb\". It is absurd to think there would be a country-level organization");
+                sb.AppendLine("dedicated to the stupidity of a specific person. This is purely an insult song, and did frequently provoke");
+                sb.AppendLine("a reaction. As noted elsewhere (most notably in the explanation for \"Sonya's Dumb\"), the target of the song");
+                sb.AppendLine("is actually of normal to slightly above average intelligence. Occasionally the target of the song would sing it ");
+                sb.AppendLine("with altered lyrics, specifically reversing to \"The National CRID Foundation is proud to commend Chris Rowe\".");
+                sb.AppendLine("The original creator of the song was generally okay with the reversal, acknowledging that turnabout is fair play.");
+                sb.AppendLine("But the lack of reaction for the reversal meant the main song was sung far more often than the reversal, an");
+                sb.AppendLine("example of the principle that life is not fair.");
+                return sb.ToString();
+            }
+        }
+
+        [Text("Sung as a round many times in the car with mother and sister")]
+        public class SweetlySingsTheDonkeyAtTheBreakOfDay : Song
+        {
+            public SweetlySingsTheDonkeyAtTheBreakOfDay() : base("Sweetly Sings the Donkey at the Break of Day")
+            {
+            }
+            public override string GetLyrics()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Sweetly sings the donkey at the break of day.");
+                sb.AppendLine("If you do not feed him, this is what he'll say:");
+                sb.AppendLine("Hee-haw, hee-haw, hee-haw, hee-haw, hee-haw.");
+                return sb.ToString();
+            }
+            public override string GetMeaning()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("The song describes the morning routine of a donkey. The donkey sings at daybreak, which is curious because donkeys");
+                sb.AppendLine("do not \"sing\" the way humans do, and also the noises a donkey makes are not particularly analogous to singing to human ears.");
+                sb.AppendLine("The donkey is fed in the morning as typical for farm animals. And if not fed the hungry donkey will say donkey sounds. Again,");
+                sb.AppendLine("this is curious because donkeys do not \"say\" things the way humans do. Nevertheless the donkey says \"Hee-haw\" five times.");
+                sb.AppendLine("What does the donkey mean by its singing and saying? The obvious answer of saying \"Feed me\" or \"Please feed me\" is a reasonable");
+                sb.AppendLine("choice of ascribing human words to the donkey. But we can never really know if that's correct or if the donkey's singing/saying");
+                sb.AppendLine("has another more inscrutable meaning.");
+                return sb.ToString();
+            }
+        }
+
+        public class OrionIsaRising : Song
+        {
+            public OrionIsaRising() : base("Orion is a-Rising")
+            {
+            }
+        }
+
+        /// <summary>
+        /// my recollection is I was in the kitchen/dining-room of the Endeavor house
+        /// </summary>
         public class ContemplatedEventuallyIWillDie : BaseEvent
         {
             public ContemplatedEventuallyIWillDie() : base("Eventually I will Die") { }
@@ -250,6 +393,11 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
+        /// <summary>
+        /// I thought it was unfair that when the second graders played the third graders in touch football,
+        /// the third graders always won. The school guidance counselor got involved. Once the lesson was
+        /// learned, we went back to playing football as usual.
+        /// </summary>
         [PersonalHumanLevel(HumanLevel.GrowingUp)]
         [PersonalZLevel(ZLevel.One)]
         public class LifesNotFair : BaseEvent
@@ -268,7 +416,6 @@ namespace Existence.Personal.JudgmentDay
         /// <summary>
         /// took a standardized test in 3rd grade, receiving "post high school" pretty much across the board
         /// </summary>
-        [ApproximateAge(9)]
         [CosmicHumanLevel(HumanLevel.GrowingUp)]
         public class SelfAwarenessOfAdultLevelOfAnalyticalThinking : BaseEvent
         {
@@ -279,11 +426,17 @@ namespace Existence.Personal.JudgmentDay
             {
                 get
                 {
-                    return "Chose to focus on developing analytical thinking skills, and develop people skills to minimum necessary";
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine("Chose to focus on developing analytical thinking skills, and minimally develop people skills");
+                    sb.AppendLine("This was not recognized as a mistake until much later.");
+                    return sb.ToString();
                 }
             }
         }
 
+        /// <summary>
+        /// I was curious as to what would happen, and at the time concluded that nothing did happen.
+        /// </summary>
         [ApproximateAge(10)]
         [DivineHumanLevel(HumanLevel.GrowingUp)]
         [Quote("I have no sin.", "Me", "My Bedroom", "Alone")]
@@ -292,6 +445,9 @@ namespace Existence.Personal.JudgmentDay
         {
             public SkepticismOfReligion() : base("Skepticism of Religion") { }
 
+            /// <summary>
+            /// part of the Confession and Forgiveness section at the beginning of the service.
+            /// </summary>
             public string BiblePassage
             {
                 get

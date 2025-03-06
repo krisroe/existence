@@ -1,6 +1,4 @@
-﻿
-
-namespace Existence.Software
+﻿namespace Existence.Earth.Code
 {
     public static class ArtificialIntelligence
     {

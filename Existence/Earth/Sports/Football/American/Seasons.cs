@@ -1913,7 +1913,7 @@ namespace Existence.Earth.Sports.Football.American
                         public static class IsaiahPacheco { }
 
                         [PlayerType(Players.Offensive.PlayerType.TightEnd)]
-                        [InRelationshipWith(PeopleEnumerated.TaylorSwift, Level.Serious)]
+                        [InRelationshipWith(PeopleEnumerated.SwiftTaylor, Level.Serious)]
                         [Married(false)]
                         public static class TravisKelce { }
 

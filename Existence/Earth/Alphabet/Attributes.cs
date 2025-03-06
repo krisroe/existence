@@ -170,4 +170,22 @@ namespace Existence.Earth.Alphabet
         {
         }
     }
+
+    public class LastNameAttribute : TextAttribute
+    {
+        public string LastName
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public LastNameAttribute(string LastName) : base(LastName)
+        {
+        }
+    }
 }

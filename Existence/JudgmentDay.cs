@@ -48,43 +48,6 @@ namespace Existence
         }
     }
 
-    public class URIAttribute : TextAttribute
-    {
-        public string URI
-        {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-            }
-        }
-        public URIAttribute(string URI) : base(URI)
-        {
-
-        }
-    }
-
-    public class RepositoryNameAttribute : TextAttribute
-    {
-        public string Name
-        {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-            }
-        }
-        public RepositoryNameAttribute(string Name) : base(Name)
-        {
-        }
-    }
-
     public class SignificantMemory : TextAttribute
     {
         public string Memory

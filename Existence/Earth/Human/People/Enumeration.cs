@@ -68,6 +68,7 @@ namespace Existence.Earth.Human.People
     /// </summary>
     public enum PeopleEnumerated
     {
-        TaylorSwift,
+        RoweChris,
+        SwiftTaylor,
     }
 }
