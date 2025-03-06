@@ -185,22 +185,6 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
                     public static class GainOrLoseEmotionAfterSomethingIsFinished { }
                 }
             }
-
-
-            public class Anger { }
-            public class Annoyance { }
-            public class Anticipation { }
-            public class Anxiety { }
-            public class Boredom { }
-            public class Enlightenment { }
-            public class Fear { }
-            public class Happy { }
-            public class Hatred { }
-            public class Hope { }
-            public class Love { }
-            public class Lust { }
-            public class Rage { }
-            public class Sadness { }
         }
 
         public enum MedicationGoals
@@ -529,5 +513,35 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
         {
             public static class BelievingFictionIsRealForThePurposeOfEntertainment { }
         }
+    }
+
+    public class EmotionsAttribute : Attribute
+    {
+        public string Comment { get; set; }
+        public Emotions[] Emotions { get; set; }
+        public EmotionsAttribute(string Comment, params Emotions[] Emotions)
+        {
+            this.Comment = Comment;
+            this.Emotions = Emotions;
+        }
+    }
+
+    public enum Emotions
+    {
+        Anger,
+        Annoyance,
+        Anticipation,
+        Anxiety,
+        Boredom,
+        Disappointment,
+        Enlightenment,
+        Fear,
+        Happiness,
+        Hatred,
+        Hope,
+        Love,
+        Lust,
+        Rage,
+        Sadness,
     }
 }

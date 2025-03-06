@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-using Existence.Earth.Human.People;
+﻿using Existence.Earth.Human.People;
 using Existence.Earth;
-using Existence.Time;
+using Existence.Earth.Code;
+using Existence.Earth.Time;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.FieldsOfStudy.Psychology;
+using Existence.JudgmentDay;
 using Existence.Logic.Random;
-using System.Security.Cryptography;
 using Existence.Logic;
-using Existence.Earth.Code;
+using Existence.Time;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Existence.Personal.JudgmentDay
 {
@@ -42,7 +45,16 @@ namespace Existence.Personal.JudgmentDay
             public class v1
             {
                 [Birthdate(1952, 2, 18)]
-                public class Mother { }
+                public class Mother
+                {
+                    public static class SiblingsByAgeDescending
+                    {
+                        public static class Mother { }
+                        public static class Sister1 { }
+                        public static class Brother { }
+                        public static class Sister2 { }
+                    }
+                }
 
                 [FavoriteColor(KnownColor.Green)]
                 [Birthdate(1952, 7, 4)]
@@ -59,19 +71,20 @@ namespace Existence.Personal.JudgmentDay
     }
 
     [PersonalFirst("Judgment Day")]
-    [JudgmentDayLevel(4)]
-    public class BirthToGrowingUp
+    [Age(44, TimePeriods.Years)]
+    [IsReleased(false)]
+    public class BirthToGrowingUp : JudgmentDayBase
     {
         public BirthToGrowingUp()
         {
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
             BaseEvent skepticismOfReligion = new SkepticismOfReligion();
             BaseEvent firstOriginalSong = new FirstOriginalSong();
+            BaseEvent birth = new Birth();
+            BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
 
-            List<BaseEvent> chainedEvents = new List<BaseEvent>()
+            List<BaseEvent> factListOrdered = new List<BaseEvent>()
             {
-                new BaseEvent("ActionsHaveConsequences"),
-                new Birth(),
                 new SelfShortFirstName(),
                 new SelfFullFirstName(),
                 new SisterFirstName(),
@@ -80,7 +93,16 @@ namespace Existence.Personal.JudgmentDay
                 new AnnotatedPlaceEvent3(PlaceType.Church, USCities.WisconsinWisconsinDells, "ELCA Lutheran"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinWisconsinDells, "Kindergarden"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinBriggsville, "Grades 1-3"),
-                new EstablishedFavoriteNumbers(),
+                new SchoolClassList("1st Grade", typeof(FirstGradeClassAttendanceListAlphabetical)),
+                new SchoolClassList("3rd Grade", typeof(ThirdGradePartialClassList))
+            };
+            List<BaseEvent> chainedEvents = new List<BaseEvent>()
+            {
+                new BaseEvent("Fact(Concept)"),
+                new BaseEvent("ActionsHaveConsequences"),
+                birth,
+                new MultiEvent("EarlyChildhoodFacts", factListOrdered.ToArray()),
+                new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
                 new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
                 new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), new OrionIsaRising()]),
@@ -94,6 +116,11 @@ namespace Existence.Personal.JudgmentDay
             };
             ChainEvents(chainedEvents, null);
             ChainEvents(personalSongs, startedPianoLessons);
+            ChainEvents(factListOrdered, birth);
+
+            SomeoneSaidSomethingAndIFoundOutViaHearsay calledAGenius = new SomeoneSaidSomethingAndIFoundOutViaHearsay(
+                "He's a genius", (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMaternalUncle);
+            calledAGenius.PreviousEvent = establishedFavoriteNumbers;
 
             List<BaseEvent> terminalEvents = new List<BaseEvent>()
             {
@@ -104,12 +131,37 @@ namespace Existence.Personal.JudgmentDay
             AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
         }
 
+        public override int GetLevel()
+        {
+            return 4;
+        }
+
+        public override List<CosmicCharity> GetCosmicCharity()
+        {
+            return new List<CosmicCharity>()
+            {
+                new CosmicCharity(1, (int)FamilyMembers.MySister, "Insulting Song #1"),
+                new CosmicCharity(1, (int)FamilyMembers.MySister, "Insulting Song #2"),
+                new CosmicCharity(1, (int)FamilyMembers.MySister, "Her Name is Exposed"),
+                new CosmicCharity(1, (int)FirstGradeClassAttendanceListAlphabetical.Laura, "Never Acknowledged Compliment, Potential Soulmate"),
+            };
+        }
+
         private static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
         {
             for (int i = 0; i < events.Count; i++)
             {
                 events[i].PreviousEvent = (i == 0 ? previousEvent : events[i - 1]);
             }
+        }
+
+        public enum FamilyMembers
+        {
+            MyMaternalUncle,
+            MyMother,
+            MyFather,
+            Myself,
+            MySister,
         }
 
         public class MultiEvent : BaseEvent
@@ -225,6 +277,56 @@ namespace Existence.Personal.JudgmentDay
                 this.City = City;
                 this.Detail = Detail;
             }
+        }
+
+        public class SchoolClassList : BaseEvent
+        {
+            public Type AttendanceType { get; set; }
+            public SchoolClassList(string Class, Type AttendanceType) : base(Class)
+            {
+                this.AttendanceType = AttendanceType;
+            }
+        }
+
+        /// <summary>
+        /// I used a repetitive chant mnemonic to remember this list.
+        /// This may be incomplete/inaccurate due to the passage of time.
+        /// </summary>
+        [Emotions("Disappointed that 2nd grade didn't use an alphabetized list", Emotions.Disappointment)]
+        public enum FirstGradeClassAttendanceListAlphabetical
+        {
+            Abby,
+            Alisa,
+            Christopher,
+            Daniel,
+            Greg,
+            Jesse,
+            Judy,
+            Kim,
+            /// <summary>
+            /// less than average intelligence
+            /// </summary>
+            Laura,
+            Luke,
+            /// <summary>
+            /// significantly less than average intelligence
+            /// </summary>
+            Mato,
+            Matthew,
+            Rochelle,
+            Ryan,
+            /// <summary>
+            /// possibly confabulated
+            /// </summary>
+            Tameka,
+        }
+
+        public enum ThirdGradePartialClassList
+        {
+            /// <summary>
+            /// lowest intelligence in the class
+            /// </summary>
+            Tameka,
         }
 
         [CosmicZLevel(ZLevel.One)]
@@ -396,7 +498,7 @@ namespace Existence.Personal.JudgmentDay
         /// <summary>
         /// I thought it was unfair that when the second graders played the third graders in touch football,
         /// the third graders always won. The school guidance counselor got involved. Once the lesson was
-        /// learned, we went back to playing football as usual.
+        /// learned, went back to playing football as usual.
         /// </summary>
         [PersonalHumanLevel(HumanLevel.GrowingUp)]
         [PersonalZLevel(ZLevel.One)]
@@ -434,10 +536,58 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
+        public class SomeoneSaidSomethingAndIFoundOutViaHearsay : BaseEvent
+        {
+            public int PersonWhoSaidIt { get; set; }
+            public int PersonWhoToldMe { get; set; }
+            public SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
+            {
+                this.PersonWhoSaidIt = PersonWhoSaidIt;
+                this.PersonWhoToldMe = PersonWhoToldMe;
+            }
+        }
+
+        public class SomeoneCalledMeAGenius : SomeoneSaidSomethingAndIFoundOutViaHearsay
+        {
+            public SomeoneCalledMeAGenius(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid, PersonWhoSaidIt, PersonWhoToldMe)
+            {
+            }
+
+            public string Consequences
+            {
+                get
+                {
+                    return "I never acknowledged this in any way.";
+                }
+            }
+        }
+
+        public enum PetDogs
+        {
+            
+            Abe,
+        }
+
+        public class BittenByAPetDog : BaseEvent
+        {
+            public int Dog { get; set; }
+            public BittenByAPetDog(int Dog) : base("Bitten by a Pet Dog")
+            {
+                this.Dog = Dog;
+            }
+            public string Consequences
+            {
+                get
+                {
+                    return "My injury was not severe. The (elderly) dog became an outside dog.";
+                }
+            }
+        }
+
         /// <summary>
         /// I was curious as to what would happen, and at the time concluded that nothing did happen.
         /// </summary>
-        [ApproximateAge(10)]
+        [ApproximateAge(10, TimePeriods.Years)]
         [DivineHumanLevel(HumanLevel.GrowingUp)]
         [Quote("I have no sin.", "Me", "My Bedroom", "Alone")]
         [BiblePassage("1 John 1:8-9")]

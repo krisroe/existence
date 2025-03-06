@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Existence.Earth.Time;
 
 namespace Existence.Earth.FieldsOfStudy.Mathematics
 {
@@ -52,6 +53,7 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
 
     public class AgeAttribute : NumberAttribute
     {
+        public TimePeriods Period { get; set; }
         public int Age
         {
             get
@@ -63,9 +65,9 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
                 base.Number = value;
             }
         }
-        public AgeAttribute(int Age) : base(Age)
+        public AgeAttribute(int Age, TimePeriods Period) : base(Age)
         {
-
+            this.Period = Period;
         }
     }
 
@@ -82,7 +84,7 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
                 base.Age = value;
             }
         }
-        public ApproximateAgeAttribute(int ApproximateAge) : base(ApproximateAge)
+        public ApproximateAgeAttribute(int ApproximateAge, TimePeriods Period) : base(ApproximateAge, Period)
         {
         }
     }

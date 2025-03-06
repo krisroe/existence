@@ -3,7 +3,7 @@ using Existence.Earth.War;
 
 namespace Existence.Personal
 {
-    public class CosmicCharity
+    public class CosmicCharityPersonal
     {
         public static class TimeTravelingMessageBoxShortTermHandlingGainedOneUnitOfCosmicCurrency { }
 
