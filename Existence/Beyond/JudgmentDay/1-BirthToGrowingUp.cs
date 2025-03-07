@@ -477,10 +477,17 @@ namespace Existence.Beyond.JudgmentDay
                 sb.AppendLine("But there is a deeper message in the song in the lyric \"how are we to stay here if there's no room left to play here?\"");
                 sb.AppendLine("Camping takes place in rural areas, but as human civilization urbanizes, light and air pollution increases, encroaching");
                 sb.AppendLine("on rural areas, with a consequence that many places have their star viewing capacity reduced. And perhaps that");
-                sb.AppendLine("mean camping becomes less awesome so less people want to camp so it's harder to find the space available. The final");
-                sb.AppendLine("\"Don't you know?\"s draw the listeners attention to this problem, with the suggestion that the listener think about");
-                sb.AppendLine("their choices and their impact on the environment to keep the happy experience of camping available for future");
-                sb.AppendLine("generations.");
+                sb.AppendLine("mean camping becomes less awesome so less people want to camp so it's harder to find the space available.");
+                sb.AppendLine();
+                sb.AppendLine("The lyric can also be interpreted as drawing attention to overpopulation (no room left to play here). Human population");
+                sb.AppendLine("started massively increasing during the Industrial Revolution. And people have been worrying about the possibility of");
+                sb.AppendLine("human population going beyond the Earth's carrying capacity ever since. Two thinkers relevant to the issue are Thomas");
+                sb.AppendLine("Robert Malhus (1700s) and Paul Ehrlich (modern era). The idea is overpopulation is and has been heavily debated, with");
+                sb.AppendLine("no consensus even that it is actually a problem.");
+                sb.AppendLine();
+                sb.AppendLine("The song takes the environmentalist side on the overpopulation and air/light pollution issues. The final \"Don't you know?\"s");
+                sb.AppendLine("draw the listener's attention to these issues, suggesting that the listener think about their choices and their impact on");
+                sb.AppendLine("the environment to keep the happy experience of camping available for future generations.");
                 return sb.ToString();
             }
         }
