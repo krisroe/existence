@@ -1,8 +1,9 @@
-﻿using Existence.Earth.Alphabet;
+﻿
 using System;
 using System.Collections.Generic;
+using Existence.Earth.FieldsOfStudy.Psychology;
 
-namespace Existence.JudgmentDay
+namespace Existence.Beyond.Infrastructure
 {
     public class ZLevelAttribute : Attribute
     {
@@ -21,43 +22,6 @@ namespace Existence.JudgmentDay
         public PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
     }
 
-    public class PersonalFirst : TextAttribute
-    {
-        public string Thing
-        {
-            get
-            {
-                return Text;
-            }
-            set
-            {
-                Text = value;
-            }
-        }
-        public PersonalFirst(string Thing) : base(Thing)
-        {
-
-        }
-    }
-
-    public class SignificantMemory : TextAttribute
-    {
-        public string Memory
-        {
-            get
-            {
-                return Text;
-            }
-            set
-            {
-                Text = value;
-            }
-        }
-        public SignificantMemory(string Memory) : base(Memory)
-        {
-        }
-    }
-
     public enum ZLevel
     {
         Zero = 0,
@@ -74,6 +38,25 @@ namespace Existence.JudgmentDay
         School,
     }
 
+    public enum EmotionalCapacity
+    {
+        None,
+        Minimal,
+        Developed,
+        Normal
+    }
+
+    public class CapacityForEmotionAttribute : Attribute
+    {
+        public Emotions Emotion { get; set; }
+        public EmotionalCapacity Capacity { get; set; }
+        public CapacityForEmotionAttribute(Emotions Emotion, EmotionalCapacity Capacity)
+        {
+            this.Emotion = Emotion;
+            this.Capacity = Capacity;
+        }
+    }
+
     public class CosmicCharity(int Amount, int Target, string Reason)
     {
         public int Amount { get; set; }
@@ -87,6 +70,24 @@ namespace Existence.JudgmentDay
         public IsReleasedAttribute(bool IsReleased)
         {
             this.IsReleased = IsReleased;
+        }
+    }
+
+    public class BeyondObjectVersionAttribute : Attribute
+    {
+        public Version Version { get; set; }
+        public BeyondObjectVersionAttribute(int Major, int Minor, int Build, int Revision)
+        {
+            this.Version = new Version(Major, Minor, Build, Revision);
+        }
+    }
+
+    public class TimelessVersionAttribute : Attribute
+    {
+        public Version Version { get; set; }
+        public TimelessVersionAttribute(int Major, int Minor, int Build, int Revision)
+        {
+            this.Version = new Version(Major, Minor, Build, Revision);
         }
     }
 

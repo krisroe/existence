@@ -1,5 +1,4 @@
-﻿
-using static Existence.Personal.JudgmentDay.BirthToGrowingUp;
+﻿using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 
 namespace Existence.Personal.JudgmentDay
 {
@@ -11,6 +10,10 @@ namespace Existence.Personal.JudgmentDay
         /// 
         /// We also have the flashcards domination incident, which had the cosmic consequences of the T.G. loss
         /// also the 2nd grade teacher with "She's dead" and "It might be true" situation.
+        /// 
+        /// People are inherently Stupid
+        /// Psychology is BS
+        /// Become atheist (Antichrist)
         /// </summary>
         private class ActionsHaveConsequences : BaseEvent
         {
