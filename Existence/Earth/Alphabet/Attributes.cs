@@ -46,6 +46,22 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class WorkTicketAttribute : TextAttribute
+    {
+        public string Ticket
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public WorkTicketAttribute(string Ticket) : base(Ticket) { }
+    }
+
     public class BiblePassageAttribute : Attribute
     {
         public string Verse { get; set; }

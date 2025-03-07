@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Existence.Earth.FieldsOfStudy.Psychology;
 
 namespace Existence.Beyond.Infrastructure
@@ -46,6 +47,29 @@ namespace Existence.Beyond.Infrastructure
         Normal
     }
 
+    public enum CosmicProcess
+    {
+        RealityManipulation
+    }
+
+    public enum CosmicResponsibility
+    {
+        Irresponsible,
+        Responsible
+    }
+
+    public enum CosmicTimeScale
+    {
+        HumanShortTerm,
+        HumanLongTerm,
+    }
+
+    public enum CosmicTimeInterval
+    {
+        Days,
+        Months,
+    }
+
     public class CapacityForEmotionAttribute : Attribute
     {
         public Emotions Emotion { get; set; }
@@ -57,8 +81,25 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    public class CosmicCharity(int Amount, int Target, string Reason)
+    public class CosmicPayday
     {
+        public CosmicPayday(int Amount, string Reason)
+        {
+            this.Amount = Amount;
+            this.Reason = Reason;
+        }
+        public int Amount { get; set; }
+        public string Reason { get; set; }
+    }
+
+    public class CosmicCharity
+    {
+        public CosmicCharity(int Amount, int Target, string Reason)
+        {
+            this.Amount = Amount;
+            this.Target = Target;
+            this.Reason = Reason;
+        }
         public int Amount { get; set; }
         public int Target { get; set; }
         public string Reason { get; set; }
@@ -91,10 +132,43 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    public class CosmicProcessResponsibilityAttribute : Attribute
+    {
+        public CosmicResponsibility Responsibility { get; set; }
+        public CosmicProcess Process { get; set; }
+        public CosmicProcessResponsibilityAttribute(CosmicProcess Process, CosmicResponsibility Responsibility)
+        {
+            this.Process = Process;
+            this.Responsibility = Responsibility;
+        }
+    }
+    
+    public class CosmicTimeScaleAttribute : Attribute
+    {
+        public CosmicTimeScale TimeScale { get; set; }
+        public CosmicTimeInterval Interval { get; set; }
+        public CosmicTimeScaleAttribute(CosmicTimeScale TimeScale, CosmicTimeInterval Interval)
+        {
+            this.TimeScale = TimeScale;
+            this.Interval = Interval;
+        }
+    }
+   
+
     public abstract class JudgmentDayBase
     {
         public abstract int GetLevel();
 
         public abstract List<CosmicCharity> GetCosmicCharity();
+    }
+
+    public abstract class CosmicCharityBase
+    {
+        public abstract List<CosmicCharity> GetCosmicCharity();
+    }
+
+    public abstract class CosmicPaydayBase
+    {
+        public abstract List<CosmicPayday> GetCosmicPayday();
     }
 }

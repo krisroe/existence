@@ -18,7 +18,6 @@
    <None Remove="Logic\Games\Rubix\**" />
  </ItemGroup>
  <ItemGroup>
-   <Folder Include="Beyond\CosmicCharity\" />
    <Folder Include="Earth\FieldsOfStudy\Biology\" />
    <Folder Include="Earth\FieldsOfStudy\Cosmology\" />
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
