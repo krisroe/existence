@@ -94,7 +94,8 @@ namespace Existence.Personal.JudgmentDay
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinWisconsinDells, "Kindergarden"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinBriggsville, "Grades 1-3"),
                 new SchoolClassList("1st Grade", typeof(FirstGradeClassAttendanceListAlphabetical)),
-                new SchoolClassList("3rd Grade", typeof(ThirdGradePartialClassList))
+                new SchoolClassList("3rd Grade", typeof(ThirdGradePartialClassList)),
+                new OpinionOfCamping("I dislike it.", Emotions.Hatred)
             };
             List<BaseEvent> chainedEvents = new List<BaseEvent>()
             {
@@ -105,7 +106,7 @@ namespace Existence.Personal.JudgmentDay
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
                 new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
-                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), new OrionIsaRising()]),
+                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), new OrionIsarising()]),
                 skepticismOfReligion
             };
             List<BaseEvent> personalSongs = new List<BaseEvent>()
@@ -464,10 +465,68 @@ namespace Existence.Personal.JudgmentDay
             }
         }
 
-        public class OrionIsaRising : Song
+        public class OrionIsarising : Song
         {
-            public OrionIsaRising() : base("Orion is a-Rising")
+            public OrionIsarising() : base("Orion is a-rising") { }
+
+            public override string GetLyrics()
             {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Orion is a-rising, you can see his stars a-blazing");
+                sb.AppendLine("In the middle of a clear night country sky.");
+                sb.AppendLine("And it's never too surprising that the sky is so amazing");
+                sb.AppendLine("Way out here where nothing hides it from my eye.");
+                sb.AppendLine("And sleeping outside in a bag as a kid,");
+                sb.AppendLine("It seems like the best thing that I ever did.");
+                sb.AppendLine("And chasing the shadows and the tracks in the snow.");
+                sb.AppendLine("Don't you know?");
+                sb.AppendLine("The moon is on its way, and it looks like it might rain or maybe snow.");
+                sb.AppendLine("And how are we to stay here if there's no room left to play here.");
+                sb.AppendLine("Don't you know?");
+                sb.AppendLine("Don't you know?");
+                return sb.ToString();
+            }
+
+            public override string GetMeaning()
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Orion is a prominent set of stars visible during winter in the north celestial hemisphere. The number of visible");
+                sb.AppendLine("stars depends on the clarity of the sky. On a clear night in the country, when nothing hides the constellation");
+                sb.AppendLine("from sight, more stars are visible. Weather conditions such as haze, as well as light and air pollution can reduce");
+                sb.AppendLine("the number of visible. The constellation can be recognizable even by seeing two stars (Betelgeuse and Rigel), as");
+                sb.AppendLine("those stars are bright and have a distinctive color (Betelgeuse=Reddish, Rigel=Bluish). The more of the constellation");
+                sb.AppendLine("is visible, the more impressive. Another factor influencing the visibility of the stars is the presence of the moon. When the moon is");
+                sb.AppendLine("visible that makes the stars harder to see. So \"the moon is on the way\" means the moon hasn't risen yet.");
+                sb.AppendLine();
+                sb.AppendLine("A common scenario for viewing the constellation with maximum visibility is during camping. Camping can take place in");
+                sb.AppendLine("rural areas with less light and air pollution. Sleeping in a sleeping bag is a common feature of camping. Many");
+                sb.AppendLine("humans regard camping they did as a kid as a happy memory, for some it could be the happiest childhood memory they have.");
+                sb.AppendLine();
+                sb.AppendLine("In asking \"Don't you know?\", the singer asks the listener to think about their own memories of camping, with the");
+                sb.AppendLine("intention of bringing about a shared common happy experience of the past.");
+                sb.AppendLine();
+                sb.AppendLine("So in total the song imagines a shared happy experience where Orion is maximally visible. But you don't always get");
+                sb.AppendLine("maximum visibility. You're at the mercy of the weather (rain or snow interferes).");
+                sb.AppendLine();
+                sb.AppendLine("But there is a deeper message in the song in the lyric \"how are we to stay here if there's no room left to play here?\"");
+                sb.AppendLine("Camping takes place in rural areas, but as human civilization urbanizes, light and air pollution increases, encroaching");
+                sb.AppendLine("on rural areas, with a consequence that many places have their star viewing capacity reduced. And perhaps that");
+                sb.AppendLine("mean camping becomes less awesome so less people want to camp so it's harder to find the space available. The final");
+                sb.AppendLine("\"Don't you know?\"s draw the listeners attention to this problem, with the suggestion that the listener think about");
+                sb.AppendLine("their choices and their impact on the environment to keep the happy experience of camping available for future");
+                sb.AppendLine("generations.");
+                return sb.ToString();
+            }
+        }
+
+        public class OpinionOfCamping : BaseEvent
+        {
+            public string Opinion { get; set; }
+            public Emotions Emotion { get; set; }
+            public OpinionOfCamping(string Opinion, Emotions Emotion) : base(Opinion)
+            {
+                this.Opinion = Opinion;
+                this.Emotion = Emotion;
             }
         }
 
