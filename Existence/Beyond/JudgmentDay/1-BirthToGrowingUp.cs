@@ -30,6 +30,13 @@ namespace Existence.Beyond.JudgmentDay
             [TimelessVersion(1, 0, 0, 0)]
             [YearDate(2025, 3, 7)]
             Created,
+
+            /// <summary>
+            /// updated orion is a-rising meaning to add overpopulation
+            /// </summary>
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 7)]
+            OrionIsARisingUpdate,
         }
 
         public BirthToGrowingUp()
