@@ -37,6 +37,14 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 7)]
             OrionIsARisingUpdate,
+
+            /// <summary>
+            /// song meaning files moved to musicnotes repositories and incorporated by reference
+            /// instead of storing in both text files and the judgment day document.
+            /// </summary>
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 3, 7)]
+            MoveSongMeaningFilesToMusicNotesRepository,
         }
 
         public BirthToGrowingUp()
@@ -151,29 +159,6 @@ namespace Existence.Beyond.JudgmentDay
         {
             public AnnotatedTerminalEvent(string EventName, params BaseEvent[] PreviousEvents) : base(EventName, PreviousEvents)
             {
-            }
-        }
-
-        public class TerminalEvent
-        {
-            public string EventName { get; set; }
-            public BaseEvent[] PreviousEvents { get; set; }
-            public TerminalEvent(string EventName, params BaseEvent[] PreviousEvents)
-            {
-                this.EventName = EventName;
-                this.PreviousEvents = PreviousEvents;
-            }
-        }
-
-        public class BaseEvent
-        {
-            public string EventName { get; set; }
-            public BaseEvent? PreviousEvent;
-
-            public BaseEvent(string EventName)
-            {
-                this.EventName = EventName;
-                PreviousEvent = null;
             }
         }
 
@@ -310,193 +295,41 @@ namespace Existence.Beyond.JudgmentDay
             public EstablishedFavoriteNumbers() : base("Established Favorite Numbers") { }
         }
 
-        public abstract class Song : BaseEvent
-        {
-            public virtual string GetLyrics()
-            {
-                throw new InvalidOperationException();
-            }
-            public virtual string GetMeaning()
-            {
-                throw new InvalidOperationException();
-            }
-            public Song(string SongName) : base(SongName)
-            {
-            }
-        }
-
-        public abstract class ParodySong : Song
-        {
-            public string Parodies { get; set; }
-            public ParodySong(string SongName, string Parodies) : base(SongName)
-            {
-                this.Parodies = Parodies;
-            }
-        }
-
-        public abstract class OriginalSong : BaseEvent
-        {
-            public virtual string GetLyrics()
-            {
-                throw new InvalidOperationException();
-            }
-            public virtual string GetMeaning()
-            {
-                throw new InvalidOperationException();
-            }
-            public OriginalSong(string SongName) : base(SongName)
-            {
-            }
-        }
-
         [PersonalFirst("Parody Song")]
         [ZHumanLevel(HumanLevel.Childhood)]
         [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\SonyasDumb.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
         public class FirstParodySong : ParodySong
         {
             public FirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
             {
             }
-
-            public override string GetLyrics()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Sonya's dumb");
-                sb.AppendLine("She's a bum");
-                sb.AppendLine("She is a dirty trum");
-                sb.AppendLine("Ha ha ha");
-                sb.AppendLine("She's some fa");
-                sb.AppendLine("She gets sent to la la la");
-                return sb.ToString();
-            }
-            public override string GetMeaning()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("The song is insulting the sibling (Sonya) for being dumb, and the singer finds this funny (ha ha ha). There is no");
-                sb.AppendLine("particular meaning ascribed to bum other than it rhymes with dumb. \"Trum\", \"fa\", and \"la la la\" are nonsense");
-                sb.AppendLine("filler. Although the singer's analytical skills are significantly beyond the sibling's, as humans go the sibling");
-                sb.AppendLine("was actually normal to a bit above normal intelligence.");
-                return sb.ToString();
-            }
         }
 
         [PersonalFirst("Original Song")]
         [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\2-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
         public class FirstOriginalSong : Song
         {
             public FirstOriginalSong() : base("The National SID Foundation")
             {
 
             }
-            public override string GetLyrics()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("The National SID Foundation is proud to commend Sonya Rowe.");
-                sb.AppendLine("For being an idiot station, and having no brains that we know.");
-                return sb.ToString();
-            }
-            public override string GetMeaning()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("SID stands for \"Sonya is Dumb\". It is absurd to think there would be a country-level organization");
-                sb.AppendLine("dedicated to the stupidity of a specific person. This is purely an insult song, and did frequently provoke");
-                sb.AppendLine("a reaction. As noted elsewhere (most notably in the explanation for \"Sonya's Dumb\"), the target of the song");
-                sb.AppendLine("is actually of normal to slightly above average intelligence. Occasionally the target of the song would sing it ");
-                sb.AppendLine("with altered lyrics, specifically reversing to \"The National CRID Foundation is proud to commend Chris Rowe\".");
-                sb.AppendLine("The original creator of the song was generally okay with the reversal, acknowledging that turnabout is fair play.");
-                sb.AppendLine("But the lack of reaction for the reversal meant the main song was sung far more often than the reversal, an");
-                sb.AppendLine("example of the principle that life is not fair.");
-                return sb.ToString();
-            }
         }
 
-        [Text("Sung as a round many times in the car with mother and sister")]
+        [Text("Sung as a round many times in the car with my mother and my sister")]
+        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\003-SweetlySingsTheDonkeyAtTheBreakOfDay.txt", PeopleEnumerated.RoweChris)]
         public class SweetlySingsTheDonkeyAtTheBreakOfDay : Song
         {
             public SweetlySingsTheDonkeyAtTheBreakOfDay() : base("Sweetly Sings the Donkey at the Break of Day")
             {
             }
-            public override string GetLyrics()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Sweetly sings the donkey at the break of day.");
-                sb.AppendLine("If you do not feed him, this is what he'll say:");
-                sb.AppendLine("Hee-haw, hee-haw, hee-haw, hee-haw, hee-haw.");
-                return sb.ToString();
-            }
-            public override string GetMeaning()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("The song describes the morning routine of a donkey. The donkey sings at daybreak, which is curious because donkeys");
-                sb.AppendLine("do not \"sing\" the way humans do, and also the noises a donkey makes are not particularly analogous to singing to human ears.");
-                sb.AppendLine("The donkey is fed in the morning as typical for farm animals. And if not fed the hungry donkey will say donkey sounds. Again,");
-                sb.AppendLine("this is curious because donkeys do not \"say\" things the way humans do. Nevertheless the donkey says \"Hee-haw\" five times.");
-                sb.AppendLine("What does the donkey mean by its singing and saying? The obvious answer of saying \"Feed me\" or \"Please feed me\" is a reasonable");
-                sb.AppendLine("choice of ascribing human words to the donkey. But we can never really know if that's correct or if the donkey's singing/saying");
-                sb.AppendLine("has another more inscrutable meaning.");
-                return sb.ToString();
-            }
         }
 
+        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\004-OrionisaRisingHuman.txt", PeopleEnumerated.RoweChris)]
         public class OrionIsarising : Song
         {
             public OrionIsarising() : base("Orion is a-rising") { }
-
-            public override string GetLyrics()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Orion is a-rising, you can see his stars a-blazing");
-                sb.AppendLine("In the middle of a clear night country sky.");
-                sb.AppendLine("And it's never too surprising that the sky is so amazing");
-                sb.AppendLine("Way out here where nothing hides it from my eye.");
-                sb.AppendLine("And sleeping outside in a bag as a kid,");
-                sb.AppendLine("It seems like the best thing that I ever did.");
-                sb.AppendLine("And chasing the shadows and the tracks in the snow.");
-                sb.AppendLine("Don't you know?");
-                sb.AppendLine("The moon is on its way, and it looks like it might rain or maybe snow.");
-                sb.AppendLine("And how are we to stay here if there's no room left to play here.");
-                sb.AppendLine("Don't you know?");
-                sb.AppendLine("Don't you know?");
-                return sb.ToString();
-            }
-
-            public override string GetMeaning()
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Orion is a prominent set of stars visible during winter in the north celestial hemisphere. The number of visible");
-                sb.AppendLine("stars depends on the clarity of the sky. On a clear night in the country, when nothing hides the constellation");
-                sb.AppendLine("from sight, more stars are visible. Weather conditions such as haze, as well as light and air pollution can reduce");
-                sb.AppendLine("the number of visible. The constellation can be recognizable even by seeing two stars (Betelgeuse and Rigel), as");
-                sb.AppendLine("those stars are bright and have a distinctive color (Betelgeuse=Reddish, Rigel=Bluish). The more of the constellation");
-                sb.AppendLine("is visible, the more impressive. Another factor influencing the visibility of the stars is the presence of the moon. When the moon is");
-                sb.AppendLine("visible that makes the stars harder to see. So \"the moon is on the way\" means the moon hasn't risen yet.");
-                sb.AppendLine();
-                sb.AppendLine("A common scenario for viewing the constellation with maximum visibility is during camping. Camping can take place in");
-                sb.AppendLine("rural areas with less light and air pollution. Sleeping in a sleeping bag is a common feature of camping. Many");
-                sb.AppendLine("humans regard camping they did as a kid as a happy memory, for some it could be the happiest childhood memory they have.");
-                sb.AppendLine();
-                sb.AppendLine("In asking \"Don't you know?\", the singer asks the listener to think about their own memories of camping, with the");
-                sb.AppendLine("intention of bringing about a shared common happy experience of the past.");
-                sb.AppendLine();
-                sb.AppendLine("So in total the song imagines a shared happy experience where Orion is maximally visible. But you don't always get");
-                sb.AppendLine("maximum visibility. You're at the mercy of the weather (rain or snow interferes).");
-                sb.AppendLine();
-                sb.AppendLine("But there is a deeper message in the song in the lyric \"how are we to stay here if there's no room left to play here?\"");
-                sb.AppendLine("Camping takes place in rural areas, but as human civilization urbanizes, light and air pollution increases, encroaching");
-                sb.AppendLine("on rural areas, with a consequence that many places have their star viewing capacity reduced. And perhaps that");
-                sb.AppendLine("mean camping becomes less awesome so less people want to camp so it's harder to find the space available.");
-                sb.AppendLine();
-                sb.AppendLine("The lyric can also be interpreted as drawing attention to overpopulation (no room left to play here). Human population");
-                sb.AppendLine("started massively increasing during the Industrial Revolution. And people have been worrying about the possibility of");
-                sb.AppendLine("human population going beyond the Earth's carrying capacity ever since. Two thinkers relevant to the issue are Thomas");
-                sb.AppendLine("Robert Malhus (1700s) and Paul Ehrlich (modern era). The idea is overpopulation is and has been heavily debated, with");
-                sb.AppendLine("no consensus even that it is actually a problem.");
-                sb.AppendLine();
-                sb.AppendLine("The song takes the environmentalist side on the overpopulation and air/light pollution issues. The final \"Don't you know?\"s");
-                sb.AppendLine("draw the listener's attention to these issues, suggesting that the listener think about their choices and their impact on");
-                sb.AppendLine("the environment to keep the happy experience of camping available for future generations.");
-                return sb.ToString();
-            }
         }
 
         public class OpinionOfCamping : BaseEvent

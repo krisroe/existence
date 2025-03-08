@@ -1,4 +1,4 @@
-﻿using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
+﻿using Existence.Beyond.Infrastructure;
 
 namespace Existence.Personal.JudgmentDay
 {

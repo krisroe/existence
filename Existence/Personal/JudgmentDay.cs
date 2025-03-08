@@ -13,4 +13,15 @@ namespace Existence.Personal
             this.Singer = Singer;
         }
     }
+    public class MusicNotesRepositoryMeaningFile : Attribute
+    {
+        public string RelativePath { get; set; }
+        public PeopleEnumerated Interpreter { get; set; }
+        public MusicNotesRepositoryMeaningFile(string RelativePath, PeopleEnumerated Interpreter)
+        {
+            this.RelativePath = RelativePath;
+            this.Interpreter = Interpreter;
+        }
+
+    }
 }

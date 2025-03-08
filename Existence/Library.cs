@@ -105,7 +105,6 @@
     public static class Rule { }
     public static class Snow { }
     public static class SolarSystem { }
-    public static class Song { }
     public static class Star { }
     public static class Start { }
     public static class String { }

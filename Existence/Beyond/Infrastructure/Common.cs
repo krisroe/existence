@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using Existence.Earth.FieldsOfStudy.Psychology;
 
 namespace Existence.Beyond.Infrastructure
@@ -170,5 +169,51 @@ namespace Existence.Beyond.Infrastructure
     public abstract class CosmicPaydayBase
     {
         public abstract List<CosmicPayday> GetCosmicPayday();
+    }
+
+    public class TerminalEvent
+    {
+        public string EventName { get; set; }
+        public BaseEvent[] PreviousEvents { get; set; }
+        public TerminalEvent(string EventName, params BaseEvent[] PreviousEvents)
+        {
+            this.EventName = EventName;
+            this.PreviousEvents = PreviousEvents;
+        }
+    }
+
+    public class BaseEvent
+    {
+        public string EventName { get; set; }
+        public BaseEvent? PreviousEvent;
+
+        public BaseEvent(string EventName)
+        {
+            this.EventName = EventName;
+            PreviousEvent = null;
+        }
+    }
+
+    public class Song : BaseEvent
+    {
+        public Song(string SongName) : base(SongName)
+        {
+        }
+    }
+
+    public class ParodySong : Song
+    {
+        public string Parodies { get; set; }
+        public ParodySong(string SongName, string Parodies) : base(SongName)
+        {
+            this.Parodies = Parodies;
+        }
+    }
+
+    public class OriginalSong : BaseEvent
+    {
+        public OriginalSong(string SongName) : base(SongName)
+        {
+        }
     }
 }
