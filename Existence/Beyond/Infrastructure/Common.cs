@@ -194,26 +194,52 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    public class Song : BaseEvent
+    public class SongEvent : BaseEvent
     {
-        public Song(string SongName) : base(SongName)
+        public SongEvent(string SongName) : base(SongName)
         {
         }
     }
 
-    public class ParodySong : Song
+    public class ParodySongEvent : SongEvent
     {
         public string Parodies { get; set; }
-        public ParodySong(string SongName, string Parodies) : base(SongName)
+        public ParodySongEvent(string SongName, string Parodies) : base(SongName)
         {
             this.Parodies = Parodies;
         }
     }
 
-    public class OriginalSong : BaseEvent
+    public class OriginalSongEvent : BaseEvent
     {
-        public OriginalSong(string SongName) : base(SongName)
+        public OriginalSongEvent(string SongName) : base(SongName)
         {
+        }
+    }
+
+    public enum SongInterpretationLevel
+    {
+        ModernHuman,
+        IntergalacticPulsarTime,
+        PostIntergalacticPulsarTime,
+    }
+
+    public class SongInterpretationLevelsAttribute : Attribute
+    {
+        public SongInterpretationLevel[] Levels { get; set; }
+
+        public SongInterpretationLevelsAttribute(params SongInterpretationLevel[] Levels)
+        {
+            this.Levels = Levels;
+        }
+    }
+
+    public class CosmicRequest : Attribute
+    {
+        public string Request { get; set; }
+        public CosmicRequest(string Request)
+        {
+            this.Request = Request;
         }
     }
 }

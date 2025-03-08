@@ -45,6 +45,14 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 7)]
             MoveSongMeaningFilesToMusicNotesRepository,
+
+            /// <summary>
+            /// shifted song meaning files to no longer be in a judgment day specific folder
+            /// class name changes to avoid namespace conflicts
+            /// </summary>
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 3, 7)]
+            ReferenceShiftForMusicMeaningFilesInMusicNotesRepository,
         }
 
         public BirthToGrowingUp()
@@ -298,8 +306,8 @@ namespace Existence.Beyond.JudgmentDay
         [PersonalFirst("Parody Song")]
         [ZHumanLevel(HumanLevel.Childhood)]
         [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\SonyasDumb.wav", PeopleEnumerated.RoweChris)]
-        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
-        public class FirstParodySong : ParodySong
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
+        public class FirstParodySong : ParodySongEvent
         {
             public FirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
             {
@@ -308,8 +316,8 @@ namespace Existence.Beyond.JudgmentDay
 
         [PersonalFirst("Original Song")]
         [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\2-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
-        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
-        public class FirstOriginalSong : Song
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
+        public class FirstOriginalSong : SongEvent
         {
             public FirstOriginalSong() : base("The National SID Foundation")
             {
@@ -318,16 +326,16 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         [Text("Sung as a round many times in the car with my mother and my sister")]
-        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\003-SweetlySingsTheDonkeyAtTheBreakOfDay.txt", PeopleEnumerated.RoweChris)]
-        public class SweetlySingsTheDonkeyAtTheBreakOfDay : Song
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\003-SweetlySingsTheDonkeyAtTheBreakOfDay.txt", PeopleEnumerated.RoweChris)]
+        public class SweetlySingsTheDonkeyAtTheBreakOfDay : SongEvent
         {
             public SweetlySingsTheDonkeyAtTheBreakOfDay() : base("Sweetly Sings the Donkey at the Break of Day")
             {
             }
         }
 
-        [MusicNotesRepositoryMeaningFile(@"Released\JudgmentDay\Meaning\004-OrionisaRisingHuman.txt", PeopleEnumerated.RoweChris)]
-        public class OrionIsarising : Song
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\004-OrionisaRisingHuman.txt", PeopleEnumerated.RoweChris)]
+        public class OrionIsarising : SongEvent
         {
             public OrionIsarising() : base("Orion is a-rising") { }
         }
