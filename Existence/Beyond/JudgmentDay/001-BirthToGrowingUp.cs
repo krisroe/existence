@@ -61,6 +61,13 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 3, 8)]
             MovePetDogsAndFamilyMemberEnums,
+
+            /// <summary>
+            /// audio files now in audio folder since they might be released in contexts other than judgment day
+            /// </summary>
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 3, 9)]
+            MoveAudioFilesOutOfJudgmentDayFolder,
         }
 
         public BirthToGrowingUp()
@@ -304,7 +311,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [PersonalFirst("Parody Song")]
         [ZHumanLevel(HumanLevel.Childhood)]
-        [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\SonyasDumb.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryAudioFile(@"Released\Audio\001-SonyasDumb.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
         public class FirstParodySong : ParodySongEvent
         {
@@ -314,7 +321,7 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         [PersonalFirst("Original Song")]
-        [MusicNotesRepositoryAudioFile(@"Released\JudgmentDay\Audio\2-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryAudioFile(@"Released\Audio\002-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
         public class FirstOriginalSong : SongEvent
         {

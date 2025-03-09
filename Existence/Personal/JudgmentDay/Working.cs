@@ -37,6 +37,17 @@ internal class Working
     /// People are inherently Stupid
     /// Psychology is BS
     /// Become atheist (Antichrist)
+    /// 
+    /// Blanket (sonya and I) incident
+    /// HAlloween getting out of
+    /// HAlloween as ghost and myself
+    /// 
+    /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
+    /// last wet the bed incident was at Pine Lake camp (camp counselor washed the sleeping bag)
+    /// son took forever to get over wetting the bed (wore pullup like forever, his mother really didn't
+    /// want to clean it up and appeared to have no idea what would be helpful and never asked me about it). He Didn't seem to
+    /// consider it important when asked. Eventually he just stopped wearing the pullup and it was fine.
+    /// 
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {

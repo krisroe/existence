@@ -1,10 +1,11 @@
 ﻿using Existence.Beyond.Infrastructure;
-using Existence.Earth.Human.People;
-using Existence.Earth;
-using Existence.Time;
-using System;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
+using Existence.Earth.Human.People;
+using Existence.Earth;
+using Existence.Personal;
+using Existence.Time;
+using System;
 using System.Collections.Generic;
 
 namespace Existence.Beyond.JudgmentDay
@@ -63,9 +64,13 @@ namespace Existence.Beyond.JudgmentDay
             //got them very shortly after they were born on my mother's father's farm (1988-04-11)
             nuclearFamilyPetList.AddRange(PetDogs.Benji.ToString(), PetDogs.Teddy.ToString());
 
+            nuclearFamilyPetList.Remove(PetDogs.Benji.ToString()); //1989-01-27
+            nuclearFamilyPetList.Add(PetDogs.Prince.ToString()); //replacement for Benji
+
             nuclearFamilyPetList.Remove(PetCats.Chaquita.ToString()); //death of Chaquita: 1990-01-30
             nuclearFamilyPetList.Remove(PetCats.April.ToString()); //death of April: 1990-08-08
-            nuclearFamilyPetList.Add(PetCats.Snowball.ToString()); //pregnant, close to giving birth
+
+            nuclearFamilyPetList.Add(PetCats.Snowball.ToString()); //arrived pregnant, close to giving birth
 
             //The mother retreated to the old (non-addition) basement, gave birth alone (1990-04-10)
             nuclearFamilyPetList.AddRange(
@@ -74,25 +79,24 @@ namespace Existence.Beyond.JudgmentDay
                 PetCats.Tigger.ToString(),
                 PetCats.Gretel.ToString());
 
-            nuclearFamilyPetList.Remove(PetDogs.Benji.ToString()); //1989-01-27
-            nuclearFamilyPetList.Add(PetDogs.Prince.ToString()); //replacement for Benji
-
             nuclearFamilyPetList.Remove(PetDogs.Abe.ToString()); //1992-06-17
 
-            //I don't remember this but given he ended up in the pet graveyard,
+            //I don't remember this but given Morgan ended up in the pet graveyard,
             //I think the family took him from the farm before he died (1993-06-04)
             nuclearFamilyPetList.Add(PetDogs.Morgan.ToString());
             nuclearFamilyPetList.Remove(PetDogs.Morgan.ToString());
 
-            //when my parents separated, my mother assumed sole ownership of the pets
-            List<string> myMothersPets = nuclearFamilyPetList;
+            new BaseEvent("Parents separated");
+            List<string> myMothersPets = nuclearFamilyPetList; //my mother assumed sole ownership of the pets
 
             myMothersPets.Remove(PetCats.Spike.ToString()); //1995-02-16
 
             //My mother had him euthanized, and I buried him while his body was still warm.
             myMothersPets.Remove(PetDogs.Prince.ToString()); //2002-09-28
-            
+            new TheseAreOurPetsSongComplete(); //both versions of the prince verse are usable so song is complete
+
             myMothersPets.Remove(PetDogs.Teddy.ToString()); //2003-08-19
+
             myMothersPets.Remove(PetCats.Tigger.ToString()); //2004-08-15
             myMothersPets.Remove(PetCats.Snowball.ToString()); //2005-01-12
             myMothersPets.Remove(PetCats.Gretel.ToString()); //2005-04-17
@@ -101,7 +105,7 @@ namespace Existence.Beyond.JudgmentDay
             //born 2006-10-05). My sister may have regretted this later given it's difficult to take care of two big
             //dogs and have a long distance commuting job. My mother spent a significant amount of money ensuring the
             //dogs would be well cared for when she was gone.
-            myMothersPets.AddRange(PetDogs.Rewey.ToString(), PetDogs.Riley.ToString());
+            myMothersPets.AddRange(PetDogs.Riley.ToString(), PetDogs.Rewey.ToString());
 
             //I think my sister was unable to take care of Stocco and my mother took him from her.
             myMothersPets.Add(PetCats.Stocco.ToString());
@@ -121,6 +125,33 @@ namespace Existence.Beyond.JudgmentDay
             //It was winter so we were unable to bury him in the pet graveyard until sufficient thaw took place.
             //In the meantime his body resided stiff in the freezer.
             myMothersPets.Remove(PetCats.Stocco.ToString()); //2023-12-24
+        }
+    }
+
+    [Year(1994)]
+    public class ParentsSeparated : BaseEvent
+    {
+        public ParentsSeparated() : base("Parents Separated")
+        {
+        }
+    }
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\003-TheseAreOurPets.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\007-TheseAreOurPets.txt", PeopleEnumerated.RoweChris)]
+    public class TheseAreOurPets : SongEvent
+    {
+        public TheseAreOurPets() : base("These are our Pets")
+        {
+        }
+    }
+
+    /// <summary>
+    /// song was logically complete once Prince died
+    /// </summary>
+    public class TheseAreOurPetsSongComplete : TheseAreOurPets
+    {
+        public TheseAreOurPetsSongComplete() : base()
+        {
         }
     }
 
