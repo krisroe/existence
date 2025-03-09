@@ -24,14 +24,18 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(1, 0, 0, 0)]
             [PersonalFirst("Timeless Information")]
             [YearDate(2025, 3, 7)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 8)]
+            ReworkSexEnum,
         }
 
 
         [Archetypes(Archetypes.Programmer)]
         [FavoriteColor(KnownColor.Transparent)]
         [HumanGender(HumanGender.Male)]
-        [HumanSex(HumanSex.Male)]
+        [Sex(Sexes.Male)]
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
         public class Self

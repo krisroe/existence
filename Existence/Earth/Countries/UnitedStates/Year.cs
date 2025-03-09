@@ -31,63 +31,64 @@ namespace Existence.Earth.Countries.UnitedStates
     /// Tax Day (April 15, or next business day if it falls on a weekend/holiday)
     /// Equinoxes and Solstices
     /// </summary>
-    public class FixedDateHolidays
+    public enum FixedDateHolidays
     {
         /// <summary>
         /// federal holiday
         /// </summary>
         [CalendarDate((int)Months.January, 1)]
-        public static class NewYearsDay { }
+        NewYearsDay,
 
         [CalendarDate((int)Months.February, 2)]
-        public static class GroundhogDay { }
+        GroundhogDay,
+
         /// <summary>
         /// observed in some states
         /// </summary>
         [CalendarDate((int)Months.February, 12)]
-        public static class LincolnsBirthday { }
+        LincolnsBirthday,
 
         [CalendarDate((int)Months.February, 14)]
-        public static class ValentinesDay { }
+        ValentinesDay,
 
         /// <summary>
         /// mathematical celebration
         /// </summary>
         [CalendarDate((int)Months.March, 14)]
-        public static class PiDay { }
+        PiDay,
 
         [CalendarDate((int)Months.March, 17)]
-        public static class SaintPatricksDay { }
+        SaintPatricksDay,
 
         [CalendarDate((int)Months.April, 1)]
-        public static class AprilFoolsDay { } 
+        AprilFoolsDay,
 
         /// <summary>
         /// cultural celebration
         /// </summary>
         [CalendarDate((int)Months.May, 5)]
-        public static class CincoDeMayo { }
+        CincodeMayo,
 
         [CalendarDate((int)Months.June, 14)]
-        public static class FlagDay { }
+        FlagDay,
 
         /// <summary>
         /// federal holiday
         /// </summary>
         [CalendarDate((int)Months.July, 4)]
-        public static class IndependenceDay { }
+        IndependenceDay,
 
         [CalendarDate((int)Months.September, 17)]
-        public static class ConstitutionDay { }
+        ConstitutionDay,
 
         [CalendarDate((int)Months.October, 31)]
-        public static class Halloween { }
+        Halloween,
 
         /// <summary>
         /// federal holiday
         /// </summary>
         [CalendarDate((int)Months.November, 11)]
-        public static class VeteransDay { }
+        VeteransDay,
 
         /// <summary>
         /// National Pearl Harbor Remembrance Day, an annual observance established in 1994
@@ -97,18 +98,18 @@ namespace Existence.Earth.Countries.UnitedStates
         /// The President issues an annual proclamation encouraging Americans to honor the memory of those who died in the attack.
         /// </summary>
         [CalendarDate((int)Months.December, 7)]
-        public static class PearlHarborDay { }
+        PearlHarborDay,
 
         [CalendarDate((int)Months.December, 24)]
-        public static class ChristmasEve { }
+        ChristmasEve,
 
         /// <summary>
         /// federal holiday
         /// </summary>
         [CalendarDate((int)Months.December, 25)]
-        public static class ChristmasDay { }
+        ChristmasDay,
 
         [CalendarDate((int)Months.December, 31)]
-        public static class NewYearsEve { }
+        NewYearsEve,
     }
 }

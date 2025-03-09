@@ -1,4 +1,5 @@
 ﻿using System;
+using Existence.Earth.Alphabet;
 
 namespace Existence.Time
 {
@@ -56,9 +57,67 @@ namespace Existence.Time
         }
     }
 
+    public enum Seasons
+    {
+        Winter,
+        Fall,
+        Spring,
+        Summer,
+    }
+
+    public class DeathdateUnknownAttribute : Attribute
+    {
+    }
+
+    public class DeathdateSignificantEventAttribute : Attribute
+    {
+        public int SignificantEvent { get; set; }
+        public DeathdateSignificantEventAttribute(int SignificantEvent)
+        {
+            this.SignificantEvent = SignificantEvent;
+        }
+    }
+
+    public class CauseOfDeathAttribute : TextAttribute
+    {
+        public string CauseOfDeath
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public CauseOfDeathAttribute(string CauseOfDeath) : base(CauseOfDeath) { }
+    }
+
     public class DeathdateAttribute : YearDateAttribute
     {
+        public Seasons? Season { get; set; }
+        public DeathdateAttribute(int Year) : base(Year, 0, 0)
+        {
+
+        }
+        public DeathdateAttribute(int Year, Seasons Season) : base(Year, 0, 0)
+        {
+            this.Season = Season;
+        }
+
         public DeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
+    public class ApproximateBirthdateAttribute : BirthdateAttribute
+    {
+        public ApproximateBirthdateAttribute(int Year) : base(Year, 0, 0)
+        {
+        }
+    }
+
+    public class BirthdateUnknownAttribute : Attribute
+    {
     }
 
     public class BirthdateAttribute : YearDateAttribute

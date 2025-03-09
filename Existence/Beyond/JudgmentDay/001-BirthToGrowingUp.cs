@@ -1,4 +1,5 @@
 ﻿using Existence.Beyond.Infrastructure;
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Human.People;
 using Existence.Earth;
 using Existence.Earth.Time;
@@ -53,6 +54,13 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 3, 7)]
             ReferenceShiftForMusicMeaningFilesInMusicNotesRepository,
+
+            /// <summary>
+            /// moved enums to next judgment day, renamed family members enums to be more precise
+            /// </summary>
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 3, 8)]
+            MovePetDogsAndFamilyMemberEnums,
         }
 
         public BirthToGrowingUp()
@@ -101,7 +109,7 @@ namespace Existence.Beyond.JudgmentDay
             ChainEvents(factListOrdered, birth);
 
             SomeoneSaidSomethingAndIFoundOutViaHearsay calledAGenius = new SomeoneSaidSomethingAndIFoundOutViaHearsay(
-                "He's a genius", (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMaternalUncle);
+                "He's a genius", (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
             calledAGenius.PreviousEvent = establishedFavoriteNumbers;
 
             List<BaseEvent> terminalEvents = new List<BaseEvent>()
@@ -122,9 +130,9 @@ namespace Existence.Beyond.JudgmentDay
         {
             return new List<CosmicCharity>()
             {
-                new CosmicCharity(1, (int)FamilyMembers.MySister, "Insulting Song #1"),
-                new CosmicCharity(1, (int)FamilyMembers.MySister, "Insulting Song #2"),
-                new CosmicCharity(1, (int)FamilyMembers.MySister, "Her Name is Exposed"),
+                new CosmicCharity(1, (int)FamilyMembers.MySisterSonya, "Insulting Song #1"),
+                new CosmicCharity(1, (int)FamilyMembers.MySisterSonya, "Insulting Song #2"),
+                new CosmicCharity(1, (int)FamilyMembers.MySisterSonya, "Her Name is Exposed"),
                 new CosmicCharity(1, (int)FirstGradeClassAttendanceListAlphabetical.Laura, "Never Acknowledged Compliment, Potential Soulmate"),
             };
         }
@@ -135,15 +143,6 @@ namespace Existence.Beyond.JudgmentDay
             {
                 events[i].PreviousEvent = i == 0 ? previousEvent : events[i - 1];
             }
-        }
-
-        public enum FamilyMembers
-        {
-            MyMaternalUncle,
-            MyMother,
-            MyFather,
-            Myself,
-            MySister,
         }
 
         public class MultiEvent : BaseEvent
@@ -448,12 +447,6 @@ namespace Existence.Beyond.JudgmentDay
                     return "I lost an opportunity for a potential friend.";
                 }
             }
-        }
-
-        public enum PetDogs
-        {
-
-            Abe,
         }
 
         public class BittenByAPetDog : BaseEvent

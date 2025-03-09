@@ -25,20 +25,19 @@ namespace Existence.Earth.Human.People
         }
     }
 
-    public class HumanSexAttribute : Attribute
+    public class SexAttribute : Attribute
     {
-        public HumanSex Sex { get; set; }
-        public HumanSexAttribute(HumanSex Sex)
+        public Sexes Sex { get; set; }
+        public SexAttribute(Sexes Sex)
         {
             this.Sex = Sex;
         }
     }
 
-    public enum HumanSex
+    public enum Sexes
     {
         Female,
-        Male,
-        Unclear,
+        Male
     }
 
     public class HumanGenderAttribute : Attribute

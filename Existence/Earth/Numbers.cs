@@ -1,4 +1,5 @@
 ﻿
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Alphabet;
 using System;
 using System.Drawing;
@@ -13,19 +14,38 @@ namespace Existence.Earth
             this.HumanLevel = HumanLevel;
         }
     }
+    /// <summary>
+    /// following the growth cycle using the usual human rules (best we can)
+    /// </summary>
     public class PersonalHumanLevelAttribute : HumanLevelAttribute
     {
         public PersonalHumanLevelAttribute(HumanLevel PersonalHumanLevel) : base(PersonalHumanLevel) { }
     }
+    /// <summary>
+    /// following the growth cycle using the usual divine rules (best we can)
+    /// </summary>
     public class DivineHumanLevelAttribute : HumanLevelAttribute
     {
         public DivineHumanLevelAttribute(HumanLevel DivineHumanLevel) : base(DivineHumanLevel) { }
     }
+    /// <summary>
+    /// following the growth cycle using the usual cosmic rules (best we can)
+    /// </summary>
     public class CosmicHumanLevelAttribute : HumanLevelAttribute
     {
         public CosmicHumanLevelAttribute(HumanLevel CosmicHumanLevel) : base(CosmicHumanLevel) { }
     }
-    public class ZHumanLevelAttribute : HumanLevelAttribute
+    /// <summary>
+    /// This class represents the usual individual-level rules. I incorporate these into my Z rules.
+    /// </summary>
+    public abstract class IndividualHumanLevelAttribute : HumanLevelAttribute
+    {
+        public IndividualHumanLevelAttribute(HumanLevel IndividualHumanLevel) : base(IndividualHumanLevel) { }
+    }
+    /// <summary>
+    /// following the growth cycle of my Z rules
+    /// </summary>
+    public class ZHumanLevelAttribute : IndividualHumanLevelAttribute
     {
         public ZHumanLevelAttribute(HumanLevel ZHumanLevel) : base(ZHumanLevel) { }
     }
@@ -39,6 +59,15 @@ namespace Existence.Earth
         Adult = 4,
     }
 
+    public class ColorsAttribute : Attribute
+    {
+        public KnownColor[] Colors { get; set; }
+        public ColorsAttribute(params KnownColor[] Colors)
+        {
+            this.Colors = Colors;
+        }
+    }
+
     public class FavoriteColorAttribute : Attribute
     {   
         public KnownColor FavoriteColor { get; set; }
@@ -46,6 +75,72 @@ namespace Existence.Earth
         {
             this.FavoriteColor = FavoriteColor;
         }
+    }
+
+    public class PetColorsAttribute : Attribute
+    {
+        public PetColors[] PetColors { get; set; }
+        public PetColorsAttribute(params PetColors[] PetColors)
+        {
+            this.PetColors = PetColors;
+        }
+    }
+
+    public class PetSecondaryColors : Attribute
+    {
+        public PetColors[] PetColors { get; set; }
+        public PetSecondaryColors(params PetColors[] PetColors)
+        {
+            this.PetColors = PetColors;
+        }
+    }
+
+    public enum PetTypes
+    {
+        Cat,
+        Dog,
+    }
+
+    public class PetTypeAttribute : Attribute
+    {
+        public PetTypes PetType { get; set; }
+        public PetTypeAttribute(PetTypes PetType)
+        {
+            this.PetType = PetType;
+        }
+    }
+
+    public class DogBreedAttribute : Attribute
+    {
+        public DogBreeds Breed { get; set; }
+        public DogBreedAttribute(DogBreeds Breed)
+        {
+            this.Breed = Breed;
+        }
+    }
+
+    public enum DogBreeds
+    {
+        Beagle,
+        GermanShepherd,
+        GoldenRetriever,
+        /// <summary>
+        /// the politically correct term is MixedBreed, but I prefer the shortened version
+        /// </summary>
+        Mutt,
+    }
+
+    public enum PetColors
+    {
+        Black,
+        Brown,
+        Calico,
+        Golden,
+        Gray,
+        Orange,
+        Red,
+        Tabby,
+        White,
     }
 
     public static class Numbers
