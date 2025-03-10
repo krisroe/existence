@@ -23,7 +23,6 @@
    <Folder Include="Earth\FieldsOfStudy\Geography\" />
    <Folder Include="Logic\Games\Chess\" />
    <Folder Include="Personal\Skills\" />
-   <Folder Include="Software\" />
  </ItemGroup>
  <ItemGroup>
   <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
