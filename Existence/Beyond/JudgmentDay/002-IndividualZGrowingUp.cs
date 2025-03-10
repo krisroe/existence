@@ -342,7 +342,7 @@ namespace Existence.Beyond.JudgmentDay
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [ChildPetOwner((int)FamilyMembers.MySisterSonya)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
-        [PersonallyRememberBuriedInMothersPetGraveyard]
+        [PersonallyKnowIBuriedInMothersPetGraveyard]
         Prince,
 
         [Sex(Sexes.Male)]
@@ -353,7 +353,7 @@ namespace Existence.Beyond.JudgmentDay
         [PreviousPetOwner((int)SpecificFarms.UnknownFarm)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
-        [PersonallyRememberBuriedInMothersPetGraveyard]
+        [PersonallyKnowIBuriedInMothersPetGraveyard]
         Rewey,
 
         [Sex(Sexes.Male)]
@@ -364,7 +364,7 @@ namespace Existence.Beyond.JudgmentDay
         [PreviousPetOwner((int)SpecificFarms.UnknownFarm)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
-        [PersonallyRememberBuriedInMothersPetGraveyard]
+        [PersonallyKnowIBuriedInMothersPetGraveyard]
         Riley,
 
         [Sex(Sexes.Male)]
@@ -485,7 +485,7 @@ namespace Existence.Beyond.JudgmentDay
         [PreviousPetOwner((int)FamilyMembers.MySisterSonya)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
-        [PersonallyRememberBuriedInMothersPetGraveyard]
+        [PersonallyKnowIBuriedInMothersPetGraveyard]
         Stocco,
 
         [Sex(Sexes.Female)]
@@ -511,7 +511,7 @@ namespace Existence.Beyond.JudgmentDay
         [PreviousPetOwner((int)SpecificFarms.HilliardsFarm)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
-        [PersonallyRememberBuriedInMothersPetGraveyard]
+        [PersonallyKnowIBuriedInMothersPetGraveyard]
         Toby,
     }
 
@@ -587,11 +587,11 @@ namespace Existence.Beyond.JudgmentDay
 
     /// <summary>
     /// I think there are others I buried (Snowflake/Elsie/Tigger are possibilities), 
-    /// but only certain ones I specifically remember
+    /// but only certain ones I specifically remember or know I did
     /// </summary>
-    public class PersonallyRememberBuriedInMothersPetGraveyardAttribute : Attribute
+    public class PersonallyKnowIBuriedInMothersPetGraveyardAttribute : Attribute
     {
-        public PersonallyRememberBuriedInMothersPetGraveyardAttribute() { }
+        public PersonallyKnowIBuriedInMothersPetGraveyardAttribute() { }
     }
     
     public class FinalRestingPlaceInMyMothersPetGraveyardAttribute : Attribute { }
@@ -602,5 +602,6 @@ namespace Existence.Beyond.JudgmentDay
     /// Riley+Rewey   Gretel  Snowball   Tigger  Teddy  Prince Lance Scooter   Chelsie   Kirby Hypie
     ///               Elsie   Snowflake    Tinkerbell   Toby
     /// </summary>
+    [TODO("Stocco is missing from this list")]
     public class PetGraveyardRelativePositioning { }
 }
