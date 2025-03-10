@@ -158,7 +158,14 @@ namespace Existence.Beyond.Infrastructure
     {
         public abstract int GetLevel();
 
-        public abstract List<CosmicCharity> GetCosmicCharity();
+        public virtual List<CosmicCharity>? GetCosmicCharity()
+        {
+            return null;
+        }
+        public virtual List<TimelessChange>? GetTimelessChanges()
+        {
+            return null;
+        }
     }
 
     public abstract class CosmicCharityBase
@@ -240,6 +247,15 @@ namespace Existence.Beyond.Infrastructure
         public CosmicRequest(string Request)
         {
             this.Request = Request;
+        }
+    }
+
+    public class TimelessChange
+    {
+        public string Description { get; set; }
+        public TimelessChange(string Description)
+        {
+            this.Description = Description;
         }
     }
 }

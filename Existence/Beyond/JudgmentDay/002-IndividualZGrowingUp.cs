@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Existence.Beyond.JudgmentDay
 {
     [IsReleased(false)]
-    public class IndividualZGrowingUp
+    public class IndividualZGrowingUp : JudgmentDayBase
     {
         public IndividualZGrowingUp()
         {
@@ -123,8 +123,26 @@ namespace Existence.Beyond.JudgmentDay
             myMothersPets.Remove(PetCats.Toby.ToString());
 
             //It was winter so we were unable to bury him in the pet graveyard until sufficient thaw took place.
-            //In the meantime his body resided stiff in the freezer.
+            //In the meantime his body resided stiff in the freezer, until burial the next year.
             myMothersPets.Remove(PetCats.Stocco.ToString()); //2023-12-24
+
+            new StoccoElegyStarted();
+            new MyMotherDiedInSomeSense();
+            new StoccoElegyFinished();
+        }
+
+        [TODO("Justify")]
+        public override int GetLevel()
+        {
+            return 2;
+        }
+
+        [TODO("Mother's Date of Death + Final Human-Scale Resting Place for 8 Childhood Pets")]
+        public override List<TimelessChange>? GetTimelessChanges()
+        {
+            return new List<TimelessChange>()
+            {
+            };
         }
     }
 
@@ -135,6 +153,22 @@ namespace Existence.Beyond.JudgmentDay
         {
         }
     }
+
+    [YearDate(2024, 7, 21)]
+    public class MyMotherDiedInSomeSense : BaseEvent
+    {
+        public MyMotherDiedInSomeSense() : base("My Mother Died")
+        {
+        }
+    }
+
+    public class StoccoElegy : ParodySongEvent
+    {
+        public StoccoElegy() : base("Stocco Elegy", "Cats in the Cradle") { }
+    }
+
+    public class StoccoElegyStarted : StoccoElegy {}
+    public class StoccoElegyFinished : StoccoElegy {}
 
     [MusicNotesRepositoryAudioFile(@"Released\Audio\003-TheseAreOurPets.wav", PeopleEnumerated.RoweChris)]
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\007-TheseAreOurPets.txt", PeopleEnumerated.RoweChris)]
@@ -148,12 +182,8 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// song was logically complete once Prince died
     /// </summary>
-    public class TheseAreOurPetsSongComplete : TheseAreOurPets
-    {
-        public TheseAreOurPetsSongComplete() : base()
-        {
-        }
-    }
+    [ZHumanLevel(HumanLevel.GrowingUp)]
+    public class TheseAreOurPetsSongComplete : TheseAreOurPets {}
 
     public class PetMotherAttribute : Attribute
     {
