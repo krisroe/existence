@@ -29,6 +29,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 8)]
             ReworkSexEnum,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 3, 10)]
+            AddMyMothersMindAndBodyDeathDates,
         }
 
 
