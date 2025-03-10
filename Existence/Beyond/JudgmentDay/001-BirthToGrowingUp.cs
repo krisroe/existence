@@ -75,13 +75,29 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 5, 0, 0)]
             [YearDate(2025, 3, 10)]
             MoveHearsayAttributeToCommonInfrastructure,
+
+            /// <summary>
+            /// add justifications (pull songs to member vars so they are usable as justifications
+            /// make it more clear the firsts are personal
+            /// </summary>
+            [BeyondObjectVersion(1, 6, 0, 0)]
+            [YearDate(2025, 3, 10)]
+            AddJustifications,
         }
+
+        public PersonalFirstOriginalSong MyFirstOriginalSong;
+        public PersonalFirstParodySong MyFirstParodySong;
+        public SweetlySingsTheDonkeyAtTheBreakOfDay SweetlySingsTheDonkeyInterpretation;
+        public OrionIsarising OrionisaRisingHumanInterpretation;
 
         public BirthToGrowingUp()
         {
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
             BaseEvent skepticismOfReligion = new SkepticismOfReligion();
-            BaseEvent firstOriginalSong = new FirstOriginalSong();
+            MyFirstOriginalSong = new PersonalFirstOriginalSong();
+            MyFirstParodySong = new PersonalFirstParodySong();
+            SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
+            OrionisaRisingHumanInterpretation = new OrionIsarising();
             BaseEvent birth = new Birth();
             BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
 
@@ -109,14 +125,14 @@ namespace Existence.Beyond.JudgmentDay
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
                 new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
-                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), new OrionIsarising()]),
+                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation]),
                 skepticismOfReligion
             };
             List<BaseEvent> personalSongs = new List<BaseEvent>()
             {
-                new SweetlySingsTheDonkeyAtTheBreakOfDay(),
-                new FirstParodySong(),
-                firstOriginalSong
+                SweetlySingsTheDonkeyInterpretation,
+                MyFirstParodySong,
+                MyFirstOriginalSong
             };
             ChainEvents(chainedEvents, null);
             ChainEvents(personalSongs, startedPianoLessons);
@@ -129,15 +145,21 @@ namespace Existence.Beyond.JudgmentDay
             List<BaseEvent> terminalEvents = new List<BaseEvent>()
             {
                 skepticismOfReligion,
-                firstOriginalSong,
+                MyFirstOriginalSong,
             };
 
             AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
         }
 
-        public override int GetLevel()
+        public override List<LevelJustification> GetLevelJustifications()
         {
-            return 4;
+            return new List<LevelJustification>()
+            {
+                new ReleaseSongJustification(MyFirstParodySong, SongJustificationType.ReleaseSong),
+                new ReleaseSongJustification(MyFirstOriginalSong, SongJustificationType.ReleaseSong),
+                new ReleaseSongJustification(SweetlySingsTheDonkeyInterpretation, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(OrionisaRisingHumanInterpretation, SongJustificationType.InterpretSongMeaning),
+            };
         }
 
         public override List<CosmicCharity> GetCosmicCharity()
@@ -149,6 +171,11 @@ namespace Existence.Beyond.JudgmentDay
                 new CosmicCharity(1, (int)FamilyMembers.MySisterSonya, "Her Name is Exposed"),
                 new CosmicCharity(1, (int)FirstGradeClassAttendanceListAlphabetical.Laura, "Never Acknowledged Compliment, Potential Soulmate"),
             };
+        }
+
+        public override List<MissingInformation>? GetMissingInformation()
+        {
+            return null;
         }
 
         private static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
@@ -320,9 +347,9 @@ namespace Existence.Beyond.JudgmentDay
         [ZHumanLevel(HumanLevel.Childhood)]
         [MusicNotesRepositoryAudioFile(@"Released\Audio\001-SonyasDumb.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
-        public class FirstParodySong : ParodySongEvent
+        public class PersonalFirstParodySong : ParodySongEvent
         {
-            public FirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
+            public PersonalFirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
             {
             }
         }
@@ -330,9 +357,9 @@ namespace Existence.Beyond.JudgmentDay
         [PersonalFirst("Original Song")]
         [MusicNotesRepositoryAudioFile(@"Released\Audio\002-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
-        public class FirstOriginalSong : SongEvent
+        public class PersonalFirstOriginalSong : SongEvent
         {
-            public FirstOriginalSong() : base("The National SID Foundation")
+            public PersonalFirstOriginalSong() : base("The National SID Foundation")
             {
 
             }

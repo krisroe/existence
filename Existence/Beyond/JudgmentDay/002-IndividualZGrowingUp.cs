@@ -3,6 +3,7 @@ using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.Human.People;
 using Existence.Earth;
+using Existence.Logic;
 using Existence.Personal;
 using Existence.Time;
 using System;
@@ -13,37 +14,13 @@ namespace Existence.Beyond.JudgmentDay
     [IsReleased(false)]
     public class IndividualZGrowingUp : JudgmentDayBase
     {
+        public TheseAreOurPets TheseAreOurPets;
+        public StoccoElegy StoccoElegy;
+        public PetGraveyard MyMothersPetGraveyard;
+
         public IndividualZGrowingUp()
         {
-            List<int> litter;
-
-            litter = new List<int>()
-            {
-                (int)PetDogs.Morgan,
-                (int)PetDogs.Mickey
-            };
-            litter = new List<int>()
-            {
-                (int)PetDogs.Riley,
-                (int)PetDogs.Rewey
-            };
-            litter = new List<int>()
-            {
-                (int)PetDogs.Benji,
-                (int)PetDogs.Teddy
-            };
-            litter = new List<int>()
-            {
-                (int)PetCats.April,
-                (int)PetCats.Chaquita
-            };
-            litter = new List<int>()
-            {
-                (int)PetCats.Elsie,
-                (int)PetCats.Snowflake,
-                (int)PetCats.Tigger,
-                (int)PetCats.Gretel
-            };
+            DefineLitters();
 
             new TODOAttribute("There's a story here about how my father didn't want any pets but April and Chaquita jumped in the car");
             List<string> nuclearFamilyPetList = new List<string>()
@@ -93,7 +70,7 @@ namespace Existence.Beyond.JudgmentDay
 
             //My mother had him euthanized, and I buried him while his body was still warm.
             myMothersPets.Remove(PetDogs.Prince.ToString()); //2002-09-28
-            new TheseAreOurPetsSongComplete(); //both versions of the prince verse are usable so song is complete
+            TheseAreOurPets = new TheseAreOurPetsSongComplete(); //both versions of the prince verse are usable so song is complete
 
             myMothersPets.Remove(PetDogs.Teddy.ToString()); //2003-08-19
 
@@ -125,6 +102,7 @@ namespace Existence.Beyond.JudgmentDay
             //It was winter so we were unable to bury him in the pet graveyard until sufficient thaw took place.
             //In the meantime his body resided stiff in the freezer, until burial the next year.
             myMothersPets.Remove(PetCats.Stocco.ToString()); //2023-12-24
+            new ThisWasTheFirstTimeMyMotherDidntHaveAnyPetsSinceSheMarried();
 
             new StoccoElegyStarted();
 
@@ -137,21 +115,71 @@ namespace Existence.Beyond.JudgmentDay
                 new ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt()
             };
 
-            new StoccoElegyFinished();
+            StoccoElegy = new StoccoElegyFinished();
+            MyMothersPetGraveyard = new MyMothersPetGraveyard();
+
+            new ITakeOwnershipOfMyMothersPetGraveyard();
         }
 
-        [TODO("Justify")]
-        public override int GetLevel()
+        private void DefineLitters()
         {
-            return 2;
+            List<int> litter;
+            litter = new List<int>()
+            {
+                (int)PetDogs.Morgan,
+                (int)PetDogs.Mickey
+            };
+            litter = new List<int>()
+            {
+                (int)PetDogs.Riley,
+                (int)PetDogs.Rewey
+            };
+            litter = new List<int>()
+            {
+                (int)PetDogs.Benji,
+                (int)PetDogs.Teddy
+            };
+            litter = new List<int>()
+            {
+                (int)PetCats.April,
+                (int)PetCats.Chaquita
+            };
+            litter = new List<int>()
+            {
+                (int)PetCats.Elsie,
+                (int)PetCats.Snowflake,
+                (int)PetCats.Tigger,
+                (int)PetCats.Gretel
+            };
         }
 
-        [TODO("Final Human-Scale Resting Place for 8 Childhood Pets")]
+        public override List<LevelJustification> GetLevelJustifications()
+        {
+            return new List<LevelJustification>()
+            {
+                new ReleaseSongJustification(TheseAreOurPets, SongJustificationType.ReleaseSong),
+                new ReleaseSongJustification(StoccoElegy, SongJustificationType.ReleaseSongMeaning)
+            };
+        }
+
         public override List<TimelessChange>? GetTimelessChanges()
         {
             return new List<TimelessChange>()
             {
                 new TimelessChange("Mother's Date of Mind+Body Death (2024-07-21)"),
+                new TimelessChange("I take ownership of my mother's pet graveyard")
+            };
+        }
+
+        public override List<MissingInformation>? GetMissingInformation()
+        {
+            return new List<MissingInformation>()
+            {
+                new MissingInformation("Need to complete the meaning for Stocco Elegy lyrics"),
+                new MissingInformation("Update status of my mother's pet graveyard in the Timeless"),
+                new MissingInformation("Story about how my mother kept the starter pets when my father didn't want them"),
+                new MissingInformation("Information about Toby is imprecise since I couldn't see the gravestone information clearly"),
+                new MissingInformation("Stocco's location within the pet graveyard is left blank since I don't remember exactly")
             };
         }
     }
@@ -229,13 +257,14 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
-    public class StoccoElegy : ParodySongEvent
+    public class StoccoElegy : ContrafactumSongEvent
     {
         public StoccoElegy() : base("Stocco Elegy", "Cats in the Cradle") { }
     }
-
     public class StoccoElegyStarted : StoccoElegy {}
     public class StoccoElegyFinished : StoccoElegy {}
+
+    public class ThisWasTheFirstTimeMyMotherDidntHaveAnyPetsSinceSheMarried { }
 
     [MusicNotesRepositoryAudioFile(@"Released\Audio\003-TheseAreOurPets.wav", PeopleEnumerated.RoweChris)]
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\007-TheseAreOurPets.txt", PeopleEnumerated.RoweChris)]
@@ -296,6 +325,46 @@ namespace Existence.Beyond.JudgmentDay
         MyselfChris,
         MySisterSonya,
         MyNuclearFamilyChildhood,
+    }
+
+    /// <summary>
+    /// initial date presumes Sammy was in the graveyard by the first day of autumn 1986. My mother's ownership ended on her human death.
+    /// </summary>
+    [Owners(1986, 9, 23, 2024, 7, 21, (int)FamilyMembers.MyMotherSandy)]
+    public class MyMothersPetGraveyard : PetGraveyard
+    {
+        public MyMothersPetGraveyard()
+        {
+            AddPet((int)AnimalsIDontKnow.Sammy, PetTypes.Cat); //1986 (summer)
+            AddPet((int)PetDogs.Benji, PetTypes.Dog); //1989-01-27
+            AddPet((int)PetCats.Chaquita, PetTypes.Cat); //1990-01-30
+            AddPet((int)PetCats.April, PetTypes.Cat); //1990-08-08
+            AddPet((int)PetDogs.Abe, PetTypes.Dog); //1992-06-17
+            AddPet((int)PetDogs.Jenny, PetTypes.Dog); //1993-04-23
+            AddPet((int)PetDogs.Morgan, PetTypes.Dog); //1993-06-04
+            AddPet((int)PetCats.Spike, PetTypes.Cat); //1995-02-16
+            AddPet((int)PetDogs.Prince, PetTypes.Dog); //2002-09-28
+            AddPet((int)AnimalsIDontKnow.Lance, PetTypes.Cat); //2003
+            AddPet((int)PetDogs.Teddy, PetTypes.Dog); //2003-08-19
+            AddPet((int)PetCats.Tigger, PetTypes.Cat); //2004-08-15
+            AddPet((int)PetCats.Snowball, PetTypes.Cat); //2005-01-12
+            AddPet((int)FormerlyHadADifferentFamilyOwner.Chelsie, PetTypes.Dog); //2005-04-10
+            AddPet((int)PetCats.Gretel, PetTypes.Cat); //2005-04-17
+            AddPet((int)FormerlyHadADifferentFamilyOwner.Kirby, PetTypes.Dog); //2006-11-21
+            AddPet((int)AnimalsIDontKnow.Hypie, PetTypes.Cat); //2007-04-03
+            AddPet((int)PetCats.Elsie, PetTypes.Cat); //2007-04-18
+            AddPet((int)PetCats.Snowflake, PetTypes.Cat); //2007-08-27
+            AddPet((int)FormerlyHadADifferentFamilyOwner.Scooter, PetTypes.Cat); //I think went before Tinker
+            AddPet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, PetTypes.Cat); //2007-11-22
+            AddPet((int)PetDogs.Riley, PetTypes.Dog); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet((int)PetDogs.Rewey, PetTypes.Dog); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet((int)PetCats.Toby, PetTypes.Cat); //exact date uncertain
+            AddPet((int)PetCats.Stocco, PetTypes.Cat); //died 2023-12-24
+        }
+    }
+
+    public class ITakeOwnershipOfMyMothersPetGraveyard()
+    {
     }
 
     public class PetOwnersAttribute : Attribute
@@ -586,7 +655,7 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// My recollection is Scooter and Tinker were together
     /// </summary>
-    [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
+    
     public enum FormerlyHadADifferentFamilyOwner
     {
         [PetType(PetTypes.Dog)]
@@ -595,12 +664,14 @@ namespace Existence.Beyond.JudgmentDay
         [BirthdateUnknown]
         [Deathdate(2005, 4, 10)]
         [DogBreed(DogBreeds.Beagle)]
+        [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
         [PetOwners((int)FamilyMembers.MyMothersMotherDelores)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Chelsie,
 
         [PetType(PetTypes.Cat)]
         [Sex(Sexes.Male)]
+        [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Scooter,
 
@@ -609,8 +680,16 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         [PetType(PetTypes.Cat)]
         [Sex(Sexes.Female)]
+        [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Tinkerbell,
+
+        [Sex(Sexes.Male)]
+        [Deathdate(2006, 11, 21)]
+        [PetType(PetTypes.Dog)]
+        [PetOwners((int)FamilyMembers.MyMothersBrothersDaughterDenise)]
+        [FinalRestingPlaceInMyMothersPetGraveyard]
+        Kirby,
     }
 
     /// <summary>
@@ -621,25 +700,19 @@ namespace Existence.Beyond.JudgmentDay
     public enum AnimalsIDontKnow
     {
         /// <summary>
-        /// not 100% it was a cat, I don't know if it was male or female
+        /// not 100% it was a cat or dog, I don't know if it was male or female
         /// </summary>
         [Deathdate(2007, 4, 3)]
         [PetType(PetTypes.Cat)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Hypie,
 
-        [Sex(Sexes.Male)]
-        [Deathdate(2006, 11, 21)]
-        [PetType(PetTypes.Dog)]
-        [PetOwners((int)FamilyMembers.MyMothersBrothersDaughterDenise)] //I think this is the correct owner
-        [FinalRestingPlaceInMyMothersPetGraveyard]
-        Kirby,
-
         /// <summary>
-        /// gravestone says "5 days" which means my mother took care of him for 5 days before he died
+        /// not 100% sure it was a cat or dog. gravestone says "5 days" which means my mother took care of him for 5 days before he died
         /// </summary>
         [Sex(Sexes.Male)]
         [Deathdate(2003)]
+        [PetType(PetTypes.Cat)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Lance,
 
@@ -670,6 +743,6 @@ namespace Existence.Beyond.JudgmentDay
     /// Riley+Rewey   Gretel  Snowball   Tigger  Teddy  Prince Lance Scooter   Chelsie   Kirby Hypie
     ///               Elsie   Snowflake    Tinkerbell   Toby
     /// </summary>
-    [TODO("Stocco is missing from this list")]
+    [TODO("Stocco is missing from this list, probably in the lower left corner but I don't remember exactly where")]
     public class PetGraveyardRelativePositioning { }
 }

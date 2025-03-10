@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using Existence.Earth;
 using Existence.Earth.FieldsOfStudy.Psychology;
 using Existence.Time;
 
@@ -157,7 +158,10 @@ namespace Existence.Beyond.Infrastructure
 
     public abstract class JudgmentDayBase
     {
-        public abstract int GetLevel();
+        public virtual List<LevelJustification> GetLevelJustifications()
+        {
+            throw new InvalidOperationException();
+        }
 
         public virtual List<CosmicCharity>? GetCosmicCharity()
         {
@@ -166,6 +170,19 @@ namespace Existence.Beyond.Infrastructure
         public virtual List<TimelessChange>? GetTimelessChanges()
         {
             return null;
+        }
+        public virtual List<MissingInformation>? GetMissingInformation()
+        {
+            throw new InvalidOperationException();
+        }
+    }
+
+    public class MissingInformation
+    {
+        public string Info { get; set; }
+        public MissingInformation(string Info)
+        {
+            this.Info = Info;
         }
     }
 
@@ -209,12 +226,27 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    /// <summary>
+    /// rewriting lyrics for funny or satirical purposes
+    /// </summary>
     public class ParodySongEvent : SongEvent
     {
-        public string Parodies { get; set; }
-        public ParodySongEvent(string SongName, string Parodies) : base(SongName)
+        public string Source { get; set; }
+        public ParodySongEvent(string SongName, string Source) : base(SongName)
         {
-            this.Parodies = Parodies;
+            this.Source = Source;
+        }
+    }
+
+    /// <summary>
+    /// rewriting lyrics for serious or artistic purposes
+    /// </summary>
+    public class ContrafactumSongEvent : SongEvent
+    {
+        public string Source { get; set; }
+        public ContrafactumSongEvent(string SongName, string Source) : base(SongName)
+        {
+            this.Source = Source;
         }
     }
 
@@ -316,5 +348,38 @@ namespace Existence.Beyond.Infrastructure
             : base(Description, Who, Year, Month, Day, Cause)
         {
         }
+    }
+
+    public class PetGraveyard
+    {
+        public List<KeyValuePair<int, PetTypes>> Pets { get; set; }
+        public PetGraveyard()
+        {
+            this.Pets = new List<KeyValuePair<int, PetTypes>>();
+        }
+        public void AddPet(int Pet, PetTypes Type)
+        {
+            this.Pets.Add(new KeyValuePair<int, PetTypes>(Pet, Type));
+        }
+    }
+
+    public class LevelJustification
+    {
+    }
+    public class ReleaseSongJustification : LevelJustification
+    {
+        public SongEvent Song { get; set; }
+        public SongJustificationType Justification { get; set; }
+        public ReleaseSongJustification(SongEvent Song, SongJustificationType Justification)
+        {
+            this.Song = Song;
+            this.Justification = Justification;
+        }
+    }
+    public enum SongJustificationType
+    {
+        ReleaseSong,
+        ReleaseSongMeaning,
+        InterpretSongMeaning,
     }
 }
