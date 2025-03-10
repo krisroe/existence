@@ -57,6 +57,8 @@ namespace Existence.Beyond.Timeless
             public class v1
             {
                 [Birthdate(1952, 2, 18)]
+                [MindDeathdate(2024, 7, 21)]
+                [BodyDeathdate(2024, 7, 21)]
                 public class Mother
                 {
                     public static class SiblingsByAgeDescending

@@ -78,20 +78,37 @@ namespace Existence.Time
         }
     }
 
-    public class CauseOfDeathAttribute : TextAttribute
+    public class CauseOfDeathAttribute : Attribute
     {
-        public string CauseOfDeath
+        public CausesOfDeath Cause { get; set; }
+        public CauseOfDeathAttribute(CausesOfDeath Cause) 
         {
-            get
-            {
-                return base.Text;
-            }
-            set
-            {
-                base.Text = value;
-            }
+            this.Cause = Cause;
         }
-        public CauseOfDeathAttribute(string CauseOfDeath) : base(CauseOfDeath) { }
+    }
+
+    public enum CausesOfDeath
+    {
+        /// <summary>
+        /// unknown cause of death
+        /// </summary>
+        Unknown = 0,
+        /// <summary>
+        /// total brain oxygen deprevation
+        /// </summary>
+        AnoxicEvent,
+        /// <summary>
+        /// hit by a car
+        /// </summary>
+        HitByACar,
+        /// <summary>
+        /// natural causes
+        /// </summary>
+        NaturalCauses,
+        /// <summary>
+        /// blood/oxygen cut off to part of the brain
+        /// </summary>
+        Stroke,
     }
 
     public class DeathdateAttribute : YearDateAttribute
@@ -107,6 +124,20 @@ namespace Existence.Time
         }
 
         public DeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
+    public class MindDeathdateAttribute : DeathdateAttribute
+    {
+        public MindDeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+        }
+    }
+
+    public class BodyDeathdateAttribute : DeathdateAttribute
+    {
+        public BodyDeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+        }
     }
 
     public class ApproximateBirthdateAttribute : BirthdateAttribute

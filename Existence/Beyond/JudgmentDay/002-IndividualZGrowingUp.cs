@@ -127,7 +127,16 @@ namespace Existence.Beyond.JudgmentDay
             myMothersPets.Remove(PetCats.Stocco.ToString()); //2023-12-24
 
             new StoccoElegyStarted();
-            new MyMotherDiedInSomeSense();
+
+            List<BaseEvent> personallyImportantEventsOfMothersHumanDeath = new List<BaseEvent>()
+            {
+                new MyMotherToldMySisterSheWasntGoingToDie(),
+                new LastConversationWithMyMother(),
+                new MyMotherMindDeath(),
+                new MyMotherBodyDeath(),
+                new ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt()
+            };
+
             new StoccoElegyFinished();
         }
 
@@ -137,11 +146,12 @@ namespace Existence.Beyond.JudgmentDay
             return 2;
         }
 
-        [TODO("Mother's Date of Death + Final Human-Scale Resting Place for 8 Childhood Pets")]
+        [TODO("Final Human-Scale Resting Place for 8 Childhood Pets")]
         public override List<TimelessChange>? GetTimelessChanges()
         {
             return new List<TimelessChange>()
             {
+                new TimelessChange("Mother's Date of Mind+Body Death (2024-07-21)"),
             };
         }
     }
@@ -154,10 +164,67 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
-    [YearDate(2024, 7, 21)]
-    public class MyMotherDiedInSomeSense : BaseEvent
+    /// <summary>
+    /// My mother never verbally acknowledged she was going to die (although through her actions she knew her situation was dire).
+    /// This was the last piece of denial.
+    /// </summary>
+    [YearDate(2024, 7, 20)]
+    public class MyMotherToldMySisterSheWasntGoingToDie : BaseEvent
     {
-        public MyMotherDiedInSomeSense() : base("My Mother Died")
+        public SomeoneSaidSomethingAndIFoundOutViaHearsay Info { get; set; }
+        public MyMotherToldMySisterSheWasntGoingToDie() : base("My Mother Claimed She Wasn't Going to Die")
+        {
+            this.Info = new SomeoneSaidSomethingAndIFoundOutViaHearsay("I'm not going to die.", (int)FamilyMembers.MyMotherSandy, (int)FamilyMembers.MySisterSonya);
+        }
+    }
+
+    /// <summary>
+    /// My last conversation with my mother. It wasn't very productive (she told me not to use the clay on the piano for microphone purposes).
+    /// I touched her and felt fear, not clear if it was my fear or her fear or both
+    /// </summary>
+    [YearDate(2024, 7, 20)]
+    public class LastConversationWithMyMother : BaseEvent
+    {
+        public SomeoneTouchedSomeoneElse TouchEvent { get; set; }
+        public SomeoneFeltEmotion EmotionalInfo { get; set; }
+        public LastConversationWithMyMother() : base("Last Conversation with My Mother")
+        {
+            EmotionalInfo = new SomeoneFeltEmotion("I felt fear.", (int)FamilyMembers.MyselfChris, Earth.FieldsOfStudy.Psychology.Emotions.Fear);
+            TouchEvent = new SomeoneTouchedSomeoneElse("My mother touched my hand with her hand.", (int)FamilyMembers.MyMotherSandy, (int)FamilyMembers.MyselfChris);
+        }
+    }
+
+    /// <summary>
+    /// In the early morning, an anoxic event occurred and she lost agency and consciousness. I was not in the house,
+    /// although my mother's older sister was.
+    /// </summary>
+    public class MyMotherMindDeath : MindDeathEvent
+    {
+        public MyMotherMindDeath() : base("My Mother Mind Death", (int)FamilyMembers.MyMotherSandy, 2024, 7, 21, CausesOfDeath.AnoxicEvent)
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was sitting in the Endeavor house addition when she biologically died. She was sitting in her chair in the room.
+    /// I didn't realize it immediately because there some involuntary head movements occured after this.
+    /// It was realized once others entered the room.
+    /// </summary>
+    public class MyMotherBodyDeath : BodyDeathEvent
+    {
+        public MyMotherBodyDeath() : base("My Mother Body Death in Front of Me", (int)FamilyMembers.MyMotherSandy, 2024, 7, 21, CausesOfDeath.NaturalCauses)
+        {
+        }
+    }
+
+    /// <summary>
+    /// I took a photograph with my flip phone of my dead mother sitting in the room. There were others in the room at the 
+    /// time but they didn't notice me take the picture. I deleted the picture shortly afterward because I thought it was inappropriate.
+    /// </summary>
+    [YearDate(2024, 7, 21)]
+    public class ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt : BaseEvent
+    {
+        public ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt() : base("Took+Deleted Photo of Dead Mother")
         {
         }
     }
@@ -289,7 +356,8 @@ namespace Existence.Beyond.JudgmentDay
         /// based on what I've heard from others.
         /// Death: Hearsay from my father is my mother drove to her mother's house with the dogs walking in
         /// front of them and a neighbor driving the other way hit the dog. My mother and sister were
-        /// shaken up by the death. I felt nothing (not my dog).
+        /// shaken up by the death (my mother had a lot of responsibility since her behavior was irresponsible).
+        /// I felt nothing (not my dog).
         /// </summary>
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.Brown)]
@@ -297,7 +365,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetMother((int)PetDogs.Jenny)]
         [Birthdate(1988, 4, 11)]
         [Deathdate(1989, 1, 27)]
-        [CauseOfDeath("Hit by a car, my mother bears a lot of responsibility per her irresponsible behavior")]
+        [CauseOfDeath(CausesOfDeath.HitByACar)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
         [ChildPetOwner((int)FamilyMembers.MySisterSonya)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
@@ -395,7 +463,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetColors(PetColors.Black)]
         [Birthdate(1976, 4, 1)]
         [Deathdate(1990, 8, 8)]
-        [CauseOfDeath("Stroke")]
+        [CauseOfDeath(CausesOfDeath.Stroke)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         April,
@@ -407,7 +475,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetColors(PetColors.Gray)]
         [Birthdate(1976, 4, 1)]
         [Deathdate(1990, 1, 30)]
-        [CauseOfDeath("Run over by a car")]
+        [CauseOfDeath(CausesOfDeath.HitByACar)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Chaquita,
@@ -481,7 +549,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetColors(PetColors.Tabby)]
         [BirthdateUnknown]
         [DeathdateSignificantEvent((int)FixedDateHolidays.ChristmasEve)]
-        [CauseOfDeath("Stroke")] //I think this is correct, I'm not a veterinarian
+        [CauseOfDeath(CausesOfDeath.AnoxicEvent)] //I think this is correct, I'm not a veterinarian
         [PreviousPetOwner((int)FamilyMembers.MySisterSonya)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]

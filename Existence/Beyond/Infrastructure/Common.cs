@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Existence.Earth.FieldsOfStudy.Psychology;
+using Existence.Time;
 
 namespace Existence.Beyond.Infrastructure
 {
@@ -256,6 +257,64 @@ namespace Existence.Beyond.Infrastructure
         public TimelessChange(string Description)
         {
             this.Description = Description;
+        }
+    }
+
+    public class SomeoneSaidSomethingAndIFoundOutViaHearsay : BaseEvent
+    {
+        public int PersonWhoSaidIt { get; set; }
+        public int PersonWhoToldMe { get; set; }
+        public SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
+        {
+            this.PersonWhoSaidIt = PersonWhoSaidIt;
+            this.PersonWhoToldMe = PersonWhoToldMe;
+        }
+    }
+
+    public class SomeoneTouchedSomeoneElse : BaseEvent
+    {
+        public int TouchingPerson { get; set; }
+        public int TouchedPerson { get; set; }
+        public SomeoneTouchedSomeoneElse(string Description, int TouchingPerson, int TouchedPerson) : base(Description)
+        {
+            this.TouchingPerson = TouchingPerson;
+            this.TouchedPerson = TouchedPerson;
+        }
+    }
+
+    public class SomeoneFeltEmotion : BaseEvent
+    {
+        public int Who { get; set; }
+        public SomeoneFeltEmotion(string Description, int Who, Emotions Emotion) : base(Description)
+        {
+            this.Who = Who;
+        }
+    }
+
+    public class DeathEvent : BaseEvent
+    {
+        public int Who { get; set; }
+        public DateTime Date { get; set; }
+        public CausesOfDeath Cause { get; set; }
+        public DeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause) : base(Description)
+        {
+            this.Who = Who;
+            this.Date = new DateTime(Year, Month, Day);
+            this.Cause = Cause;
+        }
+    }
+    public class MindDeathEvent : DeathEvent
+    {
+        public MindDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
+            : base(Description, Who, Year, Month, Day, Cause)
+        {
+        }
+    }
+    public class BodyDeathEvent : DeathEvent
+    {
+        public BodyDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
+            : base(Description, Who, Year, Month, Day, Cause)
+        {
         }
     }
 }

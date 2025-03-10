@@ -68,6 +68,13 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 3, 9)]
             MoveAudioFilesOutOfJudgmentDayFolder,
+
+            /// <summary>
+            /// move hearsay attribute to common so it's more easily used from other contexts
+            /// </summary>
+            [BeyondObjectVersion(1, 5, 0, 0)]
+            [YearDate(2025, 3, 10)]
+            MoveHearsayAttributeToCommonInfrastructure,
         }
 
         public BirthToGrowingUp()
@@ -419,17 +426,6 @@ namespace Existence.Beyond.JudgmentDay
                     sb.AppendLine("This was not recognized as a mistake until much later.");
                     return sb.ToString();
                 }
-            }
-        }
-
-        public class SomeoneSaidSomethingAndIFoundOutViaHearsay : BaseEvent
-        {
-            public int PersonWhoSaidIt { get; set; }
-            public int PersonWhoToldMe { get; set; }
-            public SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
-            {
-                this.PersonWhoSaidIt = PersonWhoSaidIt;
-                this.PersonWhoToldMe = PersonWhoToldMe;
             }
         }
 
