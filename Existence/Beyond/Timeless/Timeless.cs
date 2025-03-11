@@ -1,4 +1,5 @@
-﻿
+﻿using Existence.Beyond.JudgmentDay;
+using Existence.Beyond.Infrastructure;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Code;
 using Existence.Earth.FieldsOfStudy.Mathematics;
@@ -8,7 +9,6 @@ using Existence.Logic;
 using Existence.Personal.Infrastructure;
 using Existence.Time;
 using System.Drawing;
-using Existence.Beyond.Infrastructure;
 
 namespace Existence.Beyond.Timeless
 {
@@ -33,6 +33,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 10)]
             AddMyMothersMindAndBodyDeathDates,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 3, 10)]
+            AddMothersPetGraveyardWithPersonalOwnership,
         }
 
 
@@ -86,5 +90,8 @@ namespace Existence.Beyond.Timeless
                 public class Sister { }
             }
         }
+
+        [Owners(2025, 3, 10, int.MaxValue, 0, 0, (int)FamilyMembers.MyselfChris)]
+        public class MyMothersPetGraveyard { }
     }
 }

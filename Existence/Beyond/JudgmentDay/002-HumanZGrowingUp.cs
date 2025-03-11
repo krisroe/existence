@@ -11,14 +11,24 @@ using System.Collections.Generic;
 
 namespace Existence.Beyond.JudgmentDay
 {
-    [IsReleased(false)]
-    public class IndividualZGrowingUp : JudgmentDayBase
+    public class HumanZGrowingUp : JudgmentDayBase
     {
+        private enum VersionHistory
+        {
+            /// <summary>
+            /// initial release
+            /// </summary>
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [TimelessVersion(1, 3, 0, 0)]
+            [YearDate(2025, 3, 10)]
+            Created
+        }
+
         public TheseAreOurPets TheseAreOurPets;
         public StoccoElegy StoccoElegy;
         public PetGraveyard MyMothersPetGraveyard;
 
-        public IndividualZGrowingUp()
+        public HumanZGrowingUp()
         {
             DefineLitters();
 
@@ -175,8 +185,6 @@ namespace Existence.Beyond.JudgmentDay
         {
             return new List<MissingInformation>()
             {
-                new MissingInformation("Need to complete the meaning for Stocco Elegy lyrics"),
-                new MissingInformation("Update status of my mother's pet graveyard in the Timeless"),
                 new MissingInformation("Story about how my mother kept the starter pets when my father didn't want them"),
                 new MissingInformation("Information about Toby is imprecise since I couldn't see the gravestone information clearly"),
                 new MissingInformation("Stocco's location within the pet graveyard is left blank since I don't remember exactly")
@@ -256,7 +264,7 @@ namespace Existence.Beyond.JudgmentDay
         {
         }
     }
-
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\008-StoccoElegy.txt", PeopleEnumerated.RoweChris)]
     public class StoccoElegy : ContrafactumSongEvent
     {
         public StoccoElegy() : base("Stocco Elegy", "Cats in the Cradle") { }
@@ -277,8 +285,12 @@ namespace Existence.Beyond.JudgmentDay
 
     /// <summary>
     /// song was logically complete once Prince died
+    /// The personal/divine/cosmic flags are mentioned because this made them consistently GrowingUp
     /// </summary>
-    [ZHumanLevel(HumanLevel.GrowingUp)]
+    [ZHumanLevel(HumanLevel.GrowingUp)] //This is the only flag that changed here
+    [PersonalHumanLevel(HumanLevel.GrowingUp)]
+    [DivineHumanLevel(HumanLevel.GrowingUp)]
+    [CosmicHumanLevel(HumanLevel.GrowingUp)]
     public class TheseAreOurPetsSongComplete : TheseAreOurPets {}
 
     public class PetMotherAttribute : Attribute
@@ -363,9 +375,7 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
-    public class ITakeOwnershipOfMyMothersPetGraveyard()
-    {
-    }
+    public class ITakeOwnershipOfMyMothersPetGraveyard() {}
 
     public class PetOwnersAttribute : Attribute
     {
