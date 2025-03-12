@@ -41,7 +41,7 @@ namespace NationalFootballLeagueLibrary
             string filePath2 = args.Length > 2 ? args[2] : string.Empty;
             if (operation == "fromweb")
             {
-                WriteGameInfosToCSV(ProcessAllGameScoresFromWeb(Common.HttpClient), filePath1);
+                WriteGameInfosToCSV(ProcessAllGameScoresFromWeb(), filePath1);
             }
             else if (operation == "fromcsv") //load from all games csv file
             {
@@ -608,14 +608,13 @@ namespace NationalFootballLeagueLibrary
         /// retrieves the first and last game with the game score
         /// </summary>
         /// <param name="gsi">game score information</param>
-        /// <param name="hc">http client</param>
         /// <param name="keepTrackOfAllGames">list for keeping track of all games</param>
         /// <exception cref="InvalidOperationException"></exception>
-        public static FinalScoreInfo GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, HttpClient hc, List<GameInfo> keepTrackOfAllGames)
+        public static FinalScoreInfo GetFirstAndLastGameScoreInfo(GameScoreInfo gsi, List<GameInfo> keepTrackOfAllGames)
         {
             string sURL = $"https://www.pro-football-reference.com/boxscores/game_scores_find.cgi?pts_win={gsi.PtsW}&pts_lose={gsi.PtsL}";
-            HtmlDocument mainDoc = GetHtmlDocumentFromURL(sURL, hc);
-            HtmlNode foundTable = GetRankerTable(mainDoc);
+            HtmlDocument mainDoc = Common.GetHtmlDocumentFromURL(sURL);
+            HtmlNode foundTable = GetRelevantTable(mainDoc);
             int iRowIndex = 0;
             List<GameInfo> firstGames = new List<GameInfo>();
             List<GameInfo> lastGames = new List<GameInfo>();
@@ -855,10 +854,10 @@ namespace NationalFootballLeagueLibrary
             AAFC,
         }
 
-        private static IEnumerable<GameScoreInfo> GetAllGameScoresFromWeb(HttpClient hc)
+        private static IEnumerable<GameScoreInfo> GetAllGameScoresFromWeb()
         {
-            HtmlDocument mainDoc = GetHtmlDocumentFromURL("https://www.pro-football-reference.com/boxscores/game-scores.htm", hc);
-            HtmlNode foundTable = GetRankerTable(mainDoc);
+            HtmlDocument mainDoc = Common.GetHtmlDocumentFromURL("https://www.pro-football-reference.com/boxscores/game-scores.htm");
+            HtmlNode foundTable = GetRelevantTable(mainDoc);
             int iRowIndex = 0;
             foreach (HtmlNode nextRow in foundTable.SelectNodes("//tr"))
             {
@@ -948,19 +947,18 @@ namespace NationalFootballLeagueLibrary
         /// <summary>
         /// processes all game scores from the web (https://www.pro-football-reference.com/boxscores/game-scores.htm)
         /// </summary>
-        /// <param name="hc">HTTP client</param>
         /// <returns>enumerates through the game scores</returns>
-        public static IEnumerable<GameInfo> ProcessAllGameScoresFromWeb(HttpClient hc)
+        public static IEnumerable<GameInfo> ProcessAllGameScoresFromWeb()
         {
             bool pastFirst = false;
-            foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb(hc))
+            foreach (GameScoreInfo gsi in GetAllGameScoresFromWeb())
             {
                 List<GameInfo> allGames = new List<GameInfo>();
                 if (pastFirst)
                     Thread.Sleep(5000); //sleep to try to avoid being throttled
                 else
                     pastFirst = true;
-                GetFirstAndLastGameScoreInfo(gsi, Common.HttpClient, allGames);
+                GetFirstAndLastGameScoreInfo(gsi, allGames);
                 foreach (GameInfo nextGame in allGames)
                 {
                     yield return nextGame;
@@ -1246,46 +1244,11 @@ namespace NationalFootballLeagueLibrary
         }
 
         /// <summary>
-        /// retrieves an HTML document for a URL
-        /// </summary>
-        /// <param name="URL">URL</param>
-        /// <param name="hc">HTTP client</param>
-        /// <returns>HTML document</returns>
-        private static HtmlDocument GetHtmlDocumentFromURL(string URL, HttpClient hc)
-        {
-            HtmlDocument mainDoc = new HtmlDocument();
-            HttpResponseMessage hrm = hc.GetAsync(URL).Result;
-            if (hrm.IsSuccessStatusCode)
-            {
-                string sContent = hrm.Content.ReadAsStringAsync().Result;
-                mainDoc.LoadHtml(sContent);
-                return mainDoc;
-            }
-            else if (hrm.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
-            {
-                int retryAfter = -1;
-                foreach (var nextHeader in hrm.Headers)
-                {
-                    if (nextHeader.Key == "Retry-After")
-                    {
-                        retryAfter = nextHeader.Key.First();
-                    }
-                }
-                if (retryAfter != -1)
-                {
-                    throw new Exception("429 (Too Many Requests) Error. Try again after " + retryAfter + " seconds");
-                }
-
-            }
-            throw new Exception("HTTP request to " + URL + " failed with " + Convert.ToInt32(hrm.StatusCode) + " (" + hrm.StatusCode.ToString() + ") error");
-        }
-
-        /// <summary>
-        /// retrieves the ranker table for an HTML document
+        /// retrieves the relevant table for an HTML document
         /// </summary>
         /// <param name="mainDoc">main document</param>
         /// <returns>table element</returns>
-        private static HtmlNode GetRankerTable(HtmlDocument mainDoc)
+        private static HtmlNode GetRelevantTable(HtmlDocument mainDoc)
         {
             HtmlNode? foundTable = null;
             foreach (HtmlNode node in mainDoc.DocumentNode.SelectNodes("//table"))

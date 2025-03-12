@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using HtmlAgilityPack;
+using System.Globalization;
 using System.Xml;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -81,6 +82,40 @@ namespace LibraryShared
                     yield return gi;
                 }
             }
+        }
+
+        /// <summary>
+        /// retrieves an HTML document for a URL
+        /// </summary>
+        /// <param name="URL">URL</param>
+        /// <returns>HTML document</returns>
+        public static HtmlDocument GetHtmlDocumentFromURL(string URL)
+        {
+            HtmlDocument mainDoc = new HtmlDocument();
+            HttpResponseMessage hrm = HttpClient.GetAsync(URL).Result;
+            if (hrm.IsSuccessStatusCode)
+            {
+                string sContent = hrm.Content.ReadAsStringAsync().Result;
+                mainDoc.LoadHtml(sContent);
+                return mainDoc;
+            }
+            else if (hrm.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+            {
+                int retryAfter = -1;
+                foreach (var nextHeader in hrm.Headers)
+                {
+                    if (nextHeader.Key == "Retry-After")
+                    {
+                        retryAfter = nextHeader.Key.First();
+                    }
+                }
+                if (retryAfter != -1)
+                {
+                    throw new Exception("429 (Too Many Requests) Error. Try again after " + retryAfter + " seconds");
+                }
+
+            }
+            throw new Exception("HTTP request to " + URL + " failed with " + Convert.ToInt32(hrm.StatusCode) + " (" + hrm.StatusCode.ToString() + ") error");
         }
     }
 }
