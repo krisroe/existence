@@ -44,10 +44,15 @@ internal class Working
     /// 
     /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
     /// last wet the bed incident was at Pine Lake camp (camp counselor washed the sleeping bag)
+    /// 
     /// son took forever to get over wetting the bed (wore pullup like forever, his mother really didn't
     /// want to clean it up and appeared to have no idea what would be helpful and never asked me about it). He Didn't seem to
     /// consider it important when asked. Eventually he just stopped wearing the pullup and it was fine.
     /// 
+    /// Guarantee incident: Once when mother told us to put on our seat belts for a trip to grandma's house
+    /// I refused, saying I guaranteed we would make it to grandma's house without an accident (it was only
+    /// a couple of miles). I put on my seat belt, and we made it to grandma's house without incident, and
+    /// when we were done I said something to the effect of "see, I was right" (not exact words).
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {
