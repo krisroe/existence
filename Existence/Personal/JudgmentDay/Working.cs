@@ -59,6 +59,10 @@ internal class Working
     /// Sang "Silent Night" in real church nativity play (respectful, but what was my religion at the time?)
     /// 
     /// I do not remember ever believing in Santa Claus.
+    /// 
+    /// March 16, 1998: worst day of my life. Car wouldn't start and walked 13.5 miles home from school.
+    /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
+    /// Ides of March fall on March 16.
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {
