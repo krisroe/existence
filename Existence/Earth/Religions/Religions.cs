@@ -18,4 +18,7 @@ namespace Existence.Earth.Religions
         Noneism,
         Nihilism
     }
+
+    //First Apostle of X, X must be unique among humans
+    //Must provide reference date when creating religion, a human only do this once
 }
