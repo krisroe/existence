@@ -53,6 +53,12 @@ internal class Working
     /// I refused, saying I guaranteed we would make it to grandma's house without an accident (it was only
     /// a couple of miles). I put on my seat belt, and we made it to grandma's house without incident, and
     /// when we were done I said something to the effect of "see, I was right" (not exact words).
+    /// 
+    /// childhood nativity play - went from respectful to disrespectful of Christianity over time
+    /// 
+    /// Sang "Silent Night" in real church nativity play (respectful, but what was my religion at the time?)
+    /// 
+    /// I do not remember ever believing in Santa Claus.
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {
