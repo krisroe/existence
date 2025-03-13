@@ -171,6 +171,15 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// Subjective definition of a country
+    /// 1. An entity other countries think of as a country
+    /// Objective definition of a country
+    /// 1. Permanent Population
+    /// 2. Defined Territory
+    /// 3. Government
+    /// 4. Capacity to enter into relations with other states
+    /// </summary>
     public enum CountryLikeThings
     {
         [UnitedNationsMembership(1946, 11, 19)]
@@ -2029,6 +2038,34 @@ namespace Existence.Earth.Countries
             [Capital((int)WorldCities.PitcairnIslandsAdamstown)]
             [PopulationEstimate(50)]
             public static class PitcairnIslands { }
+
+            /// <summary>
+            /// No permanent population — only temporary researchers and British government officials.
+            /// South Georgia Island is an island 170 km long
+            /// Smaller islands and islets: Annenkov Island, Bird Island (important for wildlife research), Cooper Island, Grass Island,
+            /// Pickersgill Islands (small group of islets), Welcome Islands
+            /// </summary>
+            [PopulationEstimate(0)]
+            public static class SouthGeorgia { }
+
+            /// <summary>
+            /// No permanent population — only temporary researchers and British government officials.
+            /// 11 main islands
+            /// Traversay Islands: Zavodovski, Leskov, Visokoi
+            /// Candlemas Islands: Candlemas, Vindication, and several small rocks
+            /// Central Islands: Saunders, Montagu (largest of South Sandwich Islands), Bristol
+            /// Southern Group: Bellingshausen, Cook, Thule
+            /// </summary>
+            [PopulationEstimate(0)]
+            public static class SouthSandwichIslands { }
+
+            /// <summary>
+            /// Diego Garcia atoll
+            /// Military base (Diego Garcia) operated jointly by the UK and USA; native Chagossian population was displaced in the 1960s-70s (controversial history).
+            /// primarily a U.S. base, despite being under British sovereignty — the UK retains "residual sovereignty" but does not station many personnel there.
+            /// </summary>
+            [PopulationEstimate(2000)]
+            public static class BritishIndianOceanTerritory { }
         }
 
         public static class NewZealand
@@ -2045,6 +2082,34 @@ namespace Existence.Earth.Countries
             [PopulationEstimate(1411)]
             public static class Tokelau { }
         }
+    }
+
+    public enum Micronations
+    {
+        /// <summary>
+        /// Principality of Sealand
+        /// An abandoned WWII sea fort (HM Fort Roughs) in the North Sea, about 12 km (7.5 miles) off the coast of Suffolk, England.
+        /// Founded: 1967 by Paddy Roy Bates, who occupied the fort and declared it an independent state. 1-5 people on site at a time.
+        /// </summary>
+        [PopulationEstimate(5)]
+        Sealand,
+
+        /// <summary>
+        /// Principality of Hutt River
+        /// Founded: 1970 (Western Australia)
+        /// Declared independence over a dispute with the Australian government. Operated for 50 years before dissolving in 2020.
+        /// 20-30 people lived there while it existed
+        /// </summary>
+        HuttRiverProvince,
+
+        /// <summary>
+        /// Free Republic of Liberland
+        /// Disputed land between Croatia and Serbia
+        /// Claimed uninhabited "terra nullius" on the Danube River. Popular in libertarian circles.
+        /// Founded: 2015
+        /// </summary>
+        [PopulationEstimate(0)]
+        Liberland,
     }
 
     /// <summary>
@@ -2321,6 +2386,27 @@ namespace Existence.Earth.Countries
         /// </summary>
         [PopulationEstimate(25)]
         public static class JuanCarlosIStation { }
+    }
+
+    public static class FictionCountries
+    {
+        /// <summary>
+        /// Santa Claus/Mrs. Claus/Dasher/Dancer/Prancer/Vixen/Comet/Cupid/Donner/Blitzen/Rudolph
+        /// Countless Elves (500-10000)
+        /// Is it a country:
+        /// 1. Permanent population: Yes (mostly elves)
+        /// 2. Defined territory: Yes (it's a village)
+        /// 3. Government: Yes (Santa is an absolute monarch or benevolent dictator with an organized workforce)
+        /// 4. Relations with other states: Yes (NORAD keeps tabs on Santa, must have an agreement allowing airspace use)
+        /// 
+        /// Postal code recognized worldwide (Santa Claus, North Pole)
+        /// 
+        /// North Pole last ice free:
+        /// Pliocene Warm Period. 3-5 million years ago, Arctic may have had significantly less ice, but probably some seasonal ice remaining.
+        /// Eocene Epoch. 34-56 million years ago, Much warmer global temperatures; fossils suggest tropical and subtropical flora and fauna near the pole.
+        /// </summary>
+        [PopulationEstimate(511)] //511 = 2^9 - 1 (a Mersenne number)
+        public static class SantasVillageAtTheNorthPole { }
     }
 
     public static class NuclearWeaponStates
