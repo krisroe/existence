@@ -15,6 +15,7 @@ namespace Existence.Earth.Religions
         Animism,
         Agnosticism,
         ReligiousPluralism,
+        Noneism,
         Nihilism
     }
 }
