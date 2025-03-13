@@ -6,7 +6,7 @@ namespace Existence.Beyond.CosmicSubmission
     [IsReleased(false)]
     internal class IamthePopeOriginalSong
     {
-        public static class BecomingThePope
+        public static class BecomingThePopeIfIWakeUpTomorrowAndDecideThatIsMyLifePurpose
         {
             public static class Barriers
             {
