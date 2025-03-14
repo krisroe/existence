@@ -9,5 +9,7 @@ namespace Existence.Personal
         LisaMitchell,
         EricaJRingelspaugh,
         MaryRowe,
+        AbbyJoyce,
+        KatieWisniewski,
     }
 }
