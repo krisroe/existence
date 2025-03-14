@@ -1,9 +1,27 @@
-﻿
+﻿using System;
+
 namespace Existence.Earth.Religions
 {
+    public class NumberOfFollowersAttribute : Attribute
+    {
+        public long LowEstimate { get; set; }
+        public long HighEstimate { get; set; }
+        public NumberOfFollowersAttribute(long Estimate)
+        {
+            LowEstimate = HighEstimate = Estimate;
+        }
+        public NumberOfFollowersAttribute(long LowEstimate, long HighEstimate)
+        {
+            this.LowEstimate = LowEstimate;
+            this.HighEstimate = HighEstimate;
+        }
+    }
+
     public enum WorldReligions
     {
+        [NumberOfFollowers(2400000000)] //2.4 billion
         Christianity,
+
         Islam,
         Buddhism,
         Hinduism,

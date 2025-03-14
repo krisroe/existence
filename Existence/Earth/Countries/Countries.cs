@@ -2388,6 +2388,127 @@ namespace Existence.Earth.Countries
         public static class JuanCarlosIStation { }
     }
 
+    public static class IntegratedCountries
+    {
+        /// <summary>
+        /// The Kingdom of Hawaii was established in 1810 when King Kamehameha I unified the Hawaiian 
+        /// Islands under a single monarchy. This kingdom maintained its sovereignty and was 
+        /// internationally recognized until 1893. ​In 1893, Queen Liliʻuokalani was overthrown by a 
+        /// group of American and European businessmen, leading to the establishment of the Republic of 
+        /// Hawaii in 1894. The Republic existed until 1898, when Hawaii was annexed by the United 
+        /// States, becoming the Territory of Hawaii. Hawaii remained a U.S. territory until it was 
+        /// admitted as the 50th state on August 21, 1959.
+        /// </summary>
+        public static class Hawaii { }
+
+        /// <summary>
+        /// On March 2, 1836, during the Convention of 1836 at Washington-on-the-Brazos, delegates 
+        /// declared Texas' independence from Mexico, establishing the Republic of Texas. Following 
+        /// several key battles, including the fall of the Alamo and the victory at the Battle of San 
+        /// Jacinto, where General Sam Houston's forces captured Mexican President Antonio López de 
+        /// Santa Anna, Texas secured its independence.​ Economic difficulties, security concerns, and 
+        /// the desire for U.S. statehood led Texas to pursue annexation. However, its status as a 
+        /// slaveholding nation made annexation a contentious issue in the United States. After years 
+        /// of debate, Texas was admitted to the Union as the 28th state on December 29, 1845.
+        /// </summary>
+        public static class Texas { }
+
+        /// <summary>
+        /// On January 15, 1777, representatives from the New Hampshire Grants declared independence, 
+        /// initially naming the territory "New Connecticut." The name was later changed to "Vermont" 
+        /// on June 2, 1777, upon the suggestion of Dr. Thomas Young. The Vermont Republic operated 
+        /// with its own constitution, which notably abolished slavery and provided for universal male 
+        /// suffrage, regardless of property ownership. The republic also issued its own currency and 
+        /// maintained a postal service. Despite its independence, Vermont sought to join the United 
+        /// States and was admitted as the 14th state on March 4, 1791.
+        /// </summary>
+        public static class Vermont { }
+
+        /// <summary>
+        /// ​The California Republic, often referred to as the Bear Flag Republic, was a short-lived, 
+        /// unrecognized state that existed from June 14 to July 9, 1846, in what is now Northern 
+        /// California.
+        /// </summary>
+        public static class California { }
+
+        /// <summary>
+        /// The idea of unifying the two German-speaking nations gained traction, but the Treaty of 
+        /// Saint-Germain (1919) and the Treaty of Versailles (1919) explicitly prohibited such a 
+        /// union. Despite this, the notion of Anschluss remained popular among certain political 
+        /// factions in both countries. In early 1938, Austrian Chancellor Kurt Schuschnigg, under 
+        /// increasing pressure from pro-Nazi elements within Austria and from Adolf Hitler, 
+        /// announced a referendum for March 13 to decide on Austrian independence. In response, 
+        /// Hitler demanded the cancellation of the referendum and Schuschnigg's resignation. Facing 
+        /// immense pressure, Schuschnigg resigned on March 11, and Arthur Seyss-Inquart, a pro-Nazi 
+        /// politician, was appointed Chancellor. The following day, March 12, German troops entered 
+        /// Austria without facing resistance, and were welcomed by many Austrians. On March 13, 1938, 
+        /// the annexation was officially declared, and Austria became a province of the Third Reich, 
+        /// renamed "Ostmark." A controlled plebiscite held on April 10, 1938, reported that 
+        /// approximately 99.7% of Austrians approved the annexation, though the fairness of this vote 
+        /// is widely disputed due to the oppressive political climate and lack of secret ballot.
+        /// </summary>
+        public static class Anschluss { }
+
+        /// <summary>
+        /// Bessarabia, a region between the Prut and Dniester rivers, was part of the 
+        /// Principality of Moldavia until 1812, when it was annexed by the Russian Empire 
+        /// following the Treaty of Bucharest. After more than a century under Russian rule, 
+        /// the political landscape shifted dramatically with the Russian Revolution of 1917, 
+        /// leading to the destabilization of imperial authority. In this context, Bessarabia 
+        /// sought greater autonomy and self-determination. In December 1917, amid the chaos 
+        /// of the collapsing Russian Empire, Bessarabian leaders established the "Sfatul 
+        /// Țării" (Council of the Country), which declared the creation of the Moldavian 
+        /// Democratic Republic, initially as an autonomous entity within Russia. However, 
+        /// facing internal unrest and external threats, the council sought support from 
+        /// neighboring Romania. Romanian forces entered Bessarabia to stabilize the region, 
+        /// and on March 27, 1918, "Sfatul Țării" voted to unite Bessarabia with Romania, 
+        /// subject to certain conditions, including local autonomy, which were later 
+        /// nullified.
+        /// </summary>
+        public static class Bessarabia { }
+    }
+
+    public static class MergedCountries
+    {
+        /// <summary>
+        /// On May 22, 1990, North Yemen (Yemen Arab Republic) and South Yemen (People's Democratic 
+        /// Republic of Yemen) merged
+        /// </summary>
+        public static class Yemen
+        {
+            /// <summary>
+            /// South Yemen gained independence on November 30, 1967. The NLF assumed control, 
+            /// proclaiming the establishment of the People's Republic of South Yemen. In 
+            /// June 1969, a radical Marxist faction within the NLF seized power, leading to 
+            /// the country's rebranding as the People's Democratic Republic of Yemen on 
+            /// December 1, 1970. 
+            /// </summary>
+            public static class SouthYemen { }
+
+            /// <summary>
+            /// Following the Ottoman Empire's collapse after World War I, Imam Yahya 
+            /// Muhammad Hamid ed-Din declared northern Yemen's independence in 1918, 
+            /// establishing the Mutawakkilite Kingdom of Yemen. This kingdom functioned 
+            /// as a theocratic absolute monarchy, with Zaydi Shia Islam as the state 
+            /// religion. Imam Yahya centralized power, maintaining a conservative and 
+            /// isolationist stance, which limited modernization efforts. Yemen joined 
+            /// the Arab League in 1945 and the United Nations in 1947. Imam Yahya's 
+            /// assassination during a failed coup in 1948 led to his son, Ahmad bin Yahya, 
+            /// ascending the throne. Ahmad's reign continued the autocratic governance, 
+            /// facing internal dissent and external pressures for reform. After Imam Ahmad's 
+            /// death in 1962, his son, Muhammad al-Badr, briefly assumed power. Later 
+            /// that year, a group of military officers, inspired by Arab nationalist 
+            /// ideologies, orchestrated a coup d'état, deposing the monarchy and proclaiming 
+            /// the Yemen Arab Republic (YAR) on September 26, 1962. This event triggered 
+            /// the North Yemen Civil War, with royalist forces, backed by Saudi Arabia 
+            /// and Jordan, clashing against republicans supported by Egypt. The conflict 
+            /// persisted until 1970, concluding with the establishment of the republic 
+            /// and international recognition.
+            /// </summary>
+            public static class NorthYemen { }
+        }
+    }
+
     public static class FictionCountries
     {
         /// <summary>
