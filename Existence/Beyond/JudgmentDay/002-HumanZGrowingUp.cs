@@ -21,7 +21,14 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 0, 0, 0)]
             [TimelessVersion(1, 3, 0, 0)]
             [YearDate(2025, 3, 10)]
-            Created
+            Created,
+
+            /// <summary>
+            /// set contrafactumer of Stocco's Elegy
+            /// </summary>
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 14)]
+            AddDiscreteContrafactumerForStoccosElegy
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -267,7 +274,7 @@ namespace Existence.Beyond.JudgmentDay
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\008-StoccoElegy.txt", PeopleEnumerated.RoweChris)]
     public class StoccoElegy : ContrafactumSongEvent
     {
-        public StoccoElegy() : base("Stocco Elegy", "Cats in the Cradle") { }
+        public StoccoElegy() : base(PeopleEnumerated.RoweChris, "Stocco Elegy", "Cats in the Cradle") { }
     }
     public class StoccoElegyStarted : StoccoElegy {}
     public class StoccoElegyFinished : StoccoElegy {}

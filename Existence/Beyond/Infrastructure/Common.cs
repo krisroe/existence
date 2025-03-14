@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Existence.Earth;
 using Existence.Earth.FieldsOfStudy.Psychology;
+using Existence.Earth.Human.People;
 using Existence.Time;
 
 namespace Existence.Beyond.Infrastructure
@@ -232,8 +233,10 @@ namespace Existence.Beyond.Infrastructure
     public class ParodySongEvent : SongEvent
     {
         public string Source { get; set; }
-        public ParodySongEvent(string SongName, string Source) : base(SongName)
+        public PeopleEnumerated Parodyer { get; set; }
+        public ParodySongEvent(PeopleEnumerated Parodyer, string SongName, string Source) : base(SongName)
         {
+            this.Parodyer = Parodyer;
             this.Source = Source;
         }
     }
@@ -244,8 +247,10 @@ namespace Existence.Beyond.Infrastructure
     public class ContrafactumSongEvent : SongEvent
     {
         public string Source { get; set; }
-        public ContrafactumSongEvent(string SongName, string Source) : base(SongName)
+        public PeopleEnumerated Contrafactumer { get; set; }
+        public ContrafactumSongEvent(PeopleEnumerated Contrafactumer, string SongName, string Source) : base(SongName)
         {
+            this.Contrafactumer = Contrafactumer;
             this.Source = Source;
         }
     }

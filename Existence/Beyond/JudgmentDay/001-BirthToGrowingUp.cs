@@ -83,9 +83,17 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 6, 0, 0)]
             [YearDate(2025, 3, 10)]
             AddJustifications,
+
+            /// <summary>
+            /// add my sister's reversing parody of the National SID Foundation
+            /// </summary>
+            [BeyondObjectVersion(1, 7, 0, 0)]
+            [YearDate(2025, 3, 14)]
+            AddSistersParodyOfMyFirstOriginalSong,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
+        public SistersParodyOfMyFirstOriginalSong MySistersParodyOfMyFirstOriginalSong;
         public PersonalFirstParodySong MyFirstParodySong;
         public SweetlySingsTheDonkeyAtTheBreakOfDay SweetlySingsTheDonkeyInterpretation;
         public OrionIsarising OrionisaRisingHumanInterpretation;
@@ -95,6 +103,7 @@ namespace Existence.Beyond.JudgmentDay
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
             BaseEvent skepticismOfReligion = new SkepticismOfReligion();
             MyFirstOriginalSong = new PersonalFirstOriginalSong();
+            MySistersParodyOfMyFirstOriginalSong = new SistersParodyOfMyFirstOriginalSong(MyFirstOriginalSong);
             MyFirstParodySong = new PersonalFirstParodySong();
             SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
             OrionisaRisingHumanInterpretation = new OrionIsarising();
@@ -128,14 +137,15 @@ namespace Existence.Beyond.JudgmentDay
                 new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation]),
                 skepticismOfReligion
             };
-            List<BaseEvent> personalSongs = new List<BaseEvent>()
+            List<BaseEvent> relevantSongs = new List<BaseEvent>()
             {
                 SweetlySingsTheDonkeyInterpretation,
                 MyFirstParodySong,
-                MyFirstOriginalSong
+                MyFirstOriginalSong,
+                MySistersParodyOfMyFirstOriginalSong
             };
             ChainEvents(chainedEvents, null);
-            ChainEvents(personalSongs, startedPianoLessons);
+            ChainEvents(relevantSongs, startedPianoLessons);
             ChainEvents(factListOrdered, birth);
 
             SomeoneSaidSomethingAndIFoundOutViaHearsay calledAGenius = new SomeoneSaidSomethingAndIFoundOutViaHearsay(
@@ -145,7 +155,7 @@ namespace Existence.Beyond.JudgmentDay
             List<BaseEvent> terminalEvents = new List<BaseEvent>()
             {
                 skepticismOfReligion,
-                MyFirstOriginalSong,
+                MySistersParodyOfMyFirstOriginalSong,
             };
 
             AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
@@ -349,7 +359,7 @@ namespace Existence.Beyond.JudgmentDay
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
         public class PersonalFirstParodySong : ParodySongEvent
         {
-            public PersonalFirstParodySong() : base("Sonya's Dumb", "Rain, Rain, Go Away")
+            public PersonalFirstParodySong() : base(PeopleEnumerated.RoweChris, "Sonya's Dumb", "Rain, Rain, Go Away")
             {
             }
         }
@@ -362,6 +372,14 @@ namespace Existence.Beyond.JudgmentDay
             public PersonalFirstOriginalSong() : base("The National SID Foundation")
             {
 
+            }
+        }
+
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
+        public class SistersParodyOfMyFirstOriginalSong : ParodySongEvent
+        {
+            public SistersParodyOfMyFirstOriginalSong(SongEvent Parodied) : base(PeopleEnumerated.RoweSonya, "The National CRID Foundation", Parodied.EventName)
+            {
             }
         }
 
