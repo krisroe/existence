@@ -6,7 +6,7 @@ namespace Existence.Personal
     public class ClassmateBusinessLogic
     {
         public static List<KeyValuePair<ClassmateList, ClassmateList>> Friendships;
-        public static List<ClassmateList> SeventhGradeSundaySchoolClassmates;
+        public static List<int> SeventhGradeSundaySchoolClassmates;
 
         /// <summary>
         /// teacher: Kathy Anderson
@@ -14,19 +14,30 @@ namespace Existence.Personal
         public static List<ClassmateList> EighthGradeEnglishClassmates;
 
         public static List<ClassmateList> HighSchoolGradeClassmates;
+
+        /// <summary>
+        /// teacher: Mr. Park
+        /// </summary>
+        public static List<int> TenthGradeUSHistoryClass;
+
+        /// <summary>
+        /// coach: Ed O'Brian (Quit your bitchin')
+        /// </summary>
+        public static List<ClassmateList> YouthSoccerTeam;
+
         static ClassmateBusinessLogic()
         {
             Friendships = new List<KeyValuePair<ClassmateList, ClassmateList>>()
             {
                 new KeyValuePair<ClassmateList, ClassmateList>(ClassmateList.JasonWhite, ClassmateList.JustinRaudebush)
             };
-            SeventhGradeSundaySchoolClassmates = new List<ClassmateList>()
+            SeventhGradeSundaySchoolClassmates = new List<int>()
             {
-                ClassmateList.JessicaLloyd,
-                ClassmateList.CassieMattei,
-                ClassmateList.StephanieHartman,
-                ClassmateList.GregFarrington,
-                ClassmateList.JasonWhite,
+                (int)ClassmateList.JessicaLloyd,
+                (int)YearBelowClassmateList.CassieMattei,
+                (int)ClassmateList.StephanieHartman,
+                (int)ClassmateList.GregFarrington,
+                (int)ClassmateList.JasonWhite,
             };
             EighthGradeEnglishClassmates = new List<ClassmateList>()
             {
@@ -38,11 +49,13 @@ namespace Existence.Personal
             HighSchoolGradeClassmates = new List<ClassmateList>()
             {
                 ClassmateList.AbbyJoyce,
+                ClassmateList.AbbyOBrien,
                 ClassmateList.AlisaCantwell,
                 ClassmateList.AmyKuklewicz,
                 ClassmateList.AmberStrangstalien,
                 ClassmateList.ChrisPulver,
                 ClassmateList.DanSeiler,
+                ClassmateList.DerekPoulin,
                 ClassmateList.GregFarrington,
                 ClassmateList.HeidiLaundrie,
                 ClassmateList.JasonWhite,
@@ -65,21 +78,52 @@ namespace Existence.Personal
                 ClassmateList.WayneCoder,
                 ClassmateList.ZachNemitz,
             };
+            YouthSoccerTeam = new List<ClassmateList>()
+            {
+                ClassmateList.BrittanyBorcher,
+                ClassmateList.DerekPoulin,
+            };
+            TenthGradeUSHistoryClass = new List<int>()
+            {
+                (int)YearAboveClassmateList.BrianWimann,
+                (int)YearBelowClassmateList.GregWisniewski,
+                (int)YearAboveClassmateList.KatieWisniewski,                
+            };
         }
+    }
+
+    public enum YearBelowClassmateList
+    {
+        GregWisniewski,
+        CassieMattei,
+    }
+
+    public enum YearAboveClassmateList
+    {
+        BrianWimann,
+        KatieWisniewski,
     }
 
     public enum ClassmateList
     {
         AbbyJoyce,
+        /// <summary>
+        /// something embarrassing related to "the jerk" happened in health class 7th grade? 8th grade?
+        /// </summary>
+        AbbyOBrien,
         AlisaCantwell,
+        /// <summary>
+        /// got pregnant
+        /// </summary>
         AmberStrangstalien,
         AmyKuklewicz,
-        CassieMattei,
+        BrittanyBorcher,
         /// <summary>
         /// formerly Chris Droste
         /// </summary>
         ChrisPulver,
         DanSeiler,
+        DerekPoulin,
         GregFarrington,
         HeidiLaundrie,
         JasonWhite,
@@ -101,6 +145,9 @@ namespace Existence.Personal
         MeganWaterman,
         NickBremer,
         OliviaMarshall,
+        /// <summary>
+        /// church of God
+        /// </summary>
         RochelleBaldwin,
         RyanWalker,
         StephanieHartman,

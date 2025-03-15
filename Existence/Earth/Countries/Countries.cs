@@ -172,6 +172,12 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// A stateless person is someone who is not recognized as a citizen by any country, meaning they have 
+    /// no nationality and no legal protection from any government.
+    /// </summary>
+    public static class Stateless { }
+
+    /// <summary>
     /// Subjective definition of a country
     /// 1. An entity other countries think of as a country
     /// Objective definition of a country

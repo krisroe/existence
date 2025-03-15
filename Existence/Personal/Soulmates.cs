@@ -3,13 +3,16 @@ namespace Existence.Personal
 {
     public enum PotentialSoulmates
     {
-        LauraCummings,
-        AmeliaKuklewicz,
-        OliviaMarshall,
-        LisaMitchell,
-        EricaJRingelspaugh,
         MaryRowe,
-        AbbyJoyce,
+        AmeliaKuklewicz,
+        EricaJRingelspaugh,        
+        BrittanyBorcher,
+        LauraCummings,
+        AbbyOBrien,
+        OliviaMarshall,
         KatieWisniewski,
+        AbbyJoyce,
+        LisaMitchell,
+        LissaInstafjord,
     }
 }
