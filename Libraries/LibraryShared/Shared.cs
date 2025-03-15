@@ -117,5 +117,90 @@ namespace LibraryShared
             }
             throw new Exception("HTTP request to " + URL + " failed with " + Convert.ToInt32(hrm.StatusCode) + " (" + hrm.StatusCode.ToString() + ") error");
         }
+
+        /// <summary>
+        /// converts a roman numberal to an integer. only supports 1 through 23 (for pope counting, although there is no pope XX).
+        /// </summary>
+        /// <param name="RomanNumeral">roman numeral</param>
+        /// <returns>integer value of the roman numeral</returns>
+        public static int RomanNumeralToInteger(string RomanNumeral)
+        {
+            int ret;
+            switch (RomanNumeral)
+            {
+                case "I":
+                    ret = 1;
+                    break;
+                case "II":
+                    ret = 2;
+                    break;
+                case "III":
+                    ret = 3;
+                    break;
+                case "IV":
+                    ret = 4;
+                    break;
+                case "V":
+                    ret = 5;
+                    break;
+                case "VI":
+                    ret = 6;
+                    break;
+                case "VII":
+                    ret = 7;
+                    break;
+                case "VIII":
+                    ret = 8;
+                    break;
+                case "IX":
+                    ret = 9;
+                    break;
+                case "X":
+                    ret = 10;
+                    break;
+                case "XI":
+                    ret = 11;
+                    break;
+                case "XII":
+                    ret = 12;
+                    break;
+                case "XIII":
+                    ret = 13;
+                    break;
+                case "XIV":
+                    ret = 14;
+                    break;
+                case "XV":
+                    ret = 15;
+                    break;
+                case "XVI":
+                    ret = 16;
+                    break;
+                case "XVII":
+                    ret = 17;
+                    break;
+                case "XVIII":
+                    ret = 18;
+                    break;
+                case "XIX":
+                    ret = 19;
+                    break;
+                case "XX":
+                    ret = 20;
+                    break;
+                case "XXI":
+                    ret = 21;
+                    break;
+                case "XXII":
+                    ret = 22;
+                    break;
+                case "XXIII":
+                    ret = 23;
+                    break;
+                default:
+                    throw new InvalidOperationException();
+            }
+            return ret;
+        }
     }
 }

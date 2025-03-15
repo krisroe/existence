@@ -18,6 +18,57 @@ namespace Existence.Earth.Religions
         }
     }
 
+    public class ThePope
+    {
+        /// <summary>
+        /// Papal infallibility is the Roman Catholic doctrine that, under very specific conditions, the 
+        /// Pope is preserved from the possibility of error when proclaiming a doctrine of faith or 
+        /// morals to be held by the whole Church.
+        /// It does not mean the pope is incapable of error in every statement or action.
+        /// It applies only when speaking ex cathedra ("from the chair [of Peter]") on faith and morals, 
+        /// intending to define doctrine binding on the whole Church.
+        /// 
+        /// The doctrine of papal infallibility was defined dogmatically by the First Vatican Council (1869–1870).
+        /// Second Vatican Council (Vatican II) did not discard papal infallibility.
+        /// Instead, Vatican II reaffirmed it, but placed it within the broader context of the Church's 
+        /// infallibility, particularly emphasizing the teaching authority of the bishops in union with
+        /// the pope (collegiality).
+        /// 
+        /// How Often Has Papal Infallibility Been Used?
+        /// The commonly agreed upon examples of papal infallibility being invoked are:
+        /// 1. Immaculate Conception of Mary (Pope Pius IX, 1854) — defined before Vatican I but later 
+        /// seen as an example of what Vatican I codified. Mary, from the first moment of her conception 
+        /// in her mother’s womb, was preserved by God from original sin
+        /// 2. Assumption of Mary (Pope Pius XII, 1950). The Catholic belief that Mary, the mother of
+        /// Jesus, was taken up body and soul into heavenly glory at the end of her earthly life.ok
+        /// </summary>
+        public static class PapalInfallibility { }
+    }
+
+    public class Definitions
+    {
+        /// <summary>
+        /// having unlimited power or being able to do anything that is logically possible
+        /// typically refers to maximal power within the bounds of logical coherence
+        /// </summary>
+        public static class Omnipotent { }
+
+        /// <summary>
+        /// present everywhere at all times, not limited by space or time
+        /// and fully present in all parts of the universe simultaneouslyha
+        /// </summary>
+        public static class Omnipresent { }
+
+        /// <summary>
+        /// having complete and unlimited knowledge
+        /// 1. All past, present, and future events (sometimes called foreknowledge).
+        /// 2. All thoughts, feelings, and intentions of every being.
+        /// 3. All possibilities, including what could happen under any circumstances 
+        /// (sometimes called "middle knowledge")
+        /// </summary>
+        public static class Omniscient { }
+    }
+
     public enum WorldReligions
     {
         [NumberOfFollowers(2300000000, 2400000000)] //2.3-2.4 billion
