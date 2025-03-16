@@ -173,6 +173,11 @@ namespace Existence.Earth.Religions
 
         /// <summary>
         /// doesn't believe in God
+        /// 
+        /// Origin of Universe: No creator - universe exists on its own terms
+        /// Cause of Existence: No cause beyond natural processes, or brute fact
+        /// Source of Natural Law: Inherent in the universe itself
+        /// Ultimate Explanation: "It just is; perhaps no ultimate reason"
         /// </summary>
         Atheism,
 
@@ -194,6 +199,17 @@ namespace Existence.Earth.Religions
         /// tradition, or dogma — including religious dogma
         /// </summary>
         Freethinker,
+
+        /// <summary>
+        /// The Creator (God) set the universe in motion but does not intervene in its workings
+        /// God created natural laws, but does not perform miracles or reveal truth though holy books.
+        /// 
+        /// Origin of Universe: Created by a rational, ordering, intelligence
+        /// Cause of Existence: God as First Cause, necessary being.
+        /// Source of Natural Law: Created and set by God
+        /// Ultimate Explanation: "There is a reason: God made it this way."
+        /// </summary>
+        Deism,
 
         SpiritualButNotReligious,
         BeliefInAGenericHigherPower,
