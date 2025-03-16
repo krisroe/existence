@@ -1,9 +1,11 @@
 ﻿using Existence.Earth.Alphabet;
 using Existence.Time;
-using System;
 
 namespace Existence.Earth.Countries.UnitedStates
 {
+    /// <summary>
+    /// https://en.wikipedia.org/wiki/Political_appointments_of_the_second_Trump_administration is a good resource
+    /// </summary>
     public class Trump2
     {
         [YearDate(2025, 1, 20)]
@@ -446,6 +448,17 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
             }
 
+            public static class NationalEconomicCouncil
+            {
+                public static class Director
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class KevinHassett { }
+                }
+            }
+
             public static class DirectorOfOfficeManagementAndBudget
             {
                 /// <summary>
@@ -529,6 +542,7 @@ namespace Existence.Earth.Countries.UnitedStates
                 public static class SecretaryOfTheInterior
                 {
                     /// <summary>
+                    /// Also chair of the National Energy Council (assumed office 2025-01-20)
                     /// confirmed 80-17 on 2025-01-30
                     /// </summary>
                     public static class DougBurgum { }
