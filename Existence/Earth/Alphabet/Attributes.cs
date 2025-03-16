@@ -11,6 +11,15 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class TextsAttribute : Attribute
+    {
+        protected string[] Texts { get; set; }
+        public TextsAttribute(params string[] Texts)
+        {
+            this.Texts = Texts;
+        }
+    }
+
     public class LocationAttribute : TextAttribute
     {
         public string Place

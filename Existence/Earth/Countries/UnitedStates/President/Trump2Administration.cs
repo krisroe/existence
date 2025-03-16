@@ -1,5 +1,6 @@
 ﻿using Existence.Earth.Alphabet;
 using Existence.Time;
+using System;
 
 namespace Existence.Earth.Countries.UnitedStates
 {
@@ -148,6 +149,303 @@ namespace Existence.Earth.Countries.UnitedStates
                 public static class SusieWiles { }
             }
 
+            public static class WhiteHouseDeputyChiefOfStaff
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class DanScavino { }
+
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                [Text("Policy")]
+                public static class StephenMiller { }
+
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                [Texts("Legislative Affairs", "Political Affairs", "Public Affairs")]
+                public static class JamesBlair { }
+
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                [Texts("Communications", "Personnel")]
+                public static class TaylorBudowich { }
+
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                [Text("Strategic Implementation")]
+                public static class NicholasLuna { }
+
+                /// <summary>
+                /// assumed office 2025-01-20. Also has the title "Assistant to the President"
+                /// </summary>
+                [Text("Operations")]
+                [AlsoKnownAs("Beau")]
+                public static class WilliamHarrison { }
+            }
+
+            public static class SeniorAdvisorsAndCounselorsToThePresident
+            {
+                public static class CounselorToThePresident
+                {
+                    public static class SeniorCounselorToThePresident
+                    {
+                        /// <summary>
+                        /// assumed office 2025-01-20
+                        /// </summary>
+                        public static class PeterNavarro { }
+
+                        /// <summary>
+                        /// assumed office 2025-01-20
+                        /// </summary>
+                        public static class StanleyWoodward { }
+                    }
+
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class AlinaHabba { }
+                }
+
+                public static class SeniorAdvisorToThePresident
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    [Text("Government Efficiency")]
+                    public static class ElonMusk { }
+
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    [Text("Arab and Middle Eastern Affairs")]
+                    public static class MassadBoulos { }
+                }
+
+                public static class AssistantToThePresident
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    [Text("Policy")]
+                    public static class RobertGabrielJr { }
+                }
+
+                public static class SpecialAssistantToThePresident
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    [Text("International Economic Relations")]
+                    public static class EmoryCox { }
+                }
+            }
+
+            [Text("Office of Communications")]
+            public static class WhiteHouseCommunicationsDirector
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class StevenCheung { }
+            }
+
+            [Text("Office of the Press Secretary")]
+            public static class WhiteHousePressSecretary
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class KarolineLeavitt { }
+            }
+
+            [Text("Office of the First Lady")]
+            public static class ChiefOfStaffToTheFirstLady
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class HayleyHarrison { }
+            }
+
+            public static class WhiteHouseDirectorOfLegislativeAffairs
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class JamesBraid { }
+            }
+
+            [Text("Office of Public Liaison")]
+            public static class DirectoryOfTheOfficeOfPublicLiaison
+            {
+                /// <summary>
+                /// assumed office 2025-01-24
+                /// </summary>
+                public static class JimGoyer { }
+            }
+
+            public static class OfficeOfPoliticalAffairs
+            {
+                public static class Director
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-24
+                    /// </summary>
+                    public static class MattBrasseaux { }
+                }
+                public static class DeputyDirector
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class TrevorNaglieri { }
+                }
+                public static class RegionalPoliticalDirectory
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    [Text("Western")]
+                    public static class ChristopherEscobedo { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    [Text("Southeast")]
+                    public static class JonGeorge { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    [Text("Midwest")]
+                    public static class MarshallMoreau { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    [Text("Northeast")]
+                    public static class AshleyWalukevich { }
+                }
+                public static class StaffAssistant
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class SamanthaFeldman { }
+                }
+                public static class PoliticalCoordinator
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class JackMahoney { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class TreySenecal { }
+                }
+            }
+
+            public static class OfficeOfIntergovernmentalAffairs
+            {
+                public static class Director
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class AlexMeyer { }
+                }
+                public static class DeputyDirector
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class JaredBorg { }
+
+                    /// <summary>
+                    /// assumed offuce 2025-02-19
+                    /// </summary>
+                    [Text("Local and Tribal Government")]
+                    public static class ChristineSerranoGlassner { }
+                }
+                public static class AssociateDirector
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class ConnorReardon { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class ChaseWilson { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class MichaelSilvio { }
+
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class SamMartinez { }
+                }
+                public static class DeputyAssociateDirector
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class HopeMoreland { }
+                }
+                public static class Coordinator
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class FinleyVarughese { }
+                }
+                public static class StaffAssistant
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-19
+                    /// </summary>
+                    public static class ElizabethMcAlindon { }
+                }
+            }
+
+            public static class WhiteHouseCounsel
+            {
+                /// <summary>
+                /// assumed office 2025-02-20
+                /// </summary>
+                public static class DavidWarrington { }
+            }
+
+            public static class PresidentialPersonnelOffice
+            {
+                /// <summary>
+                /// assumed office 2025-01-20
+                /// </summary>
+                public static class SergioGor { }
+            }
+
+            public static class CounselOfEconomicAdvisors
+            {
+                public static class Chair
+                {
+                    /// <summary>
+                    /// confirmed 53-46 on 2025-03-12
+                    /// </summary>
+                    public static class StephenMiran { }
+                }
+            }
+
             public static class DirectorOfOfficeManagementAndBudget
             {
                 /// <summary>
@@ -172,26 +470,68 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// </summary>
                     public static class ScottBessent { }
                 }
-                public static class SecretaryOfDefense
+                public static class DepartmentOfDefense
                 {
-                    /// <summary>
-                    /// confirmed 51-50 on 2025-01-24 (JD Vance casting tiebreaking vote)
-                    /// </summary>
-                    public static class PeteHegseth { }
+                    public static class SecretaryOfDefense
+                    {
+                        /// <summary>
+                        /// confirmed 51-50 on 2025-01-24 (JD Vance casting tiebreaking vote)
+                        /// </summary>
+                        public static class PeteHegseth { }
+                    }
+                    public static class DeputySecretaryOfDefense
+                    {
+                        /// <summary>
+                        /// confirmed 59-40 on 2025-03-14
+                        /// </summary>
+                        public static class StephenFeinberg { }
+                    }
+                    public static class SecretaryOfTheArmy
+                    {
+                        /// <summary>
+                        /// confirmed 66-28 on 2025-02-25
+                        /// </summary>
+                        public static class DanielPDriscoll { }
+                    }
                 }
-                public static class AttorneyGeneral
+                public static class DepartmentOfJustice
                 {
-                    /// <summary>
-                    /// confirmed 54-46 on 2025-02-04
-                    /// </summary>
-                    public static class PamBondi { }
+                    public static class AttorneyGeneral
+                    {
+                        /// <summary>
+                        /// confirmed 54-46 on 2025-02-04
+                        /// </summary>
+                        public static class PamBondi { }
+                    }
+                    public static class DeputyAttorneyGeneral
+                    {
+                        /// <summary>
+                        /// confirmed 52-46 on 2025-03-05
+                        /// </summary>
+                        public static class ToddBlanche { }
+                    }
+                    public static class AssistantAttorneyGeneral
+                    {
+                        /// <summary>
+                        /// confirmed 78-19 on 2025-03-11
+                        /// </summary>
+                        [Text("Antitrust Division")]
+                        public static class GailSlater { }
+                    }
+                    public static class FederalBureauOfInvestigation
+                    {
+                        /// <summary>
+                        /// confirmed 51-49 on 2025-02-20
+                        /// </summary>
+                        public static class KashPatel { }
+                    }
                 }
                 public static class SecretaryOfTheInterior
                 {
                     /// <summary>
                     /// confirmed 80-17 on 2025-01-30
                     /// </summary>
-                    public static class DougBergum { }
+                    public static class DougBurgum { }
                 }
                 public static class SecretaryOfAgriculture
                 {
@@ -200,17 +540,39 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// </summary>
                     public static class BrookeRollins { }
                 }
-                public static class SecretaryOfCommerce
+                public static class DepartmentOfCommerce
                 {
-                    /// <summary>
-                    /// confirmed 51-45 on 2025-02-18
-                    /// </summary>
-                    public static class HowardLutnick { }
+                    public static class SecretaryOfCommerce
+                    {
+                        /// <summary>
+                        /// confirmed 51-45 on 2025-02-18
+                        /// </summary>
+                        public static class HowardLutnick { }
+                    }
+                    public static class UndersecretaryOfCommerceForIndustryAndSecurity
+                    {
+                        /// <summary>
+                        /// confirmed 54-45 on 2025-03-13
+                        /// </summary>
+                        public static class JeffreyIKessler { }
+                    }
                 }
-                public static class SecretaryOfLabor
+                public static class DepartmentOfLabor
                 {
-                    [TODO("Confirmation Details")]
-                    public static class LoriChavezDeRemer { }
+                    public static class SecretaryOfLabor
+                    {
+                        /// <summary>
+                        /// confirmed 67-32 on 2025-03-10
+                        /// </summary>
+                        public static class LoriChavezDeRemer { }
+                    }
+                    public static class DeputySecretaryOfLabor
+                    {
+                        /// <summary>
+                        /// confirmed 53-46 on 2025-03-12
+                        /// </summary>
+                        public static class KeithSonderling { }
+                    }
                 }
                 public static class SecretaryOfHealthAndHumanServices
                 {
@@ -226,12 +588,23 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// </summary>
                     public static class ScottTurner { }
                 }
-                public static class SecretaryOfTransportation
+                public static class DepartmentOfTransportation
                 {
-                    /// <summary>
-                    /// confirmed 77-22 on 2025-01-28
-                    /// </summary>
-                    public static class SeanDuffy { }
+                    public static class SecretaryOfTransportation
+                    {
+                        /// <summary>
+                        /// confirmed 77-22 on 2025-01-28
+                        /// He is a former U.S. Representative from Wisconsin
+                        /// </summary>
+                        public static class SeanDuffy { }
+                    }
+                    public static class DeputySecretaryOfTransportation
+                    {
+                        /// <summary>
+                        /// confirmed 51-46 on 2025-03-11
+                        /// </summary>
+                        public static class StevenGBradbury { }
+                    }
                 }
                 public static class SecretaryOfEnergy
                 {
@@ -254,12 +627,22 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// </summary>
                     public static class DougCollins { }
                 }
-                public static class SecretaryOfHomelandSecurity
+                public static class DepartmentOfHomelandSecurity
                 {
-                    /// <summary>
-                    /// confirmed 59-34 on 2025-01-25
-                    /// </summary>
-                    public static class KristiNoem { }
+                    public static class SecretaryOfHomelandSecurity
+                    {
+                        /// <summary>
+                        /// confirmed 59-34 on 2025-01-25
+                        /// </summary>
+                        public static class KristiNoem { }
+                    }
+                    public static class DeputySecretaryOfHomelandSecurity
+                    {
+                        /// <summary>
+                        /// confirmed 53-43 on 2025-03-08
+                        /// </summary>
+                        public static class TroyEdgar { }
+                    }
                 }
                 public static class DirectorOfNationalIntelligence
                 {
@@ -306,6 +689,17 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// confirmed 74-25 on 2025-01-23
                     /// </summary>
                     public static class JohnRatcliffe { }
+                }
+
+                public static class FederalHousingFinanceAgency
+                {
+                    public static class Director
+                    {
+                        /// <summary>
+                        /// confirmed 56-43 on 2025-03-13
+                        /// </summary>
+                        public static class BillPulte { }
+                    }
                 }
 
                 /// <summary>
