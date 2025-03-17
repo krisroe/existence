@@ -5,6 +5,7 @@ using LibraryShared;
 using System.Globalization;
 using System.Xml;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ReligionLibrary
 {
@@ -12,7 +13,12 @@ namespace ReligionLibrary
     {
         public static int RunMain(string[] args)
         {
-            LoadPopes(args[0]);
+            if (args.Length < 2) throw new InvalidOperationException();
+            string file1 = args[0];
+            string file2 = args[1];
+            if (string.IsNullOrEmpty(file1)) throw new InvalidOperationException();
+            if (string.IsNullOrEmpty(file2)) throw new InvalidOperationException();
+            LoadPopes(file1, file2);
             return 0;
         }
 
@@ -34,13 +40,17 @@ namespace ReligionLibrary
         // 8. Gregory XII (1406-1415) (Voluntarily Resigned). To end the Western Schism.
         // 9. Benedict XVI (2005-2013) (Voluntarily Resigned) First pope to resign in nearly 600 years.
 
-        public static void LoadPopes(string filePath)
+        public static void LoadPopes(string inputFilePath, string outputFilePath)
         {
             Dictionary<string, List<int>> regnalNamesAndNumbers = new Dictionary<string, List<int>>();
             List<Pope> popeList = new List<Pope>();
             List<PrecisePope> precisePopes = new List<PrecisePope>();
-            foreach (Pope p in Common.ProcessCSV<Pope, PopeMap>(filePath))
+            foreach (Pope p in Common.ProcessCSV<Pope, PopeMap>(inputFilePath))
             {
+                if (p.Number == 1 && string.IsNullOrEmpty(p.BeginningPontificate))
+                {
+                    p.BeginningPontificate = "30 or 33";
+                }
                 string sBegin = p.BeginningPontificate.Replace(" o ", " or ");
                 if (sBegin == "21.25.X.1187")
                     p.BeginningPontificate = "21,25.X.1187";
@@ -182,15 +192,160 @@ namespace ReligionLibrary
                     throw new InvalidOperationException();
             }
 
+            bool foundPopeWithoutEndDate = false;
             XmlDocument doc = new XmlDocument();
+            XmlElement mainElement = doc.CreateElement("popes");
+            doc.AppendChild(mainElement);
+            //precisePopes.Reverse();
             foreach (var p in precisePopes)
             {
                 XmlElement popeElement = doc.CreateElement("p");
                 popeElement.SetAttribute("number", p.Number.ToString());
                 popeElement.SetAttribute("century", p.Century.ToString());
-                popeElement.SetAttribute("secularname", p.SecularName);
-                popeElement.SetAttribute("birthplace", p.Birthplace);
+                if (!string.IsNullOrEmpty(p.SecularName))
+                {
+                    popeElement.SetAttribute("secularname", p.SecularName);
+                }
+                if (!string.IsNullOrEmpty("birthplace"))
+                {
+                    popeElement.SetAttribute("birthplace", p.Birthplace);
+                }
+
+                foreach (var nextPapalName in p.PapalNames)
+                {
+                    XmlElement papalNameElement = doc.CreateElement("Name");
+                    papalNameElement.SetAttribute("n", nextPapalName.Key);
+                    if (nextPapalName.Value > 1)
+                    {
+                        papalNameElement.SetAttribute("r", nextPapalName.Value.ToString());
+                    }
+                    popeElement.AppendChild(papalNameElement);
+                }
+
+                if (p.StartDate1.Count == 0) throw new InvalidOperationException();
+                if (p.StartDate3.Count > 0 && p.StartDate2.Count == 0) throw new InvalidOperationException();
+                if (p.StartDate1.Count > 0)
+                {
+                    XmlElement startDate = doc.CreateElement("StartDate");
+                    if (p.StartDate1.Count == 1)
+                    {
+                        startDate.SetAttribute("d", GetDateElementText(p.StartDate1[0]));
+                    }
+                    else if (p.StartDate1.Count == 2)
+                    {
+                        startDate.SetAttribute("d1", GetDateElementText(p.StartDate1[0]));
+                        startDate.SetAttribute("d2", GetDateElementText(p.StartDate1[1]));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    popeElement.AppendChild(startDate);
+                }
+                if (p.StartDate2.Count > 0)
+                {
+                    XmlElement startDate = doc.CreateElement("StartDate");
+                    if (p.StartDate2.Count == 1)
+                    {
+                        startDate.SetAttribute("d", GetDateElementText(p.StartDate2[0]));
+                    }
+                    else if (p.StartDate2.Count == 2)
+                    {
+                        startDate.SetAttribute("d1", GetDateElementText(p.StartDate2[0]));
+                        startDate.SetAttribute("d2", GetDateElementText(p.StartDate2[1]));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    popeElement.AppendChild(startDate);
+                }
+                if (p.StartDate3.Count > 0)
+                {
+                    XmlElement startDate = doc.CreateElement("StartDate");
+                    if (p.StartDate3.Count == 1)
+                    {
+                        startDate.SetAttribute("d", GetDateElementText(p.StartDate3[0]));
+                    }
+                    else if (p.StartDate3.Count == 2)
+                    {
+                        startDate.SetAttribute("d1", GetDateElementText(p.StartDate3[0]));
+                        startDate.SetAttribute("d2", GetDateElementText(p.StartDate3[1]));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    popeElement.AppendChild(startDate);
+                }
+
+                mainElement.AppendChild(popeElement);
+
+                bool isCurrentPope = p.EndDate.Count == 0;
+                if (isCurrentPope) //current pope
+                {
+                    if (foundPopeWithoutEndDate)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    else
+                    {
+                        foundPopeWithoutEndDate = true;
+                    }
+                }
+                else //not the current pope
+                {
+                    XmlElement endDateElement = doc.CreateElement("EndDate");
+                    if (p.EndDate.Count == 0)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    else if (p.EndDate.Count == 1)
+                    {
+                        endDateElement.SetAttribute("d", GetDateElementText(p.EndDate[0]));
+                    }
+                    else if (p.EndDate.Count == 2)
+                    {
+                        endDateElement.SetAttribute("d1", GetDateElementText(p.EndDate[0]));
+                        endDateElement.SetAttribute("d2", GetDateElementText(p.EndDate[1]));
+                    }
+                    else if (p.EndDate.Count == 3)
+                    {
+                        endDateElement.SetAttribute("d1", GetDateElementText(p.EndDate[0]));
+                        endDateElement.SetAttribute("d2", GetDateElementText(p.EndDate[1]));
+                        endDateElement.SetAttribute("d3", GetDateElementText(p.EndDate[2]));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    popeElement.AppendChild(endDateElement);
+                }
             }
+            Common.WriteToFile(doc, outputFilePath);
+        }
+
+        private static string GetDateElementText(PapalDate dt)
+        {
+            if (dt.DayB.HasValue) throw new InvalidOperationException();
+            if (dt.MonthB.HasValue) throw new InvalidOperationException();
+            if (dt.MonthC.HasValue) throw new InvalidOperationException();
+            if (dt.YearB.HasValue) throw new InvalidOperationException();
+            string ret;
+            if (dt.DayA.HasValue)
+            {
+                if (!dt.MonthA.HasValue) throw new InvalidOperationException();
+                ret = dt.YearA.ToString().PadLeft(4, '0') + "-" + dt.MonthA.Value.ToString().PadLeft(2, '0') + "-" + dt.DayA.Value.ToString().PadLeft(2, '0');
+            }
+            else if (dt.MonthA.HasValue)
+            {
+                ret = dt.YearA.ToString().PadLeft(4, '0') + "-" + dt.MonthA.Value.ToString().PadLeft(2, '0');
+            }
+            else
+            {
+                ret = dt.YearA.ToString();
+            }
+            return ret;
         }
 
         private static List<PapalDate> ParsePopeStartDates(int popeNumber, string date)
@@ -809,7 +964,8 @@ namespace ReligionLibrary
                 }
                 else if (Input.YearB.HasValue) //two possible years
                 {
-                    ret.Add(new PapalDate(Input.YearA, Input.YearB.Value, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearB.Value, null, null, null, null, null, null));
                     if (Input.MonthA.HasValue) throw new InvalidOperationException();
                 }
                 else
