@@ -159,6 +159,7 @@ namespace Existence.Earth.Countries.UnitedStates
                 public static class DanScavino { }
 
                 /// <summary>
+                /// also National Security Council: Homeland Security Advisor
                 /// assumed office 2025-01-20
                 /// </summary>
                 [Text("Policy")]
@@ -456,6 +457,72 @@ namespace Existence.Earth.Countries.UnitedStates
                     /// assumed office 2025-01-20
                     /// </summary>
                     public static class KevinHassett { }
+                }
+            }
+
+            public static class DomesticPolicyCouncil
+            {
+                public static class Director
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class VinceHaley { }
+                }
+
+                public class SpecialGovernmentEmployeeAndSeniorAdvisorOfTheWhiteHouseFaithOffice
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-07
+                    /// </summary>
+                    public static class PaulaWhite { }
+                }
+                public class DeputyAssistantToThePresidentAndFaithDirectorOfTheWhiteHouseFaithOffice
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-07
+                    /// </summary>
+                    public static class JenniferSKorn { }
+                }
+                public class SpecialAssistantToThePresidentAndDeputyDirectorOfFaithEngagement
+                {
+                    /// <summary>
+                    /// assumed office 2025-02-07
+                    /// </summary>
+                    public static class JacksonLane { }
+                }
+            }
+
+            public static class NationalSecurityCouncil
+            {
+                public static class NationalSecurityAdvisor
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class MichaelWaltz { }
+                }
+                public static class DeputyNationalSecurityAdvisor
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class AlexWong { }
+                }
+                public static class DeputyHomelandSecurityAdvisor
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class AnthonySalisbury { }
+                }
+                public static class SeniorDirector
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    [Text("Counterterrorism")]
+                    public static class SebastianGorka { }
                 }
             }
 
