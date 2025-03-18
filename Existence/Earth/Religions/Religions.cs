@@ -3,6 +3,13 @@ using Existence.Earth.Alphabet;
 
 namespace Existence.Earth.Religions
 {
+    /// <summary>
+    /// also dead religions: Gnosticism, Essenes, Ebionites
+    /// </summary>
+    public class AbrahamicReligion : Attribute
+    {
+    }
+
     public class NumberOfFollowersAttribute : Attribute
     {
         public long LowEstimate { get; set; }
@@ -71,9 +78,11 @@ namespace Existence.Earth.Religions
 
     public enum WorldReligions
     {
+        [AbrahamicReligion]
         [NumberOfFollowers(2300000000, 2400000000)] //2.3-2.4 billion
         Christianity,
 
+        [AbrahamicReligion]
         [NumberOfFollowers(1900000000, 2000000000)] //1.9-2.0 billion
         Islam,
 
@@ -98,6 +107,7 @@ namespace Existence.Earth.Religions
         [NumberOfFollowers(25000000, 30000000)] //25-30 million
         Sikhism,
 
+        [AbrahamicReligion]
         [NumberOfFollowers(15000000, 16000000)] //14-15 million
         Judaism,
 
@@ -128,6 +138,7 @@ namespace Existence.Earth.Religions
         [NumberOfFollowers(60000, 100000)]
         Mandaeism,
 
+        [AbrahamicReligion]
         [NumberOfFollowers(800, 850)]
         Samaritanism,
 
