@@ -21,7 +21,8 @@ namespace ReligionLibrary
             if (string.IsNullOrEmpty(file1)) throw new InvalidOperationException();
             if (string.IsNullOrEmpty(file2)) throw new InvalidOperationException();
 
-            List<PrecisePope> ppByToken = LoadPopesByToken(file1);
+            Dictionary<string, List<int>> regnalNamesAndNumbers;
+            List<PrecisePope> ppByToken = LoadPopesByToken(file1, out regnalNamesAndNumbers);
             List<PrecisePope> ppByLegacyMethod = LoadPopes(file1);
 
             if (ppByToken.Count != ppByLegacyMethod.Count) throw new InvalidOperationException();
@@ -31,15 +32,34 @@ namespace ReligionLibrary
                 PrecisePope p1 = ppByToken[popeIndex];
                 PrecisePope p2 = ppByLegacyMethod[popeIndex];
 
+                if (PopeStatic.YearSwitchExceptions.Contains(p1.Number))
+                {
+                    int yrTemp;
+                    if (p1.StartDates[0][0].YearA > p1.StartDates[0][1].YearA)
+                    {
+                        yrTemp = p1.StartDates[0][0].YearA;
+                        p1.StartDates[0][0].YearA = p1.StartDates[0][1].YearA;
+                        p1.StartDates[0][1].YearA = yrTemp;
+                    }
+                    if (p2.StartDates[0][0].YearA > p2.StartDates[0][1].YearA)
+                    {
+                        yrTemp = p2.StartDates[0][0].YearA;
+                        p2.StartDates[0][0].YearA = p2.StartDates[0][1].YearA;
+                        p2.StartDates[0][1].YearA = yrTemp;
+                    }
+                }
+
+                //verify end date is equivalent by both methods
                 if (p1.EndDate.Count != p2.EndDate.Count) throw new InvalidOperationException();
                 if (p1.EndDate.Count == 0 && popeIndex != ppByToken.Count - 1) throw new InvalidOperationException();
                 for (int i = 0; i < p1.EndDate.Count; i++)
                 {
                     ValidatePapalDates(p1.EndDate[i], p2.EndDate[i]);
                 }
-
-                //handle all three start dates
+                
+                //verify all three start dates are equivalent by both methods
                 bool foundNothing = false;
+                List<PapalDate> startDates = new List<PapalDate>();
                 for (int i = 0; i < 3; i++)
                 {
                     List<PapalDate> list1 = p1.StartDates[i];
@@ -51,10 +71,33 @@ namespace ReligionLibrary
                     {
                         ValidatePapalDates(list1[j], list2[j]);
                     }
+                    startDates.AddRange(list1);
+                }
+
+                //verify the start date(s) followed by end date(s) are all in consistent order
+                for (int i = 1; i < startDates.Count; i++)
+                {
+                    if (startDates[i-1].CompareTo(startDates[i]) >= 0)
+                    {
+                        throw new InvalidOperationException();
+                    }
+                }
+                if (p1.EndDate.Count > 0)
+                {
+                    for (int i = 1; i < p1.EndDate.Count; i++)
+                    {
+                        if (p1.EndDate[i - 1].CompareTo(p1.EndDate[i]) >= 0)
+                        {
+                            throw new InvalidOperationException();
+                        }
+                    }
+                    bool isViolation = p1.EndDate[0].CompareTo(startDates[startDates.Count - 1]) < 0;
+                    bool expectedViolation = PopeStatic.DatesOutOfOrderExceptions.Contains(p1.Number);
+                    if (isViolation != expectedViolation) throw new InvalidOperationException();
                 }
             }
 
-            SavePopesToFile(file2, ppByToken);
+            SavePopesToFile(file2, ppByToken, regnalNamesAndNumbers);
             return 0;
         }
 
@@ -67,32 +110,119 @@ namespace ReligionLibrary
             if (dt1.CompareTo(dt2) != 0) throw new InvalidOperationException();
         }
 
+        private static HashSet<string> ValidTokenCombinations = new HashSet<string>()
+        {
+                "0",
+                "...0",
+                "0o0",
+                "...IoI.0",
+                "0.I.0",
+                "0o0o0.I.0",
+                "0o0.I.0",
+                "0,0.I.0",
+                "0.I.0,0.I.0",
+                "...I,0.I.0",
+                "...I.0,0.I.0",
+                "0.I,0.I.0",
+                "...I.0",
+                "0.Io0.I.0",
+                "...I-I.0",
+                "...I.0oI.0",
+                "..I.0oI.0",
+                "...IoIoI.0",
+                "0.I,...I.0",
+                "0.I.0o0",
+                "0,0,0.I.0",
+                "0.I,0,0.I.0",
+                "0,0.I,0.I.0",
+        };
+
         /// <summary>
         /// holds pope exceptions
         /// </summary>
-        public static class PopeExceptions
+        public static class PopeStatic
         {
             /// <summary>
             /// static constructor
             /// </summary>
-            static PopeExceptions()
+            static PopeStatic()
             {
-                Replacements = new Dictionary<string, string>()
+                DateReplacements = new Dictionary<string, string>()
                 {
                     { "21.25.X.1187", "21,25.X.1187" },
                     { "1. 6.IX.1181", "1,6.IX.1181" },
                 };
+                PapalNameReplacements = new Dictionary<string, string>()
+                {
+                    { "Callistus", "Callixtus" }
+                };
+                PapalNameReplacementsReverse = new Dictionary<string, string>()
+                {
+                    { "Callixtus", "Callistus" }
+                };
+                MissingRegnalNumbersByRegnalName = new Dictionary<string, List<int>>()
+                {
+                    { "Alexander", new List<int>() { 5 } }, //antipope
+                    { "Benedict", new List<int>() { 10 } }, //antipope
+                    { "Boniface", new List<int>() { 7 } }, //antipope
+                    { "Felix", new List<int>() { 2 } }, //antipope
+                    { "John", new List<int>() { 16, 20 } }, //antipope and skipped by mistake (possibly double counting John XIV)
+                    { "Martin", new List<int>() { 2, 3 } } //skipped by mistake (confusion with Marinus I and II)
+                };
+                YearSwitchExceptions = new HashSet<int>() { 5 };
+                UnusedTokenCombinations = new HashSet<string>(ValidTokenCombinations);
+                DatesOutOfOrderExceptions = new HashSet<int>(){ 11 };
             }
 
             /// <summary>
-            /// replacements
+            /// token combinations
             /// </summary>
-            public static Dictionary<string, string> Replacements { get; set; }
+            public static HashSet<string> UnusedTokenCombinations { get; set; }
+
+            /// <summary>
+            /// date replacements
+            /// </summary>
+            public static Dictionary<string, string> DateReplacements { get; set; }
+
+            /// <summary>
+            /// papal name replacements
+            /// </summary>
+            public static Dictionary<string, string> PapalNameReplacements { get; set; }
+
+            /// <summary>
+            /// papal name replacements reverse mapping
+            /// </summary>
+            public static Dictionary<string, string> PapalNameReplacementsReverse { get; set; }
+
+            /// <summary>
+            /// missing Regnal Numbers by Regnal Name
+            /// </summary>
+            public static Dictionary<string, List<int>> MissingRegnalNumbersByRegnalName { get; set; }
+
+            /// <summary>
+            /// date switch exceptions, by pope number
+            /// </summary>
+            public static HashSet<int> YearSwitchExceptions { get; set; }
+
+            /// <summary>
+            /// dates out of order exceptions
+            /// </summary>
+            public static HashSet<int> DatesOutOfOrderExceptions { get; set; }
         }
 
-        public static List<PrecisePope> LoadPopesByToken(string inputFilePath)
+        /// <summary>
+        /// load popes by token
+        /// </summary>
+        /// <param name="inputFilePath">input file path</param>
+        /// <param name="regnalNamesAndNumbers">regnal names and numbers</param>
+        /// <returns></returns>
+        public static List<PrecisePope> LoadPopesByToken(string inputFilePath, out Dictionary<string, List<int>> regnalNamesAndNumbers)
         {
-            Dictionary<string, List<int>> regnalNamesAndNumbers = new Dictionary<string, List<int>>();
+            if (PopeStatic.UnusedTokenCombinations.Count != ValidTokenCombinations.Count)
+            {
+                throw new InvalidOperationException();
+            }
+            regnalNamesAndNumbers = new Dictionary<string, List<int>>();
             HashSet<string> popeTokenTypes = new HashSet<string>();
             int iIndex = 0;
             List<Pope> initialPopeList = GetInitialPopeList(inputFilePath);
@@ -149,10 +279,14 @@ namespace ReligionLibrary
                     PapalNames.Add(new KeyValuePair<string, int>(baseName, regnalNumber));
                 }
 
-                List<PopeToken> tokens = LoadPopeTokens(p.BeginningPontificate);
+                string rawInput = p.BeginningPontificate;
+                List<PopeToken> tokens = LoadPopeTokens(rawInput);
                 string nextTokenString = GetPopeTokenStringWithoutNumbers(tokens);
-                List<List<PapalDate>> startDates = GetPapalDates(nextTokenString, tokens);
-                List<PapalDate>? endDates = null;
+                List<List<PapalDate>> startDates = GetPapalDates(nextTokenString, tokens, rawInput, true);
+                ValidatePopeTokens(tokens, p.Number);
+                pp.StartDates[0].AddRange(startDates[0]);
+                pp.StartDates[1].AddRange(startDates[1]);
+                pp.StartDates[2].AddRange(startDates[2]);
 
                 if (string.IsNullOrEmpty(p.EndPontificate))
                 {
@@ -163,11 +297,13 @@ namespace ReligionLibrary
                 }
                 else //past pontiff
                 {
-                    tokens = LoadPopeTokens(p.EndPontificate);
+                    rawInput = p.EndPontificate;
+                    tokens = LoadPopeTokens(rawInput);
                     nextTokenString = GetPopeTokenStringWithoutNumbers(tokens);
-                    List<List<PapalDate>> endDate = GetPapalDates(nextTokenString, tokens);
+                    List<List<PapalDate>> endDate = GetPapalDates(nextTokenString, tokens, rawInput, false);
                     if (endDate.Count != 1) throw new InvalidOperationException();
-                    endDates = endDate[0];
+                    ValidatePopeTokens(tokens, p.Number);
+                    pp.EndDate.AddRange(endDate[0]);
                 }
 
                 //update the list of regnal numbers
@@ -176,9 +312,9 @@ namespace ReligionLibrary
                     string s = next.Key;
                     int iRegnalNumber = next.Value;
                     string nameToUse = s;
-                    if (s == "Callistus")
+                    if (PopeStatic.PapalNameReplacements.TryGetValue(s, out string? sActualNameToUse))
                     {
-                        nameToUse = "Callixtus";
+                        nameToUse = sActualNameToUse;
                     }
                     List<int> nameNumbers;
                     if (regnalNamesAndNumbers.ContainsKey(nameToUse))
@@ -194,53 +330,33 @@ namespace ReligionLibrary
                     {
                         nameNumbers.Add(iRegnalNumber);
                     }
+                    pp.PapalNames.Add(new KeyValuePair<string, int>(s, iRegnalNumber));
                 }
                 ppList.Add(pp);
                 iIndex++;
+            }
+
+            if (PopeStatic.UnusedTokenCombinations.Count > 0)
+            {
+                throw new InvalidOperationException();
             }
 
             //validate regnal names and numbers
             foreach (KeyValuePair<string, List<int>> entry in regnalNamesAndNumbers)
             {
                 string sName = entry.Key;
-                if (sName == "Callistus")
+                if (PopeStatic.PapalNameReplacementsReverse.TryGetValue(sName, out string? sReplacement))
                 {
-                    sName = "Callixtus";
+                    sName = sReplacement;
                 }
                 List<int> numbers = entry.Value;
                 numbers.Sort();
                 int lowest = numbers[0];
                 if (lowest != 1)
                     throw new InvalidOperationException();
-                List<int> missingNumbers = new List<int>();
-                if (sName == "Alexander")
-                {
-                    missingNumbers.Add(5); //antipope
-                }
-                else if (sName == "Benedict")
-                {
-                    missingNumbers.Add(10); //antipope
-                }
-                else if (sName == "Boniface")
-                {
-                    missingNumbers.Add(7);
-                }
-                else if (sName == "Felix")
-                {
-                    missingNumbers.Add(2);
-                }
-                else if (sName == "John")
-                {
-                    missingNumbers.Add(16); //antipope
-                    missingNumbers.Add(20); //skipped by mistake (possibly double counting of John XIV)
-                }
-                else if (sName == "Martin")
-                {
-                    missingNumbers.Add(2); //skipped by mistake (confusion with Marinus 1)
-                    missingNumbers.Add(3); //skipped by mistake (confusion with Marinus 2)
-                }
+                PopeStatic.MissingRegnalNumbersByRegnalName.TryGetValue(sName, out List<int>? missingNumbers);
                 int expectedHighest = numbers.Count;
-                if (missingNumbers.Count > 0)
+                if (missingNumbers?.Count > 0)
                 {
                     foreach (int nextMissingNumber in missingNumbers)
                     {
@@ -257,151 +373,325 @@ namespace ReligionLibrary
             return ppList;
         }
 
-        private static List<List<PapalDate>> GetPapalDates(string input, List<PopeToken> tokens)
+        private static void ValidatePopeTokens(List<PopeToken> tokens, int popeNumber)
         {
+            foreach (PopeToken nextToken in tokens)
+            {
+                switch (nextToken.TokenType)
+                {
+                    case PopeTokenType.ArabicNumber:
+                        if (!nextToken.Number.HasValue) throw new InvalidOperationException();
+                        if (!nextToken.DateType.HasValue) throw new InvalidOperationException();
+                        if (nextToken.DateType.Value == DateTypes.Day)
+                        {
+                            if (nextToken.Number.Value < 1 || nextToken.Number.Value > 31) throw new InvalidOperationException();
+                        }
+                        else if (nextToken.DateType.Value == DateTypes.Year)
+                        {
+                            if (popeNumber > 1 && nextToken.Number < 30) 
+                                throw new InvalidOperationException();
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException();
+                        }
+                        break;
+                    case PopeTokenType.RomanNumeral:
+                        if (!nextToken.Number.HasValue) throw new InvalidOperationException();
+                        if (!nextToken.DateType.HasValue) throw new InvalidOperationException();
+                        if (nextToken.DateType != DateTypes.Month) throw new InvalidOperationException();
+                        if (nextToken.Number.Value < 0 || nextToken.Number.Value > 12) throw new InvalidOperationException();
+                        break;
+                    case PopeTokenType.Comma:
+                    case PopeTokenType.Dash:
+                    case PopeTokenType.Or:
+                    case PopeTokenType.Period:
+                        if (nextToken.Number.HasValue) throw new InvalidOperationException();
+                        if (nextToken.DateType.HasValue) throw new InvalidOperationException();
+                        break;
+                }
+            }
+        }
+
+        private static List<List<PapalDate>> GetPapalDates(string input, List<PopeToken> tokens, string rawInput, bool forStart)
+        {
+            if (!ValidTokenCombinations.Contains(input))
+            {
+                throw new InvalidOperationException();
+            }
             List<List<PapalDate>> theDates = new List<List<PapalDate>>();
             switch (input)
             {
                 case "0":
+                    tokens[0].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[0].Number!.Value, null, null, null, null, null, null)
+                            new PapalDate(tokens[0].Number!.Value, null, null)
                         });
                     break;
                 case "...0":
+                    tokens[3].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[3].Number!.Value, null, null, null, null, null, null)
+                            new PapalDate(tokens[3].Number!.Value, null, null)
                         });
                     break;
                 case "0o0":
+                    tokens[0].DateType = DateTypes.Year;
+                    tokens[2].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[0].Number!.Value, null, null, null, null, null, null),
-                            new PapalDate(tokens[2].Number!.Value, null, null, null, null, null, null)
+                            new PapalDate(tokens[0].Number!.Value, null, null),
+                            new PapalDate(tokens[2].Number!.Value, null, null)
                         });
                     break;
                 case "...IoI.0":
+                    tokens[7].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[7].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[7].Number!.Value, null, tokens[5].Number!.Value, null, null, null, null)
+                            new PapalDate(tokens[7].Number!.Value, tokens[3].Number!.Value, null),
+                            new PapalDate(tokens[7].Number!.Value, tokens[5].Number!.Value, null)
                         });
                     break;
                 case "0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[4].Number!.Value, null, tokens[2].Number!.Value, null, null, tokens[0].Number!.Value, null)
+                            new PapalDate(tokens[4].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value)
                         });
                     break;
                 case "0o0o0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[2].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Day;
+                    tokens[8].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, tokens[0].Number!.Value, null),
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, tokens[2].Number!.Value, null),
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, tokens[4].Number!.Value, null),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[0].Number!.Value),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[2].Number!.Value),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[4].Number!.Value),
                         });
                     break;
                 case "0o0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[2].DateType = DateTypes.Day;
+                    tokens[6].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[6].Number!.Value, null, tokens[4].Number!.Value, null, null, tokens[0].Number!.Value, null),
-                            new PapalDate(tokens[6].Number!.Value, null, tokens[4].Number!.Value, null, null, tokens[2].Number!.Value, null)
+                            new PapalDate(tokens[6].Number!.Value, tokens[4].Number!.Value, tokens[0].Number!.Value),
+                            new PapalDate(tokens[6].Number!.Value, tokens[4].Number!.Value, tokens[2].Number!.Value)
                         });
                     break;
                 case "0,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[2].DateType = DateTypes.Day;
+                    tokens[6].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[6].Number!.Value, null, tokens[4].Number!.Value, null, null, tokens[0].Number!.Value, null),
-                            new PapalDate(tokens[6].Number!.Value, null, tokens[4].Number!.Value, null, null, tokens[2].Number!.Value, null)
+                            new PapalDate(tokens[6].Number!.Value, tokens[4].Number!.Value, tokens[0].Number!.Value)
                         });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                            new PapalDate(tokens[6].Number!.Value, tokens[4].Number!.Value, tokens[2].Number!.Value)
+                    });
                     break;
                 case "0.I.0,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[6].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Year;
+                    tokens[10].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[4].Number!.Value, null, tokens[2].Number!.Value, null, null, tokens[0].Number!.Value, null),
+                            new PapalDate(tokens[4].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
                         });
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[10].Number!.Value, null, tokens[8].Number!.Value, null, null, tokens[6].Number!.Value, null),
+                            new PapalDate(tokens[10].Number!.Value, tokens[8].Number!.Value, tokens[6].Number!.Value),
                         });
                     break;
                 case "...I,0.I.0":
+                    tokens[5].DateType = DateTypes.Day;
+                    tokens[9].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
+                            new PapalDate(tokens[9].Number!.Value, tokens[3].Number!.Value, null),
                         });
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[7].Number!.Value, null, null, tokens[5].Number!.Value, null),
+                            new PapalDate(tokens[9].Number!.Value, tokens[7].Number!.Value, tokens[5].Number!.Value),
                         });
                     break;
                 case "...I.0,0.I.0":
+                    tokens[5].DateType = DateTypes.Year;
+                    tokens[7].DateType = DateTypes.Day;
+                    tokens[11].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[5].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
+                            new PapalDate(tokens[5].Number!.Value, tokens[3].Number!.Value, null),
                         });
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[11].Number!.Value, null, tokens[9].Number!.Value, null, null, tokens[7].Number!.Value, null),
+                            new PapalDate(tokens[11].Number!.Value, tokens[9].Number!.Value, tokens[7].Number!.Value),
                         });
                     break;
                 case "0.I,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Day;
+                    tokens[8].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[2].Number!.Value, null, null, tokens[0].Number!.Value, null),
+                            new PapalDate(tokens[8].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
                         });
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, tokens[4].Number!.Value, null),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[4].Number!.Value),
                         });
                     break;
                 case "...I.0":
+                    tokens[5].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[5].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
+                            new PapalDate(tokens[5].Number!.Value, tokens[3].Number!.Value, null),
                         });
                     break;
                 case "0.Io0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Day;
+                    tokens[8].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                         {
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[2].Number!.Value, null, null, tokens[0].Number!.Value, null),
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, tokens[4].Number!.Value, null)
+                            new PapalDate(tokens[8].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[4].Number!.Value)
                         });
                     break;
                 case "...I-I.0":
+                    tokens[7].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                     {
-                            new PapalDate(tokens[7].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[7].Number!.Value, null, tokens[5].Number!.Value, null, null, null, null)
+                            new PapalDate(tokens[7].Number!.Value, tokens[3].Number!.Value, null),
+                            new PapalDate(tokens[7].Number!.Value, tokens[5].Number!.Value, null)
                     });
                     break;
                 case "...I.0oI.0":
+                    tokens[5].DateType = DateTypes.Year;
+                    tokens[9].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                     {
-                            new PapalDate(tokens[5].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[7].Number!.Value, null, null, null, null)
+                            new PapalDate(tokens[5].Number!.Value, tokens[3].Number!.Value, null),
+                            new PapalDate(tokens[9].Number!.Value, tokens[7].Number!.Value, null)
                     });
                     break;
                 case "..I.0oI.0":
+                    tokens[4].DateType = DateTypes.Year;
+                    tokens[8].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                     {
-                            new PapalDate(tokens[4].Number!.Value, null, tokens[2].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[8].Number!.Value, null, tokens[6].Number!.Value, null, null, null, null)
+                            new PapalDate(tokens[4].Number!.Value, tokens[2].Number!.Value, null),
+                            new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, null)
                     });
                     break;
                 case "...IoIoI.0":
+                    tokens[9].DateType = DateTypes.Year;
                     theDates.Add(new List<PapalDate>()
                     {
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[3].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[5].Number!.Value, null, null, null, null),
-                            new PapalDate(tokens[9].Number!.Value, null, tokens[7].Number!.Value, null, null, null, null)
+                            new PapalDate(tokens[9].Number!.Value, tokens[3].Number!.Value, null),
+                            new PapalDate(tokens[9].Number!.Value, tokens[5].Number!.Value, null),
+                            new PapalDate(tokens[9].Number!.Value, tokens[7].Number!.Value, null)
                     });
                     break;
                 case "0.I,...I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[9].DateType = DateTypes.Year;
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[9].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[9].Number!.Value, tokens[7].Number!.Value, null),
+                    });
+                    break;
+                case "0.I.0o0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Year;
+                    tokens[6].DateType = DateTypes.Year;
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[4].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
+                        new PapalDate(tokens[6].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
+                    });
+                    break;
+                case "0,0,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[2].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Day;
+                    tokens[8].DateType = DateTypes.Year;
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[0].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[2].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[8].Number!.Value, tokens[6].Number!.Value, tokens[4].Number!.Value),
+                    });
+                    break;
+                case "0.I,0,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[6].DateType = DateTypes.Day;
+                    tokens[4].DateType = DateTypes.Day;
+                    tokens[10].DateType = DateTypes.Year;
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[2].Number!.Value, tokens[0].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[8].Number!.Value, tokens[4].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[8].Number!.Value, tokens[6].Number!.Value),
+                    });
+                    break;
+                case "0,0.I,0.I.0":
+                    tokens[0].DateType = DateTypes.Day;
+                    tokens[2].DateType = DateTypes.Day;
+                    tokens[6].DateType = DateTypes.Day;
+                    tokens[10].DateType = DateTypes.Year;
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[4].Number!.Value, tokens[0].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[4].Number!.Value, tokens[2].Number!.Value),
+                    });
+                    theDates.Add(new List<PapalDate>()
+                    {
+                        new PapalDate(tokens[10].Number!.Value, tokens[8].Number!.Value, tokens[6].Number!.Value),
+                    });
                     break;
                 default:
                     throw new InvalidOperationException();
+            }
+
+            if (PopeStatic.UnusedTokenCombinations.Contains(input))
+            {
+                PopeStatic.UnusedTokenCombinations.Remove(input);
+            }
+
+            ///add blank date lists at the end if there are less than three dates
+            if (forStart)
+            {
+                for (int i = theDates.Count; i < 3; i++)
+                {
+                    theDates.Add(new List<PapalDate>());
+                }
             }
             return theDates;
         }
@@ -450,9 +740,9 @@ namespace ReligionLibrary
                 if (next == '-' || next == ' ' || next == ',' || next == '.' || next == 'o')
                 {
                     if (currentTokenType == PopeTokenType.ArabicNumber)
-                        ret.Add(new PopeToken(PopeTokenType.ArabicNumber, int.Parse(currentNumber)));
+                        ret.Add(new PopeToken(PopeTokenType.ArabicNumber, null, int.Parse(currentNumber)));
                     else if (currentTokenType == PopeTokenType.RomanNumeral)
-                        ret.Add(new PopeToken(PopeTokenType.RomanNumeral, Common.RomanNumeralToInteger(currentNumber)));
+                        ret.Add(new PopeToken(PopeTokenType.RomanNumeral, DateTypes.Month, Common.RomanNumeralToInteger(currentNumber)));
                     currentTokenType = null;
                     currentNumber = string.Empty;
                     PopeTokenType? ptt = null;
@@ -468,7 +758,7 @@ namespace ReligionLibrary
                         throw new InvalidOperationException();
                     if (next != ' ')
                     {
-                        ret.Add(new PopeToken(ptt!.Value, null));
+                        ret.Add(new PopeToken(ptt!.Value, null, null));
                     }
                 }
                 else if (next == '0' ||
@@ -498,7 +788,7 @@ namespace ReligionLibrary
                 }
             }
             if (currentTokenType != PopeTokenType.ArabicNumber) throw new InvalidOperationException();
-            ret.Add(new PopeToken(PopeTokenType.ArabicNumber, int.Parse(currentNumber)));
+            ret.Add(new PopeToken(PopeTokenType.ArabicNumber, null, int.Parse(currentNumber)));
             return ret;
         }
 
@@ -513,7 +803,7 @@ namespace ReligionLibrary
                 p.BeginningPontificate = "30" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "33";
             }
             string sBegin = p.BeginningPontificate;
-            if (PopeExceptions.Replacements.TryGetValue(sBegin, out string? sNewValue))
+            if (PopeStatic.DateReplacements.TryGetValue(sBegin, out string? sNewValue))
             {
                 sBegin = sNewValue;
             }
@@ -580,7 +870,7 @@ namespace ReligionLibrary
         {
             List<PrecisePope> precisePopes = new List<PrecisePope>();
             List<Pope> popeList = GetInitialPopeList(inputFilePath);
-            for (int i = popeList.Count - 1; i >= 0; i--)
+            for (int i = 0; i < popeList.Count; i++)
             {
                 Pope p = popeList[i];
                 CleanPope cp = new CleanPope();
@@ -616,7 +906,7 @@ namespace ReligionLibrary
             return precisePopes;
         }
 
-        private static void SavePopesToFile(string outputFilePath, List<PrecisePope> pps)
+        private static void SavePopesToFile(string outputFilePath, List<PrecisePope> pps, Dictionary<string, List<int>> regnalNamesAndNumbers)
         {
             bool foundPopeWithoutEndDate = false;
             XmlDocument doc = new XmlDocument();
@@ -640,9 +930,20 @@ namespace ReligionLibrary
                 {
                     XmlElement papalNameElement = doc.CreateElement("Name");
                     papalNameElement.SetAttribute("n", nextPapalName.Key);
-                    if (nextPapalName.Value > 1)
+                    papalNameElement.SetAttribute("r", nextPapalName.Value.ToString());
+
+                    string sNameToCheck = nextPapalName.Key;
+                    if (PopeStatic.PapalNameReplacements.TryGetValue(sNameToCheck, out string? actualName))
                     {
-                        papalNameElement.SetAttribute("r", nextPapalName.Value.ToString());
+                        sNameToCheck = actualName;
+                    }
+                    if (!regnalNamesAndNumbers.ContainsKey(sNameToCheck))
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    if (regnalNamesAndNumbers[sNameToCheck].Count == 1)
+                    {
+                        papalNameElement.SetAttribute("only", "true");
                     }
                     popeElement.AppendChild(papalNameElement);
                 }
@@ -659,6 +960,12 @@ namespace ReligionLibrary
                 {
                     startDate.SetAttribute("d1", GetDateElementText(p.StartDates[0][0]));
                     startDate.SetAttribute("d2", GetDateElementText(p.StartDates[0][1]));
+                }
+                else if (p.StartDates[0].Count == 3)
+                {
+                    startDate.SetAttribute("d1", GetDateElementText(p.StartDates[0][0]));
+                    startDate.SetAttribute("d2", GetDateElementText(p.StartDates[0][1]));
+                    startDate.SetAttribute("d3", GetDateElementText(p.StartDates[0][2]));
                 }
                 else
                 {
@@ -768,7 +1075,7 @@ namespace ReligionLibrary
             }
             else
             {
-                ret = dt.YearA.ToString();
+                ret = dt.YearA.ToString().PadLeft(4, '0');
             }
             return ret;
         }
@@ -782,15 +1089,19 @@ namespace ReligionLibrary
             }
             else if (date == "...I-V.900")
             {
-                ret.Add(new PapalDate(900, null, 1, 5, null, null, null));
+                ret.Add(new PapalDate(900, null, 1, 5, null, null, null, null));
             }
-            else if (date == "..XII.897 or I.898")
+            else if (date == "..XII.897" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "I.898")
             {
-                ret.Add(new PapalDate(897, 898, 12, 1, null, null, null));
+                ret.Add(new PapalDate(897, 898, 12, 1, null, null, null, null));
             }
             else if (date == "... II-V.824")
             {
-                ret.Add(new PapalDate(824, null, 2, 5, null, null, null));
+                ret.Add(new PapalDate(824, null, 2, 5, null, null, null, null));
+            }
+            else if (date == "15 o 22 o 29.XII.384")
+            {
+                ret.Add(new PapalDate(384, null, 12, null, null, 15, 22, 29));
             }
             else //more modern popes have more consistent year data
             {
@@ -872,14 +1183,14 @@ namespace ReligionLibrary
                         year = lastYear;
                     if (nextYear.Length == year.ToString().Length)
                     {
-                        yearDates.Add(new PapalDate(year, null, null, null, null, null, null));
+                        yearDates.Add(new PapalDate(year, null, null, null, null, null, null, null));
                     }
                     else
                     {
                         string remainder = nextYear.Substring(0, nextYear.Length - year.ToString().Length - 1);
                         if (remainder == "...")
                         {
-                            yearDates.Add(new PapalDate(year, null, null, null, null, null, null));
+                            yearDates.Add(new PapalDate(year, null, null, null, null, null, null, null));
                         }
                         else
                         {
@@ -930,7 +1241,7 @@ namespace ReligionLibrary
                                         dayB = null;
                                     }
                                 }
-                                yearDates.Insert(0, new PapalDate(year, null, monthA, monthB, null, dayA, dayB));
+                                yearDates.Insert(0, new PapalDate(year, null, monthA, monthB, null, dayA, dayB, null));
                             }
                         }
                     }
@@ -944,26 +1255,18 @@ namespace ReligionLibrary
         {
             int iYearA;
             int? iYearB;
-            if (date.Contains(" or "))
+            if (date.Contains(OR_TOKEN_WITH_SPACES_SINGLE_LETTER))
             {
-                string[] vals = date.Split(" or ");
+                string[] vals = date.Split(OR_TOKEN_WITH_SPACES_SINGLE_LETTER);
                 iYearA = int.Parse(vals[0]);
                 iYearB = int.Parse(vals[1]);
             }
             else
             {
-                iYearA = -1;
-                try
-                {
-                    iYearA = int.Parse(date);
-                }
-                catch (Exception ex)
-                {
-
-                }
+                iYearA = int.Parse(date);
                 iYearB = null;
             }
-            return new PapalDate(iYearA, iYearB, null, null, null, null, null);
+            return new PapalDate(iYearA, iYearB, null, null, null, null, null, null);
         }
 
         /// <summary>
@@ -979,29 +1282,29 @@ namespace ReligionLibrary
             {
                 ret = ParseEarlyPopeYearOrYears(date);
             }
-            else if (date == "... XII.928 or I.929")
+            else if (date == "... XII.928" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "I.929")
             {
-                ret = new PapalDate(928, 929, 12, 1, null, null, null);
+                ret = new PapalDate(928, 929, 12, 1, null, null, null, null);
             }
-            else if (date == "...XII.897 or I.898")
+            else if (date == "...XII.897" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "I.898")
             {
-                ret = new PapalDate(897, 898, 12, 1, null, null, null);
+                ret = new PapalDate(897, 898, 12, 1, null, null, null, null);
             }
             else if (date == "...I-V.900")
             {
-                ret = new PapalDate(900, null, 1, 5, null, null, null);
+                ret = new PapalDate(900, null, 1, 5, null, null, null, null);
             }
             else if (date == "... II-V.824")
             {
-                ret = new PapalDate(824, null, 2, 5, null, null, null);
+                ret = new PapalDate(824, null, 2, 5, null, null, null, null);
             }
-            else if (date == "25.II or 1.III.492")
+            else if (date == "25.II" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "1.III.492")
             {
-                ret = new PapalDate(492, null, 2, 3, null, 25, 1);
+                ret = new PapalDate(492, null, 2, 3, null, 25, 1, null);
             }
-            else if (date == "... VI or VIII or X.913")
+            else if (date == "... VI" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "VIII" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "X.913")
             {
-                ret = new PapalDate(913, null, 6, 8, 10, null, null);
+                ret = new PapalDate(913, null, 6, 8, 10, null, null, null);
             }
             else
             {
@@ -1010,7 +1313,7 @@ namespace ReligionLibrary
                 string yearValue = end[end.Length - 1];
                 int yearA;
                 int? yearB;
-                if (yearValue == "964 or 965")
+                if (yearValue == "964" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "965")
                 {
                     yearA = 964;
                     yearB = 965;
@@ -1040,9 +1343,9 @@ namespace ReligionLibrary
                 }
                 else //regular month
                 {
-                    if (sMonth.Contains(" or "))
+                    if (sMonth.Contains(OR_TOKEN_WITH_SPACES_SINGLE_LETTER))
                     {
-                        string[] vals = sMonth.Split(" or ");
+                        string[] vals = sMonth.Split(OR_TOKEN_WITH_SPACES_SINGLE_LETTER);
                         monthA = Common.RomanNumeralToInteger(vals[0]);
                         monthB = Common.RomanNumeralToInteger(vals[1]);
                     }
@@ -1059,9 +1362,9 @@ namespace ReligionLibrary
                     dayA = null;
                     dayB = null;
                 }
-                else if (remaindertext.Contains(" or ")) //two possible dates
+                else if (remaindertext.Contains(OR_TOKEN_WITH_SPACES_SINGLE_LETTER)) //two possible dates
                 {
-                    string[] vals = remaindertext.Split(" or ");
+                    string[] vals = remaindertext.Split(OR_TOKEN_WITH_SPACES_SINGLE_LETTER);
                     if (vals.Length != 2) throw new InvalidOperationException();
                     dayA = int.Parse(vals[0]);
                     dayB = int.Parse(vals[1]);
@@ -1069,12 +1372,16 @@ namespace ReligionLibrary
                 else //simple day
                 {
                     if (remaindertext == ".")
+                    {
                         dayA = null;
+                    }
                     else
+                    {
                         dayA = int.Parse(remaindertext);
+                    }
                     dayB = null;
                 }
-                ret = new PapalDate(yearA, yearB, monthA, monthB, null, dayA, dayB);
+                ret = new PapalDate(yearA, yearB, monthA, monthB, null, dayA, dayB, null);
             }
             return ret;
         }
@@ -1150,6 +1457,16 @@ namespace ReligionLibrary
     public class PapalDate : IComparable<PapalDate>
     {
         /// <summary>
+        /// simple constructor with just one date point
+        /// </summary>
+        /// <param name="Year">year</param>
+        /// <param name="Month">month</param>
+        /// <param name="Day">date</param>
+        public PapalDate(int Year, int? Month, int? Day) : this(Year, null, Month, null, null, Day, null, null)
+        {
+        }
+
+        /// <summary>
         /// constructor
         /// </summary>
         /// <param name="YearA">year A</param>
@@ -1159,7 +1476,8 @@ namespace ReligionLibrary
         /// <param name="MonthC">month c</param>
         /// <param name="DayA">day a</param>
         /// <param name="DayB">day b</param>
-        public PapalDate(int YearA, int? YearB, int? MonthA, int? MonthB, int? MonthC, int? DayA, int? DayB)
+        /// <param name="DayC">day c</param>
+        public PapalDate(int YearA, int? YearB, int? MonthA, int? MonthB, int? MonthC, int? DayA, int? DayB, int? DayC)
         {
             if (YearA < 0) throw new InvalidOperationException();
             this.YearA = YearA;
@@ -1179,6 +1497,7 @@ namespace ReligionLibrary
             this.MonthC = MonthC;
             this.DayA = DayA;
             this.DayB = DayB;
+            this.DayC = DayC;
         }
 
         public bool IsValidDate()
@@ -1199,6 +1518,10 @@ namespace ReligionLibrary
         /// day B or null if unknown day or there is only one day
         /// </summary>
         public int? DayB { get; set; }
+        /// <summary>
+        /// day C
+        /// </summary>
+        public int? DayC { get; set; }
         /// <summary>
         /// month A or null if unknown
         /// </summary>
@@ -1300,17 +1623,17 @@ namespace ReligionLibrary
             List<PapalDate> StartDate3 = new List<PapalDate>();
 
             GenerateSeparatePapalDates(CleanPope.StartDate1, StartDate1);
-            if (StartDate1.Count > 0) StartDates.Add(StartDate1);
+            if (StartDate1.Count > 0) StartDates[0] = StartDate1;
 
             if (CleanPope.StartDate2 != null)
             {
                 GenerateSeparatePapalDates(CleanPope.StartDate2, StartDate2);
-                if (StartDate2.Count > 0) StartDates.Add(StartDate2);
+                if (StartDate2.Count > 0) StartDates[1] = StartDate2;
 
                 if (CleanPope.StartDate3 != null)
                 {
                     GenerateSeparatePapalDates(CleanPope.StartDate3, StartDate3);
-                    if (StartDate3.Count > 0) StartDates.Add(StartDate3);
+                    if (StartDate3.Count > 0) StartDates[2] = StartDate3;
                 }
             }
             else
@@ -1325,20 +1648,29 @@ namespace ReligionLibrary
             //(I added in 30-33 as the claimed starting data for the 1st pope)
             if (Input.YearA < 30) throw new InvalidOperationException();
 
-            if (Input.DayB.HasValue)
+            if (Input.DayC.HasValue) //only one example in the data set
+            {
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayB, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayC, null, null));
+                if (Input.YearB.HasValue) throw new InvalidOperationException();
+                if (Input.MonthB.HasValue) throw new InvalidOperationException();
+                if (Input.MonthC.HasValue) throw new InvalidOperationException();
+            }
+            else if (Input.DayB.HasValue)
             {
                 if (Input.MonthB.HasValue) //ambiguous days in different months
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null));
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, Input.DayB, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, Input.DayB, null, null));
                     if (Input.YearB.HasValue) throw new InvalidOperationException();
                     if (Input.MonthC.HasValue) throw new InvalidOperationException();
                     if (!Input.DayA.HasValue) throw new InvalidOperationException();
                 }
                 else //ambiguous days in the same month
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null));
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayB, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayB, null, null));
                     if (Input.YearB.HasValue) throw new InvalidOperationException();
                     if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                     if (Input.MonthB.HasValue) throw new InvalidOperationException();
@@ -1348,9 +1680,9 @@ namespace ReligionLibrary
             }
             else if (Input.MonthC.HasValue) //only one example in the data set
             {
-                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null));
-                ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, null, null));
-                ret.Add(new PapalDate(Input.YearA, null, Input.MonthC, null, null, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, null, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthC, null, null, null, null, null));
                 if (Input.YearB.HasValue) throw new InvalidOperationException();
                 if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                 if (!Input.MonthB.HasValue) throw new InvalidOperationException();
@@ -1361,16 +1693,16 @@ namespace ReligionLibrary
             {
                 if (Input.YearB.HasValue)
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null));
-                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthB, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthB, null, null, null, null, null));
                     if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                     if (Input.DayA.HasValue) throw new InvalidOperationException();
                     if (Input.DayB.HasValue) throw new InvalidOperationException();
                 }
                 else
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null));
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthB, null, null, null, null, null));
                     if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                     if (Input.DayA.HasValue) throw new InvalidOperationException();
                     if (Input.DayB.HasValue) throw new InvalidOperationException();
@@ -1380,22 +1712,22 @@ namespace ReligionLibrary
             {
                 if (Input.DayB.HasValue) //specific days for different years
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null));
-                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthB, null, null, Input.DayB, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
+                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthB, null, null, Input.DayB, null, null));
                     if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                     if (!Input.DayA.HasValue) throw new InvalidOperationException();
                     if (!Input.DayB.HasValue) throw new InvalidOperationException();
                 }
                 else if (Input.DayA.HasValue) //specific day+month, but unclear what year
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null));
-                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthA, null, null, Input.DayA, null));
+                    ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
+                    ret.Add(new PapalDate(Input.YearB.Value, null, Input.MonthA, null, null, Input.DayA, null, null));
                     if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                 }
                 else if (Input.YearB.HasValue) //two possible years
                 {
-                    ret.Add(new PapalDate(Input.YearA, null, null, null, null, null, null));
-                    ret.Add(new PapalDate(Input.YearB.Value, null, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearA, null, null, null, null, null, null, null));
+                    ret.Add(new PapalDate(Input.YearB.Value, null, null, null, null, null, null, null));
                     if (Input.MonthA.HasValue) throw new InvalidOperationException();
                 }
                 else
@@ -1407,15 +1739,15 @@ namespace ReligionLibrary
             {
                 if (!Input.MonthA.HasValue) throw new InvalidOperationException();
                 if (!Input.DayA.HasValue) throw new InvalidOperationException();
-                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, Input.DayA, null, null));
             }
             else if (Input.MonthA.HasValue)
             {
-                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, Input.MonthA, null, null, null, null, null));
             }
             else //only the year
             {
-                ret.Add(new PapalDate(Input.YearA, null, null, null, null, null, null));
+                ret.Add(new PapalDate(Input.YearA, null, null, null, null, null, null, null));
             }
         }
 
@@ -1536,6 +1868,13 @@ namespace ReligionLibrary
         }
     }
 
+    public enum DateTypes
+    {
+        Year,
+        Month,
+        Day,
+    }
+
     /// <summary>
     /// pope token
     /// </summary>
@@ -1543,18 +1882,56 @@ namespace ReligionLibrary
     {
         public override string ToString()
         {
-            //CSRTODO:
-            return null;
+            StringBuilder sb = new StringBuilder();
+            switch (TokenType)
+            {
+                case PopeTokenType.ArabicNumber:
+                    if (DateType == DateTypes.Day || DateType == DateTypes.Year)
+                    {
+                        string sChar = DateType == DateTypes.Day ? "d" : "y";
+                        sb.Append($"({sChar}={Number!.Value})");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    break;
+                case PopeTokenType.RomanNumeral:
+                    if (DateType == DateTypes.Month)
+                    {
+                        sb.Append($"(m={Number!.Value})");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+                    break;
+                case PopeTokenType.Comma:
+                    sb.Append(",");
+                    break;
+                case PopeTokenType.Dash:
+                    sb.Append("-");
+                    break;
+                case PopeTokenType.Or:
+                    sb.Append("o");
+                    break;
+                case PopeTokenType.Period:
+                    sb.Append(".");
+                    break;
+            }
+            return sb.ToString();
         }
 
         /// <summary>
         /// construtor
         /// </summary>
         /// <param name="TokenType">token type</param>
+        /// <param name="DateType">date type</param>
         /// <param name="Number">number</param>
-        public PopeToken(PopeTokenType TokenType, int? Number)
+        public PopeToken(PopeTokenType TokenType, DateTypes? DateType, int? Number)
         {
             this.TokenType = TokenType;
+            this.DateType = DateType;
             this.Number = Number;
         }
 
@@ -1562,6 +1939,11 @@ namespace ReligionLibrary
         /// pope token type
         /// </summary>
         public PopeTokenType TokenType { get; set; }
+
+        /// <summary>
+        /// date type
+        /// </summary>
+        public DateTypes? DateType { get; set; }
 
         /// <summary>
         /// token number for an arabic number or roman numeral
@@ -1600,3 +1982,6 @@ namespace ReligionLibrary
         RomanNumeral,
     }
 }
+
+
+
