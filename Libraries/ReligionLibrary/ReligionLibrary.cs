@@ -218,6 +218,67 @@ namespace ReligionLibrary
         /// <returns></returns>
         public static List<PrecisePope> LoadPopesByToken(string inputFilePath, out Dictionary<string, List<int>> regnalNamesAndNumbers)
         {
+            Dictionary<int, string> testPopes = new Dictionary<int, string>()
+            {
+                { 1, "Peter" },
+                { 3, "Anacletus or Cletus" },
+                { 11, "Anicetus" },
+                { 14, "Victor I" },
+                { 16, "Callistus I" },
+                { 18, "Pontianus" },
+                { 21, "Cornelius" },
+                { 22, "Lucius I" },
+                { 26, "Felix I" },
+                { 32, "Miltiades or Melchiades" },
+                { 38, "Siricius" },
+                { 48, "Felix III" },
+                { 54, "Felix IV" },
+                { 55, "Boniface II" },
+                { 58, "Silverius" },
+                { 68, "Deusdedit or Adeodatus I" },
+                { 106, "Adrian II" },
+                { 109, "Adrian III" },
+                { 113, "Stephen VI" },
+                { 114, "Romanus" },
+                { 115, "Theodore II" },
+                { 116, "John IX" },
+                { 120, "Anastasius III" },
+                { 121, "Lando" },
+                { 122, "John X" },
+                { 123, "Leo VI" },
+                { 132, "Benedict V" },
+                { 136, "John XIV" },
+                { 138, "Gregory V" },
+                { 141, "John XVIII" },
+                { 144, "John XIX" },
+                { 145, "Benedict IX" }, //has three separate reigns
+                { 146, "Sylvester III" },
+                { 147, "Benedict IX" }, //has three separate reigns
+                { 148, "Gregory VI" },
+                { 149, "ClementII" },
+                { 150, "Benedict IX" }, //has three separate reigns
+                { 151, "Damasus II" },
+                { 162, "Callixtus II" },
+                { 163, "Honorius II" },
+                { 192, "Celestine V" },
+                { 205, "Gregory XII" },
+                { 209, "Callixtus III" },
+                { 226, "Gregory XIII" }, //Julian->Gregorian Calendar transition
+                { 255, "Pius IX" }, //first vatican council
+                { 261, "John XXIII" }, //started second vatican council
+                { 262, "Paul VI" }, //concluded second vatican council (last pope who had a coronation)
+                { 263, "John Paul I" },
+                { 264, "John Paul II" },
+                { 265, "Benedict XVI" },
+                { 266, "Francis" },
+            };
+            HashSet<string> unprocessedStartDates = new HashSet<string>();
+            HashSet<string> unprocessedEndDates = new HashSet<string>();
+            foreach (string s in ValidTokenCombinations)
+            {
+                unprocessedStartDates.Add(s);
+                unprocessedEndDates.Add(s);
+            }
             if (PopeStatic.UnusedTokenCombinations.Count != ValidTokenCombinations.Count)
             {
                 throw new InvalidOperationException();
@@ -282,6 +343,20 @@ namespace ReligionLibrary
                 string rawInput = p.BeginningPontificate;
                 List<PopeToken> tokens = LoadPopeTokens(rawInput);
                 string nextTokenString = GetPopeTokenStringWithoutNumbers(tokens);
+
+                if (!testPopes.ContainsKey(p.Number))
+                {
+                    if (unprocessedStartDates.Contains(nextTokenString))
+                    {
+                        unprocessedStartDates.Remove(nextTokenString);
+                        Console.Out.WriteLine(p.Number + " " + p.PapalName);
+                    }
+                    else if (unprocessedEndDates.Contains(nextTokenString))
+                    {
+                        unprocessedEndDates.Remove(nextTokenString);
+                        Console.Out.WriteLine(p.Number + " " + p.PapalName);
+                    }
+                }
                 List<List<PapalDate>> startDates = GetPapalDates(nextTokenString, tokens, rawInput, true);
                 ValidatePopeTokens(tokens, p.Number);
                 pp.StartDates[0].AddRange(startDates[0]);
@@ -798,9 +873,16 @@ namespace ReligionLibrary
         /// <param name="p">pope</param>
         private static void ApplyInitialTransformations(Pope p)
         {
-            if (p.Number == 1 && string.IsNullOrEmpty(p.BeginningPontificate))
+            if (p.Number == 1)
             {
-                p.BeginningPontificate = "30" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "33";
+                if (string.IsNullOrEmpty(p.BeginningPontificate))
+                {
+                    p.BeginningPontificate = "30" + OR_TOKEN_WITH_SPACES_SINGLE_LETTER + "33";
+                }
+                if (string.IsNullOrEmpty(p.SecularName))
+                {
+                    p.SecularName = "Simon or Simeon";
+                }
             }
             string sBegin = p.BeginningPontificate;
             if (PopeStatic.DateReplacements.TryGetValue(sBegin, out string? sNewValue))
@@ -837,6 +919,7 @@ namespace ReligionLibrary
                     }
                 }
             }
+            //determine what characters are actually used (not part of mainline functionality)
             List<char> usedCharsList = new List<char>(usedChars);
             usedCharsList.Sort();
             StringBuilder sb = new StringBuilder();
@@ -921,7 +1004,7 @@ namespace ReligionLibrary
                 {
                     popeElement.SetAttribute("secularname", p.SecularName);
                 }
-                if (!string.IsNullOrEmpty("birthplace"))
+                if (!string.IsNullOrEmpty(p.Birthplace))
                 {
                     popeElement.SetAttribute("birthplace", p.Birthplace);
                 }
