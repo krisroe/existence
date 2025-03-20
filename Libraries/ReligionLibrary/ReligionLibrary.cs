@@ -15,11 +15,10 @@ namespace ReligionLibrary
 
         public static int RunMain(string[] args)
         {
-            if (args.Length < 2) throw new InvalidOperationException();
+            if (args.Length < 1) throw new InvalidOperationException();
             string file1 = args[0];
-            string file2 = args[1];
+            string file2 = args.Length > 1 ? args[1] : string.Empty;
             if (string.IsNullOrEmpty(file1)) throw new InvalidOperationException();
-            if (string.IsNullOrEmpty(file2)) throw new InvalidOperationException();
 
             Dictionary<string, List<int>> regnalNamesAndNumbers;
             List<PrecisePope> ppByToken = LoadPopesByToken(file1, out regnalNamesAndNumbers);
@@ -96,8 +95,10 @@ namespace ReligionLibrary
                     if (isViolation != expectedViolation) throw new InvalidOperationException();
                 }
             }
-
-            SavePopesToFile(file2, ppByToken, regnalNamesAndNumbers);
+            if (!string.IsNullOrEmpty(file2))
+            {
+                SavePopesToFile(file2, ppByToken, regnalNamesAndNumbers);
+            }
             return 0;
         }
 
@@ -230,8 +231,11 @@ namespace ReligionLibrary
                 { 22, "Lucius I" },
                 { 26, "Felix I" },
                 { 32, "Miltiades or Melchiades" },
+                { 33, "Sylvester I" },
+                { 34, "Mark" },
                 { 38, "Siricius" },
                 { 48, "Felix III" },
+                { 49, "Gelasius I" },
                 { 54, "Felix IV" },
                 { 55, "Boniface II" },
                 { 58, "Silverius" },
@@ -255,14 +259,23 @@ namespace ReligionLibrary
                 { 146, "Sylvester III" },
                 { 147, "Benedict IX" }, //has three separate reigns
                 { 148, "Gregory VI" },
-                { 149, "ClementII" },
+                { 149, "Clement II" },
                 { 150, "Benedict IX" }, //has three separate reigns
                 { 151, "Damasus II" },
+                { 157, "Urban II" },
+                { 159, "Paschal II" },
                 { 162, "Callixtus II" },
                 { 163, "Honorius II" },
+                { 176, "Innocent III" },
                 { 192, "Celestine V" },
+                { 193, "Boniface VIII" },
+                { 200, "Urban V" },
+                { 201, "Gregory XI" },
+                { 202, "Urban VI" },
                 { 205, "Gregory XII" },
                 { 209, "Callixtus III" },
+                { 216, "Julius II" },
+                { 217, "Leo X" },
                 { 226, "Gregory XIII" }, //Julian->Gregorian Calendar transition
                 { 255, "Pius IX" }, //first vatican council
                 { 261, "John XXIII" }, //started second vatican council
