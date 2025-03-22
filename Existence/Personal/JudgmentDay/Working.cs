@@ -63,6 +63,9 @@ internal class Working
     /// March 16, 1998: worst day of my life. Car wouldn't start and walked 13.5 miles home from school.
     /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
     /// Ides of March fall on March 16.
+    /// 
+    /// Parents married: 1976-06-26
+    /// Moved to Endeavor home: 1985-08-17
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {

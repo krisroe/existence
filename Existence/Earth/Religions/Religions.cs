@@ -47,7 +47,7 @@ namespace Existence.Earth.Religions
         /// seen as an example of what Vatican I codified. Mary, from the first moment of her conception 
         /// in her mother’s womb, was preserved by God from original sin
         /// 2. Assumption of Mary (Pope Pius XII, 1950). The Catholic belief that Mary, the mother of
-        /// Jesus, was taken up body and soul into heavenly glory at the end of her earthly life.ok
+        /// Jesus, was taken up body and soul into heavenly glory at the end of her earthly life.
         /// </summary>
         public static class PapalInfallibility { }
     }

@@ -5,6 +5,7 @@ using LibraryShared;
 using System.Globalization;
 using System.Text;
 using System.Xml;
+using System.Xml.Schema;
 
 namespace ReligionLibrary
 {
@@ -20,6 +21,35 @@ namespace ReligionLibrary
             string file2 = args.Length > 1 ? args[1] : string.Empty;
             if (string.IsNullOrEmpty(file1)) throw new InvalidOperationException();
 
+            XmlReaderSettings sets = new XmlReaderSettings();
+            sets.Schemas.Add(null, file1);
+            sets.ValidationType = ValidationType.Schema;
+            sets.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+            sets.ValidationEventHandler += Sets_ValidationEventHandler;
+            using (XmlReader reader = XmlReader.Create(file2, sets))
+            {
+                try
+                {
+                    //parse the document
+                    while (reader.Read()) { }
+                    Console.WriteLine("XML is valid!");
+                }
+                catch (XmlException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+
+            return 0;
+        }
+
+        private static void Sets_ValidationEventHandler(object? sender, ValidationEventArgs e)
+        {
+            Console.WriteLine($"{e.Severity}: {e.Message}");
+        }
+
+        private static void HandlePopes(string file1, string file2)
+        {
             Dictionary<string, List<int>> regnalNamesAndNumbers;
             List<PrecisePope> ppByToken = LoadPopesByToken(file1, out regnalNamesAndNumbers);
             List<PrecisePope> ppByLegacyMethod = LoadPopes(file1);
@@ -55,7 +85,7 @@ namespace ReligionLibrary
                 {
                     ValidatePapalDates(p1.EndDate[i], p2.EndDate[i]);
                 }
-                
+
                 //verify all three start dates are equivalent by both methods
                 bool foundNothing = false;
                 List<PapalDate> startDates = new List<PapalDate>();
@@ -76,7 +106,7 @@ namespace ReligionLibrary
                 //verify the start date(s) followed by end date(s) are all in consistent order
                 for (int i = 1; i < startDates.Count; i++)
                 {
-                    if (startDates[i-1].CompareTo(startDates[i]) >= 0)
+                    if (startDates[i - 1].CompareTo(startDates[i]) >= 0)
                     {
                         throw new InvalidOperationException();
                     }
@@ -99,7 +129,6 @@ namespace ReligionLibrary
             {
                 SavePopesToFile(file2, ppByToken, regnalNamesAndNumbers);
             }
-            return 0;
         }
 
         private static void ValidatePapalDates(PapalDate dt1, PapalDate dt2)
