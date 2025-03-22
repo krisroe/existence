@@ -38,6 +38,13 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 22)]
             RemoveOriginStoryTODO,
+
+            /// <summary>
+            /// removes the family members enum, makes pet graveyard pets into objects
+            /// </summary>
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 3, 22)]
+            RemoveFamilyMembersEnumAddPetObjectForPetGraveyard,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -338,54 +345,39 @@ namespace Existence.Beyond.JudgmentDay
         UnknownAnimalShelter,
     }
 
-    public enum FamilyMembers
-    {
-        MyMothersBrotherGerald,
-        MyMothersBrothersDaughterDenise,
-        MyMothersBrothersSonDennis,
-        MyMotherSandy,
-        MyMothersFatherSkip,
-        MyMothersMotherDelores,
-        MyMothersMothersMotherAda,
-        MyFatherJerry,
-        MyselfChris,
-        MySisterSonya,
-        MyNuclearFamilyChildhood,
-    }
-
     /// <summary>
     /// initial date presumes Sammy was in the graveyard by the first day of autumn 1986. My mother's ownership ended on her human death.
     /// </summary>
     [Owners(1986, 9, 23, 2024, 7, 21, (int)FamilyMembers.MyMotherSandy)]
     public class MyMothersPetGraveyard : PetGraveyard
     {
-        public MyMothersPetGraveyard()
+        public MyMothersPetGraveyard() : base(TruthClassification.Nonfictional)
         {
-            AddPet((int)AnimalsIDontKnow.Sammy, PetTypes.Cat); //1986 (summer)
-            AddPet((int)PetDogs.Benji, PetTypes.Dog); //1989-01-27
-            AddPet((int)PetCats.Chaquita, PetTypes.Cat); //1990-01-30
-            AddPet((int)PetCats.April, PetTypes.Cat); //1990-08-08
-            AddPet((int)PetDogs.Abe, PetTypes.Dog); //1992-06-17
-            AddPet((int)PetDogs.Jenny, PetTypes.Dog); //1993-04-23
-            AddPet((int)PetDogs.Morgan, PetTypes.Dog); //1993-06-04
-            AddPet((int)PetCats.Spike, PetTypes.Cat); //1995-02-16
-            AddPet((int)PetDogs.Prince, PetTypes.Dog); //2002-09-28
-            AddPet((int)AnimalsIDontKnow.Lance, PetTypes.Cat); //2003
-            AddPet((int)PetDogs.Teddy, PetTypes.Dog); //2003-08-19
-            AddPet((int)PetCats.Tigger, PetTypes.Cat); //2004-08-15
-            AddPet((int)PetCats.Snowball, PetTypes.Cat); //2005-01-12
-            AddPet((int)FormerlyHadADifferentFamilyOwner.Chelsie, PetTypes.Dog); //2005-04-10
-            AddPet((int)PetCats.Gretel, PetTypes.Cat); //2005-04-17
-            AddPet((int)FormerlyHadADifferentFamilyOwner.Kirby, PetTypes.Dog); //2006-11-21
-            AddPet((int)AnimalsIDontKnow.Hypie, PetTypes.Cat); //2007-04-03
-            AddPet((int)PetCats.Elsie, PetTypes.Cat); //2007-04-18
-            AddPet((int)PetCats.Snowflake, PetTypes.Cat); //2007-08-27
-            AddPet((int)FormerlyHadADifferentFamilyOwner.Scooter, PetTypes.Cat); //I think went before Tinker
-            AddPet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, PetTypes.Cat); //2007-11-22
-            AddPet((int)PetDogs.Riley, PetTypes.Dog); //2021-06-19 (do not remember which of Riley/Rewey was first)
-            AddPet((int)PetDogs.Rewey, PetTypes.Dog); //2021-06-19 (do not remember which of Riley/Rewey was first)
-            AddPet((int)PetCats.Toby, PetTypes.Cat); //exact date uncertain
-            AddPet((int)PetCats.Stocco, PetTypes.Cat); //died 2023-12-24
+            AddPet(new Pet((int)AnimalsIDontKnow.Sammy, AnimalsIDontKnow.Sammy.ToString(), PetTypes.Cat)); //1986 (summer)
+            AddPet(new Pet((int)PetDogs.Benji, PetDogs.Benji.ToString(), PetTypes.Dog)); //1989-01-27
+            AddPet(new Pet((int)PetCats.Chaquita, PetCats.Chaquita.ToString(), PetTypes.Cat)); //1990-01-30
+            AddPet(new Pet((int)PetCats.April, PetCats.April.ToString(), PetTypes.Cat)); //1990-08-08
+            AddPet(new Pet((int)PetDogs.Abe, PetDogs.Abe.ToString(), PetTypes.Dog)); //1992-06-17
+            AddPet(new Pet((int)PetDogs.Jenny, PetDogs.Jenny.ToString(), PetTypes.Dog)); //1993-04-23
+            AddPet(new Pet((int)PetDogs.Morgan, PetDogs.Morgan.ToString(), PetTypes.Dog)); //1993-06-04
+            AddPet(new Pet((int)PetCats.Spike, PetCats.Spike.ToString(), PetTypes.Cat)); //1995-02-16
+            AddPet(new Pet((int)PetDogs.Prince, PetDogs.Prince.ToString(), PetTypes.Dog)); //2002-09-28
+            AddPet(new Pet((int)AnimalsIDontKnow.Lance, AnimalsIDontKnow.Lance.ToString(), PetTypes.Cat)); //2003
+            AddPet(new Pet((int)PetDogs.Teddy, PetDogs.Teddy.ToString(), PetTypes.Dog)); //2003-08-19
+            AddPet(new Pet((int)PetCats.Tigger, PetCats.Tigger.ToString(), PetTypes.Cat)); //2004-08-15
+            AddPet(new Pet((int)PetCats.Snowball, PetCats.Snowball.ToString(), PetTypes.Cat)); //2005-01-12
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Chelsie, FormerlyHadADifferentFamilyOwner.Chelsie.ToString(), PetTypes.Dog)); //2005-04-10
+            AddPet(new Pet((int)PetCats.Gretel, PetCats.Gretel.ToString(), PetTypes.Cat)); //2005-04-17
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Kirby, FormerlyHadADifferentFamilyOwner.Kirby.ToString(), PetTypes.Dog)); //2006-11-21
+            AddPet(new Pet((int)AnimalsIDontKnow.Hypie, AnimalsIDontKnow.Hypie.ToString(), PetTypes.Cat)); //2007-04-03
+            AddPet(new Pet((int)PetCats.Elsie, PetCats.Elsie.ToString(), PetTypes.Cat)); //2007-04-18
+            AddPet(new Pet((int)PetCats.Snowflake, PetCats.Snowflake.ToString(), PetTypes.Cat)); //2007-08-27
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Scooter, FormerlyHadADifferentFamilyOwner.Scooter.ToString(), PetTypes.Cat)); //I think went before Tinker
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, FormerlyHadADifferentFamilyOwner.Tinkerbell.ToString(), PetTypes.Cat)); //2007-11-22
+            AddPet(new Pet((int)PetDogs.Riley, PetDogs.Riley.ToString(), PetTypes.Dog)); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet(new Pet((int)PetDogs.Rewey, PetDogs.Rewey.ToString(), PetTypes.Dog)); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet(new Pet((int)PetCats.Toby, PetCats.Toby.ToString(), PetTypes.Cat)); //TODO: exact date uncertain
+            AddPet(new Pet((int)PetCats.Stocco, PetCats.Stocco.ToString(), PetTypes.Cat)); //died 2023-12-24
         }
     }
 

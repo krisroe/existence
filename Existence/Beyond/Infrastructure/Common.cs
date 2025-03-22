@@ -307,6 +307,24 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    public class DefiningCharacteristicsAttribute : Attribute
+    {
+        public string[] Characteristics { get; set; }
+        public DefiningCharacteristicsAttribute(params string[] Characteristics)
+        {
+            this.Characteristics = Characteristics;
+        }
+    }
+
+    public class CatchPhraseAttribute : Attribute
+    {
+        public string CatchPhrase { get; set; }
+        public CatchPhraseAttribute(string CatchPhrase)
+        {
+            this.CatchPhrase = CatchPhrase;
+        }
+    }
+
     public class TimelessChange
     {
         public string Description { get; set; }
@@ -374,16 +392,84 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    public class Pet
+    {
+        /// <summary>
+        /// integer value representing the pet
+        /// </summary>
+        public int PetValue { get; set; }
+        public PetTypes PetType { get; set; }
+        public string Name { get; set; }
+        public TruthClassification TruthClass { get; set; }
+        public PetColors[] PetColors { get; set; }
+
+        public Pet(int PetValue, string Name, PetTypes PetType)
+        {
+            this.PetValue = PetValue;
+            this.Name = Name;
+            this.PetType = PetType;
+            this.TruthClass = TruthClassification.Nonfictional;
+        }
+
+        public Pet(int PetValue, string Name, PetTypes PetType, TruthClassification TruthClass) : this(PetValue, Name, PetType)
+        {
+            this.TruthClass = TruthClass;
+        }
+    }
+
+    public enum TruthClassification
+    {
+        Fictional,
+        Nonfictional,
+        Metaphorical,
+    }
+
+
     public class PetGraveyard
     {
-        public List<KeyValuePair<int, PetTypes>> Pets { get; set; }
-        public PetGraveyard()
+        public TruthClassification TruthClass { get; set; }
+        public List<Pet> Pets { get; set; }
+        public PetGraveyard(TruthClassification TruthClass)
         {
-            this.Pets = new List<KeyValuePair<int, PetTypes>>();
+            this.TruthClass = TruthClass;
+            this.Pets = new List<Pet>();
         }
-        public void AddPet(int Pet, PetTypes Type)
+        public void AddPet(Pet Pet)
         {
-            this.Pets.Add(new KeyValuePair<int, PetTypes>(Pet, Type));
+            //metaphorical pets can go in any type of pet graveyard
+            //fictional pets can be in only fictional pet graveyards
+            //nonfictional pets can be in only nonfictional pet graveyards
+            bool allowed = false;
+            if (this.TruthClass == TruthClassification.Nonfictional)
+            {
+                allowed = Pet.TruthClass == TruthClassification.Nonfictional || Pet.TruthClass == TruthClassification.Metaphorical;
+            }
+            else if (this.TruthClass == TruthClassification.Fictional)
+            {
+                allowed = Pet.TruthClass == TruthClassification.Fictional || Pet.TruthClass == TruthClassification.Metaphorical;
+            }
+            else if (this.TruthClass == TruthClassification.Metaphorical)
+            {
+                allowed = Pet.TruthClass == TruthClassification.Metaphorical;
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+            if (!allowed)
+            {
+                throw new InvalidOperationException();
+            }
+            this.Pets.Add(Pet);
+        }
+    }
+
+    public class CorrespondsToAttribute : Attribute
+    {
+        public int Who { get; set; }
+        public CorrespondsToAttribute(int Who)
+        {
+            this.Who = Who;
         }
     }
 
