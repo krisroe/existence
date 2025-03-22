@@ -26,9 +26,18 @@ namespace Existence.Beyond.JudgmentDay
             /// <summary>
             /// set contrafactumer of Stocco's Elegy
             /// </summary>
-            [BeyondObjectVersion(1, 0, 0, 0)]
+            [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 14)]
-            AddDiscreteContrafactumerForStoccosElegy
+            AddDiscreteContrafactumerForStoccosElegy,
+
+            /// <summary>
+            /// remove father's origin story of the pets, not appropriate for this judgment day
+            /// but could be useful in the future. also fix embarrassing beyond object version issue
+            /// where v1 has the same version as v2.
+            /// </summary>
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 3, 22)]
+            RemoveOriginStoryTODO,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -39,7 +48,6 @@ namespace Existence.Beyond.JudgmentDay
         {
             DefineLitters();
 
-            new TODOAttribute("There's a story here about how my father didn't want any pets but April and Chaquita jumped in the car");
             List<string> nuclearFamilyPetList = new List<string>()
             {
                 PetCats.April.ToString(),
@@ -192,7 +200,6 @@ namespace Existence.Beyond.JudgmentDay
         {
             return new List<MissingInformation>()
             {
-                new MissingInformation("Story about how my mother kept the starter pets when my father didn't want them"),
                 new MissingInformation("Information about Toby is imprecise since I couldn't see the gravestone information clearly"),
                 new MissingInformation("Stocco's location within the pet graveyard is left blank since I don't remember exactly")
             };

@@ -154,6 +154,20 @@ namespace Existence.Time
     public class BirthdateAttribute : YearDateAttribute
     {
         public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+        /// <summary>
+        /// specifies birthdate
+        /// </summary>
+        /// <param name="Year">year</param>
+        /// <param name="Month">month</param>
+        /// <param name="Day">day</param>
+        /// <param name="Hour">hour (24 hour clock)</param>
+        /// <param name="Minute">minute</param>
+        public BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+    }
+
+    public class MarriageDateAttribute : YearDateAttribute
+    {
+        public MarriageDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
     public class YearDateAttribute : CalendarDateAttribute
@@ -163,16 +177,35 @@ namespace Existence.Time
         {
             this.Year = Year;
         }
+        /// <summary>
+        /// specifies a date/time to the minute
+        /// </summary>
+        /// <param name="Year">year</param>
+        /// <param name="Month">month</param>
+        /// <param name="Day">day</param>
+        /// <param name="Hour">hour</param>
+        /// <param name="Minute">minute</param>
+        public YearDateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Month, Day, Hour, Minute)
+        {
+            this.Year = Year;
+        }
     }
 
     public class CalendarDateAttribute : Attribute
     {
         public int Month { get; set; }
         public int Day { get; set; }
+        public int Hour { get; set; }
+        public int Minute { get; set; }
         public CalendarDateAttribute(int Month, int Day)
         {
             this.Month = Month;
             this.Day = Day;
+        }
+        public CalendarDateAttribute(int Month, int Day, int Hour, int Minute) : this(Month, Day)
+        {
+            this.Hour = Hour;
+            this.Minute = Minute;
         }
     }
 

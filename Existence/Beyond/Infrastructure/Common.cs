@@ -134,6 +134,15 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    public class TimelessPurposeAttribute : Attribute
+    {
+        public string Purpose { get; set; }
+        public TimelessPurposeAttribute(string Purpose)
+        {
+            this.Purpose = Purpose;
+        }
+    }
+
     public class CosmicProcessResponsibilityAttribute : Attribute
     {
         public CosmicResponsibility Responsibility { get; set; }
@@ -156,6 +165,17 @@ namespace Existence.Beyond.Infrastructure
         }
     }
    
+    public abstract class SubmissionBase
+    {
+        public virtual List<LevelJustification> GetLevelJustifications()
+        {
+            throw new InvalidOperationException();
+        }
+        public virtual List<TimelessChange>? GetTimelessChanges()
+        {
+            return null;
+        }
+    }
 
     public abstract class JudgmentDayBase
     {
@@ -163,7 +183,6 @@ namespace Existence.Beyond.Infrastructure
         {
             throw new InvalidOperationException();
         }
-
         public virtual List<CosmicCharity>? GetCosmicCharity()
         {
             return null;
@@ -371,6 +390,23 @@ namespace Existence.Beyond.Infrastructure
     public class LevelJustification
     {
     }
+    public class ProofJustification : LevelJustification
+    {
+        public string Proved { get; set; }
+        public ProofJustification(string Proved)
+        {
+            this.Proved = Proved;
+        }
+    }
+    public class DocumentsJustification : LevelJustification
+    {
+        public string[] Documents { get; set; }
+        public DocumentsJustification(params string[] Documents)
+        {
+            this.Documents = Documents;
+        }
+    }
+
     public class ReleaseSongJustification : LevelJustification
     {
         public SongEvent Song { get; set; }

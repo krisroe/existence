@@ -199,6 +199,9 @@ namespace ReligionLibrary
                     { "John", new List<int>() { 16, 20 } }, //antipope and skipped by mistake (possibly double counting John XIV)
                     { "Martin", new List<int>() { 2, 3 } } //skipped by mistake (confusion with Marinus I and II)
                 };
+                //Note: For Stephen II, one man took the name Stephen but never completed
+                //the process of being pope. The next pope also took the name Stephen II.
+                //So there is not actually a gap in the lists for this.
                 YearSwitchExceptions = new HashSet<int>() { 5 };
                 UnusedTokenCombinations = new HashSet<string>(ValidTokenCombinations);
                 DatesOutOfOrderExceptions = new HashSet<int>(){ 11 };

@@ -140,6 +140,35 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class BirthNameAttribute : TextAttribute
+    {
+        public string BirthName
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public BirthNameAttribute(string BirthName) : base(BirthName)
+        {
+        }
+    }
+
+    public class BirthplaceAttribute : Attribute
+    {
+        public int Country { get; set; }
+        public int City { get; set; }
+        public BirthplaceAttribute(int Country, int City)
+        {
+            this.Country = Country;
+            this.City = City;
+        }
+    }
+
     public class FullNameAttribute : TextAttribute
     {
         public string FullName

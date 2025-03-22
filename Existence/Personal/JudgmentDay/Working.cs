@@ -64,8 +64,10 @@ internal class Working
     /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
     /// Ides of March fall on March 16.
     /// 
-    /// Parents married: 1976-06-26
     /// Moved to Endeavor home: 1985-08-17
+    /// 
+    /// When my parents moved to Oshkosh there's a story about how my Mother brought April in the car,
+    /// and got Chaquita also, although my father didn't want them.
     /// </summary>
     private class ActionsHaveConsequences : BaseEvent
     {
