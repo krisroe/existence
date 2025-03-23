@@ -165,8 +165,14 @@ namespace Existence.Time
         public BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
     }
 
+    public class MarriageAttribute : Attribute
+    {
+    }
+
     public class MarriageDateAttribute : YearDateAttribute
     {
+        public MarriageDateAttribute(int Year) : base(Year) { }
+
         public MarriageDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
@@ -177,6 +183,11 @@ namespace Existence.Time
         {
             this.Year = Year;
         }
+        public YearDateAttribute(int Year) : base()
+        {
+            this.Year = Year;
+        }
+
         /// <summary>
         /// specifies a date/time to the minute
         /// </summary>
@@ -193,14 +204,25 @@ namespace Existence.Time
 
     public class CalendarDateAttribute : Attribute
     {
-        public int Month { get; set; }
-        public int Day { get; set; }
-        public int Hour { get; set; }
-        public int Minute { get; set; }
+        public int? Month { get; set; }
+        public int? Day { get; set; }
+        public int? Hour { get; set; }
+        public int? Minute { get; set; }
+
+        public CalendarDateAttribute()
+        {
+            this.Month = null;
+            this.Day = null;
+            this.Hour = null;
+            this.Minute = null;
+        }
+
         public CalendarDateAttribute(int Month, int Day)
         {
             this.Month = Month;
             this.Day = Day;
+            this.Hour = null;
+            this.Minute = null;
         }
         public CalendarDateAttribute(int Month, int Day, int Hour, int Minute) : this(Month, Day)
         {

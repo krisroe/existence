@@ -401,7 +401,6 @@ namespace Existence.Beyond.Infrastructure
         public PetTypes PetType { get; set; }
         public string Name { get; set; }
         public TruthClassification TruthClass { get; set; }
-        public PetColors[] PetColors { get; set; }
 
         public Pet(int PetValue, string Name, PetTypes PetType)
         {

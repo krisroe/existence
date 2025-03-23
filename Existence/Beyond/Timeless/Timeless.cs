@@ -51,6 +51,13 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(2, 0, 0, 0)]
             [YearDate(2025, 3, 22)]
             IAmThePopeRelatedChanges,
+
+            /// <summary>
+            /// add generic self, change interesting humans to relevant humans
+            /// </summary>
+            [BeyondObjectVersion(3, 0, 0, 0)]
+            [YearDate(2025, 3, 22)]
+            AddGenericSelf,
         }
 
         [HumanSpeciesType(HomoSpecies.HomoSapiens)]
@@ -63,7 +70,7 @@ namespace Existence.Beyond.Timeless
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [BirthName("Christopher Scott Rowe")]
         [HumanGender(HumanGender.Male)]
-        public class Self
+        public class HumanSelf
         {
             [SourceCodeRepositoryUser(CloudRepositoryGitProvider.GitHub, "krisroe")]
             public static class Repositories
@@ -134,7 +141,53 @@ namespace Existence.Beyond.Timeless
             public class MyMothersPetGraveyard { }
         }
 
-        [DistinctHumans(InterestingHumans.Self, InterestingHumans.ThePope)]
+        [HumanSpeciesType(HomoSpecies.HomoSapiens)]
+        [Archetypes(Archetypes.Programmer)]
+        [FavoriteColor(KnownColor.Transparent)]
+        [FavoriteNumber(24865)]
+        [SecondFavoriteNumber(4)]
+        [Sex(Sexes.Male)]
+        [HumanGender(HumanGender.Male)]
+        public class GenericHumanSelf
+        {
+            public static class NuclearFamilyUnit
+            {
+                [Marriage]
+                public class v1
+                {
+                    public class Mother
+                    {
+                        public static class SiblingsByAgeDescending
+                        {
+                            public static class Mother { }
+                            public static class Sister1 { }
+                            public static class Brother { }
+                            public static class Sister2 { }
+                        }
+                    }
+
+                    public class Father { }
+
+                    [FavoriteColor(KnownColor.Red)]
+                    public class Brother { }
+
+                    public class Sister { }
+                }
+                [MarriageDate(2007)]
+                public static class v2
+                {
+                    public class Spouse1 { }
+
+                    public class Spouse2 { }
+
+                    public class Sister { }
+
+                    public class Brother { }
+                }
+            }
+        }
+
+        [DistinctHumans(RelevantHumans.Self, RelevantHumans.ThePope)]
         public class Humanity { }
     }
 
@@ -146,17 +199,17 @@ namespace Existence.Beyond.Timeless
         /// <summary>
         /// first interesting human
         /// </summary>
-        public InterestingHumans A { get; set; }
+        public RelevantHumans A { get; set; }
         /// <summary>
         /// second interesting human
         /// </summary>
-        public InterestingHumans B { get; set; }
+        public RelevantHumans B { get; set; }
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="A">first interesting human</param>
         /// <param name="B">second interesting human</param>
-        public DistinctHumansAttribute(InterestingHumans A, InterestingHumans B)
+        public DistinctHumansAttribute(RelevantHumans A, RelevantHumans B)
         {
             this.A = A;
             this.B = B;
@@ -166,7 +219,7 @@ namespace Existence.Beyond.Timeless
     /// <summary>
     /// interesting humans
     /// </summary>
-    public enum InterestingHumans
+    public enum RelevantHumans
     {
         /// <summary>
         /// myself
