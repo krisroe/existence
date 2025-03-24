@@ -20,4 +20,10 @@ namespace Existence.Beyond.Infrastructure
         MyNuclearFamilyChildhoodAfterParentsSeparation,
         MyNuclearFamilyFirstMarriage,
     }
+    public enum FamilyMembersGeneric
+    {
+        MyFirstbornChild,
+        MyMother,
+        Myself,
+    }
 }

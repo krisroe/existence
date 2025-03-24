@@ -3,22 +3,34 @@ using System.Text;
 using Existence.Beyond.Infrastructure;
 using Existence.Earth.Alphabet;
 using Existence.Earth.War;
+using Existence.Time;
 
 namespace Existence.Beyond.CosmicCurrency
 {
     [CosmicProcessResponsibility(CosmicProcess.RealityManipulation, CosmicResponsibility.Responsible)]
     [CosmicTimeScale(CosmicTimeScale.HumanShortTerm, CosmicTimeInterval.Days)]
     [WorkTicket("WCP-9501")]
-    public class TimeTravelingMessageBox : CosmicPaydayBase
+    internal class TimeTravelingMessageBox : CosmicPaydayBase
     {
-        public override List<CosmicPayday> GetCosmicPayday()
+        private enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 7)]
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            Internalized
+        }
+
+        internal override List<CosmicPayday> GetCosmicPayday()
         {
             return new List<CosmicPayday>()
             {
                 new CosmicPayday(1, "Small work ticket completed successfully.")
             };
         }
-        public string Consequences
+        internal string Consequences
         {
             get
             {
@@ -27,9 +39,20 @@ namespace Existence.Beyond.CosmicCurrency
         }
     }
 
-    public class IsraelPalestineCosmicCharity : CosmicCharityBase
+    internal class IsraelPalestineCosmicCharity : CosmicCharityBase
     {
-        public override List<CosmicCharity> GetCosmicCharity()
+        private enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 7)]
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            Internalized
+        }
+
+        internal override List<CosmicCharity> GetCosmicCharity()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("I intuit the post October 7th Gaza Hostage Crisis is a level 8 problem (nearly 256 hostages)");
@@ -40,8 +63,6 @@ namespace Existence.Beyond.CosmicCurrency
                
                 new CosmicCharity(1, (int)HostageList.BibasYarden, sb.ToString())
             };
-
-
         }
     }
 }

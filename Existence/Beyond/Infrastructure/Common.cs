@@ -8,24 +8,24 @@ using Existence.Time;
 
 namespace Existence.Beyond.Infrastructure
 {
-    public class ZLevelAttribute : Attribute
+    internal class ZLevelAttribute : Attribute
     {
-        public ZLevel ZLevel { get; set; }
-        public ZLevelAttribute(ZLevel ZLevel)
+        internal ZLevel ZLevel { get; set; }
+        internal ZLevelAttribute(ZLevel ZLevel)
         {
             this.ZLevel = ZLevel;
         }
     }
-    public class CosmicZLevelAttribute : ZLevelAttribute
+    internal class CosmicZLevelAttribute : ZLevelAttribute
     {
-        public CosmicZLevelAttribute(ZLevel CosmicZLevel) : base(CosmicZLevel) { }
+        internal CosmicZLevelAttribute(ZLevel CosmicZLevel) : base(CosmicZLevel) { }
     }
-    public class PersonalZLevelAttribute : ZLevelAttribute
+    internal class PersonalZLevelAttribute : ZLevelAttribute
     {
-        public PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
+        internal PersonalZLevelAttribute(ZLevel PersonalZLevel) : base(PersonalZLevel) { }
     }
 
-    public enum ZLevel
+    internal enum ZLevel
     {
         Zero = 0,
         One = 1,
@@ -34,14 +34,14 @@ namespace Existence.Beyond.Infrastructure
     }
 
 
-    public enum PlaceType
+    internal enum PlaceType
     {
         Home,
         Church,
         School,
     }
 
-    public enum EmotionalCapacity
+    internal enum EmotionalCapacity
     {
         None,
         Minimal,
@@ -49,211 +49,211 @@ namespace Existence.Beyond.Infrastructure
         Normal
     }
 
-    public enum CosmicProcess
+    internal enum CosmicProcess
     {
         RealityManipulation
     }
 
-    public enum CosmicResponsibility
+    internal enum CosmicResponsibility
     {
         Irresponsible,
         Responsible
     }
 
-    public enum CosmicTimeScale
+    internal enum CosmicTimeScale
     {
         HumanShortTerm,
         HumanLongTerm,
     }
 
-    public enum CosmicTimeInterval
+    internal enum CosmicTimeInterval
     {
         Days,
         Months,
     }
 
-    public class CapacityForEmotionAttribute : Attribute
+    internal class CapacityForEmotionAttribute : Attribute
     {
-        public Emotions Emotion { get; set; }
-        public EmotionalCapacity Capacity { get; set; }
-        public CapacityForEmotionAttribute(Emotions Emotion, EmotionalCapacity Capacity)
+        internal Emotions Emotion { get; set; }
+        internal EmotionalCapacity Capacity { get; set; }
+        internal CapacityForEmotionAttribute(Emotions Emotion, EmotionalCapacity Capacity)
         {
             this.Emotion = Emotion;
             this.Capacity = Capacity;
         }
     }
 
-    public class CosmicPayday
+    internal class CosmicPayday
     {
-        public CosmicPayday(int Amount, string Reason)
+        internal CosmicPayday(int Amount, string Reason)
         {
             this.Amount = Amount;
             this.Reason = Reason;
         }
-        public int Amount { get; set; }
-        public string Reason { get; set; }
+        internal int Amount { get; set; }
+        internal string Reason { get; set; }
     }
 
-    public class CosmicCharity
+    internal class CosmicCharity
     {
-        public CosmicCharity(int Amount, int Target, string Reason)
+        internal CosmicCharity(int Amount, int Target, string Reason)
         {
             this.Amount = Amount;
             this.Target = Target;
             this.Reason = Reason;
         }
-        public int Amount { get; set; }
-        public int Target { get; set; }
-        public string Reason { get; set; }
+        internal int Amount { get; set; }
+        internal int Target { get; set; }
+        internal string Reason { get; set; }
     }
 
-    public class IsReleasedAttribute : Attribute
+    internal class IsReleasedAttribute : Attribute
     {
-        public bool IsReleased { get; set; }
-        public IsReleasedAttribute(bool IsReleased)
+        internal bool IsReleased { get; set; }
+        internal IsReleasedAttribute(bool IsReleased)
         {
             this.IsReleased = IsReleased;
         }
     }
 
-    public class BeyondObjectVersionAttribute : Attribute
+    internal class BeyondObjectVersionAttribute : Attribute
     {
-        public Version Version { get; set; }
-        public BeyondObjectVersionAttribute(int Major, int Minor, int Build, int Revision)
+        internal Version Version { get; set; }
+        internal BeyondObjectVersionAttribute(int Major, int Minor, int Build, int Revision)
         {
             this.Version = new Version(Major, Minor, Build, Revision);
         }
     }
 
-    public class TimelessVersionAttribute : Attribute
+    internal class TimelessPurposeAttribute : Attribute
     {
-        public Version Version { get; set; }
-        public TimelessVersionAttribute(int Major, int Minor, int Build, int Revision)
-        {
-            this.Version = new Version(Major, Minor, Build, Revision);
-        }
-    }
-
-    public class TimelessPurposeAttribute : Attribute
-    {
-        public string Purpose { get; set; }
-        public TimelessPurposeAttribute(string Purpose)
+        internal string Purpose { get; set; }
+        internal TimelessPurposeAttribute(string Purpose)
         {
             this.Purpose = Purpose;
         }
     }
 
-    public class CosmicProcessResponsibilityAttribute : Attribute
+    internal class CosmicProcessResponsibilityAttribute : Attribute
     {
-        public CosmicResponsibility Responsibility { get; set; }
-        public CosmicProcess Process { get; set; }
-        public CosmicProcessResponsibilityAttribute(CosmicProcess Process, CosmicResponsibility Responsibility)
+        internal CosmicResponsibility Responsibility { get; set; }
+        internal CosmicProcess Process { get; set; }
+        internal CosmicProcessResponsibilityAttribute(CosmicProcess Process, CosmicResponsibility Responsibility)
         {
             this.Process = Process;
             this.Responsibility = Responsibility;
         }
     }
     
-    public class CosmicTimeScaleAttribute : Attribute
+    internal class CosmicTimeScaleAttribute : Attribute
     {
-        public CosmicTimeScale TimeScale { get; set; }
-        public CosmicTimeInterval Interval { get; set; }
-        public CosmicTimeScaleAttribute(CosmicTimeScale TimeScale, CosmicTimeInterval Interval)
+        internal CosmicTimeScale TimeScale { get; set; }
+        internal CosmicTimeInterval Interval { get; set; }
+        internal CosmicTimeScaleAttribute(CosmicTimeScale TimeScale, CosmicTimeInterval Interval)
         {
             this.TimeScale = TimeScale;
             this.Interval = Interval;
         }
     }
    
-    public abstract class SubmissionBase
+    internal abstract class SubmissionBase
     {
-        public virtual List<LevelJustification> GetLevelJustifications()
+        internal virtual List<LevelJustification> GetLevelJustifications()
         {
             throw new InvalidOperationException();
         }
-        public virtual List<TimelessChange>? GetTimelessChanges()
+        internal virtual List<TimelessChange>? GetTimelessChanges()
         {
             return null;
         }
     }
 
-    public abstract class JudgmentDayBase
+    internal abstract class JudgmentDayBase
     {
-        public virtual List<LevelJustification> GetLevelJustifications()
+        internal virtual List<LevelJustification> GetLevelJustifications()
         {
             throw new InvalidOperationException();
         }
-        public virtual List<CosmicCharity>? GetCosmicCharity()
+        internal virtual List<CosmicCharity>? GetCosmicCharity()
         {
             return null;
         }
-        public virtual List<TimelessChange>? GetTimelessChanges()
+        internal virtual List<TimelessChange>? GetTimelessChanges()
         {
             return null;
         }
-        public virtual List<MissingInformation>? GetMissingInformation()
+        internal virtual List<MissingInformation>? GetMissingInformation()
         {
             throw new InvalidOperationException();
         }
     }
 
-    public class MissingInformation
+    internal class MissingInformation
     {
-        public string Info { get; set; }
-        public MissingInformation(string Info)
+        internal string Info { get; set; }
+        internal MissingInformation(string Info)
         {
             this.Info = Info;
         }
     }
 
-    public abstract class CosmicCharityBase
+    internal abstract class CosmicCharityBase
     {
-        public abstract List<CosmicCharity> GetCosmicCharity();
+        internal abstract List<CosmicCharity> GetCosmicCharity();
     }
 
-    public abstract class CosmicPaydayBase
+    internal abstract class CosmicPaydayBase
     {
-        public abstract List<CosmicPayday> GetCosmicPayday();
+        internal abstract List<CosmicPayday> GetCosmicPayday();
     }
 
-    public class TerminalEvent
+    internal class TerminalEvent
     {
-        public string EventName { get; set; }
-        public BaseEvent[] PreviousEvents { get; set; }
-        public TerminalEvent(string EventName, params BaseEvent[] PreviousEvents)
+        internal string EventName { get; set; }
+        internal BaseEvent[] PreviousEvents { get; set; }
+        internal TerminalEvent(string EventName, params BaseEvent[] PreviousEvents)
         {
             this.EventName = EventName;
             this.PreviousEvents = PreviousEvents;
         }
     }
 
-    public class BaseEvent
+    internal class BaseEvent
     {
-        public string EventName { get; set; }
-        public BaseEvent? PreviousEvent;
+        internal string EventName { get; set; }
+        internal BaseEvent? PreviousEvent;
 
-        public BaseEvent(string EventName)
+        internal BaseEvent(string EventName)
         {
             this.EventName = EventName;
             PreviousEvent = null;
         }
     }
 
-    public class SongEvent : BaseEvent
+    internal class SongEvent : BaseEvent
     {
-        public SongEvent(string SongName) : base(SongName)
+        internal SongEvent(string SongName) : base(SongName)
         {
+        }
+    }
+
+    internal class TimelessSongEvent : BaseEvent
+    {
+        internal int Owner { get; set; }
+        internal TimelessSongEvent(string SongName, int Owner) : base(SongName)
+        {
+            this.Owner = Owner;
         }
     }
 
     /// <summary>
     /// rewriting lyrics for funny or satirical purposes
     /// </summary>
-    public class ParodySongEvent : SongEvent
+    internal class ParodySongEvent : SongEvent
     {
-        public string Source { get; set; }
-        public PeopleEnumerated Parodyer { get; set; }
-        public ParodySongEvent(PeopleEnumerated Parodyer, string SongName, string Source) : base(SongName)
+        internal string Source { get; set; }
+        internal PeopleEnumerated Parodyer { get; set; }
+        internal ParodySongEvent(PeopleEnumerated Parodyer, string SongName, string Source) : base(SongName)
         {
             this.Parodyer = Parodyer;
             this.Source = Source;
@@ -263,154 +263,155 @@ namespace Existence.Beyond.Infrastructure
     /// <summary>
     /// rewriting lyrics for serious or artistic purposes
     /// </summary>
-    public class ContrafactumSongEvent : SongEvent
+    internal class ContrafactumSongEvent : SongEvent
     {
-        public string Source { get; set; }
-        public PeopleEnumerated Contrafactumer { get; set; }
-        public ContrafactumSongEvent(PeopleEnumerated Contrafactumer, string SongName, string Source) : base(SongName)
+        internal string Source { get; set; }
+        internal PeopleEnumerated Contrafactumer { get; set; }
+        internal ContrafactumSongEvent(PeopleEnumerated Contrafactumer, string SongName, string Source) : base(SongName)
         {
             this.Contrafactumer = Contrafactumer;
             this.Source = Source;
         }
     }
 
-    public class OriginalSongEvent : BaseEvent
+    internal class OriginalSongEvent : BaseEvent
     {
-        public OriginalSongEvent(string SongName) : base(SongName)
+        internal OriginalSongEvent(string SongName) : base(SongName)
         {
         }
     }
 
-    public enum SongInterpretationLevel
+    internal enum SongInterpretationLevel
     {
         ModernHuman,
         IntergalacticPulsarTime,
         PostIntergalacticPulsarTime,
     }
 
-    public class SongInterpretationLevelsAttribute : Attribute
+    internal class SongInterpretationLevelsAttribute : Attribute
     {
-        public SongInterpretationLevel[] Levels { get; set; }
+        internal SongInterpretationLevel[] Levels { get; set; }
 
-        public SongInterpretationLevelsAttribute(params SongInterpretationLevel[] Levels)
+        internal SongInterpretationLevelsAttribute(params SongInterpretationLevel[] Levels)
         {
             this.Levels = Levels;
         }
     }
 
-    public class CosmicRequest : Attribute
+    internal class CosmicRequest : Attribute
     {
-        public string Request { get; set; }
-        public CosmicRequest(string Request)
+        internal string Request { get; set; }
+        internal CosmicRequest(string Request)
         {
             this.Request = Request;
         }
     }
 
-    public class DefiningCharacteristicsAttribute : Attribute
+    internal class DefiningCharacteristicsAttribute : Attribute
     {
-        public string[] Characteristics { get; set; }
-        public DefiningCharacteristicsAttribute(params string[] Characteristics)
+        internal string[] Characteristics { get; set; }
+        internal DefiningCharacteristicsAttribute(params string[] Characteristics)
         {
             this.Characteristics = Characteristics;
         }
     }
 
-    public class CatchPhraseAttribute : Attribute
+    internal class CatchPhraseAttribute : Attribute
     {
-        public string CatchPhrase { get; set; }
-        public CatchPhraseAttribute(string CatchPhrase)
+        internal string CatchPhrase { get; set; }
+        internal CatchPhraseAttribute(string CatchPhrase)
         {
             this.CatchPhrase = CatchPhrase;
         }
     }
 
-    public class TimelessChange
+    internal class TimelessChange
     {
-        public string Description { get; set; }
-        public TimelessChange(string Description)
+        internal string Description { get; set; }
+        internal TimelessChange(string Description)
         {
             this.Description = Description;
         }
     }
 
-    public class SomeoneSaidSomethingAndIFoundOutViaHearsay : BaseEvent
+    internal class SomeoneSaidSomethingAndIFoundOutViaHearsay : BaseEvent
     {
-        public int PersonWhoSaidIt { get; set; }
-        public int PersonWhoToldMe { get; set; }
-        public SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
+        internal int PersonWhoSaidIt { get; set; }
+        internal int PersonWhoToldMe { get; set; }
+        internal SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
         {
             this.PersonWhoSaidIt = PersonWhoSaidIt;
             this.PersonWhoToldMe = PersonWhoToldMe;
         }
     }
 
-    public class SomeoneTouchedSomeoneElse : BaseEvent
+    internal class SomeoneTouchedSomeoneElse : BaseEvent
     {
-        public int TouchingPerson { get; set; }
-        public int TouchedPerson { get; set; }
-        public SomeoneTouchedSomeoneElse(string Description, int TouchingPerson, int TouchedPerson) : base(Description)
+        internal int TouchingPerson { get; set; }
+        internal int TouchedPerson { get; set; }
+        internal SomeoneTouchedSomeoneElse(string Description, int TouchingPerson, int TouchedPerson) : base(Description)
         {
             this.TouchingPerson = TouchingPerson;
             this.TouchedPerson = TouchedPerson;
         }
     }
 
-    public class SomeoneFeltEmotion : BaseEvent
+    internal class SomeoneFeltEmotion : BaseEvent
     {
-        public int Who { get; set; }
-        public SomeoneFeltEmotion(string Description, int Who, Emotions Emotion) : base(Description)
+        internal int Who { get; set; }
+        internal SomeoneFeltEmotion(string Description, int Who, Emotions Emotion) : base(Description)
         {
             this.Who = Who;
         }
     }
 
-    public class DeathEvent : BaseEvent
+    internal class DeathEvent : BaseEvent
     {
-        public int Who { get; set; }
-        public DateTime Date { get; set; }
-        public CausesOfDeath Cause { get; set; }
-        public DeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause) : base(Description)
+        internal int Who { get; set; }
+        internal DateTime Date { get; set; }
+        internal CausesOfDeath Cause { get; set; }
+        internal DeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause) : base(Description)
         {
             this.Who = Who;
             this.Date = new DateTime(Year, Month, Day);
             this.Cause = Cause;
         }
     }
-    public class MindDeathEvent : DeathEvent
+    internal class MindDeathEvent : DeathEvent
     {
-        public MindDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
+        internal MindDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
             : base(Description, Who, Year, Month, Day, Cause)
         {
         }
     }
-    public class BodyDeathEvent : DeathEvent
+    internal class BodyDeathEvent : DeathEvent
     {
-        public BodyDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
+        internal BodyDeathEvent(string Description, int Who, int Year, int Month, int Day, CausesOfDeath Cause)
             : base(Description, Who, Year, Month, Day, Cause)
         {
         }
     }
 
-    public class Pet
+    internal class Pet
     {
         /// <summary>
         /// integer value representing the pet
         /// </summary>
-        public int? PetValue { get; set; }
-        public PetTypes PetType { get; set; }
-        public List<string> Names { get; set; }
-        public TruthClassification TruthClass { get; set; }
-        public string? DefiningCharacteristics { get; set; }
-        public string? CatchPhrase { get; set; }
-        public PetEyeColors[] EyeColors { get; set; }
-        public int? BirthYear { get; set; }
+        internal int? PetValue { get; set; }
+        internal PetTypes PetType { get; set; }
+        internal List<string> Names { get; set; }
+        internal TruthClassification TruthClass { get; set; }
+        internal string? DefiningCharacteristics { get; set; }
+        internal string? CatchPhrase { get; set; }
+        internal PetEyeColors[]? EyeColors { get; set; }
+        internal Sexes? Sex { get; set; }
+        internal int? BirthYear { get; set; }
 
-        public Pet(string Name, PetTypes PetType, TruthClassification TruthClass) : this(null, Name, PetType, TruthClass)
+        internal Pet(string Name, PetTypes PetType, TruthClassification TruthClass) : this(null, Name, PetType, TruthClass)
         {
         }
 
-        public Pet(int? PetValue, string Name, PetTypes PetType, TruthClassification TruthClass)
+        internal Pet(int? PetValue, string Name, PetTypes PetType, TruthClassification TruthClass)
         {
             if (string.IsNullOrEmpty(Name))
             {
@@ -420,46 +421,45 @@ namespace Existence.Beyond.Infrastructure
             this.Names = new List<string>() { Name };
             this.PetType = PetType;
             this.TruthClass = TruthClass;
-            this.DefiningCharacteristics = null;
         }
     }
 
-    public class TruthClassificationAttribute : Attribute
+    internal class TruthClassificationAttribute : Attribute
     {
-        public TruthClassification TruthClass { get; set; }
-        public TruthClassificationAttribute(TruthClassification TruthClass)
+        internal TruthClassification TruthClass { get; set; }
+        internal TruthClassificationAttribute(TruthClassification TruthClass)
         {
             this.TruthClass = TruthClass;
         }
     }
 
-    public enum TruthClassification
+    internal enum TruthClassification
     {
         Fictional,
         Nonfictional,
         Metaphorical,
     }
 
-    public class FloatingTimelineAttribute : Attribute
+    internal class FloatingTimelineAttribute : Attribute
     {
-        public int Year { get; set; }
-        public FloatingTimelineAttribute(int Year)
+        internal int Year { get; set; }
+        internal FloatingTimelineAttribute(int Year)
         {
             this.Year = Year;
         }
     }
 
 
-    public class PetGraveyard
+    internal class PetGraveyard
     {
-        public TruthClassification TruthClass { get; set; }
-        public List<Pet> Pets { get; set; }
-        public PetGraveyard(TruthClassification TruthClass)
+        internal TruthClassification TruthClass { get; set; }
+        internal List<Pet> Pets { get; set; }
+        internal PetGraveyard(TruthClassification TruthClass)
         {
             this.TruthClass = TruthClass;
             this.Pets = new List<Pet>();
         }
-        public void AddPet(Pet Pet)
+        internal void AddPet(Pet Pet)
         {
             //metaphorical pets can go in any type of pet graveyard
             //fictional pets can be in only fictional pet graveyards
@@ -489,73 +489,87 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    public class CorrespondsToAttribute : Attribute
+    internal class CorrespondsToAttribute : Attribute
     {
-        public int Who { get; set; }
-        public CorrespondsToAttribute(int Who)
+        internal int Who { get; set; }
+        internal CorrespondsToAttribute(int Who)
         {
             this.Who = Who;
         }
     }
 
-    public class LevelJustification
+    internal class LevelJustification
     {
     }
-    public class ProofJustification : LevelJustification
+
+    internal class NumberJustification : LevelJustification
     {
-        public string Proved { get; set; }
-        public ProofJustification(string Proved)
+        internal int Number;
+        internal string Object;
+        internal string Explanation;
+        public NumberJustification(int Number, string Object, string Explanation)
+        {
+            this.Number = Number;
+            this.Object = Object;
+            this.Explanation = Explanation;
+        }
+    }
+
+    internal class ProofJustification : LevelJustification
+    {
+        internal string Proved { get; set; }
+        internal ProofJustification(string Proved)
         {
             this.Proved = Proved;
         }
     }
-    public class DocumentsJustification : LevelJustification
+    internal class DocumentsJustification : LevelJustification
     {
-        public string[] Documents { get; set; }
-        public DocumentsJustification(params string[] Documents)
+        internal string[] Documents { get; set; }
+        internal DocumentsJustification(params string[] Documents)
         {
             this.Documents = Documents;
         }
     }
 
-    public class ReleaseSongJustification : LevelJustification
+    internal class ReleaseSongJustification : LevelJustification
     {
-        public SongEvent Song { get; set; }
-        public SongJustificationType Justification { get; set; }
-        public ReleaseSongJustification(SongEvent Song, SongJustificationType Justification)
+        internal SongEvent Song { get; set; }
+        internal SongJustificationType Justification { get; set; }
+        internal ReleaseSongJustification(SongEvent Song, SongJustificationType Justification)
         {
             this.Song = Song;
             this.Justification = Justification;
         }
     }
-    public enum SongJustificationType
+    internal enum SongJustificationType
     {
         ReleaseSong,
         ReleaseSongMeaning,
         InterpretSongMeaning,
     }
 
-    public class MaleSiblingCountAttribute : SiblingCountAttribute
+    internal class MaleSiblingCountAttribute : SiblingCountAttribute
     {
-        public MaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Male)
+        internal MaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Male)
         {
         }
     }
 
-    public class FemaleSiblingCountAttribute : SiblingCountAttribute
+    internal class FemaleSiblingCountAttribute : SiblingCountAttribute
     {
-        public FemaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Female)
+        internal FemaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Female)
         {
 
         }
     }
 
-    public class SiblingCountAttribute : Attribute
+    internal class SiblingCountAttribute : Attribute
     {
-        public int MinCount { get; set; }
-        public int MaxCount { get; set; }
-        public Sexes Sex { get; set; }
-        public SiblingCountAttribute(int MinCount, int MaxCount, Sexes Sex)
+        internal int MinCount { get; set; }
+        internal int MaxCount { get; set; }
+        internal Sexes Sex { get; set; }
+        internal SiblingCountAttribute(int MinCount, int MaxCount, Sexes Sex)
         {
             this.MinCount = MinCount;
             this.MaxCount = MaxCount;
@@ -563,12 +577,12 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    public class MeAttribute : Attribute
+    internal class MeAttribute : Attribute
     {
     }
 
-    public static class TimelessStatic
+    internal static class TimelessStatic
     {
-        public const string TO_BE_DETERMINED = "*";
+        internal const string TO_BE_DETERMINED = "*";
     }
 }

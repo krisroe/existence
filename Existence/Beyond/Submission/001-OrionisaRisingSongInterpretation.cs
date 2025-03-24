@@ -9,7 +9,7 @@ using Existence.Time;
 namespace Existence.Beyond.CosmicSubmission
 {
     [CosmicRequest("Please attach any personal contribution to \"Orion is a-rising\" in the provided documentation to the YouTube video")]
-    public class OrionIsarisingSongInterpretation
+    internal class OrionIsarisingSongInterpretation
     {
         public enum VersionHistory
         {
@@ -18,9 +18,12 @@ namespace Existence.Beyond.CosmicSubmission
             /// </summary>
             [PersonalFirst("Cosmic Submission")]
             [BeyondObjectVersion(1, 0, 0, 0)]
-            [TimelessVersion(1, 0, 0, 0)]
             [YearDate(2025, 3, 7)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            InternalizedAndRemovedTimelessVersion
         }
 
         /// <summary>

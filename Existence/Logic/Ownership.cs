@@ -18,6 +18,34 @@ namespace Existence.Logic
         }
     }
 
+    public class GoalOwnerAttribute : Attribute
+    {
+        public int Owner { get; set; }
+
+        public GoalOwnerAttribute(int Owner)
+        {
+            this.Owner = Owner;
+        }
+    }
+
+    public class HumanOwnerAttribute : Attribute
+    {
+        public int Owner { get; set; }
+        public HumanOwnerAttribute(int Owner)
+        {
+            this.Owner = Owner;
+        }
+    }
+
+    public class BeyondOwnerAttribute : Attribute
+    {
+        public int Owner { get; set; }
+        public BeyondOwnerAttribute(int Owner)
+        {
+            this.Owner = Owner;
+        }
+    }
+
     public class OwnersAttribute : Attribute
     {
         public DateTime? From { get; set; }

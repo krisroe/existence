@@ -12,7 +12,7 @@ namespace Existence.Beyond.Definitions
     /// with respect to a hypothetical civilization using such a timekeepting system. This could, for
     /// instance, be used to interpret song lyrics with respect to such a civilization.
     /// </summary>
-    public class IntergalacticPulsarTimeAttribute : Attribute
+    internal class IntergalacticPulsarTimeAttribute : Attribute
     {
         public IntergalacticPulsarTimeAttribute()
         {

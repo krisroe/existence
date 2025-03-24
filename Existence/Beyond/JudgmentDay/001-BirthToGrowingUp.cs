@@ -18,7 +18,7 @@ using Existence.Personal;
 
 namespace Existence.Beyond.JudgmentDay
 {
-    public class BirthToGrowingUp : JudgmentDayBase
+    internal class BirthToGrowingUp : JudgmentDayBase
     {
         private enum VersionHistory
         {
@@ -28,7 +28,6 @@ namespace Existence.Beyond.JudgmentDay
             /// </summary>
             [PersonalFirst("Judgment Day")]
             [BeyondObjectVersion(1, 0, 0, 0)]
-            [TimelessVersion(1, 0, 0, 0)]
             [YearDate(2025, 3, 7)]
             Created,
 
@@ -94,6 +93,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 8, 0, 0)]
             [YearDate(2025, 3, 24)]
             EarlyMemoriesUpdateAndAddDateForMoveToEndeavorHome,
+
+            [BeyondObjectVersion(1, 9, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            InternalizedAndRemovedTimelessVersion,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -166,7 +169,7 @@ namespace Existence.Beyond.JudgmentDay
             AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
         }
 
-        public override List<LevelJustification> GetLevelJustifications()
+        internal override List<LevelJustification> GetLevelJustifications()
         {
             return new List<LevelJustification>()
             {
@@ -177,7 +180,7 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public override List<CosmicCharity> GetCosmicCharity()
+        internal override List<CosmicCharity> GetCosmicCharity()
         {
             return new List<CosmicCharity>()
             {
@@ -188,7 +191,7 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public override List<MissingInformation>? GetMissingInformation()
+        internal override List<MissingInformation>? GetMissingInformation()
         {
             return null;
         }

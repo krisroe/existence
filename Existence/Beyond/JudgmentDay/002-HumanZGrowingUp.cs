@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Existence.Beyond.JudgmentDay
 {
-    public class HumanZGrowingUp : JudgmentDayBase
+    internal class HumanZGrowingUp : JudgmentDayBase
     {
         private enum VersionHistory
         {
@@ -19,7 +19,6 @@ namespace Existence.Beyond.JudgmentDay
             /// initial release
             /// </summary>
             [BeyondObjectVersion(1, 0, 0, 0)]
-            [TimelessVersion(1, 3, 0, 0)]
             [YearDate(2025, 3, 10)]
             Created,
 
@@ -49,6 +48,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 3, 24)]
             MyMothersMotherAlsoOwnsTheFarmCatEyeColorsPetStructureUpdate,
+
+            [BeyondObjectVersion(1, 5, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            InternalizedAndRemovedTimelessVersion
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -189,7 +192,7 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public override List<LevelJustification> GetLevelJustifications()
+        internal override List<LevelJustification> GetLevelJustifications()
         {
             return new List<LevelJustification>()
             {
@@ -198,7 +201,7 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public override List<TimelessChange>? GetTimelessChanges()
+        internal override List<TimelessChange>? GetTimelessChanges()
         {
             return new List<TimelessChange>()
             {
@@ -207,7 +210,7 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public override List<MissingInformation>? GetMissingInformation()
+        internal override List<MissingInformation>? GetMissingInformation()
         {
             return new List<MissingInformation>()
             {
@@ -218,7 +221,7 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     [Year(1994)]
-    public class ParentsSeparated : BaseEvent
+    internal class ParentsSeparated : BaseEvent
     {
         public ParentsSeparated() : base("Parents Separated")
         {
@@ -230,7 +233,7 @@ namespace Existence.Beyond.JudgmentDay
     /// This was the last piece of denial.
     /// </summary>
     [YearDate(2024, 7, 20)]
-    public class MyMotherToldMySisterSheWasntGoingToDie : BaseEvent
+    internal class MyMotherToldMySisterSheWasntGoingToDie : BaseEvent
     {
         public SomeoneSaidSomethingAndIFoundOutViaHearsay Info { get; set; }
         public MyMotherToldMySisterSheWasntGoingToDie() : base("My Mother Claimed She Wasn't Going to Die")
@@ -244,7 +247,7 @@ namespace Existence.Beyond.JudgmentDay
     /// I touched her and felt fear, not clear if it was my fear or her fear or both
     /// </summary>
     [YearDate(2024, 7, 20)]
-    public class LastConversationWithMyMother : BaseEvent
+    internal class LastConversationWithMyMother : BaseEvent
     {
         public SomeoneTouchedSomeoneElse TouchEvent { get; set; }
         public SomeoneFeltEmotion EmotionalInfo { get; set; }
@@ -259,7 +262,7 @@ namespace Existence.Beyond.JudgmentDay
     /// In the early morning, an anoxic event occurred and she lost agency and consciousness. I was not in the house,
     /// although my mother's older sister was.
     /// </summary>
-    public class MyMotherMindDeath : MindDeathEvent
+    internal class MyMotherMindDeath : MindDeathEvent
     {
         public MyMotherMindDeath() : base("My Mother Mind Death", (int)FamilyMembers.MyMotherSandy, 2024, 7, 21, CausesOfDeath.AnoxicEvent)
         {
@@ -271,7 +274,7 @@ namespace Existence.Beyond.JudgmentDay
     /// I didn't realize it immediately because there some involuntary head movements occured after this.
     /// It was realized once others entered the room.
     /// </summary>
-    public class MyMotherBodyDeath : BodyDeathEvent
+    internal class MyMotherBodyDeath : BodyDeathEvent
     {
         public MyMotherBodyDeath() : base("My Mother Body Death in Front of Me", (int)FamilyMembers.MyMotherSandy, 2024, 7, 21, CausesOfDeath.NaturalCauses)
         {
@@ -283,25 +286,25 @@ namespace Existence.Beyond.JudgmentDay
     /// time but they didn't notice me take the picture. I deleted the picture shortly afterward because I thought it was inappropriate.
     /// </summary>
     [YearDate(2024, 7, 21)]
-    public class ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt : BaseEvent
+    internal class ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt : BaseEvent
     {
         public ITookAPhotographOfMyDeadMotherWithMyFlipPhoneAndDeletedIt() : base("Took+Deleted Photo of Dead Mother")
         {
         }
     }
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\008-StoccoElegy.txt", PeopleEnumerated.RoweChris)]
-    public class StoccoElegy : ContrafactumSongEvent
+    internal class StoccoElegy : ContrafactumSongEvent
     {
         public StoccoElegy() : base(PeopleEnumerated.RoweChris, "Stocco Elegy", "Cats in the Cradle") { }
     }
-    public class StoccoElegyStarted : StoccoElegy {}
-    public class StoccoElegyFinished : StoccoElegy {}
+    internal class StoccoElegyStarted : StoccoElegy {}
+    internal class StoccoElegyFinished : StoccoElegy {}
 
     public class ThisWasTheFirstTimeMyMotherDidntHaveAnyPetsSinceSheMarried { }
 
     [MusicNotesRepositoryAudioFile(@"Released\Audio\003-TheseAreOurPets.wav", PeopleEnumerated.RoweChris)]
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\007-TheseAreOurPets.txt", PeopleEnumerated.RoweChris)]
-    public class TheseAreOurPets : SongEvent
+    internal class TheseAreOurPets : SongEvent
     {
         public TheseAreOurPets() : base("These are our Pets")
         {
@@ -316,7 +319,7 @@ namespace Existence.Beyond.JudgmentDay
     [PersonalHumanLevel(HumanLevel.GrowingUp)]
     [DivineHumanLevel(HumanLevel.GrowingUp)]
     [CosmicHumanLevel(HumanLevel.GrowingUp)]
-    public class TheseAreOurPetsSongComplete : TheseAreOurPets {}
+    internal class TheseAreOurPetsSongComplete : TheseAreOurPets {}
 
     public class PetMotherAttribute : Attribute
     {
@@ -353,7 +356,7 @@ namespace Existence.Beyond.JudgmentDay
     /// initial date presumes Sammy was in the graveyard by the first day of autumn 1986. My mother's ownership ended on her human death.
     /// </summary>
     [Owners(1986, 9, 23, 2024, 7, 21, (int)FamilyMembers.MyMotherSandy)]
-    public class MyMothersPetGraveyard : PetGraveyard
+    internal class MyMothersPetGraveyard : PetGraveyard
     {
         public MyMothersPetGraveyard() : base(TruthClassification.Nonfictional)
         {

@@ -18,9 +18,12 @@ namespace Existence.Beyond.CosmicSubmission
             /// </summary>
             [PersonalFirst("Divine Submission")]
             [BeyondObjectVersion(1, 0, 0, 0)]
-            [TimelessVersion(2, 0, 0, 0)]
             [YearDate(2025, 3, 22)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            InternalizedAndRemovedTimelessVersion,
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -127,7 +130,7 @@ namespace Existence.Beyond.CosmicSubmission
             }
         }
 
-        public override List<LevelJustification> GetLevelJustifications()
+        internal override List<LevelJustification> GetLevelJustifications()
         {
             return new List<LevelJustification>()
             {
@@ -137,7 +140,7 @@ namespace Existence.Beyond.CosmicSubmission
             };
         }
 
-        public override List<TimelessChange>? GetTimelessChanges()
+        internal override List<TimelessChange>? GetTimelessChanges()
         {
             return new List<TimelessChange>()
             {
