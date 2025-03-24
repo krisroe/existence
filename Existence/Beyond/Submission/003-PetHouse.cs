@@ -5,6 +5,7 @@ using Existence.Earth.Human.People;
 using Existence.Earth;
 using Existence.Logic;
 using Existence.Personal;
+using Existence.Personal.Infrastructure;
 using Existence.Time;
 
 namespace Existence.Beyond.Submission
@@ -18,6 +19,21 @@ namespace Existence.Beyond.Submission
     [FloatingTimeline(1990)]
     internal class PetHouse : SubmissionBase
     {
+        public enum VersionHistory
+        {
+            /// <summary>
+            /// created
+            /// </summary>
+            [PersonalFirst("Human Submission")]
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            ClarifyTimelessChangesAndAddVersionHistory
+        }
+
         [Creators((int)FamilyMembers.MyselfChris)]
         [Owners((int)FamilyMembers.MyselfChris)]
         public TheseAreOurPets InspirationalSongPrimary { get; set; }
@@ -137,10 +153,10 @@ namespace Existence.Beyond.Submission
                 new TimelessChange("Add Self Year Z Deviation without explanation"),
                 new TimelessChange("Separate My Mother's Pet Graveyard from Myself"),
                 new TimelessChange("Timeless Version of Pet House"),
-                new TimelessChange("Timeless Version of My Mother's Pet Graveyard with association to Pet House"),                
-                new TimelessChange("Generic Self has wider range of my mother's siblings (allow for 1 sister)"),
-                new TimelessChange("Generic Self increase range of where to put my sister (could be older than me)"),
-                new TimelessChange("Generic Self: My first marriage wider date range (earth legal gay marriage to z boundary)"),
+                new TimelessChange("Timeless Version of My Mother's Pet Graveyard with association to Pet House"),
+                new TimelessChange("Generic Self has wider range of my mother's siblings (allow for 1 sister instead of the real 2)"),
+                new TimelessChange("Generic Self increase range of where to put my sister (allow to be older than me)"),
+                new TimelessChange("Generic Self: My first marriage wider date range (earth legal gay marriage to personal z boundary)"),
                 new TimelessChange("Generic Self: I am younger than spouse"),
             };
         }
