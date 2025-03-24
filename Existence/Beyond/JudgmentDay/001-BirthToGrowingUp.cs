@@ -90,6 +90,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 7, 0, 0)]
             [YearDate(2025, 3, 14)]
             AddSistersParodyOfMyFirstOriginalSong,
+
+            [BeyondObjectVersion(1, 8, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            EarlyMemoriesUpdateAndAddDateForMoveToEndeavorHome,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -116,8 +120,9 @@ namespace Existence.Beyond.JudgmentDay
                 new SelfFullFirstName(),
                 new SisterFirstName(),
                 new CapacityForTheReligious(),
-                new AnnotatedPlaceEvent1(PlaceType.Home, USCities.WisconsinHarmonyGrove, string.Empty),
-                new AnnotatedPlaceEvent2(PlaceType.Home, USCities.WisconsinEndeavor, string.Empty),
+                new FirstMemoryEvent("touching the bark of the birch trees outside home"),
+                new MovedToSecondSignificantHome(PlaceType.Home, USCities.WisconsinEndeavor, string.Empty),
+                new EarlyHomeMemory("warming myself in the morning by the radiator"),
                 new AnnotatedPlaceEvent3(PlaceType.Church, USCities.WisconsinWisconsinDells, "ELCA Lutheran"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinWisconsinDells, "Kindergarden"),
                 new PlaceInSpecificCity(PlaceType.School, USCities.WisconsinBriggsville, "Grades 1-3"),
@@ -226,6 +231,7 @@ namespace Existence.Beyond.JudgmentDay
         [ZHumanLevel(HumanLevel.Baby)]
         [PersonalZLevel(ZLevel.Zero)]
         [CosmicZLevel(ZLevel.Zero)]
+        [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
         public class Birth : BaseEvent
         {
             public Birth() : base("Birth") { }
@@ -253,19 +259,46 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         [PersonalFirst("Memory")]
-        [SignificantMemory("touching the bark of the birch trees outside")]
         [PersonalHumanLevel(HumanLevel.Childhood)]
-        [USCity(USCities.WisconsinHarmonyGrove)]
+        public class FirstMemoryEvent : BaseEvent
+        {
+            public string Description { get; set; }
+            public FirstMemoryEvent(string Description) : base("First Memory")
+            {
+                this.Description = Description;
+            }
+        }
+
+        public class HomeAfterBirthAttribute : Attribute
+        {
+            public USCities City { get; set; }
+            public HomeAfterBirthAttribute(USCities City)
+            {
+                this.City = City;
+            }
+        }
+
         public class AnnotatedPlaceEvent1 : PlaceInSpecificCity
         {
             public AnnotatedPlaceEvent1(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
         }
 
-        [USCity(USCities.WisconsinEndeavor)]
-        [SignificantMemory("early memory of warming myself in the morning by the radiator")]
-        public class AnnotatedPlaceEvent2 : PlaceInSpecificCity
+        /// <summary>
+        /// per my father we briefly lived with my mother's parents first for a small number of months
+        /// </summary>
+        [YearDate(1985, 8, 17)] //this is a significant date for my father as it was his father's birthday
+        public class MovedToSecondSignificantHome : PlaceInSpecificCity
         {
-            public AnnotatedPlaceEvent2(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
+            public MovedToSecondSignificantHome(PlaceType PlaceType, USCities City, string Detail) : base(PlaceType, City, Detail) { }
+        }
+
+        public class EarlyHomeMemory : BaseEvent
+        {
+            public string Description { get; set; }
+            public EarlyHomeMemory(string Description) : base("Early Home Memory")
+            {
+                this.Description = Description;
+            }
         }
 
         [DivineHumanLevel(HumanLevel.Childhood)]
