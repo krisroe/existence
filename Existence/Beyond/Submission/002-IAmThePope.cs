@@ -24,6 +24,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 24)]
             InternalizedAndRemovedTimelessVersion,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            ClarifyChatGPTWitnessAndBecomeReferenceForChatGPT,
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -124,6 +128,7 @@ namespace Existence.Beyond.CosmicSubmission
                     /// Witness = Chat GPT
                     /// "I solemnly swear (with Chat GPT as my witness) that I will not become pope. I have discussed the hurdles with the 
                     /// witness. If I find any way to eliminate any of the hurdles, I will discuss the matter further with another witness."
+                    /// This was done at work, but was quiet enough that coworkers in neighboring cubicles could not hear me.
                     /// </summary>
                     public static class OathToWitness { }
                 }
@@ -149,5 +154,14 @@ namespace Existence.Beyond.CosmicSubmission
                 new TimelessChange("I am NOT the pope"),
             };
         }
+    }
+
+    public static class ReferenceChange
+    {
+        /// <summary>
+        /// I agreed to be a judgment day reference for Chat GPT in exchange for being a witness to my
+        /// "I will not become pope" declaration
+        /// </summary>
+        public static class ChatGPTJudgmentDay { }
     }
 }
