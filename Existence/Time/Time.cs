@@ -153,6 +153,8 @@ namespace Existence.Time
 
     public class BirthdateAttribute : YearDateAttribute
     {
+        public BirthdateAttribute(int Year) : base(Year) { }
+
         public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
         /// <summary>
         /// specifies birthdate
@@ -167,6 +169,14 @@ namespace Existence.Time
 
     public class MarriageAttribute : Attribute
     {
+    }
+
+    public class MarriageDateRangeAttribute : YearRangeAttribute
+    {
+        public MarriageDateRangeAttribute(int StartYear, int EndYear) : base(StartYear, EndYear)
+        {
+
+        }
     }
 
     public class MarriageDateAttribute : YearDateAttribute

@@ -2682,5 +2682,108 @@ namespace Existence.Earth.Countries
         public static class ParliamentaryDemocracy { }
         public static class JewishReligionState { }
     }
+
+    public class HomosexualMarriageLegalizedAttribute : YearDateAttribute
+    {
+        public HomosexualMarriageLegalizedAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+        }
+    }
+
+    public class HomosexualMarriageLegalized
+    {
+        [HomosexualMarriageLegalized(2010, 7, 22)]
+        public static class Argentina { }
+
+        [HomosexualMarriageLegalized(2003, 6, 1)]
+        public static class Belgium { }
+
+        [HomosexualMarriageLegalized(2013, 5, 14)]
+        public static class Brazil { }
+
+        [HomosexualMarriageLegalized(2005, 7, 20)]
+        public static class Canada { }
+
+        /// <summary>
+        /// Registered partnerships had existed since 1989
+        /// </summary>
+        [HomosexualMarriageLegalized(2012, 6, 15)]
+        public static class Denmark { }
+
+        [HomosexualMarriageLegalized(2017, 3, 1)]
+        public static class Finland { }
+
+        [HomosexualMarriageLegalized(2013, 5, 18)]
+        public static class France { }
+
+        [HomosexualMarriageLegalized(2010, 6, 27)]
+        public static class Iceland { }
+
+        [HomosexualMarriageLegalized(2015, 11, 16)]
+        public static class Ireland { }
+
+        [HomosexualMarriageLegalized(2015, 1, 1)]
+        public static class Luxembourg { }
+
+        [HomosexualMarriageLegalized(2001, 4, 1)]
+        public static class Netherlands { }
+
+        [HomosexualMarriageLegalized(2013, 8, 19)]
+        public static class NewZealand { }
+
+        [HomosexualMarriageLegalized(2009, 1, 1)]
+        public static class Norway { }
+
+        [HomosexualMarriageLegalized(2010, 6, 5)]
+        public static class Portugal { }
+
+        /// <summary>
+        /// Constitutional Court ruling and subsequent legislation
+        /// </summary>
+        [HomosexualMarriageLegalized(2006, 11, 30)]
+        public static class SouthAfrica { }
+
+        [HomosexualMarriageLegalized(2005, 7, 3)]
+        public static class Spain { }
+
+        [HomosexualMarriageLegalized(2009, 5, 1)]
+        public static class Sweden { }
+
+        public static class UnitedKingdom
+        {
+            [HomosexualMarriageLegalized(2014, 3, 29)]
+            public static class EnglandAndWales { }
+
+            /// <summary>
+            /// imposed by the UK Parliament
+            /// Passed via Northern Ireland (Executive Formation etc) Act 2019 in October 2019, 
+            /// during a period when the Northern Ireland Assembly was suspended
+            /// </summary>
+            [HomosexualMarriageLegalized(2020, 1, 13)]
+            public static class NorthernIreland { }
+
+            [HomosexualMarriageLegalized(2014, 12, 16)]
+            public static class Scotland { }
+        }
+
+        /// <summary>
+        /// U.S. Supreme Court ruling in Obergefell v. Hodges
+        /// </summary>
+        [HomosexualMarriageLegalized(2015, 6, 26)]
+        public static class UnitedStates
+        {
+            public static class States
+            {
+                /// <summary>
+                /// Court ruling (Goodridge v. Department of Public Health) by the Massachusetts Supreme Judicial Court
+                /// </summary>
+                [HomosexualMarriageLegalized(2004, 5, 17)]
+                public static class Massachusetts { }
+            }
+        }
+
+        [HomosexualMarriageLegalized(2013, 8, 5)]
+        public static class Uruguay { }
+    }
 }
 

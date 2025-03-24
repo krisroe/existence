@@ -397,20 +397,37 @@ namespace Existence.Beyond.Infrastructure
         /// <summary>
         /// integer value representing the pet
         /// </summary>
-        public int PetValue { get; set; }
+        public int? PetValue { get; set; }
         public PetTypes PetType { get; set; }
-        public string Name { get; set; }
+        public List<string> Names { get; set; }
         public TruthClassification TruthClass { get; set; }
+        public string? DefiningCharacteristics { get; set; }
+        public string? CatchPhrase { get; set; }
+        public PetEyeColors[] EyeColors { get; set; }
+        public int? BirthYear { get; set; }
 
-        public Pet(int PetValue, string Name, PetTypes PetType)
+        public Pet(string Name, PetTypes PetType, TruthClassification TruthClass) : this(null, Name, PetType, TruthClass)
         {
-            this.PetValue = PetValue;
-            this.Name = Name;
-            this.PetType = PetType;
-            this.TruthClass = TruthClassification.Nonfictional;
         }
 
-        public Pet(int PetValue, string Name, PetTypes PetType, TruthClassification TruthClass) : this(PetValue, Name, PetType)
+        public Pet(int? PetValue, string Name, PetTypes PetType, TruthClassification TruthClass)
+        {
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new InvalidOperationException();
+            }
+            this.PetValue = PetValue;
+            this.Names = new List<string>() { Name };
+            this.PetType = PetType;
+            this.TruthClass = TruthClass;
+            this.DefiningCharacteristics = null;
+        }
+    }
+
+    public class TruthClassificationAttribute : Attribute
+    {
+        public TruthClassification TruthClass { get; set; }
+        public TruthClassificationAttribute(TruthClassification TruthClass)
         {
             this.TruthClass = TruthClass;
         }
@@ -421,6 +438,15 @@ namespace Existence.Beyond.Infrastructure
         Fictional,
         Nonfictional,
         Metaphorical,
+    }
+
+    public class FloatingTimelineAttribute : Attribute
+    {
+        public int Year { get; set; }
+        public FloatingTimelineAttribute(int Year)
+        {
+            this.Year = Year;
+        }
     }
 
 
@@ -507,5 +533,42 @@ namespace Existence.Beyond.Infrastructure
         ReleaseSong,
         ReleaseSongMeaning,
         InterpretSongMeaning,
+    }
+
+    public class MaleSiblingCountAttribute : SiblingCountAttribute
+    {
+        public MaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Male)
+        {
+        }
+    }
+
+    public class FemaleSiblingCountAttribute : SiblingCountAttribute
+    {
+        public FemaleSiblingCountAttribute(int MinCount, int MaxCount) : base(MinCount, MaxCount, Sexes.Female)
+        {
+
+        }
+    }
+
+    public class SiblingCountAttribute : Attribute
+    {
+        public int MinCount { get; set; }
+        public int MaxCount { get; set; }
+        public Sexes Sex { get; set; }
+        public SiblingCountAttribute(int MinCount, int MaxCount, Sexes Sex)
+        {
+            this.MinCount = MinCount;
+            this.MaxCount = MaxCount;
+            this.Sex = Sex;
+        }
+    }
+
+    public class MeAttribute : Attribute
+    {
+    }
+
+    public static class TimelessStatic
+    {
+        public const string TO_BE_DETERMINED = "*";
     }
 }

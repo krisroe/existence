@@ -45,6 +45,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 3, 22)]
             RemoveFamilyMembersEnumAddPetObjectForPetGraveyard,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 3, 24)]
+            MyMothersMotherAlsoOwnsTheFarmCatEyeColorsPetStructureUpdate,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -335,7 +339,7 @@ namespace Existence.Beyond.JudgmentDay
     public enum SpecificFarms
     {
         UnknownFarm,
-        MyMothersFatherSkipsFarm,
+        MyMothersParentsFarm,
         HilliardsFarm,
     }
 
@@ -353,31 +357,32 @@ namespace Existence.Beyond.JudgmentDay
     {
         public MyMothersPetGraveyard() : base(TruthClassification.Nonfictional)
         {
-            AddPet(new Pet((int)AnimalsIDontKnow.Sammy, AnimalsIDontKnow.Sammy.ToString(), PetTypes.Cat)); //1986 (summer)
-            AddPet(new Pet((int)PetDogs.Benji, PetDogs.Benji.ToString(), PetTypes.Dog)); //1989-01-27
-            AddPet(new Pet((int)PetCats.Chaquita, PetCats.Chaquita.ToString(), PetTypes.Cat)); //1990-01-30
-            AddPet(new Pet((int)PetCats.April, PetCats.April.ToString(), PetTypes.Cat)); //1990-08-08
-            AddPet(new Pet((int)PetDogs.Abe, PetDogs.Abe.ToString(), PetTypes.Dog)); //1992-06-17
-            AddPet(new Pet((int)PetDogs.Jenny, PetDogs.Jenny.ToString(), PetTypes.Dog)); //1993-04-23
-            AddPet(new Pet((int)PetDogs.Morgan, PetDogs.Morgan.ToString(), PetTypes.Dog)); //1993-06-04
-            AddPet(new Pet((int)PetCats.Spike, PetCats.Spike.ToString(), PetTypes.Cat)); //1995-02-16
-            AddPet(new Pet((int)PetDogs.Prince, PetDogs.Prince.ToString(), PetTypes.Dog)); //2002-09-28
-            AddPet(new Pet((int)AnimalsIDontKnow.Lance, AnimalsIDontKnow.Lance.ToString(), PetTypes.Cat)); //2003
-            AddPet(new Pet((int)PetDogs.Teddy, PetDogs.Teddy.ToString(), PetTypes.Dog)); //2003-08-19
-            AddPet(new Pet((int)PetCats.Tigger, PetCats.Tigger.ToString(), PetTypes.Cat)); //2004-08-15
-            AddPet(new Pet((int)PetCats.Snowball, PetCats.Snowball.ToString(), PetTypes.Cat)); //2005-01-12
-            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Chelsie, FormerlyHadADifferentFamilyOwner.Chelsie.ToString(), PetTypes.Dog)); //2005-04-10
-            AddPet(new Pet((int)PetCats.Gretel, PetCats.Gretel.ToString(), PetTypes.Cat)); //2005-04-17
-            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Kirby, FormerlyHadADifferentFamilyOwner.Kirby.ToString(), PetTypes.Dog)); //2006-11-21
-            AddPet(new Pet((int)AnimalsIDontKnow.Hypie, AnimalsIDontKnow.Hypie.ToString(), PetTypes.Cat)); //2007-04-03
-            AddPet(new Pet((int)PetCats.Elsie, PetCats.Elsie.ToString(), PetTypes.Cat)); //2007-04-18
-            AddPet(new Pet((int)PetCats.Snowflake, PetCats.Snowflake.ToString(), PetTypes.Cat)); //2007-08-27
-            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Scooter, FormerlyHadADifferentFamilyOwner.Scooter.ToString(), PetTypes.Cat)); //I think went before Tinker
-            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, FormerlyHadADifferentFamilyOwner.Tinkerbell.ToString(), PetTypes.Cat)); //2007-11-22
-            AddPet(new Pet((int)PetDogs.Riley, PetDogs.Riley.ToString(), PetTypes.Dog)); //2021-06-19 (do not remember which of Riley/Rewey was first)
-            AddPet(new Pet((int)PetDogs.Rewey, PetDogs.Rewey.ToString(), PetTypes.Dog)); //2021-06-19 (do not remember which of Riley/Rewey was first)
-            AddPet(new Pet((int)PetCats.Toby, PetCats.Toby.ToString(), PetTypes.Cat)); //TODO: exact date uncertain
-            AddPet(new Pet((int)PetCats.Stocco, PetCats.Stocco.ToString(), PetTypes.Cat)); //died 2023-12-24
+            TruthClassification real = TruthClassification.Nonfictional;
+            AddPet(new Pet((int)AnimalsIDontKnow.Sammy, AnimalsIDontKnow.Sammy.ToString(), PetTypes.Cat, real)); //1986 (summer)
+            AddPet(new Pet((int)PetDogs.Benji, PetDogs.Benji.ToString(), PetTypes.Dog, real)); //1989-01-27
+            AddPet(new Pet((int)PetCats.Chaquita, PetCats.Chaquita.ToString(), PetTypes.Cat, real)); //1990-01-30
+            AddPet(new Pet((int)PetCats.April, PetCats.April.ToString(), PetTypes.Cat, real)); //1990-08-08
+            AddPet(new Pet((int)PetDogs.Abe, PetDogs.Abe.ToString(), PetTypes.Dog, real)); //1992-06-17
+            AddPet(new Pet((int)PetDogs.Jenny, PetDogs.Jenny.ToString(), PetTypes.Dog, real)); //1993-04-23
+            AddPet(new Pet((int)PetDogs.Morgan, PetDogs.Morgan.ToString(), PetTypes.Dog, real)); //1993-06-04
+            AddPet(new Pet((int)PetCats.Spike, PetCats.Spike.ToString(), PetTypes.Cat, real)); //1995-02-16
+            AddPet(new Pet((int)PetDogs.Prince, PetDogs.Prince.ToString(), PetTypes.Dog, real)); //2002-09-28
+            AddPet(new Pet((int)AnimalsIDontKnow.Lance, AnimalsIDontKnow.Lance.ToString(), PetTypes.Cat, real)); //2003
+            AddPet(new Pet((int)PetDogs.Teddy, PetDogs.Teddy.ToString(), PetTypes.Dog, real)); //2003-08-19
+            AddPet(new Pet((int)PetCats.Tigger, PetCats.Tigger.ToString(), PetTypes.Cat, real)); //2004-08-15
+            AddPet(new Pet((int)PetCats.Snowball, PetCats.Snowball.ToString(), PetTypes.Cat, real)); //2005-01-12
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Chelsie, FormerlyHadADifferentFamilyOwner.Chelsie.ToString(), PetTypes.Dog, real)); //2005-04-10
+            AddPet(new Pet((int)PetCats.Gretel, PetCats.Gretel.ToString(), PetTypes.Cat, real)); //2005-04-17
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Kirby, FormerlyHadADifferentFamilyOwner.Kirby.ToString(), PetTypes.Dog, real)); //2006-11-21
+            AddPet(new Pet((int)AnimalsIDontKnow.Hypie, AnimalsIDontKnow.Hypie.ToString(), PetTypes.Cat, real)); //2007-04-03
+            AddPet(new Pet((int)PetCats.Elsie, PetCats.Elsie.ToString(), PetTypes.Cat, real)); //2007-04-18
+            AddPet(new Pet((int)PetCats.Snowflake, PetCats.Snowflake.ToString(), PetTypes.Cat, real)); //2007-08-27
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Scooter, FormerlyHadADifferentFamilyOwner.Scooter.ToString(), PetTypes.Cat, real)); //I think went before Tinker
+            AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, FormerlyHadADifferentFamilyOwner.Tinkerbell.ToString(), PetTypes.Cat, real)); //2007-11-22
+            AddPet(new Pet((int)PetDogs.Riley, PetDogs.Riley.ToString(), PetTypes.Dog, real)); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet(new Pet((int)PetDogs.Rewey, PetDogs.Rewey.ToString(), PetTypes.Dog, real)); //2021-06-19 (do not remember which of Riley/Rewey was first)
+            AddPet(new Pet((int)PetCats.Toby, PetCats.Toby.ToString(), PetTypes.Cat, real)); //TODO: exact date uncertain
+            AddPet(new Pet((int)PetCats.Stocco, PetCats.Stocco.ToString(), PetTypes.Cat, real)); //died 2023-12-24
         }
     }
 
@@ -461,7 +466,7 @@ namespace Existence.Beyond.JudgmentDay
         [DogBreed(DogBreeds.Mutt)]
         [BirthdateUnknown]
         [Deathdate(1993, 4, 23)]
-        [PetOwners((int)SpecificFarms.MyMothersFatherSkipsFarm)]
+        [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Jenny,
 
@@ -470,7 +475,7 @@ namespace Existence.Beyond.JudgmentDay
         [DogBreed(DogBreeds.GoldenRetriever)]
         [Birthdate(1986, 5, 21)]
         [DeathdateUnknown]
-        [PetOwners((int)SpecificFarms.MyMothersFatherSkipsFarm)]
+        [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
         Mickey,
 
         /// <summary>
@@ -481,7 +486,7 @@ namespace Existence.Beyond.JudgmentDay
         [DogBreed(DogBreeds.GoldenRetriever)]
         [Birthdate(1986, 5, 21)]
         [Deathdate(1993, 6, 4)]
-        [PetOwners((int)SpecificFarms.MyMothersFatherSkipsFarm, (int)FamilyMembers.MyNuclearFamilyChildhood)]
+        [PetOwners((int)SpecificFarms.MyMothersParentsFarm, (int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Morgan,
 
@@ -546,6 +551,7 @@ namespace Existence.Beyond.JudgmentDay
     {
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black)]
+        [PetEyeColors(PetEyeColors.Green)]
         [Birthdate(1976, 4, 1)]
         [Deathdate(1990, 8, 8)]
         [CauseOfDeath(CausesOfDeath.Stroke)]
@@ -557,6 +563,7 @@ namespace Existence.Beyond.JudgmentDay
         /// pronounciation of name is not what you'd expect: Chu-qua-tuh (Chu as in chuck, qua as in quack, tuh as in tug)
         /// </summary>
         [Sex(Sexes.Male)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetColors(PetColors.Gray)]
         [Birthdate(1976, 4, 1)]
         [Deathdate(1990, 1, 30)]
@@ -567,6 +574,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.White)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetMother((int)PetCats.Snowball)]
         [PetFather((int)PetCats.Ollie)]
         [Birthdate(1990, 4, 10)]
@@ -581,6 +589,7 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetMother((int)PetCats.Snowball)]
         [PetFather((int)PetCats.Ollie)]
         [Birthdate(1990, 4, 10)]
@@ -593,7 +602,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Black, PetColors.Brown)]
-        [PetOwners((int)SpecificFarms.MyMothersFatherSkipsFarm)]
+        [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
         [BirthdateUnknown]
         [DeathdateUnknown]
         [FinalRestingPlaceUnknown]
@@ -601,15 +610,17 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
+        [PetEyeColors(PetEyeColors.Blue, PetEyeColors.Green)]
         [ApproximateBirthdate(1988)]
         [Deathdate(2005, 1, 12)]
-        [PetOwners((int)SpecificFarms.MyMothersFatherSkipsFarm, (int)FamilyMembers.MyNuclearFamilyChildhood)]
+        [PetOwners((int)SpecificFarms.MyMothersParentsFarm, (int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Snowball,
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetMother((int)PetCats.Snowball)]
         [PetFather((int)PetCats.Ollie)]
         [Birthdate(1990, 4, 10)]
@@ -621,6 +632,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Gray)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetMother((int)PetCats.April)]
         [PetFather((int)PetCats.Chaquita)]
         [Birthdate(1978, 5, 24)]
@@ -632,6 +644,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Tabby)]
+        [PetEyeColors(PetEyeColors.Green)]
         [BirthdateUnknown]
         [DeathdateSignificantEvent((int)FixedDateHolidays.ChristmasEve)]
         [CauseOfDeath(CausesOfDeath.AnoxicEvent)] //I think this is correct, I'm not a veterinarian
@@ -643,6 +656,7 @@ namespace Existence.Beyond.JudgmentDay
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Calico, PetColors.Black, PetColors.Orange, PetColors.White)]
+        [PetEyeColors(PetEyeColors.Green)]
         [PetMother((int)PetCats.Snowball)]
         [PetFather((int)PetCats.Ollie)]
         [Birthdate(1990, 4, 10)]
@@ -659,7 +673,8 @@ namespace Existence.Beyond.JudgmentDay
         /// were no longer used for farming)
         /// </summary>
         [Sex(Sexes.Male)]
-        [PetColors(PetColors.Orange, PetColors.Red)]
+        [PetColors(PetColors.Orange, PetColors.White)]
+        [PetEyeColors(PetEyeColors.Green)]
         [TODO("birth/death date - picture looks like Spring 2006 - Oct ?")]
         [PreviousPetOwner((int)SpecificFarms.HilliardsFarm)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]

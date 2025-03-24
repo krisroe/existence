@@ -207,6 +207,16 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class PronounAttribute : TextAttribute
+    {
+        public string Pronoun
+        {
+            get { return base.Text; }
+            set { base.Text = value; }
+        }
+        public PronounAttribute(string Pronoun) : base(Pronoun) { }
+    }
+
     public class FirstNameAttribute : TextAttribute
     {
         public string FirstName

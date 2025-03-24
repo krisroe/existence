@@ -77,6 +77,15 @@ namespace Existence.Earth
         }
     }
 
+    public class PetEyeColorsAttribute : Attribute
+    {
+        public PetEyeColors[] EyeColors { get; set; }
+        public PetEyeColorsAttribute(params PetEyeColors[] EyeColors)
+        {
+            this.EyeColors = EyeColors;
+        }
+    }
+
     public class PetColorsAttribute : Attribute
     {
         public PetColors[] PetColors { get; set; }
@@ -128,6 +137,12 @@ namespace Existence.Earth
         /// the politically correct term is MixedBreed, but I prefer the shortened version
         /// </summary>
         Mutt,
+    }
+
+    public enum PetEyeColors
+    {
+        Blue,
+        Green,
     }
 
     public enum PetColors

@@ -1,7 +1,7 @@
 ﻿
-using Existence.Earth.FieldsOfStudy.Psychology;
 using System;
 using System.Collections.Generic;
+using Existence.Earth.Alphabet;
 using static Existence.Earth.FieldsOfStudy.Psychology.Concepts;
 
 namespace Existence.Personal
@@ -407,6 +407,14 @@ namespace Existence.Personal
                 }
                 public static class Consequences
                 {
+                    public static class LoseTrackOfTime
+                    {
+                        public static class Example
+                        {
+                            public static class ForgetToPickUpDaughterFromSchool { }
+                        }
+                    }
+
                     public static class RebootReality
                     {
                         public static class ThingsSwitchedAroundSoPerceptionLacksTemporalConsistency
@@ -579,6 +587,21 @@ namespace Existence.Personal
                     }
                 }
             }
+        }
+
+        public static class Dissociation
+        {
+            [Pronoun("Xe")]
+            [FirstName("Kris")]
+            public static class LeftMind { }
+
+            [Pronoun("He")]
+            [FirstName("Christopher")]
+            public static class UnifiedConsciousness { }
+
+            [Pronoun("She")]
+            [FirstName("Chris")]
+            public static class RightMind { }
         }
     }
 }
