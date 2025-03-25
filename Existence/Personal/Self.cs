@@ -392,17 +392,67 @@ namespace Existence.Personal
 
             /// <summary>
             /// 1 name on the Vietnam Memorial Wall
+            /// Curious because: only one Grimm?
             /// </summary>
             public static class Grimm
             {
                 /// <summary>
-                /// Michael Joseph Grimm (died 7/7/1970 Thua Thien) (Army Corporal)
-                /// Panel/Line 9W/127
-                /// Birth Date: 1/20/1950
-                /// Home of Record: Carthage, NC, Moore County
-                /// Curious because: only one Grimm?
+                /// Michael Joseph Grimm (Michael J Grimm)
+                /// CPL (Army)
+                /// 9W/127
+                /// DOB: 1950-01-20
+                /// Where: Thua Thien
+                /// DOC: 1970-07-07
+                /// Home: Carthage NC (Moore County)
                 /// </summary>
-                public static class CuriousNameOnVietnamWarMemorial { }
+                public static class v1 { }
+            }
+
+            /// <summary>
+            /// 4 names on the Vietname Memorial Wall
+            /// curious because: showed up in autosearch without me searching for it
+            /// O'Laughlin's (x2) are not included
+            /// </summary>
+            public static class Laughlin
+            {
+                /// <summary>
+                /// Thomas John Laughlin (Thomas J Laughlin)
+                /// SGT (Army)
+                /// 12W/132
+                /// DOB: 1948-10-31
+                /// Where: Quang Tri
+                /// DOC: 1970-04-13
+                /// Home: Philadelphia PA (Philadelphia Co)
+                /// </summary>
+                public static class v1 { }
+
+                /// <summary>
+                /// Thomas William Laughlin (Thomas W Laughlin)
+                /// PFC (Marine Corps)
+                /// 37E/38
+                /// DOB: 1948-03-03
+                /// Where: Thua Thien
+                /// DOC: 1968-02-05
+                /// Home: Blairsville PA (Indiana Co)
+                /// </summary>
+                public static class v2 { }
+            }
+
+            /// <summary>
+            /// 1 name on the Vietnam Memorial Wall
+            /// </summary>
+            public static class Longtin
+            {
+                /// <summary>
+                /// Mark Warren Longtin (Mark W Longtin)
+                /// PFC (Army)
+                /// 43W/47
+                /// DOB: 1947-07-07
+                /// Where: Long An
+                /// DOC: 1968-09-20
+                /// Home: Red Lake Falls, MN (Red Lake Co)
+                /// </summary>
+                public static class v1 { }
             }
 
             /// <summary>
@@ -446,13 +496,48 @@ namespace Existence.Personal
             public static class Swift
             {
                 /// <summary>
-                /// Derald Dean Swift (died December 7, 1966 Bien Hoa) (Air Force Captain)
-                /// Panel/Line 13E/19
-                /// Birth Date: 12/14/1937
-                /// Home of Record: Vale, OR, Malheur County
-                /// Curious because: birth date one day before Taylor Swift's, death date one day after mine
+                /// Derald Dean Swift (Derald D Swift)
+                /// Capt (Air Force)
+                /// 13E/19
+                /// DOB: 1937-12-14 (one day before Taylor Swift's)
+                /// Where: Bien Hoa
+                /// DOC: 1966-12-07 (one day after mine)
+                /// Home: Vale, OR (Malheur Co)
                 /// </summary>
-                public static class CuriousNameOnVietnamMemorial { }
+                public static class v1 { }
+
+                /// <summary>
+                /// Eugene Edward Swift (Eugene E Swift)
+                /// SN (Navy)
+                /// 44E/2
+                /// DOB: 1945-08-26
+                /// Where: Bien Hoa
+                /// DOC: 1968-03-09
+                /// Home: Hyattsville, MD (Prine George's Co)
+                /// </summary>
+                public static class v2 { }
+
+                /// <summary>
+                /// Richard C Swift
+                /// MAJ (Air Force)
+                /// 38W/39
+                /// DOB: 1931-07-14
+                /// Where: Quang Tri
+                /// DOC: 1968-11-22
+                /// Home: Des Moines, IA (Polk Co)
+                /// </summary>
+                public static class v3 { }
+
+                /// <summary>
+                /// James Thealbeart Swift Jr
+                /// CPL (Army)
+                /// 11W/61
+                /// DOB: 1948-08-27
+                /// Where: Binh Dinh
+                /// DOC: 1970-04-27
+                /// Home: Philadelphia, PA (Philadelphia Co)
+                /// </summary>
+                public static class v4 { }
             }
         }
 
