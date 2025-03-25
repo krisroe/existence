@@ -67,89 +67,23 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(4, 0, 0, 0)]
             [YearDate(2025, 3, 24)]
             AddPetHouse,
+
+            /// <summary>
+            /// reorganize static data (more timeless) and nonstatic data (less timeless)
+            /// instantiate my mother's pet graveyard and pet house
+            /// </summary>
+            [BeyondObjectVersion(4, 1, 0, 0)]
+            [YearDate(2025, 3, 25)]
+            PetHouseStaticVsNonStaticData,
         }
-
-        /// <summary>
-        /// mapping from pet name to fictional pet version
-        /// </summary>
-        internal static readonly Dictionary<string, Pet> PetHouseFictionalPetMapping;
-
-        /// <summary>
-        /// mapping from pet name to nonfictional pet version
-        /// </summary>
-        internal static readonly Dictionary<string, Pet> PetHouseNonFictionalPetMapping;
-
-        /// <summary>
-        /// pet house litters (mother and litter members)
-        /// </summary>
-        internal static readonly List<Tuple<Pet, List<Pet>>> PetHouseLittersMotherAndKittens;
 
         /// <summary>
         /// static constructor
         /// </summary>
         static Timeless()
         {
-            PetHouseFictionalPetMapping = new Dictionary<string, Pet>(8);
-            PetHouseNonFictionalPetMapping = new Dictionary<string, Pet>(8);
-            PetHouseLittersMotherAndKittens = new List<Tuple<Pet, List<Pet>>>(2);
-
-            List<Tuple<string, string, string, Sexes, int?, PetTypes>> petInfo = new List<Tuple<string, string, string, Sexes, int?, PetTypes>>()
-            {
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.ELSIE_NAME, "Fatness", "Fatness, eats refrigerators and restaurants", Sexes.Female, 1990, PetTypes.Cat),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SNOWFLAKE_NAME, "Chased human hands causing falls off table", "Makes Potions, time travel, steals Ted's food", Sexes.Female, 1990, PetTypes.Cat),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.TIGGER_NAME, "Temporarily escaped the house", "Drives impossibly fast, friendly", Sexes.Female, 1990, PetTypes.Cat),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.GRETEL_NAME, "Red spot", "Smart, mathematical talent, red spot", Sexes.Female, 1990, PetTypes.Cat),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SNOWBALL_NAME, "Odd-eyed", "Cooks healthy", Sexes.Female, null, PetTypes.Cat),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.TED_NAME, "Confused", "Confused, stupid, becomes smart when defending food from Snowflake", Sexes.Male, null, PetTypes.Dog),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.PRINCE_NAME, "Looked like a prince with blanket around neck", "Painfully colorful wardrobe", Sexes.Male, null, PetTypes.Dog),
-                new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SPIKE_NAME, string.Empty, "Curmudgeonly", Sexes.Male, null, PetTypes.Cat)
-            };
-
-            List<Pet> fictionalLitter = new List<Pet>();
-            List<Pet> nonFictionalLitter = new List<Pet>();
-            foreach (var nextPet in petInfo)
-            {
-                HandlePetHousePet(TruthClassification.Fictional, nextPet, fictionalLitter, nonFictionalLitter);
-                HandlePetHousePet(TruthClassification.Nonfictional, nextPet, fictionalLitter, nonFictionalLitter);
-            }
-            PetHouseLittersMotherAndKittens[0] = new Tuple<Pet, List<Pet>>(PetHouseFictionalPetMapping[PetHouse.SNOWBALL_NAME], fictionalLitter);
-            PetHouseLittersMotherAndKittens[1] = new Tuple<Pet, List<Pet>>(PetHouseNonFictionalPetMapping[PetHouse.SNOWBALL_NAME], nonFictionalLitter);
-        }
-
-        private static void HandlePetHousePet(TruthClassification truthClass, Tuple<string, string, string, Sexes, int?, PetTypes> petInfo, List<Pet> fictionalLitter, List<Pet> nonfictionalLitter)
-        {
-            string n = petInfo.Item1;
-            Pet p = new Pet(petInfo.Item1, petInfo.Item6, truthClass);
-            if (n == PetHouse.TED_NAME) p.Names.Add(PetHouse.TEDDY_NAME);
-            Dictionary<string, Pet> mapping;
-            List<Pet> litter;
-            if (truthClass == TruthClassification.Fictional)
-            {
-                mapping = PetHouseFictionalPetMapping;
-                litter = fictionalLitter;
-            }
-            else
-            {
-                mapping = PetHouseNonFictionalPetMapping;
-                litter = nonfictionalLitter;
-            }
-            foreach (string nextName in p.Names)
-            {
-                mapping[n] = p;
-            }
-            if (petInfo.Item5.HasValue) //only the child kittens have birth year specified
-            {
-                p.BirthYear = 1990;
-                litter.Add(p);
-            }
-            if (n == PetHouse.SNOWBALL_NAME)
-            {
-                p.EyeColors = [PetEyeColors.Blue, PetEyeColors.Green];
-            }
-            else if (n == PetHouse.TED_NAME)
-            {
-                p.CatchPhrase = "What was that noise?";
-            }
+            new MyMothersPetGraveyard();
+            new PetHouse();
         }
 
         [HumanSpeciesType(HomoSpecies.HomoSapiens)]
@@ -243,14 +177,14 @@ namespace Existence.Beyond.Timeless
             {
                 FinalRestingPlacePets = new List<Pet>() //death order
                 {
-                    PetHouseNonFictionalPetMapping[PetHouse.SPIKE_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.PRINCE_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.TEDDY_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.TIGGER_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.SNOWBALL_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.GRETEL_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.ELSIE_NAME],
-                    PetHouseNonFictionalPetMapping[PetHouse.SNOWFLAKE_NAME]
+                    PetHouse.NonFictionalPetMapping[PetHouse.SPIKE_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.PRINCE_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.TEDDY_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.TIGGER_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.SNOWBALL_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.GRETEL_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.ELSIE_NAME],
+                    PetHouse.NonFictionalPetMapping[PetHouse.SNOWFLAKE_NAME]
                 };
             }
         }
@@ -295,36 +229,136 @@ namespace Existence.Beyond.Timeless
                 PRINCE_NAME
             };
 
-            public TimelessSongEvent InspirationalOriginSongPrimary;
-            public List<TimelessSongEvent> InspirationalSongSecondary;
-            public Dictionary<TimelessSongEvent, List<Pet>> SongsToPets;
+            /// <summary>
+            /// mapping from pet name to fictional pet version
+            /// </summary>
+            public static readonly Dictionary<string, Pet> FictionalPetMapping;
+
+            /// <summary>
+            /// mapping from pet name to nonfictional pet version
+            /// </summary>
+            public static readonly Dictionary<string, Pet> NonFictionalPetMapping;
+
+            /// <summary>
+            /// pet house litters (mother and litter members)
+            /// </summary>
+            public static readonly List<Tuple<Pet, List<Pet>>> LittersMotherAndKittens;
+
+            /// <summary>
+            /// primary origin song
+            /// </summary>
+            public static readonly TimelessSongEvent InspirationalOriginSongPrimary;
+
+            /// <summary>
+            /// secondary origin songs
+            /// </summary>
+            public static readonly List<TimelessSongEvent> InspirationalSongSecondary;
+
+            /// <summary>
+            /// mapping from origin songs to pets
+            /// </summary>
+            static readonly Dictionary<TimelessSongEvent, List<Pet>> SongsToPets;
+
+            /// <summary>
+            /// main character pets
+            /// </summary>
             public List<Pet> MainCharacterPets { get; set; }
-            public PetHouse()
+
+            private static void HandlePetHousePet(TruthClassification truthClass, Tuple<string, string, string, Sexes, int?, PetTypes> petInfo, List<Pet> fictionalLitter, List<Pet> nonfictionalLitter)
             {
-                SongsToPets = new Dictionary<TimelessSongEvent, List<Pet>>();
-                InspirationalOriginSongPrimary = new TimelessSongEvent(TimelessStatic.TO_BE_DETERMINED, (int)FamilyMembersGeneric.Myself);
-                List<Pet> pets = SongsToPets[InspirationalOriginSongPrimary] = new List<Pet>();
-                foreach (string n in PETHOUSE_ORIGIN_SONG_PET_ORDER)
+                string n = petInfo.Item1;
+                Pet p = new Pet(petInfo.Item1, petInfo.Item6, truthClass);
+                if (n == TED_NAME) p.Names.Add(TEDDY_NAME);
+                Dictionary<string, Pet> mapping;
+                List<Pet> litter;
+                if (truthClass == TruthClassification.Fictional)
                 {
-                    pets.Add(PetHouseNonFictionalPetMapping[n]);
+                    mapping = FictionalPetMapping;
+                    litter = fictionalLitter;
                 }
+                else
+                {
+                    mapping = NonFictionalPetMapping;
+                    litter = nonfictionalLitter;
+                }
+                foreach (string nextName in p.Names)
+                {
+                    mapping[n] = p;
+                }
+                if (petInfo.Item5.HasValue) //only the child kittens have birth year specified
+                {
+                    p.BirthYear = 1990;
+                    litter.Add(p);
+                }
+                if (n == SNOWBALL_NAME)
+                {
+                    p.EyeColors = [PetEyeColors.Blue, PetEyeColors.Green];
+                }
+                else if (n == TED_NAME)
+                {
+                    p.CatchPhrase = "What was that noise?";
+                }
+            }
+
+            /// <summary>
+            /// static constructor
+            /// </summary>
+            static PetHouse()
+            {
+                InspirationalOriginSongPrimary = new TimelessSongEvent(TimelessStatic.TO_BE_DETERMINED, (int)FamilyMembersGeneric.Myself);
                 InspirationalSongSecondary = new List<TimelessSongEvent>()
                 {
                     new TimelessSongEvent(TimelessStatic.TO_BE_DETERMINED, (int)FamilyMembersGeneric.Myself),
                     new TimelessSongEvent(TimelessStatic.TO_BE_DETERMINED, (int)FamilyMembersGeneric.Myself),
                 };
+                SongsToPets = new Dictionary<TimelessSongEvent, List<Pet>>();
+                FictionalPetMapping = new Dictionary<string, Pet>(8);
+                NonFictionalPetMapping = new Dictionary<string, Pet>(8);
+                LittersMotherAndKittens = new List<Tuple<Pet, List<Pet>>>(2);
+                List<Tuple<string, string, string, Sexes, int?, PetTypes>> petInfo = new List<Tuple<string, string, string, Sexes, int?, PetTypes>>()
+                {
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.ELSIE_NAME, "Fatness", "Fatness, eats refrigerators and restaurants", Sexes.Female, 1990, PetTypes.Cat),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SNOWFLAKE_NAME, "Chased human hands causing falls off table", "Makes Potions, time travel, steals Ted's food", Sexes.Female, 1990, PetTypes.Cat),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.TIGGER_NAME, "Temporarily escaped the house", "Drives impossibly fast, friendly", Sexes.Female, 1990, PetTypes.Cat),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.GRETEL_NAME, "Red spot", "Smart, mathematical talent, red spot", Sexes.Female, 1990, PetTypes.Cat),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SNOWBALL_NAME, "Odd-eyed", "Cooks healthy", Sexes.Female, null, PetTypes.Cat),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.TED_NAME, "Confused", "Confused, stupid, becomes smart when defending food from Snowflake", Sexes.Male, null, PetTypes.Dog),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.PRINCE_NAME, "Looked like a prince with blanket around neck", "Painfully colorful wardrobe", Sexes.Male, null, PetTypes.Dog),
+                    new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.SPIKE_NAME, string.Empty, "Curmudgeonly", Sexes.Male, null, PetTypes.Cat)
+                };
+                List<Pet> fictionalLitter = new List<Pet>();
+                List<Pet> nonFictionalLitter = new List<Pet>();
+                foreach (var nextPet in petInfo)
+                {
+                    HandlePetHousePet(TruthClassification.Fictional, nextPet, fictionalLitter, nonFictionalLitter);
+                    HandlePetHousePet(TruthClassification.Nonfictional, nextPet, fictionalLitter, nonFictionalLitter);
+                }
+                LittersMotherAndKittens[0] = new Tuple<Pet, List<Pet>>(FictionalPetMapping[PetHouse.SNOWBALL_NAME], fictionalLitter);
+                LittersMotherAndKittens[1] = new Tuple<Pet, List<Pet>>(NonFictionalPetMapping[PetHouse.SNOWBALL_NAME], nonFictionalLitter);
+                List<Pet> pets = SongsToPets[InspirationalOriginSongPrimary] = new List<Pet>();
+                foreach (string n in PETHOUSE_ORIGIN_SONG_PET_ORDER)
+                {
+                    pets.Add(NonFictionalPetMapping[n]);
+                }
                 SongsToPets[InspirationalSongSecondary[0]] = new List<Pet>()
                 {
-                    PetHouseNonFictionalPetMapping[ELSIE_NAME],
+                    NonFictionalPetMapping[ELSIE_NAME],
                 };
                 SongsToPets[InspirationalSongSecondary[1]] = new List<Pet>()
                 {
-                    PetHouseNonFictionalPetMapping[TED_NAME],
+                    NonFictionalPetMapping[TED_NAME],
                 };
+            }
+
+            /// <summary>
+            /// instance constructor
+            /// </summary>
+            public PetHouse()
+            {
                 MainCharacterPets = new List<Pet>();
                 foreach (string n in PETHOUSE_MAIN_CHARACTER_ORDER)
                 {
-                    MainCharacterPets.Add(PetHouseFictionalPetMapping[n]);
+                    MainCharacterPets.Add(FictionalPetMapping[n]);
                 }
             }
         }

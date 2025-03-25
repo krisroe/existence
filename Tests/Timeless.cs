@@ -13,7 +13,7 @@ namespace Existence.Tests
         {
             HashSet<Pet> pets = new HashSet<Pet>();
             int iKittensCount = 0;
-            foreach (var p in Timeless.PetHouseFictionalPetMapping)
+            foreach (var p in Timeless.PetHouse.FictionalPetMapping)
             {
                 Pet pet = p.Value;
                 if (pet.BirthYear.HasValue) iKittensCount++;
@@ -24,7 +24,7 @@ namespace Existence.Tests
             Assert.AreEqual(iKittensCount, 4);
             pets.Clear();
             iKittensCount = 0;
-            foreach (var p in Timeless.PetHouseNonFictionalPetMapping)
+            foreach (var p in Timeless.PetHouse.NonFictionalPetMapping)
             {
                 Pet pet = p.Value;
                 if (pet.BirthYear.HasValue) iKittensCount++;
