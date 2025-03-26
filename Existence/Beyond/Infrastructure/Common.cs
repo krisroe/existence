@@ -230,6 +230,17 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    internal class VoteEvent : BaseEvent
+    {
+        internal int? Who { get; set; }
+        internal bool? Won { get; set; }
+        internal VoteEvent(int? Who, string What, bool? Won) : base(What)
+        {
+            this.Who = Who;
+            this.Won = Won;
+        }
+    }
+
     internal class SongEvent : BaseEvent
     {
         internal SongEvent(string SongName) : base(SongName)

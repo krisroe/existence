@@ -125,6 +125,7 @@ namespace Existence.Personal
         DanSeiler,
         DerekPoulin,
         GregFarrington,
+        GregLagoda,
         HeidiLaundrie,
         JasonWhite,
         JesseCapelle,
@@ -145,6 +146,7 @@ namespace Existence.Personal
         MeganWaterman,
         NickBremer,
         OliviaMarshall,
+        PaulMartinski,
         /// <summary>
         /// church of God
         /// </summary>

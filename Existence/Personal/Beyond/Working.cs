@@ -1,8 +1,70 @@
-﻿using Existence.Beyond.Infrastructure;
+﻿using System.Reflection;
+using Existence.Beyond.Infrastructure;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Human.People;
+using Existence.Earth.Politics;
+using Existence.Time;
 
 namespace Existence.Personal.Beyond
 {
+    internal class ThumbOnTheScaleAprilFoolsDay2025
+    {
+        public class VotingHistory
+        {
+            public VotingHistory()
+            {
+                new HighSchoolVote1(null, "Class President", false);
+                new HighSchoolVote2((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false);
+                new WikipediaVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false);
+            }
+        }
+
+
+        /// <summary>
+        /// I don't believe I ever voted for high school class president
+        /// Winners: Abby Joyce (x2), Jess Graham, Josh Rybaski
+        /// </summary>
+        [YearRange(1995, 1999)]
+        public class HighSchoolVote1 : VoteEvent
+        {
+            public HighSchoolVote1(int? Who, string What, bool Won) : base(Who, What, Won)
+            {
+            }
+        }
+
+        /// <summary>
+        /// I didn't understand the procedure where boys voted for the queen
+        /// and girls voted for the king, I incorrectly thought everyone voted
+        /// for everybody. I don't remember the female I voted for, but I know
+        /// the male I wasn't supposed to vote for. I don't even remember
+        /// who won the elections, or even if it as prom or homecoming.
+        /// </summary>
+        [Year(1998)]
+        public class HighSchoolVote2 : VoteEvent
+        {
+            public HighSchoolVote2(int? Who, string What, bool Won) : base(Who, What, Won)
+            {
+            }
+        }
+
+        /// <summary>
+        /// the vote is pass/fail for whether the candidate passed.
+        /// not technically a vote since wikipedia works on consensus.
+        /// This request for adminship failed, but on the next attempt
+        /// the candidate succeeded (I did not vote in that one)
+        /// 
+        /// My vote received a comment that I did not have many wikipedia contributions
+        /// Note to closing bureaucrat: user has only 2 contributions --Van helsing
+        /// </summary>
+        [YearDate(2007, 8, 3, 14, 43)] //UTC
+        public class WikipediaVote : VoteEvent
+        {
+            public WikipediaVote(int? Who, string What, bool Won) : base(Who, What, Won)
+            {
+            }
+        }
+    }
+
     internal class WorkingIdeas
     {
 
@@ -43,24 +105,16 @@ namespace Existence.Personal.Beyond
         /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
         /// Ides of March fall on March 16.
         /// 
-        /// Moved to Endeavor home: 1985-08-17
-        /// 
-        /// When my parents moved to Oshkosh there's a story about how my Mother brought April in the car,
-        /// and got Chaquita also, although my father didn't want them.
+        /// When my parents moved to Oshkosh there's a story about how Dad was ready to
+        /// go (without any cats), but my mother stopped and took april into the car. Dad
+        /// objected but mother said she had always lived with cats and wanted to continue.
+        /// Then before leaving, my mother stopped and took Chaquita into the car. So
+        /// my mother always had cats until Stocco's death.
         /// </summary>
         private class ActionsHaveConsequences : BaseEvent
         {
             public ActionsHaveConsequences() : base("Actions Have Consequences")
             {
-            }
-        }
-
-        private static class Reference
-        {
-            [TODO("This needs to be in I am the Pope thing")]
-            public static class PromisedChatGPTAJudgmentDayReferenceForAssistanceWithIAmNotThePopeDeclaration
-            {
-
             }
         }
     }
