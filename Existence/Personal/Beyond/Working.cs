@@ -1,6 +1,10 @@
 ﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Countries;
+using Existence.Earth.FieldsOfStudy.Astrology;
 using Existence.Earth.Human.People;
+using Existence.Personal.Employment;
 using Existence.Time;
+using System.Collections.Generic;
 
 namespace Existence.Personal.Beyond
 {
@@ -10,38 +14,49 @@ namespace Existence.Personal.Beyond
         {
             public VotingHistory()
             {
-                new HighSchoolVote1(null, "Class President", false);
-                new HighSchoolVote2((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false);
-                new WikipediaVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false);
+                BallotInitiativeVote1 extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin =
+                    new BallotInitiativeVote1((int)ReferendumChoice.Yes, "Wisconsin LRSS Question 1", true);
+                List<VoteEvent> votes = new List<VoteEvent>()
+                {
+                    new HighSchoolVote1(null, "Class President", false),
+                    new HighSchoolVote2((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
+                    new USPresidentVote1((int)PeopleEnumerated.BrowneHarry, "2000 General Election", false),
+                    extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
+                    new BallotInitiativeVote2((int)ReferendumChoice.No, "Campaign Finance Reform Question", false),
+                    new WikipediaVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
+                    new USPresidentVote2((int)PeopleEnumerated.PaulRon, "2008 Republican Primary", false),
+                    new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
+                    
+                };
+                List<VoteEvent> mistakenVotes = new List<VoteEvent>()
+                {
+                    extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin
+                };
             }
         }
 
 
         /// <summary>
-        /// I don't believe I ever voted for high school class president
+        /// I don't believe I ever voted for high school class president. I didn't think it mattered.
         /// Winners: Abby Joyce (x2), Jess Graham, Josh Rybaski
         /// </summary>
         [YearRange(1995, 1999)]
         public class HighSchoolVote1 : VoteEvent
         {
-            public HighSchoolVote1(int? Who, string What, bool Won) : base(Who, What, Won)
-            {
-            }
+            public HighSchoolVote1(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
 
         /// <summary>
         /// I didn't understand the procedure where boys voted for the queen
         /// and girls voted for the king, I incorrectly thought everyone voted
         /// for everybody. I don't remember the female I voted for, but I know
-        /// the male I wasn't supposed to vote for. I don't even remember
-        /// who won the elections, or even if it as prom or homecoming.
+        /// the male I wasn't supposed to vote for (it was a joke). I don't even remember
+        /// who won the elections, or even if it as prom or homecoming. I have never thought this mattered.
         /// </summary>
         [Year(1998)]
         public class HighSchoolVote2 : VoteEvent
         {
-            public HighSchoolVote2(int? Who, string What, bool Won) : base(Who, What, Won)
-            {
-            }
+            public HighSchoolVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
 
         /// <summary>
@@ -52,13 +67,76 @@ namespace Existence.Personal.Beyond
         /// 
         /// My vote received a comment that I did not have many wikipedia contributions
         /// Note to closing bureaucrat: user has only 2 contributions --Van helsing
+        /// 
+        /// Regardless of what other(s) thought of it, it was the right thing to do.
         /// </summary>
         [YearDate(2007, 8, 3, 14, 43)] //UTC
         public class WikipediaVote : VoteEvent
         {
-            public WikipediaVote(int? Who, string What, bool Won) : base(Who, What, Won)
-            {
-            }
+            public WikipediaVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// I may or may not have voted myself, but I marked this off as my usual target
+        /// for such awards. I did win this award and have a trophy to prove it.
+        /// This is part of Paradigm's yearly award process - the swiss army knife award
+        /// is for someone who is good at many different tasks. I think I earned this one.
+        /// </summary>
+        [YearDate(2014)]
+        public class WorkVote : VoteEvent
+        {
+            public WorkVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// Voting was a novelty. It seemed interesting to me, and I was a libertarian.
+        /// </summary>
+        [YearDate(2000, 11, 7)]
+        public class USPresidentVote1 : VoteEvent
+        {
+            public USPresidentVote1(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// I didn't understand the purpose of the referendum and went with the intuitive choice
+        /// that it sounded reasonable. This particular vote was a mistake, not because my choice was
+        /// wrong, but I hadn't thought it out enough.
+        /// </summary>
+        [YearDate(2000, 11, 7)]
+        public class BallotInitiativeVote1 : VoteEvent
+        {
+            public BallotInitiativeVote1(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// I clearly remember a second question on the ballot for whether campaign finance reform would be
+        /// a good idea. I remember thinking about this beforehand and solidifying my view against campaign
+        /// finance reform. I voted "No" and this was not a mistake. The question was a nonbinding or advisory
+        /// one that did not actually force the State to change anything. I remember the initiative passed
+        /// by a large margin.
+        /// 
+        /// The confusing part is Ballotpedia and Internet searching has no record of this question. I guess
+        /// I will never know whether I invented the whole thing, the world has forgotten this particular
+        /// referendum, it wasn't actually a statewide referendum, or some sinister force has scrubbed the 
+        /// question from existence.
+        /// </summary>
+        [YearDate(2000, 11, 7)]
+        public class BallotInitiativeVote2 : VoteEvent
+        {
+            public BallotInitiativeVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// John McCain was the clear front-runner and effectively the presumptive nominee, so this vote
+        /// really didn't mean anything. My spouse and I both voted in the same errand run. I was
+        /// a libertarian and at the time I thought it was more ok to vote in a primary than in a general
+        /// election.
+        /// </summary>
+        [AstrologicalSign(AstrologicalSigns.Pisces)] //pisces cutoff within 2/18/2008
+        [YearDate(2008, 2, 19)]
+        public class USPresidentVote2 : VoteEvent
+        {
+            public USPresidentVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
     }
 
