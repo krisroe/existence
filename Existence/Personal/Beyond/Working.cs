@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Existence.Beyond.Infrastructure;
+using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Astrology;
 using Existence.Earth.Human;
@@ -9,15 +10,21 @@ using Existence.Time;
 
 namespace Existence.Personal.Beyond
 {
-    internal class ThumbOnTheScaleAprilFoolsDay2025
+    internal class ThumbOnTheScaleAprilFoolsDay2025WisconsinElection
     {
+        [TODO("The event chaining doesn't work because currently an event can only be involved in one chaining procedure")]
         public class VotingHistory
         {
             public VotingHistory()
             {
+                MyPoliticalPhilosophy2 libertarianPoliticalPhilosophy = new MyPoliticalPhilosophy2(PoliticalPhilosophies.Libertarian);
                 BallotInitiativeVote1 extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin =
                     new BallotInitiativeVote1((int)ReferendumChoice.Yes, "Wisconsin LRSS Question 1", true);
-                USPresidentVote1 firstUSPresidentialVote = new USPresidentVote1((int)PeopleEnumerated.BrowneHarry, "2000 General Election", false);
+                USPresidentVote1 firstUSPresidentVote = new USPresidentVote1((int)PeopleEnumerated.BrowneHarry, "2000 General Election", false);
+                USPresidentVote2 secondUSPresidentVote = new USPresidentVote2((int)PeopleEnumerated.PaulRon, "2008 Republican Primary", false);
+                USPresidentVote3 thirdUSPresidentVote = new USPresidentVote3((int)PeopleEnumerated.JohnsonGary, "2012 General Election", false);
+                USPresidentVote4 fourthUSPresidentVote = new USPresidentVote4((int)PeopleEnumerated.JohnsonGary, "2016 General Election", false);
+                GaveMoneyToPresidentialCampaign gaveMoneyToUSPresidentCampaign = new GaveMoneyToPresidentialCampaign((int)PeopleEnumerated.TrumpDonald, "Small Donation", true);
                 List<BaseEvent> notVotes = new List<BaseEvent>()
                 {
                     new HighSchoolNotVote(null, "Class President", false),
@@ -26,21 +33,33 @@ namespace Existence.Personal.Beyond
                 List<BaseEvent> votesAndPoliticalPhilosophy = new List<BaseEvent>()
                 {
                     new MyPoliticalPhilosophy1(PoliticalPhilosophies.Conservative),
-                    new MyPoliticalPhilosophy2(PoliticalPhilosophies.Libertarian),
+                    libertarianPoliticalPhilosophy,
                     new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
-                    firstUSPresidentialVote,
+                    firstUSPresidentVote,
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
                     new BallotInitiativeVote2((int)ReferendumChoice.No, "Campaign Finance Reform Question", false),
-                    new USPresidentVote2((int)PeopleEnumerated.PaulRon, "2008 Republican Primary", false),
+                    secondUSPresidentVote,
+                    thirdUSPresidentVote,
                     new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
-                      
+                    gaveMoneyToUSPresidentCampaign,
+                    fourthUSPresidentVote,
                 };
                 List<BaseEvent> votesThatWereMistakes = new List<BaseEvent>()
                 {
-                    extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin
+                    extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
+                    thirdUSPresidentVote,
+                    fourthUSPresidentVote
                 };
+                List<BaseEvent> votesThatWereNotMistakes = new List<BaseEvent>()
+                {
+                    firstUSPresidentVote,
+                    secondUSPresidentVote,
+                    gaveMoneyToUSPresidentCampaign
+                };
+                BaseEvent.ChainEvents(notVotes, null);
                 BaseEvent.ChainEvents(votesAndPoliticalPhilosophy, null);
-                BaseEvent.ChainEvents(votesThatWereMistakes, firstUSPresidentialVote);
+                BaseEvent.ChainEvents(votesThatWereMistakes, firstUSPresidentVote);
+                BaseEvent.ChainEvents(votesThatWereNotMistakes, libertarianPoliticalPhilosophy);
             }
         }
 
@@ -73,10 +92,15 @@ namespace Existence.Personal.Beyond
             }
         }
 
-        //CSRTODO
+        /// <summary>
+        /// My political philosophy was greatly influenced by South Park which began airing
+        /// August 1997. I didn't watch the first few episodes, but I believe I was watching
+        /// them up-to-date by the time the Halloween episode (Pink-eye) aired 1997-10-29.
+        /// </summary>
+        [YearRange(1997, 1998)]
         public class MyPoliticalPhilosophy2 : PoliticalPhilosophyEvent
         {
-           public MyPoliticalPhilosophy2(PoliticalPhilosophies Philosophy) : base(Philosophy, "Became Libertarian")
+            public MyPoliticalPhilosophy2(PoliticalPhilosophies Philosophy) : base(Philosophy, "Became Libertarian")
             {
             }
         }
@@ -163,9 +187,10 @@ namespace Existence.Personal.Beyond
 
         /// <summary>
         /// John McCain was the clear front-runner and effectively the presumptive nominee, so this vote
-        /// really didn't mean anything. My spouse and I both voted in the same errand run. I was
-        /// a libertarian and at the time I thought it was more ok to vote in a primary than in a general
-        /// election.
+        /// really didn't mean anything. My spouse and I both voted in the same errand run. This
+        /// was consistent with my political philosophy and at the time I though it was more ok to vote
+        /// in a primary than in a general election. Ron Paul had a more successful campaign in 2012, still
+        /// not winning the nomination, but by that time I believe I decided another primary vote was not ok.
         /// </summary>
         [AstrologicalSign(AstrologicalSigns.Pisces)] //pisces cutoff within 2/18/2008
         [YearDate(2008, 2, 19)]
@@ -175,11 +200,37 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
-        /// I had not recovered
+        /// This election occurred after I had a psychiatric hospital stay for a manic episode.
+        /// The vote was consistent with my political philosophy but had I been mentally healthy 
+        /// I would have abstained like I did in the previous two presidential elections. For
+        /// this reason, this vote was a mistake.
         /// </summary>
+        [YearDate(2012, 11, 6)]
         public class USPresidentVote3 : VoteEvent
         {
             public USPresidentVote3(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// gave a small amount of money to Trump's first campaign. There is some spite in this decision
+        /// as my spouse hated/hates Trump to the point where she cannot civilly discuss the matter. This
+        /// is also inconsistent with my prevailing political philosophy. Nevertheless, there is something
+        /// special about Trump which renders this NOT A MISTAKE.
+        /// </summary>
+        [Year(2016)]
+        [CurrencyAmount(Currencies.UnitedStatesDollar, 50)]
+        public class GaveMoneyToPresidentialCampaign : VoteEvent
+        {
+            public GaveMoneyToPresidentialCampaign(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// Explanation word-for-word identical with the 2012 presidential election explanation.
+        /// </summary>
+        [YearDate(2016, 11, 8)]
+        public class USPresidentVote4 : VoteEvent
+        {
+            public USPresidentVote4(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
     }
 

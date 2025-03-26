@@ -69,9 +69,11 @@ namespace Existence.Earth.Human.People
     {
         BrowneHarry,
         DuninElonka,
+        JohnsonGary,
         PaulRon,
         RoweChris,
         RoweSonya,
         SwiftTaylor,
+        TrumpDonald,
     }
 }
