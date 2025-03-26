@@ -1,8 +1,5 @@
-﻿using System.Reflection;
-using Existence.Beyond.Infrastructure;
-using Existence.Earth.Alphabet;
+﻿using Existence.Beyond.Infrastructure;
 using Existence.Earth.Human.People;
-using Existence.Earth.Politics;
 using Existence.Time;
 
 namespace Existence.Personal.Beyond
