@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using Existence.Earth;
+using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Psychology;
+using Existence.Earth.Human;
 using Existence.Earth.Human.People;
 using Existence.Time;
 
@@ -227,6 +229,23 @@ namespace Existence.Beyond.Infrastructure
         {
             this.EventName = EventName;
             PreviousEvent = null;
+        }
+
+        internal static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
+        {
+            for (int i = 0; i < events.Count; i++)
+            {
+                events[i].PreviousEvent = i == 0 ? previousEvent : events[i - 1];
+            }
+        }
+    }
+
+    internal class PoliticalPhilosophyEvent : BaseEvent
+    {
+        internal PoliticalPhilosophies Philosophy { get; set; }
+        internal PoliticalPhilosophyEvent(PoliticalPhilosophies Philosophy, string Event) : base(Event)
+        {
+            this.Philosophy = Philosophy;
         }
     }
 

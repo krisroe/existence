@@ -3,17 +3,6 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates
 {
-
-    public static class PoliticalPhilosophies
-    {
-        public static class Communist { }
-        public static class Conservative { }
-        public static class Environmentalist { }
-        public static class Liberal { }
-        public static class Libertarian { }        
-        public static class Socialist { }
-    }
-
     public static class PoliticalParties
     {
         public static class FirstPastThePostMeansTwoPartySystem

@@ -1,10 +1,11 @@
-﻿using Existence.Beyond.Infrastructure;
+﻿using System.Collections.Generic;
+using Existence.Beyond.Infrastructure;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Astrology;
+using Existence.Earth.Human;
 using Existence.Earth.Human.People;
 using Existence.Personal.Employment;
 using Existence.Time;
-using System.Collections.Generic;
 
 namespace Existence.Personal.Beyond
 {
@@ -16,22 +17,30 @@ namespace Existence.Personal.Beyond
             {
                 BallotInitiativeVote1 extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin =
                     new BallotInitiativeVote1((int)ReferendumChoice.Yes, "Wisconsin LRSS Question 1", true);
-                List<VoteEvent> votes = new List<VoteEvent>()
+                USPresidentVote1 firstUSPresidentialVote = new USPresidentVote1((int)PeopleEnumerated.BrowneHarry, "2000 General Election", false);
+                List<BaseEvent> notVotes = new List<BaseEvent>()
                 {
-                    new HighSchoolVote1(null, "Class President", false),
-                    new HighSchoolVote2((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
-                    new USPresidentVote1((int)PeopleEnumerated.BrowneHarry, "2000 General Election", false),
+                    new HighSchoolNotVote(null, "Class President", false),
+                    new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
+                };
+                List<BaseEvent> votesAndPoliticalPhilosophy = new List<BaseEvent>()
+                {
+                    new MyPoliticalPhilosophy1(PoliticalPhilosophies.Conservative),
+                    new MyPoliticalPhilosophy2(PoliticalPhilosophies.Libertarian),
+                    new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
+                    firstUSPresidentialVote,
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
                     new BallotInitiativeVote2((int)ReferendumChoice.No, "Campaign Finance Reform Question", false),
-                    new WikipediaVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
                     new USPresidentVote2((int)PeopleEnumerated.PaulRon, "2008 Republican Primary", false),
                     new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
-                    
+                      
                 };
-                List<VoteEvent> mistakenVotes = new List<VoteEvent>()
+                List<BaseEvent> votesThatWereMistakes = new List<BaseEvent>()
                 {
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin
                 };
+                BaseEvent.ChainEvents(votesAndPoliticalPhilosophy, null);
+                BaseEvent.ChainEvents(votesThatWereMistakes, firstUSPresidentialVote);
             }
         }
 
@@ -41,9 +50,35 @@ namespace Existence.Personal.Beyond
         /// Winners: Abby Joyce (x2), Jess Graham, Josh Rybaski
         /// </summary>
         [YearRange(1995, 1999)]
-        public class HighSchoolVote1 : VoteEvent
+        public class HighSchoolNotVote : VoteEvent
         {
-            public HighSchoolVote1(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            public HighSchoolNotVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// Conservatism:
+        /// 1. Conservatives got control of the US legislative branches for the first time in a long while.
+        /// 2. In sophomore US History class (Steffen) said something nice about
+        /// Ronald Reagan and was accused of being a conservative, which made me
+        /// consider and become a conservative.
+        /// 3. Sometimes watched Rush Limbaugh's TV show (aired 1992-1996)
+        /// 4. Defaced high school standardized test with "Vote Bob Dole" notes
+        /// </summary>
+        [YearDate(1996)]
+        public class MyPoliticalPhilosophy1 : PoliticalPhilosophyEvent
+        {
+            public MyPoliticalPhilosophy1(PoliticalPhilosophies Philosophy) : base(Philosophy, "Was a Conservative for a Time")
+            {
+                this.Philosophy = Philosophy;
+            }
+        }
+
+        //CSRTODO
+        public class MyPoliticalPhilosophy2 : PoliticalPhilosophyEvent
+        {
+           public MyPoliticalPhilosophy2(PoliticalPhilosophies Philosophy) : base(Philosophy, "Became Libertarian")
+            {
+            }
         }
 
         /// <summary>
@@ -54,9 +89,9 @@ namespace Existence.Personal.Beyond
         /// who won the elections, or even if it as prom or homecoming. I have never thought this mattered.
         /// </summary>
         [Year(1998)]
-        public class HighSchoolVote2 : VoteEvent
+        public class HighSchoolVote : VoteEvent
         {
-            public HighSchoolVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            public HighSchoolVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
 
         /// <summary>
@@ -71,9 +106,9 @@ namespace Existence.Personal.Beyond
         /// Regardless of what other(s) thought of it, it was the right thing to do.
         /// </summary>
         [YearDate(2007, 8, 3, 14, 43)] //UTC
-        public class WikipediaVote : VoteEvent
+        public class WikipediaNotVote : VoteEvent
         {
-            public WikipediaVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            public WikipediaNotVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
 
         /// <summary>
@@ -137,6 +172,14 @@ namespace Existence.Personal.Beyond
         public class USPresidentVote2 : VoteEvent
         {
             public USPresidentVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// I had not recovered
+        /// </summary>
+        public class USPresidentVote3 : VoteEvent
+        {
+            public USPresidentVote3(int? Who, string What, bool Won) : base(Who, What, Won) { }
         }
     }
 

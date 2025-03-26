@@ -97,6 +97,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 9, 0, 0)]
             [YearDate(2025, 3, 24)]
             InternalizedAndRemovedTimelessVersion,
+
+            [BeyondObjectVersion(1, 10, 0, 0)]
+            [YearDate(2025, 3, 26)]
+            MoveChainEventFunctionToCommon,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -152,9 +156,9 @@ namespace Existence.Beyond.JudgmentDay
                 MyFirstOriginalSong,
                 MySistersParodyOfMyFirstOriginalSong
             };
-            ChainEvents(chainedEvents, null);
-            ChainEvents(relevantSongs, startedPianoLessons);
-            ChainEvents(factListOrdered, birth);
+            BaseEvent.ChainEvents(chainedEvents, null);
+            BaseEvent.ChainEvents(relevantSongs, startedPianoLessons);
+            BaseEvent.ChainEvents(factListOrdered, birth);
 
             SomeoneSaidSomethingAndIFoundOutViaHearsay calledAGenius = new SomeoneSaidSomethingAndIFoundOutViaHearsay(
                 "He's a genius", (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
@@ -194,14 +198,6 @@ namespace Existence.Beyond.JudgmentDay
         internal override List<MissingInformation>? GetMissingInformation()
         {
             return null;
-        }
-
-        private static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
-        {
-            for (int i = 0; i < events.Count; i++)
-            {
-                events[i].PreviousEvent = i == 0 ? previousEvent : events[i - 1];
-            }
         }
 
         public class MultiEvent : BaseEvent
