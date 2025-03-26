@@ -64,4 +64,12 @@ namespace Existence.Earth.Countries.UnitedStates
         {
         }
     }
+
+    public enum UnitedStatesPoliticians
+    {
+        BrowneHarry,
+        JohnsonGary,
+        PaulRon,
+        TrumpDonald,
+    }
 }

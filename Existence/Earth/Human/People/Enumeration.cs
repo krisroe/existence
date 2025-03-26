@@ -67,13 +67,9 @@ namespace Existence.Earth.Human.People
     /// </summary>
     public enum PeopleEnumerated
     {
-        BrowneHarry,
         DuninElonka,
-        JohnsonGary,
-        PaulRon,
         RoweChris,
         RoweSonya,
         SwiftTaylor,
-        TrumpDonald,
     }
 }

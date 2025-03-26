@@ -576,4 +576,12 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
         }
     }
+
+    public enum WisconsinPoliticians
+    {
+        CrawfordSusan,
+        KinserBrittany,
+        SchimelBrad,
+        UnderlyJill,
+    }
 }
