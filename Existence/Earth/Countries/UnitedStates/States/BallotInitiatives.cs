@@ -172,6 +172,25 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
         }
 
+        public static class Arkansas
+        {
+            public static class v2018
+            {
+                /// <summary>
+                /// A "yes" vote supported this amendment to require individuals to present valid photo ID to 
+                /// cast non provisional ballots in person or absentee.
+                /// Result:
+                /// Yes: 692,622 79.47%
+                /// No : 178,936 20.53%
+                /// </summary>
+                [YearDate(2018, 11, 6)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Issue2 { }
+            }
+        }
+
         public static class California
         {
             public static class v2010
@@ -895,8 +914,43 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 public static class Amendment2 { }
             }
         }
+
+        public static class Mississippi
+        {
+            public static class v2011
+            {
+                /// <summary>
+                /// require a person to submit government issued photo identification in order to vote
+                /// Result:
+                /// Yes: 538,656 62.07%
+                /// No : 329,105 37.93%
+                /// </summary>
+                [YearDate(2011, 11, 8)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class Initiative27 { }
+            }
+        }
+
         public static class Missouri
         {
+            public static class v2016
+            {
+                /// <summary>
+                /// A "yes" vote supported allowing the state government to require the presentation of voter 
+                /// IDs at public elections in order to prove national and state citizenship.
+                /// Result:
+                /// Yes: 1,712,274 63.01%
+                /// No : 1,005,234 36.99%
+                /// </summary>
+                [YearDate(2016, 11, 8)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotMeasurePassFail(true)]
+                public static class Amendment6 { }
+            }
+
             public static class v2024
             {
                 [YearDate(2024, 11, 5)]
@@ -1149,6 +1203,22 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         public static class NorthCarolina
         {
+            public static class v2018
+            {
+                /// <summary>
+                /// A "yes" vote supported creating a constitutional requirement that voters present a photo ID
+                /// to vote in person.
+                /// Result:
+                /// Yes: 2,049,121 55.49%
+                /// No : 1,643,983 44.51%
+                /// </summary>
+                [YearDate(2018, 11, 6)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotMeasurePassFail(true)]
+                public static class VoterIDAmendment { }
+            }
+
             public static class v2024
             {
                 /// <summary>
@@ -1225,6 +1295,23 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         public static class Oklahoma
         {
+            public static class v2010
+            {
+                /// <summary>
+                /// A "yes" vote supported requiring voters to present a government-issued photo ID or a voter 
+                /// ID card issued by the County Election Board to vote, allowing provisional ballots for those 
+                /// without ID, and making false sworn statements a felony.
+                /// Result:
+                /// Yes: 746,053 74.34%
+                /// No : 257,523 25.66%
+                /// </summary>
+                [YearDate(2010, 11, 2)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotMeasurePassFail(true)]
+                public static class Question746 { }
+            }
+
             public static class v2024
             {
                 /// <summary>

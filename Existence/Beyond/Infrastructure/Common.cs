@@ -634,4 +634,22 @@ namespace Existence.Beyond.Infrastructure
     {
         internal const string TO_BE_DETERMINED = "*";
     }
+
+    public enum ThumbOnTheScaleAmount
+    {
+        None = 0,
+        Half = 1,
+        Full = 2
+    }
+
+    internal class ThumbOnTheScaleAttribute : Attribute
+    {
+        public int Target { get; set; }
+        public ThumbOnTheScaleAmount Amount { get; set; }
+        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount)
+        {
+            this.Target = Target;
+            this.Amount = Amount;
+        }
+    }
 }

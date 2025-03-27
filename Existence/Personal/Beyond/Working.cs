@@ -260,17 +260,42 @@ namespace Existence.Personal.Beyond
         public static class AprilFoolsDay2025WisconsinElection
         {
             /// <summary>
+            /// General observations:
             /// 1. The law and order (judicial vs police) imbalance is ridiculous
+            /// 2. It's par for the course (both sides) to arbitrarily attack a prosecutor for past choices to prosecute or not.
+            /// Actual Wisonsin issues: 
+            /// 1 (advantage Schimel). Abortion (respecting the will of the people is the correct direction, but taking down the 1800's era law beforehand is correct)
+            /// 2 (advantage neither). Gerrymandering (current situation is better, unclear if further changes are actually helpful)
+            /// 3 (advantage Schimel). Act 10 (I think taking it down is wrong)
+            /// Personal issues:
+            /// 1 (advantage Schimel). Website much easier to wade through.
+            /// 2 (advantage neither). Trump endorsement not surprising, Crawford bringing Musk into it is interesting
+            /// Non issues:
+            /// 1. Rape kits (nicest interpretation of attacks is perfect the enemy of the good, but probably much worse
+            /// 2. Voter ID (likely constitutional enshrinement takes it off the table)
+            /// General conclusion:
+            /// The "liberal" majority has accomplished what was needed (gerrymandering and 
+            /// what they are about to do on abortion). I wish I knew the upcoming abortion 
+            /// ruling is, as it could be significant. In the meantime, I vote to swing the 
+            /// pendulum the other way. The pendulum may swing back, possibly even one election 
+            /// cycle down the road.
             /// </summary>
+            [ThumbOnTheScale((int)WisconsinPoliticians.SchimelBrad, ThumbOnTheScaleAmount.Full)]
             public static class StateSupremeCourtJustice
             {
                 /// <summary>
-                /// 1. loses a point for being the messiah in blurb
-                /// 2. loses a point on "only I can fix it" grounds
-                /// 3. loses a point for claiming judiciary on the other side are not sane.
-                /// 3. gains a point for token fire fighter union endorsement (I'm no fan of unions, but balance is appreciated here)
-                /// 4. gains a point for Farm Bureau endorsement
-                /// 5. gains a point for Realters Association endorsement
+                /// 1. loses a point for ALL CAPS (I'll give a pass to copy paste losing the all caps, which is also silly)
+                /// 2. loses a point for being the messiah in blurb title
+                /// 3. loses a point on "only I can fix it" grounds
+                /// 4. loses a point for claiming judiciary on the other side are not sane.
+                /// 5. loses a point for mentioning immigration high in the blurb (national not wisconsin issue)
+                /// 6. loses a point given the only politican endorsing is Trump
+                /// 7. gains a point for token fire fighter union endorsement (I'm no fan of unions, but balance is appreciated here)
+                /// 8. gains a point for Farm Bureau endorsement and Dairy Business Association
+                /// 9. gains a point for Realters Association endorsement
+                /// 10. gains a point for Bear Hunters' Association
+                /// 11. gains a point for a news section, which is actually helpful (website has far more depth)
+                /// Total: -1 point. Points generally don't mean anything other than as organizations of thoughts.
                 /// </summary>
                 [Politician((int)WisconsinPoliticians.SchimelBrad)]
                 public static class Option1
@@ -282,8 +307,9 @@ namespace Existence.Personal.Beyond
                     //blurb: "From opening the border to releasing criminals on our streets, rogue judges across
                     //the nation are putting their radical agenda above the law. Brad Schimel will take back the
                     //Wisconsin Supreme Court and end the madness."
+                    // "rogue judges" and "radical agenda"are fair game when there is question as to what "rule of law" even means.
                     //blurb: "Notably, he established a program that addressed decades of neglect surrounding rape kits,
-                    //providing victims with closure and clearing a significant backlog.
+                    //providing victims with closure and clearing a significant backlog. This involved federal grant money (I'm wary of fed grant money)
                     public static class Blurb { }
 
                     /// <summary>
@@ -293,19 +319,25 @@ namespace Existence.Personal.Beyond
                     //Milwaukee Professional Firefighters Association
                     //Wisconsin Farm Bureau
                     //Wisconsin Realtors Association
-                    //54 current sheriffs
-                    //28 retired sheriffs
+                    //54 current county sheriffs, 28 retired county sheriffs
                     public static class Endorsements { }
 
+                    /// <summary>
+                    /// "Respect will of the people" (abortion)
+                    /// "Disqualifying" (this word makes me cringe)
+                    /// Trump endorsement (it's ok given the partisan nature of things, but odd this is ok but other politician support isn't)
+                    /// </summary>
+                    public static class Videos { }
                 }
 
                 /// <summary>
-                /// loses a major point for Abortion setup (I want the issue decided by non-judicial actors unlike Kansas)
-                /// loses a point for Flash cookies in privacy policy
-                /// gains a point for Wisconsin Conservation Voters endorsement
-                /// gains a point for judicial endorsements (opponent has none). This plays into opponents hand saying
+                /// 1. loses a point for Flash cookies in privacy policy
+                /// 2. gains a point for Wisconsin Conservation Voters endorsement
+                /// 3. gains a point for judicial endorsements (opponent has none). This plays into opponents hand saying
                 /// there is a conspiracy on the judiciary to subvert the law, but the opponent pretending there aren't
                 /// judicial agendas in place is also ridiculous.
+                /// 4. gains a point for sheriff support (balance is appreciated here)
+                /// Total: +2 points (points don't really mean anything outside of organizing thoughts)
                 /// </summary>
                 [Politician((int)WisconsinPoliticians.CrawfordSusan)]
                 public static class Option2
@@ -338,18 +370,117 @@ namespace Existence.Personal.Beyond
                     //exactly 44 former assistant attorneys genral
                     //Wisconsin Conservation Voters
                     //Professional Fire Fighters of Wisconsin
-                    //Emily's List
-                    //Planned Parenthood
+                    //Emily's List / Planned Parenthood (keep-abortion-legal groups)
+                    //1 Democratic politician (theoretically bad for a non-partisan election, but I'll allow it)
+                    //2 current county sheriffs, 3 retired county sheriffs
                     public static class Endorsements { }
+
+                    /// <summary>
+                    /// "[Opponent] will ban abortion" (overreaching for what the powers of the supreme court are)
+                    /// "I want [Candidate] in my courtroom" (as an appeals court member will only have limited appellate jurisdiction)
+                    /// [rape kits issue, unclear]
+                    /// "health of the mother" (mistaking life for health is a common misdirection)
+                    /// "Elon Musk is trying to buy [opponent] a seat"
+                    /// "doing what's right" (this is in tension with the conept of law as an objective set of rules)
+                    /// </summary>
+                    public static class Videos { }
                 }
             }
 
+            /// <summary>
+            /// 1 (Kinser):  More website information
+            /// 2 (Kinser):  Privacy policy readability
+            /// 3 (neither): Backgrounds are appropriate
+            /// 4 (neither): Kinser has professional video, although it avoids the school choice issue
+            /// 5 (neither): school choice issue is personally important, but only has a blurb in the
+            /// proposal section. If the existing choice programs are ok, not sure this office's opinion matters
+            /// 
+            /// Verdict: The only issue I see here that matters to me is the school choice issue,
+            /// and I'm not necessarily convinced Kinser's proposed path is correct. What's decisive
+            /// here is the web site with more relevant information.
+            /// </summary>
+            [ThumbOnTheScale((int)WisconsinPoliticians.KinserBrittany, ThumbOnTheScaleAmount.Half)]
             public static class SuperintendantOfPublicInstruction
             {
+                /// <summary>
+                /// 1. I have my issues with standardized tests, lowering/raising arbitrary lines isn't a big deal
+                /// 2. I have my issues with focusing too much on college readiness
+                /// 3. Is funding centralization an acceptable trade-off for school choice? (rhetorical question)
+                /// </summary>
                 [Politician((int)WisconsinPoliticians.KinserBrittany)]
+                public static class Option1
+                {
+                    [Description("Nondescript black on white")]
+                    private static class PrivacyPolicy { }
+
+                    [Description("Experience as career Teacher/Administrator, Literacy Initiative, Charter School Network")]
+                    private static class Blurb { }
+
+                    /// <summary>
+                    /// 1. revert standards changes
+                    /// 2. focus on basics
+                    /// 3. school choice
+                    /// 4. centralize school funding in state to allow for school choice
+                    /// 5. accuses opponent of hypocrisy in sending her children to private schools
+                    /// </summary>
+                    private static class Proposals { }
+
+                    /// <summary>
+                    /// emphasizes college-readiness, back to basics especially for literacy
+                    /// </summary>
+                    private static class Video { }
+                }
+
+                /// <summary>
+                /// difficult-to-read privacy policy
+                /// </summary>
+                [Politician((int)WisconsinPoliticians.UnderlyJill)]
+                public static class Option2
+                {
+                    [Description("Hard to read red on white")]
+                    private static class PrivacyPolicy { }
+
+                    [Description("Career Teacher/Administrator")]
+                    private static class Blurb { }
+
+                    /// <summary>
+                    /// new bipartisan literacy law that will help improve young kids’ reading
+                    /// abilities. The new law hires more reading coaches and shifts students 
+                    /// to phonics-based reading instruction for 4-year-old kindergarten 
+                    /// through third grade.
+                    /// 
+                    /// federal grants secured for mental health and special education
+                    /// teacher recruitment (I'm wary of federal grant money)
+                    /// </summary>
+                    private static class Accomplishments { }
+                }
+            }
+
+            /// <summary>
+            /// On the merits I am against Voter Photo ID (lesser forms of identification should be good enough)
+            /// But, the existing law is not super harmful.
+            /// This vote is for constitutionalizing existing law.
+            /// From a rule of law perspective this should pass on consistency grounds.
+            /// Nevertheless this should be decided in a November election, not an April election, therefore
+            /// I vote "No", but this is awkward so no thumb on the sale.
+            /// </summary>
+            [ThumbOnTheScale((int)ReferendumChoice.No, ThumbOnTheScaleAmount.None)]
+            public static class VoterPhotoIdentificationAmendment
+            {
+                /// <summary>
+                /// Highly partisan measure: Supported by Democrats
+                /// Voter Photo ID is argued to be unnecessary (benefit to electoral security is questionable)
+                /// Voter Photo ID requires a slice of voters to get an ID specifically for voting (inconvenient and unfair)
+                /// </summary>
+                [ReferendumChoice(ReferendumChoice.No)]
                 public static class Option1 { }
 
-                [Politician((int)WisconsinPoliticians.UnderlyJill)]
+                /// <summary>
+                /// Highly partisan measure: Supported by Republicans
+                /// Voter Photo ID will increase confidence in election system for supporters
+                /// Voter Photo ID is already the law, so rejecting it will result in significant legal dissonance.
+                /// </summary>
+                [ReferendumChoice(ReferendumChoice.Yes)]
                 public static class Option2 { }
             }
         }
@@ -400,6 +531,8 @@ namespace Existence.Personal.Beyond
         /// objected but mother said she had always lived with cats and wanted to continue.
         /// Then before leaving, my mother stopped and took Chaquita into the car. So
         /// my mother always had cats until Stocco's death.
+        /// 
+        /// Children's Choir: Sonya, me, Karin Christiansen, Erin ?
         /// </summary>
         private class ActionsHaveConsequences : BaseEvent
         {

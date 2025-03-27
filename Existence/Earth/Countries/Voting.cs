@@ -8,6 +8,15 @@ namespace Existence.Earth.Countries
         No = 2
     }
 
+    public class ReferendumChoiceAttribute : Attribute
+    {
+        public ReferendumChoice ReferendumChoice { get; set; }
+        public ReferendumChoiceAttribute(ReferendumChoice ReferendumChoice)
+        {
+            this.ReferendumChoice = ReferendumChoice;
+        }
+    }
+
     public class PoliticianAttribute : Attribute
     {
         public int Politician { get; set; }
