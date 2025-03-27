@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Existence.Earth;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Psychology;
@@ -223,20 +224,38 @@ namespace Existence.Beyond.Infrastructure
     internal class BaseEvent
     {
         internal string EventName { get; set; }
-        internal BaseEvent? PreviousEvent;
 
         internal BaseEvent(string EventName)
         {
             this.EventName = EventName;
-            PreviousEvent = null;
         }
+    }
 
-        internal static void ChainEvents(List<BaseEvent> events, BaseEvent? previousEvent)
+    internal class OrderedEvents
+    {
+        public BaseEvent? PreviousEvent { get; set; }
+        public LinkedList<BaseEvent> ChainedEvents { get; set; }
+        public OrderedEvents(BaseEvent? PreviousEvent, IEnumerable<BaseEvent> OrderedEvents)
         {
-            for (int i = 0; i < events.Count; i++)
+            this.PreviousEvent = PreviousEvent;
+            ChainedEvents = new LinkedList<BaseEvent>();
+            foreach (BaseEvent next in OrderedEvents)
             {
-                events[i].PreviousEvent = i == 0 ? previousEvent : events[i - 1];
+                ChainedEvents.AddLast(next);
             }
+            if (ChainedEvents.Count == 0) throw new InvalidOperationException();
+        }
+        public BaseEvent[] GetEventsAsArray()
+        {
+            BaseEvent[] ret = new BaseEvent[ChainedEvents.Count];
+            int i = 0;
+            var enumerator= ChainedEvents.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                ret[i] = enumerator.Current;
+                i++;
+            }
+            return ret;
         }
     }
 
@@ -304,7 +323,7 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    internal class OriginalSongEvent : BaseEvent
+    internal class OriginalSongEvent : SongEvent
     {
         internal OriginalSongEvent(string SongName) : base(SongName)
         {

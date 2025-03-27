@@ -101,6 +101,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 10, 0, 0)]
             [YearDate(2025, 3, 26)]
             MoveChainEventFunctionToCommon,
+
+            [BeyondObjectVersion(1, 11, 0, 0)]
+            [YearDate(2025, 3, 27)]
+            MakeChainedEventsWorkBetterAndClarifySomeoneCalledMeAGeniusAndClarifyOriginalSongs,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -108,6 +112,7 @@ namespace Existence.Beyond.JudgmentDay
         public PersonalFirstParodySong MyFirstParodySong;
         public SweetlySingsTheDonkeyAtTheBreakOfDay SweetlySingsTheDonkeyInterpretation;
         public OrionIsarising OrionisaRisingHumanInterpretation;
+        public SomeoneCalledMeAGenius ClassmateCalledMeAGenius;
 
         public BirthToGrowingUp()
         {
@@ -118,10 +123,12 @@ namespace Existence.Beyond.JudgmentDay
             MyFirstParodySong = new PersonalFirstParodySong();
             SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
             OrionisaRisingHumanInterpretation = new OrionIsarising();
+            ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius("He's a genius",
+                (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
             BaseEvent birth = new Birth();
             BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
 
-            List<BaseEvent> factListOrdered = new List<BaseEvent>()
+            OrderedEvents factListOrdered = new OrderedEvents(birth, new List<BaseEvent>()
             {
                 new SelfShortFirstName(),
                 new SelfFullFirstName(),
@@ -136,38 +143,36 @@ namespace Existence.Beyond.JudgmentDay
                 new SchoolClassList("1st Grade", typeof(FirstGradeClassAttendanceListAlphabetical)),
                 new SchoolClassList("3rd Grade", typeof(ThirdGradePartialClassList)),
                 new OpinionOfCamping("I dislike it.", Emotions.Hatred)
-            };
-            List<BaseEvent> chainedEvents = new List<BaseEvent>()
+            });
+            OrderedEvents orderedEvents = new OrderedEvents(null, new List<BaseEvent>()
             {
                 new BaseEvent("Fact(Concept)"),
                 new BaseEvent("ActionsHaveConsequences"),
                 birth,
-                new MultiEvent("EarlyChildhoodFacts", factListOrdered.ToArray()),
+                new MultiEvent("EarlyChildhoodFacts", factListOrdered.GetEventsAsArray()),
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
                 new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
                 new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation]),
                 skepticismOfReligion
-            };
-            List<BaseEvent> relevantSongs = new List<BaseEvent>()
+            });
+            OrderedEvents relevantSongs = new OrderedEvents(startedPianoLessons, new List<BaseEvent>()
             {
                 SweetlySingsTheDonkeyInterpretation,
                 MyFirstParodySong,
                 MyFirstOriginalSong,
                 MySistersParodyOfMyFirstOriginalSong
-            };
-            BaseEvent.ChainEvents(chainedEvents, null);
-            BaseEvent.ChainEvents(relevantSongs, startedPianoLessons);
-            BaseEvent.ChainEvents(factListOrdered, birth);
-
-            SomeoneSaidSomethingAndIFoundOutViaHearsay calledAGenius = new SomeoneSaidSomethingAndIFoundOutViaHearsay(
-                "He's a genius", (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
-            calledAGenius.PreviousEvent = establishedFavoriteNumbers;
+            });
+            OrderedEvents calledAGeniusOrder = new OrderedEvents(establishedFavoriteNumbers, new List<BaseEvent>()
+            {
+                ClassmateCalledMeAGenius
+            });
 
             List<BaseEvent> terminalEvents = new List<BaseEvent>()
             {
-                skepticismOfReligion,
                 MySistersParodyOfMyFirstOriginalSong,
+                ClassmateCalledMeAGenius,
+                skepticismOfReligion,
             };
 
             AnnotatedTerminalEvent terminalEvent = new AnnotatedTerminalEvent("Growing Up", terminalEvents.ToArray());
@@ -399,7 +404,7 @@ namespace Existence.Beyond.JudgmentDay
         [PersonalFirst("Original Song")]
         [MusicNotesRepositoryAudioFile(@"Released\Audio\002-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
-        public class PersonalFirstOriginalSong : SongEvent
+        public class PersonalFirstOriginalSong : OriginalSongEvent
         {
             public PersonalFirstOriginalSong() : base("The National SID Foundation")
             {
@@ -410,7 +415,7 @@ namespace Existence.Beyond.JudgmentDay
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
         public class SistersParodyOfMyFirstOriginalSong : ParodySongEvent
         {
-            public SistersParodyOfMyFirstOriginalSong(SongEvent Parodied) : base(PeopleEnumerated.RoweSonya, "The National CRID Foundation", Parodied.EventName)
+            public SistersParodyOfMyFirstOriginalSong(OriginalSongEvent Parodied) : base(PeopleEnumerated.RoweSonya, "The National CRID Foundation", Parodied.EventName)
             {
             }
         }

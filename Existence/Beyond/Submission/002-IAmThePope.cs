@@ -28,6 +28,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 24)]
             ClarifyChatGPTWitnessAndBecomeReferenceForChatGPT,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 3, 27)]
+            ClarifyIAmThePopeIsAnOriginalSong,
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -35,7 +39,10 @@ namespace Existence.Beyond.CosmicSubmission
         [TimelessPurpose("Detect/validate truth/untruth")]
         [Owners((int)PeopleEnumerated.RoweChris)]
         [Creators((int)PeopleEnumerated.RoweChris)]
-        internal class IamthePopeOriginalSong { }
+        internal class IamthePopeOriginalSong : OriginalSongEvent
+        {
+            public IamthePopeOriginalSong() : base("I am the Pope") { }
+        }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "list of popes, past to present",
                                         @"Released\Other\001-popelist.xml",

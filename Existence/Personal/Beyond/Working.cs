@@ -15,7 +15,6 @@ namespace Existence.Personal.Beyond
 {
     internal class ThumbOnTheScaleAprilFoolsDay2025WisconsinElection
     {
-        [TODO("The event chaining doesn't work because currently an event can only be involved in one chaining procedure")]
         public class VotingHistory
         {
             public VotingHistory()
@@ -28,16 +27,19 @@ namespace Existence.Personal.Beyond
                 USPresidentVote3 thirdUSPresidentVote = new USPresidentVote3((int)UnitedStatesPoliticians.JohnsonGary, "2012 General Election", false);
                 USPresidentVote4 fourthUSPresidentVote = new USPresidentVote4((int)UnitedStatesPoliticians.JohnsonGary, "2016 General Election", false);
                 GaveMoneyToPresidentialCampaign gaveMoneyToUSPresidentCampaign = new GaveMoneyToPresidentialCampaign((int)UnitedStatesPoliticians.TrumpDonald, "Small Donation", true);
-                List<BaseEvent> notVotes = new List<BaseEvent>()
+                HighSchoolGraduation highSchoolGraduation = new HighSchoolGraduation();
+                OrderedEvents notVotes = new OrderedEvents(null, new List<BaseEvent>()
                 {
                     new HighSchoolNotVote(null, "Class President", false),
-                    new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
-                };
-                List<BaseEvent> votesAndPoliticalPhilosophy = new List<BaseEvent>()
+                    new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
+                    new HighSchoolGraduation(),
+                    new AllInFavorOfKillingJasonSchlakeSayAye(),
+                    new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),                    
+                });
+                OrderedEvents votesAndPoliticalPhilosophy = new OrderedEvents(null, new List<BaseEvent>()
                 {
                     new MyPoliticalPhilosophy1(PoliticalPhilosophies.Conservative),
                     libertarianPoliticalPhilosophy,
-                    new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
                     firstUSPresidentVote,
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
                     new BallotInitiativeVote2((int)ReferendumChoice.No, "Campaign Finance Reform Question", false),
@@ -46,23 +48,19 @@ namespace Existence.Personal.Beyond
                     new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
                     gaveMoneyToUSPresidentCampaign,
                     fourthUSPresidentVote,
-                };
-                List<BaseEvent> votesThatWereMistakes = new List<BaseEvent>()
+                });
+                OrderedEvents votesThatWereMistakes = new OrderedEvents(firstUSPresidentVote, new List<BaseEvent>()
                 {
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
                     thirdUSPresidentVote,
                     fourthUSPresidentVote
-                };
-                List<BaseEvent> votesThatWereNotMistakes = new List<BaseEvent>()
+                });
+                OrderedEvents votesThatWereNotMistakes = new OrderedEvents(libertarianPoliticalPhilosophy, new List<BaseEvent>()
                 {
                     firstUSPresidentVote,
                     secondUSPresidentVote,
                     gaveMoneyToUSPresidentCampaign
-                };
-                BaseEvent.ChainEvents(notVotes, null);
-                BaseEvent.ChainEvents(votesAndPoliticalPhilosophy, null);
-                BaseEvent.ChainEvents(votesThatWereMistakes, firstUSPresidentVote);
-                BaseEvent.ChainEvents(votesThatWereNotMistakes, libertarianPoliticalPhilosophy);
+                });
             }
 
             /// <summary>
@@ -117,6 +115,30 @@ namespace Existence.Personal.Beyond
             public class HighSchoolVote : VoteEvent
             {
                 public HighSchoolVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            }
+
+            /// <summary>
+            /// my mother's photos are a bit ambiguous between 5/28 and 5/29, but 5/28 was a Friday and
+            /// there is an Empire Photo (Madison, WI) that says the date is 5/28
+            /// </summary>
+            [YearDate(1999, 5, 28)]
+            public class HighSchoolGraduation : BaseEvent
+            {
+                public HighSchoolGraduation() : base("High School Graduation") { }
+            }
+
+            [TODO("Finish this")]
+            /// <summary>
+            /// not sure exactly when I created this one, but it was after I was out of high school so
+            /// after any tenuous connection with the target had been severed.
+            /// </summary>
+            [MusicNotesRepositoryAudioFile(@"Released\Audio\XXX-AllInFavorOfKillingJasonSchlakeSayAye.wav", PeopleEnumerated.RoweChris)]
+            [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\XXX-AllInFavorOfKillingJasonSchlakeSayAye.txt", PeopleEnumerated.RoweChris)]
+            public class AllInFavorOfKillingJasonSchlakeSayAye : OriginalSongEvent
+            {
+                public AllInFavorOfKillingJasonSchlakeSayAye() : base("All in Favor of Killing Jason Schlake say \"Aye\"")
+                {
+                }
             }
 
             /// <summary>
