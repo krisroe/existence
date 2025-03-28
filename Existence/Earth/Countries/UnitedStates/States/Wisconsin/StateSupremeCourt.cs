@@ -26,6 +26,15 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
                 [CourtCaseOralArgument(2022, 3, 10)]
                 [CourtCaseDecided(2022, 6, 29)]
                 public static class StateExRelKaulvPrehn { }
+
+                /// <summary>
+                /// Ruled absentee ballot drop boxes were not authorized under state law. The court determined that absentee 
+                /// ballots needed to be returned directly to municipal clerks, effectively prohibiting the widespread use of 
+                /// drop boxes that had become prevalent during the 2020 elections.
+                /// </summary>
+                [CourtCaseOralArgument(2022, 4, 13)]
+                [CourtCaseDecided(2022, 7, 8)]
+                public static class TeigenvsWisconsinElectionsCommission { }
             }
             public static class Term20232024
             {
@@ -37,9 +46,30 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
                 [CourtCaseOralArgument(2023, 11, 21)]
                 [CourtCaseDecided(2023, 12, 22)]
                 public static class ClarkevWisconsinElectionsCommission { }
+
+                /// <summary>
+                /// Ruled absentee ballot drop boxes were authorized under state law. The court determined that absentee 
+                /// ballots could be returned to an entity under the control of municipal clerks, reversing a ruling from
+                /// two years prior
+                /// </summary>
+                [CourtCaseOralArgument(2024, 5, 13)]
+                [CourtCaseDecided(2024, 7, 5)]
+                public static class PrioritiesUSAvWisconsinElectionsCommission { }
             }
             public static class Term20242025
             {
+                /// <summary>
+                /// ruled Meagan Wolfe lawfully continues as the Administrator of the Wisconsin Elections Commission (WEC), even though her term expired in June 2023. 
+                /// The Court determined that the expiration of Wolfe's term did not create a vacancy necessitating a new appointment, and thus, the WEC is not obligated 
+                /// to appoint a new administrator under these circumstances. This was consistent with the 2022 decision in State ex rel Kaul vs Prehn, although
+                /// in a concurrence three justices agreed with the result even though they maintained Prehn was decided incorrectly. The
+                /// concurrence was criticized as being inconsistent with the dissent in Kaul v Prehn, the accusation being the party
+                /// of the relevant officer was decisive in the logic.
+                /// </summary>
+                [CourtCaseOralArgument(2024, 11, 18)]
+                [CourtCaseDecided(2025, 2, 7)]
+                public static class WisconsinElectionsCommissionvLeMahieu { }
+
                 /// <summary>
                 /// Attorney General Kaul argues that the 1849 statute criminalizing abortion is 
                 /// unenforceable for consensual abortions, especially in light of more recent 
@@ -49,16 +79,6 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
                 [TODO("Future Case")]
                 [CourtCaseOralArgument(2024, 11, 11)]
                 public static class KaulvUrmanski { }
-
-                /// <summary>
-                /// ruled Meagan Wolfe lawfully continues as the Administrator of the Wisconsin Elections Commission (WEC), even though her term expired in June 2023. 
-                /// The Court determined that the expiration of Wolfe's term did not create a vacancy necessitating a new appointment, and thus, the WEC is not obligated 
-                /// to appoint a new administrator under these circumstances. This was consistent with the 2022 decision in State ex rel Kaul vs Prehn, although
-                /// in a concurrence three justices agreed with the result even though they maintained Prehn was decided incorrectly.
-                /// </summary>
-                [CourtCaseOralArgument(2024, 11, 18)]
-                [CourtCaseDecided(2025, 2, 7)]
-                public static class WisconsinElectionsCommissionvLeMahieu { }
             }
         }
     }

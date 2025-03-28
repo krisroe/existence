@@ -306,13 +306,20 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// 1. Rape kits (nicest interpretation of attacks is perfect the enemy of the good, but probably much worse
             /// 2. Voter ID (likely constitutional enshrinement takes it off the table)
             /// General conclusion:
-            /// The "liberal" majority has accomplished what was needed (gerrymandering and 
-            /// what they are about to do on abortion). I wish I knew the upcoming abortion 
-            /// ruling is, as it could be significant. In the meantime, I vote to swing the 
-            /// pendulum the other way. The pendulum may swing back, possibly even one election 
-            /// cycle down the road.
+            /// The "liberal" majority has accomplished what was needed. In the meantime, I say
+            /// swing the pendulum the other way. The pendulum may swing back, possibly even one 
+            /// election cycle down the road.
+            /// 
+            /// Relevant Cases:
+            /// 1. Kaul v Urmanski (presumably the 1800's abortion law will be ruled no longer in force),
+            /// but not decided yet. Could be significant but not released yet,
+            /// 2. Gerrymandering ruling. The needle has moved on this, let's give it some soak time.
+            /// 3. Ballot drop boxes (I agree with the liberal side, but not a big deal policywise other
+            /// than excessive ping-ponging)
+            /// 4. Rulings on office vacancy not existing before new officer confirmed (I think liberal
+            /// side is validly accused of being results-oriented).
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.SchimelBrad, ThumbOnTheScaleAmount.Full)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.SchimelBrad, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.High)]
             public static class StateSupremeCourtJustice
             {
                 /// <summary>
@@ -355,7 +362,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     public static class Endorsements { }
 
                     /// <summary>
-                    /// "Respect will of the people" (abortion)
+                    /// "Respect will of the people" (abortion, where I agree wholeheartedly)
                     /// "Disqualifying" (this word makes me cringe)
                     /// Trump endorsement (it's ok given the partisan nature of things, but odd this is ok but other politician support isn't)
                     /// </summary>
@@ -431,7 +438,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// and I'm not necessarily convinced Kinser's proposed path is correct. What's decisive
             /// here is the web site with more relevant information.
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.KinserBrittany, ThumbOnTheScaleAmount.Half)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.KinserBrittany, ThumbOnTheScaleAmount.Half, ThumbOnTheScaleImportance.Low)]
             public static class SuperintendantOfPublicInstruction
             {
                 /// <summary>
@@ -493,15 +500,17 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// On the merits I am against Voter Photo ID (lesser forms of identification should be good enough)
             /// But, the existing law is not super harmful.
             /// This vote is for constitutionalizing existing law.
-            /// From a rule of law perspective this should pass on consistency grounds.
+            /// From a rule of law perspective this should pass on consistency grounds, there is also a risk
+            /// of liberal judicial overturn, which I would be against.
             /// Nevertheless this should be decided in a November election, not an April election, therefore
-            /// I vote "No", but this is awkward so no thumb on the sale.
+            /// I vote "No", but this is awkward so no thumb on the sale. Importance is low since this is
+            /// going to pass (if I'm wrong I will have to rethink my process)
             /// </summary>
-            [ThumbOnTheScale((int)ReferendumChoice.No, ThumbOnTheScaleAmount.None)]
+            [ThumbOnTheScale((int)ReferendumChoice.No, ThumbOnTheScaleAmount.None, ThumbOnTheScaleImportance.Low)]
             public static class VoterPhotoIdentificationAmendment
             {
                 /// <summary>
-                /// Highly partisan measure: Supported by Democrats
+                /// Highly partisan measure: Supported by Democrats, particularly those in legislative bodies
                 /// Voter Photo ID is argued to be unnecessary (benefit to electoral security is questionable)
                 /// Voter Photo ID requires a slice of voters to get an ID specifically for voting (inconvenient and unfair)
                 /// </summary>
@@ -525,7 +534,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// taxes connection to affordable housing is questionable, and graphically the focus appears
             /// to be more on potholes. Probably a good fit for sale, I judge less for county executive.
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, ThumbOnTheScaleAmount.Full)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low)]
             [TODO("Image thing")]
             public static class DaneCountyExecutive
             {

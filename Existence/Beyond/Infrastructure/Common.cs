@@ -642,14 +642,23 @@ namespace Existence.Beyond.Infrastructure
         Full = 2
     }
 
+    public enum ThumbOnTheScaleImportance
+    {
+        High = 0,
+        Medium = 1,
+        Low = 2
+    }
+
     internal class ThumbOnTheScaleAttribute : Attribute
     {
         public int Target { get; set; }
         public ThumbOnTheScaleAmount Amount { get; set; }
-        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount)
+        public ThumbOnTheScaleImportance importance { get; set;  }
+        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance)
         {
             this.Target = Target;
             this.Amount = Amount;
+            this.importance = Importance;
         }
     }
 }
