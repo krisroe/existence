@@ -125,7 +125,15 @@ namespace Existence.Earth.Countries.UnitedStates
             }
             public static class AdministratorOfTheUnitedStatesAgencyForInternationalDevelopment
             {
+                /// <summary>
+                /// served to 2025-02-3
+                /// </summary>
                 public static class JasonGray { }
+
+                /// <summary>
+                /// appointed acting on 2025-02-03 after becoming secretary of state
+                /// </summary>
+                public static class MarcoRubio { }
             }
             public static class AdministratorOfTheNationalAeronauticsAndSpaceAdministration
             {
@@ -526,6 +534,29 @@ namespace Existence.Earth.Countries.UnitedStates
                 }
             }
 
+            public static class OfficeOfTheStaffSecretary
+            {
+                public static class WhiteHouseStaffSecretary
+                {
+                    /// <summary>
+                    /// assumed office 2025-01-20
+                    /// </summary>
+                    public static class WillScharf { }
+                }
+            }
+
+            public static class OfficeOfScienceAndTechnologyPolicy
+            {
+                public static class Director
+                {
+                    /// <summary>
+                    /// started in some capacity 2025-01-20
+                    /// confirmed 74-25 on 2025-03-25
+                    /// </summary>
+                    public static class MichaelKratsios { }
+                }
+            }
+
             public static class DirectorOfOfficeManagementAndBudget
             {
                 /// <summary>
@@ -788,10 +819,6 @@ namespace Existence.Earth.Countries.UnitedStates
                 /// </summary>
                 public static class AdministratorOfTheUSAgencyForInternationalDevelopment
                 {
-                    /// <summary>
-                    /// appointed acting on 2025-02-03 after becoming secretary of state
-                    /// </summary>
-                    public static class MarcoRubio { }
 
                     [TODO("Final Details")]
                     public static class PermanentAppointmentNotYetMade { }
@@ -799,6 +826,11 @@ namespace Existence.Earth.Countries.UnitedStates
 
                 public static class DirectoryOfTheConsumerFinancialProtectionBureau
                 {
+                    /// <summary>
+                    /// appointed acting on 2025-02-01 to 2025-02-07
+                    /// </summary>
+                    public static class ScottBessent { }
+
                     /// <summary>
                     /// appointed acting on 2025-02-07 after becoming director of OMB
                     /// </summary>
@@ -816,10 +848,13 @@ namespace Existence.Earth.Countries.UnitedStates
                     public static class JamiesonGreer { }
                 }
 
+                /// <summary>
+                /// Elise Stefanik withdrew 2025-03-27
+                /// </summary>
                 public static class AmbassadorToTheUnitedNations
                 {
                     [TODO("Senate Confirmation")]
-                    public static class EliseStefanik { }
+                    public static class NoCurrentAppointment { }
                 }
 
                 public static class ChairmanOfTheFederalCommunicationsCommission
