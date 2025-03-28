@@ -25,4 +25,8 @@ namespace Existence.Earth.Countries
             this.Politician = Politician;
         }
     }
+
+    public class IncumbentAttribute : Attribute
+    {
+    }
 }

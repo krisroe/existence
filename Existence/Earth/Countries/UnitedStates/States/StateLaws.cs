@@ -579,8 +579,10 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
     public enum WisconsinPoliticians
     {
+        AgardMelissa,
         CrawfordSusan,
         KinserBrittany,
+        RatzlaffStephen,
         SchimelBrad,
         UnderlyJill,
     }

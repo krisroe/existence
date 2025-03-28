@@ -435,6 +435,7 @@ namespace Existence.Personal.Beyond
                 /// difficult-to-read privacy policy
                 /// </summary>
                 [Politician((int)WisconsinPoliticians.UnderlyJill)]
+                [Incumbent]
                 public static class Option2
                 {
                     [Description("Hard to read red on white")]
@@ -482,6 +483,56 @@ namespace Existence.Personal.Beyond
                 /// </summary>
                 [ReferendumChoice(ReferendumChoice.Yes)]
                 public static class Option2 { }
+            }
+
+            /// <summary>
+            /// Incumbent is running as an incumbent, and here it's enough
+            /// 
+            /// Challenger is single issue candidate for property taxes. The "How your House is looked at"
+            /// graphic is definitely clever (I've even saved it off for posterity), but the property 
+            /// taxes connection to affordable housing is questionable, and graphically the focus appears
+            /// to be more on potholes. Probably a good fit for sale, I judge less for county executive.
+            /// </summary>
+            [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, ThumbOnTheScaleAmount.Full)]
+            public static class DaneCountyExecutive
+            {
+                [Politician((int)WisconsinPoliticians.RatzlaffStephen)]
+                public static class Option1
+                {
+                    [Description("None")]
+                    public static class PrivacyPolicy { }
+
+                    /// <summary>
+                    /// self-described single 30% property tax cut candidate
+                    /// (connected to affordable housing issue)
+                    /// but there is another issue: potholes
+                    /// non-government background (Steinhafels sales, EMT)
+                    /// </summary>
+                    public static class Blurb { }
+
+                    /// <summary>
+                    /// How your house is looked at:
+                    /// ... by you        (nice house)
+                    /// ... the buyer     (less nice house)
+                    /// ... the Bank loan (a shack)
+                    /// ... the Insurance Evaluator (a disaster waiting to happen)
+                    /// ... by the County Appraisal District (as a mansion, to maximize property tax values)
+                    /// </summary>
+                    public static class InterestingImage { }
+                }
+
+                [Politician((int)WisconsinPoliticians.AgardMelissa)]
+                [Incumbent]
+                public static class Option2
+                {
+                    [Description("External: PaperForm")]
+                    public static class PrivacyPolicy { }
+
+                    /// <summary>
+                    /// brief and to the point, highlights several government elected jobs
+                    /// </summary>
+                    public static class Blurb { }
+                }
             }
         }
     }
