@@ -30,7 +30,9 @@ namespace Existence.Personal.Beyond
                 HighSchoolGraduation highSchoolGraduation = new HighSchoolGraduation();
                 OrderedEvents notVotes = new OrderedEvents(null, new List<BaseEvent>()
                 {
+                    new USPresidentNotVote1((int)UnitedStatesPoliticians.TsongasPaul, "Sixth Grade Primary Choice", false),
                     new HighSchoolNotVote(null, "Class President", false),
+                    new HighSchoolNotVote((int)UnitedStatesPoliticians.DoleBob, "Standardized Test Propaganda", false),
                     new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
                     new HighSchoolGraduation(),
                     new AllInFavorOfKillingJasonSchlakeSayAye(),
@@ -64,6 +66,19 @@ namespace Existence.Personal.Beyond
             }
 
             /// <summary>
+            /// this is from sixth grade when discussing the election in a primary context. There was
+            /// no formal vote taken - we just chose our preferred candidate. I mention this not because
+            /// it was super important to my political development, I chose the candidate based on his
+            /// focus on health care, which was a fairly superficial and suggests a liberal lean.
+            /// By the time I understood what "liberal" was, I had outgrown it.
+            /// </summary>
+            [Year(1992)]
+            public class USPresidentNotVote1 : VoteEvent
+            {
+                public USPresidentNotVote1(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            }
+
+            /// <summary>
             /// I don't believe I ever voted for high school class president. I didn't think it mattered.
             /// Winners: Abby Joyce (x2), Jess Graham, Josh Rybaski
             /// </summary>
@@ -72,6 +87,20 @@ namespace Existence.Personal.Beyond
             {
                 public HighSchoolNotVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
             }
+
+            /// <summary>
+            /// this refers to an incident where, in taking a standardized test (trivially easy for me
+            /// otherwise), I defaced the test booklet with "Vote Bob Dole" admonishments and propaganda.
+            /// I was even hauled into the principal's office for this (the only time this happened in
+            /// high school). I told the principal to send it in, and as far as I know that's what happened.
+            /// I will never know if any person involved with test processing noticed it at all.
+            /// </summary>
+            [Year(1996)]
+            public class USPresidentNotVote2 : VoteEvent
+            {
+                public USPresidentNotVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            }
+            
 
             /// <summary>
             /// Conservatism:

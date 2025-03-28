@@ -68,8 +68,10 @@ namespace Existence.Earth.Countries.UnitedStates
     public enum UnitedStatesPoliticians
     {
         BrowneHarry,
+        DoleBob,
         JohnsonGary,
         PaulRon,
         TrumpDonald,
+        TsongasPaul,
     }
 }
