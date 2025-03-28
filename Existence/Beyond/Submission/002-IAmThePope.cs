@@ -32,6 +32,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 3, 27)]
             ClarifyIAmThePopeIsAnOriginalSong,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 3, 28)]
+            MoveImagesWithinImageRepository,
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -54,10 +58,10 @@ namespace Existence.Beyond.CosmicSubmission
         public class Attachments
         {
             [MusicNotesRepositoryAttachment("St. Mary's Hospital, Madison, WI, USA",
-                                            @"Released\Other\003-certificateofbirth{0}.tif", 1, 3)]
+                                            @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
             public static class EvidenceOfBirth { }
 
-            [MusicNotesRepositoryAttachment("Friend of my spouse", @"Released\Other\002-marriageproof.jpg")]
+            [MusicNotesRepositoryAttachment("Friend of my spouse", @"Released\Images\001-marriageproof.jpg")]
             public static class EvidenceOfMarriage { }
         }
 
