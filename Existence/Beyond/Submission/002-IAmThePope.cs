@@ -36,6 +36,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 3, 28)]
             MoveImagesWithinImageRepository,
+
+            [BeyondObjectVersion(1, 5, 0, 0)]
+            [YearDate(2025, 3, 28)]
+            ImageAttachmentsUpdate,
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -57,11 +61,17 @@ namespace Existence.Beyond.CosmicSubmission
 
         public class Attachments
         {
-            [MusicNotesRepositoryAttachment("St. Mary's Hospital, Madison, WI, USA",
+            [MusicNotesRepositoryImageFile("St. Mary's Hospital, Madison, WI, USA",
+                                           "Certificate of Birth",
                                             @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
             public static class EvidenceOfBirth { }
 
-            [MusicNotesRepositoryAttachment("Friend of my spouse", @"Released\Images\001-marriageproof.jpg")]
+            /// <summary>
+            /// Evie Gildry-Voyles creation
+            /// </summary>
+            [MusicNotesRepositoryImageFile("Friend of my spouse", 
+                                           "Wedding sampler cross-stitch",
+                                           @"Released\Images\001-marriageproof.jpg")]
             public static class EvidenceOfMarriage { }
         }
 

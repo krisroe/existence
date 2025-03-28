@@ -75,6 +75,13 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(4, 1, 0, 0)]
             [YearDate(2025, 3, 25)]
             PetHouseStaticVsNonStaticData,
+
+            /// <summary>
+            /// new version because of family unit reorganization
+            /// </summary>
+            [BeyondObjectVersion(5, 0, 0, 0)]
+            [YearDate(2025, 3, 28)]
+            SingleParentFamilyUnitAddEmployersAddShortNameAndPoliticalPhilosophy
         }
 
         /// <summary>
@@ -88,12 +95,14 @@ namespace Existence.Beyond.Timeless
 
         [HumanSpeciesType(HomoSpecies.HomoSapiens)]
         [Archetypes(Archetypes.Programmer)]
+        [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
         [FavoriteColor(KnownColor.Transparent)]
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
         [Birthdate(1980, 12, 6, 12, 53)]
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
+        [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]
         [HumanGender(HumanGender.Male)]
         public class HumanSelf
@@ -111,10 +120,11 @@ namespace Existence.Beyond.Timeless
             }
 
             [LastName("Rowe")]
-            public static class NuclearFamilyUnit
+            public static class FamilyUnits
             {
                 [MarriageDate(1976, 6, 26)]
-                public class v1
+                [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                public static class v1
                 {
                     [Birthdate(1952, 2, 18)]
                     [MindDeathdate(2024, 7, 21)]
@@ -140,8 +150,21 @@ namespace Existence.Beyond.Timeless
                     [Birthdate(1982, 12, 31)]
                     public class Sister { }
                 }
+
+                [FamilyUnit(FamilyUnitType.SingleParentFamily)]
+                public class v2
+                {
+                    public class Mother { }
+                    [Description("Financial Support, Regular Visitation")]
+                    public class Father { }
+                    [PoliticalPhilosophies(PoliticalPhilosophies.Conservative, PoliticalPhilosophies.Libertarian)]
+                    public class Brother { }
+                    public class Sister { }
+                }
+
                 [MarriageDate(2007, 4, 28)]
-                public static class v2
+                [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                public static class v3
                 {
                     [Birthdate(1973, 7, 18)]
                     [Sex(Sexes.Female)]
@@ -155,6 +178,13 @@ namespace Existence.Beyond.Timeless
                     [Birthdate(2013, 4, 11)]
                     public class Brother { }
                 }
+            }
+
+            public static class Employers
+            {
+                [FullName("Paradigm")]
+                [AlsoKnownAs("WTS Paradigm")]
+                public static class example1 { }
             }
 
             public class Songs
@@ -366,16 +396,18 @@ namespace Existence.Beyond.Timeless
         [HumanSpeciesType(HomoSpecies.HomoSapiens)]
         [Archetypes(Archetypes.Programmer)]
         [FavoriteColor(KnownColor.Transparent)]
+        [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
         [HumanGender(HumanGender.Male)]
         public class GenericHumanSelf
         {
-            public static class NuclearFamilyUnit
+            public static class FamilyUnits
             {
                 [Marriage]
-                public class v1
+                [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                public class example1
                 {
                     [FemaleSiblingCount(1, 2)]
                     [MaleSiblingCount(1, 1)]
@@ -391,9 +423,23 @@ namespace Existence.Beyond.Timeless
                     [Me]
                     public class Brother { }
                 }
+
+                public static class example2
+                {
+                    public class Mother { }
+                    [Description("Financial Support, Regular Visitation")]
+                    public class Father { }
+                    [PoliticalPhilosophyFlags(PoliticalPhilosophiesFlags.Liberal | 
+                                              PoliticalPhilosophiesFlags.Conservative |
+                                              PoliticalPhilosophiesFlags.Libertarian)]
+                    public class Brother { }
+                    public class Sister { }
+                }
+
                 [MarriageDateRange(Humanity.YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE,
                                    HumanSelf.YEAR_Z_DEVIATION)]
-                public static class v2
+                [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                public static class example3
                 {
                     public class SpouseOlder { }
 
@@ -406,6 +452,12 @@ namespace Existence.Beyond.Timeless
                     [Sex(Sexes.Male)]
                     public class SiblingYounger { }
                 }
+            }
+
+            public static class Employers
+            {
+                [WorkplaceType(WorkplaceType.Technology)]
+                public static class example1 { }
             }
         }
 

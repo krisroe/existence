@@ -191,6 +191,22 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    internal abstract class ThumbOnTheScaleBase
+    {
+        internal virtual List<LevelJustification> GetLevelJustifications()
+        {
+            throw new InvalidOperationException();
+        }
+        internal virtual List<TimelessChange>? GetTimelessChanges()
+        {
+            return null;
+        }
+        internal virtual List<MissingInformation>? GetMissingInformation()
+        {
+            throw new InvalidOperationException();
+        }
+    }
+
     internal class MissingInformation
     {
         internal string Info { get; set; }
@@ -564,6 +580,15 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    internal class AccomplishmentJustification : LevelJustification
+    {
+        internal string Accomplishment { get; set; }
+        internal AccomplishmentJustification(string Accomplishment)
+        {
+            this.Accomplishment = Accomplishment;
+        }
+    }
+
     internal class ProofJustification : LevelJustification
     {
         internal string Proved { get; set; }
@@ -579,6 +604,26 @@ namespace Existence.Beyond.Infrastructure
         {
             this.Documents = Documents;
         }
+    }
+
+    internal class Meme
+    {
+    }
+
+    internal class MemeJustification : LevelJustification
+    {
+        internal Meme Meme { get; set; }
+        internal MemeJustificationType Justification { get; set; }
+        public MemeJustification(Meme Meme, MemeJustificationType Justification)
+        {
+            this.Meme = Meme;
+            this.Justification = Justification;
+        }
+    }
+
+    internal enum MemeJustificationType
+    {
+        InterpretMemeMeaning
     }
 
     internal class ReleaseSongJustification : LevelJustification

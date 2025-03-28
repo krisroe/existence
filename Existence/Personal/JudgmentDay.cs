@@ -3,28 +3,6 @@ using Existence.Earth.Human.People;
 
 namespace Existence.Personal
 {
-    public class MusicNotesRepositoryAttachment : Attribute
-    {
-        public string Creator { get; set; }
-        public string RelativeFilePath { get; set; }
-        public int? StartNumber { get; set; }
-        public int? EndNumber { get; set; }
-        public MusicNotesRepositoryAttachment(string Creator, string RelativeFilePath)
-        {
-            this.Creator = Creator;
-            this.RelativeFilePath = RelativeFilePath;
-            this.StartNumber = null;
-            this.EndNumber = null;
-        }
-        public MusicNotesRepositoryAttachment(string Creator, string RelativeFilePath, int StartNumber, int EndNumber)
-        {
-            this.Creator = Creator;
-            this.RelativeFilePath = RelativeFilePath;
-            this.StartNumber = StartNumber;
-            this.EndNumber = EndNumber;
-        }
-    }
-
     public class MusicNotesRepositoryOtherFiles : Attribute
     {
         public PeopleEnumerated Creator { get; set; }
@@ -37,6 +15,35 @@ namespace Existence.Personal
             this.RelativePaths = RelativePaths;
         }
     }
+    
+    public class MusicNotesRepositoryImageFile : Attribute
+    {
+        public string Source { get; set;  }
+        public string Description { get; set; }
+        public string RelativeFilePath { get; set; }
+        public int? StartNumber { get; set; }
+        public int? EndNumber { get; set; }
+
+        public MusicNotesRepositoryImageFile(int Source, string Description, string RelativeFilePath)
+            : this(Source.ToString(), Description, RelativeFilePath)
+        {
+        }
+        public MusicNotesRepositoryImageFile(string Source, string Description, string RelativeFilePath)
+        {
+            this.Source = Source;
+            this.Description = Description;
+            this.RelativeFilePath = RelativeFilePath;
+            this.StartNumber = null;
+            this.EndNumber = null;
+        }
+        public MusicNotesRepositoryImageFile(string Source, string Description, string RelativeFilePath, int StartNumber, int EndNumber)
+            : this(Source, Description, RelativeFilePath)
+        {
+            this.StartNumber = StartNumber;
+            this.StartNumber = EndNumber;
+        }
+    }
+
     public class MusicNotesRepositoryAudioFile : Attribute
     {
         public string RelativePath { get; set; }

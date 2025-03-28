@@ -1,5 +1,4 @@
 ﻿using Existence.Beyond.Infrastructure;
-using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Human.People;
 using Existence.Earth;
 using Existence.Earth.Time;
@@ -105,6 +104,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 11, 0, 0)]
             [YearDate(2025, 3, 27)]
             MakeChainedEventsWorkBetterAndClarifySomeoneCalledMeAGeniusAndClarifyOriginalSongs,
+
+            [BeyondObjectVersion(1, 12, 0, 0)]
+            [YearDate(2025, 3, 28)]
+            AddDivineChildhoodIncidentRemoveMissingInformationImplementation,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -198,11 +201,6 @@ namespace Existence.Beyond.JudgmentDay
                 new CosmicCharity(1, (int)FamilyMembers.MySisterSonya, "Her Name is Exposed"),
                 new CosmicCharity(1, (int)FirstGradeClassAttendanceListAlphabetical.Laura, "Never Acknowledged Compliment, Potential Soulmate"),
             };
-        }
-
-        internal override List<MissingInformation>? GetMissingInformation()
-        {
-            return null;
         }
 
         public class MultiEvent : BaseEvent
@@ -305,6 +303,14 @@ namespace Existence.Beyond.JudgmentDay
             }
         }
 
+        /// <summary>
+        /// If an incident is required for stepping into the divine child threshold, there is one 
+        /// possibility that I do not remember beyond being told the story. After moving to Endeavor, 
+        /// we first tried my grandparents' church (Missouri Synod Lutheran). My mother wanted to sit 
+        /// in with the Sunday school but this was not allowed, and motivated by this my mother switched 
+        /// to Bethany Lutheran Church in Wisconsin Dells, where she was a Sunday school teacher for 
+        /// the youngest level for several years.
+        /// </summary>
         [DivineHumanLevel(HumanLevel.Childhood)]
         public class AnnotatedPlaceEvent3 : PlaceInSpecificCity
         {

@@ -140,6 +140,24 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class ShortNameAttribute : TextAttribute
+    {
+        public string ShortName
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public ShortNameAttribute(string ShortName) : base(ShortName)
+        {
+        }
+    }
+
     public class BirthNameAttribute : TextAttribute
     {
         public string BirthName

@@ -1,5 +1,4 @@
 ﻿using Existence.Beyond.Infrastructure;
-using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.Countries.UnitedStates.States;
@@ -8,17 +7,58 @@ using Existence.Earth.Human;
 using Existence.Earth.Human.People;
 using Existence.Personal;
 using Existence.Personal.Employment;
+using Existence.Personal.Infrastructure;
 using Existence.Time;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Existence.Beyond.ThumbOnTheScale
 {
-    [IsReleased(false)]
-    internal class ThumbOnTheScaleAprilFoolsDay2025WisconsinElection
+    internal class ThumbOnTheScaleAprilFoolsDay2025WisconsinElection : ThumbOnTheScaleBase
     {
+        public enum VersionHistory
+        {
+            [PersonalFirst("Human Thumb on the Scale")]
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 28)]
+            Created
+        }
+
+        public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
+
+        internal override List<LevelJustification> GetLevelJustifications()
+        {
+            return new List<LevelJustification>()
+            {
+                new ReleaseSongJustification(VotingHistory.VotingSong, SongJustificationType.ReleaseSong),
+                new MemeJustification(PropertyTaxMeme, MemeJustificationType.InterpretMemeMeaning),
+                new AccomplishmentJustification("2014 Swiss Army Knife Award"),
+            };
+        }
+
+        internal override List<TimelessChange>? GetTimelessChanges()
+        {
+            return new List<TimelessChange>()
+            {
+                new TimelessChange("Short Name"),
+                new TimelessChange("Paradigm as Employer"),
+                new TimelessChange("Political Philosophy"),
+                new TimelessChange("Post-parents-separation family unit")
+            };
+        }
+
+        internal override List<MissingInformation>? GetMissingInformation()
+        {
+            return new List<MissingInformation>()
+            {
+                new MissingInformation("Vote has not happened yet")
+            };
+        }
+
         public class VotingHistory
         {
+            public static AllInFavorOfKillingJasonSchlakeSayAye VotingSong = new AllInFavorOfKillingJasonSchlakeSayAye();
+
             public VotingHistory()
             {
                 MyPoliticalPhilosophy2 libertarianPoliticalPhilosophy = new MyPoliticalPhilosophy2(PoliticalPhilosophies.Libertarian);
@@ -37,7 +77,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     new HighSchoolNotVote((int)UnitedStatesPoliticians.DoleBob, "Standardized Test Propaganda", false),
                     new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
                     new HighSchoolGraduation(),
-                    new AllInFavorOfKillingJasonSchlakeSayAye(),
+                    VotingSong,
                     new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
                 });
                 OrderedEvents votesAndPoliticalPhilosophy = new OrderedEvents(null, new List<BaseEvent>()
@@ -111,7 +151,6 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// Ronald Reagan and was accused of being a conservative, which made me
             /// consider and become a conservative.
             /// 3. Sometimes watched Rush Limbaugh's TV show (aired 1992-1996)
-            /// 4. Defaced high school standardized test with "Vote Bob Dole" notes
             /// </summary>
             [YearDate(1996)]
             public class MyPoliticalPhilosophy1 : PoliticalPhilosophyEvent
@@ -159,19 +198,6 @@ namespace Existence.Beyond.ThumbOnTheScale
             }
 
             /// <summary>
-            /// not sure exactly when I created this one, but it was after I was out of high school so
-            /// after any tenuous connection with the target had been severed.
-            /// </summary>
-            [MusicNotesRepositoryAudioFile(@"Released\Audio\007-AllInFavorOfKillingJasonSchlakeSayAye.wav", PeopleEnumerated.RoweChris)]
-            [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\012-AllInFavorOfKillingJasonSchlakeSayAye.txt", PeopleEnumerated.RoweChris)]
-            public class AllInFavorOfKillingJasonSchlakeSayAye : OriginalSongEvent
-            {
-                public AllInFavorOfKillingJasonSchlakeSayAye() : base("All in Favor of Killing Jason Schlake say \"Aye\"")
-                {
-                }
-            }
-
-            /// <summary>
             /// the vote is pass/fail for whether the candidate passed.
             /// not technically a vote since wikipedia works on consensus.
             /// This request for adminship failed, but on the next attempt
@@ -186,19 +212,6 @@ namespace Existence.Beyond.ThumbOnTheScale
             public class WikipediaNotVote : VoteEvent
             {
                 public WikipediaNotVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
-            }
-
-            /// <summary>
-            /// I may or may not have voted myself, but I marked this off as my usual target
-            /// for such awards. I did win this award and have a trophy to prove it.
-            /// This is part of Paradigm's yearly award process - the swiss army knife award
-            /// is for someone who is good at many different tasks. I think I earned this one.
-            /// </summary>
-            [YearDate(2014)]
-            [TODO("Image thing")]
-            public class WorkVote : VoteEvent
-            {
-                public WorkVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
             }
 
             /// <summary>
@@ -535,7 +548,6 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// to be more on potholes. Probably a good fit for sale, I judge less for county executive.
             /// </summary>
             [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low)]
-            [TODO("Image thing")]
             public static class DaneCountyExecutive
             {
                 [Politician((int)WisconsinPoliticians.RatzlaffStephen)]
@@ -580,6 +592,45 @@ namespace Existence.Beyond.ThumbOnTheScale
                     public static class Blurb { }
                 }
             }
+        }
+
+        /// <summary>
+        /// not sure exactly when I created this one, but it was after I was out of high school so
+        /// after any tenuous connection with the target had been severed.
+        /// </summary>
+        [MusicNotesRepositoryAudioFile(@"Released\Audio\007-AllInFavorOfKillingJasonSchlakeSayAye.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\012-AllInFavorOfKillingJasonSchlakeSayAye.txt", PeopleEnumerated.RoweChris)]
+        public class AllInFavorOfKillingJasonSchlakeSayAye : OriginalSongEvent
+        {
+            public AllInFavorOfKillingJasonSchlakeSayAye() : base("All in Favor of Killing Jason Schlake say \"Aye\"")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I may or may not have voted myself, but I marked this off as my usual target
+        /// for such awards. I did win this award and have a trophy to prove it.
+        /// This is part of Paradigm's yearly award process - the swiss army knife award
+        /// is for someone who is good at many different tasks. I think I earned this one.
+        /// </summary>
+        [YearDate(2014)]
+        [MusicNotesRepositoryImageFile((int)Workplaces.Paradigm,
+                                       "Swiss Army Knife Award",
+                                       @"Released\Images\003-SwissArmyKnifeAward.jpg")]
+        public class WorkVote : VoteEvent
+        {
+            public WorkVote(int? Who, string What, bool Won) : base(Who, What, Won) { }
+        }
+
+        /// <summary>
+        /// from Stephen Ratzlaff Dane County Executive campaign
+        /// </summary>
+        [MusicNotesRepositoryImageFile("Internet Meme",
+                                       "How your House is looked at",
+                                       @"Released\Images\004-HowYourHouseIsLookedAt.png")]
+        [MusicNotesRepositoryMeaningFile(@"Released\Images\004-HowYourHouseIsLookedAt.txt", PeopleEnumerated.RoweChris)]
+        public class InternetMemeHowYourHouseIsLookedAt : Meme
+        {
         }
     }
 }
