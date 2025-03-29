@@ -4,6 +4,7 @@ using Existence.Beyond.Infrastructure;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.Alphabet;
+using Existence.Personal.Infrastructure;
 using Existence.Time;
 
 namespace Existence.Beyond
@@ -15,6 +16,13 @@ namespace Existence.Beyond
     /// </summary>
     public class Z
     {
+        public enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 3, 29)]
+            Created
+        }
+
         public OrderedEvents ZTimeline { get; set; }
         
         public List<BaseEvent> ZFacts { get; set; }
