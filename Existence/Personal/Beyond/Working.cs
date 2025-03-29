@@ -1,21 +1,30 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using Existence.Beyond.JudgmentDay;
-using Existence.Earth.Alphabet;
-using Existence.Earth.Countries;
-using Existence.Earth.Countries.UnitedStates;
-using Existence.Earth.Countries.UnitedStates.States;
-using Existence.Earth.FieldsOfStudy.Astrology;
-using Existence.Earth.Human;
-using Existence.Earth.Human.People;
-using Existence.Personal.Employment;
-using Existence.Time;
-using static Existence.Earth.Languages.World.Arabic;
-using static Existence.Personal.Self.Death;
-
+﻿
 namespace Existence.Personal.Beyond
 {
+    /// <summary>
+    ///1. Switching to ELCA Lutheran.It is critical to have the flexibility in the Luthernan denomination.It's a signpost even though I don't remember it.
+    ///2. Childhood nativity play.It's important to emphasize the disdain for religion at an early age.
+    ///3. First Communion oddity.It's important to distinguish the respectful treatment of religion at an older age.
+    ///4. "He's got religion" These are magic words and need to be uttered sincerely by someone familiar with behavior in church.
+    ///5. Number of Church Choir directors: 4 (including children's choir). This establishes a choir history which is not easy to subvert.
+    ///6. Briefly became an agnostic, but remained atheist. "Atheist" ends up the primary religion.But a brief period of agnosticism allows flexibility for defining the religious rules at judgment day.
+    ///7. 2018-09-23. Word-based synethesia following the beliefs around parts of liturgy believed in or pronouns.
+    ///8. Choir director had their own arrangement of Canticle of the Turning.This allows for a relatively fixed human meaning of Canticle of the Turning, making a personal/Z reinterpretation less risky.
+    ///
+    /// Birth Religion: 
+    /// Lutheran (Generic). This is based on parent preferences.
+    /// Did not become Missouri Synod Lutheran despite the opportunity
+    /// Lutheran (ELCA). This is specific despite no real personal understanding of Lutheran denominations.
+    /// Disrespectful Flag turned on (Childhood nativity play). Not permanent.
+    /// Skepticism Flag turned on (I have no sin). This is permanent.
+    /// Respectful Flag turned on (First Communion as Acolyte). I think this was permanent.
+    /// Confirmed (Nearing Atheism switch, Doubt in a Z sense)
+    /// Fake Reputation ("He's got religion"). Only did this once.
+    /// Atheist.
+    /// Agnostic (brief period in college based on philosophy class, didn't stick)
+    /// 
+    /// March 2024: Started own religion. Contrafactums of Awesome God and One of Us.
+    /// </summary>
     internal class JudgmentDaySomethingReligious
     {
         //CapacityForTheReligious: Minimal
