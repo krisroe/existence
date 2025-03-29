@@ -6,14 +6,13 @@ using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.FieldsOfStudy.Psychology;
-using Existence.Logic.Random;
 using Existence.Personal.Infrastructure;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Text;
 using Existence.Time;
 using Existence.Personal;
+using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -108,6 +107,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 12, 0, 0)]
             [YearDate(2025, 3, 28)]
             AddDivineChildhoodIncidentRemoveMissingInformationImplementation,
+
+            [BeyondObjectVersion(1, 13, 0, 0)]
+            [YearDate(2025, 3, 29)]
+            MakeBirthAndDivineSkepticismMorePublicMoveMultiEventIntoInfrastructure,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -120,7 +123,7 @@ namespace Existence.Beyond.JudgmentDay
         public BirthToGrowingUp()
         {
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
-            BaseEvent skepticismOfReligion = new SkepticismOfReligion();
+            BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal();
             MyFirstOriginalSong = new PersonalFirstOriginalSong();
             MySistersParodyOfMyFirstOriginalSong = new SistersParodyOfMyFirstOriginalSong(MyFirstOriginalSong);
             MyFirstParodySong = new PersonalFirstParodySong();
@@ -128,7 +131,7 @@ namespace Existence.Beyond.JudgmentDay
             OrionisaRisingHumanInterpretation = new OrionIsarising();
             ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius("He's a genius",
                 (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
-            BaseEvent birth = new Birth();
+            BaseEvent birth = new PersonalBirth();
             BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
 
             OrderedEvents factListOrdered = new OrderedEvents(birth, new List<BaseEvent>()
@@ -203,19 +206,6 @@ namespace Existence.Beyond.JudgmentDay
             };
         }
 
-        public class MultiEvent : BaseEvent
-        {
-            public IList<BaseEvent> Events;
-            public MultiEvent(string EventName, BaseEvent[] Events) : base(EventName)
-            {
-                List<BaseEvent> baseEvents = new List<BaseEvent>(Events);
-                RandomLogic.RandomType randomValue = (RandomLogic.RandomType)RandomNumberGenerator.GetInt32(0, 4);
-                RandomLogic.LinqHandling linqHandling = (RandomLogic.LinqHandling)RandomNumberGenerator.GetInt32(0, 3);
-                this.Events = RandomLogic.DoFisherYatesKnuthRandomizer(baseEvents, null, randomValue, linqHandling);
-            }
-        }
-
-
         [PersonalHumanLevel(HumanLevel.GrowingUp)]
         [DivineHumanLevel(HumanLevel.GrowingUp)]
         [CosmicHumanLevel(HumanLevel.GrowingUp)]
@@ -225,18 +215,6 @@ namespace Existence.Beyond.JudgmentDay
             public AnnotatedTerminalEvent(string EventName, params BaseEvent[] PreviousEvents) : base(EventName, PreviousEvents)
             {
             }
-        }
-
-        [PersonalHumanLevel(HumanLevel.Baby)]
-        [DivineHumanLevel(HumanLevel.Baby)]
-        [CosmicHumanLevel(HumanLevel.Baby)]
-        [ZHumanLevel(HumanLevel.Baby)]
-        [PersonalZLevel(ZLevel.Zero)]
-        [CosmicZLevel(ZLevel.Zero)]
-        [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
-        public class Birth : BaseEvent
-        {
-            public Birth() : base("Birth") { }
         }
 
         /// <summary>
@@ -555,42 +533,49 @@ namespace Existence.Beyond.JudgmentDay
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// I was curious as to what would happen, and at the time concluded that nothing did happen.
+    /// </summary>
+    [ApproximateAge(10, TimePeriods.Years)]
+    [DivineHumanLevel(HumanLevel.GrowingUp)]
+    [Quote("I have no sin.", "Me", "My Bedroom", "Alone")]
+    [BiblePassage("1 John 1:8-9")]
+    public class SkepticismOfReligionPersonal : BaseEvent
+    {
+        public SkepticismOfReligionPersonal() : base("Skepticism of Religion") { }
 
         /// <summary>
-        /// I was curious as to what would happen, and at the time concluded that nothing did happen.
+        /// part of the Confession and Forgiveness section at the beginning of the service.
         /// </summary>
-        [ApproximateAge(10, TimePeriods.Years)]
-        [DivineHumanLevel(HumanLevel.GrowingUp)]
-        [Quote("I have no sin.", "Me", "My Bedroom", "Alone")]
-        [BiblePassage("1 John 1:8-9")]
-        public class SkepticismOfReligion : BaseEvent
+        public string BiblePassage
         {
-            public SkepticismOfReligion() : base("Skepticism of Religion") { }
-
-            /// <summary>
-            /// part of the Confession and Forgiveness section at the beginning of the service.
-            /// </summary>
-            public string BiblePassage
+            get
             {
-                get
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("If we say we have no sin, we deceive ourselves, and the truth is not in us.");
-                    sb.AppendLine("But if we confess our sins, God, who is faithful and just,");
-                    sb.AppendLine("will forgive our sins and cleanse us from all unrighteousness.");
-                    return sb.ToString();
-                }
-            }
-            /// <summary>
-            /// I have never seriously thought there were any consequences of this
-            /// </summary>
-            public string? Consequences
-            {
-                get
-                {
-                    return null;
-                }
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("If we say we have no sin, we deceive ourselves, and the truth is not in us.");
+                sb.AppendLine("But if we confess our sins, God, who is faithful and just,");
+                sb.AppendLine("will forgive our sins and cleanse us from all unrighteousness.");
+                return sb.ToString();
             }
         }
+        /// <summary>
+        /// I have never seriously thought there were any consequences of this
+        /// </summary>
+        public string? Consequences
+        {
+            get
+            {
+                return null;
+            }
+        }
+    }
+
+    [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
+    [Birthdate(1980, 12, 6)]
+    public class PersonalBirth : ZBirth
+    {
+        public PersonalBirth() : base() { }
     }
 }

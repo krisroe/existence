@@ -51,7 +51,7 @@ namespace Existence.Personal.Beyond
         //that. The Wisniewski's (Greg and Katie were highly intelligent and highly religious). It remained
         //a joke for many years afterward but is a bit unsettling now.
 
-        //Handbells (practiced in Portage with Mr. Yerke but I think we d
+        //Handbells (practiced in Portage with Mr. Yerke but I think we did it in the Dells)
 
         //Children's Choir (Choir diretory: Eleanor Collins, Denise Tubman accompanying)
         //Me, Sonya, Karin Christiansen, Erin
@@ -120,52 +120,55 @@ namespace Existence.Personal.Beyond
         //is only blurry conjecture right now.
     }
 
+    /// <summary>
+    /// lucky penny incident where I scratched off a $50 scratch-off lottery ticket winner
+    /// for Grandma
+    /// Grandpa "lost the rent check" from Dad's story
+    /// Went to Ho Chunk casino twice (on 18th and 21st birthday). Played black jack, tried to count
+    /// cards, not competent enough but won anyway, person who came with lost so even if I won we didn't
+    /// actually cheat the casinos.
+    /// Once I took insurance even though I didn't want to, Grandpa said I would take insurance. I didn't
+    /// want to but the dealer took it anyway. I believe it was a winning bet, but I'm not sure what
+    /// would have happened had it been a losing bet or I asserted myself more.
+    /// 
+    /// This refers to an incident (addition of endeavor house) with sticking my finger in exposed light outlets.
+    /// There were no discernable consequences, but the lesson was learned nonetheless.
+    /// 
+    /// We also have the flashcards domination incident, which had the cosmic consequences of the T.G. loss
+    /// also the 2nd grade teacher with "She's dead" and "It might be true" situation.
+    /// 
+    /// People are inherently Stupid
+    /// Psychology is BS
+    /// 
+    /// Blanket (sonya and I) incident
+    /// HAlloween getting out of
+    /// HAlloween as ghost and myself
+    /// 
+    /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
+    /// last wet the bed incident was at Pine Lake camp (camp counselor washed the sleeping bag)
+    /// 
+    /// son took forever to get over wetting the bed (wore pullup like forever, his mother really didn't
+    /// want to clean it up and appeared to have no idea what would be helpful and never asked me about it). He Didn't seem to
+    /// consider it important when asked. Eventually he just stopped wearing the pullup and it was fine.
+    /// 
+    /// Guarantee incident: Once when mother told us to put on our seat belts for a trip to grandma's house
+    /// I refused, saying I guaranteed we would make it to grandma's house without an accident (it was only
+    /// a couple of miles). I put on my seat belt, and we made it to grandma's house without incident, and
+    /// when we were done I said something to the effect of "see, I was right" (not exact words).
+    /// 
+    /// I do not remember ever believing in Santa Claus.
+    /// 
+    /// March 16, 1998: worst day of my life. Car wouldn't start and walked 13.5 miles home from school.
+    /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
+    /// Ides of March fall on March 16.
+    /// 
+    /// When my parents moved to Oshkosh there's a story about how Dad was ready to
+    /// go (without any cats), but my mother stopped and took april into the car. Dad
+    /// objected but mother said she had always lived with cats and wanted to continue.
+    /// Then before leaving, my mother stopped and took Chaquita into the car. So
+    /// my mother always had cats until Stocco's death.
+    /// </summary>
     internal class WorkingIdeas
     {
-
-        /// <summary>
-        /// This refers to an incident (addition of endeavor house) with sticking my finger in exposed light outlets.
-        /// There were no discernable consequences, but the lesson was learned nonetheless.
-        /// 
-        /// We also have the flashcards domination incident, which had the cosmic consequences of the T.G. loss
-        /// also the 2nd grade teacher with "She's dead" and "It might be true" situation.
-        /// 
-        /// People are inherently Stupid
-        /// Psychology is BS
-        /// 
-        /// Blanket (sonya and I) incident
-        /// HAlloween getting out of
-        /// HAlloween as ghost and myself
-        /// 
-        /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
-        /// last wet the bed incident was at Pine Lake camp (camp counselor washed the sleeping bag)
-        /// 
-        /// son took forever to get over wetting the bed (wore pullup like forever, his mother really didn't
-        /// want to clean it up and appeared to have no idea what would be helpful and never asked me about it). He Didn't seem to
-        /// consider it important when asked. Eventually he just stopped wearing the pullup and it was fine.
-        /// 
-        /// Guarantee incident: Once when mother told us to put on our seat belts for a trip to grandma's house
-        /// I refused, saying I guaranteed we would make it to grandma's house without an accident (it was only
-        /// a couple of miles). I put on my seat belt, and we made it to grandma's house without incident, and
-        /// when we were done I said something to the effect of "see, I was right" (not exact words).
-        /// 
-        /// I do not remember ever believing in Santa Claus.
-        /// 
-        /// March 16, 1998: worst day of my life. Car wouldn't start and walked 13.5 miles home from school.
-        /// (March 15 is called the ides of march, which comports with the roman calendar). The modern day
-        /// Ides of March fall on March 16.
-        /// 
-        /// When my parents moved to Oshkosh there's a story about how Dad was ready to
-        /// go (without any cats), but my mother stopped and took april into the car. Dad
-        /// objected but mother said she had always lived with cats and wanted to continue.
-        /// Then before leaving, my mother stopped and took Chaquita into the car. So
-        /// my mother always had cats until Stocco's death.
-        /// </summary>
-        private class ActionsHaveConsequences : BaseEvent
-        {
-            public ActionsHaveConsequences() : base("Actions Have Consequences")
-            {
-            }
-        }
     }
 }

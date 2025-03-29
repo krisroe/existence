@@ -103,6 +103,31 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class MagicWordsAttribute : QuoteAttribute
+    {
+        public MagicWordsAttribute(string Quote, string SaidBy, string Location, string Company) : base(Quote,SaidBy, Location, Company)
+        {
+        }
+    }
+
+    public class ConsequencesAttribute : TextAttribute
+    {
+        public string Consequences
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public ConsequencesAttribute(string Consequences) : base(Consequences)
+        {
+        }
+    }
+
     public class ObservationAttribute : TextAttribute
     {
         public string Observation

@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using Existence.Beyond.Infrastructure;
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Human.People;
 using Existence.Logic;
 using Existence.Personal;
@@ -40,6 +41,15 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 5, 0, 0)]
             [YearDate(2025, 3, 28)]
             ImageAttachmentsUpdate,
+
+            [BeyondObjectVersion(1, 6, 0, 0)]
+            [YearDate(2025, 3, 29)]
+            AttachmentCleanupAddPreciseBirthObject,
+        }
+
+        internal ThePope()
+        {
+            new PersonalBirthPrecise();
         }
 
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
@@ -57,23 +67,16 @@ namespace Existence.Beyond.CosmicSubmission
                                         @"Released\Other\001-popelist.txt",
                                         @"Released\Other\001-popelist.csv",
                                         @"Released\Other\001-popelist.xsd")]
-        public class PopeList { }
+        public static class PopeListAttachments { }
 
-        public class Attachments
-        {
-            [MusicNotesRepositoryImageFile("St. Mary's Hospital, Madison, WI, USA",
-                                           "Certificate of Birth",
-                                            @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
-            public static class EvidenceOfBirth { }
 
-            /// <summary>
-            /// Evie Gildry-Voyles creation
-            /// </summary>
-            [MusicNotesRepositoryImageFile("Friend of my spouse", 
-                                           "Wedding sampler cross-stitch",
-                                           @"Released\Images\001-marriageproof.jpg")]
-            public static class EvidenceOfMarriage { }
-        }
+        /// <summary>
+        /// Evie Gildry-Voyles creation
+        /// </summary>
+        [MusicNotesRepositoryImageFile("Friend of my spouse",
+                                       "Wedding sampler cross-stitch",
+                                       @"Released\Images\001-marriageproof.jpg")]
+        public static class EvidenceOfMarriageAttachment { }
 
         public static class IAmNotThePopePastPresentFutureProof
         {
@@ -176,6 +179,15 @@ namespace Existence.Beyond.CosmicSubmission
             };
         }
     }
+
+    [MusicNotesRepositoryImageFile("St. Mary's Hospital, Madison, WI, USA",
+                               "Certificate of Birth",
+                                @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
+    [Birthdate(1980, 12, 6, 12, 53)]
+    public class PersonalBirthPrecise : PersonalBirth
+    {
+    }
+
 
     public static class ReferenceChange
     {

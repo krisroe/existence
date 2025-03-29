@@ -1,12 +1,12 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Security.Cryptography;
 using Existence.Earth;
-using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Psychology;
 using Existence.Earth.Human;
 using Existence.Earth.Human.People;
+using Existence.Logic.Random;
 using Existence.Time;
 
 namespace Existence.Beyond.Infrastructure
@@ -237,7 +237,7 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    internal class BaseEvent
+    public class BaseEvent
     {
         internal string EventName { get; set; }
 
@@ -247,7 +247,26 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    internal class OrderedEvents
+    public class MultiEvent : BaseEvent
+    {
+        public IList<BaseEvent> Events;
+        public MultiEvent(string EventName, BaseEvent[] Events) : base(EventName)
+        {
+            List<BaseEvent> baseEvents = new List<BaseEvent>(Events);
+            RandomLogic.RandomType randomValue = (RandomLogic.RandomType)RandomNumberGenerator.GetInt32(0, 4);
+            RandomLogic.LinqHandling linqHandling = (RandomLogic.LinqHandling)RandomNumberGenerator.GetInt32(0, 3);
+            this.Events = RandomLogic.DoFisherYatesKnuthRandomizer(baseEvents, null, randomValue, linqHandling);
+        }
+    }
+
+    public class LessonEvent : BaseEvent
+    {
+        public LessonEvent(string EventName) : base(EventName)
+        {
+        }
+    }
+
+    public class OrderedEvents
     {
         public BaseEvent? PreviousEvent { get; set; }
         public LinkedList<BaseEvent> ChainedEvents { get; set; }
