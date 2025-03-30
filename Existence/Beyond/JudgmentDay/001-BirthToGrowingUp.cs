@@ -1,7 +1,7 @@
-﻿using Existence.Beyond.Infrastructure;
+﻿using Existence.Beyond;
+using Existence.Beyond.Infrastructure;
 using Existence.Earth.Human.People;
 using Existence.Earth;
-using Existence.Earth.Time;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Text;
 using Existence.Time;
 using Existence.Personal;
-using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using Existence.Personal.Beyond;
 
 namespace Existence.Beyond.JudgmentDay
@@ -116,6 +115,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 14, 0, 0)]
             [YearDate(2025, 3, 30)]
             MovePersonalBirthOut,
+
+            [BeyondObjectVersion(1, 15, 0, 0)]
+            [YearDate(2025, 3, 30)]
+            AddReligiousFlagsChildhoodNativityPlaysILikeToFartPlayMoveCapacityForReligiousOut
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -127,8 +130,10 @@ namespace Existence.Beyond.JudgmentDay
 
         public BirthToGrowingUp()
         {
+            MyReligiousFlags myReligiousFlags = new MyReligiousFlags(Respectful: null, Skepticism: null);
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
-            BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal();
+            BaseEvent childhoodNativityPlays = new ChildhoodNativityPlays(myReligiousFlags);
+            BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal(myReligiousFlags);
             MyFirstOriginalSong = new PersonalFirstOriginalSong();
             MySistersParodyOfMyFirstOriginalSong = new SistersParodyOfMyFirstOriginalSong(MyFirstOriginalSong);
             MyFirstParodySong = new PersonalFirstParodySong();
@@ -162,7 +167,7 @@ namespace Existence.Beyond.JudgmentDay
                 birth,
                 new MultiEvent("EarlyChildhoodFacts", factListOrdered.GetEventsAsArray()),
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
-                new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers")]),
+                new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers"), new ILikeToFartHandPuppetPlay(), childhoodNativityPlays]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
                 new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation]),
                 skepticismOfReligion
@@ -320,14 +325,6 @@ namespace Existence.Beyond.JudgmentDay
             public SchoolClassList(string Class, Type AttendanceType) : base(Class)
             {
                 this.AttendanceType = AttendanceType;
-            }
-        }
-
-        [CapacityForEmotion(Emotions.Religious, EmotionalCapacity.Minimal)]
-        public class CapacityForTheReligious : BaseEvent
-        {
-            public CapacityForTheReligious() : base("Starting Religious Feeling")
-            {
             }
         }
 
@@ -541,15 +538,42 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// The key point here is these went from respectful to disrespectful over the course of the years
+    /// until they were stopped.
+    /// </summary>
+    [ApproximateAgeInYears(8, 10)]
+    public class ChildhoodNativityPlays : BaseEvent
+    {
+        public ChildhoodNativityPlays(MyReligiousFlags flags) : base("Childhood Nativity Plays")
+        {
+            flags.Respectful = false;
+        }
+    }
+
+    /// <summary>
+    /// Hand puppet play with the main character as a pig. The headline catch phrase is "I like to fart!" and when 
+    /// confronted this is inappropriate doubles down defending the behavior with "But I like to do it in public!".
+    /// </summary>
+    public class ILikeToFartHandPuppetPlay : BaseEvent
+    {
+        public ILikeToFartHandPuppetPlay() : base("\"I Like to Fart\" Hand Puppet Play")
+        {
+        }
+    }
+
+    /// <summary>
     /// I was curious as to what would happen, and at the time concluded that nothing did happen.
     /// </summary>
-    [ApproximateAge(10, TimePeriods.Years)]
+    [ApproximateAgeInYears(10)]
     [DivineHumanLevel(HumanLevel.GrowingUp)]
-    [Quote("I have no sin.", "Me", "My Bedroom", "Alone")]
+    [Quotes("I have no sin.", "Me", "My Bedroom", "Alone")]
     [BiblePassage("1 John 1:8-9")]
     public class SkepticismOfReligionPersonal : BaseEvent
     {
-        public SkepticismOfReligionPersonal() : base("Skepticism of Religion") { }
+        public SkepticismOfReligionPersonal(MyReligiousFlags myFlags) : base("Skepticism of Religion")
+        {
+            myFlags.Skepticism = true;
+        }
 
         /// <summary>
         /// part of the Confession and Forgiveness section at the beginning of the service.
@@ -574,6 +598,14 @@ namespace Existence.Beyond.JudgmentDay
             {
                 return null;
             }
+        }
+    }
+
+    [CapacityForEmotion(Emotions.Religious, EmotionalCapacity.Minimal)]
+    public class CapacityForTheReligious : BaseEvent
+    {
+        public CapacityForTheReligious() : base("Starting Religious Feeling")
+        {
         }
     }
 }

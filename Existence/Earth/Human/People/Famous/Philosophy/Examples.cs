@@ -8,7 +8,7 @@ namespace Existence.Earth.Human.People.Famous.Philosophy
         /// <summary>
         /// Latin: cogito, ergo sum
         /// </summary>
-        [Quote("I think, therefore I am")]
+        [Quotes("I think, therefore I am")]
         public static class ReneDescartes { }
     }
 }

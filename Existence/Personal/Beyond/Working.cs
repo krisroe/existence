@@ -5,22 +5,44 @@ using Existence.Time;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System;
 using Existence.Beyond.Infrastructure;
+using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Beyond.JudgmentDay;
 
 namespace Existence.Personal.Beyond
 {
     internal class HumanDivineTeenager
     {
-        public const int RELIGION_CHURCH = 0;
-        public const int PIANO_LESSONS_CHURCH = 1;
+        public const int RELIGION_CHURCH_INDEX = 0;
+        public const int PIANO_LESSONS_CHURCH_INDEX = 1;
         public HumanDivineTeenager()
         {
+            MyReligiousFlags myFlags = new MyReligiousFlags(Respectful: null, Skepticism: null);
+
+            new CapacityForTheReligious();
             new PersonalBirth();
 
             PersonalChurches[] personalChurches = new PersonalChurches[2];
-            personalChurches[RELIGION_CHURCH] = PersonalChurches.DekorraLutheranChurch;
-            personalChurches[PIANO_LESSONS_CHURCH] = PersonalChurches.PortageUnitedMethodistChurch;
+            personalChurches[RELIGION_CHURCH_INDEX] = PersonalChurches.DekorraLutheranChurch;
+            personalChurches[PIANO_LESSONS_CHURCH_INDEX] = PersonalChurches.PortageUnitedMethodistChurch;
 
             new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, personalChurches);
+            new ChildhoodNativityPlays(myFlags);
+
+            MultiEvent religiousSkepticism = new MultiEvent("ReligiousSkepticism", new BaseEvent[]
+            {
+                new SkepticismOfReligionPersonal(myFlags),
+                new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)
+            });
+
+            new FirstCommunionAsAnAcolyte();
+            new LeadRoleInSilentNight();
+
+            MultiEvent preAthiestEvents = new MultiEvent("Pre-atheist Events", new BaseEvent[]
+            {
+                new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent"),
+                new ELCALutheranConfirmationDespiteNearAtheism()
+            });
+
         }
 
         /// <summary>
@@ -28,6 +50,10 @@ namespace Existence.Personal.Beyond
         /// So she switched to a different church even though geographically it was less convenient (the Endeavor house
         /// was closer to Oxford than the Dells). I don't remember any of this, but in hindsight it may have been quite
         /// important to avoid the stricter (Missouri synod) denomination in favor of the less strict (ELCA).
+        /// 
+        /// I believe my father went to church for social reasons (not religious ones as he had issues with his Catholic
+        /// school experience). In conversation after his retirement he stated he liked some religious discussions. But as
+        /// far as I know he never went up to the communion rail to take Communion.
         /// </summary>
         public class ChurchTransitionAfterMove : BaseEvent
         {
@@ -38,7 +64,7 @@ namespace Existence.Personal.Beyond
                 {
                     if (SwitchChurchBasedOnMove(USCities.WisconsinEndeavor, next))
                     {
-                        personalChurches[RELIGION_CHURCH] = next;
+                        personalChurches[RELIGION_CHURCH_INDEX] = next;
                         moved = true;
                     }
                 }
@@ -61,6 +87,73 @@ namespace Existence.Personal.Beyond
                     throw new InvalidOperationException();
                 }
                 return ret;
+            }
+        }
+
+        /// <summary>
+        /// I ignored the First Communion paraphernalia given to us at Sunday School and didn't do first communion.
+        /// Typically I wouldn't even go up to the communion rail (following my father's lead). However, that could
+        /// not be continued as an acolyte, so I did take communion in that context. Year is approximate.
+        /// </summary>
+        [Year(1992)]
+        public class FirstCommunionAsAnAcolyte : BaseEvent
+        {
+            public FirstCommunionAsAnAcolyte() : base("First Communion as Acolyte")
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// I participated in a lead role (Franz Gruber) in a Christmas pageant telling the story of Silent Night.
+        /// I did the best I could, which was typical for me in a singing/acting public display. Year is approximate.
+        /// </summary>
+        [Year(1994)]
+        public class LeadRoleInSilentNight : BaseEvent
+        {
+            public LeadRoleInSilentNight() : base("Lead Role in Silent Night Church Christmas Pageant")
+            {
+            }
+        }
+
+        /// <summary>
+        /// This was a discussion between two classmates, one of which was in my Sunday School class. These two classmates
+        /// were more philosophical then most. One referred to me as "He's got religion" (I may not have the phrasing of the magic
+        /// words quite right). The truth was I was closer to atheist than anything else. Still, I did not correct them, I didn't
+        /// have an issue with them incorrectly thinking that. In hindsight, I should have said something (anything).
+        /// </summary>
+        public class HesGotReligionMagicWords : BaseEvent
+        {
+            public HesGotReligionMagicWords(int Source, int Target, string MyRole) : base("\"He's got religion\"")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I had a discussion with Pastor Kreuger before confirmation. I knew full well I wasn't going to have anything to do
+        /// with the church in the long term and wanted to make sure nothing was expected of him. The answer to my question was
+        /// no, nothing was expected of me. So I got confirmed. I will never know whether going through with the confirmation was
+        /// actually a mistake.
+        /// </summary>
+        public class ELCALutheranConfirmationDespiteNearAtheism : BaseEvent
+        {
+            public ELCALutheranConfirmationDespiteNearAtheism() : base("Near-atheism ELCA Lutheran Confirmation")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I do not remember ever giving up something tangible for Lent (it wasn't emphasized in ELCA Lutheran upbringing,
+        /// but I know my Catholic relatives did). As an adult I came up with the running gag of giving up "giving things
+        /// up for Lent" for Lent. I'm not sure if I'm being disrespectful of religion or not. Tt's just an absurd way of
+        /// saying I don't participate in that part of the religion, but I'm also not a practicing Christian. On the other
+        /// hand I'm not really broadcasting that to the world, so maybe it doesn't actually matter. But it's still a joke,
+        /// and has remained so even as my understanding of disrespect for religion has increased.
+        /// </summary>
+        public class GivingUpGivingUpSomethingForLentForLent : BaseEvent
+        {
+            public GivingUpGivingUpSomethingForLentForLent() : base("Joke Giving Up Nothing for Lent")
+            {
             }
         }
 
@@ -115,10 +208,6 @@ namespace Existence.Personal.Beyond
     }
 
     /// <summary>
-    ///1. Switching to ELCA Lutheran.It is critical to have the flexibility in the Luthernan denomination.It's a signpost even though I don't remember it.
-    ///2. Childhood nativity play.It's important to emphasize the disdain for religion at an early age.
-    ///3. First Communion oddity.It's important to distinguish the respectful treatment of religion at an older age.
-    ///4. "He's got religion" These are magic words and need to be uttered sincerely by someone familiar with behavior in church.
     ///5. Number of Church Choir directors: 4 (including children's choir). This establishes a choir history which is not easy to subvert.
     ///6. Briefly became an agnostic, but remained atheist. "Atheist" ends up the primary religion.But a brief period of agnosticism allows flexibility for defining the religious rules at judgment day.
     ///7. 2018-09-23. Word-based synethesia following the beliefs around parts of liturgy believed in or pronouns.
@@ -186,6 +275,7 @@ namespace Existence.Personal.Beyond
         //College: Took philosophy class which upended religious beliefs. Briefly became an agnostic,
         //but returned to atheism in short order.
 
+        //baked potato incident with potential spouse's parents
         //Discussed potential marriage with Mother Mo. I didn't have good reasons for being married, but
         //it really didn't matter for the purpose of the discussion.
         //Married in St.Dunstan's Episcopal Church

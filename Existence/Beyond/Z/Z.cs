@@ -29,8 +29,11 @@ namespace Existence.Beyond
 
         public List<BaseEvent> ZRules { get; set; }
 
+        public MyReligiousFlags ZReligiousFlags { get; set; }
+
         public Z()
         {
+            ZReligiousFlags = new MyReligiousFlags(null, null);
             ZRules = new List<BaseEvent>();
             ZFacts = new List<BaseEvent>();
             ZTimeline = new OrderedEvents(null, new List<BaseEvent>());
@@ -57,8 +60,9 @@ namespace Existence.Beyond
             zTimelineEvents.AddRange(ZFacts);
             zTimelineEvents.Add(new LessonEvent("Actions have consequences")); //does this actually need a real-life lesson?
             zTimelineEvents.Add(new ZBirth());
+            zTimelineEvents.Add(new LikingInappropriateBehaviorMoresoWithIdeaOfPerformingInPublic());
             zTimelineEvents.Add(new LessonEvent("Life's not fair")); //this one needs a real-life lesson.
-            zTimelineEvents.Add(new SkepticismOfReligionZSignPost()); //hit this one out of the park            
+            zTimelineEvents.Add(new SkepticismOfReligionZSignPost(ZReligiousFlags)); //hit this one out of the park
 
             //it's hard to see this one as anything other than a political/psychological signpoint
             zTimelineEvents.Add(new BaselesslyAccuseATeacherOfBeingACommunist());
@@ -88,6 +92,17 @@ namespace Existence.Beyond
         }
     }
 
+    public class MyReligiousFlags
+    {
+        public MyReligiousFlags(bool? Respectful, bool? Skepticism)
+        {
+            BornAgain = false;
+        }
+        public bool Respectful { get; set; }
+        public bool Skepticism { get; set; }
+        public bool BornAgain { get; set; }
+    }
+
     [PersonalHumanLevel(HumanLevel.Baby)]
     [DivineHumanLevel(HumanLevel.Baby)]
     [CosmicHumanLevel(HumanLevel.Baby)]
@@ -103,6 +118,22 @@ namespace Existence.Beyond
     [Consequences("None")]
     public class SkepticismOfReligionZSignPost : SkepticismOfReligionPersonal
     {
+        public SkepticismOfReligionZSignPost(MyReligiousFlags flags) : base(flags)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Highly immature child's play referring to some obviously inappropriate behavior. The original version was "fart"
+    /// but could be extended to other taboos. The really importnt magic word is the bit about public communication, which
+    /// can be highly important long-term but no child is going to understance the deeper relevance.
+    /// </summary>
+    [MagicWords("I like to [X]!", "But I like to do it in public!", "Child's Play Puppet", "Child's Play Location", "Viewers of Child's Play")]
+    public class LikingInappropriateBehaviorMoresoWithIdeaOfPerformingInPublic : BaseEvent
+    {
+        public LikingInappropriateBehaviorMoresoWithIdeaOfPerformingInPublic() : base("Wrote child's play about public performance of inappropriate behavior")
+        {
+        }
     }
 
     /// <summary>

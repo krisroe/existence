@@ -81,31 +81,41 @@ namespace Existence.Earth.Alphabet
         }
     }
 
-    public class QuoteAttribute : Attribute
+    public class QuotesAttribute : Attribute
     {
+        public string[] Quotes { get; set; }
         public string Location { get; set; }
-        public string Quote { get; set; }
         public string Company { get; set; }
         public string SaidBy { get; set; }
-        public QuoteAttribute(string Quote)
+        public QuotesAttribute(string Quote)
         {
-            this.Quote = Quote;
+            this.Quotes = new string[] { Quote };
             this.SaidBy = string.Empty;
             this.Location = string.Empty;
             this.Company = string.Empty;
         }
-        public QuoteAttribute(string Quote, string SaidBy, string Location, string Company)
+        public QuotesAttribute(string Quote, string SaidBy, string Location, string Company)
         {
-            this.Quote = Quote;
+            this.Quotes = new string[] { Quote };
+            this.SaidBy = SaidBy;
+            this.Location = Location;
+            this.Company = Company;
+        }
+        public QuotesAttribute(string Quote1, string Quote2, string SaidBy, string Location, string Company)
+        {
+            this.Quotes = new string[] { Quote1, Quote2 };
             this.SaidBy = SaidBy;
             this.Location = Location;
             this.Company = Company;
         }
     }
 
-    public class MagicWordsAttribute : QuoteAttribute
+    public class MagicWordsAttribute : QuotesAttribute
     {
         public MagicWordsAttribute(string Quote, string SaidBy, string Location, string Company) : base(Quote,SaidBy, Location, Company)
+        {
+        }
+        public MagicWordsAttribute(string Quote1, string Quote2, string SaidBy, string Location, string Company) : base(Quote1, Quote2, SaidBy, Location, Company)
         {
         }
     }

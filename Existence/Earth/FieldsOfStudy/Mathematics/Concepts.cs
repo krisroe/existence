@@ -71,21 +71,18 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
-    public class ApproximateAgeAttribute : AgeAttribute
+    public class ApproximateAgeInYearsAttribute : Attribute
     {
-        public int ApproximateAge
+        public int StartAge { get; set; }
+        public int EndAge { get; set; }
+        public ApproximateAgeInYearsAttribute(int StartAge, int EndAge)
         {
-            get
-            {
-                return base.Age;
-            }
-            set
-            {
-                base.Age = value;
-            }
+            this.StartAge = StartAge;
+            this.EndAge = EndAge;
         }
-        public ApproximateAgeAttribute(int ApproximateAge, TimePeriods Period) : base(ApproximateAge, Period)
+        public ApproximateAgeInYearsAttribute(int Age)
         {
+            StartAge = EndAge = StartAge;
         }
     }
 
