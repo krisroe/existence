@@ -151,11 +151,8 @@ namespace Existence.Time
     {
     }
 
-    public class BirthdateAttribute : YearDateAttribute
+    public class BirthdatePreciseAttribute : BirthdateAttribute
     {
-        public BirthdateAttribute(int Year) : base(Year) { }
-
-        public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
         /// <summary>
         /// specifies birthdate
         /// </summary>
@@ -164,7 +161,15 @@ namespace Existence.Time
         /// <param name="Day">day</param>
         /// <param name="Hour">hour (24 hour clock)</param>
         /// <param name="Minute">minute</param>
-        public BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+        public BirthdatePreciseAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+    }
+
+    public class BirthdateAttribute : YearDateAttribute
+    {
+        public BirthdateAttribute(int Year) : base(Year) { }
+
+        public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+        protected BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
     }
 
     public class MarriageAttribute : Attribute

@@ -1,6 +1,119 @@
 ﻿
+using Existence.Beyond;
+using Existence.Earth.Countries.UnitedStates;
+using Existence.Time;
+using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
+using System;
+using Existence.Beyond.Infrastructure;
+
 namespace Existence.Personal.Beyond
 {
+    internal class HumanDivineTeenager
+    {
+        public const int RELIGION_CHURCH = 0;
+        public const int PIANO_LESSONS_CHURCH = 1;
+        public HumanDivineTeenager()
+        {
+            new PersonalBirth();
+
+            PersonalChurches[] personalChurches = new PersonalChurches[2];
+            personalChurches[RELIGION_CHURCH] = PersonalChurches.DekorraLutheranChurch;
+            personalChurches[PIANO_LESSONS_CHURCH] = PersonalChurches.PortageUnitedMethodistChurch;
+
+            new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, personalChurches);
+        }
+
+        /// <summary>
+        /// The story here is my mother wanted to sit in on Sunday school but my mother's parents' church wouldn't let her.
+        /// So she switched to a different church even though geographically it was less convenient (the Endeavor house
+        /// was closer to Oxford than the Dells). I don't remember any of this, but in hindsight it may have been quite
+        /// important to avoid the stricter (Missouri synod) denomination in favor of the less strict (ELCA).
+        /// </summary>
+        public class ChurchTransitionAfterMove : BaseEvent
+        {
+            public ChurchTransitionAfterMove(USCities NewHome, PersonalChurches[] personalChurches) : base("Endeavor Home Church Transition")
+            {
+                bool moved = false;
+                foreach (PersonalChurches next in new PersonalChurches[] { PersonalChurches.SaintJohnLutheranChurch, PersonalChurches.BethanyLutheranChurch })
+                {
+                    if (SwitchChurchBasedOnMove(USCities.WisconsinEndeavor, next))
+                    {
+                        personalChurches[RELIGION_CHURCH] = next;
+                        moved = true;
+                    }
+                }
+                if (!moved) throw new InvalidOperationException();
+            }
+            private bool SwitchChurchBasedOnMove(USCities Target, PersonalChurches church)
+            {
+                bool ret;
+                if (Target == USCities.WisconsinEndeavor)
+                {
+                    if (church == PersonalChurches.SaintJohnLutheranChurch)
+                        ret = false;
+                    else if (church == PersonalChurches.BethanyLutheranChurch)
+                        ret = true;
+                    else
+                        throw new InvalidOperationException();
+                }
+                else
+                {
+                    throw new InvalidOperationException();
+                }
+                return ret;
+            }
+        }
+
+        public enum PersonalChurches
+        {
+            /// <summary>
+            /// specific Lutheran denomination not listed on their web site, based on other web site info, not strict
+            /// </summary>
+            [USCities(USCities.WisconsinPoynette)]
+            [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
+            DekorraLutheranChurch,
+
+            [USCities(USCities.WisconsinOxford)]
+            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranMissouriSynod)]
+            SaintJohnLutheranChurch,
+
+            [USCities(USCities.WisconsinWisconsinDells)]
+            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranELCA)]
+            BethanyLutheranChurch,
+
+            [USCities(USCities.WisconsinPortage)]
+            [UnitedStatesChristianDenomination(ChristianDenominations.Methodist)]
+            PortageUnitedMethodistChurch,
+
+            [USCities(USCities.WisconsinMadison)]
+            [UnitedStatesChristianDenomination(ChristianDenominations.Episcopal)]
+            SaintDunstansEpiscopalChurch,
+        }
+    }
+
+    internal class ReligionHistory
+    {
+        public ReligionHistory()
+        {
+            
+        }
+    }
+
+    /// <summary>
+    /// Adding the Lutheran denomination. This is based on parentage. My father was a non-practicing Catholic. My mother
+    /// grew up Lutheran (Missouri Synod). My parents' church at the time was Dekorra Lutheran Church which I don't think
+    /// was Missouri Synod, and based on contemporary info doesn't appear to be one of the main denominations, although they
+    /// seem non strict as it stands today.
+    /// </summary>
+    [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
+    [Birthdate(1980, 12, 6)]
+    [BirthdatePrecise(1980, 12, 6, 12, 53)]
+    [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
+    public class PersonalBirth : ZBirth
+    {
+        public PersonalBirth() : base() { }
+    }
+
     /// <summary>
     ///1. Switching to ELCA Lutheran.It is critical to have the flexibility in the Luthernan denomination.It's a signpost even though I don't remember it.
     ///2. Childhood nativity play.It's important to emphasize the disdain for religion at an early age.

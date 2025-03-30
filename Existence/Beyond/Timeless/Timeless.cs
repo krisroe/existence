@@ -81,7 +81,11 @@ namespace Existence.Beyond.Timeless
             /// </summary>
             [BeyondObjectVersion(5, 0, 0, 0)]
             [YearDate(2025, 3, 28)]
-            SingleParentFamilyUnitAddEmployersAddShortNameAndPoliticalPhilosophy
+            SingleParentFamilyUnitAddEmployersAddShortNameAndPoliticalPhilosophy,
+
+            [BeyondObjectVersion(5, 1, 0, 0)]
+            [YearDate(2025, 3, 30)]
+            UsePreciseBirthDateObject,
         }
 
         /// <summary>
@@ -100,7 +104,7 @@ namespace Existence.Beyond.Timeless
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
-        [Birthdate(1980, 12, 6, 12, 53)]
+        [BirthdatePrecise(1980, 12, 6, 12, 53)]
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]

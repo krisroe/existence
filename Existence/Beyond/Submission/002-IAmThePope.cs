@@ -5,6 +5,7 @@ using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Human.People;
 using Existence.Logic;
 using Existence.Personal;
+using Existence.Personal.Beyond;
 using Existence.Personal.Infrastructure;
 using Existence.Time;
 
@@ -45,6 +46,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 6, 0, 0)]
             [YearDate(2025, 3, 29)]
             AttachmentCleanupAddPreciseBirthObject,
+
+            [BeyondObjectVersion(1, 7, 0, 0)]
+            [YearDate(2025, 3, 30)]
+            ClarifyPreciseBirth,
         }
 
         internal ThePope()
@@ -180,10 +185,13 @@ namespace Existence.Beyond.CosmicSubmission
         }
     }
 
+    /// <summary>
+    /// the precise birth date was originally added based on the certificate of birth image
+    /// </summary>
     [MusicNotesRepositoryImageFile("St. Mary's Hospital, Madison, WI, USA",
                                "Certificate of Birth",
                                 @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
-    [Birthdate(1980, 12, 6, 12, 53)]
+    [BirthdatePrecise(1980, 12, 6, 12, 53)]
     public class PersonalBirthPrecise : PersonalBirth
     {
     }

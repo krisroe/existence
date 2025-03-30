@@ -154,6 +154,9 @@ namespace Existence.Earth.Countries.UnitedStates
         WisconsinHarmonyGrove,
         WisconsinMadison,
         WisconsinMilwaukee,
+        WisconsinOxford,
+        WisconsinPortage,
+        WisconsinPoynette,
         WisconsinWisconsinDells,
         WyomingCheyenne,
     }

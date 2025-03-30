@@ -13,6 +13,7 @@ using System.Text;
 using Existence.Time;
 using Existence.Personal;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
+using Existence.Personal.Beyond;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -111,6 +112,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 13, 0, 0)]
             [YearDate(2025, 3, 29)]
             MakeBirthAndDivineSkepticismMorePublicMoveMultiEventIntoInfrastructure,
+
+            [BeyondObjectVersion(1, 14, 0, 0)]
+            [YearDate(2025, 3, 30)]
+            MovePersonalBirthOut,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -570,12 +575,5 @@ namespace Existence.Beyond.JudgmentDay
                 return null;
             }
         }
-    }
-
-    [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
-    [Birthdate(1980, 12, 6)]
-    public class PersonalBirth : ZBirth
-    {
-        public PersonalBirth() : base() { }
     }
 }
