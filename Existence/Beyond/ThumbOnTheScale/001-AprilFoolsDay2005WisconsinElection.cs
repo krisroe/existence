@@ -308,6 +308,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// General observations:
             /// 1. The law and order (judicial vs police) imbalance is ridiculous
             /// 2. It's par for the course (both sides) to arbitrarily attack a prosecutor for past choices to prosecute or not.
+            /// 3. Political endorsements are par for the course, as calling the election non-partisan is de jure, not de facto
             /// Actual Wisonsin issues: 
             /// 1 (advantage Schimel). Abortion (respecting the will of the people is the correct direction, but taking down the 1800's era law beforehand is correct)
             /// 2 (advantage neither). Gerrymandering (current situation is better, unclear if further changes are actually helpful)
@@ -342,12 +343,13 @@ namespace Existence.Beyond.ThumbOnTheScale
                 /// 4. loses a point for claiming judiciary on the other side are not sane.
                 /// 5. loses a point for mentioning immigration high in the blurb (national not wisconsin issue)
                 /// 6. loses a point given the only politican endorsing is Trump
-                /// 7. gains a point for token fire fighter union endorsement (I'm no fan of unions, but balance is appreciated here)
-                /// 8. gains a point for Farm Bureau endorsement and Dairy Business Association
-                /// 9. gains a point for Realters Association endorsement
-                /// 10. gains a point for Bear Hunters' Association
-                /// 11. gains a point for a news section, which is actually helpful (website has far more depth)
-                /// Total: -1 point. Points generally don't mean anything other than as organizations of thoughts.
+                /// 7. loses a point for hiding political endorsements from web site
+                /// 8. gains a point for token fire fighter union endorsement (I'm no fan of unions, but balance is appreciated here)
+                /// 9. gains a point for Farm Bureau endorsement and Dairy Business Association
+                /// 10. gains a point for Realters Association endorsement
+                /// 11. gains a point for Bear Hunters' Association
+                /// 12. gains a point for a news section, which is actually helpful (website has far more depth)
+                /// Total: -2 point. Points generally don't mean anything other than as organizations of thoughts.
                 /// </summary>
                 [Politician((int)WisconsinPoliticians.SchimelBrad)]
                 public static class Option1
@@ -372,6 +374,10 @@ namespace Existence.Beyond.ThumbOnTheScale
                     //Wisconsin Farm Bureau
                     //Wisconsin Realtors Association
                     //54 current county sheriffs, 28 retired county sheriffs
+                    //Trump (not highlighted on web site, but available on news page)
+                    //Judge Maria S Lazar (not on website)
+                    //Americans for Prosperity-Wisconsin (not on website)
+                    //Senator Ron Johnson, 5 Wisconsin Republican House Representatives (not on website)
                     public static class Endorsements { }
 
                     /// <summary>
@@ -423,8 +429,9 @@ namespace Existence.Beyond.ThumbOnTheScale
                     //Wisconsin Conservation Voters
                     //Professional Fire Fighters of Wisconsin
                     //Emily's List / Planned Parenthood (keep-abortion-legal groups)
-                    //1 Democratic politician (theoretically bad for a non-partisan election, but I'll allow it)
                     //2 current county sheriffs, 3 retired county sheriffs
+                    //1 Democratic politician
+                    //Democratic party of Wisconsin (not listed on web site)
                     public static class Endorsements { }
 
                     /// <summary>
