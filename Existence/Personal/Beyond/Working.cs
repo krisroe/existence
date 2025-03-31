@@ -7,6 +7,7 @@ using System;
 using Existence.Beyond.Infrastructure;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Beyond.JudgmentDay;
+using Existence.Earth.Alphabet;
 
 namespace Existence.Personal.Beyond
 {
@@ -16,7 +17,7 @@ namespace Existence.Personal.Beyond
         public const int PIANO_LESSONS_CHURCH_INDEX = 1;
         public HumanDivineTeenager()
         {
-            MyReligiousFlags myFlags = new MyReligiousFlags(Respectful: null, Skepticism: null);
+            MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
 
             new CapacityForTheReligious();
             new PersonalBirth();
@@ -26,23 +27,25 @@ namespace Existence.Personal.Beyond
             personalChurches[PIANO_LESSONS_CHURCH_INDEX] = PersonalChurches.PortageUnitedMethodistChurch;
 
             new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, personalChurches);
-            new ChildhoodNativityPlays(myFlags);
+            new ChildhoodNativityPlayDisrespect1(myReligionFlags);
+            new ChildhoodNativityPlayDisrespect2(myReligionFlags);
 
             MultiEvent religiousSkepticism = new MultiEvent("ReligiousSkepticism", new BaseEvent[]
             {
-                new SkepticismOfReligionPersonal(myFlags),
+                new SkepticismOfReligionPersonal(myReligionFlags),
                 new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)
             });
 
-            new FirstCommunionAsAnAcolyte();
-            new LeadRoleInSilentNight();
+            new FirstCommunionAsAnAcolyte(myReligionFlags);
+            new LeadRoleInSilentNight(myReligionFlags);
 
             MultiEvent preAthiestEvents = new MultiEvent("Pre-atheist Events", new BaseEvent[]
             {
-                new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent"),
+                new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", myReligionFlags),
                 new ELCALutheranConfirmationDespiteNearAtheism()
             });
 
+            new GivingUpGivingUpSomethingForLentForLent(myReligionFlags);
         }
 
         /// <summary>
@@ -98,9 +101,9 @@ namespace Existence.Personal.Beyond
         [Year(1992)]
         public class FirstCommunionAsAnAcolyte : BaseEvent
         {
-            public FirstCommunionAsAnAcolyte() : base("First Communion as Acolyte")
+            public FirstCommunionAsAnAcolyte(MyReligiousFlags myReligiousFlags) : base("First Communion as Acolyte")
             {
-
+                myReligiousFlags.Respectful += 1;
             }
         }
 
@@ -111,8 +114,9 @@ namespace Existence.Personal.Beyond
         [Year(1994)]
         public class LeadRoleInSilentNight : BaseEvent
         {
-            public LeadRoleInSilentNight() : base("Lead Role in Silent Night Church Christmas Pageant")
+            public LeadRoleInSilentNight(MyReligiousFlags myReligiousFlags) : base("Lead Role in Silent Night Church Christmas Pageant")
             {
+                myReligiousFlags.Respectful += 2;
             }
         }
 
@@ -124,8 +128,10 @@ namespace Existence.Personal.Beyond
         /// </summary>
         public class HesGotReligionMagicWords : BaseEvent
         {
-            public HesGotReligionMagicWords(int Source, int Target, string MyRole) : base("\"He's got religion\"")
+            [TODO("There's a communication ding here currently not accounted for")]
+            public HesGotReligionMagicWords(int Source, int Target, string MyRole, MyReligiousFlags religiousFlags) : base("\"He's got religion\"")
             {
+                religiousFlags.Respectful++;
             }
         }
 
@@ -152,8 +158,9 @@ namespace Existence.Personal.Beyond
         /// </summary>
         public class GivingUpGivingUpSomethingForLentForLent : BaseEvent
         {
-            public GivingUpGivingUpSomethingForLentForLent() : base("Joke Giving Up Nothing for Lent")
+            public GivingUpGivingUpSomethingForLentForLent(MyReligiousFlags myReligiousFlags) : base("Joke Giving Up Nothing for Lent")
             {
+                myReligiousFlags.Respectful--;
             }
         }
 

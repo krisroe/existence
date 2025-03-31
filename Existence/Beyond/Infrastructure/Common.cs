@@ -717,12 +717,14 @@ namespace Existence.Beyond.Infrastructure
     {
         public int Target { get; set; }
         public ThumbOnTheScaleAmount Amount { get; set; }
-        public ThumbOnTheScaleImportance importance { get; set;  }
-        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance)
+        public ThumbOnTheScaleImportance Importance { get; set;  }
+        public int Prediction { get; set; }
+        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction)
         {
             this.Target = Target;
             this.Amount = Amount;
-            this.importance = Importance;
+            this.Importance = Importance;
+            this.Prediction = Prediction;
         }
     }
 }

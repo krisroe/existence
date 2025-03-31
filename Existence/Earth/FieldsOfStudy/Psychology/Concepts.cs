@@ -534,6 +534,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
         Anxiety,
         Boredom,
         Disappointment,
+        Disrespect,
         Divine,
         Enlightenment,
         Fear,
@@ -544,6 +545,7 @@ namespace Existence.Earth.FieldsOfStudy.Psychology
         Lust,
         Rage,
         Religious,
+        Respect,
         Sadness,
     }
 }

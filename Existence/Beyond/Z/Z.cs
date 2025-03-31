@@ -20,7 +20,11 @@ namespace Existence.Beyond
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 3, 29)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 3, 31)]
+            MadeReligiousRespectfulFlagAnInteger,
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -33,7 +37,7 @@ namespace Existence.Beyond
 
         public Z()
         {
-            ZReligiousFlags = new MyReligiousFlags(null, null);
+            ZReligiousFlags = new MyReligiousFlags(null);
             ZRules = new List<BaseEvent>();
             ZFacts = new List<BaseEvent>();
             ZTimeline = new OrderedEvents(null, new List<BaseEvent>());
@@ -94,11 +98,12 @@ namespace Existence.Beyond
 
     public class MyReligiousFlags
     {
-        public MyReligiousFlags(bool? Respectful, bool? Skepticism)
+        public MyReligiousFlags(bool? Skepticism)
         {
+            Respectful = 0;
             BornAgain = false;
         }
-        public bool Respectful { get; set; }
+        public int Respectful { get; set; }
         public bool Skepticism { get; set; }
         public bool BornAgain { get; set; }
     }

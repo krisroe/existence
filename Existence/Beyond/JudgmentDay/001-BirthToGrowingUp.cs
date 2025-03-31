@@ -130,9 +130,10 @@ namespace Existence.Beyond.JudgmentDay
 
         public BirthToGrowingUp()
         {
-            MyReligiousFlags myReligiousFlags = new MyReligiousFlags(Respectful: null, Skepticism: null);
+            MyReligiousFlags myReligiousFlags = new MyReligiousFlags(Skepticism: null);
             BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
-            BaseEvent childhoodNativityPlays = new ChildhoodNativityPlays(myReligiousFlags);
+            BaseEvent childishNativityPlays = new ChildhoodNativityPlayDisrespect1(myReligiousFlags);
+            BaseEvent childishNativityScenes = new ChildhoodNativityPlayDisrespect2(myReligiousFlags);
             BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal(myReligiousFlags);
             MyFirstOriginalSong = new PersonalFirstOriginalSong();
             MySistersParodyOfMyFirstOriginalSong = new SistersParodyOfMyFirstOriginalSong(MyFirstOriginalSong);
@@ -167,9 +168,9 @@ namespace Existence.Beyond.JudgmentDay
                 birth,
                 new MultiEvent("EarlyChildhoodFacts", factListOrdered.GetEventsAsArray()),
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
-                new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers"), new ILikeToFartHandPuppetPlay(), childhoodNativityPlays]),
+                new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers"), new ILikeToFartHandPuppetPlay(), childishNativityPlays]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
-                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation]),
+                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation, childishNativityScenes]),
                 skepticismOfReligion
             });
             OrderedEvents relevantSongs = new OrderedEvents(startedPianoLessons, new List<BaseEvent>()
@@ -538,15 +539,32 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
-    /// The key point here is these went from respectful to disrespectful over the course of the years
-    /// until they were stopped.
+    /// My mother had us do puppet based nativity Christmas pageants. When they started I took them
+    /// seriously, but this went downhill from respectful and disrespectful over the course of the
+    /// years until they were stopped.
     /// </summary>
     [ApproximateAgeInYears(8, 10)]
-    public class ChildhoodNativityPlays : BaseEvent
+    [Emotions("Childish Nativity Plays", Emotions.Disrespect)]
+    public class ChildhoodNativityPlayDisrespect1 : BaseEvent
     {
-        public ChildhoodNativityPlays(MyReligiousFlags flags) : base("Childhood Nativity Plays")
+        public ChildhoodNativityPlayDisrespect1(MyReligiousFlags flags) : base("Childish Nativity Plays")
         {
-            flags.Respectful = false;
+            flags.Respectful--;
+        }
+    }
+
+    /// <summary>
+    /// we had a nativity diorama growing up. I would place the pieces in obviously incorrect
+    /// places. A clear example would be putting a lamb in place of baby Jesus and putting the
+    /// manger upside down in the corner or inside a feed trough.
+    /// </summary>
+    [ApproximateAgeInYears(10, 16)]
+    [Emotions("Childish Nativity Scenes", Emotions.Disrespect)]
+    public class ChildhoodNativityPlayDisrespect2 : BaseEvent
+    {
+        public ChildhoodNativityPlayDisrespect2(MyReligiousFlags flags) : base("Childish Nativity Scenes")
+        {
+            flags.Respectful--;
         }
     }
 
@@ -572,6 +590,7 @@ namespace Existence.Beyond.JudgmentDay
     {
         public SkepticismOfReligionPersonal(MyReligiousFlags myFlags) : base("Skepticism of Religion")
         {
+            myFlags.Respectful++;
             myFlags.Skepticism = true;
         }
 
