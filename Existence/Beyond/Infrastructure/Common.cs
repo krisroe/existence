@@ -422,10 +422,12 @@ namespace Existence.Beyond.Infrastructure
     {
         internal int PersonWhoSaidIt { get; set; }
         internal int PersonWhoToldMe { get; set; }
-        internal SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid)
+        internal int Location { get; set; }
+        internal SomeoneSaidSomethingAndIFoundOutViaHearsay(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe, int Location) : base(WhatWasSaid)
         {
             this.PersonWhoSaidIt = PersonWhoSaidIt;
             this.PersonWhoToldMe = PersonWhoToldMe;
+            this.Location = Location;
         }
     }
 

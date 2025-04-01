@@ -5,213 +5,17 @@ using Existence.Time;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System;
 using Existence.Beyond.Infrastructure;
-using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Alphabet;
 
 namespace Existence.Personal.Beyond
 {
-    internal class HumanDivineTeenager
-    {
-        public const int RELIGION_CHURCH_INDEX = 0;
-        public const int PIANO_LESSONS_CHURCH_INDEX = 1;
-        public HumanDivineTeenager()
-        {
-            MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
-
-            new CapacityForTheReligious();
-            new PersonalBirth();
-
-            PersonalChurches[] personalChurches = new PersonalChurches[2];
-            personalChurches[RELIGION_CHURCH_INDEX] = PersonalChurches.DekorraLutheranChurch;
-            personalChurches[PIANO_LESSONS_CHURCH_INDEX] = PersonalChurches.PortageUnitedMethodistChurch;
-
-            new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, personalChurches);
-            new ChildhoodNativityPlayDisrespect1(myReligionFlags);
-            new ChildhoodNativityPlayDisrespect2(myReligionFlags);
-
-            MultiEvent religiousSkepticism = new MultiEvent("ReligiousSkepticism", new BaseEvent[]
-            {
-                new SkepticismOfReligionPersonal(myReligionFlags),
-                new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)
-            });
-
-            new FirstCommunionAsAnAcolyte(myReligionFlags);
-            new LeadRoleInSilentNight(myReligionFlags);
-
-            MultiEvent preAthiestEvents = new MultiEvent("Pre-atheist Events", new BaseEvent[]
-            {
-                new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", myReligionFlags),
-                new ELCALutheranConfirmationDespiteNearAtheism()
-            });
-
-            new GivingUpGivingUpSomethingForLentForLent(myReligionFlags);
-        }
-
-        /// <summary>
-        /// The story here is my mother wanted to sit in on Sunday school but my mother's parents' church wouldn't let her.
-        /// So she switched to a different church even though geographically it was less convenient (the Endeavor house
-        /// was closer to Oxford than the Dells). I don't remember any of this, but in hindsight it may have been quite
-        /// important to avoid the stricter (Missouri synod) denomination in favor of the less strict (ELCA).
-        /// 
-        /// I believe my father went to church for social reasons (not religious ones as he had issues with his Catholic
-        /// school experience). In conversation after his retirement he stated he liked some religious discussions. But as
-        /// far as I know he never went up to the communion rail to take Communion.
-        /// </summary>
-        public class ChurchTransitionAfterMove : BaseEvent
-        {
-            public ChurchTransitionAfterMove(USCities NewHome, PersonalChurches[] personalChurches) : base("Endeavor Home Church Transition")
-            {
-                bool moved = false;
-                foreach (PersonalChurches next in new PersonalChurches[] { PersonalChurches.SaintJohnLutheranChurch, PersonalChurches.BethanyLutheranChurch })
-                {
-                    if (SwitchChurchBasedOnMove(USCities.WisconsinEndeavor, next))
-                    {
-                        personalChurches[RELIGION_CHURCH_INDEX] = next;
-                        moved = true;
-                    }
-                }
-                if (!moved) throw new InvalidOperationException();
-            }
-            private bool SwitchChurchBasedOnMove(USCities Target, PersonalChurches church)
-            {
-                bool ret;
-                if (Target == USCities.WisconsinEndeavor)
-                {
-                    if (church == PersonalChurches.SaintJohnLutheranChurch)
-                        ret = false;
-                    else if (church == PersonalChurches.BethanyLutheranChurch)
-                        ret = true;
-                    else
-                        throw new InvalidOperationException();
-                }
-                else
-                {
-                    throw new InvalidOperationException();
-                }
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// I ignored the First Communion paraphernalia given to us at Sunday School and didn't do first communion.
-        /// Typically I wouldn't even go up to the communion rail (following my father's lead). However, that could
-        /// not be continued as an acolyte, so I did take communion in that context. Year is approximate.
-        /// </summary>
-        [Year(1992)]
-        public class FirstCommunionAsAnAcolyte : BaseEvent
-        {
-            public FirstCommunionAsAnAcolyte(MyReligiousFlags myReligiousFlags) : base("First Communion as Acolyte")
-            {
-                myReligiousFlags.Respectful += 1;
-            }
-        }
-
-        /// <summary>
-        /// I participated in a lead role (Franz Gruber) in a Christmas pageant telling the story of Silent Night.
-        /// I did the best I could, which was typical for me in a singing/acting public display. Year is approximate.
-        /// </summary>
-        [Year(1994)]
-        public class LeadRoleInSilentNight : BaseEvent
-        {
-            public LeadRoleInSilentNight(MyReligiousFlags myReligiousFlags) : base("Lead Role in Silent Night Church Christmas Pageant")
-            {
-                myReligiousFlags.Respectful += 2;
-            }
-        }
-
-        /// <summary>
-        /// This was a discussion between two classmates, one of which was in my Sunday School class. These two classmates
-        /// were more philosophical then most. One referred to me as "He's got religion" (I may not have the phrasing of the magic
-        /// words quite right). The truth was I was closer to atheist than anything else. Still, I did not correct them, I didn't
-        /// have an issue with them incorrectly thinking that. In hindsight, I should have said something (anything).
-        /// </summary>
-        public class HesGotReligionMagicWords : BaseEvent
-        {
-            [TODO("There's a communication ding here currently not accounted for")]
-            public HesGotReligionMagicWords(int Source, int Target, string MyRole, MyReligiousFlags religiousFlags) : base("\"He's got religion\"")
-            {
-                religiousFlags.Respectful++;
-            }
-        }
-
-        /// <summary>
-        /// I had a discussion with Pastor Kreuger before confirmation. I knew full well I wasn't going to have anything to do
-        /// with the church in the long term and wanted to make sure nothing was expected of him. The answer to my question was
-        /// no, nothing was expected of me. So I got confirmed. I will never know whether going through with the confirmation was
-        /// actually a mistake.
-        /// </summary>
-        public class ELCALutheranConfirmationDespiteNearAtheism : BaseEvent
-        {
-            public ELCALutheranConfirmationDespiteNearAtheism() : base("Near-atheism ELCA Lutheran Confirmation")
-            {
-            }
-        }
-
-        /// <summary>
-        /// I do not remember ever giving up something tangible for Lent (it wasn't emphasized in ELCA Lutheran upbringing,
-        /// but I know my Catholic relatives did). As an adult I came up with the running gag of giving up "giving things
-        /// up for Lent" for Lent. I'm not sure if I'm being disrespectful of religion or not. Tt's just an absurd way of
-        /// saying I don't participate in that part of the religion, but I'm also not a practicing Christian. On the other
-        /// hand I'm not really broadcasting that to the world, so maybe it doesn't actually matter. But it's still a joke,
-        /// and has remained so even as my understanding of disrespect for religion has increased.
-        /// </summary>
-        public class GivingUpGivingUpSomethingForLentForLent : BaseEvent
-        {
-            public GivingUpGivingUpSomethingForLentForLent(MyReligiousFlags myReligiousFlags) : base("Joke Giving Up Nothing for Lent")
-            {
-                myReligiousFlags.Respectful--;
-            }
-        }
-
-        public enum PersonalChurches
-        {
-            /// <summary>
-            /// specific Lutheran denomination not listed on their web site, based on other web site info, not strict
-            /// </summary>
-            [USCities(USCities.WisconsinPoynette)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
-            DekorraLutheranChurch,
-
-            [USCities(USCities.WisconsinOxford)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranMissouriSynod)]
-            SaintJohnLutheranChurch,
-
-            [USCities(USCities.WisconsinWisconsinDells)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranELCA)]
-            BethanyLutheranChurch,
-
-            [USCities(USCities.WisconsinPortage)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Methodist)]
-            PortageUnitedMethodistChurch,
-
-            [USCities(USCities.WisconsinMadison)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Episcopal)]
-            SaintDunstansEpiscopalChurch,
-        }
-    }
-
     internal class ReligionHistory
     {
         public ReligionHistory()
         {
             
         }
-    }
-
-    /// <summary>
-    /// Adding the Lutheran denomination. This is based on parentage. My father was a non-practicing Catholic. My mother
-    /// grew up Lutheran (Missouri Synod). My parents' church at the time was Dekorra Lutheran Church which I don't think
-    /// was Missouri Synod, and based on contemporary info doesn't appear to be one of the main denominations, although they
-    /// seem non strict as it stands today.
-    /// </summary>
-    [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
-    [Birthdate(1980, 12, 6)]
-    [BirthdatePrecise(1980, 12, 6, 12, 53)]
-    [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
-    public class PersonalBirth : ZBirth
-    {
-        public PersonalBirth() : base() { }
     }
 
     /// <summary>
@@ -236,62 +40,6 @@ namespace Existence.Personal.Beyond
     /// </summary>
     internal class JudgmentDaySomethingReligious
     {
-        //CapacityForTheReligious: Minimal
-        //Birth (Church = Dekorra Lutheran Church)
-        //Baptism (unclear if happened in Harmony Grove or Oxford)
-        //Switch to Bethany Lutheran Church (mother wanted to sit in at Sunday school) (divine childhood point?)
-        //Mother was Sunday school teacher in the youngest non-early-childhood class)
-        //Someone called me a genius (happened at the Oxford Church my grandparents went to)
-        //Childhood nativity play: went downhill from respectful to disrespectful over the years
-        //Said "I have no sin" magic words alone in my room (divine growing up point)
-        //First Communion (ignored materials (4th grade?), put off as long as possible until was an acolyte and didn't want to be disrespectful)
-        //Played the lead role in a production of "Silent Night" in a church nativity play.
-        //7th grade class - I remember all the classmates except 1
-        //8th grade: Jason White referred me as having "religion" in discussion with Justin Raudebush
-        //in the foyer of Spring Hill School. I did not respond, I knew I was closer to atheist, but it
-        //didn't matter what they thought of me. Not a mistake, but it might have been better to give some
-        //sort of social response to this.
-        //Confirmation: I talked with Pastor Krueger, I wanted it to be clear that nothing was expected of
-        //me. Also not a mistake, although I remember the discussion was a bit out of sorts. Apparently
-        //ELCA Lutheran is quite tolerant of skepticism, so it really didn't matter. I didn't understand
-        //the strictness differences between different denominations, so my religious ignorance was signifcant.
-        //I think I deemed myself an atheist after these two events, but it's not because I specifically
-        //remember that order. Both incidents were important events in the path, either before or after
-        //they solidified the end result.
-        //1. Sophomore in High School: Math class (FST). Publicly claimed to be the Antichrist. This was
-        //a joke. Referred to as Satan by Brian Wimann for a time. During one class I stood in front of the
-        //classroom and called the class "my people". Melissa Hamburg objected and I told her she was
-        //excluded. It didn't take too long for the joke to get old. It remained a joke for many years
-        //afterward but is a bit unsetting now.
-        //2. Junior in High School: AP US History Class. Possibly inspired by a Simpsons episode, I
-        //wrote "Chris Rowe's soul (Yes, it's really his soul)" on a piece of paper as a joke. I think we
-        //passed it around a bit and Greg Wisniewski ended up with it, and I remember he was happy about
-        //that. The Wisniewski's (Greg and Katie were highly intelligent and highly religious). It remained
-        //a joke for many years afterward but is a bit unsettling now.
-
-        //Handbells (practiced in Portage with Mr. Yerke but I think we did it in the Dells)
-
-        //Children's Choir (Choir diretory: Eleanor Collins, Denise Tubman accompanying)
-        //Me, Sonya, Karin Christiansen, Erin
-        //This is the day
-
-        //School Choir (Ms Pieper)
-        //Hero
-        //Candle on the Water
-
-        //College: Took philosophy class which upended religious beliefs. Briefly became an agnostic,
-        //but returned to atheism in short order.
-
-        //baked potato incident with potential spouse's parents
-        //Discussed potential marriage with Mother Mo. I didn't have good reasons for being married, but
-        //it really didn't matter for the purpose of the discussion.
-        //Married in St.Dunstan's Episcopal Church
-
-        //Original Song: I am the Pope
-
-        //psychiatric hospitalization: met someone in the hospital who seemed to think he was God. I didn't
-        //know how to help him.
-
         //2018 August/September created arrangement of Wade in the Water
         //2018-09-23
         //1. experienced synethesia in pronouns when reading the litergy where my experience of the language
@@ -386,6 +134,21 @@ namespace Existence.Personal.Beyond
     /// objected but mother said she had always lived with cats and wanted to continue.
     /// Then before leaving, my mother stopped and took Chaquita into the car. So
     /// my mother always had cats until Stocco's death.
+    /// 
+    /// Handbells (practiced in Portage with Mr. Yerke but I think we did it in the Dells)
+    /// Children's Choir (Choir diretory: Eleanor Collins, Denise Tubman accompanying)
+    /// Me, Sonya, Karin Christiansen, Erin
+    /// This is the day
+    /// 
+    /// School Choir (Ms Pieper)
+    /// Hero
+    /// Candle on the Water
+    /// 
+    /// Pleasure Zone (video tape), msbx5
+    /// 
+    /// baked potato incident with potential spouse's parents
+    /// Discussed potential marriage with Mother Mo. I didn't have good reasons for being married, but
+    /// it really didn't matter for the purpose of the discussion.
     /// </summary>
     internal class WorkingIdeas
     {

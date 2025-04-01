@@ -6,7 +6,6 @@ namespace Existence.Personal
     public class ClassmateBusinessLogic
     {
         public static List<KeyValuePair<ClassmateList, ClassmateList>> Friendships;
-        public static List<int> SeventhGradeSundaySchoolClassmates;
 
         /// <summary>
         /// teacher: Kathy Anderson
@@ -30,14 +29,6 @@ namespace Existence.Personal
             Friendships = new List<KeyValuePair<ClassmateList, ClassmateList>>()
             {
                 new KeyValuePair<ClassmateList, ClassmateList>(ClassmateList.JasonWhite, ClassmateList.JustinRaudebush)
-            };
-            SeventhGradeSundaySchoolClassmates = new List<int>()
-            {
-                (int)ClassmateList.JessicaLloyd,
-                (int)YearBelowClassmateList.CassieMattei,
-                (int)ClassmateList.StephanieHartman,
-                (int)ClassmateList.GregFarrington,
-                (int)ClassmateList.JasonWhite,
             };
             EighthGradeEnglishClassmates = new List<ClassmateList>()
             {
@@ -87,7 +78,7 @@ namespace Existence.Personal
             {
                 (int)YearAboveClassmateList.BrianWimann,
                 (int)YearBelowClassmateList.GregWisniewski,
-                (int)YearAboveClassmateList.KatieWisniewski,                
+                (int)YearAboveClassmateList.KatieWisniewski,
             };
         }
     }
@@ -100,6 +91,7 @@ namespace Existence.Personal
 
     public enum YearAboveClassmateList
     {
+        MelissaHamburg,
         BrianWimann,
         KatieWisniewski,
     }

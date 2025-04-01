@@ -51,7 +51,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 5, 0, 0)]
             [YearDate(2025, 3, 24)]
-            InternalizedAndRemovedTimelessVersion
+            InternalizedAndRemovedTimelessVersion,
+
+            [BeyondObjectVersion(1, 6, 0, 0)]
+            [YearDate(2025, 3, 31)]
+            AddPersonalHomesEnumeration,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -238,7 +242,7 @@ namespace Existence.Beyond.JudgmentDay
         public SomeoneSaidSomethingAndIFoundOutViaHearsay Info { get; set; }
         public MyMotherToldMySisterSheWasntGoingToDie() : base("My Mother Claimed She Wasn't Going to Die")
         {
-            this.Info = new SomeoneSaidSomethingAndIFoundOutViaHearsay("I'm not going to die.", (int)FamilyMembers.MyMotherSandy, (int)FamilyMembers.MySisterSonya);
+            this.Info = new SomeoneSaidSomethingAndIFoundOutViaHearsay("I'm not going to die.", (int)FamilyMembers.MyMotherSandy, (int)FamilyMembers.MySisterSonya, (int)PersonalHomes.EndeavorHome);
         }
     }
 
@@ -779,4 +783,10 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [TODO("Stocco is missing from this list, probably in the lower left corner but I don't remember exactly where")]
     public class PetGraveyardRelativePositioning { }
+
+    public enum PersonalHomes
+    {
+        HarmonyGroveHome,
+        EndeavorHome,
+    }
 }

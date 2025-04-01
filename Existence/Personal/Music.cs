@@ -22,9 +22,22 @@ namespace Existence.Personal
 
     public enum ChurchChoirDirectors
     {
+        /// <summary>
+        /// paperless philosophy collided with my preference for technical difficulty
+        /// </summary>
         DeannaClement,
+        /// <summary>
+        /// childishly tried to annoy her a bunch
+        /// </summary>
         EleanorCollins,
+        /// <summary>
+        /// most competent choir director I've had, not great bedside manner
+        /// </summary>
         MartinGanschow,
+        /// <summary>
+        /// my spouse's favorite, he was not as competent as martin but had
+        /// better bedside matter.
+        /// </summary>
         MitchellPatton
     }
 }

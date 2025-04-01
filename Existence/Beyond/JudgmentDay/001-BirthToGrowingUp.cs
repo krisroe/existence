@@ -1,5 +1,4 @@
-﻿using Existence.Beyond;
-using Existence.Beyond.Infrastructure;
+﻿using Existence.Beyond.Infrastructure;
 using Existence.Earth.Human.People;
 using Existence.Earth;
 using Existence.Earth.Alphabet;
@@ -12,7 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using Existence.Time;
 using Existence.Personal;
-using Existence.Personal.Beyond;
+using static Existence.Beyond.JudgmentDay.HumanDivineTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -118,7 +117,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 15, 0, 0)]
             [YearDate(2025, 3, 30)]
-            AddReligiousFlagsChildhoodNativityPlaysILikeToFartPlayMoveCapacityForReligiousOut
+            AddReligiousFlagsChildhoodNativityPlaysILikeToFartPlayMoveCapacityForReligiousOut,
+
+            [BeyondObjectVersion(1, 16, 0, 0)]
+            [YearDate(2025, 3, 31)]
+            UpdatedLocationForSomeoneCalledMeAGenius
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -140,8 +143,11 @@ namespace Existence.Beyond.JudgmentDay
             MyFirstParodySong = new PersonalFirstParodySong();
             SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
             OrionisaRisingHumanInterpretation = new OrionIsarising();
-            ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius("He's a genius",
-                (int)FirstGradeClassAttendanceListAlphabetical.Laura, (int)FamilyMembers.MyMothersBrotherGerald);
+            ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius(
+                Z.MAGIC_WORDS_HES_A_GENIUS,
+                (int)FirstGradeClassAttendanceListAlphabetical.Laura, 
+                (int)FamilyMembers.MyMothersBrotherGerald,
+                (int)PersonalChurches.SaintJohnLutheranChurch);
             BaseEvent birth = new PersonalBirth();
             BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
 
@@ -498,9 +504,13 @@ namespace Existence.Beyond.JudgmentDay
             }
         }
 
+        /// <summary>
+        /// I'm pretty sure this happened at my mother's mother's church, it's the only
+        /// thing that makes sense.
+        /// </summary>
         public class SomeoneCalledMeAGenius : SomeoneSaidSomethingAndIFoundOutViaHearsay
         {
-            public SomeoneCalledMeAGenius(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe) : base(WhatWasSaid, PersonWhoSaidIt, PersonWhoToldMe)
+            public SomeoneCalledMeAGenius(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe, int Location) : base(WhatWasSaid, PersonWhoSaidIt, PersonWhoToldMe, Location)
             {
             }
 

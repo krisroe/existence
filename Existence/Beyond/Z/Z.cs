@@ -4,7 +4,6 @@ using Existence.Beyond.Infrastructure;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.Alphabet;
-using Existence.Personal.Infrastructure;
 using Existence.Time;
 
 namespace Existence.Beyond
@@ -16,6 +15,8 @@ namespace Existence.Beyond
     /// </summary>
     public class Z
     {
+        public const string MAGIC_WORDS_HES_A_GENIUS = "He's a genius.";
+
         public enum VersionHistory
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
@@ -25,6 +26,10 @@ namespace Existence.Beyond
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 31)]
             MadeReligiousRespectfulFlagAnInteger,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 3, 31)]
+            AddHesAGeniusMagicWordsAndAddOrderForSoulAndAntichristIncidents
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -72,9 +77,8 @@ namespace Existence.Beyond
             zTimelineEvents.Add(new BaselesslyAccuseATeacherOfBeingACommunist());
 
             //these are clear religious signpoint
-            zTimelineEvents.Add(new MultiEvent("High School Sophmoric Antics",
-                [new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt(),
-                new PubliclyClaimToBeTheAntichristAsAJoke()]));
+            zTimelineEvents.Add(new SemipubliclyClaimToBeTheAntichristAsAJoke());
+            zTimelineEvents.Add(new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt());
 
             zTimelineEvents.Add(new ZDeviationMessageBoxViolatingCausality());
             ZTimeline = new OrderedEvents(null, zTimelineEvents);
@@ -161,8 +165,11 @@ namespace Existence.Beyond
     /// <summary>
     /// I think the point here is to set up for any kind of malicious divine/cosmic consequences/signposts 
     /// regarding the lack of a soul or possession by others or destruction or unknown result.
+    /// You can switch out the gendered pronoun in the magic words, but I can't guarantee you
+    /// it will work. Whatever happened, it's fair to say my soul could be anywhere.
     /// </summary>
     [Consequences("None")]
+    [MagicWords("[Short Name]'s Soul (Yes, it's really his soul)", "Written on piece of paper", "High School", "Classmates")]
     public class DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt : BaseEvent
     {
         public DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt() : base("Do a Joke with Your Soul and It's Unclear what Happens to it")
@@ -175,9 +182,9 @@ namespace Existence.Beyond
     /// I think the point here is this is a minimal way of setting one's "Antichrist" flag, triggering new signposts.
     /// </summary>
     [Consequences("Minimal (the devout may be offended)")]
-    public class PubliclyClaimToBeTheAntichristAsAJoke : BaseEvent
+    public class SemipubliclyClaimToBeTheAntichristAsAJoke : BaseEvent
     {
-        public PubliclyClaimToBeTheAntichristAsAJoke() : base("Publicly Claim to be the Antichrist as a Joke")
+        public SemipubliclyClaimToBeTheAntichristAsAJoke() : base("Publicly Claim to be the Antichrist as a Joke")
         {
 
         }

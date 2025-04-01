@@ -20,6 +20,15 @@ namespace Existence.Earth.Alphabet
         }
     }
 
+    public class LocationIntegerAttribute : Attribute
+    {
+        public int Location { get; set; }
+        public LocationIntegerAttribute(int Location)
+        {
+            this.Location = Location;
+        }
+    }
+
     public class LocationAttribute : TextAttribute
     {
         public string Place
@@ -33,7 +42,7 @@ namespace Existence.Earth.Alphabet
                 base.Text = value;
             }
         }
-        public LocationAttribute(string AKA) : base(AKA)
+        public LocationAttribute(string Place) : base(Place)
         {
         }
     }

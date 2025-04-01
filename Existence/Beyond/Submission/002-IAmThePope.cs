@@ -50,21 +50,15 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 7, 0, 0)]
             [YearDate(2025, 3, 30)]
             ClarifyPreciseBirth,
+
+            [BeyondObjectVersion(1, 8, 0, 0)]
+            [YearDate(2025, 3, 31)]
+            MakeTheSongAccessibleFromOtherPlaces
         }
 
         internal ThePope()
         {
             new PersonalBirthPrecise();
-        }
-
-        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
-        [MusicNotesRepositoryAudioFile(@"Released\Audio\004-IAmThePope.wav", PeopleEnumerated.RoweChris)]
-        [TimelessPurpose("Detect/validate truth/untruth")]
-        [Owners((int)PeopleEnumerated.RoweChris)]
-        [Creators((int)PeopleEnumerated.RoweChris)]
-        internal class IamthePopeOriginalSong : OriginalSongEvent
-        {
-            public IamthePopeOriginalSong() : base("I am the Pope") { }
         }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "list of popes, past to present",
@@ -183,6 +177,16 @@ namespace Existence.Beyond.CosmicSubmission
                 new TimelessChange("I am NOT the pope"),
             };
         }
+    }
+
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\009-IAmThePope.txt", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\004-IAmThePope.wav", PeopleEnumerated.RoweChris)]
+    [TimelessPurpose("Detect/validate truth/untruth")]
+    [Owners((int)PeopleEnumerated.RoweChris)]
+    [Creators((int)PeopleEnumerated.RoweChris)]
+    internal class IamthePopeOriginalSong : OriginalSongEvent
+    {
+        public IamthePopeOriginalSong() : base("I am the Pope") { }
     }
 
     /// <summary>
