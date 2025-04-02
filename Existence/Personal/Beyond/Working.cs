@@ -19,11 +19,6 @@ namespace Existence.Personal.Beyond
     }
 
     /// <summary>
-    ///5. Number of Church Choir directors: 4 (including children's choir). This establishes a choir history which is not easy to subvert.
-    ///6. Briefly became an agnostic, but remained atheist. "Atheist" ends up the primary religion.But a brief period of agnosticism allows flexibility for defining the religious rules at judgment day.
-    ///7. 2018-09-23. Word-based synethesia following the beliefs around parts of liturgy believed in or pronouns.
-    ///8. Choir director had their own arrangement of Canticle of the Turning.This allows for a relatively fixed human meaning of Canticle of the Turning, making a personal/Z reinterpretation less risky.
-    ///
     /// Birth Religion: 
     /// Lutheran (Generic). This is based on parent preferences.
     /// Did not become Missouri Synod Lutheran despite the opportunity

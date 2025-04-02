@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using Existence.Time;
 using Existence.Personal;
-using static Existence.Beyond.JudgmentDay.HumanDivineTeenager;
+using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -121,7 +121,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 16, 0, 0)]
             [YearDate(2025, 3, 31)]
-            UpdatedLocationForSomeoneCalledMeAGenius
+            UpdatedLocationForSomeoneCalledMeAGenius,
+
+            [BeyondObjectVersion(1, 17, 0, 0)]
+            [YearDate(2025, 4, 2)]
+            UpdatedHumanDivineTeenagerClass,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;

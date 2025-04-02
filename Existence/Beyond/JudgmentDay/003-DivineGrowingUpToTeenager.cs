@@ -7,11 +7,13 @@ using Existence.Personal;
 using Existence.Time;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System.Collections.Generic;
+using Existence.Earth.Human.People;
+using Existence.Earth.FieldsOfStudy.Psychology;
 
 namespace Existence.Beyond.JudgmentDay
 {
     [IsReleased(false)]
-    internal class HumanDivineTeenager
+    internal class HumanDivineGrowingUpToTeenager
     {
         public const int RELIGION_CHURCH_INDEX = 0;
         public const int PIANO_LESSONS_CHURCH_INDEX = 1;
@@ -22,7 +24,24 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         public static List<int> SeventhGradeSundaySchoolClassmates;
 
-        public HumanDivineTeenager()
+        /// <summary>
+        /// static constructor
+        /// </summary>
+        static HumanDivineGrowingUpToTeenager()
+        {
+            //one member is missing from the list. I have a photograph but
+            //do not recognize him.
+            SeventhGradeSundaySchoolClassmates = new List<int>()
+            {
+                (int)ClassmateList.JessicaLloyd,
+                (int)YearBelowClassmateList.CassieMattei,
+                (int)ClassmateList.StephanieHartman,
+                (int)ClassmateList.GregFarrington,
+                (int)ClassmateList.JasonWhite,
+            };
+        }
+
+        public HumanDivineGrowingUpToTeenager()
         {
             MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
             PersonalChurches[] personalChurches = new PersonalChurches[2];
@@ -39,8 +58,8 @@ namespace Existence.Beyond.JudgmentDay
             new ChildhoodNativityPlayDisrespect2(myReligionFlags);
 
             new SomeoneCalledMeAGenius(
-                Z.MAGIC_WORDS_HES_A_GENIUS, 
-                (int)ClassmateList.LauraCummings, 
+                Z.MAGIC_WORDS_HES_A_GENIUS,
+                (int)ClassmateList.LauraCummings,
                 (int)FamilyMembers.MyMothersBrotherGerald,
                 (int)PersonalChurches.SaintJohnLutheranChurch);
 
@@ -52,17 +71,6 @@ namespace Existence.Beyond.JudgmentDay
 
             new FirstCommunionAsAnAcolyte(myReligionFlags);
             new LeadRoleInSilentNightChristmasPageant(myReligionFlags);
-
-            //one member is missing from the list. I have a photograph but
-            //do not recognize him.
-            SeventhGradeSundaySchoolClassmates = new List<int>()
-            {
-                (int)ClassmateList.JessicaLloyd,
-                (int)YearBelowClassmateList.CassieMattei,
-                (int)ClassmateList.StephanieHartman,
-                (int)ClassmateList.GregFarrington,
-                (int)ClassmateList.JasonWhite,
-            };
 
             MultiEvent preAthiestEvents = new MultiEvent("Pre-atheist Events", new BaseEvent[]
             {
@@ -83,7 +91,15 @@ namespace Existence.Beyond.JudgmentDay
             new ChurchChoirDirectorEvent(ChurchChoirDirectors.MartinGanschow, ChoirType.Adult);
             new MetSomeoneWhoSeemedToThinkHeWasGod();
 
+            new WordBasedSynethesiaDuringChurchService();
+
+            new SemiPubliclyPerformedMyArrangementInChurch((int)PeopleEnumerated.RoweChris, ImportantSongs.WadeInTheWater);
+            new ChoirSangFutureChoirDirectorArrangement(ChurchChoirDirectors.DeannaClement, ImportantSongs.CanticleOfTheTurning);
+
             new ChurchChoirDirectorEvent(ChurchChoirDirectors.DeannaClement, ChoirType.Adult);
+            new DoneWithChurch();
+
+            new CapacityForTheDivine();
 
             new GivingUpGivingUpSomethingForLentForLent(myReligionFlags);
         }
@@ -310,6 +326,71 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         /// <summary>
+        /// recovering from the WTS Paradigm shooting, I attended church services. During the
+        /// service I saw my vision of words was affected based on how I felt about the liturgy.
+        /// Some parts of the liturgy I would say at normal volume and others I would say at
+        /// low volume or not at all. This also affected pronoun preferences, where I typically
+        /// prefer a generic "he" to gender neutral language when referring to God.
+        /// </summary>
+        [YearDate(2018, 9, 23)]
+        public class WordBasedSynethesiaDuringChurchService : BaseEvent
+        {
+            public WordBasedSynethesiaDuringChurchService() : base("Church Word-based Synestheia")
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// At the end of the service I played+sang my arrangement of "Wade in the Water" at
+        /// the end of the service. This was in the choir loft, and no one but the choir
+        /// really knew anything out of the ordinary had happened.
+        /// 
+        /// Deanna noted that my arrangement was kind of low, an accurate observation
+        /// because I had tailored it to my tenor voice.
+        /// </summary>
+        [YearDate(2018, 9, 23)]
+        public class SemiPubliclyPerformedMyArrangementInChurch : BaseEvent
+        {
+            public int PerformerArranger { get; set; }
+            public ImportantSongs Song { get; set; }
+            public SemiPubliclyPerformedMyArrangementInChurch(int PerformerArranger, ImportantSongs Song) : base("Performed " + Song.ToString() + " after Church")
+            {
+                this.PerformerArranger = PerformerArranger;
+                this.Song = Song;
+            }
+        }
+
+        /// <summary>
+        /// As far as I am concerned, Deanna's version of Canticle of the Turning
+        /// is the most accurate one. This is helpful for making a personal/Z 
+        /// reinterpretation less risky.
+        /// </summary>
+        public class ChoirSangFutureChoirDirectorArrangement : BaseEvent
+        {
+            private ChurchChoirDirectors Director { get; set; }
+            private ImportantSongs Song { get; set; }
+            public ChoirSangFutureChoirDirectorArrangement(ChurchChoirDirectors Director, ImportantSongs Song) :
+                base("Choir did " + Director.ToString() + " Arrangement of " + Song.ToString())
+            {
+                this.Director = Director;
+                this.Song = Song;
+            }
+        }
+
+        /// <summary>
+        /// during a couple years of Covid we didn't physically go to church anymore.
+        /// When that became an option again I chose not to reengage.
+        /// </summary>
+        public class DoneWithChurch : BaseEvent
+        {
+            public DoneWithChurch() : base("Done with Church")
+            {
+            }
+        }
+
+
+        /// <summary>
         /// I do not remember ever giving up something tangible for Lent (it wasn't emphasized in ELCA Lutheran upbringing,
         /// but I know my Catholic relatives did). As an adult I came up with the running gag of giving up "giving things
         /// up for Lent" for Lent. I'm not sure if I'm being disrespectful of religion or not. Tt's just an absurd way of
@@ -406,5 +487,20 @@ namespace Existence.Beyond.JudgmentDay
     public enum PersonalHospitals
     {
         SaintMarysMadisonWisconsin
+    }
+
+    public enum ImportantSongs
+    {
+        CanticleOfTheTurning,
+        WadeInTheWater,
+    }
+
+    [CapacityForEmotion(Emotions.Divine, EmotionalCapacity.Minimal)]
+    [YearMonth(2024, 3)]
+    public class CapacityForTheDivine : BaseEvent
+    {
+        public CapacityForTheDivine() : base("Starting Divine Feeling")
+        {
+        }
     }
 }

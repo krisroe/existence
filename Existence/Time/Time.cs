@@ -57,6 +57,17 @@ namespace Existence.Time
         }
     }
 
+    public class YearMonthAttribute : Attribute
+    {
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public YearMonthAttribute(int Year, int Month)
+        {
+            this.Year = Year;
+            this.Month = Month;
+        }
+    }
+
     public enum Seasons
     {
         Winter,
