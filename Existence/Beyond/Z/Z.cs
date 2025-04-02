@@ -13,7 +13,7 @@ namespace Existence.Beyond
     /// This also acts as the rules of the personal realm (for me the personal realm and the Z realm
     /// are the same)
     /// </summary>
-    public class Z
+    public class ZStuff
     {
         public const string MAGIC_WORDS_HES_A_GENIUS = "He's a genius.";
 
@@ -29,7 +29,11 @@ namespace Existence.Beyond
 
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 31)]
-            AddHesAGeniusMagicWordsAndAddOrderForSoulAndAntichristIncidents
+            AddHesAGeniusMagicWordsAndAddOrderForSoulAndAntichristIncidents,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 4, 2)]
+            AddChurchesToFlagsRenameClassMoveTimeTravelingMessageBoxEventToBeMorePublic,
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -40,7 +44,7 @@ namespace Existence.Beyond
 
         public MyReligiousFlags ZReligiousFlags { get; set; }
 
-        public Z()
+        public ZStuff()
         {
             ZReligiousFlags = new MyReligiousFlags(null);
             ZRules = new List<BaseEvent>();
@@ -83,20 +87,20 @@ namespace Existence.Beyond
             zTimelineEvents.Add(new ZDeviationMessageBoxViolatingCausality());
             ZTimeline = new OrderedEvents(null, zTimelineEvents);
         }
+    }
 
-        /// <summary>
-        /// This was a self-aware violation of the general human universe law of causality,
-        /// which is not allowed under the human rules of the universe. I did the right thing
-        /// and immediately patched the hole. However, not understanding the rules, I went
-        /// deeper to find the truth of what was happening, leading in short order to a
-        /// manic episode with loss of functionality, breaking a Z rule I hadn't invented yet.
-        /// </summary>
-        [YearDate(2024, 5, 27)]
-        public class ZDeviationMessageBoxViolatingCausality : BaseEvent
+    /// <summary>
+    /// This was a self-aware violation of the general human universe law of causality,
+    /// which is not allowed under the human rules of the universe. I did the right thing
+    /// and immediately patched the hole. However, not understanding the rules, I went
+    /// deeper to find the truth of what was happening, leading in short order to a
+    /// manic episode with loss of functionality, breaking a Z rule I hadn't invented yet.
+    /// </summary>
+    [YearDate(2024, 5, 27)]
+    public class ZDeviationMessageBoxViolatingCausality : BaseEvent
+    {
+        public ZDeviationMessageBoxViolatingCausality() : base("Time Traveling Message Box")
         {
-            public ZDeviationMessageBoxViolatingCausality() : base("Time Traveling Message Box")
-            {
-            }
         }
     }
 
@@ -110,6 +114,8 @@ namespace Existence.Beyond
         public int Respectful { get; set; }
         public bool Skepticism { get; set; }
         public bool BornAgain { get; set; }
+        public PersonalChurches? BaseChurch { get; set; }
+        public PersonalChurches? PianoChurch { get; set; }
     }
 
     [PersonalHumanLevel(HumanLevel.Baby)]

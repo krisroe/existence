@@ -126,6 +126,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 17, 0, 0)]
             [YearDate(2025, 4, 2)]
             UpdatedHumanDivineTeenagerClass,
+
+            [BeyondObjectVersion(1, 18, 0, 0)]
+            [YearDate(2025, 4, 2)]
+            ReorganizedEventCreationChangeZStuffNamePassReligiousFlagsToPianoLessonsStarting,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -138,22 +142,22 @@ namespace Existence.Beyond.JudgmentDay
         public BirthToGrowingUp()
         {
             MyReligiousFlags myReligiousFlags = new MyReligiousFlags(Skepticism: null);
-            BaseEvent startedPianoLessons = new BaseEvent("StartedPianoLessons");
+            BaseEvent birth = new PersonalBirth(myReligiousFlags);
+            BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
             BaseEvent childishNativityPlays = new ChildhoodNativityPlayDisrespect1(myReligiousFlags);
+            BaseEvent startedPianoLessons = new StartedPianoLessons(myReligiousFlags);
             BaseEvent childishNativityScenes = new ChildhoodNativityPlayDisrespect2(myReligiousFlags);
-            BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal(myReligiousFlags);
             MyFirstOriginalSong = new PersonalFirstOriginalSong();
             MySistersParodyOfMyFirstOriginalSong = new SistersParodyOfMyFirstOriginalSong(MyFirstOriginalSong);
             MyFirstParodySong = new PersonalFirstParodySong();
             SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
             OrionisaRisingHumanInterpretation = new OrionIsarising();
             ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius(
-                Z.MAGIC_WORDS_HES_A_GENIUS,
-                (int)FirstGradeClassAttendanceListAlphabetical.Laura, 
+                ZStuff.MAGIC_WORDS_HES_A_GENIUS,
+                (int)FirstGradeClassAttendanceListAlphabetical.Laura,
                 (int)FamilyMembers.MyMothersBrotherGerald,
                 (int)PersonalChurches.SaintJohnLutheranChurch);
-            BaseEvent birth = new PersonalBirth();
-            BaseEvent establishedFavoriteNumbers = new EstablishedFavoriteNumbers();
+            BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal(myReligiousFlags);
 
             OrderedEvents factListOrdered = new OrderedEvents(birth, new List<BaseEvent>()
             {
@@ -549,6 +553,14 @@ namespace Existence.Beyond.JudgmentDay
                     return "My injury was not severe. The (elderly) dog became an outside dog.";
                 }
             }
+        }
+    }
+
+    public class StartedPianoLessons : BaseEvent
+    {
+        public StartedPianoLessons(MyReligiousFlags religiousFlags) : base("Started Piano Lessons")
+        {
+            religiousFlags.PianoChurch = PersonalChurches.PortageUnitedMethodistChurch;
         }
     }
 

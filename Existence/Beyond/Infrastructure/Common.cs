@@ -205,12 +205,24 @@ namespace Existence.Beyond.Infrastructure
         {
             throw new InvalidOperationException();
         }
+        internal virtual List<MistakeInformation>? GetMistakeInformation()
+        {
+            return null;
+        }
     }
 
     internal class MissingInformation
     {
         internal string Info { get; set; }
         internal MissingInformation(string Info)
+        {
+            this.Info = Info;
+        }
+    }
+    internal class MistakeInformation
+    {
+        internal string Info { get; set; }
+        internal MistakeInformation(string Info)
         {
             this.Info = Info;
         }
@@ -721,12 +733,22 @@ namespace Existence.Beyond.Infrastructure
         public ThumbOnTheScaleAmount Amount { get; set; }
         public ThumbOnTheScaleImportance Importance { get; set;  }
         public int Prediction { get; set; }
-        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction)
+        public CorrectVoteInformation CorrectAreas { get; set; }
+        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction, CorrectVoteInformation CorrectAreas)
         {
             this.Target = Target;
             this.Amount = Amount;
             this.Importance = Importance;
             this.Prediction = Prediction;
+            this.CorrectAreas = CorrectAreas;
         }
+    }
+
+    [Flags]
+    internal enum CorrectVoteInformation
+    {
+        None = 0,
+        Vote = 1,
+        Prediction = 2
     }
 }

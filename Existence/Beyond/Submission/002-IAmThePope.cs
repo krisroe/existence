@@ -53,12 +53,17 @@ namespace Existence.Beyond.CosmicSubmission
 
             [BeyondObjectVersion(1, 8, 0, 0)]
             [YearDate(2025, 3, 31)]
-            MakeTheSongAccessibleFromOtherPlaces
+            MakeTheSongAccessibleFromOtherPlaces,
+
+            [BeyondObjectVersion(1, 9, 0, 0)]
+            [YearDate(2025, 4, 2)]
+            PassReligiousFlagsToBirth,
         }
 
         internal ThePope()
         {
-            new PersonalBirthPrecise();
+            MyReligiousFlags religiousFlags = new MyReligiousFlags(null);
+            new PersonalBirthPrecise(religiousFlags);
         }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "list of popes, past to present",
@@ -198,6 +203,9 @@ namespace Existence.Beyond.CosmicSubmission
     [BirthdatePrecise(1980, 12, 6, 12, 53)]
     public class PersonalBirthPrecise : PersonalBirth
     {
+        public PersonalBirthPrecise(MyReligiousFlags religiousFlags) : base(religiousFlags)
+        {
+        }
     }
 
 

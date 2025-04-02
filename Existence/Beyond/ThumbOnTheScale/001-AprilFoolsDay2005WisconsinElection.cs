@@ -30,6 +30,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 3, 31)]
             AddPrediction,
+
+            [BeyondObjectVersion(2, 0, 0, 0)]
+            [YearDate(2025, 4, 2)]
+            PostElection,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -55,11 +59,12 @@ namespace Existence.Beyond.ThumbOnTheScale
             };
         }
 
-        internal override List<MissingInformation>? GetMissingInformation()
+        internal override List<MistakeInformation>? GetMistakeInformation()
         {
-            return new List<MissingInformation>()
+            return new List<MistakeInformation>()
             {
-                new MissingInformation("Vote has not happened yet")
+                new MistakeInformation("State Supreme Court: Overestimated my own powers"),
+                new MistakeInformation("State Supreme Court: Underestimated Trump blowback")
             };
         }
 
@@ -341,7 +346,11 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// 4. Rulings on office vacancy not existing before new officer confirmed (I think liberal
             /// side is validly accused of being results-oriented).
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.SchimelBrad, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.High, (int)WisconsinPoliticians.SchimelBrad)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.SchimelBrad, 
+                ThumbOnTheScaleAmount.Full, 
+                ThumbOnTheScaleImportance.High, 
+                (int)WisconsinPoliticians.SchimelBrad, 
+                CorrectVoteInformation.None)]
             public static class StateSupremeCourtJustice
             {
                 /// <summary>
@@ -466,7 +475,11 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// and I'm not necessarily convinced Kinser's proposed path is correct. What's decisive
             /// here is the web site with more relevant information.
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.KinserBrittany, ThumbOnTheScaleAmount.Half, ThumbOnTheScaleImportance.Low, (int)WisconsinPoliticians.UnderlyJill)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.KinserBrittany, 
+                ThumbOnTheScaleAmount.Half, 
+                ThumbOnTheScaleImportance.Low, 
+                (int)WisconsinPoliticians.UnderlyJill, 
+                CorrectVoteInformation.Prediction)]
             public static class SuperintendantOfPublicInstruction
             {
                 /// <summary>
@@ -534,7 +547,11 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// I vote "No", but this is awkward so no thumb on the sale. Importance is low since this is
             /// going to pass (if I'm wrong I will have to rethink my process)
             /// </summary>
-            [ThumbOnTheScale((int)ReferendumChoice.No, ThumbOnTheScaleAmount.None, ThumbOnTheScaleImportance.Low, (int)ReferendumChoice.Yes)]
+            [ThumbOnTheScale((int)ReferendumChoice.No, 
+                ThumbOnTheScaleAmount.None, 
+                ThumbOnTheScaleImportance.Low, 
+                (int)ReferendumChoice.Yes, 
+                CorrectVoteInformation.Prediction)]
             public static class VoterPhotoIdentificationAmendment
             {
                 /// <summary>
@@ -562,7 +579,11 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// taxes connection to affordable housing is questionable, and graphically the focus appears
             /// to be more on potholes. Probably a good fit for sale, I judge less for county executive.
             /// </summary>
-            [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low, (int)WisconsinPoliticians.AgardMelissa)]
+            [ThumbOnTheScale((int)WisconsinPoliticians.AgardMelissa, 
+                ThumbOnTheScaleAmount.Full, 
+                ThumbOnTheScaleImportance.Low, 
+                (int)WisconsinPoliticians.AgardMelissa, 
+                CorrectVoteInformation.Vote | CorrectVoteInformation.Prediction)]
             public static class DaneCountyExecutive
             {
                 [Politician((int)WisconsinPoliticians.RatzlaffStephen)]

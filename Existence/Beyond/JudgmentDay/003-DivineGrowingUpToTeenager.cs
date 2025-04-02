@@ -9,15 +9,13 @@ using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System.Collections.Generic;
 using Existence.Earth.Human.People;
 using Existence.Earth.FieldsOfStudy.Psychology;
+using Existence.Earth;
 
 namespace Existence.Beyond.JudgmentDay
 {
     [IsReleased(false)]
     internal class HumanDivineGrowingUpToTeenager
     {
-        public const int RELIGION_CHURCH_INDEX = 0;
-        public const int PIANO_LESSONS_CHURCH_INDEX = 1;
-
         /// <summary>
         /// this particular year of sunday school is the most important
         /// but I don't really know why.
@@ -44,68 +42,62 @@ namespace Existence.Beyond.JudgmentDay
         public HumanDivineGrowingUpToTeenager()
         {
             MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
-            PersonalChurches[] personalChurches = new PersonalChurches[2];
 
-            new CapacityForTheReligious();
-            new PersonalBirth();
-            personalChurches[RELIGION_CHURCH_INDEX] = PersonalChurches.DekorraLutheranChurch;
-
-            new MyBaptism();
-
-            new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, personalChurches);
-            new ChildhoodNativityPlayDisrespect1(myReligionFlags);
-            personalChurches[PIANO_LESSONS_CHURCH_INDEX] = PersonalChurches.PortageUnitedMethodistChurch;
-            new ChildhoodNativityPlayDisrespect2(myReligionFlags);
-
-            new SomeoneCalledMeAGenius(
-                Z.MAGIC_WORDS_HES_A_GENIUS,
-                (int)ClassmateList.LauraCummings,
-                (int)FamilyMembers.MyMothersBrotherGerald,
-                (int)PersonalChurches.SaintJohnLutheranChurch);
-
-            MultiEvent religiousSkepticism = new MultiEvent("ReligiousSkepticism", new BaseEvent[]
+            List<BaseEvent> events = new List<BaseEvent>()
             {
-                new SkepticismOfReligionPersonal(myReligionFlags),
-                new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)
-            });
+                new CapacityForTheReligious(),
+                new PersonalBirth(myReligionFlags),
+                new MyBaptism(),
+                new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, myReligionFlags),
+                new ChildhoodNativityPlayDisrespect1(myReligionFlags),
+                new StartedPianoLessons(myReligionFlags),
+                new ChildhoodNativityPlayDisrespect2(myReligionFlags),
+                new SomeoneCalledMeAGenius(
+                 ZStuff.MAGIC_WORDS_HES_A_GENIUS,
+                 (int)ClassmateList.LauraCummings,
+                 (int)FamilyMembers.MyMothersBrotherGerald,
+                 (int)PersonalChurches.SaintJohnLutheranChurch),
+                new MultiEvent("ReligiousSkepticism",
+                    [new SkepticismOfReligionPersonal(myReligionFlags),
+                    new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)]),
+                new FirstCommunionAsAnAcolyte(myReligionFlags),
+                new LeadRoleInSilentNightChristmasPageant(myReligionFlags),
+                new MultiEvent("Pre-atheist Events",
+                    [new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, myReligionFlags),
+                    new ELCALutheranConfirmationDespiteNearAtheism()]),
+                new SemipubliclyClaimToBeTheAntichristAsAJoke(),
+                new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt(),
+                new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(),
+                new MarriageInAChurch(PersonalChurches.SaintDunstansEpiscopalChurch, myReligionFlags),
+                new ChurchChoirDirectorEvent(ChurchChoirDirectors.MitchellPatton, ChoirType.Adult),
+                new IamthePopeOriginalSong(),
+                new MetSomeoneWhoSeemedToThinkHeWasGod((int)PersonalHospitals.SaintMarysMadisonWisconsin),
+                new ChurchChoirDirectorEvent(ChurchChoirDirectors.MartinGanschow, ChoirType.Adult),
 
-            new FirstCommunionAsAnAcolyte(myReligionFlags);
-            new LeadRoleInSilentNightChristmasPageant(myReligionFlags);
+                new WordBasedSynethesiaDuringChurchService(),
+                new SemiPubliclyPerformedMyArrangementInChurch((int)PeopleEnumerated.RoweChris, ImportantSongs.WadeInTheWater),
 
-            MultiEvent preAthiestEvents = new MultiEvent("Pre-atheist Events", new BaseEvent[]
-            {
-                new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, myReligionFlags),
-                new ELCALutheranConfirmationDespiteNearAtheism()
-            });
+                new ChoirSangFutureChoirDirectorArrangement(ChurchChoirDirectors.DeannaClement, ImportantSongs.CanticleOfTheTurning),
+                new ChurchChoirDirectorEvent(ChurchChoirDirectors.DeannaClement, ChoirType.Adult),
 
-            new SemipubliclyClaimToBeTheAntichristAsAJoke();
-            new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt();
+                new DoneWithChurchWithAPushFromCovid(),
 
-            new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass();
+                new CapacityForTheDivine(),
+                new StartedMyOwnReligion(),
+                new PersonalReligionContrafactum1(ImportantSongs.AwesomeGod),
+                new PersonalReligionContrafactum2(ImportantSongs.OneOfUs),
+                new ZDeviationMessageBoxViolatingCausality(),
+            };
+            OrderedEvents eventsOrdered = new OrderedEvents(null, events);
 
-            new FirstMarriage();
-            new ChurchTransitionAfterMarriage(PersonalChurches.SaintDunstansEpiscopalChurch, personalChurches);
-
-            new ChurchChoirDirectorEvent(ChurchChoirDirectors.MitchellPatton, ChoirType.Adult);
-            new IamthePopeOriginalSong();
-            new ChurchChoirDirectorEvent(ChurchChoirDirectors.MartinGanschow, ChoirType.Adult);
-            new MetSomeoneWhoSeemedToThinkHeWasGod();
-
-            new WordBasedSynethesiaDuringChurchService();
-
-            new SemiPubliclyPerformedMyArrangementInChurch((int)PeopleEnumerated.RoweChris, ImportantSongs.WadeInTheWater);
-            new ChoirSangFutureChoirDirectorArrangement(ChurchChoirDirectors.DeannaClement, ImportantSongs.CanticleOfTheTurning);
-
-            new ChurchChoirDirectorEvent(ChurchChoirDirectors.DeannaClement, ChoirType.Adult);
-            new DoneWithChurch();
-
-            new CapacityForTheDivine();
-
+            //relevant for the religion, but not for the growing up part
             new GivingUpGivingUpSomethingForLentForLent(myReligionFlags);
         }
 
         /// <summary>
         /// I don't know if this happened in Harmony Grove or Oxford
+        /// It doesn't really matter, I didn't have any agency relevent
+        /// to this.
         /// </summary>
         public class MyBaptism : BaseEvent
         {
@@ -129,14 +121,14 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         public class ChurchTransitionAfterMove : BaseEvent
         {
-            public ChurchTransitionAfterMove(USCities NewHome, PersonalChurches[] personalChurches) : base("Endeavor Home Church Transition")
+            public ChurchTransitionAfterMove(USCities NewHome, MyReligiousFlags religiousFlags) : base("Endeavor Home Church Transition")
             {
                 bool moved = false;
                 foreach (PersonalChurches next in new PersonalChurches[] { PersonalChurches.SaintJohnLutheranChurch, PersonalChurches.BethanyLutheranChurch })
                 {
                     if (SwitchChurchBasedOnMove(USCities.WisconsinEndeavor, next))
                     {
-                        personalChurches[RELIGION_CHURCH_INDEX] = next;
+                        religiousFlags.BaseChurch = next;
                         moved = true;
                     }
                 }
@@ -288,22 +280,13 @@ namespace Existence.Beyond.JudgmentDay
 
         [LocationInteger((int)PersonalChurches.SaintDunstansEpiscopalChurch)]
         [YearDate(2007, 4, 28)]
-        public class FirstMarriage : BaseEvent
+        public class MarriageInAChurch : BaseEvent
         {
-            public FirstMarriage() : base("Got Married")
+            public PersonalChurches Church { get; set; }
+            public MarriageInAChurch(PersonalChurches Church, MyReligiousFlags religiousFlags) : base("Got Married")
             {
-            }
-        }
-
-        public class ChurchTransitionAfterMarriage : BaseEvent
-        {
-            public ChurchTransitionAfterMarriage(PersonalChurches church, PersonalChurches[] personalChurches) : base("New Church after Marriage")
-            {
-                if (church != PersonalChurches.SaintDunstansEpiscopalChurch)
-                {
-                    throw new InvalidOperationException();
-                }
-                personalChurches[RELIGION_CHURCH_INDEX] = church;
+                this.Church = Church;
+                religiousFlags.BaseChurch = Church;
             }
         }
 
@@ -320,8 +303,10 @@ namespace Existence.Beyond.JudgmentDay
         [LocationInteger((int)PersonalHospitals.SaintMarysMadisonWisconsin)]
         public class MetSomeoneWhoSeemedToThinkHeWasGod : BaseEvent
         {
-            public MetSomeoneWhoSeemedToThinkHeWasGod() : base("Me Someone Who Seemed to Think he was God")
+            public int Location { get; set; }
+            public MetSomeoneWhoSeemedToThinkHeWasGod(int Location) : base("Me Someone Who Seemed to Think he was God")
             {
+                this.Location = Location;
             }
         }
 
@@ -382,9 +367,9 @@ namespace Existence.Beyond.JudgmentDay
         /// during a couple years of Covid we didn't physically go to church anymore.
         /// When that became an option again I chose not to reengage.
         /// </summary>
-        public class DoneWithChurch : BaseEvent
+        public class DoneWithChurchWithAPushFromCovid : BaseEvent
         {
-            public DoneWithChurch() : base("Done with Church")
+            public DoneWithChurchWithAPushFromCovid() : base("Done with Church")
             {
             }
         }
@@ -405,32 +390,32 @@ namespace Existence.Beyond.JudgmentDay
                 myReligiousFlags.Respectful--;
             }
         }
+    }
 
-        public enum PersonalChurches
-        {
-            /// <summary>
-            /// specific Lutheran denomination not listed on their web site, based on other web site info, not strict
-            /// </summary>
-            [USCities(USCities.WisconsinPoynette)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
-            DekorraLutheranChurch = 1,
+    public enum PersonalChurches
+    {
+        /// <summary>
+        /// specific Lutheran denomination not listed on their web site, based on other web site info, not strict
+        /// </summary>
+        [USCities(USCities.WisconsinPoynette)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
+        DekorraLutheranChurch = 1,
 
-            [USCities(USCities.WisconsinOxford)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranMissouriSynod)]
-            SaintJohnLutheranChurch = 2,
+        [USCities(USCities.WisconsinOxford)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.LutheranMissouriSynod)]
+        SaintJohnLutheranChurch = 2,
 
-            [USCities(USCities.WisconsinWisconsinDells)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.LutheranELCA)]
-            BethanyLutheranChurch = 3,
+        [USCities(USCities.WisconsinWisconsinDells)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.LutheranELCA)]
+        BethanyLutheranChurch = 3,
 
-            [USCities(USCities.WisconsinPortage)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Methodist)]
-            PortageUnitedMethodistChurch = 4,
+        [USCities(USCities.WisconsinPortage)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.Methodist)]
+        PortageUnitedMethodistChurch = 4,
 
-            [USCities(USCities.WisconsinMadison)]
-            [UnitedStatesChristianDenomination(ChristianDenominations.Episcopal)]
-            SaintDunstansEpiscopalChurch = 5,
-        }
+        [USCities(USCities.WisconsinMadison)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.Episcopal)]
+        SaintDunstansEpiscopalChurch = 5,
     }
 
     /// <summary>
@@ -446,7 +431,10 @@ namespace Existence.Beyond.JudgmentDay
     [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
     public class PersonalBirth : ZBirth
     {
-        public PersonalBirth() : base() { }
+        public PersonalBirth(MyReligiousFlags religiousFlags) : base()
+        {
+            religiousFlags.BaseChurch = PersonalChurches.DekorraLutheranChurch;
+        }
     }
 
     public enum PersonalSchools
@@ -491,7 +479,9 @@ namespace Existence.Beyond.JudgmentDay
 
     public enum ImportantSongs
     {
+        AwesomeGod,
         CanticleOfTheTurning,
+        OneOfUs,
         WadeInTheWater,
     }
 
@@ -503,4 +493,35 @@ namespace Existence.Beyond.JudgmentDay
         {
         }
     }
+
+    /// <summary>
+    /// started personal religion notes in LastPass therapy notes
+    /// </summary>
+    [DivineHumanLevel(HumanLevel.Teenager)]
+    public class StartedMyOwnReligion : BaseEvent
+    {
+        public StartedMyOwnReligion() : base("Started Own Religion")
+        {
+        }
+    }
+
+    internal class PersonalReligionContrafactum1 : ContrafactumSongEvent
+    {
+        public ImportantSongs Song { get; set; }
+        internal PersonalReligionContrafactum1(ImportantSongs Song) : base(PeopleEnumerated.RoweChris, "Awesome God", "musicnotes.com MN0041001")
+        {
+            this.Song = Song;
+        }
+    }
+
+    internal class PersonalReligionContrafactum2 : ContrafactumSongEvent
+    {
+        public ImportantSongs Song { get; set; }
+        internal PersonalReligionContrafactum2(ImportantSongs Song) : base(PeopleEnumerated.RoweChris, "One of Us", "musicnotes.com MN0026701")
+        {
+            this.Song = Song;
+        }
+    }
+
+    
 }
