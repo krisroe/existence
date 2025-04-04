@@ -1,16 +1,18 @@
-﻿using System;
+﻿using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using Existence.Beyond.CosmicSubmission;
 using Existence.Beyond.Infrastructure;
+using Existence.Earth;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates;
-using Existence.Personal;
-using Existence.Time;
-using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
-using System.Collections.Generic;
 using Existence.Earth.Human.People;
-using Existence.Earth.FieldsOfStudy.Psychology;
-using Existence.Earth;
+using Existence.Personal;
 using Existence.Song;
+using Existence.Time;
+using System;
+using System.Collections.Generic;
+using Existence.Earth.Religions;
+using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -65,11 +67,12 @@ namespace Existence.Beyond.JudgmentDay
                 new MultiEvent("Pre-atheist Events",
                     [new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, myReligionFlags),
                     new ELCALutheranConfirmationDespiteNearAtheism()]),
+                new BecameAnAtheist(myReligionFlags),
                 new SemipubliclyClaimToBeTheAntichristAsAJoke(),
                 new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt(),
 
                 new MultiEvent("College Philosophy",
-                  [new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(),
+                  [new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(myReligionFlags),
                    new IfIWasAnOmnipotentBeing()]),
 
                 new MarriageInAChurch(PersonalChurches.SaintDunstansEpiscopalChurch, myReligionFlags),
@@ -89,7 +92,7 @@ namespace Existence.Beyond.JudgmentDay
                 new StartedMyOwnReligion(myReligionFlags),
                 new PersonalReligionContrafactum1(ImportantSongs.AwesomeGod, myReligionFlags),
                 new PersonalReligionContrafactum2(ImportantSongs.OneOfUs),
-                new ZDeviationMessageBoxViolatingCausality(),
+                new ZDeviationMessageBoxViolatingCausality(myReligionFlags),
             };
             OrderedEvents eventsOrdered = new OrderedEvents(null, events);
 
@@ -132,6 +135,7 @@ namespace Existence.Beyond.JudgmentDay
                     if (SwitchChurchBasedOnMove(USCities.WisconsinEndeavor, next))
                     {
                         religiousFlags.BaseChurch = next;
+                        religiousFlags.CurrentReligion = religiousFlags.PrimaryReligion = (int)ChristianDenominations.LutheranELCA;
                         moved = true;
                     }
                 }
@@ -191,6 +195,7 @@ namespace Existence.Beyond.JudgmentDay
         /// else. Still, I did not correct them, I didn't have an issue with them incorrectly thinking that. In hindsight, 
         /// I should have said something (anything would have been better than nothing here).
         /// </summary>
+        [MagicWords("He's got religion.", "Sunday school classmate", "My middle school", "Sunday school classmate's friend")]
         public class HesGotReligionMagicWords : BaseEvent
         {
             [TODO("There's a communication ding here currently not accounted for")]
@@ -216,18 +221,6 @@ namespace Existence.Beyond.JudgmentDay
         public class ELCALutheranConfirmationDespiteNearAtheism : BaseEvent
         {
             public ELCALutheranConfirmationDespiteNearAtheism() : base("Near-atheism ELCA Lutheran Confirmation")
-            {
-            }
-        }
-
-        /// <summary>
-        /// there's no specific event around this other than the previous incidents. Once I
-        /// decided to be an atheist, I already was, and thus it was not a transition of
-        /// significance.
-        /// </summary>
-        public class BecameAnAtheist : BaseEvent
-        {
-            public BecameAnAtheist() : base("Became an Atheist")
             {
             }
         }
@@ -274,10 +267,14 @@ namespace Existence.Beyond.JudgmentDay
         /// very similar for a time. But in the long term, this seems to have been much
         /// more important than it seemed.
         /// </summary>
+        [ApproximateAgeInYears(20)]
+        [Year(2000)]
         public class BrieflyBecameAgnosticBasedOnCollegePhilosophyClass : BaseEvent
         {
-            public BrieflyBecameAgnosticBasedOnCollegePhilosophyClass() : base("Briefly an Agnostic in College")
+            public BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(MyReligiousFlags religionFlags) : base("Briefly an Agnostic in College")
             {
+                religionFlags.CurrentReligion = (int)WorldReligions.Agnosticism;
+                religionFlags.CurrentReligion = (int)WorldReligions.Atheism;
             }
         }
 
@@ -404,6 +401,56 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    public class ReligionHistory
+    {
+        public ReligionHistory()
+        {
+            MyReligiousFlags religionFlags = new MyReligiousFlags(null);
+            List<BaseEvent> events = new List<BaseEvent>()
+            {
+                //Generic Lutheran at birth
+                //1. Father was nonpracticing Catholic
+                //2. Mother was raised Missouri Synod Lutheran but went to less strict denomination church when I was born. This controls.
+                new PersonalBirth(religionFlags),
+
+                //became Lutheran (ELCA) at age 4 immediately on church transition (not to Missouri Synod Lutheran church)
+                new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, religionFlags),
+
+                //I was never Wisconsin Synod Lutheran despite living in Wisconsin
+                new JokeThatIsNotAJokeWisconsinSynodLutheran(religionFlags, (int)ChristianDenominations.LutheranWisconsinSynod),
+
+                //age 14 (1994) becomes primary religion and stays that way
+                new BecameAnAtheist(religionFlags),
+
+                //age 20 (2020) briefly agnostic, but remain atheist
+                new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(religionFlags),
+
+                //age 43 (Feb/Mar 2024) Began developing my own religion, though I didn't switch to it immediately.
+                new StartedMyOwnReligion(religionFlags),
+
+                //age 44 (May 27 2024) beyond religion, this changes current religion to the personal religion, and trips a beyond religion
+                //flag since we're no longer talking about just the divine as the cosmic also comes into play.
+                new ZDeviationMessageBoxViolatingCausality(religionFlags)
+            };
+            OrderedEvents orderedEvents = new OrderedEvents(null, events);
+        }
+    }
+
+    /// <summary>
+    /// I have connections to the main United States Lutheran denominations except for the one
+    /// corresponding to my home state. This seems like something that would be a cosmic/divine
+    /// joke that is not a joke. It's not funny to me.
+    /// </summary>
+    public class JokeThatIsNotAJokeWisconsinSynodLutheran : BaseEvent
+    {
+        public int LutheranDenomination { get; set; }
+        public JokeThatIsNotAJokeWisconsinSynodLutheran(MyReligiousFlags religiousFlags, int LutheranDenomination) : base("Never Wisconsin Synod Lutheran")
+        {
+            this.LutheranDenomination = LutheranDenomination;
+        }
+    }
+
+
     public enum PersonalChurches
     {
         /// <summary>
@@ -428,6 +475,10 @@ namespace Existence.Beyond.JudgmentDay
         [USCities(USCities.WisconsinMadison)]
         [UnitedStatesChristianDenomination(ChristianDenominations.Episcopal)]
         SaintDunstansEpiscopalChurch = 5,
+
+        [USCities(USCities.WisconsinMiddleton)]
+        [UnitedStatesChristianDenomination(ChristianDenominations.Catholic)]
+        SaintBernardCatholicChurch = 6,
     }
 
     /// <summary>
@@ -440,13 +491,13 @@ namespace Existence.Beyond.JudgmentDay
     [Birthdate(1980, 12, 6)]
     [BirthdatePrecise(1980, 12, 6, 12, 53)]
     [LocationInteger((int)PersonalHospitals.SaintMarysMadisonWisconsin)]
-    [UnitedStatesChristianDenomination(ChristianDenominations.Lutheran)]
     public class PersonalBirth : ZBirth
     {
         public PersonalBirth(MyReligiousFlags religiousFlags) : base()
         {
             religiousFlags.BaseChurch = PersonalChurches.DekorraLutheranChurch;
             religiousFlags.ReligiousCapacity = EmotionalCapacity.Minimal;
+            religiousFlags.CurrentReligion = religiousFlags.PrimaryReligion = (int)ChristianDenominations.Lutheran;
         }
     }
 
@@ -504,6 +555,21 @@ namespace Existence.Beyond.JudgmentDay
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\014-WadeInTheWater.txt", PeopleEnumerated.RoweChris)]
         [YouTubeVideoID("DuU7sTGspV8", 2014, 4, 6)]
         WadeInTheWater,
+    }
+
+    /// <summary>
+    /// there's no specific event around this other than the previous incidents. Once I
+    /// decided to be an atheist, I already was, and thus it was not a transition of
+    /// significance.
+    /// </summary>
+    [Year(1994)]
+    [ApproximateAgeInYears(14)]
+    public class BecameAnAtheist : BaseEvent
+    {
+        public BecameAnAtheist(MyReligiousFlags religionFlags) : base("Became an Atheist")
+        {
+            religionFlags.CurrentReligion = religionFlags.PrimaryReligion = (int)WorldReligions.Atheism;
+        }
     }
 
     /// <summary>

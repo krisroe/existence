@@ -4,6 +4,7 @@ using Existence.Beyond.Infrastructure;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Religions;
 using Existence.Time;
 
 namespace Existence.Beyond
@@ -38,6 +39,10 @@ namespace Existence.Beyond
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 4, 4)]
             ExpandReligiousFlags,
+
+            [BeyondObjectVersion(1, 5, 0, 0)]
+            [YearDate(2025, 4, 4)]
+            AddCurrentAndBeyondReligionFlagsAndAddAtheistEvent,
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -80,6 +85,7 @@ namespace Existence.Beyond
             zTimelineEvents.Add(new LikingInappropriateBehaviorMoresoWithIdeaOfPerformingInPublic());
             zTimelineEvents.Add(new LessonEvent("Life's not fair")); //this one needs a real-life lesson.
             zTimelineEvents.Add(new SkepticismOfReligionZSignPost(ZReligiousFlags)); //hit this one out of the park
+            zTimelineEvents.Add(new BecameAnAtheist(ZReligiousFlags));
 
             //it's hard to see this one as anything other than a political/psychological signpoint
             zTimelineEvents.Add(new BaselesslyAccuseATeacherOfBeingACommunist());
@@ -88,7 +94,7 @@ namespace Existence.Beyond
             zTimelineEvents.Add(new SemipubliclyClaimToBeTheAntichristAsAJoke());
             zTimelineEvents.Add(new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt());
 
-            zTimelineEvents.Add(new ZDeviationMessageBoxViolatingCausality());
+            zTimelineEvents.Add(new ZDeviationMessageBoxViolatingCausality(ZReligiousFlags));
             ZTimeline = new OrderedEvents(null, zTimelineEvents);
         }
     }
@@ -103,8 +109,10 @@ namespace Existence.Beyond
     [YearDate(2024, 5, 27)]
     public class ZDeviationMessageBoxViolatingCausality : BaseEvent
     {
-        public ZDeviationMessageBoxViolatingCausality() : base("Time Traveling Message Box")
+        public ZDeviationMessageBoxViolatingCausality(MyReligiousFlags religiousFlags) : base("Time Traveling Message Box")
         {
+            religiousFlags.CurrentReligion = (int)WorldReligions.MyPersonalReligion;
+            religiousFlags.BeyondReligion = true;
         }
     }
 
@@ -126,6 +134,9 @@ namespace Existence.Beyond
         public EmotionalCapacity ReligiousCapacity { get; set; }
         public PersonalChurches? BaseChurch { get; set; }
         public PersonalChurches? PianoChurch { get; set; }
+        public int CurrentReligion { get; set; }
+        public int PrimaryReligion { get; set; }
+        public bool BeyondReligion { get; set; }
 
         public void IncrementRespectful(int increment)
         {

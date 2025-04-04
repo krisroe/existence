@@ -153,6 +153,7 @@ namespace Existence.Earth.Countries.UnitedStates
         WisconsinEndeavor,
         WisconsinHarmonyGrove,
         WisconsinMadison,
+        WisconsinMiddleton,
         WisconsinMilwaukee,
         WisconsinOxford,
         WisconsinPortage,

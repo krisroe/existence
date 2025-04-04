@@ -1,4 +1,5 @@
 ﻿using Existence.Beyond.Infrastructure;
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Countries;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.Countries.UnitedStates.States;
@@ -34,6 +35,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(2, 0, 0, 0)]
             [YearDate(2025, 4, 2)]
             PostElection,
+
+            [BeyondObjectVersion(2, 1, 0, 0)]
+            [YearDate(2025, 4, 4)]
+            AddVotedAtLocation,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -315,6 +320,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             }
         }
 
+        [VotedAtLocation((int)PersonalChurches.SaintBernardCatholicChurch)]
         public static class AprilFoolsDay2025WisconsinElection
         {
             /// <summary>

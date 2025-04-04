@@ -315,6 +315,15 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    internal class VotedAtLocationAttribute : Attribute
+    {
+        public int Location { get; set; }
+        public VotedAtLocationAttribute(int Location)
+        {
+            this.Location = Location;
+        }
+    }
+
     internal class SongEvent : BaseEvent
     {
         internal SongEvent(string SongName) : base(SongName)

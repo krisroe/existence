@@ -10,29 +10,6 @@ using Existence.Earth.Alphabet;
 
 namespace Existence.Personal.Beyond
 {
-    internal class ReligionHistory
-    {
-        public ReligionHistory()
-        {
-            
-        }
-    }
-
-    /// <summary>
-    /// Birth Religion: 
-    /// Lutheran (Generic). This is based on parent preferences.
-    /// Did not become Missouri Synod Lutheran despite the opportunity
-    /// Lutheran (ELCA). This is specific despite no real personal understanding of Lutheran denominations.
-    /// Disrespectful Flag turned on (Childhood nativity play). Not permanent.
-    /// Skepticism Flag turned on (I have no sin). This is permanent.
-    /// Respectful Flag turned on (First Communion as Acolyte). I think this was permanent.
-    /// Confirmed (Nearing Atheism switch, Doubt in a Z sense)
-    /// Fake Reputation ("He's got religion"). Only did this once.
-    /// Atheist.
-    /// Agnostic (brief period in college based on philosophy class, didn't stick)
-    /// 
-    /// March 2024: Started own religion. Contrafactums of Awesome God and One of Us.
-    /// </summary>
     internal class JudgmentDaySomethingReligious
     {
         //2018 August/September created arrangement of Wade in the Water
