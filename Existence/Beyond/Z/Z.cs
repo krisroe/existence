@@ -34,6 +34,10 @@ namespace Existence.Beyond
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 4, 2)]
             AddChurchesToFlagsRenameClassMoveTimeTravelingMessageBoxEventToBeMorePublic,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 4, 4)]
+            ExpandReligiousFlags,
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -108,14 +112,29 @@ namespace Existence.Beyond
     {
         public MyReligiousFlags(bool? Skepticism)
         {
+            Disrespectful = 0;
             Respectful = 0;
             BornAgain = false;
+            DivineCapacity = EmotionalCapacity.None;
+            ReligiousCapacity = EmotionalCapacity.None;
         }
-        public int Respectful { get; set; }
+        private int Respectful { get; set; }
+        private int Disrespectful { get; set;  }
         public bool Skepticism { get; set; }
         public bool BornAgain { get; set; }
+        public EmotionalCapacity DivineCapacity { get; set; }
+        public EmotionalCapacity ReligiousCapacity { get; set; }
         public PersonalChurches? BaseChurch { get; set; }
         public PersonalChurches? PianoChurch { get; set; }
+
+        public void IncrementRespectful(int increment)
+        {
+            this.Respectful += increment;
+        }
+        public void IncrementDisrespectful(int increment)
+        {
+            this.Disrespectful += increment;
+        }
     }
 
     [PersonalHumanLevel(HumanLevel.Baby)]

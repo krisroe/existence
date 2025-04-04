@@ -44,7 +44,7 @@ namespace Existence.Beyond.Infrastructure
         School,
     }
 
-    internal enum EmotionalCapacity
+    public enum EmotionalCapacity
     {
         None,
         Minimal,
@@ -73,17 +73,6 @@ namespace Existence.Beyond.Infrastructure
     {
         Days,
         Months,
-    }
-
-    internal class CapacityForEmotionAttribute : Attribute
-    {
-        internal Emotions Emotion { get; set; }
-        internal EmotionalCapacity Capacity { get; set; }
-        internal CapacityForEmotionAttribute(Emotions Emotion, EmotionalCapacity Capacity)
-        {
-            this.Emotion = Emotion;
-            this.Capacity = Capacity;
-        }
     }
 
     internal class CosmicPayday

@@ -46,7 +46,6 @@ namespace Existence.Beyond.JudgmentDay
 
             List<BaseEvent> events = new List<BaseEvent>()
             {
-                new CapacityForTheReligious(),
                 new PersonalBirth(myReligionFlags),
                 new MyBaptism(),
                 new ChurchTransitionAfterMove(USCities.WisconsinEndeavor, myReligionFlags),
@@ -87,9 +86,8 @@ namespace Existence.Beyond.JudgmentDay
 
                 new DoneWithChurchWithAPushFromCovid(),
 
-                new CapacityForTheDivine(),
-                new StartedMyOwnReligion(),
-                new PersonalReligionContrafactum1(ImportantSongs.AwesomeGod),
+                new StartedMyOwnReligion(myReligionFlags),
+                new PersonalReligionContrafactum1(ImportantSongs.AwesomeGod, myReligionFlags),
                 new PersonalReligionContrafactum2(ImportantSongs.OneOfUs),
                 new ZDeviationMessageBoxViolatingCausality(),
             };
@@ -169,7 +167,7 @@ namespace Existence.Beyond.JudgmentDay
         {
             public FirstCommunionAsAnAcolyte(MyReligiousFlags myReligiousFlags) : base("First Communion as Acolyte")
             {
-                myReligiousFlags.Respectful += 1;
+                myReligiousFlags.IncrementRespectful(1);
             }
         }
 
@@ -182,7 +180,7 @@ namespace Existence.Beyond.JudgmentDay
         {
             public LeadRoleInSilentNightChristmasPageant(MyReligiousFlags myReligiousFlags) : base("Lead Role in Silent Night Church Christmas Pageant")
             {
-                myReligiousFlags.Respectful += 2;
+                myReligiousFlags.IncrementRespectful(2);
             }
         }
 
@@ -198,7 +196,7 @@ namespace Existence.Beyond.JudgmentDay
             [TODO("There's a communication ding here currently not accounted for")]
             public HesGotReligionMagicWords(int Source, int Target, string MyRole, int Location, MyReligiousFlags religiousFlags) : base("\"He's got religion\"")
             {
-                religiousFlags.Respectful++;
+                religiousFlags.IncrementRespectful(1);
             }
         }
 
@@ -401,7 +399,7 @@ namespace Existence.Beyond.JudgmentDay
         {
             public GivingUpGivingUpSomethingForLentForLent(MyReligiousFlags myReligiousFlags) : base("Joke Giving Up Nothing for Lent")
             {
-                myReligiousFlags.Respectful--;
+                myReligiousFlags.IncrementDisrespectful(1);
             }
         }
     }
@@ -448,6 +446,7 @@ namespace Existence.Beyond.JudgmentDay
         public PersonalBirth(MyReligiousFlags religiousFlags) : base()
         {
             religiousFlags.BaseChurch = PersonalChurches.DekorraLutheranChurch;
+            religiousFlags.ReligiousCapacity = EmotionalCapacity.Minimal;
         }
     }
 
@@ -507,32 +506,27 @@ namespace Existence.Beyond.JudgmentDay
         WadeInTheWater,
     }
 
-    [CapacityForEmotion(Emotions.Divine, EmotionalCapacity.Minimal)]
-    [YearMonth(2024, 3)]
-    public class CapacityForTheDivine : BaseEvent
-    {
-        public CapacityForTheDivine() : base("Starting Divine Feeling")
-        {
-        }
-    }
-
     /// <summary>
-    /// started personal religion notes in LastPass therapy notes
+    /// started personal religion notes in LastPass therapy notes. Probably stated in February,
+    /// but truly started in earnest in March.
     /// </summary>
     [DivineHumanLevel(HumanLevel.Teenager)]
+    [YearMonth(2024, 2)]
     public class StartedMyOwnReligion : BaseEvent
     {
-        public StartedMyOwnReligion() : base("Started Own Religion")
+        public StartedMyOwnReligion(MyReligiousFlags religiousFlags) : base("Started Own Religion")
         {
+            religiousFlags.DivineCapacity = EmotionalCapacity.Minimal;
         }
     }
 
     internal class PersonalReligionContrafactum1 : ContrafactumSongEvent
     {
         public ImportantSongs Song { get; set; }
-        internal PersonalReligionContrafactum1(ImportantSongs Song) : base(PeopleEnumerated.RoweChris, "Awesome God", "musicnotes.com MN0041001")
+        internal PersonalReligionContrafactum1(ImportantSongs Song, MyReligiousFlags religiousFlags) : base(PeopleEnumerated.RoweChris, "Awesome God", "musicnotes.com MN0041001")
         {
             this.Song = Song;
+            religiousFlags.BornAgain = true;
         }
     }
 

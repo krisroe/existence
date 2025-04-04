@@ -130,6 +130,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 18, 0, 0)]
             [YearDate(2025, 4, 2)]
             ReorganizedEventCreationChangeZStuffNamePassReligiousFlagsToPianoLessonsStarting,
+
+            [BeyondObjectVersion(1, 19, 0, 0)]
+            [YearDate(2025, 4, 4)]
+            ReorganizedReligiousFlags,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -164,7 +168,6 @@ namespace Existence.Beyond.JudgmentDay
                 new SelfShortFirstName(),
                 new SelfFullFirstName(),
                 new SisterFirstName(),
-                new CapacityForTheReligious(),
                 new FirstMemoryEvent("touching the bark of the birch trees outside home"),
                 new MovedToSecondSignificantHome(PlaceType.Home, USCities.WisconsinEndeavor, string.Empty),
                 new EarlyHomeMemory("warming myself in the morning by the radiator"),
@@ -575,7 +578,7 @@ namespace Existence.Beyond.JudgmentDay
     {
         public ChildhoodNativityPlayDisrespect1(MyReligiousFlags flags) : base("Childish Nativity Plays")
         {
-            flags.Respectful--;
+            flags.IncrementDisrespectful(1);
         }
     }
 
@@ -590,7 +593,7 @@ namespace Existence.Beyond.JudgmentDay
     {
         public ChildhoodNativityPlayDisrespect2(MyReligiousFlags flags) : base("Childish Nativity Scenes")
         {
-            flags.Respectful--;
+            flags.IncrementDisrespectful(1);
         }
     }
 
@@ -616,7 +619,7 @@ namespace Existence.Beyond.JudgmentDay
     {
         public SkepticismOfReligionPersonal(MyReligiousFlags myFlags) : base("Skepticism of Religion")
         {
-            myFlags.Respectful++;
+            myFlags.IncrementRespectful(1);
             myFlags.Skepticism = true;
         }
 
@@ -643,14 +646,6 @@ namespace Existence.Beyond.JudgmentDay
             {
                 return null;
             }
-        }
-    }
-
-    [CapacityForEmotion(Emotions.Religious, EmotionalCapacity.Minimal)]
-    public class CapacityForTheReligious : BaseEvent
-    {
-        public CapacityForTheReligious() : base("Starting Religious Feeling")
-        {
         }
     }
 }
