@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Existence.Earth.Human.People;
 using Existence.Earth.FieldsOfStudy.Psychology;
 using Existence.Earth;
+using Existence.Song;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -67,7 +68,11 @@ namespace Existence.Beyond.JudgmentDay
                     new ELCALutheranConfirmationDespiteNearAtheism()]),
                 new SemipubliclyClaimToBeTheAntichristAsAJoke(),
                 new DoSomethingWithYourSoulAsAJokeAndItsUnclearWhatHappensToIt(),
-                new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(),
+
+                new MultiEvent("College Philosophy",
+                  [new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(),
+                   new IfIWasAnOmnipotentBeing()]),
+
                 new MarriageInAChurch(PersonalChurches.SaintDunstansEpiscopalChurch, myReligionFlags),
                 new ChurchChoirDirectorEvent(ChurchChoirDirectors.MitchellPatton, ChoirType.Adult),
                 new IamthePopeOriginalSong(),
@@ -278,6 +283,15 @@ namespace Existence.Beyond.JudgmentDay
             }
         }
 
+        [MusicNotesRepositoryAudioFile(@"Released\Audio\008-IfIWasAnOmnipotentBeing.wav", PeopleEnumerated.RoweChris)]
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\013-IfIWasAnOmnipotentBeing.txt", PeopleEnumerated.RoweChris)]        
+        public class IfIWasAnOmnipotentBeing : OriginalSongEvent
+        {
+            public IfIWasAnOmnipotentBeing() : base("If I was an omnipotent being")
+            {
+            }
+        }
+
         [LocationInteger((int)PersonalChurches.SaintDunstansEpiscopalChurch)]
         [YearDate(2007, 4, 28)]
         public class MarriageInAChurch : BaseEvent
@@ -479,9 +493,17 @@ namespace Existence.Beyond.JudgmentDay
 
     public enum ImportantSongs
     {
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\015-AwesomeGod.txt", PeopleEnumerated.RoweChris)]
         AwesomeGod,
+
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\017-CanticleOfTheTurning.txt", PeopleEnumerated.RoweChris)]
         CanticleOfTheTurning,
+
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\016-OneOfUs.txt", PeopleEnumerated.RoweChris)]
         OneOfUs,
+
+        [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\014-WadeInTheWater.txt", PeopleEnumerated.RoweChris)]
+        [YouTubeVideoID("DuU7sTGspV8", 2014, 4, 6)]
         WadeInTheWater,
     }
 

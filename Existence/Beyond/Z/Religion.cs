@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Existence.Beyond.Infrastructure;
 
 namespace Existence.Beyond.Z
 {
+    [IsReleased(false)]
     public class MyPersonalReligion : PersonalReligionRules
     {
         public MyPersonalReligion()
