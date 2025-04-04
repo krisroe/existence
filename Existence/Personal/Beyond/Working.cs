@@ -12,20 +12,7 @@ namespace Existence.Personal.Beyond
 {
     internal class JudgmentDaySomethingReligious
     {
-        //2018 August/September created arrangement of Wade in the Water
-        //2018-09-23
-        //1. experienced synethesia in pronouns when reading the litergy where my experience of the language
-        //changed based on my beliefs about pronouns.
-        //2. Played postlude of Wade in the Water after service. Nobody but the choir knew it
-        //was unplanned because the choir was in the choir loft and everyone else was downstairs. This was
-        //a direct precursor of what I would do at the later company event.
-
-        //Choir Director #1: Mitchell
-        //Choir Director #2: Martin Ganschow (Deanna Clement's version of Canticle of the Turning)
-        //Choir Director #3: Deanna Clement (paperless).
-
-        //March 2024. Contrafactum of Awesome God and One of Us. Capacity for the divine.
-        //Around this time started developing personal religion:
+        //Personal religion notes:
         //1. Origin story: Omniverse Prime (originally Universe Prime)
         //2. Good and Evil: It is up to the objects in the simulation to discriminate and show to whoever's listening
         //3. Capacity for the divine: Different objects have different capacity for the divine, corresponding
@@ -41,7 +28,7 @@ namespace Existence.Personal.Beyond
         //semiconscious. The subconscious processes have a more direct relationship with the beyond, but
         //this is hidden.
 
-        //May 2024. Time-traveling message box. Later recognized one valid interpretation would be religon.
+        //May 2024. Time-traveling message box. Later recognized one valid interpretation would be religious miracle.
 
         //        IPT   Cosmic
         //Loop:  Human          Personal

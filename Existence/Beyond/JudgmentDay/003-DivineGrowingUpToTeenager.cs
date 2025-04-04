@@ -81,6 +81,7 @@ namespace Existence.Beyond.JudgmentDay
                 new MetSomeoneWhoSeemedToThinkHeWasGod((int)PersonalHospitals.SaintMarysMadisonWisconsin),
                 new ChurchChoirDirectorEvent(ChurchChoirDirectors.MartinGanschow, ChoirType.Adult),
 
+                new CreatedSoloArrangementOfReligiousSong(ImportantSongs.WadeInTheWater),
                 new WordBasedSynethesiaDuringChurchService(),
                 new SemiPubliclyPerformedMyArrangementInChurch((int)PeopleEnumerated.RoweChris, ImportantSongs.WadeInTheWater),
 
@@ -336,9 +337,26 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         /// <summary>
+        /// Inspired by
+        /// 1. A coworker wading across the water at a work event at the zoo
+        /// 2. A coworker having extreme difficult getting home after a strong local storm in August
+        /// This is a solo voice + piano arrangement
+        /// </summary>
+        [YearMonth(2018, 8)]
+        public class CreatedSoloArrangementOfReligiousSong : BaseEvent
+        {
+            public ImportantSongs Song { get; set; }
+            public CreatedSoloArrangementOfReligiousSong(ImportantSongs Song) : base("Personal Wade in the Water Arrangement")
+            {
+                this.Song = Song;
+            }
+        }
+
+        /// <summary>
         /// At the end of the service I played+sang my arrangement of "Wade in the Water" at
         /// the end of the service. This was in the choir loft, and no one but the choir
-        /// really knew anything out of the ordinary had happened.
+        /// really knew anything out of the ordinary had happened. This was done in preparation
+        /// for a later company event.
         /// 
         /// Deanna noted that my arrangement was kind of low, an accurate observation
         /// because I had tailored it to my tenor voice.
