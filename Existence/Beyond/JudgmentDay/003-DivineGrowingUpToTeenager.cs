@@ -16,6 +16,7 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 
 namespace Existence.Beyond.JudgmentDay
 {
+    [MusicNotesRepositoryScriptFile(@"Released\Scripts\001-JudgmentDayDivineTeenager.txt", PeopleEnumerated.RoweChris)]
     [IsReleased(false)]
     internal class HumanDivineGrowingUpToTeenager
     {

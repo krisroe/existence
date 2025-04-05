@@ -63,6 +63,16 @@ namespace Existence.Personal
             this.RelativePath = RelativePath;
             this.Interpreter = Interpreter;
         }
+    }
 
+    public class MusicNotesRepositoryScriptFile : Attribute
+    {
+        public string RelativePath { get; set; }
+        public PeopleEnumerated Writer { get; set; }
+        public MusicNotesRepositoryScriptFile(string RelativePath, PeopleEnumerated Interpreter)
+        {
+            this.RelativePath = RelativePath;
+            this.Writer = Interpreter;
+        }
     }
 }
