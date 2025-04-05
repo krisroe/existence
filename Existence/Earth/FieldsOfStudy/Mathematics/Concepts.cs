@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Existence.Earth.Time;
 
 namespace Existence.Earth.FieldsOfStudy.Mathematics
@@ -10,6 +9,17 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         public NumberAttribute(int Number)
         {
             this.Number = Number;
+        }
+    }
+
+    public class FavoriteNumberRangeAttribute : Attribute
+    {
+        public int Low { get; set; }
+        public int High { get; set; }
+        public FavoriteNumberRangeAttribute(int Low, int High)
+        {
+            this.Low = Low;
+            this.High = High;
         }
     }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.FieldsOfStudy.Psychology;
 using Existence.Earth.Human;
@@ -659,11 +660,19 @@ namespace Existence.Beyond.Infrastructure
 
     internal class ReleaseSongJustification : LevelJustification
     {
-        internal SongEvent Song { get; set; }
+        internal SongEvent? Song { get; set; }
+        internal ImportantSongs? ImportantSong { get; set; }
         internal SongJustificationType Justification { get; set; }
         internal ReleaseSongJustification(SongEvent Song, SongJustificationType Justification)
         {
             this.Song = Song;
+            this.ImportantSong = null;
+            this.Justification = Justification;
+        }
+        internal ReleaseSongJustification(ImportantSongs ImportantSong, SongJustificationType Justification)
+        {
+            this.Song = null;
+            this.ImportantSong = ImportantSong;
             this.Justification = Justification;
         }
     }
@@ -748,5 +757,23 @@ namespace Existence.Beyond.Infrastructure
         None = 0,
         Vote = 1,
         Prediction = 2
+    }
+
+    public class JudgableReligionsAttribute : Attribute
+    {
+        public int[] Religions { get; set; }
+        public JudgableReligionsAttribute(params int[] Religions)
+        {
+            this.Religions = Religions;
+        }
+    }
+
+    public class ReligionAttribute : Attribute
+    {
+        public int Religion { get; set; }
+        public ReligionAttribute(int Religion)
+        {
+            this.Religion = Religion;
+        }
     }
 }

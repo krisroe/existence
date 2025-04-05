@@ -1,5 +1,5 @@
-﻿using Existence.Beyond.JudgmentDay;
-using Existence.Beyond.Infrastructure;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Code;
 using Existence.Earth.Countries;
@@ -7,7 +7,7 @@ using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human;
 using Existence.Earth.Human.People;
-using Existence.Earth;
+using Existence.Earth.Religions;
 using Existence.Logic;
 using Existence.Personal.Infrastructure;
 using Existence.Time;
@@ -104,6 +104,7 @@ namespace Existence.Beyond.Timeless
         [FavoriteNumber(24865)]
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
+        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)ChristianDenominations.LutheranELCA)]
         [BirthdatePrecise(1980, 12, 6, 12, 53)]
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [ShortName("Chris Rowe")]
@@ -128,6 +129,7 @@ namespace Existence.Beyond.Timeless
             {
                 [MarriageDate(1976, 6, 26)]
                 [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                [Religion((int)ChristianDenominations.Lutheran)]
                 public static class v1
                 {
                     [Birthdate(1952, 2, 18)]
@@ -168,6 +170,7 @@ namespace Existence.Beyond.Timeless
 
                 [MarriageDate(2007, 4, 28)]
                 [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                [Religion((int)ChristianDenominations.Episcopal)]
                 public static class v3
                 {
                     [Birthdate(1973, 7, 18)]
@@ -401,9 +404,10 @@ namespace Existence.Beyond.Timeless
         [Archetypes(Archetypes.Programmer)]
         [FavoriteColor(KnownColor.Transparent)]
         [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
-        [FavoriteNumber(24865)]
+        [FavoriteNumberRange(20000, 29999)]
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
+        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)WorldReligions.Christianity)]
         [HumanGender(HumanGender.Male)]
         public class GenericHumanSelf
         {
@@ -411,6 +415,7 @@ namespace Existence.Beyond.Timeless
             {
                 [Marriage]
                 [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                [Religion((int)WorldReligions.Christianity)]
                 public class example1
                 {
                     [FemaleSiblingCount(1, 2)]
@@ -443,6 +448,7 @@ namespace Existence.Beyond.Timeless
                 [MarriageDateRange(Humanity.YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE,
                                    HumanSelf.YEAR_Z_DEVIATION)]
                 [FamilyUnit(FamilyUnitType.NuclearFamily)]
+                [Religion((int)WorldReligions.Christianity)]
                 public static class example3
                 {
                     public class SpouseOlder { }

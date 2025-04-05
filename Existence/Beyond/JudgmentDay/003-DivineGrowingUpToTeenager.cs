@@ -17,9 +17,32 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 namespace Existence.Beyond.JudgmentDay
 {
     [MusicNotesRepositoryScriptFile(@"Released\Scripts\001-JudgmentDayDivineTeenager.txt", PeopleEnumerated.RoweChris)]
-    [IsReleased(false)]
-    internal class HumanDivineGrowingUpToTeenager
+    internal class HumanDivineGrowingUpToTeenager : JudgmentDayBase
     {
+        private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
+
+        internal override List<LevelJustification> GetLevelJustifications()
+        {
+            return new List<LevelJustification>()
+            {
+                new ReleaseSongJustification(_IfIWasAnOmnipotentBeing, SongJustificationType.ReleaseSong),
+                new ReleaseSongJustification(ImportantSongs.WadeInTheWater, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.AwesomeGod, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.OneOfUs, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.CanticleOfTheTurning, SongJustificationType.InterpretSongMeaning),
+            };
+        }
+
+        internal override List<TimelessChange>? GetTimelessChanges()
+        {
+            new TimelessChange("Genericize Favorite Number"); //this is a freebie
+            return new List<TimelessChange>()
+            {
+                new TimelessChange("Add Timeless Religion"),
+                new TimelessChange("Add Nuclear Family Religions")
+            };
+        }
+
         /// <summary>
         /// this particular year of sunday school is the most important
         /// but I don't really know why.
@@ -46,6 +69,7 @@ namespace Existence.Beyond.JudgmentDay
         public HumanDivineGrowingUpToTeenager()
         {
             MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
+            _IfIWasAnOmnipotentBeing = new IfIWasAnOmnipotentBeing();
 
             List<BaseEvent> events = new List<BaseEvent>()
             {
@@ -74,7 +98,7 @@ namespace Existence.Beyond.JudgmentDay
 
                 new MultiEvent("College Philosophy",
                   [new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(myReligionFlags),
-                   new IfIWasAnOmnipotentBeing()]),
+                   _IfIWasAnOmnipotentBeing]),
 
                 new MarriageInAChurch(PersonalChurches.SaintDunstansEpiscopalChurch, myReligionFlags),
                 new ChurchChoirDirectorEvent(ChurchChoirDirectors.MitchellPatton, ChoirType.Adult),
