@@ -96,6 +96,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(5, 3, 0, 0)]
             [YearDate(2025, 4, 6)]
             AddChoirDirectorsAndArrangements,
+
+            [BeyondObjectVersion(5, 4, 0, 0)]
+            [YearDate(2025, 4, 6)]
+            MarkChoirDirectorsAsChurchChoirDirectors
         }
 
         /// <summary>
@@ -198,7 +202,7 @@ namespace Existence.Beyond.Timeless
                 }
             }
 
-            public static class ChoirDirectors
+            public static class ChurchChoirDirectors
             {
                 [ChoirType(ChoirType.Childrens)]
                 [Sex(Sexes.Female)]
@@ -496,7 +500,7 @@ namespace Existence.Beyond.Timeless
                 }
             }
 
-            public static class ChoirDirectors
+            public static class ChurchChoirDirectors
             {
                 [Arrangement(ImportantSongs.CanticleOfTheTurning, ArrangementType.SATBVoiceAndPiano)]
                 [Sex(Sexes.Female)]
