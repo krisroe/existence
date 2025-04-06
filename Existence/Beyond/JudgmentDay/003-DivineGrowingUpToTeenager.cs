@@ -19,6 +19,17 @@ namespace Existence.Beyond.JudgmentDay
     [MusicNotesRepositoryScriptFile(@"Released\Scripts\001-JudgmentDayDivineTeenager.txt", PeopleEnumerated.RoweChris)]
     internal class HumanDivineGrowingUpToTeenager : JudgmentDayBase
     {
+        public enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 4, 5)]
+            InitialRelease,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 4, 6)]
+            AddTimelessChoirDirectorsAndArrangements
+        }
+
         private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -39,7 +50,10 @@ namespace Existence.Beyond.JudgmentDay
             return new List<TimelessChange>()
             {
                 new TimelessChange("Add Timeless Religion"),
-                new TimelessChange("Add Nuclear Family Religions")
+                new TimelessChange("Add Nuclear Family Religions"),
+                new TimelessChange("Add Choir Directors"),
+                new TimelessChange("Add Wade in the Water Arrangement"),
+                new TimelessChange("Add Canticle of the Turning Arrangement")
             };
         }
 

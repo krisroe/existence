@@ -1,5 +1,7 @@
 ﻿
 using Existence.Beyond.Infrastructure;
+using Existence.Beyond.JudgmentDay;
+using System;
 
 namespace Existence.Personal
 {
@@ -18,6 +20,32 @@ namespace Existence.Personal
     {
         Childrens,
         Adult
+    }
+
+    public class ChoirTypeAttribute : Attribute
+    {
+        public ChoirType ChoirType { get; set; }
+        public ChoirTypeAttribute(ChoirType ChoirType)
+        {
+            this.ChoirType = ChoirType;
+        }
+    }
+
+    public enum ArrangementType
+    {
+        SATBVoiceAndPiano,
+        SoloVoiceAndPiano,
+    }
+
+    public class ArrangementAttribute : Attribute
+    {
+        public ImportantSongs Song { get; set; }
+        public ArrangementType ArrangementType { get; set; }
+        public ArrangementAttribute(ImportantSongs Song, ArrangementType ArrangementType)
+        {
+            this.Song = Song;
+            this.ArrangementType = ArrangementType;
+        }
     }
 
     public enum ChurchChoirDirectors

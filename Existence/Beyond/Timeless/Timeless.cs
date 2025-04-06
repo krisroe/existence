@@ -1,4 +1,5 @@
 ﻿using Existence.Beyond.Infrastructure;
+using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Code;
@@ -9,6 +10,7 @@ using Existence.Earth.Human;
 using Existence.Earth.Human.People;
 using Existence.Earth.Religions;
 using Existence.Logic;
+using Existence.Personal;
 using Existence.Personal.Infrastructure;
 using Existence.Time;
 using System;
@@ -86,6 +88,14 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(5, 1, 0, 0)]
             [YearDate(2025, 3, 30)]
             UsePreciseBirthDateObject,
+
+            [BeyondObjectVersion(5, 2, 0, 0)]
+            [YearDate(2025, 4, 5)]
+            AddJudgableReligions,
+
+            [BeyondObjectVersion(5, 3, 0, 0)]
+            [YearDate(2025, 4, 6)]
+            AddChoirDirectorsAndArrangements,
         }
 
         /// <summary>
@@ -177,6 +187,7 @@ namespace Existence.Beyond.Timeless
                     [Sex(Sexes.Female)]
                     public class Spouse1 { }
 
+                    [Arrangement(ImportantSongs.WadeInTheWater, ArrangementType.SoloVoiceAndPiano)]
                     public class Spouse2 { }
 
                     [Birthdate(2011, 6, 28)]
@@ -185,6 +196,26 @@ namespace Existence.Beyond.Timeless
                     [Birthdate(2013, 4, 11)]
                     public class Brother { }
                 }
+            }
+
+            public static class ChoirDirectors
+            {
+                [ChoirType(ChoirType.Childrens)]
+                [Sex(Sexes.Female)]
+                public static class v1 { }
+
+                [ChoirType(ChoirType.Adult)]
+                [Sex(Sexes.Male)]
+                public static class v2 { }
+
+                [ChoirType(ChoirType.Adult)]
+                [Sex(Sexes.Male)]
+                public static class v3 { }
+
+                [ChoirType(ChoirType.Adult)]
+                [Arrangement(ImportantSongs.CanticleOfTheTurning, ArrangementType.SATBVoiceAndPiano)]
+                [Sex(Sexes.Female)]
+                public static class v4 { }
             }
 
             public static class Employers
@@ -454,6 +485,7 @@ namespace Existence.Beyond.Timeless
                     public class SpouseOlder { }
 
                     [Me]
+                    [Arrangement(ImportantSongs.WadeInTheWater, ArrangementType.SoloVoiceAndPiano)]
                     public class SpouseYounger { }
 
                     [Sex(Sexes.Female)]
@@ -462,6 +494,13 @@ namespace Existence.Beyond.Timeless
                     [Sex(Sexes.Male)]
                     public class SiblingYounger { }
                 }
+            }
+
+            public static class ChoirDirectors
+            {
+                [Arrangement(ImportantSongs.CanticleOfTheTurning, ArrangementType.SATBVoiceAndPiano)]
+                [Sex(Sexes.Female)]
+                public static class example1 { }
             }
 
             public static class Employers
