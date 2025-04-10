@@ -17,9 +17,46 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 namespace Existence.Beyond.JudgmentDay
 {
     [MusicNotesRepositoryScriptFile(@"Released\Scripts\001-JudgmentDayDivineTeenager.txt", PeopleEnumerated.RoweChris)]
-    [IsReleased(false)]
-    internal class HumanDivineGrowingUpToTeenager
+    internal class HumanDivineGrowingUpToTeenager : JudgmentDayBase
     {
+        public enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 4, 5)]
+            InitialRelease,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 4, 6)]
+            AddTimelessChoirDirectorsAndArrangements
+        }
+
+        private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
+
+        internal override List<LevelJustification> GetLevelJustifications()
+        {
+            return new List<LevelJustification>()
+            {
+                new ReleaseSongJustification(_IfIWasAnOmnipotentBeing, SongJustificationType.ReleaseSong),
+                new ReleaseSongJustification(ImportantSongs.WadeInTheWater, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.AwesomeGod, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.OneOfUs, SongJustificationType.InterpretSongMeaning),
+                new ReleaseSongJustification(ImportantSongs.CanticleOfTheTurning, SongJustificationType.InterpretSongMeaning),
+            };
+        }
+
+        internal override List<TimelessChange>? GetTimelessChanges()
+        {
+            new TimelessChange("Genericize Favorite Number"); //this is a freebie
+            return new List<TimelessChange>()
+            {
+                new TimelessChange("Add Timeless Religion"),
+                new TimelessChange("Add Nuclear Family Religions"),
+                new TimelessChange("Add Choir Directors"),
+                new TimelessChange("Add Wade in the Water Arrangement"),
+                new TimelessChange("Add Canticle of the Turning Arrangement")
+            };
+        }
+
         /// <summary>
         /// this particular year of sunday school is the most important
         /// but I don't really know why.
@@ -46,6 +83,7 @@ namespace Existence.Beyond.JudgmentDay
         public HumanDivineGrowingUpToTeenager()
         {
             MyReligiousFlags myReligionFlags = new MyReligiousFlags(Skepticism: null);
+            _IfIWasAnOmnipotentBeing = new IfIWasAnOmnipotentBeing();
 
             List<BaseEvent> events = new List<BaseEvent>()
             {
@@ -74,7 +112,7 @@ namespace Existence.Beyond.JudgmentDay
 
                 new MultiEvent("College Philosophy",
                   [new BrieflyBecameAgnosticBasedOnCollegePhilosophyClass(myReligionFlags),
-                   new IfIWasAnOmnipotentBeing()]),
+                   _IfIWasAnOmnipotentBeing]),
 
                 new MarriageInAChurch(PersonalChurches.SaintDunstansEpiscopalChurch, myReligionFlags),
                 new ChurchChoirDirectorEvent(ChurchChoirDirectors.MitchellPatton, ChoirType.Adult),
