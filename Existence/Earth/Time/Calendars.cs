@@ -158,6 +158,21 @@ namespace Existence.Earth.Time
         [CalendarType(CalendarType.Solar)]
         Mandaean,
 
+        /// <summary>
+        /// Ancient Israelite calendar; diverged from Jewish 
+        /// practice around the Babylonian Exile (6th century BCE)
+        /// </summary>
+        [CalendarType(CalendarType.Lunisolar)]
+        Samaritan,
+
+        /// <summary>
+        /// controversial, lunar-based variability added in 2010,
+        /// with a split over which is used
+        /// </summary>
+        [CalendarType(CalendarType.Solar)]
+        [Year(2003)]
+        Nanakshahi,
+
         #endregion
 
         #region East Asian Cultural

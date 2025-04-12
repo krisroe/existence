@@ -85,6 +85,7 @@ namespace Existence.Earth.Religions
 
         [AbrahamicReligion]
         [NumberOfFollowers(1900000000, 2000000000)] //1.9-2.0 billion
+        [Calendar(Calendars.Hijri)]
         Islam,
 
         [NumberOfFollowers(1200000000, 1300000000)] //1.2-1.3 billion
@@ -108,6 +109,7 @@ namespace Existence.Earth.Religions
         FolkAndTraditionalReligions,
 
         [NumberOfFollowers(25000000, 30000000)] //25-30 million
+        [Calendar(Calendars.Nanakshahi)]
         Sikhism,
 
         [AbrahamicReligion]
@@ -140,6 +142,7 @@ namespace Existence.Earth.Religions
         Zoroastrianism,
 
         [NumberOfFollowers(60000, 100000)]
+        [Calendar(Calendars.Mandaean)]
         Mandaeism,
 
         [AbrahamicReligion]

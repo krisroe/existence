@@ -629,6 +629,16 @@ namespace Existence.Beyond.Infrastructure
             this.Proved = Proved;
         }
     }
+
+    internal class DocumentationJustification : LevelJustification
+    {
+        internal string Thing { get; set; }
+        public DocumentationJustification(string Thing)
+        {
+            this.Thing = Ting;
+        }
+    }
+
     internal class DocumentsJustification : LevelJustification
     {
         internal string[] Documents { get; set; }
