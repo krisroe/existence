@@ -10,9 +10,15 @@ namespace Existence.Beyond.Submission
 
     [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Roman Catholic Council Information",
                                 @"Released\Other\002-RomanCatholicChristianityCouncils.txt")]
-    [IsReleased(false)]
     internal class CatholicDoctrineSubmission : SubmissionBase
     {
+        public enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 4, 12)]
+            Created,
+        }
+
         internal override List<LevelJustification> GetLevelJustifications()
         {
             return new List<LevelJustification>()
@@ -99,8 +105,10 @@ namespace Existence.Beyond.Submission
             new AnnoDominiDatingSystemCreated();
             new SecondCouncilOfOrange();
             new SecondCouncilOfConstantinople(romanCatholicDoctrine);
+            new MohammedBirth();
             new ThirdCouncilOfToledo();
             new HijriCalendarStart();
+            new MohammedDeath();
             new HijriCalendarFirstUsed();
             new ThirdCouncilOfConstantinople(romanCatholicDoctrine);
             new SecondCouncilOfNicaea(romanCatholicDoctrine);
@@ -339,6 +347,14 @@ namespace Existence.Beyond.Submission
             }
         }
 
+        [YearDate(570, 4, 20)]
+        public class MohammedBirth
+        {
+            public MohammedBirth()
+            {
+            }
+        }
+
         /// <summary>
         /// visigoth kingdom converted from Arian to Nicene Christianity
         /// Regionally added the phrase Filioque to the Nicene Creed
@@ -360,6 +376,18 @@ namespace Existence.Beyond.Submission
         public class HijriCalendarStart
         {
             public HijriCalendarStart()
+            {
+            }
+        }
+
+        /// <summary>
+        /// Date is per the proleptic Gregorian calendar. At the time
+        /// the Julian calendar was used with a date of 632-06-08
+        /// </summary>
+        [YearDate(632, 6, 11)]
+        public class MohammedDeath
+        {
+            public MohammedDeath()
             {
             }
         }

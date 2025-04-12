@@ -635,7 +635,7 @@ namespace Existence.Beyond.Infrastructure
         internal string Thing { get; set; }
         public DocumentationJustification(string Thing)
         {
-            this.Thing = Ting;
+            this.Thing = Thing;
         }
     }
 

@@ -9,6 +9,7 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human;
 using Existence.Earth.Human.People;
 using Existence.Earth.Religions;
+using Existence.Earth.Time;
 using Existence.Logic;
 using Existence.Personal;
 using Existence.Personal.Infrastructure;
@@ -518,6 +519,31 @@ namespace Existence.Beyond.Timeless
         public class Humanity
         {
             public const int YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE = 2001;
+
+            [Calendar(Calendars.Gregorian)]
+            public class SolarAndPrimaryCalendar { }
+
+            [Calendar(Calendars.Hijri)]
+            public class LunarCalendar { }
+
+            public class TimeWaypoints
+            {
+                [YearDate(-1830, 7, 12)]
+                [Description("Heliacal rising of Sirius observed in Egypt")]
+                public class v1 { }
+
+                [YearDate(-45, 1, 1)]
+                [Description("Julian calendar took effect")]
+                public class v2 { }
+
+                [YearRange(-6, -4)]
+                [Description("Birth of Jesus Christ")]
+                public class v3 { }
+
+                [YearDate(632, 6, 11)]
+                [Description("Death of Mohammed")]
+                public class v4 { }
+            }
         }
     }
 

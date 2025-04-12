@@ -91,6 +91,9 @@ namespace Existence.Earth.Time
         /// with solar seasons.
         /// 
         /// starts at the Hijra migration
+        /// 
+        /// Some countires (Saudi Arabia and Taliban Afghanistan use
+        /// the Hjiri as a secular calendar)
         /// </summary>
         [Year(622)]
         [CalendarType(CalendarType.Lunar)]
