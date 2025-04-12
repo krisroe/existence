@@ -1,5 +1,6 @@
 ﻿using System;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Time;
 
 namespace Existence.Earth.Religions
 {
@@ -87,9 +88,11 @@ namespace Existence.Earth.Religions
         Islam,
 
         [NumberOfFollowers(1200000000, 1300000000)] //1.2-1.3 billion
+        [Calendar(Calendars.Hindu)]
         Hinduism,
 
         [NumberOfFollowers(500000000, 550000000)] //500-550 million
+        [Calendar(Calendars.Buddhist)]
         Buddhism,
 
         /// <summary>
@@ -109,6 +112,7 @@ namespace Existence.Earth.Religions
 
         [AbrahamicReligion]
         [NumberOfFollowers(15000000, 16000000)] //14-15 million
+        [Calendar(Calendars.Hebrew)]
         Judaism,
 
         [NumberOfFollowers(10000000, 15000000)] //10-15 million
@@ -120,19 +124,19 @@ namespace Existence.Earth.Religions
         [NumberOfFollowers(6000000, 10000000)] //6-10 million
         Confucianism,
 
-        /// <summary>
-        /// Bahá’í
-        /// </summary>
         [NumberOfFollowers(5000000, 8000000)] //5-8 million
-        Baháí,
+        [Calendar(Calendars.Baháʼí)]
+        Baháʼí,
 
         [NumberOfFollowers(4000000, 6000000)] //4-6 million
+        [Calendar(Calendars.Jain)]
         Jainism,
 
         [NumberOfFollowers(700000, 1000000)] //700,000-1 million
         Yazidism,
 
         [NumberOfFollowers(110000, 200000)]
+        [Calendar(Calendars.Zoroastrian)]
         Zoroastrianism,
 
         [NumberOfFollowers(60000, 100000)]

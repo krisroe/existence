@@ -1,17 +1,6 @@
-﻿using Existence;
-using Existence.Beyond;
-using Existence.Earth.Countries.UnitedStates;
-using Existence.Earth.Languages.English;
-using Existence.Time;
+﻿using Existence.Time;
 using System;
 using System.Collections.Generic;
-using static Existence.Earth.FieldsOfStudy.Psychology.Concepts.ColorAssociations.Rainbow.AcronymROYGBIV.Green;
-using static Existence.Earth.FieldsOfStudy.Psychology.Concepts.Human.Comprises.Brain.Parts.DopamineNeurotransmitter.Manages;
-using static Existence.Logic.Games.Cards.Rules.Suit.Logic;
-using static Existence.Personal.Psychology.Psychosis.Generic.Events.Triggers.ImpossibleEvents.CommunicationOfEventHasAnEscalatingEffectOnImportance.Ladders.FriendsAndFamily;
-using static Existence.Personal.Self.Death;
-using static Existence.Personal.Self.Employers.Past.v20032006.Epic;
-using static Existence.Time.UPS.P;
 
 namespace Existence.Earth.Religions
 {
@@ -56,6 +45,10 @@ namespace Existence.Earth.Religions
         public static class CollegeOfCardinals { }
     }
 
+    public class PapalInfallibilityAttribute : Attribute
+    {
+    }
+
     public class CouncilNumberAttribute : Attribute
     {
         public int Number { get; set; }
@@ -65,9 +58,10 @@ namespace Existence.Earth.Religions
         }
     }
 
-    internal class ChristianDoctrine
+    public class ChristianDoctrine
     {
         public List<string> TimelessDoctrine { get; set; }
+        public List<string> StructuralDoctrine { get; set; }
         public ChristianDoctrine()
         {
             TimelessDoctrine = new List<string>()
@@ -76,14 +70,20 @@ namespace Existence.Earth.Religions
                 "Jesus Christ was preexistent and divine",
                 "The soul is immortal by its nature and unique to each human being."
             };
+            StructuralDoctrine = new List<string>();
         }
         public ChristianDoctrine(ChristianDoctrine copied)
         {
             TimelessDoctrine = new List<string>(copied.TimelessDoctrine);
+            StructuralDoctrine = new List<string>(copied.StructuralDoctrine);
         }
-        public void AddDoctrine(string Doctrine, string Quote)
+        public void AddTimelessDoctrine(string Doctrine, string Quote)
         {
             TimelessDoctrine.Add(Doctrine);
+        }
+        public void AddStructuralDoctrine(string Doctrine)
+        {
+            StructuralDoctrine.Add(Doctrine);
         }
         public void ReplaceDoctrine(string NewDoctrine, string OldDoctrine)
         {
@@ -106,27 +106,41 @@ namespace Existence.Earth.Religions
         }
     }
 
-    internal class ChristianityTimeline
+    public class ChristianityTimeline
     {
-        
+
 
         public ChristianityTimeline()
         {
+            new SamaritanCalendar();
             ChristianDoctrine romanCatholicDoctrine = new ChristianDoctrine();
+            new JulianCalendarInvented();
+            new JesusBirth();
+            new JesusDeath();
             new FirstCouncilOfNicaea(romanCatholicDoctrine);
+            new HebrewCalendarStandardized();
             new FirstCouncilOfConstantinople(romanCatholicDoctrine);
             new CouncilOfCarthage(romanCatholicDoctrine);
             new CouncilOfEphesus(romanCatholicDoctrine);
             new CouncilOfChalcedon(romanCatholicDoctrine);
+            new AnnoDominiDatingSystemCreated();
+            new SecondCouncilOfOrange();
             new SecondCouncilOfConstantinople(romanCatholicDoctrine);
             new ThirdCouncilOfToledo();
+            new HijriCalendarStart();
+            new HijriCalendarFirstUsed();
             new ThirdCouncilOfConstantinople(romanCatholicDoctrine);
             new SecondCouncilOfNicaea(romanCatholicDoctrine);
-            new CatholicFourthCouncilOfConstantinople(romanCatholicDoctrine);
 
             ChristianDoctrine easternOrthodoxDoctrine = new ChristianDoctrine(romanCatholicDoctrine);
-            easternOrthodoxDoctrine.AddDoctrine("Christ has a real presence in the Eucharist", string.Empty);
-            easternOrthodoxDoctrine.AddDoctrine("At death, the soul separates from the body, undergoes individual judgment with provisional experience of eternal orientation, awaiting resurrection of the body", string.Empty);
+            easternOrthodoxDoctrine.AddTimelessDoctrine("Christ has a real presence in the Eucharist", string.Empty);
+            easternOrthodoxDoctrine.AddTimelessDoctrine("At death, the soul separates from the body, undergoes individual judgment with provisional experience of eternal orientation, awaiting resurrection of the body", string.Empty);
+            easternOrthodoxDoctrine.AddTimelessDoctrine("The ancestral sin of Adam wounded human nature and introduced corruption and death into the world. All humans inherit this fallen condition through descent from Adam, resulting in a disordered inclination toward sin and a mortal condition. Though not guilty of Adam’s personal sin, each person enters a world estranged from God and in need of healing and communion through Christ.", string.Empty);
+            easternOrthodoxDoctrine.AddTimelessDoctrine("Mary died a natural death, and at the moment of death, her soul was taken by Christ into heaven.", string.Empty);
+            easternOrthodoxDoctrine.AddTimelessDoctrine("Additional sacraments: Monastic Tonsure, Consecration of a Church/Altar, Blessing of Holy Water, Imperial Coronation, Funeral Rites", string.Empty);
+            romanCatholicDoctrine.AddTimelessDoctrine("Original (Adam's) sin caused real harm to human nature, all humans inherit this sin by propagation through human generation, it results in a loss of sanctifying grace, an inclination toward sin, and spiritual death (alienation from God requiring redemption through baptism).", string.Empty);
+
+            new CatholicFourthCouncilOfConstantinople(romanCatholicDoctrine);
             new OrthodoxFourthCouncilOfConstantinople(easternOrthodoxDoctrine);
             new AdditionOfFilioqueToNiceneCreed(romanCatholicDoctrine);
             new GreatEastWestSchism();
@@ -143,8 +157,62 @@ namespace Existence.Earth.Religions
             new CouncilOfBaselFerreraFlorence(romanCatholicDoctrine);
             new FifthLateranCouncil(romanCatholicDoctrine);
             new CouncilOfTrent(romanCatholicDoctrine);
+            new GregorianCalendarIntroduced();
+            new ModernConclaveProcessDescribed();
+            new PapalDeclarationOfTheImmaculateConception(romanCatholicDoctrine);
             new FirstVaticanCouncil(romanCatholicDoctrine);
+            new PapalDeclarationOfTheAssumptionOfMary(romanCatholicDoctrine);
             new SecondVaticanCouncil(romanCatholicDoctrine);
+        }
+
+        /// <summary>
+        /// Lunisolar calendar closely related to the ancient Hebrew
+        /// tradition but maintained independently from Rabbinic Judaism.
+        /// races its origins back to ancient Israelite times, likely as 
+        /// far back as the First Temple period (before 586 BCE)—before 
+        /// the Babylonian exile.
+        /// </summary>
+        public class SamaritanCalendar
+        {
+        }
+
+        /// <summary>
+        /// Sosigenes of Alexandria created solar calendar to align with the tropical year
+        /// It was 11 minutes too long per year (tropical year is 365.2422 days)
+        /// This caused a drift of about 1 day every 128 years, eventually misaligning 
+        /// the date of the spring equinox and liturgical feasts like Easter.
+        /// </summary>
+        [Year(-45)]
+        public class JulianCalendarInvented
+        {
+            public JulianCalendarInvented()
+            {
+            }
+        }
+
+        /// <summary>
+        /// The Gospel of Matthew says Jesus was born during the reign of Herod the Great.
+        /// Herod died in 4 BC, based on multiple ancient sources (Josephus, astronomical 
+        /// records of an eclipse, etc.). This implies that Jesus was likely born between 
+        /// 6 and 4 BC.
+        /// </summary>
+        [YearRange(-6, -4)]
+        public class JesusBirth
+        {
+            public JesusBirth()
+            {
+            }
+        }
+
+        /// <summary>
+        /// executed by crucifixion
+        /// </summary>
+        [YearRange(30, 33)]
+        public class JesusDeath
+        {
+            public JesusDeath()
+            {
+            }
         }
 
         [CouncilNumber(1)]
@@ -153,9 +221,33 @@ namespace Existence.Earth.Religions
         {
             public FirstCouncilOfNicaea(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("The Son is of the same substance as the Father", string.Empty);
+                doctrine.AddTimelessDoctrine("The Son is of the same substance as the Father", string.Empty);
+                doctrine.AddStructuralDoctrine("Easter is the first Sunday on or after the vernal equinox.");
                 doctrine.RejectDoctrine("There was a time when the Son was not");
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Arianism);
+            }
+        }
+
+        /// <summary>
+        /// Hebrew lunar-solar calendar standardization. 
+        /// Hillel II, the Nasi (prince) of the Sanhedrin, introduced a fixed, calculated
+        /// calendar. This was done because Roman persecution made it difficult to rely 
+        /// on centralized witness-based declarations. The mathematical rules of month 
+        /// lengths, leap years, and postponement rules (to avoid certain holidays 
+        /// falling on inconvenient weekdays) were codified.
+        /// 
+        /// Metonic Cycle:
+        /// 19 solar years ≈ 235 lunar months (less than 2 hour difference over 19 years)
+        /// Hebrew calendar adds a leap month in 7/19 years. This keeps Jewish holidays,
+        /// like passover in spring, from drifting into the wrong seasons.
+        /// There is still a little drift, but since it's very slow, it's been
+        /// acceptable for religious and cultural purposes.
+        /// </summary>
+        [Year(358)]
+        public class HebrewCalendarStandardized
+        {
+            public HebrewCalendarStandardized()
+            {
             }
         }
 
@@ -172,9 +264,9 @@ namespace Existence.Earth.Religions
         {
             public FirstCouncilOfConstantinople(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("The Holy Spirit is fully divine", string.Empty);
-                doctrine.AddDoctrine("The Holy Spirit proceeds from the Father", string.Empty);
-                doctrine.AddDoctrine("Jesus Christ is fully human", "What is not assumed is not healed");
+                doctrine.AddTimelessDoctrine("The Holy Spirit is fully divine", string.Empty);
+                doctrine.AddTimelessDoctrine("The Holy Spirit proceeds from the Father", string.Empty);
+                doctrine.AddTimelessDoctrine("Jesus Christ is fully human", "What is not assumed is not healed");
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Arianism);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Apollinarianism);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Pneumatomachianism);
@@ -189,6 +281,7 @@ namespace Existence.Earth.Religions
         /// 3. Salvation begins with grace, not human effort.
         /// 4. Adam’s sin affected the entire human race, damaging human nature.
         /// </summary>
+        [Year(418)]
         public class CouncilOfCarthage
         {
             public CouncilOfCarthage(ChristianDoctrine doctrine)
@@ -203,8 +296,7 @@ namespace Existence.Earth.Religions
         {
             public CouncilOfEphesus(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Jesus Christ is one divine person", "Mary is rightly called Theotokos (God-bearer)");
-                doctrine.AddDoctrine("Original (Adam's) sin caused real harm to human nature, all humans inherit this sin by propagation through human generation, it results in a loss of original holiness and sanctifying grace, an inclination toward sin (concupiscence), and spiritual death (separation from God).", string.Empty);
+                doctrine.AddTimelessDoctrine("Jesus Christ is one divine person", "Mary is rightly called Theotokos (God-bearer)");
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Nestorianism);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Pelagianism);
             }
@@ -222,8 +314,39 @@ namespace Existence.Earth.Religions
         {
             public CouncilOfChalcedon(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Jesus Christ has two natures (divine and human) without confusion, change, division, or separation", string.Empty);
+                doctrine.AddTimelessDoctrine("Jesus Christ has two natures (divine and human) without confusion, change, division, or separation", string.Empty);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Monophysitism);
+            }
+        }
+
+        /// <summary>
+        /// Created by a monk named Dionysius Exiguus
+        /// His goal was to replace the old system based on the reign of the Roman 
+        /// Emperor Diocletian, who had persecuted Christians.
+        /// Dionysius tried to identify the year of Jesus’ birth and labeled it 1 Anno Domini.
+        /// He did not include a Year 0; the system jumps from 1 BC to AD 1.
+        /// </summary>
+        [Year(525)]
+        public class AnnoDominiDatingSystemCreated
+        {
+            public AnnoDominiDatingSystemCreated()
+            {
+            }
+        }
+
+        /// <summary>
+        /// responded to semi-Pelagianism
+        /// Affirmed:
+        /// 1. Grace is needed even for the beginning of fath
+        /// 2. Original sin makes humans unable to save themselves
+        /// 3. The will is free, but weakened and in need of healing.
+        /// </summary>
+        [Year(529)]
+        public class SecondCouncilOfOrange
+        {
+            public SecondCouncilOfOrange()
+            {
+
             }
         }
 
@@ -254,13 +377,50 @@ namespace Existence.Earth.Religions
             }
         }
 
+        /// <summary>
+        /// Hijri calendar starts the year of the Hijra—the migration of the Prophet 
+        /// Muhammad and his followers from Mecca to Medina.
+        /// </summary>
+        [Year(622)]
+        public class HijriCalendarStart
+        {
+            public HijriCalendarStart()
+            {
+            }
+        }
+
+        /// <summary>
+        /// Caliph ʿUmar ibn al-Khaṭṭāb convened a council of companions (including 
+        /// ʿAlī ibn Abī Ṭālib) to select a starting point for the new calendar.
+        /// 
+        /// They considered: 
+        /// 1. the birth of the Prophet
+        /// 2. the first revelation
+        /// 3. the Hijra (migration) from Mecca to Medina (CHOSEN)
+        /// 4. the Prophets death
+        /// The Hijra was chosen because it marked the founding of the first Islamic
+        /// comunity (ummah), and the beginning of Islam as a sociopolitical order,
+        /// not just a religious message.
+        /// 
+        /// The Hijri calendar is a purely lunar calendar, governs the religious rhythm 
+        /// of Islamic life, though most Muslim-majority countries also use the Gregorian 
+        /// calendar for daily civil affairs.
+        /// </summary>
+        [Year(638)]
+        public class HijriCalendarFirstUsed
+        {
+            public HijriCalendarFirstUsed()
+            {
+            }
+        }
+
         [CouncilNumber(6)]
         [YearRange(680, 681)]
         public class ThirdCouncilOfConstantinople
         {
             public ThirdCouncilOfConstantinople(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Jesus Christ has two wills—a divine will and a human will—united in one person, and the human will freely cooperates with the divine.", "Dyothelitism");
+                doctrine.AddTimelessDoctrine("Jesus Christ has two wills—a divine will and a human will—united in one person, and the human will freely cooperates with the divine.", "Dyothelitism");
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Monothelitism);
             }
         }
@@ -277,7 +437,7 @@ namespace Existence.Earth.Religions
         {
             public SecondCouncilOfNicaea(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Icons may be displayed and venerated.", "If you deny images, you deny the humanity of Christ");
+                doctrine.AddTimelessDoctrine("Icons may be displayed and venerated.", "If you deny images, you deny the humanity of Christ");
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Iconoclasm);
             }
         }
@@ -380,6 +540,7 @@ namespace Existence.Earth.Religions
             public ThirdLateranCouncil(ChristianDoctrine doctrine)
             {
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Catharism);
+                doctrine.AddStructuralDoctrine("A two-thirds majority of the College of Cardinals is required for a valid papal election.");
             }
         }
 
@@ -415,7 +576,7 @@ namespace Existence.Earth.Religions
         {
             public FourthLateranCouncil(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("In the Eucharist, the substance of bread and wine becomes the body and blood of Christ", string.Empty);
+                doctrine.AddTimelessDoctrine("In the Eucharist, the substance of bread and wine becomes the body and blood of Christ", string.Empty);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Catharism);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.Waldensians);
             }
@@ -443,6 +604,12 @@ namespace Existence.Earth.Religions
         /// <summary>
         /// tried to reunite Roman Catholic and Eastern Orthodox (Filioque and papal primacy), but did not take longterm
         /// Established the conclave system for papal elections
+        /// 1. Cardinals must remain locked together ("con clave" = "with a key") until a pope is elected.
+        /// 2. The conclave must take place in the city where the pope died, unless the cardinals vote unanimously to move.
+        /// 3. After 3 days: only bread, wine, and water until a pope is elected
+        /// 4. The election must be held in strict secrecy, with ballots cast and counted behind closed doors.
+        /// 5. Cardinals were forbidden from receiving messages or influence from outside parties (especially monarchs).
+        /// 6. Cardinals were required to assemble quickly after a pope’s death and begin voting promptly.
         /// planned a new crusade to retake the Holy Land
         /// Issued 31 canons, including stricter rules for bishop residence and responsibilities, regulations on
         /// benefices and simony, encouragement for education of clergy, guidance on relations with non-Christians
@@ -456,7 +623,7 @@ namespace Existence.Earth.Religions
         {
             public SecondCouncilOfLyon(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("The souls of those who die in a state of mortal sin or with original sin only go down immediately into hell... but the souls of those who die in charity and are truly penitent... are purified after death, and they are soon admitted to the beatific vision of God.", string.Empty);
+                doctrine.AddTimelessDoctrine("The souls of those who die in a state of mortal sin or with original sin only go down immediately into hell... but the souls of those who die in charity and are truly penitent... are purified after death, and they are soon admitted to the beatific vision of God.", string.Empty);
             }
         }
 
@@ -516,7 +683,7 @@ namespace Existence.Earth.Religions
         {
             public CouncilOfBaselFerreraFlorence(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Seven Sacraments: Baptism, Confirmation, Eucharist, Penance, Annointing the Sick, Holy Orders, Matrimony", string.Empty);
+                doctrine.AddTimelessDoctrine("Seven Sacraments: Baptism, Confirmation, Eucharist, Penance, Annointing the Sick, Holy Orders, Matrimony", string.Empty);
             }
         }
 
@@ -557,6 +724,12 @@ namespace Existence.Earth.Religions
         /// F. Prohibited buying and selling of church offices, restricted pluralism (holding multiple benefices at once)
         /// G. Called for the standardization of the Mass
         /// H. Required marriages to be publicly witnessed by a priest and two witnesses (to prevent clandestine marriages).
+        /// I. Affirmed Roman Catholic version of original sin
+        /// J. Papal Conclave Rules
+        /// J-i. Established the formal use of written ballots (called "scrutiny") as the default voting method.
+        /// J-ii. Voters were required to swear an oath that they were voting freely and without bribes, threats, or collusion.
+        /// J-iii. A multi-step vote counting process was introduced to reduce fraud or miscounting.
+        /// J-iv. Cardinals were reminded of their duty to vote for the good of the Church, not personal or political advantage.
         /// </summary>
         [CouncilNumber(19)]
         [YearRange(1545, 1563)]
@@ -564,42 +737,144 @@ namespace Existence.Earth.Religions
         {
             public CouncilOfTrent(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Baptism remits original sin and all actual sin, initiates into the Church, absolutely necessary for salvation (or at least desire for it), inclination to sin remains", "I baptize you in the name of the Father, and of the Son, and of the Holy Spirit.");
-                doctrine.AddDoctrine("Confirmation strengthens baptismal grace, confers the gifts of the Holy Spirit, important for full Christian life", "Be sealed with the gift of the Holy Spirit");
-                doctrine.AddDoctrine("Penance forgives post-baptismal mortal sins, reconciles to the Church, includes contrition, confession, absolution, satisfaction, required for salvation if moral sin is present.", string.Empty);
-                doctrine.AddDoctrine("Annointing the sick strengthens the soul, forgives sins, may restore bodily health, prepares for eternal life", string.Empty);
-                doctrine.AddDoctrine("Holy Orders confers spiritual power to administer sacraments and lead the Church.", string.Empty);
-                doctrine.AddDoctrine("Matrimony indissolubly unites man and woman in a bond of grace, sacramentally images Christ and the Church", string.Empty);
+                doctrine.AddTimelessDoctrine("Baptism remits original sin and all actual sin, initiates into the Church, absolutely necessary for salvation (or at least desire for it), inclination to sin remains", "I baptize you in the name of the Father, and of the Son, and of the Holy Spirit.");
+                doctrine.AddTimelessDoctrine("Confirmation strengthens baptismal grace, confers the gifts of the Holy Spirit, important for full Christian life", "Be sealed with the gift of the Holy Spirit");
+                doctrine.AddTimelessDoctrine("Penance forgives post-baptismal mortal sins, reconciles to the Church, includes contrition, confession, absolution, satisfaction, required for salvation if moral sin is present.", string.Empty);
+                doctrine.AddTimelessDoctrine("Annointing the sick strengthens the soul, forgives sins, may restore bodily health, prepares for eternal life", string.Empty);
+                doctrine.AddTimelessDoctrine("Holy Orders confers spiritual power to administer sacraments and lead the Church.", string.Empty);
+                doctrine.AddTimelessDoctrine("Matrimony indissolubly unites man and woman in a bond of grace, sacramentally images Christ and the Church", string.Empty);
                 doctrine.RejectHeresy(OrthodoxChristianHeresy.ProtestantReformation);
             }
         }
 
+        /// <summary>
+        /// By the 16th century, the Julian calendar had drifted about 10 days off the 
+        /// seasonal cycle.
+        /// 1. Leap year rule adjusted: every 4 years, except years divisible by 100,
+        /// unless also divisible by 400
+        /// 2. 10 days removed. October 4, 1582 followed by October 15, 1582.
+        /// 3. Easter: Refined calculations for the date of Easter, keeping it near the 
+        /// spring equinox.
+        /// 
+        /// Timeline:
+        /// 1582: Initially adopted by Catholic countries (Italy, Spain, Portugal, Poland).
+        /// 1700s–1900s: Gradually adopted by Protestant and Orthodox countries:
+        /// - Britain and its colonies: 1752 (skipped 11 days)
+        /// - Russia: 1918 (after the Bolshevik Revolution)
+        /// - Greece: 1923
+        /// Eastern Orthodox Churches still use the Julian calendar for some liturgical purposes.
+        /// </summary>
+        [Year(1582)]
+        public class GregorianCalendarIntroduced
+        {
+            public GregorianCalendarIntroduced()
+            {
+            }
+        }
+
+        /// <summary>
+        /// Three methods of Papal election:
+        /// 1. Scrutiny: secret ballot voting—now the standard method.
+        /// 2. Acclamation by Inspiration: spontaneous, unanimous agreement—no longer used
+        /// 3. Election by Compromise: delegation of choice to a committee of cardinals—extremely rare and eventually fell out of use.
+        /// Ballot Uniformity - three separate ballot forms
+        /// 1. One for voting
+        /// 2. One for re-examining votes (recongnitio)
+        /// 3. One for approval or correction if needed
+        /// Ballot secrecy: Removed the requirement to sign ballots, improving vote confidentiality and reducing peer pressure or intimidation.
+        /// Formalized
+        /// 1. Scrutineers: three cardinals chosen by lot to count votes,
+        /// 2. Infirmarii: three cardinals who collected votes from those too ill to attend in person
+        /// 3. Revisers: double-check vote counts for accuracy
+        /// </summary>
+        [Year(1621)]
+        public class ModernConclaveProcessDescribed
+        {
+            public ModernConclaveProcessDescribed()
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// first example of papal infallibility in hindsight
+        /// </summary>
         [Year(1854)]
+        [PapalInfallibility]
         public class PapalDeclarationOfTheImmaculateConception
         {
             public PapalDeclarationOfTheImmaculateConception(ChristianDoctrine doctrine)
             {
-                doctrine.AddDoctrine("Mary was conceived without original sin from the very first moment of her existence, by a special grace from God, in preparation for her role as the mother of Jesus.", string.Empty);
+                doctrine.AddTimelessDoctrine("Mary was conceived without original sin from the very first moment of her existence, by a special grace from God, in preparation for her role as the mother of Jesus.", string.Empty);
             }
         }
 
+        /// <summary>
+        /// 1. settled papal primacy and infallibility
+        /// 2. Defined the relationship between faith and reason, and revelation.
+        /// 2a. God's knowability. God can be known by reason alone (natural theology).
+        /// But relevation is also necessary for full knowledge of salvation.
+        /// 2b. Condemnation of errors: Rejected rationalism, materialism, and fideism (faith
+        /// should reject or ignore reason). Affirmed that faith and reason do not conflict
+        /// because both come from God.
+        /// 3. Doctrinal precision on faith and dogma. Dogma can develop, but cannot change
+        /// in substance. Emphasized permanence and consistency of Church doctrine, especially
+        /// in light of modern relativism and liberal theology.
+        /// </summary>
         [CouncilNumber(20)]
         [YearRange(1869, 1870)]
         public class FirstVaticanCouncil
         {
             public FirstVaticanCouncil(ChristianDoctrine doctrine)
             {
-
+                doctrine.AddStructuralDoctrine("The pope has full, supreme, and universal jurisdiction over the entire Church—not just honorary primacy.");
+                doctrine.AddTimelessDoctrine("The pope is infallible only when speaking ex cathedra (from the chair of Peter), intending to define a doctrine, on matters of faith or morals, to be held by the whole Church.", "Such definitions of the Roman Pontiff are of themselves, and not by the consent of the Church, irreformable.");
             }
         }
 
+        [PapalInfallibility]
+        [Year(1950)]
+        public class PapalDeclarationOfTheAssumptionOfMary
+        {
+            public PapalDeclarationOfTheAssumptionOfMary(ChristianDoctrine doctrine)
+            {
+                doctrine.AddTimelessDoctrine("The Immaculate Mother of God, the ever Virgin Mary, having completed the course of her earthly life, was assumed body and soul into heavenly glory.", string.Empty);
+            }
+        }
+
+        /// <summary>
+        /// 1. Nature of the Church (Ecclesiology). Shift from institutional focus to a 
+        /// communion model of the Church. The Church is the People of God, not just a hierarchy.
+        /// 2. Revelation and Scripture. Divine revelation comes through both Sacred Scripture 
+        /// and Sacred Tradition. Reaffirmed the inspiration and inerrancy of Scripture in 
+        /// matters of salvation.
+        /// 3. Liturgy and Worship. Allowed use of vernacular languages (instead of Latin) 
+        /// in the liturgy.
+        /// 4. Church in the Modern World. Addressed issues of culture, politics, economics, family, 
+        /// and war. Affirmed human dignity, freedom of conscience, and the rights of the person.
+        /// Recognized the Church’s role in promoting justice and peace. Called for dialogue 
+        /// between the Church and the modern world.
+        /// 5. Decree on Ecumenism. Recognized that non-Catholic Christians 
+        /// share real elements of sanctification. Encouraged dialogue and cooperation with 
+        /// Protestant and Orthodox churches. Condemned excessive triumphalism and urged humility.
+        /// 6. Declaration on the Relation of the Church to Non-Christian Religions
+        /// Affirmed truth and holiness in other religions, especially Judaism, Islam, 
+        /// Hinduism, and Buddhism. Rejected anti-Semitism and clarified that Jews are not 
+        /// collectively guilty for Christ's death.
+        /// 7. Religious freedom. Every human person has a right to religious freedom and 
+        /// should not be coerced in matters of faith.
+        /// 8. Role of the Laity. Affirmed the lay vocation in family, work, society, and Church ministry.
+        /// Encouraged lay involvement in evangelization, education, politics, and liturgy.
+        /// 9. Renewal of Religious Life and Missions
+        /// Perfectae Caritatis: renewal of religious orders according to their founding charisms.
+        /// Ad Gentes: emphasis on missionary work and respect for local cultures.
+        /// </summary>
         [CouncilNumber(21)]
         [YearRange(1962, 1965)]
         public class SecondVaticanCouncil
         {
             public SecondVaticanCouncil(ChristianDoctrine doctrine)
             {
-
             }
         }
     }
@@ -859,10 +1134,3 @@ namespace Existence.Earth.Religions
     }
 }
 
-/*
-Original(Adam's) sin caused real harm to human nature, all humans inherit this sin by propagation through human generation, it results in a loss of sanctifying grace, an inclination toward sin, and spiritual death (alienation from God requiring redemption through baptism).
-
-
-
-The ancestral sin of Adam wounded human nature and introduced corruption and death into the world.All humans inherit this fallen condition through descent from Adam, resulting in a disordered inclination toward sin and a mortal condition.Though not guilty of Adam’s personal sin, each person enters a world estranged from God and in need of healing and communion through Christ.
-*/

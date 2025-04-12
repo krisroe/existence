@@ -28,6 +28,9 @@ namespace Existence.Time
         }
     }
 
+    /// <summary>
+    /// year according to gregorian / julian numbering / ISO 8601 numbering
+    /// </summary>
     public class YearAttribute : Attribute
     {
         public int Year { get; set; }
