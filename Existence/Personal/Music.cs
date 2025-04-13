@@ -68,4 +68,34 @@ namespace Existence.Personal
         /// </summary>
         MitchellPatton
     }
+
+    public enum PersonalInstruments
+    {
+        Piano,
+        Voice,
+        Clarinet,
+
+        /// <summary>
+        /// I would have preferred this to clarinet, but it wasn't meant
+        /// to be (one part may have been that mr. spargo's daughter had
+        /// a lock on it)
+        /// </summary>
+        Oboe,
+
+        /// <summary>
+        /// I wasn't in percussion in band, but I was an extra for
+        /// multiple person xylophone pieces (e.g. solo & ensemble)
+        Xylophone,
+
+        /// <summary>
+        /// under Mr. Yerke in Portage, I believe we once played publicly
+        /// in Wisconsin Dells (Bethany Lutheran Church)
+        /// </summary>
+        Handbells,
+
+        /// <summary>
+        /// took group lessons in Portage, never took
+        /// </summary>
+        Guitar,
+    }
 }
