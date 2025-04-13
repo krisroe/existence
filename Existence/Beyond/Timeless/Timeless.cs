@@ -100,7 +100,15 @@ namespace Existence.Beyond.Timeless
 
             [BeyondObjectVersion(5, 4, 0, 0)]
             [YearDate(2025, 4, 6)]
-            MarkChoirDirectorsAsChurchChoirDirectors
+            MarkChoirDirectorsAsChurchChoirDirectors,
+
+            [BeyondObjectVersion(5, 5, 0, 0)]
+            [YearDate(2025, 4, 12)]
+            HumanityCalendars,
+
+            [BeyondObjectVersion(5, 6, 0, 0)]
+            [YearDate(2025, 4, 13)]
+            HumanityLunisolarCalendar,
         }
 
         /// <summary>
@@ -520,11 +528,13 @@ namespace Existence.Beyond.Timeless
         {
             public const int YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE = 2001;
 
-            [Calendar(Calendars.Gregorian)]
-            public class SolarAndPrimaryCalendar { }
-
-            [Calendar(Calendars.Hijri)]
-            public class LunarCalendar { }
+            public class PrimaryCalendars
+            {
+                public const Calendars CIVIL = Calendars.ISO8601;
+                public const Calendars SOLAR = Calendars.Gregorian;
+                public const Calendars LUNAR = Calendars.Hijri;
+                public const Calendars LUNISOLAR = Calendars.Hebrew;
+            }
 
             public class TimeWaypoints
             {

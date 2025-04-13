@@ -77,7 +77,8 @@ namespace Existence.Earth.Time
         #region Religious
 
         /// <summary>
-        /// Used in Judaism; months begin with the new moon, but solar year 
+        /// Used in Judaism (including as a secular calendar in israel)
+        /// months begin with the new moon, but solar year 
         /// is adjusted via leap months.
         /// 
         /// starts at the Babylonian exile
