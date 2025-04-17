@@ -109,6 +109,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(5, 6, 0, 0)]
             [YearDate(2025, 4, 13)]
             HumanityLunisolarCalendar,
+
+            [BeyondObjectVersion(5, 7, 0, 0)]
+            [YearDate(2025, 4, 17)]
+            HumanityReligionLevelOneAbrahamic,
         }
 
         /// <summary>
@@ -527,6 +531,14 @@ namespace Existence.Beyond.Timeless
         public class Humanity
         {
             public const int YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE = 2001;
+
+            public class Levels
+            {
+                public class v1
+                {
+                    public static WorldReligions[] Religions = [WorldReligions.Abrahamic];
+                }
+            }
 
             public class PrimaryCalendars
             {

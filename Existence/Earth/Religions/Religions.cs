@@ -79,6 +79,11 @@ namespace Existence.Earth.Religions
 
     public enum WorldReligions
     {
+        /// <summary>
+        /// collective of christianity, islam, judaism, samaritanism
+        /// </summary>
+        Abrahamic,
+
         [AbrahamicReligion]
         [NumberOfFollowers(2300000000, 2400000000)] //2.3-2.4 billion
         Christianity,
