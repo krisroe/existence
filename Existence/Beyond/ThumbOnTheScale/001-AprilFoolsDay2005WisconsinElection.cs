@@ -39,6 +39,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(2, 1, 0, 0)]
             [YearDate(2025, 4, 4)]
             AddVotedAtLocation,
+
+            [BeyondObjectVersion(2, 2, 0, 0)]
+            [YearDate(2025, 4, 17)]
+            AddSignedWisconsinGovernorRecallPetition,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -84,6 +88,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     new BallotInitiativeVote1((int)ReferendumChoice.Yes, "Wisconsin LRSS Question 1", true);
                 USPresidentVote1 firstUSPresidentVote = new USPresidentVote1((int)UnitedStatesPoliticians.BrowneHarry, "2000 General Election", false);
                 USPresidentVote2 secondUSPresidentVote = new USPresidentVote2((int)UnitedStatesPoliticians.PaulRon, "2008 Republican Primary", false);
+                WisconsinGovernorNotVote signedWisconsinGovernorRecallPetition = new WisconsinGovernorNotVote((int)UnitedStatesPoliticians.WalkerScott, "2012 Wisconsin Governor Recall", false);
                 USPresidentVote3 thirdUSPresidentVote = new USPresidentVote3((int)UnitedStatesPoliticians.JohnsonGary, "2012 General Election", false);
                 USPresidentVote4 fourthUSPresidentVote = new USPresidentVote4((int)UnitedStatesPoliticians.JohnsonGary, "2016 General Election", false);
                 GaveMoneyToPresidentialCampaign gaveMoneyToUSPresidentCampaign = new GaveMoneyToPresidentialCampaign((int)UnitedStatesPoliticians.TrumpDonald, "Small Donation", true);
@@ -97,6 +102,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     new HighSchoolGraduation(),
                     VotingSong,
                     new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
+                    signedWisconsinGovernorRecallPetition
                 });
                 OrderedEvents votesAndPoliticalPhilosophy = new OrderedEvents(null, new List<BaseEvent>()
                 {
@@ -106,6 +112,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     extendRightToVoteInFederalElectionsToChildrenOfUSCitizensLivingAbroadWhoFormerlyResidedInWisconsin,
                     new BallotInitiativeVote2((int)ReferendumChoice.No, "Campaign Finance Reform Question", false),
                     secondUSPresidentVote,
+                    signedWisconsinGovernorRecallPetition,
                     thirdUSPresidentVote,
                     new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
                     gaveMoneyToUSPresidentCampaign,
@@ -283,6 +290,22 @@ namespace Existence.Beyond.ThumbOnTheScale
             public class USPresidentVote2 : VoteEvent
             {
                 public USPresidentVote2(int? Who, string What, bool Won) : base(Who, What, Won) { }
+            }
+
+            /// <summary>
+            /// signed petition for recall election. The recall election itself
+            /// took place 2012-06-05 and was unsuccessful, I did not vote in the 
+            /// recall election itself. At the time I thought it a good thing to 
+            /// have a politician reckoned by the voters an extra time. I didn't 
+            /// have a strong opinion one way or the other: "kick the bums out"
+            /// favored the recall, but policy-wise I agreed with Scott Walker's
+            /// most controversial policy (Act 10).
+            /// </summary>
+            public class WisconsinGovernorNotVote : VoteEvent
+            {
+                public WisconsinGovernorNotVote(int? Who, string What, bool Won) : base(Who, What, Won)
+                {
+                }
             }
 
             /// <summary>

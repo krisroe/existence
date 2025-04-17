@@ -73,5 +73,6 @@ namespace Existence.Earth.Countries.UnitedStates
         PaulRon,
         TrumpDonald,
         TsongasPaul,
+        WalkerScott,
     }
 }
