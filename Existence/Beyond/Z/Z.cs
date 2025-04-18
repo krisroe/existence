@@ -43,6 +43,10 @@ namespace Existence.Beyond
             [BeyondObjectVersion(1, 5, 0, 0)]
             [YearDate(2025, 4, 4)]
             AddCurrentAndBeyondReligionFlagsAndAddAtheistEvent,
+
+            [BeyondObjectVersion(1, 6, 0, 0)]
+            [YearDate(2025, 4, 18)]
+            ActionsHaveConsequencesNeedsARealLifeLessonJustNoRealWorldConsequences,
         }
 
         public OrderedEvents ZTimeline { get; set; }
@@ -80,10 +84,10 @@ namespace Existence.Beyond
             List<BaseEvent> zTimelineEvents = new List<BaseEvent>();
             zTimelineEvents.AddRange(ZRules);
             zTimelineEvents.AddRange(ZFacts);
-            zTimelineEvents.Add(new LessonEvent("Actions have consequences")); //does this actually need a real-life lesson?
             zTimelineEvents.Add(new ZBirth());
+            zTimelineEvents.Add(new ActionsHaveConsequencesWithoutRealConsequences());
             zTimelineEvents.Add(new LikingInappropriateBehaviorMoresoWithIdeaOfPerformingInPublic());
-            zTimelineEvents.Add(new LessonEvent("Life's not fair")); //this one needs a real-life lesson.
+            zTimelineEvents.Add(new LessonEvent("Life's not fair"));
             zTimelineEvents.Add(new SkepticismOfReligionZSignPost(ZReligiousFlags)); //hit this one out of the park
             zTimelineEvents.Add(new BecameAnAtheist(ZReligiousFlags));
 
@@ -164,6 +168,17 @@ namespace Existence.Beyond
     public class SkepticismOfReligionZSignPost : SkepticismOfReligionPersonal
     {
         public SkepticismOfReligionZSignPost(MyReligiousFlags flags) : base(flags)
+        {
+        }
+    }
+
+    /// <summary>
+    /// the key point here is to learn the lesson that actions have consequences from an event that could possibly have had consequences
+    /// (even if the probability is low), but did not actually have consequences in reality.
+    /// </summary>
+    public class ActionsHaveConsequencesWithoutRealConsequences : LessonEvent
+    {
+        public ActionsHaveConsequencesWithoutRealConsequences() : base("Lesson: Actions have Consequences, but no Real Consequences")
         {
         }
     }

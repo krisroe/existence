@@ -786,4 +786,22 @@ namespace Existence.Beyond.Infrastructure
             this.Religion = Religion;
         }
     }
+
+    public class PersonAttribute : Attribute
+    {
+        public int Person { get; set; }
+        public PersonAttribute(int Person)
+        {
+            this.Person = Person;
+        }
+    }
+
+    public class WitnessAttribute : Attribute
+    {
+        public int Witness { get; set; }
+        public WitnessAttribute(int Witness)
+        {
+            this.Witness = Witness;
+        }
+    }
 }

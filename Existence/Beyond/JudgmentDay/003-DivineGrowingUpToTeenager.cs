@@ -27,7 +27,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 4, 6)]
-            AddTimelessChoirDirectorsAndArrangements
+            AddTimelessChoirDirectorsAndArrangements,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 4, 18)]
+            StartIntegratingSinsWithGeniusGhosting,
         }
 
         private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
@@ -97,7 +101,8 @@ namespace Existence.Beyond.JudgmentDay
                  ZStuff.MAGIC_WORDS_HES_A_GENIUS,
                  (int)ClassmateList.LauraCummings,
                  (int)FamilyMembers.MyMothersBrotherGerald,
-                 (int)PersonalChurches.SaintJohnLutheranChurch),
+                 (int)PersonalChurches.SaintJohnLutheranChurch,
+                 new SomeoneCalledMeAGeniusGhosting()),
                 new MultiEvent("ReligiousSkepticism",
                     [new SkepticismOfReligionPersonal(myReligionFlags),
                     new ChurchChoirDirectorEvent(ChurchChoirDirectors.EleanorCollins, ChoirType.Childrens)]),

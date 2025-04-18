@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using Existence.Time;
 using Existence.Personal;
-using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
+using Existence.Personal.Beyond;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -134,6 +134,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 19, 0, 0)]
             [YearDate(2025, 4, 4)]
             ReorganizedReligiousFlags,
+
+            [BeyondObjectVersion(1, 20, 0, 0)]
+            [YearDate(2025, 4, 18)]
+            IntegrateSins,
         }
 
         public PersonalFirstOriginalSong MyFirstOriginalSong;
@@ -156,11 +160,14 @@ namespace Existence.Beyond.JudgmentDay
             MyFirstParodySong = new PersonalFirstParodySong();
             SweetlySingsTheDonkeyInterpretation = new SweetlySingsTheDonkeyAtTheBreakOfDay();
             OrionisaRisingHumanInterpretation = new OrionIsarising();
+            SomeoneCalledMeAGeniusGhosting someoneCalledMeAGeniusGhosting = new SomeoneCalledMeAGeniusGhosting();
             ClassmateCalledMeAGenius = new SomeoneCalledMeAGenius(
                 ZStuff.MAGIC_WORDS_HES_A_GENIUS,
                 (int)FirstGradeClassAttendanceListAlphabetical.Laura,
                 (int)FamilyMembers.MyMothersBrotherGerald,
-                (int)PersonalChurches.SaintJohnLutheranChurch);
+                (int)PersonalChurches.SaintJohnLutheranChurch,
+                someoneCalledMeAGeniusGhosting);
+            FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills analyticalFocus = new FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills();
             BaseEvent skepticismOfReligion = new SkepticismOfReligionPersonal(myReligiousFlags);
 
             OrderedEvents factListOrdered = new OrderedEvents(birth, new List<BaseEvent>()
@@ -187,7 +194,7 @@ namespace Existence.Beyond.JudgmentDay
                 new MultiEvent("Early Childhood", [establishedFavoriteNumbers, new BittenByAPetDog((int)PetDogs.Abe)]),
                 new MultiEvent("Age 6-7ish", [startedPianoLessons, new BaseEvent("StartedUsingComputers"), new ILikeToFartHandPuppetPlay(), childishNativityPlays]),
                 new MultiEvent("Age 8ish", [new ContemplatedEventuallyIWillDie(), new LifesNotFair()]),
-                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(), OrionisaRisingHumanInterpretation, childishNativityScenes]),
+                new MultiEvent("Age 9ish", [new SelfAwarenessOfAdultLevelOfAnalyticalThinking(analyticalFocus), OrionisaRisingHumanInterpretation, childishNativityScenes]),
                 skepticismOfReligion
             });
             OrderedEvents relevantSongs = new OrderedEvents(startedPianoLessons, new List<BaseEvent>()
@@ -398,6 +405,7 @@ namespace Existence.Beyond.JudgmentDay
         [ZHumanLevel(HumanLevel.Childhood)]
         [MusicNotesRepositoryAudioFile(@"Released\Audio\001-SonyasDumb.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\001-SonyasDumb.txt", PeopleEnumerated.RoweChris)]
+        [SinType(SinType.IntentionalIrritation)]
         public class PersonalFirstParodySong : ParodySongEvent
         {
             public PersonalFirstParodySong() : base(PeopleEnumerated.RoweChris, "Sonya's Dumb", "Rain, Rain, Go Away")
@@ -408,6 +416,7 @@ namespace Existence.Beyond.JudgmentDay
         [PersonalFirst("Original Song")]
         [MusicNotesRepositoryAudioFile(@"Released\Audio\002-TheNationalSIDFoundation.wav", PeopleEnumerated.RoweChris)]
         [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\002-TheNationalSIDFoundation.txt", PeopleEnumerated.RoweChris)]
+        [SinType(SinType.IntentionalIrritation)]
         public class PersonalFirstOriginalSong : OriginalSongEvent
         {
             public PersonalFirstOriginalSong() : base("The National SID Foundation")
@@ -495,23 +504,28 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         /// <summary>
-        /// took a standardized test in 3rd grade, receiving "post high school" pretty much across the board
+        /// took a standardized test in 3rd grade, receiving high marks across the board, not sure if there
+        /// are hyphens in the magic words.
         /// </summary>
         [CosmicHumanLevel(HumanLevel.GrowingUp)]
+        [MagicWords("Post-High-School", "Elementary School Standardized Test", "Third Grade Elementary School Classroom", "Myself")]
         public class SelfAwarenessOfAdultLevelOfAnalyticalThinking : BaseEvent
         {
-            public SelfAwarenessOfAdultLevelOfAnalyticalThinking() : base("Post High School")
+            public FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills Consequence { get; set; }
+            public SelfAwarenessOfAdultLevelOfAnalyticalThinking(FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills Consequence) : base("Post-High-School")
             {
+                this.Consequence = Consequence;
             }
-            public string Consequences
+        }
+
+        /// <summary>
+        /// not recognized as a mistake/sin until much later
+        /// </summary>
+        [SinType(SinType.SocialAvoidance)]
+        public class FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills : BaseEvent
+        {
+            public FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills() : base("Focused on Developing Analytical Skills")
             {
-                get
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("Chose to focus on developing analytical thinking skills, and minimally develop people skills");
-                    sb.AppendLine("This was not recognized as a mistake until much later.");
-                    return sb.ToString();
-                }
             }
         }
 
@@ -521,16 +535,10 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         public class SomeoneCalledMeAGenius : SomeoneSaidSomethingAndIFoundOutViaHearsay
         {
-            public SomeoneCalledMeAGenius(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe, int Location) : base(WhatWasSaid, PersonWhoSaidIt, PersonWhoToldMe, Location)
+            public SomeoneCalledMeAGeniusGhosting Response { get; set; }
+            public SomeoneCalledMeAGenius(string WhatWasSaid, int PersonWhoSaidIt, int PersonWhoToldMe, int Location, SomeoneCalledMeAGeniusGhosting Response) : base(WhatWasSaid, PersonWhoSaidIt, PersonWhoToldMe, Location)
             {
-            }
-
-            public string Reaction
-            {
-                get
-                {
-                    return "I never acknowledged this in any way.";
-                }
+                this.Response = Response;
             }
 
             public string Consequences
@@ -539,6 +547,17 @@ namespace Existence.Beyond.JudgmentDay
                 {
                     return "I lost an opportunity for a potential friend.";
                 }
+            }
+        }
+
+        /// <summary>
+        /// I never acknowledged this in any way. It might be because she was of below average intelligence.
+        /// </summary>
+        [SinType(SinType.LackOfCommunication)]
+        public class SomeoneCalledMeAGeniusGhosting : BaseEvent
+        {
+            public SomeoneCalledMeAGeniusGhosting() : base("Ghosted Someone who Called me a Genius")
+            {
             }
         }
 
@@ -574,6 +593,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [ApproximateAgeInYears(8, 10)]
     [Emotions("Childish Nativity Plays", Emotions.Disrespect)]
+    [SinType(SinType.Disrespect)]
     public class ChildhoodNativityPlayDisrespect1 : BaseEvent
     {
         public ChildhoodNativityPlayDisrespect1(MyReligiousFlags flags) : base("Childish Nativity Plays")
@@ -589,6 +609,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [ApproximateAgeInYears(10, 16)]
     [Emotions("Childish Nativity Scenes", Emotions.Disrespect)]
+    [SinType(SinType.Disrespect)]
     public class ChildhoodNativityPlayDisrespect2 : BaseEvent
     {
         public ChildhoodNativityPlayDisrespect2(MyReligiousFlags flags) : base("Childish Nativity Scenes")
@@ -601,6 +622,7 @@ namespace Existence.Beyond.JudgmentDay
     /// Hand puppet play with the main character as a pig. The headline catch phrase is "I like to fart!" and when 
     /// confronted this is inappropriate doubles down defending the behavior with "But I like to do it in public!".
     /// </summary>
+    [SinType(SinType.FindSomethingInappropriateFunny)]
     public class ILikeToFartHandPuppetPlay : BaseEvent
     {
         public ILikeToFartHandPuppetPlay() : base("\"I Like to Fart\" Hand Puppet Play")
@@ -615,6 +637,7 @@ namespace Existence.Beyond.JudgmentDay
     [DivineHumanLevel(HumanLevel.GrowingUp)]
     [Quotes("I have no sin.", "Me", "My Bedroom", "Alone")]
     [BiblePassage("1 John 1:8-9")]
+    [SinType(SinType.Lie)]
     public class SkepticismOfReligionPersonal : BaseEvent
     {
         public SkepticismOfReligionPersonal(MyReligiousFlags myFlags) : base("Skepticism of Religion")
