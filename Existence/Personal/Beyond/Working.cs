@@ -163,9 +163,9 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
-        /// Wet the bed at church camp, getting sleeping bag all messy. Camp counselor washed it for me. It shook
-        /// me up a lot since I thought I was past this. I treat this as a sin since I could have avoided it with
-        /// smarter behavior.
+        /// Wet the bed at church camp (Pine Lake Camp), getting sleeping bag all messy. Camp counselor washed it 
+        /// for me. It shook me up a lot since I thought I was past this (and did indeed demarcate being past it). 
+        /// I treat this as a sin since I could have avoided it with smarter behavior.
         // </summary>
         [ApproximateAgeInYears(10)]
         [SinType(SinType.EmbarrassingBehavior)]
@@ -570,9 +570,9 @@ namespace Existence.Personal.Beyond
     /// lucky penny incident where I scratched off a $50 scratch-off lottery ticket winner
     /// for Grandma
     /// Grandpa "lost the rent check" from Dad's story
+    /// Magic words "Chris Rowe" uttered by Angel Green (not sure if it was admiration or contempt)
     /// 
     /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
-    /// last wet the bed incident was at Pine Lake camp (camp counselor washed the sleeping bag)
     /// 
     /// son took forever to get over wetting the bed (wore pullup like forever, his mother really didn't
     /// want to clean it up and appeared to have no idea what would be helpful and never asked me about it). He Didn't seem to
@@ -592,6 +592,8 @@ namespace Existence.Personal.Beyond
     /// This is the day
     /// 
     /// How many insult songs did I create?
+    /// 
+    /// childhood Ant killing, atoned for current treatment of spiders
     /// 
     /// Called piano teacher beef jerky
     /// 
@@ -642,6 +644,10 @@ namespace Existence.Personal.Beyond
     /// 
     /// ongoing sins
     /// sins there is no promise to refrain from (medication abuse)
+    /// 
+    /// Allina black op
+    /// 94254
+    /// deferred conversions
     /// 
     /// dog choke chain
     /// light strangulation
