@@ -38,8 +38,7 @@ namespace Existence.Personal.Beyond
             new SowingChaosInChurchChildrensChoirPractice();
             new HittingMySister();
             new CheatedAtUpperElementaryDodgeball();
-            new DidntWantMyPictureTaken();
-            new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer();
+            new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer());
             new TheEducationalValueOfThisIsQuestionable();
             new AssistedGettingMySummerProgramRoommateExpelled();
             new CarAccidentBackingUpAtGrandparentsFarm();
@@ -269,14 +268,17 @@ namespace Existence.Personal.Beyond
         [ApproximateAgeInYears(12)]
         public class DidntWantMyPictureTaken : BaseEvent
         {
-            public DidntWantMyPictureTaken() : base("Didn't want my Picture Taken")
+            EmbarrassingLittleKidBehaviorAtProfessionalPhotographer Closure { get; set; }
+            public DidntWantMyPictureTaken(EmbarrassingLittleKidBehaviorAtProfessionalPhotographer Closure) : base("Didn't want my Picture Taken")
             {
+                this.Closure = Closure;
             }
         }
 
         /// <summary>
         /// this refers to an incident where I was old enough to know better but I still forced the professional
-        /// photographer to treat me like a little child to get the picture done.
+        /// photographer to treat me like a little child to get the picture done. This serves as closure for 
+        /// photographic refusal but doesn't atone for it.
         /// </summary>
         [SinTypes(SinType.EmbarrassingBehavior, SinType.RefusalToDoExpectedBehavior)]
         [ApproximateAgeInYears(13)]
