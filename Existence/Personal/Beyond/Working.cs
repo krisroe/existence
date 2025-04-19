@@ -70,6 +70,8 @@ namespace Existence.Personal.Beyond
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
+            new ExposedPersonalInformationInGarbage(),
+            new DidNotCorrectIncorrectTornadoAnecdote(),
             new GotADiscoverCardAndNeverPaidTheBalance(),
             new KeptSignificantQuantityOfGoldAndSilver(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
@@ -746,11 +748,42 @@ namespace Existence.Personal.Beyond
         /// scene and never looked back.
         /// </summary>
         [Year(2005)]
-        [SinTypes(SinType.LackOfSkill, SinType.LackOfCommunication, SinType.Recklessness)]
+        [SinTypes(SinType.Incompetence, SinType.LackOfCommunication, SinType.Recklessness)]
         public class Did360InTheSnowAtMineralPointAndWhitneyWay : BaseEvent
         {
             public Did360InTheSnowAtMineralPointAndWhitneyWay() : base("Car 360 and Hit Utility Pole in Snow")
             {
+            }
+        }
+
+        /// <summary>
+        /// I threw something with my social security number prominently
+        /// displayed in the Sherman Terrace garbage. Rich Meyer was dumpster
+        /// diving and found it and gave it back so I could shred it.
+        /// </summary>
+        [Year(2006)]
+        [SinType(SinType.ExposePersonalInformation)]
+        public class ExposedPersonalInformationInGarbage : BaseEvent
+        {
+            public ExposedPersonalInformationInGarbage() : base("Exposed SSN in Garbage")
+            {
+            }
+        }
+
+        /// <summary>
+        /// My father told an anecdote at least twice about how sturdy the 
+        /// Sherman Terrace apartments were. The anecdote said that in case
+        /// of tornado, instead of hiding you could go to the window. That
+        /// seems entirely incorrect as tornados can destroy windows easily.
+        /// It was hyperbole but even so I should have assisted in correction.
+        /// </summary>
+        [Year(2006)]
+        [SinType(SinType.FactCheckingMistake)]
+        public class DidNotCorrectIncorrectTornadoAnecdote : BaseEvent
+        {
+            public DidNotCorrectIncorrectTornadoAnecdote() : base("Did not Correct Tornado Anecdote")
+            {
+
             }
         }
 
@@ -838,6 +871,8 @@ namespace Existence.Personal.Beyond
         /// would be "light strangulation", meaning not for long enough to actually leave any
         /// marks or prevent breathing.
         /// </summary>
+        [Year(2017)]
+        [Witness((int)FamilyMembers.MySonAdam)]
         public class LightStrangulationOfChild : BaseEvent
         {
             public LightStrangulationOfChild() : base("Light Strangulation of Child")
@@ -869,6 +904,7 @@ namespace Existence.Personal.Beyond
         /// Swift Antihreo contrafactum to members of the team.
         /// </summary>
         [SinTypes(SinType.BreakingTheRules, SinType.MixingWorkAndPersonalLifeInappropriately)]
+        [Year(2022)]
         public class PutFinaleOnWorkLocalMachine : BaseEvent
         {
             public RemovedFinaleFromWorkLocalMachineViaITTicket Atonement { get; set; }
@@ -920,6 +956,7 @@ namespace Existence.Personal.Beyond
             }
         }
 
+        #region Ongoing
         /// <summary>
         /// When I have owned the phone, sometimes it's been nonfunctional for long periods
         /// (e.g. crack screen) and I haven't noticed since I haven't used it. Frequently
@@ -975,6 +1012,7 @@ namespace Existence.Personal.Beyond
             {
             }
         }
+        #endregion
     }
 
     public class SinTypeAttribute : Attribute
@@ -1007,15 +1045,17 @@ namespace Existence.Personal.Beyond
         Disrespect,
         Domination,
         EmbarrassingBehavior,
+        ExposePersonalInformation,
+        FactCheckingMistake,
         FindSomethingInappropriateFunny,
         Gluttony,
         Hoarding,
         InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
+        Incompetence,
         IntentionalIrritation,
         LackOfCommunication,
-        LackOfSkill,
         Laziness,
         Lie,
         MixingWorkAndPersonalLifeInappropriately,
@@ -1117,6 +1157,7 @@ namespace Existence.Personal.Beyond
     /// 1. public cursing
     /// 2. didn't respond to email
     /// 3. didn't respond to solar eclipse
+    /// 4. Anarchy symbol (also ongoing)
     /// shooting post
     /// 1. didn't take deposition
     /// 
