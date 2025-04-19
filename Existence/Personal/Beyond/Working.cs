@@ -9,6 +9,7 @@ using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Beyond.Submission;
+using System.Collections.Generic;
 
 namespace Existence.Personal.Beyond
 {
@@ -18,40 +19,55 @@ namespace Existence.Personal.Beyond
         public JudgmentDaySins()
         {
             MyReligiousFlags religiousFlags = new MyReligiousFlags(null);
-            new StickingFingerInExposedPowerOutlets();
-            new HeadInjuryFromRunningAroundHouseTooFast();
-            new ILikeToFartHandPuppetPlay();
-            new HidSistersBlanketComfortObject();
-            new SomeoneClaimedSomeoneElseWasDeadInSchool();
-            new PersonalFirstParodySong();
-            new PersonalFirstOriginalSong();
-            new SomeoneCalledMeAGeniusGhosting();
-            new SkippedOutOnHalloweenClassParty();
-            new FlashcardsDomination();
-            new FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills();
-            new ChildhoodNativityPlayDisrespect1(religiousFlags);
-            new ChildhoodNativityPlayDisrespect2(religiousFlags);
-            new SkepticismOfReligionPersonal(religiousFlags);
-            new WetTheBedAtChurchCamp();
-            new GuaranteedNoCarAccidentWouldOccur();
-            new HalloweenCostumeAsGhostAndSelf();
-            new SowingChaosInChurchChildrensChoirPractice();
-            new HittingMySister();
-            new CheatedAtUpperElementaryDodgeball();
-            new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer());
-            new TheEducationalValueOfThisIsQuestionable();
-            new AssistedGettingMySummerProgramRoommateExpelled();
-            new CarAccidentBackingUpAtGrandparentsFarm();
-            new EnglishPaperClaimingPeopleAreInherentlyStupid();
-            new ChairBurningAtPicnicPoint();
-            new LiedAboutHavingGirlfriend();
-            new SowingChaosAtHighSchoolBandPractice();
-            new ClaimedPsychologyIsBullshitInClassAssignment();
-            new WalkedThirteenAndAHalfMilesHomeFromSchool();
-            new TakingInsuranceInBlackjack();
-            new TryingToCountCardsAtBlackjack1();
-            new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation();
-            new TryingToCountCardsAtBlackjack2();
+
+            List<BaseEvent> pastSins = new List<BaseEvent>()
+            {
+            new StickingFingerInExposedPowerOutlets(),
+            new HeadInjuryFromRunningAroundHouseTooFast(),
+            new ILikeToFartHandPuppetPlay(),
+            new HidSistersBlanketComfortObject(),
+            new SomeoneClaimedSomeoneElseWasDeadInSchool(),
+            new PersonalFirstParodySong(),
+            new PersonalFirstOriginalSong(),
+            new SomeoneCalledMeAGeniusGhosting(),
+            new SkippedOutOnHalloweenClassParty(),
+            new FlashcardsDomination(),
+            new FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills(),
+            new ChildhoodNativityPlayDisrespect1(religiousFlags),
+            new ChildhoodNativityPlayDisrespect2(religiousFlags),
+            new SkepticismOfReligionPersonal(religiousFlags),
+            new WetTheBedAtChurchCamp(),
+            new GuaranteedNoCarAccidentWouldOccur(),
+            new HalloweenCostumeAsGhostAndSelf(),
+            new SowingChaosInChurchChildrensChoirPractice(),
+            new HittingMySister(),
+            new CheatedAtUpperElementaryDodgeball(),
+            new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
+            new TheEducationalValueOfThisIsQuestionable(),
+            new AssistedGettingMySummerProgramRoommateExpelled(),
+            new CarAccidentBackingUpAtGrandparentsFarm(),
+            new EnglishPaperClaimingPeopleAreInherentlyStupid(),
+            new ChairBurningAtPicnicPoint(),
+            new LiedAboutHavingGirlfriend(),
+            new HitATurkeyWithACar(),
+            new SowingChaosAtHighSchoolBandPractice(),
+            new ClaimedPsychologyIsBullshitInClassAssignment(),
+            new WalkedThirteenAndAHalfMilesHomeFromSchool(),
+            new TakingInsuranceInBlackjack(),
+            new TryingToCountCardsAtBlackjack1(),
+            new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
+            new TryingToCountCardsAtBlackjack2(),
+            new SableLostElectricalPowerOnMadisonGorhamStreet(),
+            new Did360InTheSnowAtMineralPointAndWhitneyWay(),
+            new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
+            new MatrixBrokeDownSouthOfLodi(),
+            new HitADeerWithCar()
+            };
+
+            List<BaseEvent> ongoingSins = new List<BaseEvent>()
+            {
+                new PersonalPhoneNotInWorkingOrder()
+            };
         }
 
         /// <summary>
@@ -369,9 +385,24 @@ namespace Existence.Personal.Beyond
         /// </summary>
         [ApproximateAgeInYears(16)]
         [SinType(SinType.Lie)]
+        [Person((int)FamilyMembers.MyMothersBrothersSonDennis)]
         public class LiedAboutHavingGirlfriend : BaseEvent
         {
             public LiedAboutHavingGirlfriend() : base("Lied about having a Girlfriend")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I believe the car was the Ford Explorer and I was taking my sister somewhere
+        /// driving south on county trunk highway B and I hit a turkey. Car was not 
+        /// significantly damaged.
+        /// </summary>
+        [ApproximateAgeInYears(16)]
+        [SinType(SinType.Recklessness)]
+        public class HitATurkeyWithACar : BaseEvent
+        {
+            public HitATurkeyWithACar() : base("Hit a turkey with my car")
             {
             }
         }
@@ -482,6 +513,97 @@ namespace Existence.Personal.Beyond
             {
             }
         }
+
+        /// <summary>
+        /// The Mercury Sable had some electrical issues, culminating in it losing power on
+        /// Gorham Street heading southwest. I guided it off Gorham Street turning left onto Few
+        /// Street. I found someone at a nearby house to call my father to get me out of it.
+        /// This is a ding for inadequate means of communication and being overly reliant on
+        /// others.
+        /// </summary>
+        [YearDate(2004)]
+        [SinTypes(SinType.LackOfCommunication, SinType.OverlyReliantOnOthers)]
+        public class SableLostElectricalPowerOnMadisonGorhamStreet : BaseEvent
+        {
+            public SableLostElectricalPowerOnMadisonGorhamStreet() : base("Car stranded in Madison")
+            {
+            }
+        }
+
+        /// <summary>
+        /// In the snow driving East on Whitney Way I hit the break too much in the intersection
+        /// and the car did a 360. At the end I tapped a utility pole. I drove away from the
+        /// scene and never looked back.
+        /// </summary>
+        [Year(2005)]
+        [SinTypes(SinType.LackOfSkill, SinType.LackOfCommunication, SinType.Recklessness)]
+        public class Did360InTheSnowAtMineralPointAndWhitneyWay : BaseEvent
+        {
+            public Did360InTheSnowAtMineralPointAndWhitneyWay() : base("Car 360 and Hit Utility Pole in Snow")
+            {
+            }
+        }
+
+        /// <summary>
+        /// Got a TB Test at Concentra for use at Epic go-live. Driving back to Epic I looked at
+        /// the mark when I shouldn't. I fainted, losing some time, and totaling the car into
+        /// a utility pole
+        /// </summary>
+        [Year(2007)]
+        [SinType(SinType.UnhealthyBehavior)]
+        public class LookingAtTBTestMarkCausingFaintingAndCarCrash : BaseEvent
+        {
+            public LookingAtTBTestMarkCausingFaintingAndCarCrash() : base("Looking at TB Tests caused Fainting and Car Accident")
+            {
+            }
+        }
+
+        /// <summary>
+        /// While driving home from my mother's house with my son and daughter in the car,
+        /// the Matrix stopped working South of Lodi on Highway 113 just south of the county line
+        /// and the railroad tracks. We went to a nearby house and an elderly couple allowed 
+        /// use of their phone to call spouse. At the time I didn't have a phone. Spouse showed
+        /// up to bail me out. This marked the end of the Matrix.
+        /// </summary>
+        [Year(2019)]
+        [SinTypes(SinType.LackOfCommunication, SinType.OverlyReliantOnOthers)]
+        public class MatrixBrokeDownSouthOfLodi : BaseEvent
+        {
+            public MatrixBrokeDownSouthOfLodi() : base("Car Broke Down South of Lodi")
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// With Beverly in the car, I drove the Honda Accord south on third avenue. Just before
+        /// getting to Dennis Weiss' house, A deer jumped in front of the car, was hit by the
+        /// front of the car, and the deer went flying. I was able to drive the car to mother's
+        /// house. We called the county to report it. It was a bunch of money to deal with the 
+        /// damage but the Accord survived.
+        /// </summary>
+        [Year(2023)]
+        [SinTypes(SinType.Recklessness, SinType.OverlyReliantOnOthers)]
+        public class HitADeerWithCar : BaseEvent
+        {
+            public HitADeerWithCar() : base("Hit a Deer with Car")
+            {
+            }
+        }
+
+        /// <summary>
+        /// When I have owned the phone, sometimes it's been nonfunctional for long periods
+        /// (e.g. crack screen) and I haven't noticed since I haven't used it. Frequently
+        /// the phone is uncharged. Sometimes the phone gets on silent mode which may or may not
+        /// be my fault and I don't answer.
+        /// </summary>
+        [SinType(SinType.LackOfCommunication)]
+        public class PersonalPhoneNotInWorkingOrder : BaseEvent
+        {
+            public PersonalPhoneNotInWorkingOrder() : base("Phone not kept in working order")
+            {
+            }
+        }
     }
 
     public class SinTypeAttribute : Attribute
@@ -514,11 +636,13 @@ namespace Existence.Personal.Beyond
         InappropriatePublicCommunication,
         IntentionalIrritation,
         LackOfCommunication,
+        LackOfSkill,
         Laziness,
         Lie,
         PersonalCommunication,
         PoorDecisionmaking,
         PracticalJoke,
+        OverlyReliantOnOthers,
         Overpromising,
         PropertyDamage,
         RefusalToDoExpectedBehavior,
@@ -527,7 +651,8 @@ namespace Existence.Personal.Beyond
         SowingChaos,
         Recklessness,
         TactlessTruth,
-        TattleTale
+        TattleTale,
+        UnhealthyBehavior,
     }
 
     internal class JudgmentDaySomethingReligious
@@ -598,12 +723,6 @@ namespace Existence.Personal.Beyond
     /// Called piano teacher beef jerky
     /// 
     /// Accused Mrs. Anderson of being a communist
-    /// 
-    /// Car Accidents:
-    /// 1. Hit a turkey
-    /// 2. Sable losing electrical power on Gorham Street
-    /// 3. Matrix breaking down on 113 south of Lodi
-    /// 4. Hit a deer
     /// 
     /// shooting leadup
     /// 1. public cursing
