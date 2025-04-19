@@ -50,18 +50,25 @@ namespace Existence.Personal.Beyond
             new ChairBurningAtPicnicPoint(),
             new LiedAboutHavingGirlfriend(),
             new HitATurkeyWithACar(),
+            new SpanishClassSkitWhereAnAirlinerExploded(),
+            new InappropriatelyPutArmAroundGirl(),
             new SowingChaosAtHighSchoolBandPractice(),
             new ClaimedPsychologyIsBullshitInClassAssignment(),
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
+            new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
+            new GotADiscoverCardAndNeverPaidTheBalance(),
+            new KeptSignificantQuantityOfGoldAndSilver(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
+            new TriedToStartScambaiting(),
             new MatrixBrokeDownSouthOfLodi(),
-            new HitADeerWithCar()
+            new HitADeerWithCar(),
+            new MissedAVISAPayment(),
             };
 
             List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -408,6 +415,34 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// We had to make a skit for Spanish class. I don't remember the exact group, but
+        /// Heather Dakter was in it. We did an airline hijack skit and it ended with the airliner
+        /// exploding.
+        /// </summary>
+        [MagicWords("Boom!", "Spanish Skit", "10th Grade Spanish Class", "10th Grade Spanish Class")]
+        [SinType(SinType.InappropriatePublicCommunication)]
+        [Witness((int)YearAboveClassmateList.HeatherDakter)]
+        public class SpanishClassSkitWhereAnAirlinerExploded : BaseEvent
+        {
+            public SpanishClassSkitWhereAnAirlinerExploded() : base("Exploded Airliner in Spanish Class Skit")
+            {
+            }
+        }
+
+        /// <summary>
+        /// After coming out of the FST class (10th grade) I put my arm around Lisa Mitchell and
+        /// she immediately removed it.
+        /// </summary>
+        [SinType(SinType.PersonalSpaceViolation)]
+        [Witness((int)YearAboveClassmateList.LisaMitchell)]
+        public class InappropriatelyPutArmAroundGirl : BaseEvent
+        {
+            public InappropriatelyPutArmAroundGirl() : base("Inappropriately put arm around girl")
+            {
+            }
+        }
+
+        /// <summary>
         /// Main example is intentionally playing just a bit off to confuse the choir director. This is
         /// especially easy for clarinets since other instruments like trumpets can make it difficult for
         /// the band director to hear them.
@@ -451,6 +486,21 @@ namespace Existence.Personal.Beyond
         public class WalkedThirteenAndAHalfMilesHomeFromSchool : BaseEvent
         {
             public WalkedThirteenAndAHalfMilesHomeFromSchool() : base("Walked 13.5 Miles Home From School")
+            {
+            }
+        }
+
+        /// <summary>
+        /// This was during the AP Calculus test when I was a junior. The test had Areas 1, 
+        /// 2, and 3, and I made a joke there was no Area 51. Not really a sin at the time, but
+        /// I'm including it due to possible intergalactic pulsar time implications.
+        /// </summary>
+        [Year(1998)]
+        [SinType(SinType.InappropriateJoke)]
+        [Witness((int)YearAboveClassmateList.LisaMitchell)]
+        public class InappropriateAliensJoke : BaseEvent
+        {
+            public InappropriateAliensJoke() : base("Made an Inappropriate Joke about Area 51")
             {
             }
         }
@@ -545,6 +595,39 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// In a phone conversation where I didn't assert myself well, I obtained a Discover card
+        /// and got a protection plan in case I couldn't make payments. I felt I had been
+        /// manipulated and decided not to pay the bill for the protection plan. Eventually
+        /// they stopped bugging me (maybe my Dad paid it or maybe the account closed).
+        /// </summary>
+        [SinTypes(SinType.NonPayment, SinType.NonAssertiveBehavior, SinType.OverlyReliantOnOthers)]
+        [Year(2006)]
+        public class GotADiscoverCardAndNeverPaidTheBalance : BaseEvent
+        {
+            public GotADiscoverCardAndNeverPaidTheBalance() : base("Never Paid my Discover Card Bill")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I bought a bunch of gold and silver on eBay and kept it under a dresser (breaking
+        /// the dresser which couldn't hold the weight). After a time I started selling it at
+        /// a local pawn shop. My father noticed and somewhat freaked out by its presence.
+        /// I didn't pay tax on the gain in value - my dad suggested that was ok since I had
+        /// physically possessed the precious metals. I'm pretty sure it was a light form of
+        /// tax evasion. I occasionally feel some anxiety the statute of limitations hasn't
+        /// actually run on it and I'm still on the hook for this in the real world.
+        /// </summary>
+        [SinTypes(SinType.PropertyDamage, SinType.Hoarding, SinType.TaxEvasion)]
+        [Year(2006)]
+        public class KeptSignificantQuantityOfGoldAndSilver : BaseEvent
+        {
+            public KeptSignificantQuantityOfGoldAndSilver() : base("Kept Significant Quantity of Gold/Silver in House")
+            {
+            }
+        }
+
+        /// <summary>
         /// Got a TB Test at Concentra for use at Epic go-live. Driving back to Epic I looked at
         /// the mark when I shouldn't. I fainted, losing some time, and totaling the car into
         /// a utility pole
@@ -554,6 +637,20 @@ namespace Existence.Personal.Beyond
         public class LookingAtTBTestMarkCausingFaintingAndCarCrash : BaseEvent
         {
             public LookingAtTBTestMarkCausingFaintingAndCarCrash() : base("Looking at TB Tests caused Fainting and Car Accident")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I looked at some Scambaiting sites and decided to try to start some scam-baiting.
+        /// I created a persona Reginald Surtsey and tried to start out. It didn't take very long
+        /// before Yahoo email didn't like something about what I did. I took it as a sign to stop.
+        /// </summary>
+        [Year(2012)]
+        [SinType(SinType.Deceit)]
+        public class TriedToStartScambaiting : BaseEvent
+        {
+            public TriedToStartScambaiting() : base("Tried to Start Scambaiting")
             {
             }
         }
@@ -578,15 +675,29 @@ namespace Existence.Personal.Beyond
         /// <summary>
         /// With Beverly in the car, I drove the Honda Accord south on third avenue. Just before
         /// getting to Dennis Weiss' house, A deer jumped in front of the car, was hit by the
-        /// front of the car, and the deer went flying. I was able to drive the car to mother's
-        /// house. We called the county to report it. It was a bunch of money to deal with the 
-        /// damage but the Accord survived.
+        /// front of the car, and the deer went flying. From the looks of the deer it was probably
+        /// a pregnant female. I was able to drive the car to mother's house. We called the county 
+        /// to report it. It was a bunch of money to deal with the damage but the Accord survived.
         /// </summary>
         [Year(2023)]
         [SinTypes(SinType.Recklessness, SinType.OverlyReliantOnOthers)]
         public class HitADeerWithCar : BaseEvent
         {
             public HitADeerWithCar() : base("Hit a Deer with Car")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I generally pay my VISA credit card bill on time. However, once, somehow the
+        /// envelope got lost (found downstairs in my desk area which I don't remember moving
+        /// it to). That month's payment was missed, and I paid it in full the next month.
+        /// </summary>
+        [Year(2024)]
+        [SinType(SinType.NonPayment)]
+        public class MissedAVISAPayment : BaseEvent
+        {
+            public MissedAVISAPayment() : base("Missed a VISA Payment")
             {
             }
         }
@@ -628,10 +739,13 @@ namespace Existence.Personal.Beyond
     {
         Cheating,
         Cruelty,
+        Deceit,
         Disrespect,
         Domination,
         EmbarrassingBehavior,
         FindSomethingInappropriateFunny,
+        Hoarding,
+        InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
         IntentionalIrritation,
@@ -639,11 +753,14 @@ namespace Existence.Personal.Beyond
         LackOfSkill,
         Laziness,
         Lie,
+        NonAssertiveBehavior,
+        NonPayment,
         PersonalCommunication,
         PoorDecisionmaking,
         PracticalJoke,
         OverlyReliantOnOthers,
         Overpromising,
+        PersonalSpaceViolation,
         PropertyDamage,
         RefusalToDoExpectedBehavior,
         SocialAvoidance,
@@ -652,6 +769,7 @@ namespace Existence.Personal.Beyond
         Recklessness,
         TactlessTruth,
         TattleTale,
+        TaxEvasion,
         UnhealthyBehavior,
     }
 
@@ -770,6 +888,18 @@ namespace Existence.Personal.Beyond
     /// 
     /// dog choke chain
     /// light strangulation
+    /// 
+    /// checking account not balanced
+    /// gluttony
+    /// 
+    /// lost the alien piece of technology at mother's house (Pizza Hut?)
+    /// 
+    /// listened to Todd Hamm doing base acts while putting together the giant New York City puzzle
+    /// 
+    /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
+    /// after 9/11
+    /// 
+    /// helped b. wimann do a comp sci assignment on the wrong side of cheating ethics
     /// </summary>
     internal class WorkingIdeas
     {
