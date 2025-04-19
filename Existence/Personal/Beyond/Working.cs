@@ -32,24 +32,31 @@ namespace Existence.Personal.Beyond
             new SomeoneCalledMeAGeniusGhosting(),
             new SkippedOutOnHalloweenClassParty(),
             new FlashcardsDomination(),
+            new CuttingInLineAtDisneyLand(),
             new FocusedOnDevelopingAnalyticalThinkingSkillsAtTheExpenseOfCommunicationSkills(),
             new ChildhoodNativityPlayDisrespect1(religiousFlags),
             new ChildhoodNativityPlayDisrespect2(religiousFlags),
             new SkepticismOfReligionPersonal(religiousFlags),
             new WetTheBedAtChurchCamp(),
+            new ChokedDogTrainingDogWithChokeChainExcessively(),
             new GuaranteedNoCarAccidentWouldOccur(),
             new HalloweenCostumeAsGhostAndSelf(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
             new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
+            new ToldMyMotherSheWasntInOnPerformanceNuances(),
+            new AntKilling(new SpiderRemoval()),
+            new CalledPianoTeacherBeefJerky(),
             new TheEducationalValueOfThisIsQuestionable(),
             new AssistedGettingMySummerProgramRoommateExpelled(),
+            new ClarinetSqueakingInPublicPerformance(),
             new CarAccidentBackingUpAtGrandparentsFarm(),
             new EnglishPaperClaimingPeopleAreInherentlyStupid(),
             new ChairBurningAtPicnicPoint(),
             new LiedAboutHavingGirlfriend(),
             new HitATurkeyWithACar(),
+            new BoomSoundAtHighSchoolShowChoirPerformance(),
             new SpanishClassSkitWhereAnAirlinerExploded(),
             new InappropriatelyPutArmAroundGirl(),
             new SowingChaosAtHighSchoolBandPractice(),
@@ -59,6 +66,7 @@ namespace Existence.Personal.Beyond
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
+            new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
@@ -66,14 +74,20 @@ namespace Existence.Personal.Beyond
             new KeptSignificantQuantityOfGoldAndSilver(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
             new TriedToStartScambaiting(),
+            new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
+            new LightStrangulationOfChild(),
             new MatrixBrokeDownSouthOfLodi(),
+            new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
             };
 
             List<BaseEvent> ongoingSins = new List<BaseEvent>()
             {
-                new PersonalPhoneNotInWorkingOrder()
+                new PersonalPhoneNotInWorkingOrder(),
+                new CheckingAccountNotBalanced(),
+                new EatTooMuch(),
+                new UseOfWorkComputerForPersonalUse(),
             };
         }
 
@@ -186,6 +200,23 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// We took a family vacation to California where my mother's sister and her family lived.
+        /// They had two children with muscular dystrophy. We went to Disneyland and got to cut
+        /// in line on rides that allowed the handicapped to do so. I was not handicapped and thus
+        /// got to take advantage of the situation. I remember imagining the other residents of
+        /// the line might be annoyed at this, but I am not certain that is an actual
+        /// representation of reality.
+        /// </summary>
+        [ApproximateAgeInYears(10)]
+        [SinTypes(SinType.CuttingInLine, SinType.TakingAdvantageOfSituation)]
+        public class CuttingInLineAtDisneyLand : BaseEvent
+        {
+            public CuttingInLineAtDisneyLand() : base("Used Handicapped Relatives to Cut in Line")
+            {
+            }
+        }
+
+        /// <summary>
         /// Wet the bed at church camp (Pine Lake Camp), getting sleeping bag all messy. Camp counselor washed it 
         /// for me. It shook me up a lot since I thought I was past this (and did indeed demarcate being past it). 
         /// I treat this as a sin since I could have avoided it with smarter behavior.
@@ -196,6 +227,22 @@ namespace Existence.Personal.Beyond
         {
             public WetTheBedAtChurchCamp() : base("Church Camp Wet the Bed")
             {
+            }
+        }
+
+        /// <summary>
+        /// I trained Ted (Teddy) for 4-H. He was reasonably competent at learning what he had to
+        /// do, although he got nervous around other people. We used a choke chain as a mechanism
+        /// to get him to do the desired behavior. I don't remember using the choke chain to a
+        /// ridiculously excessive amount, but I used it enough to get on this list.
+        /// </summary>
+        [ApproximateAgeInYears(10)]
+        [SinType(SinType.Cruelty)]
+        public class ChokedDogTrainingDogWithChokeChainExcessively : BaseEvent
+        {
+            public ChokedDogTrainingDogWithChokeChainExcessively() : base("Dog Training Excessive Choke Chain Use")
+            {
+
             }
         }
 
@@ -288,7 +335,7 @@ namespace Existence.Personal.Beyond
         /// your soul, although I never really spelled that attitude out.
         /// </summary>
         [SinType(SinType.RefusalToDoExpectedBehavior)]
-        [ApproximateAgeInYears(12)]
+        [ApproximateAgeInYears(7, 13)]
         public class DidntWantMyPictureTaken : BaseEvent
         {
             EmbarrassingLittleKidBehaviorAtProfessionalPhotographer Closure { get; set; }
@@ -313,13 +360,79 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// A common piece of advice for music performance is if something wrong happens, just 
+        /// keep on going. The reality is most people won't notice because they aren't attuned
+        /// to how a mistake would look. I told my mother once that she was one of those people.
+        /// The truth was my beef was actually with my mother's lack of social reciprocity in 
+        /// such matters, so my characterization wasn't entirely on point. Regardless, mother
+        /// didn't have a significant reaction to the statement, and I never brought up any
+        /// similar point later.
+        /// </summary>
+        [ApproximateAgeInYears(13)]
+        [SinType(SinType.TactlessTruth)]
+        public class ToldMyMotherSheWasntInOnPerformanceNuances : BaseEvent
+        {
+            public ToldMyMotherSheWasntInOnPerformanceNuances() : base("Told Mother She Couldn't Discriminate Performance Quality")
+            {
+            }
+        }
+
+        /// <summary>
+        /// as a child sometimes I killed ants for fun by stepping on them or crushing them.
+        /// Another scenario was turning on the hose and flooding the area with the ants.
+        /// </summary>
+        [ApproximateAgeInYears(7, 13)]
+        [SinTypes(SinType.Murder, SinType.WasteResources)]
+        public class AntKilling : BaseEvent
+        {
+            public SpiderRemoval Atonement { get; set; }
+            public AntKilling(SpiderRemoval Atonement) : base("Killed Ants for Fun")
+            {
+                this.Atonement = Atonement;
+            }
+        }
+
+        /// <summary>
+        /// Particularly (but not exclusively) when spouse points out a spider, I either kill it,
+        /// try to take it outside, or wait until it leaves the immediate area. This is a bit more
+        /// mature than ant killing.
+        /// </summary>
+        [StartYear(2007)]
+        [SinTypes(SinType.Murder)]
+        public class SpiderRemoval : BaseEvent
+        {
+            public SpiderRemoval() : base("Dealt with Trespassing Spiders in Various Ways")
+            {
+            }
+        }
+
+        /// <summary>
+        /// My sister and I would call my piano teacher "Beef Jerky", for no other reason than
+        /// because "jerky" rhymed with the last name Yerke. For many years, even after done with
+        /// piano lessons, we would say the magic words as we passed the house where we had
+        /// previously taken piano lessons
+        /// </summary>
+        [ApproximateAgeInYears(12, 17)]
+        [Witness((int)FamilyMembers.MySisterSonya)]
+        [MagicWords("Residence of Beef Jerky", "Former Residence of Beef Jerky",
+                    "My sister and I", "Piano Teacher's Residence or Former Residency", 
+                    "Sometimes My Mother")]
+        [SinTypes(SinType.TalkingBehindSomeonesBack, SinType.AdHominim)]
+        public class CalledPianoTeacherBeefJerky : BaseEvent
+        {
+            public CalledPianoTeacherBeefJerky() : base("Called Piano Teacher Ridiculous Name Behind Back")
+            {
+            }
+        }
+
+        /// <summary>
         /// At church camp we were allowed to rate the different activities. A fellow camper excelled at negative
         /// reviews, giving a negative review to the canoeing activity. I found this excessively funny.
         /// I have tried using the phrase since, but whenever I use it myself it doesn't seem to work.
         /// </summary>
-        [SinType(SinType.FindSomethingInappropriateFunny)]
         [ApproximateAgeInYears(14)]
         [MagicWords("The educational value of X is questionable", "Fellow Church Camper", "Church Camp", "Church Campers")]
+        [SinType(SinType.FindSomethingInappropriateFunny)]
         public class TheEducationalValueOfThisIsQuestionable : BaseEvent
         {
             public TheEducationalValueOfThisIsQuestionable() : base("The Educational Value of this is Questionable")
@@ -338,6 +451,20 @@ namespace Existence.Personal.Beyond
         public class AssistedGettingMySummerProgramRoommateExpelled : BaseEvent
         {
             public AssistedGettingMySummerProgramRoommateExpelled() : base("Helped get roommate expelled")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I remember squeaking twice in public performance of clarinet - once during solo &
+        /// ensemble, and once during a band concert. This is more of a personally embarrassing
+        /// thing that others don't think twice about.
+        /// </summary>
+        [ApproximateAgeInYears(15)]
+        [SinType(SinType.EmbarrassingBehavior)]
+        public class ClarinetSqueakingInPublicPerformance : BaseEvent
+        {
+            public ClarinetSqueakingInPublicPerformance() : base("Clarinet Squeaking for Solo/Ensemble/Concert")
             {
             }
         }
@@ -391,8 +518,8 @@ namespace Existence.Personal.Beyond
         /// Allison and I never spoke to her directly, and never mentioned her to anyone else except for this lie.
         /// </summary>
         [ApproximateAgeInYears(16)]
-        [SinType(SinType.Lie)]
         [Person((int)FamilyMembers.MyMothersBrothersSonDennis)]
+        [SinType(SinType.Lie)]
         public class LiedAboutHavingGirlfriend : BaseEvent
         {
             public LiedAboutHavingGirlfriend() : base("Lied about having a Girlfriend")
@@ -415,13 +542,29 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// I did keyboard for a high school show choir competition (songs included Istanbul
+        /// and Matilda). Between songs I did something involving an amp plugin resulting in a
+        /// semi-loud boom. No one remarked on it but it was personally embarrassing and it was
+        /// noticeable on the videotape recording of the event.
+        /// </summary>
+        [ApproximateAgeInYears(16)]
+        [SinType(SinType.EmbarrassingBehavior)]
+        public class BoomSoundAtHighSchoolShowChoirPerformance : BaseEvent
+        {
+            public BoomSoundAtHighSchoolShowChoirPerformance() : base("Caused Boom Sound for Show Choir Performance")
+            {
+            }
+        }
+
+        /// <summary>
         /// We had to make a skit for Spanish class. I don't remember the exact group, but
         /// Heather Dakter was in it. We did an airline hijack skit and it ended with the airliner
         /// exploding.
         /// </summary>
         [MagicWords("Boom!", "Spanish Skit", "10th Grade Spanish Class", "10th Grade Spanish Class")]
-        [SinType(SinType.InappropriatePublicCommunication)]
+        [ApproximateAgeInYears(16)]
         [Witness((int)YearAboveClassmateList.HeatherDakter)]
+        [SinType(SinType.InappropriatePublicCommunication)]
         public class SpanishClassSkitWhereAnAirlinerExploded : BaseEvent
         {
             public SpanishClassSkitWhereAnAirlinerExploded() : base("Exploded Airliner in Spanish Class Skit")
@@ -433,8 +576,9 @@ namespace Existence.Personal.Beyond
         /// After coming out of the FST class (10th grade) I put my arm around Lisa Mitchell and
         /// she immediately removed it.
         /// </summary>
-        [SinType(SinType.PersonalSpaceViolation)]
+        [ApproximateAgeInYears(16)]
         [Witness((int)YearAboveClassmateList.LisaMitchell)]
+        [SinType(SinType.PersonalSpaceViolation)]
         public class InappropriatelyPutArmAroundGirl : BaseEvent
         {
             public InappropriatelyPutArmAroundGirl() : base("Inappropriately put arm around girl")
@@ -551,6 +695,22 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// For an introductory to data structures class (given by Mike C Wade), a classmate had
+        /// difficulty doing the programming, which was supposed to be done by themself. The
+        /// classmate was reasonably bright but was not a programmer. The suggestions got so 
+        /// specific that it stepped across my line of cheating. However, my line of cheating on
+        /// this type of thing is likely more strict than others.
+        /// </summary>
+        [SinType(SinType.Cheating)]
+        [Witness((int)YearAboveClassmateList.BrianWimann)]
+        public class HelpedCollegeClassmateCheatOnCollegeCompSciClass : BaseEvent
+        {
+            public HelpedCollegeClassmateCheatOnCollegeCompSciClass() : base("Helped College Classmate Cheat on Assigment")
+            {
+            }
+        }
+
+        /// <summary>
         /// I wasn't competent enough to successfully count cards (Archer method) but I won a little bit
         /// anyway. My companion lost more than I won so overall the casinos won.
         /// </summary>
@@ -656,6 +816,36 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// For some moderately priced programs (WinZip, .NET Reflector) I purchased them with my
+        /// own money, put them on the work computer, and used them for work. A more ethical way
+        /// would have been to put in purchase requests or use versions of the programs that were
+        /// free. This kind of behavior was quashed after end users were no longer local admins
+        /// on work local machines.
+        /// </summary>
+        [YearRange(2014, 2021)]
+        [SinTypes(SinType.BreakingTheRules, SinType.WasteMoney)]
+        public class InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer : BaseEvent
+        {
+            public InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer() : base("Personally Bought Work Programs on Work Computer")
+            {
+            }
+        }
+
+        /// <summary>
+        /// My son had a defiant streak from a very early age, commonly screaming and 
+        /// tantruming. While this has gone down over time, dealing with tantrums has been 
+        /// difficult and sometimes I've handled him rougher than is desirable. The worst level
+        /// would be "light strangulation", meaning not for long enough to actually leave any
+        /// marks or prevent breathing.
+        /// </summary>
+        public class LightStrangulationOfChild : BaseEvent
+        {
+            public LightStrangulationOfChild() : base("Light Strangulation of Child")
+            {
+            }
+        }
+
+        /// <summary>
         /// While driving home from my mother's house with my son and daughter in the car,
         /// the Matrix stopped working South of Lodi on Highway 113 just south of the county line
         /// and the railroad tracks. We went to a nearby house and an elderly couple allowed 
@@ -669,6 +859,34 @@ namespace Existence.Personal.Beyond
             public MatrixBrokeDownSouthOfLodi() : base("Car Broke Down South of Lodi")
             {
 
+            }
+        }
+
+        /// <summary>
+        /// Before I was no longer a local admin on my work machine, I put Finale on it. The
+        /// original purpose was to allow creating/modifying Finale documents while I was working
+        /// at my mother's house. Sometimes I would even show Finale documents like the Taylor
+        /// Swift Antihreo contrafactum to members of the team.
+        /// </summary>
+        [SinTypes(SinType.BreakingTheRules, SinType.MixingWorkAndPersonalLifeInappropriately)]
+        public class PutFinaleOnWorkLocalMachine : BaseEvent
+        {
+            public RemovedFinaleFromWorkLocalMachineViaITTicket Atonement { get; set; }
+            public PutFinaleOnWorkLocalMachine(RemovedFinaleFromWorkLocalMachineViaITTicket Atonement) : base("Put Finale on Work Local Machine")
+            {
+                this.Atonement = Atonement;
+            }
+        }
+
+        /// <summary>
+        /// created an IT ticket to remove Finale from my work local machine. This was necessary
+        /// because I was no longer a local admin and no longer had the power to remove it
+        /// myself.
+        /// </summary>
+        public class RemovedFinaleFromWorkLocalMachineViaITTicket : BaseEvent
+        {
+            public RemovedFinaleFromWorkLocalMachineViaITTicket() : base("Removed Finale from Work Local Machine via IT Ticket")
+            {
             }
         }
 
@@ -715,6 +933,48 @@ namespace Existence.Personal.Beyond
             {
             }
         }
+
+        /// <summary>
+        /// when I got my checking account I balanced it religiously. And then I just stopped
+        /// doing it at all. The most reconciliation I get is when looking at the bill and
+        /// seeing if there's anything obviously wrong. But even that is not always done or done
+        /// in a cursory fashion.
+        /// </summary>
+        [SinType(SinType.Disorder)]
+        [StartYear(2005)]
+        public class CheckingAccountNotBalanced : BaseEvent
+        {
+            public CheckingAccountNotBalanced() : base("Checking Account Not Balanced")
+            {
+            }
+        }
+
+        /// <summary>
+        /// yep, I eat too much, particularly in response to stress
+        /// </summary>
+        [SinType(SinType.Gluttony)]
+        [StartYear(2004)]
+        public class EatTooMuch : BaseEvent
+        {
+            public EatTooMuch() : base("Eating too Much")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I've done personal programming and music project, particularly when I was working from
+        /// my mother's house. The scope of this has been reduced since we are no longer local
+        /// admins on work machines, but I can still create content for the existence repo from
+        /// my work local machine.
+        /// </summary>
+        [SinType(SinType.MixingWorkAndPersonalLifeInappropriately)]
+        [StartYear(2019)]
+        public class UseOfWorkComputerForPersonalUse : BaseEvent
+        {
+            public UseOfWorkComputerForPersonalUse() : base("Peronal Use of Work Computer")
+            {
+            }
+        }
     }
 
     public class SinTypeAttribute : Attribute
@@ -737,13 +997,18 @@ namespace Existence.Personal.Beyond
 
     public enum SinType
     {
+        AdHominim,
+        BreakingTheRules,
         Cheating,
         Cruelty,
+        CuttingInLine,
         Deceit,
+        Disorder,
         Disrespect,
         Domination,
         EmbarrassingBehavior,
         FindSomethingInappropriateFunny,
+        Gluttony,
         Hoarding,
         InappropriateJoke,
         InappropriatePersonalCommunication,
@@ -753,6 +1018,8 @@ namespace Existence.Personal.Beyond
         LackOfSkill,
         Laziness,
         Lie,
+        MixingWorkAndPersonalLifeInappropriately,
+        Murder,
         NonAssertiveBehavior,
         NonPayment,
         PersonalCommunication,
@@ -768,9 +1035,13 @@ namespace Existence.Personal.Beyond
         SowingChaos,
         Recklessness,
         TactlessTruth,
+        TakingAdvantageOfSituation,
+        TalkingBehindSomeonesBack,
         TattleTale,
         TaxEvasion,
         UnhealthyBehavior,
+        WasteMoney,
+        WasteResources,
     }
 
     internal class JudgmentDaySomethingReligious
@@ -834,27 +1105,21 @@ namespace Existence.Personal.Beyond
     /// Me, Sonya, Karin Christiansen, Erin
     /// This is the day
     /// 
+    /// School Choir (Ms Pieper)
+    /// Hero
+    /// Candle on the Water
+    /// 
     /// How many insult songs did I create?
-    /// 
-    /// childhood Ant killing, atoned for current treatment of spiders
-    /// 
-    /// Called piano teacher beef jerky
     /// 
     /// Accused Mrs. Anderson of being a communist
     /// 
     /// shooting leadup
     /// 1. public cursing
     /// 2. didn't respond to email
-    /// 3. didn't respond to solar eclipe
+    /// 3. didn't respond to solar eclipse
     /// shooting post
     /// 1. didn't take deposition
     /// 
-    /// clarinet squeaking during solo and ensemble bad
-    /// show choir amp malfunction leading to ridiculous sound
-    /// 
-    /// School Choir (Ms Pieper)
-    /// Hero
-    /// Candle on the Water
     /// 
     /// Pleasure Zone (video tape), msbx5
     /// 
@@ -886,12 +1151,6 @@ namespace Existence.Personal.Beyond
     /// 94254
     /// deferred conversions
     /// 
-    /// dog choke chain
-    /// light strangulation
-    /// 
-    /// checking account not balanced
-    /// gluttony
-    /// 
     /// lost the alien piece of technology at mother's house (Pizza Hut?)
     /// 
     /// listened to Todd Hamm doing base acts while putting together the giant New York City puzzle
@@ -899,10 +1158,11 @@ namespace Existence.Personal.Beyond
     /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
     /// after 9/11
     /// 
-    /// helped b. wimann do a comp sci assignment on the wrong side of cheating ethics
+    /// virtumonde
+    /// sherman terrace tornado
+    /// 215 ingersoll not doing snow shoveling
     /// 
-    /// inappropriate work purchases of winzip and .NET Reflector
-    /// inappropriately putting Finale on Work Machine
+    /// CrushLink
     /// </summary>
     internal class WorkingIdeas
     {

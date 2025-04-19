@@ -40,6 +40,13 @@ namespace Existence.Time
         }
     }
 
+    public class StartYearAttribute : YearAttribute
+    {
+        public StartYearAttribute(int Year) : base(Year)
+        {
+        }
+    }
+
     public class YearRangeAttribute : Attribute
     {
         public int StartYear { get; set; }
