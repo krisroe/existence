@@ -43,6 +43,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(2, 2, 0, 0)]
             [YearDate(2025, 4, 17)]
             AddSignedWisconsinGovernorRecallPetition,
+
+            [BeyondObjectVersion(2, 3, 0, 0)]
+            [YearDate(2025, 4, 18)]
+            AddDonationsToRonPaul2008PresidentialCampaign
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -284,6 +288,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             /// was consistent with my political philosophy and at the time I though it was more ok to vote
             /// in a primary than in a general election. Ron Paul had a more successful campaign in 2012, still
             /// not winning the nomination, but by that time I believe I decided another primary vote was not ok.
+            /// I also donated $200 to the 2008 Ron Paul campaign.
             /// </summary>
             [AstrologicalSign(AstrologicalSigns.Pisces)] //pisces cutoff within 2/18/2008
             [YearDate(2008, 2, 19)]

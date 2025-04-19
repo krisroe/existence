@@ -900,6 +900,9 @@ namespace Existence.Personal.Beyond
     /// after 9/11
     /// 
     /// helped b. wimann do a comp sci assignment on the wrong side of cheating ethics
+    /// 
+    /// inappropriate work purchases of winzip and .NET Reflector
+    /// inappropriately putting Finale on Work Machine
     /// </summary>
     internal class WorkingIdeas
     {
