@@ -27,6 +27,7 @@ namespace Existence.Personal.Beyond
             new ILikeToFartHandPuppetPlay(),
             new HidSistersBlanketComfortObject(),
             new SomeoneClaimedSomeoneElseWasDeadInSchool(),
+            new FeelingNothingForBenjisDeath(),
             new PersonalFirstParodySong(),
             new PersonalFirstOriginalSong(),
             new SomeoneCalledMeAGeniusGhosting(),
@@ -39,8 +40,10 @@ namespace Existence.Personal.Beyond
             new SkepticismOfReligionPersonal(religiousFlags),
             new WetTheBedAtChurchCamp(),
             new ChokedDogTrainingDogWithChokeChainExcessively(),
+            new InducedSnowflakeToFallOffTheTable(),
             new GuaranteedNoCarAccidentWouldOccur(),
             new HalloweenCostumeAsGhostAndSelf(),
+            new IgnoredReligiousInstructionOnCommunion(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
@@ -164,6 +167,19 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// Benji was pseudo-owned by my sister, not by me, so I felt nothing
+        /// when she died (Teddy was pseudo-owned by me)
+        /// </summary>
+        [SinType(SinType.LackOfSympathy)]
+        [Age(8, Earth.Time.TimePeriods.Years)]
+        public class FeelingNothingForBenjisDeath : BaseEvent
+        {
+            public FeelingNothingForBenjisDeath() : base("Felt Nothing When Family Pet Died")
+            {
+            }
+        }
+
+        /// <summary>
         /// One year I found out the Church of God kids didn't have to participate in the class Halloween party. 
         /// I used that as an excuse to not go to the class Halloween party (2nd or 3rd grade)
         /// </summary>
@@ -249,6 +265,23 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// Snowflake liked to sit on tables and get attention. She would
+        /// gravitate to human hands. This allowed placing one's hand over a
+        /// position close to the edge of the table but not over. Snowflake
+        /// would chase after the hand and frequently fall off the table.
+        /// Cats have good balance so I don't believe Snowflake was ever
+        /// injured by this but it was a possibility.        
+        /// </summary>
+        [SinType(SinType.InducingDangerousBehavior)]
+        public class InducedSnowflakeToFallOffTheTable : BaseEvent
+        {
+            public InducedSnowflakeToFallOffTheTable() : base("Induced Family Cat to Fall Off Table")
+            {
+
+            }
+        }
+
+        /// <summary>
         /// one time when my mother (driving), my sister, and me were taking a car trip to my mother's parents' house, in response 
         /// to a directive to fasten my seat belt, I verbally guaranteed we would not get in a car accident. My mother was a 
         /// good driver, it was a short car trip (could of miles), and no accident occurred. At the end I pointed out I was
@@ -271,6 +304,21 @@ namespace Existence.Personal.Beyond
         public class HalloweenCostumeAsGhostAndSelf : BaseEvent
         {
             public HalloweenCostumeAsGhostAndSelf() : base("Uninspired Halloween Costumes (Ghost and Self")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I remember receiving instruction on the eucharist for first
+        /// communion purposes. I remember ignoring it completely, although
+        /// oddly I remember on some level what transubstantiation is even
+        /// though that's not the Lutheran belief.
+        /// </summary>
+        [ApproximateAgeInYears(11)]
+        [SinType(SinType.IgnoringTeaching)]
+        public class IgnoredReligiousInstructionOnCommunion : BaseEvent
+        {
+            public IgnoredReligiousInstructionOnCommunion() : base("Ignored Communion Religious Instruction")
             {
             }
         }
@@ -1050,12 +1098,15 @@ namespace Existence.Personal.Beyond
         FindSomethingInappropriateFunny,
         Gluttony,
         Hoarding,
+        IgnoringTeaching,
         InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
         Incompetence,
+        InducingDangerousBehavior,
         IntentionalIrritation,
         LackOfCommunication,
+        LackOfSympathy,
         Laziness,
         Lie,
         MixingWorkAndPersonalLifeInappropriately,
