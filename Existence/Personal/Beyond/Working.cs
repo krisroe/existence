@@ -45,30 +45,38 @@ namespace Existence.Personal.Beyond
             new HalloweenCostumeAsGhostAndSelf(),
             new IgnoredReligiousInstructionOnCommunion(),
             new SowingChaosInChurchChildrensChoirPractice(),
+            new FamilyMeetingComplimentsThatWerentComplimentary(),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
             new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
             new ToldMyMotherSheWasntInOnPerformanceNuances(),
+            new UnresponsivenessForBeingMadeFunOfForCorduroyPants(),
             new AntKilling(new SpiderRemoval()),
             new CalledPianoTeacherBeefJerky(),
             new TheEducationalValueOfThisIsQuestionable(),
             new AssistedGettingMySummerProgramRoommateExpelled(),
+            new EvjueFoundationNonThankYouForWCATYProgram(),
             new ClarinetSqueakingInPublicPerformance(),
             new CarAccidentBackingUpAtGrandparentsFarm(),
             new EnglishPaperClaimingPeopleAreInherentlyStupid(),
+            new ParticipationInEENFL(),
             new ChairBurningAtPicnicPoint(),
             new LiedAboutHavingGirlfriend(),
+            new WCATYAntiTeachingAssistantFeedback(),
             new HitATurkeyWithACar(),
+            new PlayedEuchreWithPartnerSignalling(),
             new BoomSoundAtHighSchoolShowChoirPerformance(),
             new SpanishClassSkitWhereAnAirlinerExploded(),
             new InappropriatelyPutArmAroundGirl(),
             new SowingChaosAtHighSchoolBandPractice(),
             new ClaimedPsychologyIsBullshitInClassAssignment(),
+            new SteppingOnTheWisconsinDellsFloorLogo(),
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
             new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
+            new FailedIntroductoryCollegeEnglishCourseTwice(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
@@ -78,6 +86,7 @@ namespace Existence.Personal.Beyond
             new GotADiscoverCardAndNeverPaidTheBalance(),
             new KeptSignificantQuantityOfGoldAndSilver(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
+            new LackOfCommunicationAtHighSchoolReunion(),
             new TriedToStartScambaiting(),
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
             new LightStrangulationOfChild(),
@@ -89,9 +98,11 @@ namespace Existence.Personal.Beyond
 
             List<BaseEvent> ongoingSins = new List<BaseEvent>()
             {
-                new PersonalPhoneNotInWorkingOrder(),
+                new StepOnACrackBreakYourMothersBack(),
+                new TerriblePenmanship(),
                 new CheckingAccountNotBalanced(),
                 new EatTooMuch(),
+                new PersonalPhoneNotInWorkingOrder(),
                 new UseOfWorkComputerForPersonalUse(),
             };
         }
@@ -272,6 +283,7 @@ namespace Existence.Personal.Beyond
         /// Cats have good balance so I don't believe Snowflake was ever
         /// injured by this but it was a possibility.        
         /// </summary>
+        [ApproximateAgeInYears(10)]
         [SinType(SinType.InducingDangerousBehavior)]
         public class InducedSnowflakeToFallOffTheTable : BaseEvent
         {
@@ -331,6 +343,23 @@ namespace Existence.Personal.Beyond
         public class SowingChaosInChurchChildrensChoirPractice : BaseEvent
         {
             public SowingChaosInChurchChildrensChoirPractice() : base("Misbehavior during Church Children's Choir Practice")
+            {
+            }
+        }
+
+        /// <summary>
+        /// For a time my mother instituted weekly family meetings as a formal
+        /// thing. One part of the meetings was we had to construct compliments
+        /// to other family members. My compliments, particularly to my sister,
+        /// were not actually complimentary, and this extended to my mother
+        /// as well. Even if not insulting the compliments would frequently be
+        /// factual and not complimentary opinion.
+        /// </summary>
+        [ApproximateAgeInYears(12)]
+        [SinTypes(SinType.BackhandedCompliments, SinType.Disrespect)]
+        public class FamilyMeetingComplimentsThatWerentComplimentary : BaseEvent
+        {
+            public FamilyMeetingComplimentsThatWerentComplimentary() : base("Family Meeting Compliments were Not Compliments")
             {
             }
         }
@@ -428,6 +457,23 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// In middle school Tony Leggett (athletic student but not bright)
+        /// made fun of me for having corduroy pants. My wardrobe was not
+        /// particularly scintillating. I didn't respond to the teasing at all,
+        /// and because I didn't respond the teasing did not last. Regardless,
+        /// I have since learned unresponsiveness to teasing/bullying also
+        /// has consequences.
+        /// </summary>
+        [ApproximateAgeInYears(13)]
+        [SinTypes(SinType.NotStandingUpForYourself, SinType.LackOfCommunication)]
+        public class UnresponsivenessForBeingMadeFunOfForCorduroyPants : BaseEvent
+        {
+            public UnresponsivenessForBeingMadeFunOfForCorduroyPants() : base("Made Fun of for Corduroy Pants")
+            {
+            }
+        }
+
+        /// <summary>
         /// as a child sometimes I killed ants for fun by stepping on them or crushing them.
         /// Another scenario was turning on the hose and flooding the area with the ants.
         /// </summary>
@@ -506,6 +552,27 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// I got financial support to go to a WCATY program from the Evjue
+        /// Foundation. As part of that my mother made me write a thank you
+        /// letter. Instead of a normal thank you not, I misspelled "Evjue" as
+        /// something like "Evjueyjube" and didn't really thank anything. My
+        /// mother made me fix it to a normal thank you. In hindsight, I might
+        /// have done this for political reasons (Evjue is liberal and at the
+        /// time I was more conservative). Maybe I didn't really enjoy the
+        /// WCATY event. Maybe I thought we had enough money to afford this
+        /// and didn't need the charity. Maybe I just hated writing thank you
+        /// notes.
+        /// </summary>
+        [ApproximateAgeInYears(15)]
+        [SinType(SinType.Disrespect)]
+        public class EvjueFoundationNonThankYouForWCATYProgram : BaseEvent
+        {
+            public EvjueFoundationNonThankYouForWCATYProgram() : base("Disrespectful Thank You Note to Benefactor")
+            {
+            }
+        }
+
+        /// <summary>
         /// I remember squeaking twice in public performance of clarinet - once during solo &
         /// ensemble, and once during a band concert. This is more of a personally embarrassing
         /// thing that others don't think twice about.
@@ -550,6 +617,26 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// At high school lunch time we would play casual games of two hand
+        /// touch football. As a Freshman there were many players, but as the
+        /// years went on, it was restricted to lower intelligence students.
+        /// The games were derogatorily called the EENFL, with "EEN" being an
+        /// abbreviation for the special needs program at school. And yet I
+        /// participated far beyond my time. The truth is I thought myself
+        /// incapable of social functioning, and in playing the games I was
+        /// at the social level I was functional. Perhaps +1 tolerance of
+        /// lower intelligence students, but minus a bunch for social avoidance.
+        /// </summary>
+        [ApproximateAgeInYears(16)]
+        [SinType(SinType.SocialAvoidance)]
+        public class ParticipationInEENFL : BaseEvent
+        {
+            public ParticipationInEENFL() : base("Participated in Casual Football with Lower Intelligence Students")
+            {
+            }
+        }
+
+        /// <summary>
         /// during a WCATY event several boys went up picnic point and started a fire. I wasn't in a leadership
         /// role but I participated.
         /// </summary>
@@ -563,30 +650,34 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
-        /// typically when my mother's brother or mother's brother's son would ask if I had a girlfriend I would
-        /// say no. But this one time, I remembered a somewhat attractive girl from a WCATY event. Her name was
-        /// Allison and I never spoke to her directly, and never mentioned her to anyone else except for this lie.
+        /// The car was the Ford Explorer and I was taking my sister somewhere
+        /// driving south on county trunk highway B and I hit a turkey. Car was not 
+        /// significantly damaged.
         /// </summary>
         [ApproximateAgeInYears(16)]
-        [Person((int)FamilyMembers.MyMothersBrothersSonDennis)]
-        [SinType(SinType.Lie)]
-        public class LiedAboutHavingGirlfriend : BaseEvent
+        [Witness((int)FamilyMembers.MySisterSonya)]
+        [SinType(SinType.Recklessness)]
+        public class HitATurkeyWithACar : BaseEvent
         {
-            public LiedAboutHavingGirlfriend() : base("Lied about having a Girlfriend")
+            public HitATurkeyWithACar() : base("Hit a turkey with my car")
             {
             }
         }
 
         /// <summary>
-        /// I believe the car was the Ford Explorer and I was taking my sister somewhere
-        /// driving south on county trunk highway B and I hit a turkey. Car was not 
-        /// significantly damaged.
+        /// At high school lunch or study hall we sometimes played Euchre. At
+        /// some point there was partner signalling going on. In response Nick
+        /// Bremer and I devised a system of signalling the strength of the
+        /// hand (e.g. good suits). It may have been worked out that cheating
+        /// was okay in this circumstance but I don't remember exactly. 
+        /// Regardless, we only tried it once, and we lost anyway.
         /// </summary>
         [ApproximateAgeInYears(16)]
-        [SinType(SinType.Recklessness)]
-        public class HitATurkeyWithACar : BaseEvent
+        [Witness((int)ClassmateList.NickBremer)]
+        [SinType(SinType.Cheating)]
+        public class PlayedEuchreWithPartnerSignalling : BaseEvent
         {
-            public HitATurkeyWithACar() : base("Hit a turkey with my car")
+            public PlayedEuchreWithPartnerSignalling() : base("Attempted to play Euchre with Partner Signals")
             {
             }
         }
@@ -666,6 +757,23 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// At high school, there was a "WD" (Wisconsin Dells) logo a few steps
+        /// past the entrance. There was an informal rule not to step on it.
+        /// Occasionally upperclassman would police the area preventing people
+        /// from doing so or bullying those who did. I avoided the "WD" when 
+        /// other people were around, never enforced the social rule, and 
+        /// stepped on it when I could get away with it.
+        /// </summary>
+        [ApproximateAgeInYears(17)]
+        [SinTypes(SinType.Disrespect, SinType.BreakingTheRules)]
+        public class SteppingOnTheWisconsinDellsFloorLogo : BaseEvent
+        {
+            public SteppingOnTheWisconsinDellsFloorLogo() : base("Stepped on the High School Wisconsin Dells Floor Logo")
+            {
+            }
+        }
+
+        /// <summary>
         /// worst day of my life. Car wouldn't start in the morning, there was a snafu with where I was being
         /// picked up from (Spring Hill vs Wisconsin Dells High School) so I didn't get picked up with my
         /// sister going to gymnastics. I chose to walk 13.5 miles home from school which was very uncomfortable
@@ -680,6 +788,40 @@ namespace Existence.Personal.Beyond
         public class WalkedThirteenAndAHalfMilesHomeFromSchool : BaseEvent
         {
             public WalkedThirteenAndAHalfMilesHomeFromSchool() : base("Walked 13.5 Miles Home From School")
+            {
+            }
+        }
+
+        /// <summary>
+        /// typically when my mother's brother or mother's brother's son would ask if I had a girlfriend I would
+        /// say no. But this one time, I remembered a somewhat attractive girl from a WCATY event. Her name was
+        /// Allison and I never spoke to her directly, and never mentioned her to anyone else except for this lie.
+        /// </summary>
+        [ApproximateAgeInYears(16)]
+        [Person((int)FamilyMembers.MyMothersBrothersSonDennis)]
+        [SinType(SinType.Lie)]
+        public class LiedAboutHavingGirlfriend : BaseEvent
+        {
+            public LiedAboutHavingGirlfriend() : base("Lied about having a Girlfriend")
+            {
+            }
+        }
+
+        /// <summary>
+        /// After a WCATY event I had the opportunity to give feedback. I 
+        /// didn't know what to write offhand and didn't try very hard. I gave
+        /// feedback that criticized the program for employing a teaching
+        /// assistant and not a full professor. I did this even though the
+        /// teaching assistant did a reasonable job. Later college knowledge
+        /// gave me the understanding that this wasn't that big a deal.
+        /// Nevertheless, the next year's WCATY event did use a full professor,
+        /// so maybe my ignorant comment actually had an effect.
+        /// </summary>
+        [ApproximateAgeInYears(17)]
+        [SinTypes(SinType.Elitism, SinType.Ignorance)]
+        public class WCATYAntiTeachingAssistantFeedback : LessonEvent
+        {
+            public WCATYAntiTeachingAssistantFeedback() : base("Gave Anti-Teaching-Assistant Feedback for WCATY Event")
             {
             }
         }
@@ -740,6 +882,29 @@ namespace Existence.Personal.Beyond
         public class RefusedToShakeBandDirectorsHandAtHighSchoolGraduation : BaseEvent
         {
             public RefusedToShakeBandDirectorsHandAtHighSchoolGraduation() : base("Graduation Refusal to Shake Hands with Band Directory")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I tried to take a basic college introductory English course. I had
+        /// major problems trying to write a paper with appropriate symbolic
+        /// logic. I ended up writing an incoherent mess of politically 
+        /// correct (diversity) content and received an F. I rewrote it and got
+        /// a C which was probably charitable. I believed the course was beyond
+        /// me and quit, receiving an F. A later year I tried again, again
+        /// not being able to handle the symbolic logic and believing it beyond
+        /// me, I gave up again. I ended up getting the English credit through
+        /// an African Studies course, a course where the essay requirements
+        /// were spelled out in extreme detail (I think many students had 
+        /// similar problems, as the African Studies course was very large).
+        /// So I ended up meeting the English graduation requirement in the
+        /// end.
+        /// </summary>
+        [SinTypes(SinType.GivingUp, SinType.PoliticalCorrectness, SinType.SymbolicLogicFailure)]
+        public class FailedIntroductoryCollegeEnglishCourseTwice : BaseEvent
+        {
+            public FailedIntroductoryCollegeEnglishCourseTwice() : base("Failed College Introductory English Course Twice")
             {
             }
         }
@@ -883,6 +1048,25 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// I attended my high school reunion. I didn't stay long because of
+        /// social anxiety. I remember Jason White specifically invited me
+        /// to hang out at some point. I didn't really acknowledge him and
+        /// left. I don't know if he was trying to atone for past behavior
+        /// vis-a-vis me, or if he remembered me fondly and wanted to have some
+        /// kind of a relationship, or if he picked up on something wrong with
+        /// my relationship with spouse. Nevertheless, I ghosted him.
+        /// </summary>
+        [Year(2009)]
+        [Witness((int)ClassmateList.JasonWhite)]
+        [SinType(SinType.Ghosting)]
+        public class LackOfCommunicationAtHighSchoolReunion : BaseEvent
+        {
+            public LackOfCommunicationAtHighSchoolReunion() : base("Attended High School Reunion but didn't Communicate")
+            {
+            }
+        }
+
+        /// <summary>
         /// I looked at some Scambaiting sites and decided to try to start some scam-baiting.
         /// I created a persona Reginald Surtsey and tried to start out. It didn't take very long
         /// before Yahoo email didn't like something about what I did. I took it as a sign to stop.
@@ -982,6 +1166,7 @@ namespace Existence.Personal.Beyond
         /// to report it. It was a bunch of money to deal with the damage but the Accord survived.
         /// </summary>
         [Year(2023)]
+        [Witness((int)FamilyMembers.MyDaughterBeverly)]
         [SinTypes(SinType.Recklessness, SinType.OverlyReliantOnOthers)]
         public class HitADeerWithCar : BaseEvent
         {
@@ -1005,6 +1190,44 @@ namespace Existence.Personal.Beyond
         }
 
         #region Ongoing
+
+        /// <summary>
+        /// There's a children's rhyme where when walking down the sidewalk
+        /// it warns that stepping on a crack will break your mother's back.
+        /// I've never seriously believed this had any impact on anything in
+        /// reality, but nevertheless sometimes I would intentionally step on
+        /// as many cracks as possible. And even as an adult I sometimes have
+        /// a choice as to whether to step on a crack or not, and I make the
+        /// choice to step on it.
+        /// </summary>
+        [SinType(SinType.Thoughtcrime)]
+        [StartYear(1989)]
+        public class StepOnACrackBreakYourMothersBack : BaseEvent
+        {
+            public StepOnACrackBreakYourMothersBack() : base("Stepping on Sidewalk Cracks")
+            {
+            }
+        }
+
+        /// <summary>
+        /// My penmanship is generally terrible, close to unreadable in some
+        /// circumstances. I typically write in chicken scratching letters, and
+        /// even I can't read them sometimes. In school we learned cursive
+        /// writing, which I use only for writing checks and signing my name
+        /// on documents. In Fourth Grade I got a D in penmanship, and I 
+        /// didn't care a bit. I knew penmanship wasn't very important in life.
+        /// In hindsight I was definitely right, it didn't matter, but still a
+        /// sin.
+        /// </summary>
+        [StartYear(1990)]
+        [SinTypes(SinType.NotTryingVeryHard, SinType.Laziness)]
+        public class TerriblePenmanship : BaseEvent
+        {
+            public TerriblePenmanship() : base("Terrible Penmanship")
+            {
+            }
+        }
+
         /// <summary>
         /// When I have owned the phone, sometimes it's been nonfunctional for long periods
         /// (e.g. crack screen) and I haven't noticed since I haven't used it. Frequently
@@ -1084,7 +1307,14 @@ namespace Existence.Personal.Beyond
     public enum SinType
     {
         AdHominim,
+        BackhandedCompliments,
+
+        /// <summary>
+        /// breaking the rules. This makes no difference between de jure and
+        /// de facto rules.
+        /// </summary>
         BreakingTheRules,
+        
         Cheating,
         Cruelty,
         CuttingInLine,
@@ -1092,13 +1322,18 @@ namespace Existence.Personal.Beyond
         Disorder,
         Disrespect,
         Domination,
+        Elitism,
         EmbarrassingBehavior,
         ExposePersonalInformation,
         FactCheckingMistake,
         FindSomethingInappropriateFunny,
+        Ghosting,
+        GivingUp,
         Gluttony,
         Hoarding,
+        Ignorance,
         IgnoringTeaching,
+        InappropriateFeedback,
         InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
@@ -1113,7 +1348,10 @@ namespace Existence.Personal.Beyond
         Murder,
         NonAssertiveBehavior,
         NonPayment,
+        NotStandingUpForYourself,
+        NotTryingVeryHard,
         PersonalCommunication,
+        PoliticalCorrectness,
         PoorDecisionmaking,
         PracticalJoke,
         OverlyReliantOnOthers,
@@ -1124,12 +1362,14 @@ namespace Existence.Personal.Beyond
         SocialAvoidance,
         SocialUnawareness,
         SowingChaos,
+        SymbolicLogicFailure,
         Recklessness,
         TactlessTruth,
         TakingAdvantageOfSituation,
         TalkingBehindSomeonesBack,
         TattleTale,
         TaxEvasion,
+        Thoughtcrime,
         UnhealthyBehavior,
         WasteMoney,
         WasteResources,
