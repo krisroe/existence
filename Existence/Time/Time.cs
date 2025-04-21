@@ -132,6 +132,11 @@ namespace Existence.Time
         Stroke,
     }
 
+    public class MissingdateAttribute : YearDateAttribute
+    {
+        public MissingdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
     public class DeathdateAttribute : YearDateAttribute
     {
         public Seasons? Season { get; set; }
@@ -187,8 +192,13 @@ namespace Existence.Time
 
     public class BirthdateAttribute : YearDateAttribute
     {
+        public Seasons? Season { get; set; }
         public BirthdateAttribute(int Year) : base(Year) { }
 
+        public BirthdateAttribute(int Year, Seasons Season) : base(Year)
+        {
+            this.Season = Season;
+        }
         public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
         protected BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
     }

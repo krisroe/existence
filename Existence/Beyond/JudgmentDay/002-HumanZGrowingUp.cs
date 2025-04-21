@@ -56,6 +56,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 6, 0, 0)]
             [YearDate(2025, 3, 31)]
             AddPersonalHomesEnumeration,
+
+            [BeyondObjectVersion(1, 7, 0, 0)]
+            [YearDate(2025, 4, 21)]
+            UpdateBasedOnMothersNotesAndViewOfPetGraveyard,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -211,15 +215,6 @@ namespace Existence.Beyond.JudgmentDay
             {
                 new TimelessChange("Mother's Date of Mind+Body Death (2024-07-21)"),
                 new TimelessChange("I take ownership of my mother's pet graveyard")
-            };
-        }
-
-        internal override List<MissingInformation>? GetMissingInformation()
-        {
-            return new List<MissingInformation>()
-            {
-                new MissingInformation("Information about Toby is imprecise since I couldn't see the gravestone information clearly"),
-                new MissingInformation("Stocco's location within the pet graveyard is left blank since I don't remember exactly")
             };
         }
     }
@@ -425,6 +420,15 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    public class PreviousPetOwnersAttribute : Attribute
+    {
+        public int[] Owners { get; set; }
+        public PreviousPetOwnersAttribute(params int[] Owners)
+        {
+            this.Owners = Owners;
+        }
+    }
+
     public class FinalPetOwnerAttribute : Attribute
     {
         public int Owner { get; set; }
@@ -607,6 +611,15 @@ namespace Existence.Beyond.JudgmentDay
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Gretel,
 
+        /// <summary>
+        /// not in pet graveyard because he escaped the cat pen and was not seen again
+        /// </summary>
+        [Sex(Sexes.Male)]
+        [BirthdateUnknown]
+        [Missingdate(2004, 8, 26)]
+        [PreviousPetOwners((int)FamilyMembers.MySisterSonya, (int)FamilyMembers.MyMotherSandy)]
+        MrBean,
+
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Black, PetColors.Brown)]
         [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
@@ -652,7 +665,7 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Tabby)]
         [PetEyeColors(PetEyeColors.Green)]
-        [BirthdateUnknown]
+        [Birthdate(2005, Seasons.Fall)]
         [DeathdateSignificantEvent((int)FixedDateHolidays.ChristmasEve)]
         [CauseOfDeath(CausesOfDeath.AnoxicEvent)] //I think this is correct, I'm not a veterinarian
         [PreviousPetOwner((int)FamilyMembers.MySisterSonya)]
@@ -682,7 +695,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Orange, PetColors.White)]
         [PetEyeColors(PetEyeColors.Green)]
-        [TODO("birth/death date - picture looks like Spring 2006 - Oct ?")]
+        [Birthdate(2005, Seasons.Spring)]
+        [Deathdate(2018, 10, 24)]
         [PreviousPetOwner((int)SpecificFarms.HilliardsFarm)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
@@ -709,6 +723,8 @@ namespace Existence.Beyond.JudgmentDay
 
         [PetType(PetTypes.Cat)]
         [Sex(Sexes.Male)]
+        [Birthdate(1985)]
+        [Deathdate(1995)]
         [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Scooter,
@@ -718,12 +734,13 @@ namespace Existence.Beyond.JudgmentDay
         /// </summary>
         [PetType(PetTypes.Cat)]
         [Sex(Sexes.Female)]
+        [Deathdate(2007, 11, 22)]
         [PreviousPetOwner((int)FamilyMembers.MyMothersMothersMotherAda)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Tinkerbell,
 
         [Sex(Sexes.Male)]
-        [Deathdate(2006, 11, 21)]
+        [Deathdate(2006, 11, 12)]
         [PetType(PetTypes.Dog)]
         [PetOwners((int)FamilyMembers.MyMothersBrothersDaughterDenise)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
@@ -779,9 +796,8 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// Morgan                         Jenny  Abe    April           Chaquita  Benji                 Sammy      Spike
     /// Riley+Rewey   Gretel  Snowball   Tigger  Teddy  Prince Lance Scooter   Chelsie   Kirby Hypie
-    ///               Elsie   Snowflake    Tinkerbell   Toby
+    ///               Elsie   Snowflake    Tinkerbell   Toby   Stocco
     /// </summary>
-    [TODO("Stocco is missing from this list, probably in the lower left corner but I don't remember exactly where")]
     public class PetGraveyardRelativePositioning { }
 
     public enum PersonalHomes
