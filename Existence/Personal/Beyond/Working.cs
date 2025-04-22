@@ -82,13 +82,17 @@ namespace Existence.Personal.Beyond
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
             new FailedIntroductoryCollegeEnglishCourseTwice(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
+            new ShirkedSnowShovellingAt215Ingersoll(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
             new ExposedPersonalInformationInGarbage(),
             new DidNotCorrectIncorrectTornadoAnecdote(),
             new GotADiscoverCardAndNeverPaidTheBalance(),
+            new GotLotsOfMalwareLikeVirtumondeOnComputer(),
             new KeptSignificantQuantityOfGoldAndSilver(),
+            new EpicInpatientNotesConversionDLG94254(),
+            new EpicAllinaFaxBlackOp(),
             new RearEndedACarOnGammonStreet(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
             new BicycleAccidentBeforeWisconsinCitadelGame(),
@@ -96,6 +100,7 @@ namespace Existence.Personal.Beyond
             new LackOfCommunicationAtHighSchoolReunion(),
             new TriedToStartScambaiting(),
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
+            new DeferredConversionsInfastructure(),
             new LightStrangulationOfChild(),
             new MatrixBrokeDownSouthOfLodi(),
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
@@ -1002,6 +1007,18 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// I was supposed to be responsible for shovelling snow when I lived at 215 Ingersoll. I did
+        /// do it sometimes, but other times my father did it for me.
+        /// </summary>
+        [SinTypes(SinType.ResponsibilityShirking, SinType.OverlyReliantOnOthers)]
+        public class ShirkedSnowShovellingAt215Ingersoll : BaseEvent
+        {
+            public ShirkedSnowShovellingAt215Ingersoll() : base("Responsibility Shortcomings Shovelling Snow")
+            {
+            }
+        }
+
+        /// <summary>
         /// I wasn't competent enough to successfully count cards (Archer method) but I won a little bit
         /// anyway. My companion lost more than I won so overall the casinos won.
         /// </summary>
@@ -1092,6 +1109,22 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// The computer I had at Sherman Terrace got lots of malware on it. I hazily remember even not
+        /// worrying about it and clicking on email links intentionally. One particular malware was
+        /// Virtumonde which stayed resident in memory on reboot, requiring special procedures to be removed
+        /// I believe I successfully cleaned the computer with the aid of Spybot, but it seems like a
+        /// person with tech skills like me shouldn't have let it get to that point.
+        /// </summary>
+        [Year(2006)]
+        [SinType(SinType.PropertyNotTakingCareOf)]
+        public class GotLotsOfMalwareLikeVirtumondeOnComputer : BaseEvent
+        {
+            public GotLotsOfMalwareLikeVirtumondeOnComputer() : base("Too Much Malware on Computer")
+            {
+            }
+        }
+
+        /// <summary>
         /// I bought a bunch of gold and silver on eBay and kept it under a dresser (breaking
         /// the dresser which couldn't hold the weight). After a time I started selling it at
         /// a local pawn shop. My father noticed and somewhat freaked out by its presence.
@@ -1105,6 +1138,34 @@ namespace Existence.Personal.Beyond
         public class KeptSignificantQuantityOfGoldAndSilver : BaseEvent
         {
             public KeptSignificantQuantityOfGoldAndSilver() : base("Kept Significant Quantity of Gold/Silver in House")
+            {
+            }
+        }
+
+        /// <summary>
+        /// This was a large notes project I did at Epic that converted HNO records to contacts. In 
+        /// hindsight I'm not sure what was accomplished other than a technical change that would not
+        /// matter directly to customers. It might have even increased the amount of data stored by the notes.
+        /// </summary>
+        [Year(2006)]
+        [SinTypes(SinType.OverArchitecture)]
+        public class EpicInpatientNotesConversionDLG94254 : BaseEvent
+        {
+            public EpicInpatientNotesConversionDLG94254() : base("Overengineered Epic Project")
+            {
+            }
+        }
+
+        /// <summary>
+        /// At Epic I tried to avoid black ops, but there was one change related to some custom faxing
+        /// code that I just sent in without testing. Presuably if there was a problem it would have been
+        /// figured out, but this kind of skirting the rules was something I wasn't so comfortable doing for
+        /// Epic.
+        /// </summary>
+        [SinType(SinType.SneakilyDoingThings)]
+        public class EpicAllinaFaxBlackOp : BaseEvent
+        {
+            public EpicAllinaFaxBlackOp() : base("Epic Black Op for Allina Custom Faxing Code")
             {
             }
         }
@@ -1216,6 +1277,21 @@ namespace Existence.Personal.Beyond
         public class InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer : BaseEvent
         {
             public InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer() : base("Personally Bought Work Programs on Work Computer")
+            {
+            }
+        }
+
+        /// <summary>
+        /// To deal with potentially large SQL table conversions, I overengineered the deferred conversions 
+        /// architecture, particularly the part where they could be put off indefinitely. The move to hosted
+        /// systems makes this architecture look worse in hindsight since the hosted systems have an easier
+        /// time scaling large conversions. And yet the architecture survives.
+        /// </summary>
+        [Year(2014)]
+        [SinType(SinType.OverArchitecture)]
+        public class DeferredConversionsInfastructure : BaseEvent
+        {
+            public DeferredConversionsInfastructure() : base("WTS Paradigm Overengineering Deferred Conversions")
             {
             }
         }
@@ -1497,11 +1573,15 @@ namespace Existence.Personal.Beyond
         PoliticalCorrectness,
         PoorDecisionmaking,
         PracticalJoke,
+        OverArchitecture,
         OverlyReliantOnOthers,
         Overpromising,
         PersonalSpaceViolation,
         PropertyDamage,
+        PropertyNotTakingCareOf,
         RefusalToDoExpectedBehavior,
+        ResponsibilityShirking,
+        SneakilyDoingThings,
         SocialAvoidance,
         SocialUnawareness,
         SowingChaos,
@@ -1622,20 +1702,12 @@ namespace Existence.Personal.Beyond
     /// ongoing sins
     /// sins there is no promise to refrain from (medication abuse)
     /// 
-    /// Allina black op
-    /// 94254
-    /// deferred conversions
-    /// 
     /// lost the alien piece of technology at mother's house (Pizza Hut?)
     /// 
     /// listened to Todd Hamm doing base acts while putting together the giant New York City puzzle
     /// 
     /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
     /// after 9/11
-    /// 
-    /// virtumonde
-    /// sherman terrace tornado
-    /// 215 ingersoll not doing snow shoveling
     /// 
     /// CrushLink
     /// </summary>
