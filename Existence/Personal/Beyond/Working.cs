@@ -56,6 +56,7 @@ namespace Existence.Personal.Beyond
             new UnresponsivenessForBeingMadeFunOfForCorduroyPants(),
             new AntKilling(new SpiderRemoval()),
             new CalledPianoTeacherBeefJerky(),
+            new LiceHiding(),
             new TheEducationalValueOfThisIsQuestionable(),
             new AssistedGettingMySummerProgramRoommateExpelled(),
             new EvjueFoundationNonThankYouForWCATYProgram(),
@@ -88,7 +89,10 @@ namespace Existence.Personal.Beyond
             new DidNotCorrectIncorrectTornadoAnecdote(),
             new GotADiscoverCardAndNeverPaidTheBalance(),
             new KeptSignificantQuantityOfGoldAndSilver(),
+            new RearEndedACarOnGammonStreet(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
+            new BicycleAccidentBeforeWisconsinCitadelGame(),
+            new DefendingLanceArmstrongsCheatingBehavior(),
             new LackOfCommunicationAtHighSchoolReunion(),
             new TriedToStartScambaiting(),
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
@@ -576,6 +580,19 @@ namespace Existence.Personal.Beyond
         public class CalledPianoTeacherBeefJerky : BaseEvent
         {
             public CalledPianoTeacherBeefJerky() : base("Called Piano Teacher Ridiculous Name Behind Back")
+            {
+            }
+        }
+
+        /// <summary>
+        /// Getting lice was embarrassing. It had happened to my father's oldest sister's family. It
+        /// had negative connotations with the dirty and poor. When I found out I went outside for an hour
+        /// or so to hide. Eventually I went inside and got shampooed and we separated out clothes and
+        /// it was okay.
+        /// </summary>
+        public class LiceHiding : BaseEvent
+        {
+            public LiceHiding() : base("Hid Outside when we had Lice")
             {
             }
         }
@@ -1093,6 +1110,21 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// Going north on Gammon Street, in stop and go trafic up to the traffic light at Gammon and
+        /// Watts. I wasn't paying enough attention to the driving and rear-ended the car ahead of me.
+        /// It wasn't very hard, though. The driver got out of the car, looked at the damage (not really
+        /// any), gave me an annoyed glare, and continued on its way
+        /// </summary>
+        [Year(2007)]
+        [SinType(SinType.Inattention)]
+        public class RearEndedACarOnGammonStreet : BaseEvent
+        {
+            public RearEndedACarOnGammonStreet() : base("Rear-ended a Car")
+            {
+            }
+        }
+
+        /// <summary>
         /// Got a TB Test at Concentra for use at Epic go-live. Driving back to Epic I looked at
         /// the mark when I shouldn't. I fainted, losing some time, and totaling the car into
         /// a utility pole
@@ -1102,6 +1134,39 @@ namespace Existence.Personal.Beyond
         public class LookingAtTBTestMarkCausingFaintingAndCarCrash : BaseEvent
         {
             public LookingAtTBTestMarkCausingFaintingAndCarCrash() : base("Looking at TB Tests caused Fainting and Car Accident")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was bicycling from the Raymond Road apartment to my father's cousin's (Vicki's) house
+        /// I was on Hammersley road going east and wanted to turn left onto the bike path which led to
+        /// a ramp over the Beltline. I signalled to go left with my left hand, and pressed the brake
+        /// with my right hand. The bike toppled forward, and I hit my head on the street (wearing a
+        /// helment). My left arm was also injured. I continued to my destination and my father and I
+        /// went to the football game. The Badgers won 45-31 which was closer than expected for a non
+        /// first division opponent. My left arm was hurting, but even so I lasted long enough to be
+        /// confident of a Badger win. It ended up I had non-displacedly fractured my humerus.
+        /// </summary>
+        [YearDate(2007, 9, 15)]
+        [SinType(SinType.Recklessness)]
+        public class BicycleAccidentBeforeWisconsinCitadelGame : BaseEvent
+        {
+            public BicycleAccidentBeforeWisconsinCitadelGame() : base("Bicycle Accident before Wisconsin/Citadal Football Game")
+            {
+            }
+        }
+
+        /// <summary>
+        /// It was just so cool to watch Lance Armstrong in the Tour de France that I still defended him
+        /// even though he cheated. Even today my tendency is to say "So what?". But I don't defend that
+        /// position in conversation any more.
+        /// </summary>
+        [YearDate(2007)]
+        [SinType(SinType.NotAdmittingAMistake)]
+        public class DefendingLanceArmstrongsCheatingBehavior : BaseEvent
+        {
+            public DefendingLanceArmstrongsCheatingBehavior() : base("Defended a Cheater")
             {
             }
         }
@@ -1425,6 +1490,7 @@ namespace Existence.Personal.Beyond
         Murder,
         NonAssertiveBehavior,
         NonPayment,
+        NotAdmittingAMistake,
         NotStandingUpForYourself,
         NotTryingVeryHard,
         PersonalCommunication,
