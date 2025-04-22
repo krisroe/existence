@@ -41,9 +41,12 @@ namespace Existence.Personal.Beyond
             new WetTheBedAtChurchCamp(),
             new ChokedDogTrainingDogWithChokeChainExcessively(),
             new InducedSnowflakeToFallOffTheTable(),
+            new IgnoredFourthGradeSlaveryLesson(),
             new GuaranteedNoCarAccidentWouldOccur(),
             new HalloweenCostumeAsGhostAndSelf(),
+            new UnawarenessOfVehicleBreakdown(),
             new IgnoredReligiousInstructionOnCommunion(),
+            new SupportedInappropriateClassPetName(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new FamilyMeetingComplimentsThatWerentComplimentary(),
             new HittingMySister(),
@@ -92,6 +95,7 @@ namespace Existence.Personal.Beyond
             new LightStrangulationOfChild(),
             new MatrixBrokeDownSouthOfLodi(),
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
+            new GotASpeedingTicket(),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
             };
@@ -294,6 +298,24 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// In fourth grade, to try to drive home the point that slavery was bad,
+        /// the class was divided into slaves and non-slaves. I think the slaves
+        /// were supposed to wear fake manacle things on their wrists. The slaves
+        /// weren't supposed to play with the non-slaves at recess. All I remember
+        /// is that I completely ignored the lesson. I didn't think it needed a
+        /// lesson. Maybe I was right, maybe the exercise was inappropriate, but
+        /// still I remember the igoring part.
+        /// </summary>
+        [ApproximateAgeInYears(10)]
+        [SinType(SinType.IgnoringTeaching)]
+        public class IgnoredFourthGradeSlaveryLesson : BaseEvent
+        {
+            public IgnoredFourthGradeSlaveryLesson() : base("Ignored Fourth Grade Slavery Lesson")
+            {
+            }
+        }
+
+        /// <summary>
         /// one time when my mother (driving), my sister, and me were taking a car trip to my mother's parents' house, in response 
         /// to a directive to fasten my seat belt, I verbally guaranteed we would not get in a car accident. My mother was a 
         /// good driver, it was a short car trip (could of miles), and no accident occurred. At the end I pointed out I was
@@ -321,6 +343,23 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// At the end of a visit to aunt/uncle in Billings, Montana, we drove to
+        /// the train station. I was playing a handheld video game and concentrating
+        /// intently. The car broke down, possibly a tire issue, and eventually was
+        /// resolved. When we started back up, I asked "What happened?" because
+        /// I was unaware of what was going on.
+        /// </summary>
+        [ApproximateAgeInYears(11)]
+        [SinType(SinType.Inattention)]
+        [MagicWords("What happened?", "Me", "Roadside", "Aunt, Sister, Mother")]
+        public class UnawarenessOfVehicleBreakdown : BaseEvent
+        {
+            public UnawarenessOfVehicleBreakdown() : base("Was Unaware of Vehicle Breakdown")
+            {
+            }
+        }
+
+        /// <summary>
         /// I remember receiving instruction on the eucharist for first
         /// communion purposes. I remember ignoring it completely, although
         /// oddly I remember on some level what transubstantiation is even
@@ -331,6 +370,26 @@ namespace Existence.Personal.Beyond
         public class IgnoredReligiousInstructionOnCommunion : BaseEvent
         {
             public IgnoredReligiousInstructionOnCommunion() : base("Ignored Communion Religious Instruction")
+            {
+            }
+        }
+
+        /// <summary>
+        /// In fifth grade we needed to name a class pet gerbil. There were three
+        /// camps: Stuart, Shay Whitey, and Spike, with Spike having less support. 
+        /// I believe Shay Whitey was a Saturday Night Live reference, and may 
+        /// have been related to race. I believe the teachers really didn't want
+        /// Shay Whitey because they thought it was inappropriate. Eventually 
+        /// the Spike cohort switched to Stuart, allowing Stuart to win. I supported
+        /// Shay Whitey, not because I knew anything about the SNL reference, but
+        /// because I was drawn by the vibe of inappropriateness.
+        /// </summary>
+        [ApproximateAgeInYears(11)]
+        [SinType(SinType.FindSomethingInappropriateFunny)]
+        [Witness((int)ClassmateList.LukePeyton)] //leader of the Spike faction
+        public class SupportedInappropriateClassPetName : BaseEvent
+        {
+            public SupportedInappropriateClassPetName() : base("Supported Inappropriate Class Pet Name")
             {
             }
         }
@@ -1159,6 +1218,22 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// Driving from mother's house to our house, I passed through Lodi going South
+        /// on Highway 113. I was going 40 in a 25 zone and got pulled over for speeding.
+        /// This is a common speed trap Lodi uses but I wasn't paying attention.
+        /// I didn't think there was anything I could do so I passively accepted the
+        /// ticket from the policeman. The fine was a little shy of $100. 
+        /// </summary>
+        [Year(2023)]
+        [SinTypes(SinType.BreakingTheLaw, SinType.Inattention)]
+        public class GotASpeedingTicket : BaseEvent
+        {
+            public GotASpeedingTicket() : base("Got a Speeding Ticket")
+            {
+            }
+        }
+
+        /// <summary>
         /// With Beverly in the car, I drove the Honda Accord south on third avenue. Just before
         /// getting to Dennis Weiss' house, A deer jumped in front of the car, was hit by the
         /// front of the car, and the deer went flying. From the looks of the deer it was probably
@@ -1308,6 +1383,7 @@ namespace Existence.Personal.Beyond
     {
         AdHominim,
         BackhandedCompliments,
+        BreakingTheLaw,
 
         /// <summary>
         /// breaking the rules. This makes no difference between de jure and
@@ -1337,6 +1413,7 @@ namespace Existence.Personal.Beyond
         InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
+        Inattention,
         Incompetence,
         InducingDangerousBehavior,
         IntentionalIrritation,
