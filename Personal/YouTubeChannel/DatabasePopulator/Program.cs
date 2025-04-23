@@ -78,7 +78,9 @@ namespace DatabasePopulator
                 int ruleUnofficialOrder = 0;
                 int lyricsAnalysisOrder = 0;
                 int landingPageOrder = 0;
+                int audioOrder = 0;
                 int iID, iOrd, iVideoID;
+                string sGoogleDriveFileID;
 
                 foreach (XmlNode nextNode in docElementVal.ChildNodes)
                 {
@@ -90,7 +92,7 @@ namespace DatabasePopulator
                         iID = GetObjectID(nextElement, "document");
                         string sType = GetRegularDataElement(nextElement, "type", "document");
                         string sPurpose = GetRegularDataElement(nextElement, "purpose", "document");
-                        string sGoogleDriveFileID = GetRegularDataElement(nextElement, "googledrivefileid", "document");
+                        sGoogleDriveFileID = GetRegularDataElement(nextElement, "googledrivefileid", "document");
                         string sComment = GetRegularDataElement(nextElement, "comment", "document");
                         if (string.IsNullOrEmpty(sComment))
                         {
@@ -254,6 +256,20 @@ namespace DatabasePopulator
                     {
                         ProcessVideoLists(nextElement, all);
                     }
+                    else if (nodeName == "audio")
+                    {
+                        iID = GetObjectID(nextElement, "audio");
+                        iOrd = ++audioOrder;
+                        sGoogleDriveFileID = GetRegularDataElement(nextElement, "googledrivefileid", "audio");
+                        string sNumber = GetRegularDataElement(nextElement, "number", "audio");
+                        if (!int.TryParse(sNumber, out int iNumber))
+                        {
+                            throw new InvalidOperationException("Invalid audio number: " + iNumber);
+                        }
+                        string sName = GetRegularDataElement(nextElement, "name", "audio");
+                        string sSuggestion = GetRegularDataElement(nextElement, "suggestion", "audio");
+                        all.audios.Add(new Audio(iID, iOrd, sGoogleDriveFileID, iNumber, sName, sSuggestion));
+                    }
                     else
                     {
                         throw new InvalidDataException("Invalid data type: " + nodeName);
@@ -292,6 +308,7 @@ namespace DatabasePopulator
                         GetIDs(conn, tx, "copyrights_missing", all.copyrightMissingIDs, "id");
                         GetIDs(conn, tx, "complaints", all.complaintIDs, "id");
                         GetIDs(conn, tx, "landing_pages", all.landingPageIDs, "id");
+                        GetIDs(conn, tx, "audios", all.audioIDs, "id");
                         GetIDs(conn, tx, "documents", all.documentIDs, "id");
                         GetIDs(conn, tx, "videos", all.videoIDs, "id");
                         GetIDs(conn, tx, "videolist_mainline", all.mainlinevideoIDs, "videoid");
@@ -900,6 +917,29 @@ namespace DatabasePopulator
             }
             DeleteIDs(conn, tx, "complaints", all.complaintIDs, idCols);
 
+            idCols = new List<string>() { "id" };
+            dataCols = new List<string>() { "ord", "number", "googledrivefileid", "name", "suggestion" };
+            updateStatement = GenerateSQLStatement("audios", idCols, dataCols, true);
+            insertStatement = GenerateSQLStatement("audios", idCols, dataCols, false);
+            foreach (Audio a in all.audios)
+            {
+                using (NpgsqlCommand cmd = GetCommand(conn, tx))
+                {
+                    iID = a.id;
+                    cmd.Parameters.AddWithValue("@id", iID);
+                    cmd.Parameters.AddWithValue("@ord", a.ord);
+                    cmd.Parameters.AddWithValue("@googledrivefileid", a.googledrivefileid);
+                    cmd.Parameters.AddWithValue("@number", a.number);
+                    cmd.Parameters.AddWithValue("@name", a.name);
+                    cmd.Parameters.AddWithValue("@suggestion", a.suggestion);
+                    updateRecord = all.audioIDs.Contains(iID);
+                    cmd.CommandText = updateRecord ? updateStatement : insertStatement;
+                    cmd.ExecuteNonQuery();
+                    if (updateRecord) all.audioIDs.Remove(iID);
+                }
+            }
+            DeleteIDs(conn, tx, "audios", all.audioIDs, idCols);
+
             int iVideoID;
 
             idCols = new List<string>() { "videoid" };
@@ -1327,6 +1367,7 @@ namespace DatabasePopulator
         public HashSet<int> kidzvideoIDs = new HashSet<int>();
         public HashSet<int> unexplainablevideoIDs = new HashSet<int>();
         public HashSet<int> landingPageIDs = new HashSet<int>();
+        public HashSet<int> audioIDs = new HashSet<int>();
         public HashSet<string> exceptionlistmemberIDs = new HashSet<string>();
         public List<AttachedDocument> attachedDocuments = new List<AttachedDocument>();
         public List<Video> videos = new List<Video>();
@@ -1346,6 +1387,7 @@ namespace DatabasePopulator
         public List<LandingPage> landingpages = new List<LandingPage>();
         public List<NamedEntity> exceptionListMemberTypes = new List<NamedEntity>();
         public List<ExceptionList> exceptionLists = new List<ExceptionList>();
+        public List<Audio> audios = new List<Audio>();
 
         public Video GetVideoByID(int videoid, string source)
         {
@@ -1623,6 +1665,25 @@ namespace DatabasePopulator
         public string source { get; set; }
         public string comment { get; set; }
         public Video? video { get; set; }
+    }
+
+    internal class Audio
+    {
+        public Audio(int id, int ord, string googledrivefileid, int number, string name, string suggestion)
+        {
+            this.id = id;
+            this.ord = ord;
+            this.googledrivefileid = googledrivefileid;
+            this.number = number;
+            this.name = name;
+            this.suggestion = suggestion;
+        }
+        public int id { get; set; }
+        public int ord { get; set; }
+        public string googledrivefileid { get; set; }
+        public int number { get; set; }
+        public string name { get; set; }
+        public string suggestion { get; set; }
     }
 
     internal class ExceptionList : NamedEntity

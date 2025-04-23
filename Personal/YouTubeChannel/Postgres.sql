@@ -189,6 +189,16 @@ CREATE TABLE IF NOT EXISTS public.complaints
     ON UPDATE NO ACTION
     ON DELETE CASCADE
 );
+CREATE TABLE IF NOT EXISTS public.audios
+(
+    id integer NOT NULL,
+    ord integer NOT NULL,
+    googledrivefileid character varying COLLATE pg_catalog."default" NOT NULL,
+    number integer NOT NULL,
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    suggestion character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pk_audios PRIMARY KEY (id)
+);
 CREATE TABLE IF NOT EXISTS public.landing_pages
 (
  id integer NOT NULL,
@@ -293,6 +303,7 @@ ALTER TABLE IF EXISTS public.landing_pages OWNER to postgres;
 ALTER TABLE IF EXISTS public.copyrights_found OWNER to postgres;
 ALTER TABLE IF EXISTS public.copyrights_missing OWNER to postgres;
 ALTER TABLE IF EXISTS public.lyrics_analyses OWNER to postgres;
+ALTER TABLE IF EXISTS public.audios OWNER to postgres;
 ALTER TABLE IF EXISTS public.videolist_mainline OWNER to postgres;
 ALTER TABLE IF EXISTS public.videolist_sillysongs OWNER to postgres;
 ALTER TABLE IF EXISTS public.videolist_workvideos OWNER to postgres;
