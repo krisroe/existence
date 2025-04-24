@@ -1,6 +1,5 @@
 ﻿
 using Existence.Beyond;
-using Existence.Earth.Countries.UnitedStates;
 using Existence.Time;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System;
@@ -8,7 +7,7 @@ using Existence.Beyond.Infrastructure;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
-using Existence.Beyond.Submission;
+using Existence.Beyond.CosmicGambling;
 using System.Collections.Generic;
 
 namespace Existence.Personal.Beyond
@@ -923,36 +922,6 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
-        /// At Ho Chunk casino with my grandfather playing Blackjack, I got into a situation where I could take insurance. I didn't want
-        /// to take insurance, but my grandfather interceded and said I did. I did not protest and the insurance paid off. It is unclear
-        /// exactly how I would have responded to a loss. The lack of protest is a communication sin. It is also unclear how I would have
-        /// responded to a loss, in which case it might be beyond that.
-        /// </summary>
-        [YearDate(1998, 12, 6)]
-        [SinType(SinType.PersonalCommunication)]
-        [Witness((int)FamilyMembers.MyMothersFatherSkip)]
-        public class TakingInsuranceInBlackjack : BaseEvent
-        {
-            public TakingInsuranceInBlackjack() : base("Took Insurance in Blackjack Despite Not Wanting to")
-            {
-            }
-        }
-
-        /// <summary>
-        /// I wasn't competent enough to successfully count cards (Archer method) but I won a little bit
-        /// anyway. My companion lost more than I won so overall the casinos won.
-        /// </summary>
-        [YearDate(1998, 12, 6)]
-        [SinType(SinType.Cheating)]
-        [Witness((int)FamilyMembers.MyMothersFatherSkip)]
-        public class TryingToCountCardsAtBlackjack1 : BaseEvent
-        {
-            public TryingToCountCardsAtBlackjack1() : base("Tried to Count Cards at Casino Blackjack #1")
-            {
-            }
-        }
-
-        /// <summary>
         /// At high school graduation, we walked across the stage to get our diplomas, then circling back
         /// to get to our seats. That route took us in front of the high school band. The band director
         /// (Mr. Spargo) shook hands with graduates. I held out my hand and pulled it away before he could shake
@@ -1014,20 +983,6 @@ namespace Existence.Personal.Beyond
         public class ShirkedSnowShovellingAt215Ingersoll : BaseEvent
         {
             public ShirkedSnowShovellingAt215Ingersoll() : base("Responsibility Shortcomings Shovelling Snow")
-            {
-            }
-        }
-
-        /// <summary>
-        /// I wasn't competent enough to successfully count cards (Archer method) but I won a little bit
-        /// anyway. My companion lost more than I won so overall the casinos won.
-        /// </summary>
-        [YearDate(2001, 12, 6)]
-        [SinType(SinType.Cheating)]
-        [Witness((int)FamilyMembers.MyFatherJerry)]
-        public class TryingToCountCardsAtBlackjack2 : BaseEvent
-        {
-            public TryingToCountCardsAtBlackjack2() : base("Tried to Count Cards at Casino Blackjack #2")
             {
             }
         }
@@ -1635,8 +1590,6 @@ namespace Existence.Personal.Beyond
     }
 
     /// <summary>
-    /// lucky penny incident where I scratched off a $50 scratch-off lottery ticket winner
-    /// for Grandma
     /// Grandpa "lost the rent check" from Dad's story
     /// Magic words "Chris Rowe" uttered by Angel Green (not sure if it was admiration or contempt)
     /// 
