@@ -1902,6 +1902,18 @@ namespace Existence.Personal.Beyond
     /// - The Simpsons: episode where Grandpa's retirement home is 22 (shows 21 to left and 23 to right)
     /// - The Simpsons: Joke where Homer pays for hot dog with exact change (20 dollars) and gratuitously
     /// ups it to $22 on his own (maybe a tip but not obvious).
+    /// 
+    /// cribbage oddities:
+    /// 1. Got a 28 hand once (against mother at Stonecreek Condo)
+    /// 2. Had a draw to a 29 hand once (against Aunt Rita at Aunt Ginny's House)
+    /// 
+    /// Spelling bees:
+    /// "I thrive on competition" magic words for local paper
+    /// Mistake with gage (gauge) that wasn't an impediment
+    /// (Katie Wisniewski lost out with chagrin, said "suregrin")
+    /// State spelling bee #13 (?) out with gimmicky
+    /// State spelling bee #1 (?) out with vicissitude
+    /// Regional spelling bee out with vinaigrette
     /// </summary>
     internal class WorkingIdeas
     {
