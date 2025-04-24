@@ -1913,7 +1913,7 @@ namespace Existence.Personal.Beyond
     /// (Katie Wisniewski lost out with chagrin, said "suregrin")
     /// State spelling bee #13 (?) out with gimmicky
     /// State spelling bee #1 (?) out with vicissitude
-    /// Regional spelling bee out with vinaigrette
+    /// Regional spelling bee out with vinaigrette (I tried to hand off my process to the winner)
     /// </summary>
     internal class WorkingIdeas
     {
