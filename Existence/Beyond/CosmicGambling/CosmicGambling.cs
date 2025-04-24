@@ -16,12 +16,15 @@ namespace Existence.Beyond.CosmicGambling
             {
                 new MyMothersParents40thAnniversaryCasino();
                 new ScratchedOff50DollarWinningLotteryTicket();
+                new FamilyMichiganRummy();
                 new PlayedFantasyFootballWithMyFather();
+                new MyMothersFatherLostTheRentCheck();
                 new TakingInsuranceInBlackjack();
                 new TryingToCountCardsAtBlackjack1();
                 new TryingToCountCardsAtBlackjack2();
                 new FilledOutNCAATournamentBrackets();
                 new ChoseSonsNameViaSixteenTeamTournament();
+                new PokerWithMyKids();
             }
         }
     }
@@ -54,6 +57,22 @@ namespace Existence.Beyond.CosmicGambling
         {
         }
     }
+    
+    /// <summary>
+    /// My mother's parents liked to play a variant of Michigan Rummy, a game with
+    /// many players and chips. The preferred arrangement was to play for real money,
+    /// so the kids would even get loans from the adults. Poker is one of the parts
+    /// of the game. It's mostly luck based, although there is at least one photograph
+    /// of me getting the 6-7-8 (or similar).
+    /// </summary>
+    [StartYear(1989)]
+    public class FamilyMichiganRummy : BaseEvent
+    {
+        public FamilyMichiganRummy() : base("Played Michigan Rummy with Family")
+        {
+        }
+    }
+
 
     /// <summary>
     /// My father and I played a form of fantasy football where we
@@ -70,6 +89,20 @@ namespace Existence.Beyond.CosmicGambling
     public class PlayedFantasyFootballWithMyFather : BaseEvent
     {
         public PlayedFantasyFootballWithMyFather() : base("Played Fantasy Football with My Father")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My father has a story where he was discussing things with my mother's
+    /// father about how my mother's father lost a tenan'ts rent by going to the Ho
+    /// Chunk casino and gambling it away. I believe "I lost the rent check"
+    /// is a direct quote. My mother's father did have a bit of a gambling problem.
+    /// </summary>
+    [MagicWords("I lost the rent check", "My Mother's Father", "Unknown", "My Father")]
+    public class MyMothersFatherLostTheRentCheck : BaseEvent
+    {
+        public MyMothersFatherLostTheRentCheck() : base("My Mother's Father Gambled away the Rent Check")
         {
         }
     }
@@ -161,6 +194,19 @@ namespace Existence.Beyond.CosmicGambling
     public class ChoseSonsNameViaSixteenTeamTournament : BaseEvent
     {
         public ChoseSonsNameViaSixteenTeamTournament() : base("Chose Sons Name via Tournament")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I got a poker chips set and have played poker with my son and daughter. It's
+    /// never been for real money, we just hand out some number (e.g. 100) of chips
+    /// ahead of time. The games are mostly Texas Hold 'em and draw poker.
+    /// </summary>
+    [StartYear(2020)]
+    public class PokerWithMyKids : BaseEvent
+    {
+        public PokerWithMyKids() : base("Played Poker with Kids Not for Real Money")
         {
         }
     }

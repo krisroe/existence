@@ -1590,7 +1590,6 @@ namespace Existence.Personal.Beyond
     }
 
     /// <summary>
-    /// Grandpa "lost the rent check" from Dad's story
     /// I've found a four-leaf clover a handful of times, but not as much as my daughter who has found them
     /// many times (the locations she hangs out in may have a bunch of four leaf clovers and she seems more
     /// motivated).
@@ -1660,6 +1659,13 @@ namespace Existence.Personal.Beyond
     /// after 9/11
     /// 
     /// CrushLink
+    /// 
+    /// The number 22:
+    /// - There are currently 21 catholic councils accepted by vatican, next one is 22
+    /// - The Hunger Games (first movie) countdown to start the games stops at 22
+    /// - The Simpsons: episode where Grandpa's retirement home is 22 (shows 21 to left and 23 to right)
+    /// - The Simpsons: Joke where Homer pays for hot dog with exact change (20 dollars) and gratuitously
+    /// ups it to $22 on his own (maybe a tip but not obvious).
     /// </summary>
     internal class WorkingIdeas
     {
