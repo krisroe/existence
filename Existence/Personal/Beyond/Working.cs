@@ -1591,6 +1591,9 @@ namespace Existence.Personal.Beyond
 
     /// <summary>
     /// Grandpa "lost the rent check" from Dad's story
+    /// I've found a four-leaf clover a handful of times, but not as much as my daughter who has found them
+    /// many times (the locations she hangs out in may have a bunch of four leaf clovers and she seems more
+    /// motivated).
     /// Magic words "Chris Rowe" uttered by Angel Green (not sure if it was admiration or contempt)
     /// 
     /// WEt the bed as a child, got over it with assistance from calendar sticker incentives
@@ -1600,12 +1603,6 @@ namespace Existence.Personal.Beyond
     /// consider it important when asked. Eventually he just stopped wearing the pullup and it was fine.
     /// 
     /// I do not remember ever believing in Santa Claus.
-    /// 
-    /// When my parents moved to Oshkosh there's a story about how Dad was ready to
-    /// go (without any cats), but my mother stopped and took april into the car. Dad
-    /// objected but mother said she had always lived with cats and wanted to continue.
-    /// Then before leaving, my mother stopped and took Chaquita into the car. So
-    /// my mother always had cats until Stocco's death.
     /// 
     /// Handbells (practiced in Portage with Mr. Yerke but I think we did it in the Dells)
     /// Children's Choir (Choir diretory: Eleanor Collins, Denise Tubman accompanying)

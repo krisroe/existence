@@ -21,6 +21,7 @@ namespace Existence.Beyond.CosmicGambling
                 new TryingToCountCardsAtBlackjack1();
                 new TryingToCountCardsAtBlackjack2();
                 new FilledOutNCAATournamentBrackets();
+                new ChoseSonsNameViaSixteenTeamTournament();
             }
         }
     }
@@ -146,12 +147,17 @@ namespace Existence.Beyond.CosmicGambling
     /// on a sixteen team bracket. Each "game" consisted of one dice
     /// roll using a 20-sided die to determine the cutoff point for a
     /// win. This established two bounds, for example a value of 10
-    /// meant bounds of 1-9 and 10-20. My spouse could choose which
-    /// name got the upper and lower bound. A second die roll determined
-    /// which name won. The brackets are lost, but the final pairings
-    /// were Adam and Dean. 
+    /// meant bounds of 1-9 and 10-20. A value of 1 meant bounds of the
+    /// null set and 1-20. My spouse could choose which name got the upper
+    /// and lower bound. A second die roll determined which name won
+    /// (usually meaningful but not in the 1-20 case). My spouse performed
+    /// the die rolls. The brackets are but the final pairings were Adam 
+    /// and Dean. The first roll was a 3 (I think), and my spouse preferred 
+    /// Adam, so 1-2 was for Dean and 3-20 for Adam. I don't remember
+    /// the last die roll but Adam won. The name Victor was in the
+    /// semifinals and was chosen by agreement for middle name (no
+    /// chance included)
     /// </summary>
-    [TODO("Finish me!")]    
     public class ChoseSonsNameViaSixteenTeamTournament : BaseEvent
     {
         public ChoseSonsNameViaSixteenTeamTournament() : base("Chose Sons Name via Tournament")

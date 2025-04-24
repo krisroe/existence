@@ -60,6 +60,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 7, 0, 0)]
             [YearDate(2025, 4, 21)]
             UpdateBasedOnMothersNotesAndViewOfPetGraveyard,
+
+            [BeyondObjectVersion(1, 8, 0, 0)]
+            [YearDate(2025, 4, 24)]
+            CleanUpTODOsAddMyParentsCatsOriginStoryAndJennysDeathInfo,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -70,6 +74,11 @@ namespace Existence.Beyond.JudgmentDay
         {
             DefineLitters();
 
+            /// When my parents moved to Oshkosh my father was ready to go in the car
+            /// (without any cats), but my mother stopped and took april into the car. My father
+            /// objected but mother said she had always lived with cats and wanted to continue.
+            /// Then before leaving, my mother stopped again and took Chaquita into the car,
+            /// resulting in my parents living with two pet cats
             List<string> nuclearFamilyPetList = new List<string>()
             {
                 PetCats.April.ToString(),
@@ -148,8 +157,8 @@ namespace Existence.Beyond.JudgmentDay
 
             //It was winter so we were unable to bury him in the pet graveyard until sufficient thaw took place.
             //In the meantime his body resided stiff in the freezer, until burial the next year.
+            //This was the first time my mother didn't have any pets since she got married.
             myMothersPets.Remove(PetCats.Stocco.ToString()); //2023-12-24
-            new ThisWasTheFirstTimeMyMotherDidntHaveAnyPetsSinceSheMarried();
 
             new StoccoElegyStarted();
 
@@ -299,8 +308,6 @@ namespace Existence.Beyond.JudgmentDay
     internal class StoccoElegyStarted : StoccoElegy {}
     internal class StoccoElegyFinished : StoccoElegy {}
 
-    public class ThisWasTheFirstTimeMyMotherDidntHaveAnyPetsSinceSheMarried { }
-
     [MusicNotesRepositoryAudioFile(@"Released\Audio\003-TheseAreOurPets.wav", PeopleEnumerated.RoweChris)]
     [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\007-TheseAreOurPets.txt", PeopleEnumerated.RoweChris)]
     internal class TheseAreOurPets : SongEvent
@@ -383,8 +390,8 @@ namespace Existence.Beyond.JudgmentDay
             AddPet(new Pet((int)FormerlyHadADifferentFamilyOwner.Tinkerbell, FormerlyHadADifferentFamilyOwner.Tinkerbell.ToString(), PetTypes.Cat, real)); //2007-11-22
             AddPet(new Pet((int)PetDogs.Riley, PetDogs.Riley.ToString(), PetTypes.Dog, real)); //2021-06-19 (do not remember which of Riley/Rewey was first)
             AddPet(new Pet((int)PetDogs.Rewey, PetDogs.Rewey.ToString(), PetTypes.Dog, real)); //2021-06-19 (do not remember which of Riley/Rewey was first)
-            AddPet(new Pet((int)PetCats.Toby, PetCats.Toby.ToString(), PetTypes.Cat, real)); //TODO: exact date uncertain
-            AddPet(new Pet((int)PetCats.Stocco, PetCats.Stocco.ToString(), PetTypes.Cat, real)); //died 2023-12-24
+            AddPet(new Pet((int)PetCats.Toby, PetCats.Toby.ToString(), PetTypes.Cat, real)); //2018-10-24
+            AddPet(new Pet((int)PetCats.Stocco, PetCats.Stocco.ToString(), PetTypes.Cat, real)); //2023-12-24
         }
     }
 
@@ -472,6 +479,10 @@ namespace Existence.Beyond.JudgmentDay
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Benji,
 
+        /// <summary>
+        /// Jenny came over to our house and was put on the outside deck. My mother forgot to close
+        /// the gate leading to the lawn, and Jenny went into the road and was run over by a car.
+        /// </summary>
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.White)]
         [DogBreed(DogBreeds.Mutt)]
