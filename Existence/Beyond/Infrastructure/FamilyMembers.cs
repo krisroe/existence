@@ -12,6 +12,8 @@ namespace Existence.Beyond.Infrastructure
         MyMothersMotherDelores,
         MyMothersMothersMotherAda,
         MyFatherJerry,
+        MyFathersOldestSisterGinny,
+        MyFathersOldestSistersSonMatthew,
         MyselfChris,
         MySisterSonya,
         MySonAdam,

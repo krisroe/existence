@@ -804,4 +804,13 @@ namespace Existence.Beyond.Infrastructure
             this.Witness = Witness;
         }
     }
+
+    public class CoworkerAttribute : Attribute
+    {
+        public int Coworker { get; set; }
+        public CoworkerAttribute(int Coworker)
+        {
+            this.Coworker = Coworker;
+        }
+    }
 }

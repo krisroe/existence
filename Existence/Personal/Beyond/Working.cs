@@ -1,14 +1,16 @@
 ﻿
 using Existence.Beyond;
-using Existence.Time;
-using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
-using System;
+using Existence.Beyond.CosmicGambling;
 using Existence.Beyond.Infrastructure;
 using Existence.Beyond.JudgmentDay;
+using Existence.Beyond.References;
 using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
-using Existence.Beyond.CosmicGambling;
+using Existence.Personal.Employment;
+using Existence.Time;
+using System;
 using System.Collections.Generic;
+using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 
 namespace Existence.Personal.Beyond
 {
@@ -64,6 +66,7 @@ namespace Existence.Personal.Beyond
             new EnglishPaperClaimingPeopleAreInherentlyStupid(),
             new ParticipationInEENFL(),
             new ChairBurningAtPicnicPoint(),
+            new AteEntireBatchOfHomemadeNoodles(),
             new LiedAboutHavingGirlfriend(),
             new WCATYAntiTeachingAssistantFeedback(),
             new HitATurkeyWithACar(),
@@ -80,6 +83,8 @@ namespace Existence.Personal.Beyond
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
             new FailedIntroductoryCollegeEnglishCourseTwice(),
+            new WroteMOMMUSTDIEOnMothersBedroomWall(new RemovedMOMMUSTDIEOnMothersBedroomWall()),
+            new GaveSolicitorTwentyDollars(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new ShirkedSnowShovellingAt215Ingersoll(),
             new TryingToCountCardsAtBlackjack2(),
@@ -94,18 +99,28 @@ namespace Existence.Personal.Beyond
             new EpicAllinaFaxBlackOp(),
             new RearEndedACarOnGammonStreet(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
+            new PoorCommunicationAtVirchowKrauseJobInterview(),
             new BicycleAccidentBeforeWisconsinCitadelGame(),
             new DefendingLanceArmstrongsCheatingBehavior(),
             new LackOfCommunicationAtHighSchoolReunion(),
+            new PoorAccountingOfSelfAtCustomerVisit(),
+            new DidNotAssistFamilyMemberInLookingForJob(),
             new TriedToStartScambaiting(),
+            new IToldMySpouseIAcknowledgeYou(),
+            new SeriouslyConsideredCommittingSuicide(),
+            new PoorCommunicationAtTASCInterview(),
+            new GavePoorReferenceForFormerCoworker(),
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
             new DeferredConversionsInfastructure(),
             new LightStrangulationOfChild(),
             new MatrixBrokeDownSouthOfLodi(),
+            new PsychiatristToldMeYoureReallyGoodAtThis(),
+            new DidNotGiveSolicitorAnyMoneyAtGasStation(),
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
             new GotASpeedingTicket(),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
+            new AllowedForgingOfSpousesSignature(),
             };
 
             List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -578,7 +593,7 @@ namespace Existence.Personal.Beyond
         [ApproximateAgeInYears(12, 17)]
         [Witness((int)FamilyMembers.MySisterSonya)]
         [MagicWords("Residence of Beef Jerky", "Former Residence of Beef Jerky",
-                    "My sister and I", "Piano Teacher's Residence or Former Residency", 
+                    "My sister and I", "Piano Teacher's Residence or Former Residency",
                     "Sometimes My Mother")]
         [SinTypes(SinType.TalkingBehindSomeonesBack, SinType.AdHominim)]
         public class CalledPianoTeacherBeefJerky : BaseEvent
@@ -691,7 +706,7 @@ namespace Existence.Personal.Beyond
         [SinType(SinType.TactlessTruth)]
         public class EnglishPaperClaimingPeopleAreInherentlyStupid : BaseEvent
         {
-            public EnglishPaperClaimingPeopleAreInherentlyStupid(): base("Claims of the Stupidity of Humanity")
+            public EnglishPaperClaimingPeopleAreInherentlyStupid() : base("Claims of the Stupidity of Humanity")
             {
             }
         }
@@ -808,6 +823,22 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// I don't remember exactly what the context was, but I claimed I had contacts that would allow
+        /// me to do something. It was a total lie.
+        /// </summary>
+        [ApproximateAgeInYears(16)]
+        [Witness((int)YearAboveClassmateList.LisaMitchell)]
+        [MagicWords("I've got contacts", "Me", "High School Classroom", "Classmate")]
+        [SinType(SinType.Lie)]
+
+        public class ToldClassmateIHadContactsWhenIDidnt : BaseEvent
+        {
+            public ToldClassmateIHadContactsWhenIDidnt() : base("Lied to classmate I had contacts")
+            {
+            }
+        }
+
+        /// <summary>
         /// Main example is intentionally playing just a bit off to confuse the choir director. This is
         /// especially easy for clarinets since other instruments like trumpets can make it difficult for
         /// the band director to hear them.
@@ -854,20 +885,16 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
-        /// worst day of my life. Car wouldn't start in the morning, there was a snafu with where I was being
-        /// picked up from (Spring Hill vs Wisconsin Dells High School) so I didn't get picked up with my
-        /// sister going to gymnastics. I chose to walk 13.5 miles home from school which was very uncomfortable
-        /// on my flat feet. Abby Joyce asked me about it later, indicating she was in a car along the same path,
-        /// which I denied. After the fact my mother suggested calling neighbors (Patti Brucher) if the situation
-        /// came up again, which it didn't. I am not certain I can retrace the path, that part may have faded with
-        /// time. I note this happene on the modern ides of March (1/2 way though March), but I only notice this 
-        /// well after-the-fact.
+        /// I was at my grandparents' house by myself with homemade noodles cooked (I might have been
+        /// doing an odd job like lawn mowing). I remember eating the entire batch of homemade noodles.
+        /// When my grandparents' (and possibly my mother's brother and his family) got home they had no
+        /// homemade noodles to eat. My grandma's homemade noodles sure did taste good, though.
         /// </summary>
-        [YearDate(1998, 3, 16)]
-        [SinTypes(SinType.PoorDecisionmaking, SinType.PersonalCommunication)]
-        public class WalkedThirteenAndAHalfMilesHomeFromSchool : BaseEvent
+        [ApproximateAgeInYears(16)]
+        [SinType(SinType.Gluttony)]
+        public class AteEntireBatchOfHomemadeNoodles : BaseEvent
         {
-            public WalkedThirteenAndAHalfMilesHomeFromSchool() : base("Walked 13.5 Miles Home From School")
+            public AteEntireBatchOfHomemadeNoodles() : base("Ate Entire Batch of Grandma's Homemade Noodles")
             {
             }
         }
@@ -902,6 +929,25 @@ namespace Existence.Personal.Beyond
         public class WCATYAntiTeachingAssistantFeedback : LessonEvent
         {
             public WCATYAntiTeachingAssistantFeedback() : base("Gave Anti-Teaching-Assistant Feedback for WCATY Event")
+            {
+            }
+        }
+
+        /// <summary>
+        /// worst day of my life. Car wouldn't start in the morning, there was a snafu with where I was being
+        /// picked up from (Spring Hill vs Wisconsin Dells High School) so I didn't get picked up with my
+        /// sister going to gymnastics. I chose to walk 13.5 miles home from school which was very uncomfortable
+        /// on my flat feet. Abby Joyce asked me about it later, indicating she was in a car along the same path,
+        /// which I denied. After the fact my mother suggested calling neighbors (Patti Brucher) if the situation
+        /// came up again, which it didn't. I am not certain I can retrace the path, that part may have faded with
+        /// time. I note this happene on the modern ides of March (1/2 way though March), but I only notice this 
+        /// well after-the-fact.
+        /// </summary>
+        [YearDate(1998, 3, 16)]
+        [SinTypes(SinType.PoorDecisionmaking, SinType.PersonalCommunication)]
+        public class WalkedThirteenAndAHalfMilesHomeFromSchool : BaseEvent
+        {
+            public WalkedThirteenAndAHalfMilesHomeFromSchool() : base("Walked 13.5 Miles Home From School")
             {
             }
         }
@@ -951,10 +997,58 @@ namespace Existence.Personal.Beyond
         /// So I ended up meeting the English graduation requirement in the
         /// end.
         /// </summary>
+        [Year(2000)]
         [SinTypes(SinType.GivingUp, SinType.PoliticalCorrectness, SinType.SymbolicLogicFailure)]
         public class FailedIntroductoryCollegeEnglishCourseTwice : BaseEvent
         {
             public FailedIntroductoryCollegeEnglishCourseTwice() : base("Failed College Introductory English Course Twice")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I don't even remember doing it, but I wrote "MOM MUST DIE" on my mother's bedroom wall.
+        /// And it stayed there for two decades (I think). I do not understand why my mother left it in
+        /// her bedroom, since I think she still used the bedroom for a while after it was created.
+        /// </summary>
+        [Year(2000)]
+        [SinType(SinType.InappropriateAngerOutlet)]
+        [IsDisqualifyingSin]
+        public class WroteMOMMUSTDIEOnMothersBedroomWall : BaseEvent
+        {
+            public RemovedMOMMUSTDIEOnMothersBedroomWall SomewhatAtonement { get; set; }
+            public WroteMOMMUSTDIEOnMothersBedroomWall(RemovedMOMMUSTDIEOnMothersBedroomWall SomewhatAtonement) : base("Wrote \"MOM MUST DIE\" on mother's bedroom wall.")
+            {
+                this.SomewhatAtonement = SomewhatAtonement;
+            }
+        }
+
+        /// <summary>
+        /// I removed the "MOM MUST DIE" before my kids could see it
+        /// </summary>
+        [Year(2023)] //December
+        public class RemovedMOMMUSTDIEOnMothersBedroomWall
+        {
+            public RemovedMOMMUSTDIEOnMothersBedroomWall()
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was walking in Madison (I remember going east Johnson Street on the sidewalk on the south
+        /// side of the street). I was accosted by a black woman with chin hair who asked for money. Without
+        /// thinking too much, I pulled out my wallet and gave here $20 (this is the amount I remember at
+        /// moderate confidence). I've gone though phases where I think both enabling and not enabling the
+        /// begging is correct. For example, enabling is incorrect because beggars should be incentived to
+        /// seek available services. But enabling is correct because you're directly helping a person. This
+        /// is one of those things where a sin happens no matter which side of the fence the response lies,
+        /// since I feel guilty either way.
+        /// </summary>
+        [SinType(SinType.BeggingQuestionableResponse)]
+        [Year(2000)]
+        public class GaveSolicitorTwentyDollars : BaseEvent
+        {
+            public GaveSolicitorTwentyDollars() : base("Gave Beggar Twenty Dollars")
             {
             }
         }
@@ -1117,6 +1211,7 @@ namespace Existence.Personal.Beyond
         /// figured out, but this kind of skirting the rules was something I wasn't so comfortable doing for
         /// Epic.
         /// </summary>
+        [Year(2006)]
         [SinType(SinType.SneakilyDoingThings)]
         public class EpicAllinaFaxBlackOp : BaseEvent
         {
@@ -1150,6 +1245,20 @@ namespace Existence.Personal.Beyond
         public class LookingAtTBTestMarkCausingFaintingAndCarCrash : BaseEvent
         {
             public LookingAtTBTestMarkCausingFaintingAndCarCrash() : base("Looking at TB Tests caused Fainting and Car Accident")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I had a phone interview with Virchow Krause for some type of database admin position. At the
+        /// time it was the type of position I wanted, but I didn't have the ability to convince the
+        /// interviewer I had enough qualification for the position. 
+        /// </summary>
+        [Year(2007)]
+        [SinTypes(SinType.PersonalCommunication, SinType.NonAssertiveBehavior)]
+        public class PoorCommunicationAtVirchowKrauseJobInterview : BaseEvent
+        {
+            public PoorCommunicationAtVirchowKrauseJobInterview() : base("Poor Communication at Virchow Krause Job Interview")
             {
             }
         }
@@ -1207,6 +1316,25 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// At a Pella customer visit to address poor performance, there was a Microsoft rep there who
+        /// didn't think much of our software. We demoed archive functionality that didn't work at Pella
+        /// scale, our database shortcomings were clear. At one point the Microsoft rep emphatically said
+        /// "Stupid, stupid, stupid!" at our less-than-ideal architecture. We did get through the session
+        /// with things to work on (e.g. archiving rewrite and deferred conversions), so it wasn't a total
+        /// loss.
+        /// </summary>
+        [Year(2009)]
+        [Witness((int)IndividualCustomers.MikeMoore)]
+        [MagicWords("Stupid Stupid Stupid", "Microsoft Rep", "Customer Conference Room", "Coworkers and Customers")]
+        [SinType(SinType.Incompetence)]
+        public class PoorAccountingOfSelfAtCustomerVisit : BaseEvent
+        {
+            public PoorAccountingOfSelfAtCustomerVisit() : base("Incompetent Behavior at Customer Visit")
+            {
+            }
+        }
+
+        /// <summary>
         /// I looked at some Scambaiting sites and decided to try to start some scam-baiting.
         /// I created a persona Reginald Surtsey and tried to start out. It didn't take very long
         /// before Yahoo email didn't like something about what I did. I took it as a sign to stop.
@@ -1216,6 +1344,52 @@ namespace Existence.Personal.Beyond
         public class TriedToStartScambaiting : BaseEvent
         {
             public TriedToStartScambaiting() : base("Tried to Start Scambaiting")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was struggling to understand spouse's communication. One issue I had was a lack of
+        /// acknowledgement of my point of view. Instead of "I love you" I would sometimes say
+        /// "I acknowledge you", trying to differentiate between my behavior of acknowledging and her
+        /// behavior of not acknowledging. Spouse never responded to this communication. I kept myself
+        /// going by thinking I was teaching her a lesson, but in reality the communication was going
+        /// into a black hole.
+        /// </summary>
+        [Year(2012)]
+        [SinType(SinType.PersonalCommunication)]
+        public class IToldMySpouseIAcknowledgeYou : BaseEvent
+        {
+            public IToldMySpouseIAcknowledgeYou() : base("Told my Spouse \"I acknowledge you\"")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was sitting at home pondering my mental health difficulties, and I considered taking myself
+        /// outside to die of exposure in the cold. I believe this was a major factor in my second
+        /// psychiatric hospitalization for depression. I remember "seriously considering" it but that may
+        /// be hyperbole.
+        /// </summary>
+        [Year(2012)]
+        [SinType(SinType.SuicideConsideration)]
+        public class SeriouslyConsideredCommittingSuicide : BaseEvent
+        {
+            public SeriouslyConsideredCommittingSuicide() : base("Seriously Considered Exposure to Cold Suicide")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I had an in person interview with TASC for a development position. I was told my references
+        /// were glowing but I didn't know what to tell them. When they asked if I had any questions, I
+        /// didn't say anything.
+        /// </summary>
+        [Year(2012)]
+        [SinType(SinType.PersonalCommunication)]
+        public class PoorCommunicationAtTASCInterview : BaseEvent
+        {
+            public PoorCommunicationAtTASCInterview() : base("Poor Communication at TASC Interview")
             {
             }
         }
@@ -1281,6 +1455,42 @@ namespace Existence.Personal.Beyond
             public MatrixBrokeDownSouthOfLodi() : base("Car Broke Down South of Lodi")
             {
 
+            }
+        }
+
+        /// <summary>
+        /// I had a virtual psychiatrist visit. I tried to describe the current situation, where I was
+        /// having some difficulties. He said "You're really good at this". I should have responded but
+        /// didn't. Now I have no idea what he thought I was good at, or if the communication was even
+        /// real.
+        /// </summary>
+        [Year(2022)] //August
+        [MagicWords("You're really good at this", "My Psychiatrist", "On the phone", "No one")]
+        [SinType(SinType.PersonalCommunication)]
+        public class PsychiatristToldMeYoureReallyGoodAtThis : BaseEvent
+        {
+            public PsychiatristToldMeYoureReallyGoodAtThis() : base("My psychiatrist said you're really good at this.")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was parked at the Madison Quik Trip at the corner of Century Ave and Branch St. I was sitting 
+        /// at the westmost stall on the inside position, getting gas. A man drove up to the outside
+        /// position stall and asked for money. I very quickly finished my credit card transaction (I was
+        /// almost done at the time). I pointed him to the gas station and told him to seek assistance there
+        /// and I drove off onto Century Ave. I remember looking back at him after I turned left onto
+        /// Branch Street (going south) and he was still staring at me wide-eyed. I was concerned about
+        /// hallucinations at the time and I will never know if this was one. The halluciation aspect adds
+        /// another dimension to the problem of ethical response to charity, one I don't think has a good
+        /// answer to.
+        /// </summary>
+        [Year(2024)]
+        [SinTypes(SinType.BeggingQuestionableResponse, SinType.Hallucination)]
+        public class DidNotGiveSolicitorAnyMoneyAtGasStation : BaseEvent
+        {
+            public DidNotGiveSolicitorAnyMoneyAtGasStation() : base("Did not Assist Man asking for Gas Money")
+            {
             }
         }
 
@@ -1356,6 +1566,21 @@ namespace Existence.Personal.Beyond
         public class MissedAVISAPayment : BaseEvent
         {
             public MissedAVISAPayment() : base("Missed a VISA Payment")
+            {
+            }
+        }
+
+        /// <summary>
+        /// My father and I went to the DMV to retitle my mother's last car from my sister to my father.
+        /// There was space on the form for a signature for my spouse so we could get it titled jointly.
+        /// My father forged my spouse's signature to allow the transaction to complete. It didn't really
+        /// matter because my spouse was fine with the transaction.
+        /// </summary>
+        [YearDate(2025, 4, 23)]
+        [SinType(SinType.Fraud)]
+        public class AllowedForgingOfSpousesSignature : BaseEvent
+        {
+            public AllowedForgingOfSpousesSignature() : base("Allowed Forging Spouse's Signature")
             {
             }
         }
@@ -1475,10 +1700,15 @@ namespace Existence.Personal.Beyond
         }
     }
 
+    public class IsDisqualifyingSin : Attribute
+    {
+    }
+
     public enum SinType
     {
         AdHominim,
         BackhandedCompliments,
+        BeggingQuestionableResponse,
         BreakingTheLaw,
 
         /// <summary>
@@ -1499,12 +1729,15 @@ namespace Existence.Personal.Beyond
         ExposePersonalInformation,
         FactCheckingMistake,
         FindSomethingInappropriateFunny,
+        Fraud,
         Ghosting,
         GivingUp,
         Gluttony,
+        Hallucination,
         Hoarding,
         Ignorance,
         IgnoringTeaching,
+        InappropriateAngerOutlet,
         InappropriateFeedback,
         InappropriateJoke,
         InappropriatePersonalCommunication,
@@ -1522,6 +1755,7 @@ namespace Existence.Personal.Beyond
         NonAssertiveBehavior,
         NonPayment,
         NotAdmittingAMistake,
+        NotHelpingSomeone,
         NotStandingUpForYourself,
         NotTryingVeryHard,
         PersonalCommunication,
@@ -1532,6 +1766,7 @@ namespace Existence.Personal.Beyond
         OverlyReliantOnOthers,
         Overpromising,
         PersonalSpaceViolation,
+        Projection,
         PropertyDamage,
         PropertyNotTakingCareOf,
         RefusalToDoExpectedBehavior,
@@ -1540,6 +1775,7 @@ namespace Existence.Personal.Beyond
         SocialAvoidance,
         SocialUnawareness,
         SowingChaos,
+        SuicideConsideration,
         SymbolicLogicFailure,
         Recklessness,
         TactlessTruth,

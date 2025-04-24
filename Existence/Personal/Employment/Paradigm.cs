@@ -26,6 +26,10 @@ namespace Existence.Personal.Employment
         [Workplaces((int)Workplaces.Paradigm)]
         KristiMcCombs,
 
+        [Description("Software Test Engineer")]
+        [Workplaces((int)Workplaces.Epic)]
+        MichaelMcConnell,
+
         /// <summary>
         /// left after the shooting (she was shot but not seriously). I don't know if that's why she left.
         /// </summary>
@@ -63,6 +67,14 @@ namespace Existence.Personal.Employment
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("Security")]
         Snyk,
+    }
+
+    public enum IndividualCustomers
+    {
+        /// <summary>
+        /// Pella customer IT
+        /// </summary>
+        MikeMoore,
     }
 
     public class WorkplacesAttribute : Attribute
