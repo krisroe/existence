@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Existence.Earth.Alphabet;
+using System;
 
 namespace Existence.Earth.Countries
 {
@@ -28,5 +29,23 @@ namespace Existence.Earth.Countries
 
     public class IncumbentAttribute : Attribute
     {
+    }
+
+    public class IdeologyAttribute : TextAttribute
+    {
+        public string Ideology
+        {
+            get
+            {
+                return base.Text;
+            }
+            set
+            {
+                base.Text = value;
+            }
+        }
+        public IdeologyAttribute(string Ideology): base(Ideology)
+        {
+        }
     }
 }

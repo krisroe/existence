@@ -50,6 +50,7 @@ namespace Existence.Personal.Beyond
             new SupportedInappropriateClassPetName(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new FamilyMeetingComplimentsThatWerentComplimentary(),
+            new YellingFineWhenAskedHowIWasDoing(new KarmaForYellingFineWithMySonExpectingNoResponse()),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
             new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
@@ -62,6 +63,7 @@ namespace Existence.Personal.Beyond
             new AssistedGettingMySummerProgramRoommateExpelled(),
             new EvjueFoundationNonThankYouForWCATYProgram(),
             new ClarinetSqueakingInPublicPerformance(),
+            new PoorJobBackingUpInDriversTest(),
             new CarAccidentBackingUpAtGrandparentsFarm(),
             new EnglishPaperClaimingPeopleAreInherentlyStupid(),
             new ParticipationInEENFL(),
@@ -97,7 +99,9 @@ namespace Existence.Personal.Beyond
             new KeptSignificantQuantityOfGoldAndSilver(),
             new EpicInpatientNotesConversionDLG94254(),
             new EpicAllinaFaxBlackOp(),
+            new AteBakedPotatoLikeAnAppleAtSpousesParentsHouse(),
             new RearEndedACarOnGammonStreet(),
+            new DidntHaveGoodReasonForGettingIntoMarriage(),
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
             new PoorCommunicationAtVirchowKrauseJobInterview(),
             new BicycleAccidentBeforeWisconsinCitadelGame(),
@@ -447,6 +451,32 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// When my mother asked how I was doing, I would angrily answer "Fine!". My mother generally
+        /// never followed up. I believe a significant amount of the point of this tone was to try to
+        /// provoke a response. At the time it didn't make sense why mother wouldn't respond.
+        /// </summary>
+        [YearRange(1990, 1998)]
+        [SinType(SinType.TryingToProvokeAReaction)]
+        public class YellingFineWhenAskedHowIWasDoing : BaseEvent
+        {
+            public KarmaForYellingFineWithMySonExpectingNoResponse Karma { get; set; }
+            public YellingFineWhenAskedHowIWasDoing(KarmaForYellingFineWithMySonExpectingNoResponse Karma) : base("Yelling \"Fine\" When Asked How Feeling")
+            {
+                this.Karma = Karma;
+            }
+        }
+
+        /// <summary>
+        /// My son, when asked how he is doing, will answer with a simple fine. He expects it to be the
+        /// end of the conversation even when it's clear he's unhappy about something. But something he's
+        /// unhappy about is being asked in the first place. I try to respond how I wish my mother would
+        /// have responded, but there is no reward for doing soe.
+        /// </summary>
+        public class KarmaForYellingFineWithMySonExpectingNoResponse
+        {
+        }
+
+        /// <summary>
         /// hit my sister many times, despite me being the older sibling (who should be wiser). I was the male sibling,
         /// which can mean less maturity. Regardless of mitigating factors, it was more severe and took far longer than
         /// it should have.
@@ -677,6 +707,22 @@ namespace Existence.Personal.Beyond
         public class ClarinetSqueakingInPublicPerformance : BaseEvent
         {
             public ClarinetSqueakingInPublicPerformance() : base("Clarinet Squeaking for Solo/Ensemble/Concert")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I did fine on my 16th birthday driver's test except for the part backing up. I was backing
+        /// up alongside a kerb, and instead of going straight I backed it too the left more into the
+        /// street. I passed the test. Another questionable action was I asked the instructor whether
+        /// I could turn right at an intersection. The instructor wasn't allowed to answer, but I think I
+        /// turned right anyway which was correct.
+        /// </summary>
+        [YearDate(1996, 12, 6)]
+        [SinType(SinType.ShoddyWork)]
+        public class PoorJobBackingUpInDriversTest : BaseEvent
+        {
+            public PoorJobBackingUpInDriversTest() : base("Poor Job Backing up in Driver's Test")
             {
             }
         }
@@ -1221,6 +1267,21 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// when meeting my spouse's parents, I saw right away they seemed like a bunch of squares. I
+        /// intentionally ate a baked potato like an apple to see what they would do and if they were
+        /// irritated by it. They didn't respond at all. I remember spouse telling me afterward that would
+        /// make them uncomfortable. Regardless, they didn't object to the marriage in the end.
+        /// </summary>
+        [Year(2006)]
+        [SinType(SinType.TryingToProvokeAReaction)]
+        public class AteBakedPotatoLikeAnAppleAtSpousesParentsHouse : BaseEvent
+        {
+            public AteBakedPotatoLikeAnAppleAtSpousesParentsHouse() : base("Ate Baked Potato like Apple in front of Spouse's Parents")
+            {
+            }
+        }
+
+        /// <summary>
         /// Going north on Gammon Street, in stop and go trafic up to the traffic light at Gammon and
         /// Watts. I wasn't paying enough attention to the driving and rear-ended the car ahead of me.
         /// It wasn't very hard, though. The driver got out of the car, looked at the damage (not really
@@ -1231,6 +1292,20 @@ namespace Existence.Personal.Beyond
         public class RearEndedACarOnGammonStreet : BaseEvent
         {
             public RearEndedACarOnGammonStreet() : base("Rear-ended a Car")
+            {
+            }
+        }
+
+        /// <summary>
+        /// Before spouse and I got married, we had a meeting with the priest (Mother Mo). She asked
+        /// why we wanted to get married and I had no answer. An answer wasn't needed, since we got
+        /// married anyway.
+        /// </summary>
+        [Year(2007)]
+        [SinTypes(SinType.NoExplanationForBehavior)]
+        public class DidntHaveGoodReasonForGettingIntoMarriage : BaseEvent
+        {
+            public DidntHaveGoodReasonForGettingIntoMarriage() : base("No Good Reason for Getting into Marriage")
             {
             }
         }
@@ -1752,6 +1827,7 @@ namespace Existence.Personal.Beyond
         Lie,
         MixingWorkAndPersonalLifeInappropriately,
         Murder,
+        NoExplanationForBehavior,
         NonAssertiveBehavior,
         NonPayment,
         NotAdmittingAMistake,
@@ -1771,6 +1847,7 @@ namespace Existence.Personal.Beyond
         PropertyNotTakingCareOf,
         RefusalToDoExpectedBehavior,
         ResponsibilityShirking,
+        ShoddyWork,
         SneakilyDoingThings,
         SocialAvoidance,
         SocialUnawareness,
@@ -1784,6 +1861,7 @@ namespace Existence.Personal.Beyond
         TattleTale,
         TaxEvasion,
         Thoughtcrime,
+        TryingToProvokeAReaction,
         UnhealthyBehavior,
         WasteMoney,
         WasteResources,
@@ -1879,10 +1957,6 @@ namespace Existence.Personal.Beyond
     /// pug torture (with atonement)
     /// 
     /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
-    /// 
-    /// baked potato incident with potential spouse's parents
-    /// Discussed potential marriage with Mother Mo. I didn't have good reasons for being married, but
-    /// it really didn't matter for the purpose of the discussion.
     /// 
     /// ongoing sins
     /// sins there is no promise to refrain from (medication abuse)
