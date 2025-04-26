@@ -60,6 +60,7 @@ namespace Existence.Personal.Beyond
             new CalledPianoTeacherBeefJerky(),
             new LiceHiding(),
             new TheEducationalValueOfThisIsQuestionable(),
+            new CommittedSexualConsentViolation1(new CommittedSexualConsentViolation2()),
             new AssistedGettingMySummerProgramRoommateExpelled(),
             new EvjueFoundationNonThankYouForWCATYProgram(),
             new ClarinetSqueakingInPublicPerformance(),
@@ -85,7 +86,9 @@ namespace Existence.Personal.Beyond
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
             new FailedIntroductoryCollegeEnglishCourseTwice(),
-            new WroteMOMMUSTDIEOnMothersBedroomWall(new RemovedMOMMUSTDIEOnMothersBedroomWall()),
+            new WroteMOMMUSTDIEOnMothersBedroomWall(
+                new RemovedMOMMUSTDIEOnMothersBedroomWall(),
+                new LivedWithMyMotherWhileSheWasDyingOfCancer()),
             new GaveSolicitorTwentyDollars(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new ShirkedSnowShovellingAt215Ingersoll(),
@@ -105,12 +108,16 @@ namespace Existence.Personal.Beyond
             new LookingAtTBTestMarkCausingFaintingAndCarCrash(),
             new PoorCommunicationAtVirchowKrauseJobInterview(),
             new BicycleAccidentBeforeWisconsinCitadelGame(),
+            new CalledSpouseAndFriendCrudeSexualName(),
             new DefendingLanceArmstrongsCheatingBehavior(),
             new LackOfCommunicationAtHighSchoolReunion(),
             new PoorAccountingOfSelfAtCustomerVisit(),
             new DidNotAssistFamilyMemberInLookingForJob(),
             new TriedToStartScambaiting(),
+            new FailedToTakeCareOfThePug(),
             new IToldMySpouseIAcknowledgeYou(),
+            new SaidTheWordNiggerOutLoudToSpouse(),
+            new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
             new SeriouslyConsideredCommittingSuicide(),
             new PoorCommunicationAtTASCInterview(),
             new GavePoorReferenceForFormerCoworker(),
@@ -661,6 +668,29 @@ namespace Existence.Personal.Beyond
             }
         }
 
+        /*!START!
+         
+        !END!*/
+        [ApproximateAgeInYears(15)]
+        [SinTypes(SinType.SexualConsentViolation, SinType.SexualAbuse)]
+        public class CommittedSexualConsentViolation1 : BaseEvent
+        {
+            public CommittedSexualConsentViolation2 Atonement { get; set; }
+            public CommittedSexualConsentViolation1(CommittedSexualConsentViolation2 Atonement) : base("Sexual Consent Violation #1")
+            {
+                this.Atonement = Atonement;
+            }
+        }
+
+        /*!START!
+         
+        !END!*/
+        [StartYear(2024)]
+        [SinType(SinType.SexualConsentViolation)]
+        public class CommittedSexualConsentViolation2
+        {
+        }
+
         /// <summary>
         /// At a WCATY summer program, my roommate apparently stole some collectible cards (maybe Magic cards).
         /// I was called to provide evidence. I was unaware what was going on, although in hind sight I should have
@@ -1063,9 +1093,11 @@ namespace Existence.Personal.Beyond
         public class WroteMOMMUSTDIEOnMothersBedroomWall : BaseEvent
         {
             public RemovedMOMMUSTDIEOnMothersBedroomWall SomewhatAtonement { get; set; }
-            public WroteMOMMUSTDIEOnMothersBedroomWall(RemovedMOMMUSTDIEOnMothersBedroomWall SomewhatAtonement) : base("Wrote \"MOM MUST DIE\" on mother's bedroom wall.")
+            public LivedWithMyMotherWhileSheWasDyingOfCancer Atonement { get; set; }
+            public WroteMOMMUSTDIEOnMothersBedroomWall(RemovedMOMMUSTDIEOnMothersBedroomWall SomewhatAtonement, LivedWithMyMotherWhileSheWasDyingOfCancer Atonement) : base("Wrote \"MOM MUST DIE\" on mother's bedroom wall.")
             {
                 this.SomewhatAtonement = SomewhatAtonement;
+                this.Atonement = Atonement;
             }
         }
 
@@ -1075,9 +1107,11 @@ namespace Existence.Personal.Beyond
         [Year(2023)] //December
         public class RemovedMOMMUSTDIEOnMothersBedroomWall
         {
-            public RemovedMOMMUSTDIEOnMothersBedroomWall()
-            {
-            }
+        }
+
+        [YearRange(2022, 2024)]
+        public class LivedWithMyMotherWhileSheWasDyingOfCancer
+        {
         }
 
         /// <summary>
@@ -1372,6 +1406,21 @@ namespace Existence.Personal.Beyond
         }
 
         /// <summary>
+        /// We were hanging out with Cathy Kimport and I called them
+        /// cum-buckets for no good reason.
+        /// </summary>
+        [YearDate(2007)]
+        [SinType(SinType.CrudeLanguage)]
+        [Witness((int)Coworkers.KyleOrCathyKimport)]
+        [MagicWords("Cum buckets", "Me", "Unknown", "Spouse and Friend")]
+        public class CalledSpouseAndFriendCrudeSexualName : BaseEvent
+        {
+            public CalledSpouseAndFriendCrudeSexualName() : base("Called Spouse and Friend Crude Sexual Name")
+            {
+            }
+        }
+
+        /// <summary>
         /// I attended my high school reunion. I didn't stay long because of
         /// social anxiety. I remember Jason White specifically invited me
         /// to hang out at some point. I didn't really acknowledge him and
@@ -1438,6 +1487,68 @@ namespace Existence.Personal.Beyond
             public IToldMySpouseIAcknowledgeYou() : base("Told my Spouse \"I acknowledge you\"")
             {
             }
+        }
+
+        /// <summary>
+        /// I was not understanding what things spouse would respond to
+        /// so I said "Nigger" trying to provoke a response. No response
+        /// was offered. I believe I was doing dishes at the time or at
+        /// least was standing in front of the kitchen sink.
+        /// </summary>
+        [Year(2012)]
+        [MagicWords("Nigger", "Me", "Spouse and My Home", "Spouse")]
+        public class SaidTheWordNiggerOutLoudToSpouse : BaseEvent
+        {
+            public SaidTheWordNiggerOutLoudToSpouse() : base("Said \"Nigger\" to Spouse")
+            {
+            }
+        }
+
+        /// <summary>
+        /// Spouse visited her parents and I was supposed to take care
+        /// of the pug. I fed her every day but forgot to give her water.
+        /// When spouse got back we had to take her to a vet to get
+        /// rehydrating. This may be part of the reason why spouse does
+        /// not want to get pets.
+        /// </summary>
+        [SinType(SinType.ResponsibilityShirking)]
+        public class FailedToTakeCareOfThePug : BaseEvent
+        {
+            public FailedToTakeCareOfThePug() : base("Failed to take care of pug")
+            {
+            }
+        }
+
+        /// <summary>
+        /// I was angry at spouse. She didn't communicate effectively with
+        /// me or process my point of view. I took it out on the pug
+        /// (Gretchen). I remember yanking her up and down a small flight 
+        /// of stairs (something like four stairs). This is similar to
+        /// choke chain usage in dog training but significantly worse.
+        /// I remember admitting it during one of my psychiatric 
+        /// hospitalizations, but there wasn't much of a response there 
+        /// either.
+        /// </summary>
+        [SinType(SinType.InappropriateAngerOutlet)]
+        [IsDisqualifyingSin]
+        public class TorturedAPug : BaseEvent
+        {
+            public LivedWithThePugWhileSheWasDying Atonement { get; set; }
+            public TorturedAPug(LivedWithThePugWhileSheWasDying Atonement) : base("Tortured a Pug")
+            {
+                this.Atonement = Atonement;
+            }
+        }
+
+        /// <summary>
+        /// spouse's father and Gretchen the pug were dying at the same
+        /// time. Spouse went to her parents' house while he died and I
+        /// stayed and took care of the pug. The pug stopped eating
+        /// (she wouldn't even take cooked beef). When spouse got home
+        /// we took her straight to the vet and had her put down.
+        /// </summary>
+        public class LivedWithThePugWhileSheWasDying
+        {
         }
 
         /// <summary>
@@ -1793,6 +1904,7 @@ namespace Existence.Personal.Beyond
         BreakingTheRules,
         
         Cheating,
+        CrudeLanguage,
         Cruelty,
         CuttingInLine,
         Deceit,
@@ -1845,8 +1957,11 @@ namespace Existence.Personal.Beyond
         Projection,
         PropertyDamage,
         PropertyNotTakingCareOf,
+        Recklessness,
         RefusalToDoExpectedBehavior,
         ResponsibilityShirking,
+        SexualAbuse,
+        SexualConsentViolation,
         ShoddyWork,
         SneakilyDoingThings,
         SocialAvoidance,
@@ -1854,7 +1969,6 @@ namespace Existence.Personal.Beyond
         SowingChaos,
         SuicideConsideration,
         SymbolicLogicFailure,
-        Recklessness,
         TactlessTruth,
         TakingAdvantageOfSituation,
         TalkingBehindSomeonesBack,
@@ -1953,8 +2067,6 @@ namespace Existence.Personal.Beyond
     /// 
     /// shorts issue in psych ward (not understanding)
     /// meeting someone who thought they were god (not understanding)
-    /// 
-    /// pug torture (with atonement)
     /// 
     /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
     /// 

@@ -22,6 +22,9 @@ namespace Existence.Personal.Employment
         [Workplaces((int)Workplaces.Paradigm)]
         NathanHerbst,
 
+        [Workplaces((int)Workplaces.Epic)]
+        KyleOrCathyKimport,
+
         [Description("Development Management")]
         [Workplaces((int)Workplaces.Paradigm)]
         KristiMcCombs,
