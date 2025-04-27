@@ -813,4 +813,121 @@ namespace Existence.Beyond.Infrastructure
             this.Coworker = Coworker;
         }
     }
+
+    public class SinTypeAttribute : Attribute
+    {
+        public SinType SinType { get; set; }
+        public SinTypeAttribute(SinType SinType)
+        {
+            this.SinType = SinType;
+        }
+    }
+
+    public class SinTypesAttribute : Attribute
+    {
+        public SinType[] SinTypes { get; set; }
+        public SinTypesAttribute(params SinType[] SinTypes)
+        {
+            this.SinTypes = SinTypes;
+        }
+    }
+
+    public class IsDisqualifyingSin : Attribute
+    {
+    }
+
+    public enum SinType
+    {
+        AdHominim,
+        BackhandedCompliments,
+        BeggingQuestionableResponse,
+        BreakingTheLaw,
+
+        /// <summary>
+        /// breaking the rules. This makes no difference between de jure and
+        /// de facto rules.
+        /// </summary>
+        BreakingTheRules,
+
+        Cheating,
+        CrudeLanguage,
+        Cruelty,
+        CuttingInLine,
+        Deceit,
+        Disorder,
+        Disrespect,
+        Domination,
+        EjectedFromClassroom,
+        Elitism,
+        EmbarrassingBehavior,
+        ExposePersonalInformation,
+        FactCheckingMistake,
+        FailureToDistinguishFactAndFiction,
+        FalseAccusation,
+        FindSomethingInappropriateFunny,
+        Fraud,
+        Ghosting,
+        GivingUp,
+        Gluttony,
+        Hallucination,
+        Hoarding,
+        Ignorance,
+        IgnoringTeaching,
+        InappropriateAngerOutlet,
+        InappropriateFeedback,
+        InappropriateJoke,
+        InappropriatePersonalCommunication,
+        InappropriatePublicCommunication,
+        Inattention,
+        Incompetence,
+        InducingDangerousBehavior,
+        IntentionalIrritation,
+        LackOfCommunication,
+        LackOfSympathy,
+        Laziness,
+        Lie,
+        MisplacedBelongings,
+        MixingWorkAndPersonalLifeInappropriately,
+        Murder,
+        NoExplanationForBehavior,
+        NonAssertiveBehavior,
+        NonPayment,
+        NotAdmittingAMistake,
+        NotHelpingSomeone,
+        NotStandingUpForYourself,
+        NotTryingVeryHard,
+        PersonalCommunication,
+        PoliticalCorrectness,
+        PoorDecisionmaking,
+        PracticalJoke,
+        OverArchitecture,
+        OverlyReliantOnOthers,
+        Overpromising,
+        PersonalSpaceViolation,
+        Projection,
+        PropertyDamage,
+        PropertyNotTakingCareOf,
+        Recklessness,
+        RefusalToDoExpectedBehavior,
+        ResponsibilityShirking,
+        SexualAbuse,
+        SexualConsentViolation,
+        ShoddyWork,
+        SneakilyDoingThings,
+        SocialAvoidance,
+        SocialUnawareness,
+        SowingChaos,
+        SuicideConsideration,
+        SymbolicLogicFailure,
+        TactlessTruth,
+        TakingAdvantageOfSituation,
+        TalkingBehindSomeonesBack,
+        TattleTale,
+        TaxEvasion,
+        Thoughtcrime,
+        TryingToProvokeAReaction,
+        UnhealthyBehavior,
+        WasteMoney,
+        WasteResources,
+    }
 }
