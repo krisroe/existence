@@ -752,6 +752,18 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    /// <summary>
+    /// I remember listening to a Rick Dees prank call where
+    /// he called directory assistance and asked for the number
+    /// for 9-1-1. For unclear reasons I tho
+    /// </summary>
+    public class MadeFake911Call : BaseEvent
+    {
+        public MadeFake911Call() : base("Made Fake 9-1-1 Call")
+        {
+        }
+    }
+
     /*!START!
 
     !END!*/
