@@ -65,6 +65,7 @@ namespace Existence.Beyond.JudgmentDay
             new CorrectedSpellingFromOutsideOfEightGradeEnglishClass(),
             new MadeFactualClaimBasedOnBatmanAnimatedTelevisionShow(),
             new AccusedEightGradeTeacherOfBeingACommunist(),
+            new MadeFake911Call(),
             new CommittedSexualConsentViolation1(new CommittedSexualConsentViolation2()),
             new AssistedGettingMySummerProgramRoommateExpelled(),
             new EvjueFoundationNonThankYouForWCATYProgram(),
@@ -86,6 +87,7 @@ namespace Existence.Beyond.JudgmentDay
             new ClaimedPsychologyIsBullshitInClassAssignment(),
             new SteppingOnTheWisconsinDellsFloorLogo(),
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
+            new CruddyRemonumentationWork(),
             new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
@@ -755,8 +757,14 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// I remember listening to a Rick Dees prank call where
     /// he called directory assistance and asked for the number
-    /// for 9-1-1. For unclear reasons I tho
+    /// for 9-1-1. That might have triggered this. I am not sure if I was dialing
+    /// a number or not. I dialed 9-1-1 and immediately hung up. The 9-1-1 operator
+    /// called back and I responded it was an accident and I actually tried to dial
+    /// a 9-8-1 number. The operator was satisfied. I am not sure if the entire
+    /// thing was intentional or not.
     /// </summary>
+    [ApproximateAgeInYears(15)]
+    [SinType(SinType.Fake911Call)]
     public class MadeFake911Call : BaseEvent
     {
         public MadeFake911Call() : base("Made Fake 9-1-1 Call")
@@ -1136,6 +1144,23 @@ namespace Existence.Beyond.JudgmentDay
     {
         public InappropriateAliensJoke() : base("Made an Inappropriate Joke about Area 51")
         {
+        }
+    }
+
+    /// <summary>
+    /// For my summer job at Grothman & Associates, we did remonumentation work for the county. We 
+    /// had to find monments and verify or add new ones. We weren't terribly good at it, the work was
+    /// slow, and we sometimes could find the monument at all. Much of the job wasn't strictly government,
+    /// but this was, hence the saying "Good enough for government work" we occasionally said.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.ShoddyWork)]
+    [MagicWords("Good enough for government work", "Me or Coworker", "Summer Job", "Me and Coworker")]
+    public class CruddyRemonumentationWork : BaseEvent
+    {
+        public CruddyRemonumentationWork() : base("Not terribly Good at Remonumentation")
+        {
+
         }
     }
 
