@@ -7,15 +7,26 @@ namespace DataModifier
 {
     internal class Program
     {
+        private static string START_TOKEN = "!START!";
+        private static string END_TOKEN = "!END!";
+
         static void Main(string[] args)
         {
             Console.WriteLine("Encrypt (1) or Decrypt (2): ");
-            var readKey = Console.ReadKey();
+            string? readKey = Console.ReadLine();
+
+            if (readKey == null || string.IsNullOrEmpty(readKey) || readKey.Length != 1)
+            {
+                QuitOut(null);
+                return;
+            }
+
+            string sChar = readKey[0].ToString();
 
             bool encrypt;
-            if (readKey.KeyChar == '1')
+            if (sChar == "1")
                 encrypt = true;
-            else if (readKey.KeyChar == '2')
+            else if (sChar == "2")
                 encrypt = false;
             else
             {
@@ -28,6 +39,25 @@ namespace DataModifier
             string? sFilePath = Console.ReadLine();
 
             if (sFilePath == null || string.IsNullOrEmpty(sFilePath))
+            {
+                QuitOut(null);
+                return;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Enter key: ");
+            string sKey = ReadMaskedInput();
+
+            if (sKey == null || string.IsNullOrEmpty(sKey))
+            {
+                QuitOut(null);
+                return;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Enter IV: ");
+            string? sIV = ReadMaskedInput();
+            if (sIV == null || string.IsNullOrEmpty(sIV))
             {
                 QuitOut(null);
                 return;
@@ -49,26 +79,26 @@ namespace DataModifier
             int iCurStart = 0;
             while (true)
             {
-                int iNextStart = sCurrentContent.IndexOf("!START!", iCurStart);
+                int iNextStart = sCurrentContent.IndexOf(START_TOKEN, iCurStart);
                 if (iNextStart < 0)
                 {
                     break;
                 }
                 starts.Add(iNextStart);
-                iCurStart = iNextStart + "!START!".Length;
+                iCurStart = iNextStart + START_TOKEN.Length;
             }
 
             List<int> ends = new List<int>();
             iCurStart = 0;
             while (true)
             {
-                int iNextStart = sCurrentContent.IndexOf("!END!", iCurStart);
+                int iNextStart = sCurrentContent.IndexOf(END_TOKEN, iCurStart);
                 if (iNextStart < 0)
                 {
                     break;
                 }
-                starts.Add(iNextStart);
-                iCurStart = iNextStart + "!END!".Length;
+                ends.Add(iNextStart);
+                iCurStart = iNextStart + END_TOKEN.Length;
             }
 
             if (starts.Count != ends.Count)
@@ -106,8 +136,8 @@ namespace DataModifier
                 {
                     strings.Add(new StringInfo(sCurrentContent.Substring(iCurrentProcessedIndex, iNextStart - iCurrentProcessedIndex), true));
                 }
-                int iNextEnd = starts[i];
-                int iStartPoint = iNextStart + "!START!".Length;
+                int iNextEnd = ends[i];
+                int iStartPoint = iNextStart + START_TOKEN.Length;
                 if (iStartPoint == iNextEnd)
                 {
                     QuitOut("Invalid START/END tags");
@@ -115,18 +145,31 @@ namespace DataModifier
                 }
                 strings.Add(new StringInfo(sCurrentContent.Substring(iStartPoint, iNextEnd - iStartPoint), false));
             }
-            int iLastEnd = ends[ends.Count - 1] + "!END!".Length;
+            int iLastEnd = ends[ends.Count - 1] + END_TOKEN.Length;
             if (sCurrentContent.Length > iLastEnd)
             {
                 strings.Add(new StringInfo(sCurrentContent.Substring(iLastEnd), true));
             }
-            
 
+            StringBuilder sb = new StringBuilder();
+            foreach (var nextString in strings)
+            {
+                if (nextString.IsPlaintext)
+                {
+                    sb.Append(nextString.Value);
+                }
+                else
+                {
+                    sb.Append(START_TOKEN);
+                    sb.Append(EncryptOrDecrypt(encrypt, nextString.Value, sKey, sIV));
+                    sb.Append(END_TOKEN);
+                }
+            }
+            File.WriteAllText(sFilePath, sb.ToString());
 
-
-
-
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine();
+            Console.WriteLine("Updated data written to " + sFilePath);
+            Console.WriteLine("Press Enter to continue: ");
             Console.ReadLine();
         }
 
@@ -149,7 +192,9 @@ namespace DataModifier
             using (SHA256 sha256 = SHA256.Create())
             {
                 keyBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(key));
-                ivBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(iv));
+                byte[] ivTemp = sha256.ComputeHash(Encoding.UTF8.GetBytes(iv));
+                ivBytes = new byte[16];
+                Array.Copy(ivTemp, ivBytes, 16);
             }
 
             aes.Key = keyBytes;
@@ -159,9 +204,12 @@ namespace DataModifier
             if (encrypt)
             {
                 using (MemoryStream ms = new MemoryStream())
-                using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write)
+                using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
                 using (StreamWriter sw = new StreamWriter(cs))
                 {
+                    sw.Write(input);
+                    sw.Flush();
+                    cs.FlushFinalBlock();
                     ret = Convert.ToBase64String(ms.ToArray());
                 }
             }
