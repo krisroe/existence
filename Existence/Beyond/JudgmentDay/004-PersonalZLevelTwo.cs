@@ -76,8 +76,10 @@ namespace Existence.Beyond.JudgmentDay
             new ParticipationInEENFL(),
             new ChairBurningAtPicnicPoint(),
             new AteEntireBatchOfHomemadeNoodles(),
+            new ToldGirlILovedHerTakenOutOfContext(),
             new LiedAboutHavingGirlfriend(),
             new WCATYAntiTeachingAssistantFeedback(),
+            new UsedCrushLinkToAvoidCrushCommunication(),
             new HitATurkeyWithACar(),
             new PlayedEuchreWithPartnerSignalling(),
             new BoomSoundAtHighSchoolShowChoirPerformance(),
@@ -88,6 +90,7 @@ namespace Existence.Beyond.JudgmentDay
             new SteppingOnTheWisconsinDellsFloorLogo(),
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
             new CruddyRemonumentationWork(),
+            new InappropriateBehaviorOnDate(),
             new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
@@ -105,10 +108,12 @@ namespace Existence.Beyond.JudgmentDay
             new ExposedPersonalInformationInGarbage(),
             new DidNotCorrectIncorrectTornadoAnecdote(),
             new GotADiscoverCardAndNeverPaidTheBalance(),
+            new AteANapkinOnADare(),
             new GotLotsOfMalwareLikeVirtumondeOnComputer(),
             new KeptSignificantQuantityOfGoldAndSilver(),
             new EpicInpatientNotesConversionDLG94254(),
             new EpicAllinaFaxBlackOp(),
+            new ToldSpouseILovedHerWithoutFeelingTheLove(),
             new AteBakedPotatoLikeAnAppleAtSpousesParentsHouse(),
             new RearEndedACarOnGammonStreet(),
             new DidntHaveGoodReasonForGettingIntoMarriage(),
@@ -1080,6 +1085,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// At a WCATY event, during leisure time, Erica J. Ringelspaugh and 
+    /// I were partners in Euchre and she had a good hand that helped 
+    /// out to have a result in our favor. I said the magic words,
+    /// meaning it immediately in the context of the game, but it was
+    /// interpreted as more than that.
+    /// </summary>
+    [ApproximateAgeInYears(16)]
+    [MagicWords("Love ya partner", "Me", "Dorm Common Area", "Other Students")]
+    public class ToldGirlILovedHerTakenOutOfContext : BaseEvent
+    {
+        public ToldGirlILovedHerTakenOutOfContext() : base("Told Girl I Loved Her Out Of Context")
+        {
+        }
+    }
+
+    /// <summary>
     /// typically when my mother's brother or mother's brother's son would ask if I had a girlfriend I would
     /// say no. But this one time, I remembered a somewhat attractive girl from a WCATY event. Her name was
     /// Allison and I never spoke to her directly, and never mentioned her to anyone else except for this lie.
@@ -1109,6 +1130,25 @@ namespace Existence.Beyond.JudgmentDay
     public class WCATYAntiTeachingAssistantFeedback : LessonEvent
     {
         public WCATYAntiTeachingAssistantFeedback() : base("Gave Anti-Teaching-Assistant Feedback for WCATY Event")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I avoided contact with Erica J Ringelspaugh even though I
+    /// wanted to. I received what I think was a random spam email
+    /// from a probably sketchy social networking website CrushLink.
+    /// The premise of the website was you could respond to the crush
+    /// and find out about it. I wanted to see if the message was 
+    /// triggered by her, so I went to the website, entered her as 
+    /// crush and submitted. Nothing happened. So I deleted my 
+    /// account and waited for a new message, with nothing forthcoming.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.OverlyIndirectCommuniction)]
+    public class UsedCrushLinkToAvoidCrushCommunication : BaseEvent
+    {
+        public UsedCrushLinkToAvoidCrushCommunication() : base("Used CrushLink to avoid Crush Communication")
         {
         }
     }
@@ -1161,6 +1201,23 @@ namespace Existence.Beyond.JudgmentDay
         public CruddyRemonumentationWork() : base("Not terribly Good at Remonumentation")
         {
 
+        }
+    }
+
+    /// <summary>
+    /// Erica J Ringelspaugh took the lead and setup a pseudo-date with
+    /// her and Abby (WCATY friend). We got some pizza. I didn't know what
+    /// to say but my behavior was very inappropriate (inappropriate jokes,
+    /// dumb behavior with food). At the end, we were alone outside at her
+    /// house in Tomah. I wasn't sure what to say or do with her so I just
+    /// left.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.InappropriateSocialBehavior)]
+    public class InappropriateBehaviorOnDate : BaseEvent
+    {
+        public InappropriateBehaviorOnDate() : base("Inappropriate Date Behavior")
+        {
         }
     }
 
@@ -1359,6 +1416,23 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// We were working late at Epic and pizza was ordered. For whatever
+    /// reason the discussion turned to eating inappropriate things, and
+    /// napkins came up. I believe I volunteered to eat a napkin, and Larry
+    /// Nash did some level of coaxing that was I remember as dare-like. I 
+    /// ate the cloth napkin. Much later the napkin incident was remembered
+    /// at a work anniverary when Larry gave me several more napkins.
+    /// </summary>
+    [Year(2006)]
+    [SinType(SinType.InappropriateSocialBehavior)]
+    public class AteANapkinOnADare : BaseEvent
+    {
+        public AteANapkinOnADare() : base("Ate a Napkin on a Dare")
+        {
+        }
+    }
+
+    /// <summary>
     /// The computer I had at Sherman Terrace got lots of malware on it. I hazily remember even not
     /// worrying about it and clicking on email links intentionally. One particular malware was
     /// Virtumonde which stayed resident in memory on reboot, requiring special procedures to be removed
@@ -1422,13 +1496,29 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I was in spouse's apartment, and we were doing fairly tame
+    /// physical contact. I didn't actually feel any love, but I told
+    /// her I loved her anyway. Spouse didn't immediately respond,
+    /// but it did help move the relationship forward.
+    /// </summary>
+    [Year(2006)]
+    [MagicWords("I love you", "Me", "Future Spouse's Apartment", "Spouse")]
+    [SinType(SinType.DoingWhatYouThinkYoureSupposedToDo)]
+    public class ToldSpouseILovedHerWithoutFeelingTheLove : BaseEvent
+    {
+        public ToldSpouseILovedHerWithoutFeelingTheLove() : base("Told Spouse I Loved Her Ahead of Schedule")
+        {
+        }
+    }
+
+    /// <summary>
     /// when meeting my spouse's parents, I saw right away they seemed like a bunch of squares. I
     /// intentionally ate a baked potato like an apple to see what they would do and if they were
     /// irritated by it. They didn't respond at all. I remember spouse telling me afterward that would
     /// make them uncomfortable. Regardless, they didn't object to the marriage in the end.
     /// </summary>
     [Year(2006)]
-    [SinType(SinType.TryingToProvokeAReaction)]
+    [SinTypes(SinType.TryingToProvokeAReaction, SinType.InappropriateSocialBehavior)]
     public class AteBakedPotatoLikeAnAppleAtSpousesParentsHouse : BaseEvent
     {
         public AteBakedPotatoLikeAnAppleAtSpousesParentsHouse() : base("Ate Baked Potato like Apple in front of Spouse's Parents")

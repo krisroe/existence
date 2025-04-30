@@ -99,14 +99,16 @@ namespace Existence.Personal.Beyond
         /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
         /// after 9/11
         /// 
-        /// CrushLink
-        /// 
         /// The number 22:
         /// - There are currently 21 catholic councils accepted by vatican, next one is 22
         /// - The Hunger Games (first movie) countdown to start the games stops at 22
         /// - The Simpsons: episode where Grandpa's retirement home is 22 (shows 21 to left and 23 to right)
         /// - The Simpsons: Joke where Homer pays for hot dog with exact change (20 dollars) and gratuitously
         /// ups it to $22 on his own (maybe a tip but not obvious).
+        /// - The Simpsons: Episode called 22 for 30 (22 minutes in an 
+        /// episode)
+        /// - The Simpsons: Another 20 -> 22 joke very similar to the 
+        /// previous one
         /// 
         /// cribbage oddities:
         /// 1. Got a 28 hand once (against mother at Stonecreek Condo)
