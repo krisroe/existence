@@ -64,6 +64,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 8, 0, 0)]
             [YearDate(2025, 4, 24)]
             CleanUpTODOsAddMyParentsCatsOriginStoryAndJennysDeathInfo,
+
+            [BeyondObjectVersion(1, 9, 0, 0)]
+            [YearDate(2025, 5, 2)]
+            AddLanceDetails
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -774,7 +778,9 @@ namespace Existence.Beyond.JudgmentDay
         Hypie,
 
         /// <summary>
-        /// not 100% sure it was a cat or dog. gravestone says "5 days" which means my mother took care of him for 5 days before he died
+        /// not 100% sure it was a cat or dog. Mother found him hit by a car and
+        /// took care of him for 5 days until he died, hence the "5 days" on his
+        /// gravestone
         /// </summary>
         [Sex(Sexes.Male)]
         [Deathdate(2003)]
