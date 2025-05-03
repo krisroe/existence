@@ -9,6 +9,7 @@ using Existence.Personal;
 using Existence.Time;
 using static Existence.Beyond.JudgmentDay.BirthToGrowingUp;
 using System.Collections.Generic;
+using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
@@ -52,6 +53,7 @@ namespace Existence.Beyond.JudgmentDay
             new AteFoodAtChineseRestaurantSoOtherFamilyWouldntEatIt(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new FamilyMeetingComplimentsThatWerentComplimentary(),
+            new RageQuittingAtGames(),
             new YellingFineWhenAskedHowIWasDoing(new KarmaForYellingFineWithMySonExpectingNoResponse()),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
@@ -62,6 +64,8 @@ namespace Existence.Beyond.JudgmentDay
             new AntKilling(new SpiderRemoval()),
             new CalledPianoTeacherBeefJerky(),
             new LiceHiding(),
+            new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, religiousFlags),
+            new ELCALutheranConfirmationDespiteNearAtheism(),
             new TheEducationalValueOfThisIsQuestionable(),
             new MostOfEighthGradeEnglishClassKickedOut(),
             new CorrectedSpellingFromOutsideOfEightGradeEnglishClass(),
@@ -82,6 +86,7 @@ namespace Existence.Beyond.JudgmentDay
             new LiedAboutHavingGirlfriend(),
             new WCATYAntiTeachingAssistantFeedback(),
             new UsedCrushLinkToAvoidCrushCommunication(),
+            new GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt(),
             new HitATurkeyWithACar(),
             new PlayedEuchreWithPartnerSignalling(),
             new BoomSoundAtHighSchoolShowChoirPerformance(),
@@ -90,6 +95,7 @@ namespace Existence.Beyond.JudgmentDay
             new ToldClassmateIHadContactsWhenIDidnt(),
             new PretendedDrugIVUseInPsychology(),
             new SomehowBrokeTeachersComputer(),
+            new SemipubliclyClaimToBeTheAntichristAsAJoke(),
             new SowingChaosAtHighSchoolBandPractice(),
             new ClaimedPsychologyIsBullshitInClassAssignment(),
             new SteppingOnTheWisconsinDellsFloorLogo(),
@@ -133,10 +139,12 @@ namespace Existence.Beyond.JudgmentDay
             new PoorAccountingOfSelfAtCustomerVisit(),
             new DidNotAssistFamilyMemberInLookingForJob(),
             new TriedToStartScambaiting(),
+            new MetSomeoneWhoSeemedToThinkHeWasGod((int)PersonalHospitals.SaintMarysMadisonWisconsin),
             new FailedToTakeCareOfThePug(),
             new IToldMySpouseIAcknowledgeYou(),
             new SaidTheWordNiggerOutLoudToSpouse(),
             new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
+            new IncidentWithNurseOnPsychiatricWardRegardingShorts(),
             new SeriouslyConsideredCommittingSuicide(),
             new PoorCommunicationAtTASCInterview(),
             new GavePoorReferenceForFormerCoworker(),
@@ -149,6 +157,7 @@ namespace Existence.Beyond.JudgmentDay
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
             new LostMyKeysAndNotSureIfReal(),
             new GotASpeedingTicket(),
+            new UsedCurseWordInBlankSlateEvenThoughSonCouldnt(),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
             new AllowedForgingOfSpousesSignature(),
@@ -163,6 +172,7 @@ namespace Existence.Beyond.JudgmentDay
                 new EatTooMuch(),
                 new PersonalPhoneNotInWorkingOrder(),
                 new UseOfWorkComputerForPersonalUse(),
+                new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
         }
@@ -490,6 +500,20 @@ namespace Existence.Beyond.JudgmentDay
     public class FamilyMeetingComplimentsThatWerentComplimentary : BaseEvent
     {
         public FamilyMeetingComplimentsThatWerentComplimentary() : base("Family Meeting Compliments were Not Compliments")
+        {
+        }
+    }
+
+    /// <summary>
+    /// It was pretty common for me to rage quit at family games (e.g. board
+    /// games) when I was losing. Eventually it stopped, but probably well
+    /// after it should have stopped.
+    /// </summary>
+    [YearRange(1988, 1995)]
+    [SinType(SinType.InappropriateAngerOutlet)]
+    public class RageQuittingAtGames : BaseEvent
+    {
+        public RageQuittingAtGames() : base("Rage Quitting at Family Games")
         {
         }
     }
@@ -1819,6 +1843,7 @@ namespace Existence.Beyond.JudgmentDay
     /// rehydrating. This may be part of the reason why spouse does
     /// not want to get pets.
     /// </summary>
+    [Year(2011)]
     [SinType(SinType.ResponsibilityShirking)]
     public class FailedToTakeCareOfThePug : BaseEvent
     {
@@ -1837,6 +1862,7 @@ namespace Existence.Beyond.JudgmentDay
     /// hospitalizations, but there wasn't much of a response there 
     /// either.
     /// </summary>
+    [Year(2011)]
     [SinType(SinType.InappropriateAngerOutlet)]
     [IsDisqualifyingSin]
     public class TorturedAPug : BaseEvent
@@ -1857,6 +1883,23 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     public class LivedWithThePugWhileSheWasDying
     {
+    }
+
+    /// <summary>
+    /// in the psychiatric ward there was an incident where the nurse seemed
+    /// to think my behavior was inappropriate. I was in the hospital 
+    /// corridor and I remember her it having something to do with my shorts.
+    /// I remember them as the Mountain Dew shorts. Perhaps she thought I 
+    /// was doing something sexual? I really don't know, and should have
+    /// at least asked.
+    /// </summary>
+    [Year(2012)]
+    [SinType(SinType.LackOfCommunication)]
+    public class IncidentWithNurseOnPsychiatricWardRegardingShorts : BaseEvent
+    {
+        public IncidentWithNurseOnPsychiatricWardRegardingShorts() : base("Did Not Understand Nurse in Psychiatric Ward")
+        {
+        }
     }
 
     /// <summary>
@@ -2048,6 +2091,24 @@ namespace Existence.Beyond.JudgmentDay
     public class GotASpeedingTicket : BaseEvent
     {
         public GotASpeedingTicket() : base("Got a Speeding Ticket")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My mother and my nuclear family were playing Blank Slate, a game
+    /// where you make guesses on a whiteboard and reveal them as part of the
+    /// game. My son clearly wanted to use a curse word, but my mother made
+    /// it clear that was not acceptable. So I used the curse word, I believe
+    /// I wrote motherf*cker on the board. My son got upset since I was
+    /// allowed to do that, but he was mollified when I apoligized. My 
+    /// mother described my behavior dryly as defiance.
+    /// </summary>
+    [Year(2023)]
+    [SinType(SinType.DefianceOfAuthority)]
+    public class UsedCurseWordInBlankSlateEvenThoughSonCouldnt : BaseEvent
+    {
+        public UsedCurseWordInBlankSlateEvenThoughSonCouldnt() : base("Used Curse Word in Game at Mother's House")
         {
         }
     }

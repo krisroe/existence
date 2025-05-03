@@ -32,6 +32,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 4, 18)]
             StartIntegratingSinsWithGeniusGhosting,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 5, 3)]
+            MadeSomeEventsMorePubliclyAvailable,
         }
 
         private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
@@ -234,76 +238,6 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         /// <summary>
-        /// This was a discussion between two classmates in the foyer of Spring Hill Middle School, one of which was in my Sunday 
-        /// School class. These two classmates were more philosophical then most. One referred to me as "He's got religion" 
-        /// (I may not have the phrasing of the magic words quite right). The truth was I was closer to atheist than anything 
-        /// else. Still, I did not correct them, I didn't have an issue with them incorrectly thinking that. In hindsight, 
-        /// I should have said something (anything would have been better than nothing here).
-        /// </summary>
-        [MagicWords("He's got religion.", "Sunday school classmate", "My middle school", "Sunday school classmate's friend")]
-        public class HesGotReligionMagicWords : BaseEvent
-        {
-            [TODO("There's a communication ding here currently not accounted for")]
-            public HesGotReligionMagicWords(int Source, int Target, string MyRole, int Location, MyReligiousFlags religiousFlags) : base("\"He's got religion\"")
-            {
-                religiousFlags.IncrementRespectful(1);
-            }
-        }
-
-        /// <summary>
-        /// I had a discussion with Pastor Kreuger before confirmation. I knew full well I wasn't going to have anything to do
-        /// with the church in the long term and wanted to make sure nothing was expected of him. The answer to my question was
-        /// no, nothing was expected of me. The discussion was awkward (I'm not sure he or I truly understood
-        /// my concern. As it seemed like it didn't matter, I got confirmed.
-        ///  
-        /// As it turns out, ELCA Lutheran is quite tolerant of skepticism, and I did not understand
-        /// that fact at the time. In my ignorance I thought the rules were stricter than they actually are.
-        /// This is evidence I never really paid attention to any of the Sunday school lessons.
-        /// 
-        /// I will never know whether going through with the confirmation was actually a mistake.
-        /// I may have made a better decision (yes or no) if I had been more knowledgeable.
-        /// </summary>
-        public class ELCALutheranConfirmationDespiteNearAtheism : BaseEvent
-        {
-            public ELCALutheranConfirmationDespiteNearAtheism() : base("Near-atheism ELCA Lutheran Confirmation")
-            {
-            }
-        }
-
-        /// <summary>
-        /// This was almost certainly inspired by a Simpson's episode where Bart writes his soul
-        /// on a piece of paper, and students act maliciously, until Bart gets it back and rips it up and eats
-        /// it to save his soul. I wanted to go further, and did the same thing on a piece of paper in
-        /// 11th grade AP US History Class. It was passed out a bit and ended up in Greg Wisniewski's
-        /// hands. The Wisniewskis (Greg [1 year younger than I] and Katie [1 year older than I] were
-        /// highly intelligent and religious. Greg Wisniewski was a significant goofball though
-        /// so I really don't know what happened to it. My soul could be anywhere. It remained
-        /// a joke for many years afterward but is a bit unsettling now.
-        /// </summary>
-        public class GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt : BaseEvent
-        {
-            public GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt() : base("Put my Soul on Piece of Paper, Left with Classmate")
-            {
-
-            }
-        }
-
-        /// <summary>
-        /// Sophomore in High School: Math class (FST). I claimed to be the Antichrist to the class.
-        /// This was a joke. Brian Wimann referred to me as Satan for a time. During one class
-        /// I stood in front of the classroom and called the clas "my people". Melissa Hamburg objected
-        /// so I told her she was excluded. It didn't take too long for the joke to get old. It remained
-        /// a joke for many years afterwork but is a bit unsettling now.
-        /// </summary>
-        public class SemipubliclyClaimToBeTheAntichristAsAJoke : BaseEvent
-        {
-            public SemipubliclyClaimToBeTheAntichristAsAJoke() : base("Publicly Claim to be the Antichrist as a Joke")
-            {
-
-            }
-        }
-
-        /// <summary>
         /// I took a philosophy class in college that made me think about my religion some
         /// more. For a time I considered myself an agnostic, but I eventually went back
         /// to atheist. I do not remember my logic, and I don't think it's important. For
@@ -354,7 +288,9 @@ namespace Existence.Beyond.JudgmentDay
         /// (I think we were both out of it at the time), but here any communication
         /// would have been better than none.
         /// </summary>
+        [YearDate(2012)]
         [LocationInteger((int)PersonalHospitals.SaintMarysMadisonWisconsin)]
+        [SinType(SinType.LackOfCommunication)]
         public class MetSomeoneWhoSeemedToThinkHeWasGod : BaseEvent
         {
             public int Location { get; set; }
@@ -442,23 +378,6 @@ namespace Existence.Beyond.JudgmentDay
         {
             public DoneWithChurchWithAPushFromCovid() : base("Done with Church")
             {
-            }
-        }
-
-
-        /// <summary>
-        /// I do not remember ever giving up something tangible for Lent (it wasn't emphasized in ELCA Lutheran upbringing,
-        /// but I know my Catholic relatives did). As an adult I came up with the running gag of giving up "giving things
-        /// up for Lent" for Lent. I'm not sure if I'm being disrespectful of religion or not. Tt's just an absurd way of
-        /// saying I don't participate in that part of the religion, but I'm also not a practicing Christian. On the other
-        /// hand I'm not really broadcasting that to the world, so maybe it doesn't actually matter. But it's still a joke,
-        /// and has remained so even as my understanding of disrespect for religion has increased.
-        /// </summary>
-        public class GivingUpGivingUpSomethingForLentForLent : BaseEvent
-        {
-            public GivingUpGivingUpSomethingForLentForLent(MyReligiousFlags myReligiousFlags) : base("Joke Giving Up Nothing for Lent")
-            {
-                myReligiousFlags.IncrementDisrespectful(1);
             }
         }
     }
@@ -667,5 +586,96 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
-    
+    /// <summary>
+    /// This was a discussion between two classmates in the foyer of Spring Hill Middle School, one of which was in my Sunday 
+    /// School class. These two classmates were more philosophical then most. One referred to me as "He's got religion" 
+    /// (I may not have the phrasing of the magic words quite right). The truth was I was closer to atheist than anything 
+    /// else. Still, I did not correct them, I didn't have an issue with them incorrectly thinking that. In hindsight, 
+    /// I should have said something (anything would have been better than nothing here).
+    /// </summary>
+    [Year(1994)]
+    [MagicWords("He's got religion.", "Sunday school classmate", "My middle school", "Sunday school classmate's friend")]
+    [SinType(SinType.LackOfCommunication)]
+    public class HesGotReligionMagicWords : BaseEvent
+    {
+        public HesGotReligionMagicWords(int Source, int Target, string MyRole, int Location, MyReligiousFlags religiousFlags) : base("\"He's got religion\"")
+        {
+            religiousFlags.IncrementRespectful(1);
+        }
+    }
+
+    /// <summary>
+    /// I had a discussion with Pastor Kreuger before confirmation. I knew full well I wasn't going to have anything to do
+    /// with the church in the long term and wanted to make sure nothing was expected of him. The answer to my question was
+    /// no, nothing was expected of me. The discussion was awkward (I'm not sure he or I truly understood
+    /// my concern. As it seemed like it didn't matter, I got confirmed.
+    ///  
+    /// As it turns out, ELCA Lutheran is quite tolerant of skepticism, and I did not understand
+    /// that fact at the time. In my ignorance I thought the rules were stricter than they actually are.
+    /// This is evidence I never really paid attention to any of the Sunday school lessons.
+    /// 
+    /// I will never know whether going through with the confirmation was actually a mistake.
+    /// I may have made a better decision (yes or no) if I had been more knowledgeable.
+    /// </summary>
+    [Year(1994)]
+    [SinType(SinType.Ignorance)]
+    public class ELCALutheranConfirmationDespiteNearAtheism : BaseEvent
+    {
+        public ELCALutheranConfirmationDespiteNearAtheism() : base("Near-atheism ELCA Lutheran Confirmation")
+        {
+        }
+    }
+
+    /// <summary>
+    /// This was almost certainly inspired by a Simpson's episode where Bart writes his soul
+    /// on a piece of paper, and students act maliciously, until Bart gets it back and rips it up and eats
+    /// it to save his soul. I wanted to go further, and did the same thing on a piece of paper in
+    /// 11th grade AP US History Class. It was passed out a bit and ended up in Greg Wisniewski's
+    /// hands. The Wisniewskis (Greg [1 year younger than I] and Katie [1 year older than I] were
+    /// highly intelligent and religious. Greg Wisniewski was a significant goofball though
+    /// so I really don't know what happened to it. My soul could be anywhere. It remained
+    /// a joke for many years afterward but is a bit unsettling now.
+    /// </summary>
+    [Year(1997)]
+    [SinType(SinType.DisrespectOfReligion)]
+    public class GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt : BaseEvent
+    {
+        public GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt() : base("Put my Soul on Piece of Paper, Left with Classmate")
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// Sophomore in High School: Math class (FST). I claimed to be the Antichrist to the class.
+    /// This was a joke. Brian Wimann referred to me as Satan for a time. During one class
+    /// I stood in front of the classroom and called the clas "my people". Melissa Hamburg objected
+    /// so I told her she was excluded. It didn't take too long for the joke to get old. It remained
+    /// a joke for many years afterwork but is a bit unsettling now.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.DisrespectOfReligion)]
+    public class SemipubliclyClaimToBeTheAntichristAsAJoke : BaseEvent
+    {
+        public SemipubliclyClaimToBeTheAntichristAsAJoke() : base("Publicly Claim to be the Antichrist as a Joke")
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// I do not remember ever giving up something tangible for Lent (it wasn't emphasized in ELCA Lutheran upbringing,
+    /// but I know my Catholic relatives did). As an adult I came up with the running gag of giving up "giving things
+    /// up for Lent" for Lent. I'm not sure if I'm being disrespectful of religion or not. Tt's just an absurd way of
+    /// saying I don't participate in that part of the religion, but I'm also not a practicing Christian. On the other
+    /// hand I'm not really broadcasting that to the world, so maybe it doesn't actually matter. But it's still a joke,
+    /// and has remained so even as my understanding of disrespect for religion has increased.
+    /// </summary>
+    public class GivingUpGivingUpSomethingForLentForLent : BaseEvent
+    {
+        public GivingUpGivingUpSomethingForLentForLent(MyReligiousFlags myReligiousFlags) : base("Joke Giving Up Nothing for Lent")
+        {
+            myReligiousFlags.IncrementDisrespectful(1);
+        }
+    }
 }

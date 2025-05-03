@@ -76,8 +76,6 @@ namespace Existence.Personal.Beyond
         /// 
         /// Pleasure Zone (video tape), msbx5
         /// 
-        /// Blank Slate defiance (cursing)
-        /// 
         /// hearing "Stop It" not understanding
         /// saying "Stop It" not understanding
         /// 
