@@ -883,6 +883,7 @@ namespace Existence.Beyond.Infrastructure
         InappropriateJoke,
         InappropriatePersonalCommunication,
         InappropriatePublicCommunication,
+        InappropriateSexRelatedBehavior,
         InappropriateSocialBehavior,
         Inattention,
         Incompetence,
@@ -936,6 +937,7 @@ namespace Existence.Beyond.Infrastructure
         TryingToProvokeAReaction,
         UnauthorizedAccess,
         UnhealthyBehavior,
+        Voyeurism,
         WasteMoney,
         WasteResources,
     }

@@ -73,9 +73,6 @@ namespace Existence.Personal.Beyond
         /// shooting post
         /// 1. didn't take deposition
         /// 
-        /// 
-        /// Pleasure Zone (video tape), msbx5
-        /// 
         /// hearing "Stop It" not understanding
         /// saying "Stop It" not understanding
         /// 
@@ -84,21 +81,14 @@ namespace Existence.Personal.Beyond
         /// "I want a divorce" not understanding.
         /// Fake hitting spouse not understanding.
         /// 
-        /// shorts issue in psych ward (not understanding)
-        /// meeting someone who thought they were god (not understanding)
-        /// 
         /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
         /// 
         /// ongoing sins
         /// sins there is no promise to refrain from (medication abuse)
         /// 
-        /// listened to Todd Hamm doing base acts while putting together the giant New York City puzzle
-        /// 
-        /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
-        /// after 9/11
-        /// 
         /// first tabasco use in middle school spanish class
         /// discussed the ability to "crack" chess in high school locker room
+        /// sex: 5x
         /// 
         /// The number 22:
         /// - There are currently 21 catholic councils accepted by vatican, next one is 22

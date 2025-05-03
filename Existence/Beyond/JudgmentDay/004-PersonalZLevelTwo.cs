@@ -104,6 +104,7 @@ namespace Existence.Beyond.JudgmentDay
             new SpentHighSchoolPromPlayingFreeCell(),
             new CruddyRemonumentationWork(),
             new InappropriateBehaviorOnDate(),
+            new GhostedGirlEvenThoughSheWasAtOurHouse(),
             new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
@@ -113,10 +114,14 @@ namespace Existence.Beyond.JudgmentDay
                 new RemovedMOMMUSTDIEOnMothersBedroomWall(),
                 new LivedWithMyMotherWhileSheWasDyingOfCancer()),
             new GaveSolicitorTwentyDollars(),
+            new TapedPrurientMaterialOnMyMothersVHSTapes(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new ShirkedSnowShovellingAt215Ingersoll(),
+            new BoughtNewYorkCityWorldTradeTowersPuzzleAfter911(),
+            new ListenedToRoommatesSexualActivity(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
+            new WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
             new ExposedPersonalInformationInGarbage(),
             new DidNotCorrectIncorrectTornadoAnecdote(),
@@ -1343,6 +1348,20 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// Even after the date incident (I think), Erica showed up at our house
+    /// because she was friends with DeeAnn who was renting a room (in the
+    /// sewing room for the summer). Erica and DeeAnn went somewhere, and
+    /// I was present in the room for some conversations, and my remembrance
+    /// is I didn't speak to her at all.
+    /// </summary>
+    public class GhostedGirlEvenThoughSheWasAtOurHouse : BaseEvent
+    {
+        public GhostedGirlEvenThoughSheWasAtOurHouse() : base("Ghosted Girl at Home")
+        {
+        }
+    }
+
+    /// <summary>
     /// At high school graduation, we walked across the stage to get our diplomas, then circling back
     /// to get to our seats. That route took us in front of the high school band. The band director
     /// (Mr. Spargo) shook hands with graduates. I held out my hand and pulled it away before he could shake
@@ -1423,11 +1442,29 @@ namespace Existence.Beyond.JudgmentDay
     /// is one of those things where a sin happens no matter which side of the fence the response lies,
     /// since I feel guilty either way.
     /// </summary>
-    [SinType(SinType.BeggingQuestionableResponse)]
     [Year(2000)]
+    [SinType(SinType.BeggingQuestionableResponse)]
     public class GaveSolicitorTwentyDollars : BaseEvent
     {
         public GaveSolicitorTwentyDollars() : base("Gave Beggar Twenty Dollars")
+        {
+        }
+    }
+
+    /// <summary>
+    /// When living with my mother and going to college I taped a HBO or
+    /// Showtime show using my mother's VHS tapes and used for sexual 
+    /// gratification. I had some level of terror my mother would find out
+    /// and I still do to some extent since my sister could watch the tapes.
+    /// I'm not sure there is actually any risk, since the tapes are now
+    /// decades old and the viewer might not put the pieces together, but
+    /// is still unsettling for me.
+    /// </summary>
+    [Year(2000)]
+    [SinType(SinType.InappropriateSexRelatedBehavior)]
+    public class TapedPrurientMaterialOnMyMothersVHSTapes : BaseEvent
+    {
+        public TapedPrurientMaterialOnMyMothersVHSTapes() : base("Taped Prurient Material on my Mother's VHS Tapes")
         {
         }
     }
@@ -1439,8 +1476,8 @@ namespace Existence.Beyond.JudgmentDay
     /// specific that it stepped across my line of cheating. However, my line of cheating on
     /// this type of thing is likely more strict than others.
     /// </summary>
-    [SinType(SinType.Cheating)]
     [Witness((int)YearAboveClassmateList.BrianWimann)]
+    [SinType(SinType.Cheating)]
     public class HelpedCollegeClassmateCheatOnCollegeCompSciClass : BaseEvent
     {
         public HelpedCollegeClassmateCheatOnCollegeCompSciClass() : base("Helped College Classmate Cheat on Assigment")
@@ -1452,10 +1489,42 @@ namespace Existence.Beyond.JudgmentDay
     /// I was supposed to be responsible for shovelling snow when I lived at 215 Ingersoll. I did
     /// do it sometimes, but other times my father did it for me.
     /// </summary>
+    [Year(2001)]
     [SinTypes(SinType.ResponsibilityShirking, SinType.OverlyReliantOnOthers)]
     public class ShirkedSnowShovellingAt215Ingersoll : BaseEvent
     {
         public ShirkedSnowShovellingAt215Ingersoll() : base("Responsibility Shortcomings Shovelling Snow")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I wanted to do a big 3D puzzle so I bought the biggest I could find.
+    /// It turned out to be a New York City themed puzzle but with the World
+    /// Trade Towers that had been destroyed in 9/11. Probably not that
+    /// inapproriate, but others might disagree.
+    /// </summary>
+    [Year(2003)]
+    [SinTypes(SinType.Disrespect)]
+    public class BoughtNewYorkCityWorldTradeTowersPuzzleAfter911 : BaseEvent
+    {
+        public BoughtNewYorkCityWorldTradeTowersPuzzleAfter911() : base("Bought World Trade Towers Puzzle After 9/11")
+        {
+        }
+    }
+
+    /// <summary>
+    /// While living at Sherman Terrace, I had a roommate Todd Hamm. One 
+    /// morning I was quietly putting together a large 3D puzzle. My roommate
+    /// and his girlfriend had sex. I was in the next room so I could hear,
+    /// but I continued putting together their puzzle and they had no idea I
+    /// was there.
+    /// </summary>
+    [Year(2003)]
+    [SinType(SinType.Voyeurism)]
+    public class ListenedToRoommatesSexualActivity : BaseEvent
+    {
+        public ListenedToRoommatesSexualActivity() : base("Listened to Roommate's Sexual Activity")
         {
         }
     }
@@ -1472,6 +1541,18 @@ namespace Existence.Beyond.JudgmentDay
     public class SableLostElectricalPowerOnMadisonGorhamStreet : BaseEvent
     {
         public SableLostElectricalPowerOnMadisonGorhamStreet() : base("Car stranded in Madison")
+        {
+        }
+    }
+
+    /// <summary>
+    /// At Sherman Terrace I had a personal computer in the main room and I
+    /// watched videos for sexual gratification. I don't think anyon could see
+    /// me from the condos across the way, but I don't know 100%.
+    /// </summary>
+    public class WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors : BaseEvent
+    {
+        public WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors() : base("Sexual Gratification Possibly Visible to Neighborss")
         {
         }
     }
