@@ -65,14 +65,6 @@ namespace Existence.Personal.Beyond
         /// 
         /// How many insult songs did I create?
         /// 
-        /// hearing "Stop It" not understanding
-        /// saying "Stop It" not understanding
-        /// 
-        /// asking spouse to increase charitable giving for wrong reasons
-        /// 
-        /// "I want a divorce" not understanding.
-        /// Fake hitting spouse not understanding.
-        /// 
         /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
         /// 
         /// ongoing sins

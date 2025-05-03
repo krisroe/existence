@@ -149,6 +149,11 @@ namespace Existence.Beyond.JudgmentDay
             new IToldMySpouseIAcknowledgeYou(),
             new SaidTheWordNiggerOutLoudToSpouse(),
             new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
+            new ToldStopItWasMagicWordByTherapist(),
+            new AskedSpouseToIncreaseCharitableGivingForWrongReasons(),
+            new AskedSpouseToSaySomethingWhenOffendedTherapistTriedToGetHerToDivorce(),
+            new YelledIWantADivorce(),
+            new FakeTriedToHitSpouse(),
             new IncidentWithNurseOnPsychiatricWardRegardingShorts(),
             new SeriouslyConsideredCommittingSuicide(),
             new PoorCommunicationAtTASCInterview(),
@@ -162,6 +167,8 @@ namespace Existence.Beyond.JudgmentDay
             new DidntRespondToCoworkersEmailBeforeShooting(),
             new DidntTakeShootingDeposition(),
             new MatrixBrokeDownSouthOfLodi(),
+            new ToldSpouseStopItButItWasntCorrect(),
+            new ScreamedAtSpouseOverReasonableness(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
             new DidNotGiveSolicitorAnyMoneyAtGasStation(),
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
@@ -1974,6 +1981,86 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// After I brought up the word "abusive" for relationship with spouse, Andrew suggested
+    /// I try using the phrase "Stop it". I guess that's some kind of magical phrase relevant
+    /// to bad relationships. I think I understood the implication, but didn't ask any follow-up
+    /// questions or how else I could deal with spouse's poor communication.
+    /// </summary>
+    [Year(2012)]
+    [MagicWords("Stop It", "Therapist", "Therapist Office", "Therapist")]
+    [SinType(SinType.LackOfCommunication)]
+    public class ToldStopItWasMagicWordByTherapist : BaseEvent
+    {
+        public ToldStopItWasMagicWordByTherapist() : base("Told \"Stop it\" was Relevant by Therapist")
+        {
+        }
+    }
+
+    /// <summary>
+    /// When we were both mentally down due to our conflict (or at least I think that's what happened - it's also
+    /// possible spouse never actually changes), I asked her to increase our charitable donations by a bit on my
+    /// account. Maybe I thought I was offering an olive branch to our disagreements on charity, or maybe I was
+    /// just looking for a way to make the poor communication stop. I have no idea if spouse actually changed her
+    /// behavior for this, as she never gave a response then or later.
+    /// </summary>
+    [Year(2012)]
+    [SinType(SinType.PersonalCommunication)]
+    public class AskedSpouseToIncreaseCharitableGivingForWrongReasons : BaseEvent
+    {
+        public AskedSpouseToIncreaseCharitableGivingForWrongReasons() : base("Asked Spouse to Increase Charitable Giving for Self-Serving Reasons")
+        {
+        }
+    }
+
+
+    /// <summary>
+    /// In the context of therapy, I asked spouse to say something when offended.
+    /// She screamed in reply: "I shouldn't have to".
+    /// The therapist responded by repeatedly yelling "You have to divorce him". Another thing I remember he said
+    /// was "Can't you see what you're doing to him?"
+    /// In hindsight, the lack of social understanding of dealing with lack of empathy was the primary problem.
+    /// </summary>
+    [Year(2012)]
+    [SinType(SinType.SocialUnawareness)]
+    [PersonalZLevel(ZLevel.Two)]
+    public class AskedSpouseToSaySomethingWhenOffendedTherapistTriedToGetHerToDivorce : BaseEvent
+    {
+        public AskedSpouseToSaySomethingWhenOffendedTherapistTriedToGetHerToDivorce() : base("Asked Spouse to Say Something when Offended led to Therapist Demanding Divorce")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Things came to a head when at the Stonecreek Condo mother and spouse were there and I was going through the
+    /// roof for a first-time manic episode. I remember a bit of a fight over the phone when spouse called a 
+    /// mental health hotline. I went downstairs and yelled "I want a divorce". No one gave any response.
+    /// Looking back on this, it's clear I didn't have any understanding of what really went on with people having
+    /// a lack of empathy.
+    /// </summary>
+    [Year(2012)]
+    [SinType(SinType.SocialUnawareness)]
+    [MagicWords("I want a divorce", "Me", "Home", "My spouse and mother in house")]
+    public class YelledIWantADivorce : BaseEvent
+    {
+        public YelledIWantADivorce() : base("Yelled for a Divorce")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Later in the episode, I fake took a swing at spouse. I didn't have any intention of hitting her, but she
+    /// didn't know that and called the police who took me to the psychiatric hospital.
+    /// </summary>
+    [Year(2012)]
+    [SinTypes(SinType.SocialUnawareness, SinType.PretendedViolence)]
+    public class FakeTriedToHitSpouse : BaseEvent
+    {
+        public FakeTriedToHitSpouse() : base("Fake tried to Hit Spouse")
+        {
+        }
+    }
+
+    /// <summary>
     /// in the psychiatric ward there was an incident where the nurse seemed
     /// to think my behavior was inappropriate. I was in the hospital 
     /// corridor and I remember her it having something to do with my shorts.
@@ -2158,6 +2245,40 @@ namespace Existence.Beyond.JudgmentDay
         public MatrixBrokeDownSouthOfLodi() : base("Car Broke Down South of Lodi")
         {
 
+        }
+    }
+
+    /// <summary>
+    /// Spouse came downstairs after I was having mental health difficulties. As usual, I didn't understand her
+    /// communication, and I told her "Stop it". She responded mechanically with "Stop what?". I screamed at
+    /// her that she was abusive. She never responded and went upstairs. I did not know how to deal with 
+    /// problematic behavior that was a lack of communication.
+    /// </summary>
+    [Year(2022)]
+    [SinType(SinType.SocialUnawareness)]
+    [MagicWords("Stop It", "Me", "Bedroom", "Spouse")]
+    public class ToldSpouseStopItButItWasntCorrect : BaseEvent
+    {
+        public ToldSpouseStopItButItWasntCorrect() : base("Told Spouse Stop It but Incorrect Context")
+        {
+        }
+    }
+
+    /// <summary>
+    /// This was how a conflict over wearing mask at a potential piano teacher visit ended.
+    /// Me: You're not being reasonable
+    /// Spouse: You're not being reasonable
+    /// Spouse: It's not that fucking hard to wear a mask
+    /// Me: It's not that fucking hard to deal with small amounts of risk
+    /// The end result was we didn't make the visit and chose Helga as the piano teacher.
+    /// </summary>
+    [Year(2022)]
+    [SinType(SinType.SocialUnawareness)]
+    [MagicWords("You're not being reasonable", "Both Spouse and Me", "Bedroom", "Each Other")]
+    public class ScreamedAtSpouseOverReasonableness : BaseEvent
+    {
+        public ScreamedAtSpouseOverReasonableness() : base("Spouse and I Screamed at each Other over Reasonableness")
+        {
         }
     }
 

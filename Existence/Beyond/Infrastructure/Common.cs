@@ -913,6 +913,7 @@ namespace Existence.Beyond.Infrastructure
         PoorDecisionmaking,
         PracticalJoke,
         PersonalSpaceViolation,
+        PretendedViolence,
         Projection,
         PropertyDamage,
         PropertyNotTakingCareOf,
