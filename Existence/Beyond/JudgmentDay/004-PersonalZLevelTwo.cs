@@ -152,6 +152,7 @@ namespace Existence.Beyond.JudgmentDay
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
             new AllowedForgingOfSpousesSignature(),
+            new IntentionallyDestroyedCurrency()
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()

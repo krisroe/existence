@@ -2,15 +2,31 @@
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
-using Existence.Personal.Beyond;
+using Existence.Earth.Gambling;
 using Existence.Time;
 using System.ComponentModel;
 
 namespace Existence.Beyond.CosmicGambling
 {
-    [IsReleased(false)]
     internal class PapalVacancy2025Gambling
     {
+        private enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 5, 3)]
+            Created
+        }
+
+        /// <summary>
+        /// I ripped a $20 bill into many pieces, threw it into the garbage
+        /// can saying "Delete, Shred, Recycle". I figure this gives me
+        /// $20 cosmic USD to play with.
+        /// </summary>
+        [Odds(7.6, 1)]
+        [Bet("Matteo Zuppi", 20, Currencies.UnitedStatesDollar)]
+        public enum PapalVacancyBet
+        {
+        }
 
         /// <summary>
         ///   5 consisteries of John Paul II
@@ -265,6 +281,24 @@ namespace Existence.Beyond.CosmicGambling
     public class PokerWithMyKids : BaseEvent
     {
         public PokerWithMyKids() : base("Played Poker with Kids Not for Real Money")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was unable to establish a cryptocurrency wallet with coinbase
+    /// because I couldn't make an acceptable photo of my driver's license.
+    /// So I couldn't play PolyMarket (illegal in United States anyway).
+    /// My cosmic gambling instead is played with $20 I ripped to shreds and
+    /// thus exists only metaphysically. This violates United States law
+    /// (18 US Code 333), but there are no consequences of doing this 
+    /// privately.
+    /// </summary>
+    [YearDate(2025, 5, 3)]
+    [SinType(SinType.BreakingTheLaw)]
+    public class IntentionallyDestroyedCurrency : BaseEvent
+    {
+        public IntentionallyDestroyedCurrency() : base("Intentionally Destroyed Currency for Cosmic Currency")
         {
         }
     }
