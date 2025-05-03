@@ -99,6 +99,9 @@ namespace Existence.Personal.Beyond
         /// New York City puzzle is itself a sin since the Twin Towers are standing and I got it
         /// after 9/11
         /// 
+        /// first tabasco use in middle school spanish class
+        /// discussed the ability to "crack" chess in high school locker room
+        /// 
         /// The number 22:
         /// - There are currently 21 catholic councils accepted by vatican, next one is 22
         /// - The Hunger Games (first movie) countdown to start the games stops at 22
@@ -108,6 +111,7 @@ namespace Existence.Personal.Beyond
         /// - The Simpsons: Episode called 22 for 30 (22 minutes in an 
         /// episode)
         /// - The Simpsons: Another 20 -> 22 joke very similar to the 
+        /// Packers 1st round draft pick Matthew Golden wears 22, setting up Love-22 connections.
         /// previous one
         /// 
         /// cribbage oddities:

@@ -49,6 +49,7 @@ namespace Existence.Beyond.JudgmentDay
             new UnawarenessOfVehicleBreakdown(),
             new IgnoredReligiousInstructionOnCommunion(),
             new SupportedInappropriateClassPetName(),
+            new AteFoodAtChineseRestaurantSoOtherFamilyWouldntEatIt(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new FamilyMeetingComplimentsThatWerentComplimentary(),
             new YellingFineWhenAskedHowIWasDoing(new KarmaForYellingFineWithMySonExpectingNoResponse()),
@@ -56,6 +57,7 @@ namespace Existence.Beyond.JudgmentDay
             new CheatedAtUpperElementaryDodgeball(),
             new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
             new ToldMyMotherSheWasntInOnPerformanceNuances(),
+            new EmbarrassingEpisodeWithInfoFromTheJerkReadToHealthClass(),
             new UnresponsivenessForBeingMadeFunOfForCorduroyPants(),
             new AntKilling(new SpiderRemoval()),
             new CalledPianoTeacherBeefJerky(),
@@ -85,10 +87,15 @@ namespace Existence.Beyond.JudgmentDay
             new BoomSoundAtHighSchoolShowChoirPerformance(),
             new SpanishClassSkitWhereAnAirlinerExploded(),
             new InappropriatelyPutArmAroundGirl(),
+            new ToldClassmateIHadContactsWhenIDidnt(),
+            new PretendedDrugIVUseInPsychology(),
+            new SomehowBrokeTeachersComputer(),
             new SowingChaosAtHighSchoolBandPractice(),
             new ClaimedPsychologyIsBullshitInClassAssignment(),
             new SteppingOnTheWisconsinDellsFloorLogo(),
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
+            new RefusedToAskAnyOneOutToHighSchoolProm(),
+            new SpentHighSchoolPromPlayingFreeCell(),
             new CruddyRemonumentationWork(),
             new InappropriateBehaviorOnDate(),
             new InappropriateAliensJoke(),
@@ -444,6 +451,20 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// The family went to a Chinese restaurant in Portage (I think it was the Great Wall). The food
+    /// was served communal style. I ordered something spicy, but when the food came I targeted my
+    /// sister's food, knowing she wouldn't be willing to eat my spicy food.
+    /// </summary>
+    [ApproximateAgeInYears(11)]
+    [SinTypes(SinType.Greediness, SinType.Gluttony)]
+    public class AteFoodAtChineseRestaurantSoOtherFamilyWouldntEatIt : BaseEvent
+    {
+        public AteFoodAtChineseRestaurantSoOtherFamilyWouldntEatIt() : base("Took Food for Self at Chinese Restaurant")
+        {
+        }
+    }
+
+    /// <summary>
     /// Main example is intentionally singing just a bit off to confuse the choir director
     /// </summary>
     [ApproximateAgeInYears(12)]
@@ -591,6 +612,24 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I had recently watched the Steve Martin movie "The Jerk" and for reasons I don't
+    /// remember I decided to insert movie-related information into a health class project.
+    /// The information was in small print. We had to trade the assignment to other
+    /// students and from that there was the opportunity to read the assignment to the
+    /// class, and that is what Abby O did. I doubt anyone actually understood the 
+    /// detail text, perhaps the embarrassment was understood.
+    /// </summary>
+    [ApproximateAgeInYears(13)]
+    [Witness((int)ClassmateList.AbbyOBrien)]
+    [SinType(SinType.EmbarrassingBehavior)]
+    public class EmbarrassingEpisodeWithInfoFromTheJerkReadToHealthClass : BaseEvent
+    {
+        public EmbarrassingEpisodeWithInfoFromTheJerkReadToHealthClass() : base("Embarrassing Info Read to Health Class")
+        {
+        }
+    }
+
+    /// <summary>
     /// In middle school Tony Leggett (athletic student but not bright)
     /// made fun of me for having corduroy pants. My wardrobe was not
     /// particularly scintillating. I didn't respond to the teasing at all,
@@ -599,6 +638,7 @@ namespace Existence.Beyond.JudgmentDay
     /// has consequences.
     /// </summary>
     [ApproximateAgeInYears(13)]
+    [Witness((int)ClassmateList.TonyLeggett)]
     [SinTypes(SinType.NotStandingUpForYourself, SinType.LackOfCommunication)]
     public class UnresponsivenessForBeingMadeFunOfForCorduroyPants : BaseEvent
     {
@@ -1024,6 +1064,36 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// for psychology class we had a project that involved performance. I chose to 
+    /// try to portray someone using illegal drugs via IV. I don't remember any of the
+    /// reaction, although I vaguely feel it was embarrassing.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.EmbarrassingBehavior)]
+    public class PretendedDrugIVUseInPsychology : BaseEvent
+    {
+        public PretendedDrugIVUseInPsychology() : base("Pretended Drug Use in Psychology Class")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My high school psychology teacher didn't like the students using his computer.
+    /// I remember using his computer, unauthorized, in a minimal way. But when he
+    /// got back, the teacher said something bad happens to his grades (my recollection
+    /// is most). I didn't understand how, but I figured something I might have done had messed up
+    /// the grades.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.UnauthorizedAccess)]
+    public class SomehowBrokeTeachersComputer : BaseEvent
+    {
+        public SomehowBrokeTeachersComputer() : base("Somehow Broke Teacher's Computer")
+        {
+        }
+    }
+
+    /// <summary>
     /// Main example is intentionally playing just a bit off to confuse the choir director. This is
     /// especially easy for clarinets since other instruments like trumpets can make it difficult for
     /// the band director to hear them.
@@ -1168,6 +1238,32 @@ namespace Existence.Beyond.JudgmentDay
     public class WalkedThirteenAndAHalfMilesHomeFromSchool : BaseEvent
     {
         public WalkedThirteenAndAHalfMilesHomeFromSchool() : base("Walked 13.5 Miles Home From School")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In high school Spanish class, some girls (Amie K and Brittany B) wondered if I would ask
+    /// anyone to prom. I adamantly refused.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.SocialAvoidance)]
+    public class RefusedToAskAnyOneOutToHighSchoolProm : BaseEvent
+    {
+        public RefusedToAskAnyOneOutToHighSchoolProm() : base("Refused to ask Anyone out to High School Prom")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I spent the actual high school prom doing the most un-prom-like thing I could think of. I 
+    /// played a bunch of Freecell games (solitaire game installed at the time on Windows computers
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.SocialAvoidance)]
+    public class SpentHighSchoolPromPlayingFreeCell : BaseEvent
+    {
+        public SpentHighSchoolPromPlayingFreeCell() : base("Played Freecell at Home Instead of Going to High School Prom")
         {
         }
     }
