@@ -156,6 +156,11 @@ namespace Existence.Beyond.JudgmentDay
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
             new DeferredConversionsInfastructure(),
             new LightStrangulationOfChild(),
+            new DidntRespondToSolarEclipseEmail(),
+            new PublicCursingAtCubicleAtWork(),
+            new PastUseOfAnarchySymbolAsJIRAUserAvatar(),
+            new DidntRespondToCoworkersEmailBeforeShooting(),
+            new DidntTakeShootingDeposition(),
             new MatrixBrokeDownSouthOfLodi(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
             new DidNotGiveSolicitorAnyMoneyAtGasStation(),
@@ -177,6 +182,8 @@ namespace Existence.Beyond.JudgmentDay
                 new EatTooMuch(),
                 new PersonalPhoneNotInWorkingOrder(),
                 new UseOfWorkComputerForPersonalUse(),
+                new CurrentUseOfAnarchySymbolAsJIRAAvatar(),
+                new SuboptimalEmailResponse(),
                 new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
@@ -2060,6 +2067,84 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// Anthony Tong sent out an email to the coworkers that he had eclipse
+    /// viewing paraphenalia. I did not respond to the email, and in hindsight
+    /// wish maybe things would have turned out better with the shooting if
+    /// I had behaved differently.
+    /// </summary>
+    [Year(2018)]
+    [SinType(SinType.SocialAvoidance)]
+    public class DidntRespondToSolarEclipseEmail : BaseEvent
+    {
+        public DidntRespondToSolarEclipseEmail() : base("Didn't Respond to Eclipse Viewing Email")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I sometimes cursed a bunch from frustration in my work cubicle. I 
+    /// thought that behavior was harmless, and for the most part it wasn't
+    /// but I remember it went up noticeably before the work shooting, and I
+    /// don't know if it was any kind of significant factor for that.
+    /// </summary>
+    [YearRange(2013, 2019)]
+    [SinType(SinType.InappropriatePublicCommunication)]
+    public class PublicCursingAtCubicleAtWork : BaseEvent
+    {
+        public PublicCursingAtCubicleAtWork() : base("Public Cursing in Work Cubicle")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I used the Anarchy symbol as my JIRA avatar in the run-up to the
+    /// shooting. Although I view anarchy as a reasonable description of some
+    /// work existence, I was uncomfortable projecting that image after the
+    /// shooting.
+    /// </summary>
+    [YearRange(2018, 2019)]
+    [SinType(SinType.InappropriatePublicCommunication)]
+    public class PastUseOfAnarchySymbolAsJIRAUserAvatar : BaseEvent
+    {
+        public PastUseOfAnarchySymbolAsJIRAUserAvatar() : base("Anarchy Symbol as JIRA User Avatar Pre Shooting")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Looking at my email inbox before the shooting, I noticed a rambling
+    /// email from Anthony Tong from a bit previous. I never responded to
+    /// the email. I deleted the email and was not able to find it back, so
+    /// here I'm not sure if it was a hallucination or not. If it was real,
+    /// I wonder if it was a factor in the shooting.
+    /// </summary>
+    [Year(2019)]
+    [SinType(SinType.PersonalCommunication)]
+    public class DidntRespondToCoworkersEmailBeforeShooting : BaseEvent
+    {
+        public DidntRespondToCoworkersEmailBeforeShooting() : base("Didn't Response to Coworker Email Before Shooting")
+        {
+        }
+    }
+
+    /// <summary>
+    /// After the shooting we were gathered in the nearby hotel lobby and
+    /// police took video or depositions or whatever for witnesses. I wasn't
+    /// sure I was a witness, and so I didn't give a deposition. I gave
+    /// my statement the next day, and they told me I could do a video
+    /// deposition, but never called back for it. It really didn't matter,
+    /// but I probably should have taken the first video deposition.
+    /// </summary>
+    [YearDate(2019, 9, 19)]
+    [SinType(SinType.SocialAvoidance)]
+    public class DidntTakeShootingDeposition : BaseEvent
+    {
+        public DidntTakeShootingDeposition() : base("Didn't Take Shooting Witness Deposition")
+        {
+        }
+    }
+
+    /// <summary>
     /// While driving home from my mother's house with my son and daughter in the car,
     /// the Matrix stopped working South of Lodi on Highway 113 just south of the county line
     /// and the railroad tracks. We went to a nearby house and an elderly couple allowed 
@@ -2334,5 +2419,34 @@ namespace Existence.Beyond.JudgmentDay
         {
         }
     }
+
+    /// <summary>
+    /// After the shooting I switched away from the Anarcy symbol as my JIRA
+    /// avatar. But eventually I decided it was okay, even though it isn't
+    /// necessarily optimal for public communication.
+    /// </summary>
+    [StartYear(2024)]
+    public class CurrentUseOfAnarchySymbolAsJIRAAvatar : BaseEvent
+    {
+        public CurrentUseOfAnarchySymbolAsJIRAAvatar() : base("Current Use of Anarchy Symbol as JIRA Avatar")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I've gotten worse with my responses to email over the years. I try
+    /// to check my email, but with messages switching over to Microsoft
+    /// Teams it doesn't seem to matter as much. I think I sometimes forget
+    /// to process emails. And I seem to be okay with the status quo, figuring
+    /// if someone really wants to get ahold of me, they can use Teams.
+    /// </summary>
+    [StartYear(2020)]
+    public class SuboptimalEmailResponse : BaseEvent
+    {
+        public SuboptimalEmailResponse() : base("Suboptimal Email Response")
+        {
+        }
+    }
+
     #endregion
 }

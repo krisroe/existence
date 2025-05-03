@@ -65,14 +65,6 @@ namespace Existence.Personal.Beyond
         /// 
         /// How many insult songs did I create?
         /// 
-        /// shooting leadup
-        /// 1. public cursing
-        /// 2. didn't respond to email
-        /// 3. didn't respond to solar eclipse
-        /// 4. Anarchy symbol (also ongoing)
-        /// shooting post
-        /// 1. didn't take deposition
-        /// 
         /// hearing "Stop It" not understanding
         /// saying "Stop It" not understanding
         /// 
