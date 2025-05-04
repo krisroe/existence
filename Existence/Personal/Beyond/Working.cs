@@ -67,9 +67,6 @@ namespace Existence.Personal.Beyond
         /// 
         /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
         /// 
-        /// ongoing sins
-        /// sins there is no promise to refrain from (medication abuse)
-        /// 
         /// first tabasco use in middle school spanish class
         /// discussed the ability to "crack" chess in high school locker room
         /// sex: 5x

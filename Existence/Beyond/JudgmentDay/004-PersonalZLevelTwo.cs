@@ -167,6 +167,7 @@ namespace Existence.Beyond.JudgmentDay
             new DidntRespondToCoworkersEmailBeforeShooting(),
             new DidntTakeShootingDeposition(),
             new MatrixBrokeDownSouthOfLodi(),
+            new WeirdCallToMentalHealthHotline(),
             new ToldSpouseStopItButItWasntCorrect(),
             new ScreamedAtSpouseOverReasonableness(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
@@ -191,6 +192,7 @@ namespace Existence.Beyond.JudgmentDay
                 new UseOfWorkComputerForPersonalUse(),
                 new CurrentUseOfAnarchySymbolAsJIRAAvatar(),
                 new SuboptimalEmailResponse(),
+                new MedicationAbuseNoPromises(),
                 new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
@@ -2249,6 +2251,21 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I was having mental health difficulties and I made a call to the mental health hotline. I 
+    /// talked to a woman who didn't seem quite all there. I don't understand how that kind of
+    /// response would be helpful in any way to mental health. I didn't understand then what was
+    /// going on and I don't understand now.
+    /// </summary>
+    [Year(2022)]
+    [SinType(SinType.SocialUnawareness)]
+    public class WeirdCallToMentalHealthHotline : BaseEvent
+    {
+        public WeirdCallToMentalHealthHotline() : base("Made Weird Call to Mental Health Hotline")
+        {
+        }
+    }
+
+    /// <summary>
     /// Spouse came downstairs after I was having mental health difficulties. As usual, I didn't understand her
     /// communication, and I told her "Stop it". She responded mechanically with "Stop what?". I screamed at
     /// her that she was abusive. She never responded and went upstairs. I did not know how to deal with 
@@ -2565,6 +2582,19 @@ namespace Existence.Beyond.JudgmentDay
     public class SuboptimalEmailResponse : BaseEvent
     {
         public SuboptimalEmailResponse() : base("Suboptimal Email Response")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I've messed around with the lithium and quetiapine medications to try to find the lowest dose where I
+    /// don't have episodes. I do not promise not to do so in the future, on the other hand I don't promise
+    /// to either. It depends on whether I think I can get something from it.
+    /// </summary>
+    [StartYear(2022)]
+    public class MedicationAbuseNoPromises : BaseEvent
+    {
+        public MedicationAbuseNoPromises() : base("Medication Abuse, Past and Future")
         {
         }
     }
