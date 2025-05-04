@@ -13,7 +13,17 @@ using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
+    /// <summary>
+    /// insult songs needed:
+    /// (Sonya's Dumb and National SID Foundation already represented)
+    /// 1. There are fat people in the world
+    /// 2. La Gorda
+    /// 3. Botulism is my Friend
+    /// 4. Gluten
+    /// 5. Anusol is my Savior
+    /// </summary>
     [IsReleased(false)]
+    [TODO("Insult Songs")]
     internal class PersonalZLevelToTwo
     {
 

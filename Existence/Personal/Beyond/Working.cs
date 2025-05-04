@@ -63,10 +63,6 @@ namespace Existence.Personal.Beyond
         /// Hero
         /// Candle on the Water
         /// 
-        /// How many insult songs did I create?
-        /// 
-        /// disqualifying sin (with atonement) with details hidden from the cosmic and the divine
-        /// 
         /// first tabasco use in middle school spanish class
         /// discussed the ability to "crack" chess in high school locker room
         /// sex: 5x
