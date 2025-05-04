@@ -144,6 +144,7 @@ namespace DataModifier
                     return;
                 }
                 strings.Add(new StringInfo(sCurrentContent.Substring(iStartPoint, iNextEnd - iStartPoint), false));
+                iCurrentProcessedIndex = iNextEnd + END_TOKEN.Length;
             }
             int iLastEnd = ends[ends.Count - 1] + END_TOKEN.Length;
             if (sCurrentContent.Length > iLastEnd)
@@ -165,7 +166,7 @@ namespace DataModifier
                     sb.Append(END_TOKEN);
                 }
             }
-            File.WriteAllText(sFilePath, sb.ToString());
+            File.WriteAllText(sFilePath, sb.ToString(), Encoding.UTF8);
 
             Console.WriteLine();
             Console.WriteLine("Updated data written to " + sFilePath);
