@@ -3,6 +3,7 @@ using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Gambling;
+using Existence.Earth.Human.People;
 using Existence.Time;
 using System.ComponentModel;
 
@@ -14,16 +15,24 @@ namespace Existence.Beyond.CosmicGambling
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 5, 3)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 5, 5)]
+            AddMoreDetailsToBet,
         }
 
         /// <summary>
         /// I ripped a $20 bill into many pieces, threw it into the garbage
         /// can saying "Delete, Shred, Recycle". I figure this gives me
         /// $20 cosmic USD to play with.
+        /// 
+        /// I have no special insight into Vatican politics so I go with Chat GPT's initial
+        /// intuition.
         /// </summary>
         [Odds(7.6, 1)]
         [Bet("Matteo Zuppi", 20, Currencies.UnitedStatesDollar)]
+        [ThumbOnTheScale((int)PeopleEnumerated.ZuppiMatteo, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low, (int)PeopleEnumerated.ParolinPietro, CorrectVoteInformation.None)]
         public enum PapalVacancyBet
         {
         }

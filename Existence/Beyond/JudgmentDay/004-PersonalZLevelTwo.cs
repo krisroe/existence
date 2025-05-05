@@ -159,8 +159,11 @@ namespace Existence.Beyond.JudgmentDay
             new IToldMySpouseIAcknowledgeYou(),
             new SaidTheWordNiggerOutLoudToSpouse(),
             new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
+            new SpouseBecameStayAtHomeParent(),
             new ToldStopItWasMagicWordByTherapist(),
+            new TriedToTeachSpouseCommunication(),
             new AskedSpouseToIncreaseCharitableGivingForWrongReasons(),
+            new RefusedToEngageInSexBeforeVasectomy(),
             new AskedSpouseToSaySomethingWhenOffendedTherapistTriedToGetHerToDivorce(),
             new YelledIWantADivorce(),
             new FakeTriedToHitSpouse(),
@@ -1989,6 +1992,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// We decided that spouse would be a stay-at-home parent after we had children. In hindsight
+    /// this was absolutely the wrong decision. Spouse does not have the communication skills
+    /// necessary for this task. I will never know to what extent this may have harmed the
+    /// children's development, particularly for the autistic male child. Maybe this caused a
+    /// critical period to be missed, or maybe it doesn't actually matter other than genetics.
+    /// </summary>
+    [Year(2011)]
+    [SinType(SinType.BadParenting)]
+    public class SpouseBecameStayAtHomeParent : BaseEvent
+    {
+        public SpouseBecameStayAtHomeParent() : base("Spouse Became Stay-at-Home Parent")
+        {
+        }
+    }
+
+    /// <summary>
     /// After I brought up the word "abusive" for relationship with spouse, Andrew suggested
     /// I try using the phrase "Stop it". I guess that's some kind of magical phrase relevant
     /// to bad relationships. I think I understood the implication, but didn't ask any follow-up
@@ -2000,6 +2019,20 @@ namespace Existence.Beyond.JudgmentDay
     public class ToldStopItWasMagicWordByTherapist : BaseEvent
     {
         public ToldStopItWasMagicWordByTherapist() : base("Told \"Stop it\" was Relevant by Therapist")
+        {
+        }
+    }
+
+    /// <summary>
+    /// After therapist suggested the magic words "Stop It" might help, I tried to work on the
+    /// relationship with spouse. My attempts to teach her to say "Stop it" when I metaphorically
+    /// hit her with a stick produced no understanding.
+    /// </summary>
+    [Year(2012)]
+    [SinType(SinType.SocialUnawareness)]
+    public class TriedToTeachSpouseCommunication : BaseEvent
+    {
+        public TriedToTeachSpouseCommunication() : base("Tried to Teach Spouse Communication")
         {
         }
     }
@@ -2020,15 +2053,31 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    /// <summary>
+    /// I believed something was wrong with spouse and my relationship and I thought it was a
+    /// bad idea to have a second child. I told spouse I didn't want to have sex until I had a
+    /// vasectomy. Spouse disagreed but did not engage in functional argument. I think my instincts
+    /// were entirely correct, but without understanding the true nature of the difficulty there
+    /// was no way for the dispute resolution to be functional.
+    /// </summary>
+    [Year(2012)]
+    [SinTypes(SinType.SocialUnawareness, SinType.SexualWithholding)]
+    public class RefusedToEngageInSexBeforeVasectomy : BaseEvent
+    {
+        public RefusedToEngageInSexBeforeVasectomy() : base("Refused to Engage in Sex Before Vasectomy")
+        {
+        }
+    }
 
     /// <summary>
     /// In the context of therapy, I asked spouse to say something when offended.
     /// She screamed in reply: "I shouldn't have to".
     /// The therapist responded by repeatedly yelling "You have to divorce him". Another thing I remember he said
-    /// was "Can't you see what you're doing to him?"
+    /// was "Can't you see what you're doing to him?" with spouse being completely impassive.
     /// In hindsight, the lack of social understanding of dealing with lack of empathy was the primary problem.
     /// </summary>
     [Year(2012)]
+    [MagicWords("I shouldn't have to", "Spouse (When Asked to Say Something when Offended)", "Therapist Office", "Therapist")]
     [SinType(SinType.SocialUnawareness)]
     [PersonalZLevel(ZLevel.Two)]
     public class AskedSpouseToSaySomethingWhenOffendedTherapistTriedToGetHerToDivorce : BaseEvent

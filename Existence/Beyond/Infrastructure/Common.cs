@@ -840,6 +840,7 @@ namespace Existence.Beyond.Infrastructure
     {
         AdHominim,
         BackhandedCompliments,
+        BadParenting,
         BeggingQuestionableResponse,
         BreakingTheLaw,
 
@@ -922,6 +923,7 @@ namespace Existence.Beyond.Infrastructure
         ResponsibilityShirking,
         SexualAbuse,
         SexualConsentViolation,
+        SexualWithholding,
         ShoddyWork,
         SneakilyDoingThings,
         SocialAvoidance,
