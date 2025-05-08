@@ -325,7 +325,7 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    internal class SongEvent : BaseEvent
+    public class SongEvent : BaseEvent
     {
         internal SongEvent(string SongName) : base(SongName)
         {
@@ -369,7 +369,7 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    internal class OriginalSongEvent : SongEvent
+    public class OriginalSongEvent : SongEvent
     {
         internal OriginalSongEvent(string SongName) : base(SongName)
         {
@@ -882,6 +882,7 @@ namespace Existence.Beyond.Infrastructure
         Incompetence,
         InducingDangerousBehavior,
         IntentionalIrritation,
+        IrrationalBehavior,
         LackOfCommunication,
         LackOfFollowUp,
         LackOfSympathy,

@@ -4,6 +4,7 @@ using Existence.Beyond.Infrastructure;
 using Existence.Beyond.References;
 using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Human.People;
 using Existence.Personal.Employment;
 using Existence.Personal;
 using Existence.Time;
@@ -23,7 +24,6 @@ namespace Existence.Beyond.JudgmentDay
     /// 5. Anusol is my Savior
     /// </summary>
     [IsReleased(false)]
-    [TODO("Insult Songs")]
     internal class PersonalZLevelToTwo
     {
 
@@ -31,6 +31,17 @@ namespace Existence.Beyond.JudgmentDay
         {
             public JudgmentDaySins()
             {
+                List<BaseEvent> insultSongs = new List<BaseEvent>()
+                {
+                    new PersonalFirstParodySong(),
+                    new PersonalFirstOriginalSong(),
+                    new OriginalSongThereAreFatPeopleInTheWorld(),
+                    new OriginalSongLaGorda(),
+                    new OriginalSongBotulismIsMyFriend(),
+                    new OriginalSongILikeGluten(),
+                    new OriginalSongAnusolIsMySavior()
+                };
+
                 MyReligiousFlags religiousFlags = new MyReligiousFlags(null);
 
                 List<BaseEvent> pastSins = new List<BaseEvent>()
@@ -41,8 +52,6 @@ namespace Existence.Beyond.JudgmentDay
             new HidSistersBlanketComfortObject(),
             new SomeoneClaimedSomeoneElseWasDeadInSchool(),
             new FeelingNothingForBenjisDeath(),
-            new PersonalFirstParodySong(),
-            new PersonalFirstOriginalSong(),
             new SomeoneCalledMeAGeniusGhosting(),
             new SkippedOutOnHalloweenClassParty(),
             new FlashcardsDomination(),
@@ -175,6 +184,8 @@ namespace Existence.Beyond.JudgmentDay
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
             new DeferredConversionsInfrastructure(),
             new ThoughtSpouseCouldLearnFromMe(),
+            new ToldSpouseSheWasntMyFriend(),
+            new TrackedSpouseFriendStatusOnFacebook(),
             new LightStrangulationOfChild(),
             new DidntRespondToSolarEclipseEmail(),
             new PublicCursingAtCubicleAtWork(),
@@ -193,6 +204,7 @@ namespace Existence.Beyond.JudgmentDay
             new UsedCurseWordInBlankSlateEvenThoughSonCouldnt(),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
+            new PerformedLevel22TestWithJosephHellerCatch22Representing22(),
             new AllowedForgingOfSpousesSignature(),
             new IntentionallyDestroyedCurrency()
             };
@@ -2230,6 +2242,35 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// On a few occasions I have told spouse straight up that she isn't my friend. This is an accurate
+    /// statement, since spouse isn't really capable of communication that I would consider essential in
+    /// a friend. And even I waver on this point sometimes, as spouse claimed on one occasion she was my
+    /// friend and I didn't correct her.
+    /// </summary>
+    [YearRange(2016, 2022)]
+    [SinType(SinType.TactlessTruth)]
+    public class ToldSpouseSheWasntMyFriend : BaseEvent
+    {
+        public ToldSpouseSheWasntMyFriend() : base("Told Spouse She Wasn't my Friend")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I have friended/defriended people on Facebook based on my mental state. This is especially
+    /// nonsensical with respect to spouse. Using "being a friend on Facebook" to track "being a friend
+    /// in real life" seems very irrational.
+    /// </summary>
+    [YearRange(2016, 2022)]
+    [SinType(SinType.IrrationalBehavior)]
+    public class TrackedSpouseFriendStatusOnFacebook : BaseEvent
+    {
+        public TrackedSpouseFriendStatusOnFacebook() : base("Tracked Spouse Friend Status on Facebook")
+        {
+        }
+    }
+
+    /// <summary>
     /// My son had a defiant streak from a very early age, commonly screaming and 
     /// tantruming. While this has gone down over time, dealing with tantrums has been 
     /// difficult and sometimes I've handled him rougher than is desirable. The worst level
@@ -2539,6 +2580,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I performed a very strange ritual where I inappropriately threw away some of my mother's litter
+    /// boxes, then did a grapevine down the road counting the number of grapevines, then got into my room
+    /// with my eyes closed while saying "Joseph Heller" 22 times. Then I went into my room and made some
+    /// irrational markings in my printed sheet music. This was a apotheosis of the main episode that
+    /// followed the time traveling message box.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.IrrationalBehavior)]
+    public class PerformedLevel22TestWithJosephHellerCatch22Representing22 : BaseEvent
+    {
+        public PerformedLevel22TestWithJosephHellerCatch22Representing22() : base("Performed Irrational Level 22 Test")
+        {
+        }
+    }
+
+    /// <summary>
     /// My father and I went to the DMV to retitle my mother's last car from my sister to my father.
     /// There was space on the form for a signature for my spouse so we could get it titled jointly.
     /// My father forged my spouse's signature to allow the transaction to complete. It didn't really
@@ -2690,4 +2747,55 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     #endregion
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\009-ThereAreFatPeopleInTheWorld.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\018-ThereAreFatPeopleInTheWorld.txt", PeopleEnumerated.RoweChris)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class OriginalSongThereAreFatPeopleInTheWorld : OriginalSongEvent
+    {
+        public OriginalSongThereAreFatPeopleInTheWorld() : base("There are Fat People in the World")
+        {
+
+        }
+    }
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\010-LaGorda.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\019-LaGorda.txt", PeopleEnumerated.RoweChris)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class OriginalSongLaGorda : OriginalSongEvent
+    {
+        public OriginalSongLaGorda() : base("La Gorda")
+        {
+        }
+    }
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\011-BotulismIsMyFriend.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\020-BotulismIsMyFriend.txt", PeopleEnumerated.RoweChris)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class OriginalSongBotulismIsMyFriend : OriginalSongEvent
+    {
+        public OriginalSongBotulismIsMyFriend() : base("Botulism is my Friend")
+        {
+        }
+    }
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\012-ILikeGluten.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\021-ILikeGluten.txt", PeopleEnumerated.RoweChris)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class OriginalSongILikeGluten : OriginalSongEvent
+    {
+        public OriginalSongILikeGluten() : base("I Like Gluten")
+        {
+        }
+    }
+
+    [MusicNotesRepositoryAudioFile(@"Released\Audio\013-AnusolIsMySavior.wav", PeopleEnumerated.RoweChris)]
+    [MusicNotesRepositoryMeaningFile(@"Released\SongMeaning\022-AnusolIsMySavior.txt", PeopleEnumerated.RoweChris)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class OriginalSongAnusolIsMySavior : OriginalSongEvent
+    {
+        public OriginalSongAnusolIsMySavior() : base("Anusol is my Savior")
+        {
+        }
+    }
 }
