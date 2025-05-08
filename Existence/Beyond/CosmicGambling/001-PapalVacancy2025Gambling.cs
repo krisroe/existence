@@ -20,6 +20,10 @@ namespace Existence.Beyond.CosmicGambling
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 5, 5)]
             AddMoreDetailsToBet,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 5, 8)]
+            AddPapalWinner,
         }
 
         /// <summary>
@@ -32,7 +36,7 @@ namespace Existence.Beyond.CosmicGambling
         /// </summary>
         [Odds(7.6, 1)]
         [Bet("Matteo Zuppi", 20, Currencies.UnitedStatesDollar)]
-        [ThumbOnTheScale((int)PeopleEnumerated.ZuppiMatteo, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low, (int)PeopleEnumerated.ParolinPietro, CorrectVoteInformation.None)]
+        [ThumbOnTheScale((int)PeopleEnumerated.ZuppiMatteo, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low, (int)PeopleEnumerated.ParolinPietro, (int)PeopleEnumerated.PrevostRobertFrancis)]
         public enum PapalVacancyBet
         {
         }

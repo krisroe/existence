@@ -63,6 +63,7 @@ namespace Existence.Beyond.JudgmentDay
             new AteFoodAtChineseRestaurantSoOtherFamilyWouldntEatIt(),
             new SowingChaosInChurchChildrensChoirPractice(),
             new FamilyMeetingComplimentsThatWerentComplimentary(),
+            new WouldHaveBeenTheEndOfTheWorldToEndABaseballGame(),
             new RageQuittingAtGames(),
             new YellingFineWhenAskedHowIWasDoing(new KarmaForYellingFineWithMySonExpectingNoResponse()),
             new HittingMySister(),
@@ -172,7 +173,8 @@ namespace Existence.Beyond.JudgmentDay
             new PoorCommunicationAtTASCInterview(),
             new GavePoorReferenceForFormerCoworker(),
             new InappropriatePurchaseOfWinZipAndDotNetReflectorOnWorkComputer(),
-            new DeferredConversionsInfastructure(),
+            new DeferredConversionsInfrastructure(),
+            new ThoughtSpouseCouldLearnFromMe(),
             new LightStrangulationOfChild(),
             new DidntRespondToSolarEclipseEmail(),
             new PublicCursingAtCubicleAtWork(),
@@ -534,6 +536,22 @@ namespace Existence.Beyond.JudgmentDay
     public class FamilyMeetingComplimentsThatWerentComplimentary : BaseEvent
     {
         public FamilyMeetingComplimentsThatWerentComplimentary() : base("Family Meeting Compliments were Not Compliments")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I remember a little league baseball game in Neshkoro. It was the end of the game and Briggsville
+    /// was going to lose. There were two outs and I felt I had to get a hit to not end the baseball game.
+    /// I would have taken failure too personally. I actually did get a hit and thus wasn't the last batter.
+    /// We eventually did lose. However, I remember afterward thinking I would have taken it too personally,
+    /// and learned that would not have been a good approach to the possibility of losing a game.
+    /// </summary>
+    [ApproximateAgeInYears(12)]
+    [SinType(SinType.TakingThingsTooPersonally)]
+    public class WouldHaveBeenTheEndOfTheWorldToEndABaseballGame : BaseEvent
+    {
+        public WouldHaveBeenTheEndOfTheWorldToEndABaseballGame() : base("Felt I Had to Not End a Baseball Game")
         {
         }
     }
@@ -2072,8 +2090,11 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// In the context of therapy, I asked spouse to say something when offended.
     /// She screamed in reply: "I shouldn't have to".
-    /// The therapist responded by repeatedly yelling "You have to divorce him". Another thing I remember he said
-    /// was "Can't you see what you're doing to him?" with spouse being completely impassive.
+    /// The therapist responded by repeatedly yelling "You have to divorce him". 
+    /// with spouse being completely impassive.
+    /// Another thing I remember he said was "Can't you see what you're doing to him?" 
+    /// with spouse responding "He's a sociopath"
+    /// and the therapist responded, "No he's not"
     /// In hindsight, the lack of social understanding of dealing with lack of empathy was the primary problem.
     /// </summary>
     [Year(2012)]
@@ -2187,9 +2208,23 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [Year(2014)]
     [SinType(SinType.OverArchitecture)]
-    public class DeferredConversionsInfastructure : BaseEvent
+    public class DeferredConversionsInfrastructure : BaseEvent
     {
-        public DeferredConversionsInfastructure() : base("WTS Paradigm Overengineering Deferred Conversions")
+        public DeferredConversionsInfrastructure() : base("WTS Paradigm Overengineering Deferred Conversions")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I claimed to spouse that I thought she could learn something from me. I was referring to the
+    /// communication aspects of life, but I'm not sure she actually understood that. Given what I know
+    /// now, I did not fully understand the unsolvable communication issues we had.
+    /// </summary>
+    [Year(2016)]
+    [SinType(SinType.SocialUnawareness)]
+    public class ThoughtSpouseCouldLearnFromMe : BaseEvent
+    {
+        public ThoughtSpouseCouldLearnFromMe() : base("Told Spouse She Could Learn from Me")
         {
         }
     }

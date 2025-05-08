@@ -69,6 +69,10 @@ namespace Existence.Earth.Human.People
     {
         DuninElonka,
         ParolinPietro,
+        /// <summary>
+        /// pope Leo XIV
+        /// </summary>
+        PrevostRobertFrancis,
         RoweChris,
         RoweSonya,
         SwiftTaylor,

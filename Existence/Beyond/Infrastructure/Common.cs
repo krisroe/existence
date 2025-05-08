@@ -750,23 +750,15 @@ namespace Existence.Beyond.Infrastructure
         public ThumbOnTheScaleAmount Amount { get; set; }
         public ThumbOnTheScaleImportance Importance { get; set;  }
         public int Prediction { get; set; }
-        public CorrectVoteInformation CorrectAreas { get; set; }
-        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction, CorrectVoteInformation CorrectAreas)
+        public int Winner { get; set; }
+        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction, int Winner)
         {
             this.Target = Target;
             this.Amount = Amount;
             this.Importance = Importance;
             this.Prediction = Prediction;
-            this.CorrectAreas = CorrectAreas;
+            this.Winner = Winner;
         }
-    }
-
-    [Flags]
-    internal enum CorrectVoteInformation
-    {
-        None = 0,
-        Vote = 1,
-        Prediction = 2
     }
 
     public class JudgableReligionsAttribute : Attribute
@@ -933,6 +925,7 @@ namespace Existence.Beyond.Infrastructure
         SymbolicLogicFailure,
         TactlessTruth,
         TakingAdvantageOfSituation,
+        TakingThingsTooPersonally,
         TalkingBehindSomeonesBack,
         TattleTale,
         TaxEvasion,
