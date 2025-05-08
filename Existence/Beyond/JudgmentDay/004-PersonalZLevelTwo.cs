@@ -14,18 +14,14 @@ using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
-    /// <summary>
-    /// insult songs needed:
-    /// (Sonya's Dumb and National SID Foundation already represented)
-    /// 1. There are fat people in the world
-    /// 2. La Gorda
-    /// 3. Botulism is my Friend
-    /// 4. Gluten
-    /// 5. Anusol is my Savior
-    /// </summary>
-    [IsReleased(false)]
     internal class PersonalZLevelToTwo
     {
+        public enum VersionHistory
+        {
+            [BeyondObjectVersion(1, 0, 0, 0)]
+            [YearDate(2025, 5, 8)]
+            InitialRelease,
+        }
 
         public class JudgmentDaySins
         {
@@ -223,6 +219,12 @@ namespace Existence.Beyond.JudgmentDay
                 new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
+        }
+
+        [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Program to Hide Text from the Divine", 
+            @"Released\Other\004-ProgramToHideTextFromTheDivine.txt")]
+        public class HowToHideTextFromTheDivine
+        {
         }
     }
 
