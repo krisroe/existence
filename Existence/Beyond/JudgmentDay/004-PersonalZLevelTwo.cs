@@ -14,13 +14,39 @@ using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
 
 namespace Existence.Beyond.JudgmentDay
 {
-    internal class PersonalZLevelToTwo
+    internal class PersonalZLevelToTwo : JudgmentDayBase
     {
         public enum VersionHistory
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 5, 8)]
             InitialRelease,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2025, 5, 8)]
+            AddTimelessIAmNotJesus,
+        }
+
+        internal override List<LevelJustification> GetLevelJustifications()
+        {
+            return new List<LevelJustification>()
+            {
+                new ReleaseProgramJustification("Data Modifier", "Hide Text from the Divine")
+            };
+        }
+
+        /// <summary>
+        /// 1. Jesus designated the first pope (Peter) and the line of
+        /// popes follows from there, so Jesus is not the Pope.
+        /// 2. I have two many sins to be Jesus or the second 
+        /// coming of Christ.
+        /// </summary>
+        internal override List<TimelessChange>? GetTimelessChanges()
+        {
+            return new List<TimelessChange>()
+            {
+                new TimelessChange("Jesus is distinct from the Pope and I")
+            };
         }
 
         public class JudgmentDaySins

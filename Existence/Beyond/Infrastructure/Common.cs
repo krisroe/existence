@@ -668,6 +668,17 @@ namespace Existence.Beyond.Infrastructure
         InterpretMemeMeaning
     }
 
+    internal class ReleaseProgramJustification : LevelJustification
+    {
+        internal string Program { get; set; }
+        internal string Purpose { get; set; }
+        public ReleaseProgramJustification(string Program, string Purpose)
+        {
+            this.Program = Program;
+            this.Purpose = Purpose;
+        }
+    }
+
     internal class ReleaseSongJustification : LevelJustification
     {
         internal SongEvent? Song { get; set; }

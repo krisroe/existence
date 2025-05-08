@@ -113,6 +113,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(5, 7, 0, 0)]
             [YearDate(2025, 4, 17)]
             HumanityReligionLevelOneAbrahamic,
+
+            [BeyondObjectVersion(5, 8, 0, 0)]
+            [YearDate(2025, 5, 8)]
+            JesusIsDistinctFromThePopeAndI
         }
 
         /// <summary>
@@ -527,7 +531,7 @@ namespace Existence.Beyond.Timeless
             }
         }
 
-        [DistinctHumans(RelevantHumans.Self, RelevantHumans.ThePope)]
+        [DistinctHumans(RelevantHumans.Self, RelevantHumans.ThePope, RelevantHumans.Jesus)]
         public class Humanity
         {
             public const int YEAR_OF_FIRST_NATION_DE_JURE_LEGAL_HOMOSEXUAL_MARRIAGE = 2001;
@@ -574,23 +578,14 @@ namespace Existence.Beyond.Timeless
     /// </summary>
     public class DistinctHumansAttribute : Attribute
     {
-        /// <summary>
-        /// first interesting human
-        /// </summary>
-        public RelevantHumans A { get; set; }
-        /// <summary>
-        /// second interesting human
-        /// </summary>
-        public RelevantHumans B { get; set; }
+        public RelevantHumans[] Humans { get; set; }
         /// <summary>
         /// constructor
         /// </summary>
-        /// <param name="A">first interesting human</param>
-        /// <param name="B">second interesting human</param>
-        public DistinctHumansAttribute(RelevantHumans A, RelevantHumans B)
+        /// <param name="Humans">interesting humans</param>
+        public DistinctHumansAttribute(params RelevantHumans[] Humans)
         {
-            this.A = A;
-            this.B = B;
+            this.Humans = Humans;
         }
     }
 
@@ -607,5 +602,9 @@ namespace Existence.Beyond.Timeless
         /// the pope
         /// </summary>
         ThePope = 1,
+        /// <summary>
+        /// Jesus Christ
+        /// </summary>
+        Jesus = 2,
     }
 }
