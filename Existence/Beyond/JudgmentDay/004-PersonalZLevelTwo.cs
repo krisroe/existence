@@ -25,6 +25,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 5, 8)]
             AddTimelessIAmNotJesus,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2025, 5, 9)]
+            AddSinsForGovernmentSizeAndDeletingProductionEnvironmentsLetsRaiseTheChildrenMagicWords,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -163,6 +167,7 @@ namespace Existence.Beyond.JudgmentDay
             new ListenedToRoommatesSexualActivity(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
+            new ClaimedNinetyPercentOfTheGovernmentCouldBeDispensedWith(),
             new WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
             new ExposedPersonalInformationInGarbage(),
@@ -226,6 +231,7 @@ namespace Existence.Beyond.JudgmentDay
             new UsedCurseWordInBlankSlateEvenThoughSonCouldnt(),
             new HitADeerWithCar(),
             new MissedAVISAPayment(),
+            new DeletedMyProductionEnvironment(),
             new PerformedLevel22TestWithJosephHellerCatch22Representing22(),
             new AllowedForgingOfSpousesSignature(),
             new IntentionallyDestroyedCurrency()
@@ -1588,7 +1594,7 @@ namespace Existence.Beyond.JudgmentDay
     /// inapproriate, but others might disagree.
     /// </summary>
     [Year(2003)]
-    [SinTypes(SinType.Disrespect)]
+    [SinTypes(SinType.Disrespect, SinType.PoliticalCorrectness)]
     public class BoughtNewYorkCityWorldTradeTowersPuzzleAfter911 : BaseEvent
     {
         public BoughtNewYorkCityWorldTradeTowersPuzzleAfter911() : base("Bought World Trade Towers Puzzle After 9/11")
@@ -1604,7 +1610,7 @@ namespace Existence.Beyond.JudgmentDay
     /// was there.
     /// </summary>
     [Year(2003)]
-    [SinType(SinType.Voyeurism)]
+    [SinType(SinType.PeepingTom)]
     public class ListenedToRoommatesSexualActivity : BaseEvent
     {
         public ListenedToRoommatesSexualActivity() : base("Listened to Roommate's Sexual Activity")
@@ -1629,10 +1635,30 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// In a discussion with my father about government, I claimed 90% of the
+    /// government could be removed without serious consequence. Even accounting
+    /// for my libertarianism, this was excessive. I don't really understand
+    /// such things enough to make a reasonable claim on this matter. I hope
+    /// there is some way to cut government, but given the tangled web of
+    /// dependence and entitlement, nothing can really be done on this account
+    /// without consequence.
+    /// </summary>
+    [YearDate(2004)]
+    [SinType(SinType.Ignorance)]
+    public class ClaimedNinetyPercentOfTheGovernmentCouldBeDispensedWith : BaseEvent
+    {
+        public ClaimedNinetyPercentOfTheGovernmentCouldBeDispensedWith() : base("Claimed 90% of the Government Could be Deleted")
+        {
+        }
+    }
+
+    /// <summary>
     /// At Sherman Terrace I had a personal computer in the main room and I
     /// watched videos for sexual gratification. I don't think anyon could see
     /// me from the condos across the way, but I don't know 100%.
     /// </summary>
+    [Year(2005)]
+    [SinType(SinType.Voyeurism)]
     public class WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors : BaseEvent
     {
         public WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors() : base("Sexual Gratification Possibly Visible to Neighborss")
@@ -2134,8 +2160,13 @@ namespace Existence.Beyond.JudgmentDay
     /// with spouse being completely impassive.
     /// Another thing I remember he said was "Can't you see what you're doing to him?" 
     /// with spouse responding "He's a sociopath"
-    /// and the therapist responded, "No he's not"
-    /// In hindsight, the lack of social understanding of dealing with lack of empathy was the primary problem.
+    /// and the therapist responded, "No he's not".
+    /// I had the last word at the end of the session while we were walking out.
+    /// I thought we had reached some sort of understanding we were staying together
+    /// for the good of the children and said "Let's raise the children". No one
+    /// responded.
+    /// In hindsight, the lack of social understanding of dealing with lack of empathy was 
+    /// a major problem.
     /// </summary>
     [Year(2012)]
     [MagicWords("I shouldn't have to", "Spouse (When Asked to Say Something when Offended)", "Therapist Office", "Therapist")]
@@ -2603,6 +2634,24 @@ namespace Existence.Beyond.JudgmentDay
     public class MissedAVISAPayment : BaseEvent
     {
         public MissedAVISAPayment() : base("Missed a VISA Payment")
+        {
+        }
+    }
+
+    /// <summary>
+    /// When I originally created my website I had production and test versions
+    /// of the website. It may have been for convenience or it may have been I
+    /// decided I didn't need separate production and test resource for my site.
+    /// Either way, I said "I deleted my production environment" aloud, and 
+    /// spouse responded incredulously. I was really making a joke, but I think
+    /// discussion of deleting production environments shouldn't be taken
+    /// so lightly.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.InappropriateJoke)]
+    public class DeletedMyProductionEnvironment : BaseEvent
+    {
+        public DeletedMyProductionEnvironment() : base("Deleted my Website Production Environment")
         {
         }
     }

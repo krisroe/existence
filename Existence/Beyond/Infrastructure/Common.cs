@@ -913,6 +913,7 @@ namespace Existence.Beyond.Infrastructure
         OverlyIndirectCommuniction,
         OverlyReliantOnOthers,
         Overpromising,
+        PeepingTom,
         PersonalCommunication,
         PoliticalCorrectness,
         PoorDecisionmaking,
