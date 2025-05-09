@@ -25,29 +25,6 @@ namespace Existence.Beyond.Z
     {
         public PersonalReligionRules()
         {
-            Rule r = new Rule("Maintain a healthy disrespect for religion.");
-            r.AddDetail("Maintain a list of present and past disrespect you have for religion, as well as a list of atonements.");
-            r.AddDetail("You may change an entry from present to past by an act of atonement.");
-            r.AddDetail("Acts of atonement should be thematically related to the past disrespect.");
-            r.AddDetail("Atoning is a good opportunity to add another entry to the list that is less problematic to you.");
-            r.AddDetail("Private disrespect is generally less problematic than public disrespect, but makes it look like you have something to hide.");
-            r.AddDetail("Ambiguous disrespect is a good way to make disrespect less problematic.");
-        }
-
-        public class Rule
-        {
-            public string Text { get; set; }
-            public List<string> Details { get; set; }
-
-            public Rule(string Text)
-            {
-                this.Text = Text;
-                this.Details = new List<string>();
-            }
-            public void AddDetail(string Line)
-            {
-                this.Details.Add(Line);
-            }
         }
 
         public List<ReligiousDisrespect> PastDisrespect = new List<ReligiousDisrespect>();
