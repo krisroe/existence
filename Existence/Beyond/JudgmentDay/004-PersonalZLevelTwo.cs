@@ -29,6 +29,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 5, 9)]
             AddSinsForGovernmentSizeAndDeletingProductionEnvironmentsLetsRaiseTheChildrenMagicWords,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 5, 10)]
+            NewSinsAroundSpousesPastRelationships,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -74,6 +78,7 @@ namespace Existence.Beyond.JudgmentDay
             {
             new StickingFingerInExposedPowerOutlets(),
             new HeadInjuryFromRunningAroundHouseTooFast(),
+            new ClassAssignmentWhereCalledStoryCharactersDumb(),
             new ILikeToFartHandPuppetPlay(),
             new HidSistersBlanketComfortObject(),
             new SomeoneClaimedSomeoneElseWasDeadInSchool(),
@@ -119,6 +124,7 @@ namespace Existence.Beyond.JudgmentDay
             new AccusedEightGradeTeacherOfBeingACommunist(),
             new MadeFake911Call(),
             new CommittedSexualConsentViolation1(new CommittedSexualConsentViolation2()),
+            new ArroganceInThinkingChessGameWasADraw(),
             new AssistedGettingMySummerProgramRoommateExpelled(),
             new EvjueFoundationNonThankYouForWCATYProgram(),
             new ClarinetSqueakingInPublicPerformance(),
@@ -171,11 +177,14 @@ namespace Existence.Beyond.JudgmentDay
             new WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
             new ExposedPersonalInformationInGarbage(),
+            new FutureSpouseMentionedAbusiveTendenciesAndIMisinterpretedIt(),
+            new UnproductiveConversationsWithFutureSpouseAboutPastBoyfriends(),
             new DidNotCorrectIncorrectTornadoAnecdote(),
             new GotADiscoverCardAndNeverPaidTheBalance(),
             new AteANapkinOnADare(),
             new GotLotsOfMalwareLikeVirtumondeOnComputer(),
             new KeptSignificantQuantityOfGoldAndSilver(),
+            new ConsideredWorkToHaveExaggeratedSelfImportance(),
             new EpicInpatientNotesConversionDLG94254(),
             new EpicAllinaFaxBlackOp(),
             new ToldSpouseILovedHerWithoutFeelingTheLove(),
@@ -296,6 +305,26 @@ namespace Existence.Beyond.JudgmentDay
     public class HeadInjuryFromRunningAroundHouseTooFast : BaseEvent
     {
         public HeadInjuryFromRunningAroundHouseTooFast() : base("Stitches from Running into Chairs")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In first grade we had an assignment to make stories with
+    /// drawings and words. I wrote some stories, which weren't
+    /// particularly exceptional except for unnecessarily calling
+    /// the characters "dumb" multiple times. Presumably this was
+    /// related to sister insults I was doing at the time. There's
+    /// also a note attached to the stories where I wrote a message
+    /// to my future self saying it would be important. Other than
+    /// noting the gratuitous use of the "dumb" epithet, I don't
+    /// see anything of value.
+    /// </summary>
+    [ApproximateAgeInYears(7)]
+    [SinType(SinType.NameCalling)]
+    public class ClassAssignmentWhereCalledStoryCharactersDumb : BaseEvent
+    {
+        public ClassAssignmentWhereCalledStoryCharactersDumb() : base("Made Story with Characters with Trait of Dumb")
         {
         }
     }
@@ -957,6 +986,21 @@ namespace Existence.Beyond.JudgmentDay
     [SinType(SinType.SexualConsentViolation)]
     public class CommittedSexualConsentViolation2
     {
+    }
+
+    /// <summary>
+    /// I was playing a game of chess against a WCATY competitor.
+    /// We reached a position which was fairly even and I declared
+    /// it was drawish. Immediately after that my opponent did a
+    /// pawn fork and I lost the game.
+    /// </summary>
+    [ApproximateAgeInYears(15)]
+    [SinType(SinType.Arrogance)]
+    public class ArroganceInThinkingChessGameWasADraw : BaseEvent
+    {
+        public ArroganceInThinkingChessGameWasADraw() : base("Claimed Chess Game was Draw and Then Lost")
+        {
+        }
     }
 
     /// <summary>
@@ -1695,6 +1739,39 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// Spouse mentioned once that she'd been told she had abusive tendencies,
+    /// I think by one of her past boyfriends. I interpreted this as a mature
+    /// way of explaining how she'd grown. This was entirely incorrect, as
+    /// subsequent therapy would prove. And I had no idea how to respond,
+    /// or understood how relevant that information would prove.
+    /// </summary>
+    [Year(2006)]
+    [SinType(SinType.SocialUnawareness)]
+    public class FutureSpouseMentionedAbusiveTendenciesAndIMisinterpretedIt : BaseEvent
+    {
+        public FutureSpouseMentionedAbusiveTendenciesAndIMisinterpretedIt() : base("Misinterpreted Statement of Having Abusive Tendencies")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I didn't really know how to keep conversations going when talking to
+    /// spouse so asking her about her past boyfriends was common. While to
+    /// some extent this is fine (and in this case would have been helpful
+    /// in understanding the direction of the relationship), it dominated
+    /// the conversation and I didn't learn appropriate lessons from the
+    /// results.
+    /// </summary>
+    [Year(2006)]
+    [SinType(SinType.InappropriatePersonalCommunication)]
+    public class UnproductiveConversationsWithFutureSpouseAboutPastBoyfriends : BaseEvent
+    {
+        public UnproductiveConversationsWithFutureSpouseAboutPastBoyfriends() : base("Conversations With Future Spouse about Past Boyfriends")
+        {
+        }
+    }
+
+    /// <summary>
     /// My father told an anecdote at least twice about how sturdy the 
     /// Sherman Terrace apartments were. The anecdote said that in case
     /// of tornado, instead of hiding you could go to the window. That
@@ -1773,6 +1850,21 @@ namespace Existence.Beyond.JudgmentDay
     public class KeptSignificantQuantityOfGoldAndSilver : BaseEvent
     {
         public KeptSignificantQuantityOfGoldAndSilver() : base("Kept Significant Quantity of Gold/Silver in House")
+        {
+        }
+    }
+
+    /// <summary>
+    /// While working at Epic, a common source of stress was related
+    /// to thinking the projects I worked on were extremely important.
+    /// This was beyond the realm of reasonable, and the thinking pattern
+    /// had to be fought.
+    /// </summary>
+    [YearRange(2003, 2006)]
+    [SinType(SinType.ExaggeratedSelfImportance)]
+    public class ConsideredWorkToHaveExaggeratedSelfImportance : BaseEvent
+    {
+        public ConsideredWorkToHaveExaggeratedSelfImportance() : base("Exaggerated Self-importance for Work Projects")
         {
         }
     }

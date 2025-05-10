@@ -842,6 +842,7 @@ namespace Existence.Beyond.Infrastructure
     public enum SinType
     {
         AdHominim,
+        Arrogance,
         BackhandedCompliments,
         BadParenting,
         BeggingQuestionableResponse,
@@ -867,6 +868,7 @@ namespace Existence.Beyond.Infrastructure
         EjectedFromClassroom,
         Elitism,
         EmbarrassingBehavior,
+        ExaggeratedSelfImportance,
         ExposePersonalInformation,
         FactCheckingMistake,
         FailureToDistinguishFactAndFiction,
@@ -902,6 +904,7 @@ namespace Existence.Beyond.Infrastructure
         MisplacedBelongings,
         MixingWorkAndPersonalLifeInappropriately,
         Murder,
+        NameCalling,
         NoExplanationForBehavior,
         NonAssertiveBehavior,
         NonPayment,
