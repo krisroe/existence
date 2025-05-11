@@ -33,6 +33,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 5, 10)]
             NewSinsAroundSpousesPastRelationships,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2025, 5, 11)]
+            PUDNRWorkCodeShadinessOrificeIssuesWorkArcadeAccessAndFixShootingDates,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -95,6 +99,7 @@ namespace Existence.Beyond.JudgmentDay
             new ChokedDogTrainingDogWithChokeChainExcessively(),
             new InducedSnowflakeToFallOffTheTable(),
             new IgnoredFourthGradeSlaveryLesson(),
+            new TriedToMakePUDNRSignWinChristmasLightsCompetition(),
             new GuaranteedNoCarAccidentWouldOccur(),
             new HalloweenCostumeAsGhostAndSelf(),
             new UnawarenessOfVehicleBreakdown(),
@@ -195,6 +200,8 @@ namespace Existence.Beyond.JudgmentDay
             new PoorCommunicationAtVirchowKrauseJobInterview(),
             new BicycleAccidentBeforeWisconsinCitadelGame(),
             new CalledSpouseAndFriendCrudeSexualName(),
+            new CheckedInBlackOpOnFirstDayOfWork(),
+            new ImproperLicenseUseWithRedGateSDK(new RemovedRedGateSDKFromEMU()),
             new DefendingLanceArmstrongsCheatingBehavior(),
             new LackOfCommunicationAtHighSchoolReunion(),
             new PoorAccountingOfSelfAtCustomerVisit(),
@@ -251,12 +258,14 @@ namespace Existence.Beyond.JudgmentDay
                 new StepOnACrackBreakYourMothersBack(),
                 new TerriblePenmanship(),
                 new CheckingAccountNotBalanced(),
+                new OrificePicking(new BloodyNoses()),
                 new EatTooMuch(),
                 new PersonalPhoneNotInWorkingOrder(),
                 new UseOfWorkComputerForPersonalUse(),
                 new CurrentUseOfAnarchySymbolAsJIRAAvatar(),
                 new SuboptimalEmailResponse(),
                 new MedicationAbuseNoPromises(),
+                new UnauthorizedVideoGameUseInWorkArcade(),
                 new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
@@ -489,6 +498,27 @@ namespace Existence.Beyond.JudgmentDay
     public class IgnoredFourthGradeSlaveryLesson : BaseEvent
     {
         public IgnoredFourthGradeSlaveryLesson() : base("Ignored Fourth Grade Slavery Lesson")
+        {
+        }
+    }
+
+    /// <summary>
+    /// for a couple years (I believe because my father was on the town board) our family got to 
+    /// judge who would win best Christmas lights in the township. We judged in three categories.
+    /// I don't remember exactly, but they were something like most lights, most creative, and
+    /// overall impression. A local resident (Joe Ozga) was limited in what he could do in his
+    /// property by the Neenah Creek and Lake Mason Dam by the Wisconsin Department of Natural
+    /// Resources (DNR). He expressed his displeasure by having a neon sign "PU DNR" indicating
+    /// the department stinks. I (and to a lesser extent my sister) thought this was hilarious,
+    /// so we tried to make the PU DNR sign win the Christmas lights competition. It didn't work
+    /// because of the "number of lights" criteria (and the adults wouldn't allow it anyway).
+    /// </summary>
+    [YearRange(1990, 1991)]
+    [MagicWords("PU DNR", "Local Property Owner's Neon Sign", "Local Property Near Water", "Public")]
+    [SinType(SinType.FindSomethingInappropriateFunny)]
+    public class TriedToMakePUDNRSignWinChristmasLightsCompetition : BaseEvent
+    {
+        public TriedToMakePUDNRSignWinChristmasLightsCompetition() : base("Tried to make PU DNR Sign Win Christmas Lights Competition")
         {
         }
     }
@@ -2035,6 +2065,41 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// On my first day at WTS Paradigm I tried to compile the codebase and it didn't work because I was using
+    /// a newer Visual Studio version than other developers. I figured out the issue and decided to simply
+    /// black op the change in since it was very obvious.
+    /// </summary>
+    [YearDate(2008, 2, 21)]
+    [SinType(SinType.ActingOutsideTheRules)]
+    public class CheckedInBlackOpOnFirstDayOfWork : BaseEvent
+    {
+        public CheckedInBlackOpOnFirstDayOfWork() : base("Checked in Black Op on First Day of Work")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Red Gate at one time had a product called the Red Gate SDK which let developers code using Red Gate
+    /// functionality. The license ended up restrictive (50 applications could use it), but we had put the
+    /// software into Whipple and EMU and build applications with total installations way above the limit.
+    /// Eventually Red Gate got rid of Red Gate SDK, changing the product to be CLI based. We switched to
+    /// the CLI for EMU, which probably fixed the license issue. Regardless it doesn't matter (until the SDK
+    /// stops working) since Red Gate isn't going to enforce license terms on an obsolete product.
+    /// </summary>
+    public class ImproperLicenseUseWithRedGateSDK : BaseEvent
+    {
+        public RemovedRedGateSDKFromEMU Atonement { get; set; }
+        public ImproperLicenseUseWithRedGateSDK(RemovedRedGateSDKFromEMU Atonement) : base("Improper License Use with Red Gate SDK")
+        {
+            this.Atonement = Atonement;
+        }
+    }
+
+    public class RemovedRedGateSDKFromEMU
+    {
+    }
+
+    /// <summary>
     /// I attended my high school reunion. I didn't stay long because of
     /// social anxiety. I remember Jason White specifically invited me
     /// to hang out at some point. I didn't really acknowledge him and
@@ -2489,7 +2554,7 @@ namespace Existence.Beyond.JudgmentDay
     /// here I'm not sure if it was a hallucination or not. If it was real,
     /// I wonder if it was a factor in the shooting.
     /// </summary>
-    [Year(2019)]
+    [Year(2018)]
     [SinType(SinType.PersonalCommunication)]
     public class DidntRespondToCoworkersEmailBeforeShooting : BaseEvent
     {
@@ -2506,7 +2571,7 @@ namespace Existence.Beyond.JudgmentDay
     /// deposition, but never called back for it. It really didn't matter,
     /// but I probably should have taken the first video deposition.
     /// </summary>
-    [YearDate(2019, 9, 19)]
+    [YearDate(2018, 9, 19)]
     [SinType(SinType.SocialAvoidance)]
     public class DidntTakeShootingDeposition : BaseEvent
     {
@@ -2848,6 +2913,25 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// primarily nose and ear, less eye and mouth
+    /// </summary>
+    [IsDisqualifyingSin]
+    [SinType(SinType.BadHabit)]
+    public class OrificePicking : BaseEvent
+    {
+        public BloodyNoses Consequence { get; set; }
+
+        public OrificePicking(BloodyNoses Consequence) : base("Orifice Picking")
+        {
+            this.Consequence = Consequence;
+        }
+    }
+
+    public class BloodyNoses
+    {
+    }
+
+    /// <summary>
     /// yep, I eat too much, particularly in response to stress
     /// </summary>
     [SinType(SinType.Gluttony)]
@@ -2908,9 +2992,25 @@ namespace Existence.Beyond.JudgmentDay
     /// to either. It depends on whether I think I can get something from it.
     /// </summary>
     [StartYear(2022)]
+    [SinType(SinType.BreakingDoctorsOrders)]
     public class MedicationAbuseNoPromises : BaseEvent
     {
         public MedicationAbuseNoPromises() : base("Medication Abuse, Past and Future")
+        {
+        }
+    }
+
+    /// <summary>
+    /// A coworker (Bryan Berndt) setup an arcade in the office to allow video game playing during
+    /// breaks or off-hours. It uses a software called Big Box licensed to him, and a bunch of 
+    /// older video games that may be of sketchy legality. My kids and I continue to use the arcade
+    /// on a regular basis despite it being questionable this is above board.
+    /// </summary>
+    [SinType(SinType.LicenseShadiness)]
+    [StartYear(2020)]
+    public class UnauthorizedVideoGameUseInWorkArcade : BaseEvent
+    {
+        public UnauthorizedVideoGameUseInWorkArcade() : base("Unauthorized Video Game Use in Work Arcade")
         {
         }
     }

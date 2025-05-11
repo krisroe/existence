@@ -841,11 +841,14 @@ namespace Existence.Beyond.Infrastructure
 
     public enum SinType
     {
+        ActingOutsideTheRules,
         AdHominim,
         Arrogance,
         BackhandedCompliments,
+        BadHabit,
         BadParenting,
         BeggingQuestionableResponse,
+        BreakingDoctorsOrders,
         BreakingTheLaw,
 
         /// <summary>
@@ -900,6 +903,7 @@ namespace Existence.Beyond.Infrastructure
         LackOfFollowUp,
         LackOfSympathy,
         Laziness,
+        LicenseShadiness,
         Lie,
         MisplacedBelongings,
         MixingWorkAndPersonalLifeInappropriately,
