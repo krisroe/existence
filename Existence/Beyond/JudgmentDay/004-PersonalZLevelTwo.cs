@@ -37,13 +37,18 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 4, 0, 0)]
             [YearDate(2025, 5, 11)]
             PUDNRWorkCodeShadinessOrificeIssuesWorkArcadeAccessAndFixShootingDates,
+
+            [BeyondObjectVersion(1, 5, 0, 0)]
+            [YearDate(2025, 5, 12)]
+            TimelessWorkplaceDetailsAndWW2DarwinBombing,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
         {
             return new List<LevelJustification>()
             {
-                new ReleaseProgramJustification("Data Modifier", "Hide Text from the Divine")
+                new ReleaseProgramJustification("Data Modifier", "Hide Text from the Divine"),
+                new DocumentationJustification("Sin List")
             };
         }
 
@@ -57,7 +62,8 @@ namespace Existence.Beyond.JudgmentDay
         {
             return new List<TimelessChange>()
             {
-                new TimelessChange("Jesus is distinct from the Pope and I")
+                new TimelessChange("Jesus is distinct from the Pope and I"),
+                new TimelessChange("Epic vs Paradigm Workplace Differentiation")
             };
         }
 
@@ -236,6 +242,7 @@ namespace Existence.Beyond.JudgmentDay
             new DidntRespondToCoworkersEmailBeforeShooting(),
             new DidntTakeShootingDeposition(),
             new MatrixBrokeDownSouthOfLodi(),
+            new DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred(),
             new WeirdCallToMentalHealthHotline(),
             new ToldSpouseStopItButItWasntCorrect(),
             new ScreamedAtSpouseOverReasonableness(),
@@ -2576,6 +2583,19 @@ namespace Existence.Beyond.JudgmentDay
     public class DidntTakeShootingDeposition : BaseEvent
     {
         public DidntTakeShootingDeposition() : base("Didn't Take Shooting Witness Deposition")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Spouse and I watched the movie Australia and I thought the movie made up the bombing
+    /// of Darwin, which was incorrect, as it did occur in WWII.
+    /// </summary>
+    [Year(2019)]
+    [SinType(SinType.Ignorance)]
+    public class DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred : BaseEvent
+    {
+        public DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred() : base("Didn't Believe the WW2 Darwin Bombing Occurred")
         {
         }
     }

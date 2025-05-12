@@ -116,7 +116,11 @@ namespace Existence.Beyond.Timeless
 
             [BeyondObjectVersion(5, 8, 0, 0)]
             [YearDate(2025, 5, 8)]
-            JesusIsDistinctFromThePopeAndI
+            JesusIsDistinctFromThePopeAndI,
+
+            [BeyondObjectVersion(5, 9, 0, 0)]
+            [YearDate(2025, 5, 12)]
+            TwoWorkplacesDetails,
         }
 
         /// <summary>
@@ -241,9 +245,12 @@ namespace Existence.Beyond.Timeless
 
             public static class Employers
             {
-                [FullName("Paradigm")]
-                [AlsoKnownAs("WTS Paradigm")]
-                public static class example1 { }
+                [StartDate(2003, 5, 5)]
+                public static class EpicSystemsCorporation { }
+
+                [AlsoKnownAs("Paradigm")]
+                [StartDate(2008, 2, 21)]
+                public static class WTSParadigm { }
             }
 
             public class Songs
@@ -526,8 +533,11 @@ namespace Existence.Beyond.Timeless
 
             public static class Employers
             {
-                [WorkplaceType(WorkplaceType.Technology)]
+                [WorkplaceTypes(WorkplaceType.Technology, WorkplaceType.Medical)]
                 public static class example1 { }
+
+                [WorkplaceTypes(WorkplaceType.Technology, WorkplaceType.NonMedical)]
+                public static class example2 { }
             }
         }
 

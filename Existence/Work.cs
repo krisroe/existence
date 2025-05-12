@@ -8,14 +8,15 @@ namespace Existence
         None = 0,
         Technology = 1,
         Medical = 2,
+        NonMedical = 3,
     }
 
-    public class WorkplaceTypeAttribute : Attribute
+    public class WorkplaceTypesAttribute : Attribute
     {
-        public WorkplaceType WorkplaceType { get; set; }
-        public WorkplaceTypeAttribute(WorkplaceType WorkplaceType)
+        public WorkplaceType[] WorkplaceTypes { get; set; }
+        public WorkplaceTypesAttribute(params WorkplaceType[] WorkplaceTypes)
         {
-            this.WorkplaceType = WorkplaceType;
+            this.WorkplaceTypes = WorkplaceTypes;
         }
     }
 }
