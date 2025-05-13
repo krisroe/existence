@@ -941,6 +941,7 @@ namespace Existence.Beyond.Infrastructure
         SocialAvoidance,
         SocialUnawareness,
         SowingChaos,
+        Squeemishness,
         SuicideConsideration,
         SymbolicLogicFailure,
         TactlessTruth,

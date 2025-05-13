@@ -41,6 +41,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 5, 0, 0)]
             [YearDate(2025, 5, 12)]
             TimelessWorkplaceDetailsAndWW2DarwinBombing,
+
+            [BeyondObjectVersion(1, 6, 0, 0)]
+            [YearDate(2025, 5, 13)]
+            DeerHeartAndEmailExchangeOnTheNatureOfReality,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -165,6 +169,7 @@ namespace Existence.Beyond.JudgmentDay
             new WalkedThirteenAndAHalfMilesHomeFromSchool(),
             new RefusedToAskAnyOneOutToHighSchoolProm(),
             new SpentHighSchoolPromPlayingFreeCell(),
+            new PassedOutFromDeerHeartInHighSchoolAnatomyClass(),
             new CruddyRemonumentationWork(),
             new InappropriateBehaviorOnDate(),
             new GhostedGirlEvenThoughSheWasAtOurHouse(),
@@ -172,6 +177,7 @@ namespace Existence.Beyond.JudgmentDay
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
+            new EmailExchangeRegardingRealityWhereILostTheArgumentLongterm(),
             new FailedIntroductoryCollegeEnglishCourseTwice(),
             new WroteMOMMUSTDIEOnMothersBedroomWall(
                 new RemovedMOMMUSTDIEOnMothersBedroomWall(),
@@ -1469,6 +1475,28 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// In high school anatomy class, the teacher (Mr. Brancel) was showing
+    /// us a deer heart. I remember thinking I should put my head down, and
+    /// I have some lost time (maybe 30 seconds). I fell out of my desk.
+    /// I was told later I had passed out just as Mr. Brancel was squeezing
+    /// the deer heart. /// I went to the nurse's office. Temporarily I was 
+    /// unable to tell time, recognize faces (appearing as a blur, I 
+    /// remember when Mr. Brancel checked in on me and I recognized him as 
+    /// Mr. Brancel from his voice but he didn't look like Mr. Brancel), 
+    /// and lost peripheral vision in my right side. My mother took me to 
+    /// the doctor's office, I may have had stitches but concussion-like 
+    /// symptoms were gone. I was not actually diagnosed with concussion.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.Squeemishness)]
+    public class PassedOutFromDeerHeartInHighSchoolAnatomyClass : BaseEvent
+    {
+        public PassedOutFromDeerHeartInHighSchoolAnatomyClass() : base("High School Anatomy Deer Heart Fainting")
+        {
+        }
+    }
+
+    /// <summary>
     /// This was during the AP Calculus test when I was a junior. The test had Areas 1, 
     /// 2, and 3, and I made a joke there was no Area 51. Not really a sin at the time, but
     /// I'm including it due to possible intergalactic pulsar time implications.
@@ -1542,6 +1570,25 @@ namespace Existence.Beyond.JudgmentDay
     public class RefusedToShakeBandDirectorsHandAtHighSchoolGraduation : BaseEvent
     {
         public RefusedToShakeBandDirectorsHandAtHighSchoolGraduation() : base("Graduation Refusal to Shake Hands with Band Directory")
+        {
+        }
+    }
+
+    /// <summary>
+    /// This is an email exchange with Erica Ringelspaugh. I don't remember
+    /// why the subject of reality came up, but I gave a scientific
+    /// Ayn Rand influenced perspective that "Reality is what you 
+    /// rationally perceive". Her comeback was "Reality is for the birds".
+    /// Much later, rational experience of psychosis has rendered my
+    /// position unsustainable. Maybe reality really is for the birds.
+    /// </summary>
+    [YearDate(2000)]
+    [MagicWords("Reality is what you rationally perceive.",
+                "Reality is for the birds", "Me (1st), Girl Friend", "Email")]
+    [SinType(SinType.Ignorance)]
+    public class EmailExchangeRegardingRealityWhereILostTheArgumentLongterm : BaseEvent
+    {
+        public EmailExchangeRegardingRealityWhereILostTheArgumentLongterm() : base("I Lose Email Exchange Regarding Reality")
         {
         }
     }

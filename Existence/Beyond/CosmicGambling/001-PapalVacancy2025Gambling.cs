@@ -24,6 +24,10 @@ namespace Existence.Beyond.CosmicGambling
             [BeyondObjectVersion(1, 2, 0, 0)]
             [YearDate(2025, 5, 8)]
             AddPapalWinner,
+
+            [BeyondObjectVersion(1, 3, 0, 0)]
+            [YearDate(2025, 5, 13)]
+            AddMissingDateToSonNamingMethod
         }
 
         /// <summary>
@@ -278,6 +282,7 @@ namespace Existence.Beyond.CosmicGambling
     /// semifinals and was chosen by agreement for middle name (no
     /// chance included)
     /// </summary>
+    [YearDate(2013)]
     public class ChoseSonsNameViaSixteenTeamTournament : BaseEvent
     {
         public ChoseSonsNameViaSixteenTeamTournament() : base("Chose Sons Name via Tournament")
