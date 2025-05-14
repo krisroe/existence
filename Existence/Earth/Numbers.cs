@@ -263,6 +263,7 @@ namespace Existence.Earth
         {
             public static class TrueRandomness { }
             public static class TheSoulmatesRulesProblemIsNotAProblemPeriod { }
+            public static class TheSoulmatesProblemIsReplacedByTheFriendsProblemWhichWillBeSolvedEventually { }
             public static class TimeTravelIsMoreOK { }
             public static class ExtraSensoryPerceptionIsMoreOK { }
             public static class QuantumComputingMuchLessRisky { }
@@ -278,6 +279,14 @@ namespace Existence.Earth
         public static class Fourteen
         {
             public static class Touchdown { }
+        }
+        public static class Fifteen
+        {
+            public static class TheFriendsProblemIsAlmostSolved { }
+        }
+        public static class Sixteen
+        {
+            public static class TheFriendsProblemIsSolved { }
         }
         public static class TwentyOne
         {

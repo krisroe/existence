@@ -888,6 +888,7 @@ namespace Existence.Beyond.Infrastructure
         Ignorance,
         IgnoringTeaching,
         InappropriateAngerOutlet,
+        InappropriateDeletion,
         InappropriateFeedback,
         InappropriateJoke,
         InappropriatePersonalCommunication,

@@ -77,7 +77,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// 18 yr
         /// </summary>
-        [TODO("")]
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         AlexanderEdan = 9,
 
         /// <summary>
@@ -1594,6 +1594,11 @@ namespace Existence.Earth.War
                     HostageList.IdanTsachi,
                     HostageList.ElgaratItzhk)]
                 public static class February26 { }
+
+                [Number(1)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [Hostages(HostageList.AlexanderEdan)]
+                public static class March12 { }
             }
         }
     }

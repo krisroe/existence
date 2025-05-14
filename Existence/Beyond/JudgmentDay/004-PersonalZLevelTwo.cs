@@ -45,6 +45,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 6, 0, 0)]
             [YearDate(2025, 5, 13)]
             DeerHeartAndEmailExchangeOnTheNatureOfReality,
+
+            [BeyondObjectVersion(1, 7, 0, 0)]
+            [YearDate(2025, 5, 14)]
+            TherapyNotesDeletion
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -247,9 +251,11 @@ namespace Existence.Beyond.JudgmentDay
             new PastUseOfAnarchySymbolAsJIRAUserAvatar(),
             new DidntRespondToCoworkersEmailBeforeShooting(),
             new DidntTakeShootingDeposition(),
+            new DeletedPostShootingNotes(),
             new MatrixBrokeDownSouthOfLodi(),
             new DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred(),
             new WeirdCallToMentalHealthHotline(),
+            new DeletedTherapyBookFromLastPass(),
             new ToldSpouseStopItButItWasntCorrect(),
             new ScreamedAtSpouseOverReasonableness(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
@@ -2635,6 +2641,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// After the shooting I kept a notebook with some of my thoughts.
+    /// Eventually it got uncomfortable (my recollection is there was
+    /// denial involved) and I destroyed the useful pages in the 
+    /// notebook. This did involve loss of information that I cannot
+    /// get back. But not the end of the world.
+    /// </summary>
+    [YearDate(2018)]
+    [SinType(SinType.InappropriateDeletion)]
+    public class DeletedPostShootingNotes : BaseEvent
+    {
+        public DeletedPostShootingNotes() : base("Deleted Post-Shooting Notes")
+        {
+        }
+    }
+
+    /// <summary>
     /// Spouse and I watched the movie Australia and I thought the movie made up the bombing
     /// of Darwin, which was incorrect, as it did occur in WWII.
     /// </summary>
@@ -2675,6 +2697,22 @@ namespace Existence.Beyond.JudgmentDay
     public class WeirdCallToMentalHealthHotline : BaseEvent
     {
         public WeirdCallToMentalHealthHotline() : base("Made Weird Call to Mental Health Hotline")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was keeping my thoughts in what would become my therapy book
+    /// in LastPass. It became uncomfortable (I believe denial was making
+    /// it stressful). I deleted the notes (or at least some of them).
+    /// It meant I had to recreate the notes. I don't think I actually
+    /// lost anything other than spending time to get the information back.
+    /// </summary>
+    [Year(2022)]
+    [SinType(SinType.InappropriateDeletion)]
+    public class DeletedTherapyBookFromLastPass : BaseEvent
+    {
+        public DeletedTherapyBookFromLastPass() : base("Deleted Therapy Book From LastPass")
         {
         }
     }
