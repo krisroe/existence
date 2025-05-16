@@ -48,7 +48,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 7, 0, 0)]
             [YearDate(2025, 5, 14)]
-            TherapyNotesDeletion
+            TherapyNotesDeletion,
+
+            [BeyondObjectVersion(1, 8, 0, 0)]
+            [YearDate(2025, 5, 16)]
+            OverpromisingAndSelfSabotageSinsMoreTherapyMagicWordsAndUnwiseEmails
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -192,6 +196,7 @@ namespace Existence.Beyond.JudgmentDay
             new ShirkedSnowShovellingAt215Ingersoll(),
             new BoughtNewYorkCityWorldTradeTowersPuzzleAfter911(),
             new ListenedToRoommatesSexualActivity(),
+            new ToldEpicManagerSomethingWasDoneInstantly(),
             new TryingToCountCardsAtBlackjack2(),
             new SableLostElectricalPowerOnMadisonGorhamStreet(),
             new ClaimedNinetyPercentOfTheGovernmentCouldBeDispensedWith(),
@@ -205,6 +210,7 @@ namespace Existence.Beyond.JudgmentDay
             new AteANapkinOnADare(),
             new GotLotsOfMalwareLikeVirtumondeOnComputer(),
             new KeptSignificantQuantityOfGoldAndSilver(),
+            new RefusedEpicStockAppreciationRights(),
             new ConsideredWorkToHaveExaggeratedSelfImportance(),
             new EpicInpatientNotesConversionDLG94254(),
             new EpicAllinaFaxBlackOp(),
@@ -229,7 +235,10 @@ namespace Existence.Beyond.JudgmentDay
             new SaidTheWordNiggerOutLoudToSpouse(),
             new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
             new SpouseBecameStayAtHomeParent(),
+            new DeclinedWTSParadigmOwnershipOffer(),
             new ToldStopItWasMagicWordByTherapist(),
+            new ToldTherapistSpouseUnderstandsMe(),
+            new TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior(),
             new TriedToTeachSpouseCommunication(),
             new AskedSpouseToIncreaseCharitableGivingForWrongReasons(),
             new RefusedToEngageInSexBeforeVasectomy(),
@@ -265,9 +274,14 @@ namespace Existence.Beyond.JudgmentDay
             new GotASpeedingTicket(),
             new UsedCurseWordInBlankSlateEvenThoughSonCouldnt(),
             new HitADeerWithCar(),
+            new SentEmailToHelgaAfterMovingOnFromHer(),
             new MissedAVISAPayment(),
             new DeletedMyProductionEnvironment(),
+            new PerformedAlienNorthStarTest(),
+            new HadFakeInterviewBehaviorWithTheBeyondWhereISaidIWantedToDoYouTubeVideos(),
             new PerformedLevel22TestWithJosephHellerCatch22Representing22(),
+            new PromisedCoerceIdReleaseMyMordorAutomationProgram(),
+            new SentEmailToEricaRegardingGhostingYouTubeVideo(),
             new AllowedForgingOfSpousesSignature(),
             new IntentionallyDestroyedCurrency()
             };
@@ -1753,6 +1767,21 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// In a workplan meeting with Raghava, he laid out something that needed to be done and I responded with
+    /// "Done". I meant I would make sure to do it, and I don't remember it being something I couldn't do, 
+    /// but it wasn't literally true at the time.
+    /// </summary>
+    [Year(2003)]
+    [MagicWords("Done", "Me", "Manager Office", "Manager")]
+    [SinType(SinType.Overpromising)]
+    public class ToldEpicManagerSomethingWasDoneInstantly : BaseEvent
+    {
+        public ToldEpicManagerSomethingWasDoneInstantly() : base("Told Manager Something was Done Instantly")
+        {
+        }
+    }
+
+    /// <summary>
     /// The Mercury Sable had some electrical issues, culminating in it losing power on
     /// Gorham Street heading southwest. I guided it off Gorham Street turning left onto Few
     /// Street. I found someone at a nearby house to call my father to get me out of it.
@@ -1935,11 +1964,29 @@ namespace Existence.Beyond.JudgmentDay
     /// tax evasion. I occasionally feel some anxiety the statute of limitations hasn't
     /// actually run on it and I'm still on the hook for this in the real world.
     /// </summary>
-    [SinTypes(SinType.PropertyDamage, SinType.Hoarding, SinType.TaxEvasion)]
     [Year(2006)]
+    [SinTypes(SinType.PropertyDamage, SinType.Hoarding, SinType.TaxEvasion)]
     public class KeptSignificantQuantityOfGoldAndSilver : BaseEvent
     {
         public KeptSignificantQuantityOfGoldAndSilver() : base("Kept Significant Quantity of Gold/Silver in House")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was too late coming to Epic to be eligible for stock options, however there was a lesser category
+    /// called stock appreciation rights and allowed newer employees to gain from an increase in the company value.
+    /// When I was eligible for them, I declined. I remember having a phone conversation with someone from legal
+    /// telling me there was no legitimate reason for declining. I declined anyway. I think I was thinking of
+    /// leaving the company at the time and didn't want stock appreciation rights incentivising me to stay. That
+    /// was part of it, but a broader explanation is as a broader scheme of self-sabotage, since I didn't think
+    /// I earned them.
+    /// </summary>
+    [Year(2006)]
+    [SinType(SinType.SelfSabotage)]
+    public class RefusedEpicStockAppreciationRights : BaseEvent
+    {
+        public RefusedEpicStockAppreciationRights() : base("Refused Epic Stock Appreciation Rights")
         {
         }
     }
@@ -2270,8 +2317,8 @@ namespace Existence.Beyond.JudgmentDay
     /// either.
     /// </summary>
     [Year(2011)]
-    [SinType(SinType.InappropriateAngerOutlet)]
     [IsDisqualifyingSin]
+    [SinType(SinType.InappropriateAngerOutlet)]
     public class TorturedAPug : BaseEvent
     {
         public LivedWithThePugWhileSheWasDying Atonement { get; set; }
@@ -2309,10 +2356,26 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// At some point when Mike Moede was manager, he called me into his office and talked about an offer
+    /// for some piece of ownership of the company. It might have been stock options or something conceptually
+    /// similar I declined, thinking I hadn't really earned it. It also may have been a factor that I was planning
+    /// on leaving the company at some point, and didn't want an ownership object incentivising me to stay.
+    /// </summary>
+    [Year(2011)]
+    [SinType(SinType.SelfSabotage)]
+    public class DeclinedWTSParadigmOwnershipOffer : BaseEvent
+    {
+        public DeclinedWTSParadigmOwnershipOffer() : base("Declined WTS Paradigm Ownership Offer")
+        {
+        }
+    }
+
+    /// <summary>
     /// After I brought up the word "abusive" for relationship with spouse, Andrew suggested
     /// I try using the phrase "Stop it". I guess that's some kind of magical phrase relevant
     /// to bad relationships. I think I understood the implication, but didn't ask any follow-up
-    /// questions or how else I could deal with spouse's poor communication.
+    /// questions or how else I could deal with spouse's poor communication. But my guess is he 
+    /// wouldn't have been helpful regardless.
     /// </summary>
     [Year(2012)]
     [MagicWords("Stop It", "Therapist", "Therapist Office", "Therapist")]
@@ -2320,6 +2383,37 @@ namespace Existence.Beyond.JudgmentDay
     public class ToldStopItWasMagicWordByTherapist : BaseEvent
     {
         public ToldStopItWasMagicWordByTherapist() : base("Told \"Stop it\" was Relevant by Therapist")
+        {
+        }
+    }
+
+    /// <summary>
+    /// When asked by Andrew why I was in a relationship with spouse, I responded "She understands me".
+    /// This was completely the opposite of the truth. I did not understand her then and have not
+    /// understood her since, although perhaps my understanding of psychological mechanisms has improved
+    /// over the years. This is one example of me being unhelpful with the therapist.
+    /// </summary>
+    [Year(2012)]
+    [MagicWords("She understands me", "Me", "Therapist Office", "Therapist")]
+    [SinType(SinType.Lie)]
+    public class ToldTherapistSpouseUnderstandsMe : BaseEvent
+    {
+        public ToldTherapistSpouseUnderstandsMe() : base("Told therapist spouse understood me")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was unhelpful with the therapist in ways I don't specifically remember. I do remember the
+    /// therapist responded by asking why I was in a relationship with spouse. I don't remember immediately
+    /// responding positively but I do think I was more productive after the exchange occurred.
+    /// </summary>
+    [Year(2012)]
+    [MagicWords("Why are you in this relationship?", "Therapist", "Therapist Office", "Therapist")]
+    [SinType(SinType.SocialUnawareness)]
+    public class TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior : BaseEvent
+    {
+        public TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior() : base("Unhelpful Communication Making Therapist Question Relationship")
         {
         }
     }
@@ -2371,13 +2465,23 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
-    /// In the context of therapy, I asked spouse to say something when offended.
+    /// In the context of marriage therapy sessions:
+    /// I appeared angry at the relationship but I denied this and angrily said "I'm not angry". At the time
+    /// I thought frustration was the more prominent emotion in play, but I think I came off as more angry,
+    /// and should have acknowledged that fact.
+    /// 
+    /// I asked spouse to say something when offended.
     /// She screamed in reply: "I shouldn't have to".
     /// The therapist responded by repeatedly yelling "You have to divorce him". 
     /// with spouse being completely impassive.
     /// Another thing I remember he said was "Can't you see what you're doing to him?" 
     /// with spouse responding "He's a sociopath"
     /// and the therapist responded, "No he's not".
+    /// 
+    /// The therapist at one point was frustration with both spouse and my unhelpfulness and somewhat
+    /// exasperatingly said to both of us "Why are you in this relationship?" I don't recall either
+    /// of us responding positively to the comment.
+    /// 
     /// I had the last word at the end of the session while we were walking out.
     /// I thought we had reached some sort of understanding we were staying together
     /// for the good of the children and said "Let's raise the children". No one
@@ -2887,6 +2991,21 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// after we moved away from Helga as a piano teacher for my daughter, I sent her an email concerning
+    /// what seemed to be a problematic example of her teaching. She used the ABRSM tests, but those aren't
+    /// useful in the USA per the new piano teacher. I asked Helga via email if she thought there were additional
+    /// benefits to the tests, but it was too late for the question to be useful, and she never responded.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.PersonalCommunication)]
+    public class SentEmailToHelgaAfterMovingOnFromHer : BaseEvent
+    {
+        public SentEmailToHelgaAfterMovingOnFromHer() : base("Sent ex-Piano-Teacher Critical Email")
+        {
+        }
+    }
+
+    /// <summary>
     /// I generally pay my VISA credit card bill on time. However, once, somehow the
     /// envelope got lost (found downstairs in my desk area which I don't remember moving
     /// it to). That month's payment was missed, and I paid it in full the next month.
@@ -2919,6 +3038,39 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I began to think it was significant that Indie the dog had two ways to get into the house (via the dog
+    /// door and the garage) but could only do one of them. I analogized this to a hypothetical wayfaring problem 
+    /// faced by aliens. I performed a test where I went outside to a fork in the path (Indie used this fork
+    /// frequently). I then alternated between pointing north (toward the North Star) as the right answer to the
+    /// test, pointing to a deliberately wrong location (as a possible wrong answer to the test), and pointing
+    /// in many directions (signifying a choice was to me made). In hindsight it doesn't seem like anything useful
+    /// to aliens or otherwise except as a remembrance of irrational behavior.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.IrrationalBehavior)]
+    public class PerformedAlienNorthStarTest : BaseEvent
+    {
+        public PerformedAlienNorthStarTest() : base("Performed Irrational North Star Test")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was standing outside my mother's garage (west half) and I gave a monologue where I seemed to be expecting
+    /// to explain to the beyond what my goals were. I claimed I wanted to do YouTube videos. I have never gotten
+    /// around to truly doing this. One big reason is a lack of time, but lack of motivation is also a factor.
+    /// Perhaps someday I'll get around to it, but even if so, the monologue will seem very irrational.
+    /// </summary>
+    [Year(2024)]
+    [SinTypes(SinType.IrrationalBehavior, SinType.Overpromising)]
+    public class HadFakeInterviewBehaviorWithTheBeyondWhereISaidIWantedToDoYouTubeVideos : BaseEvent
+    {
+        public HadFakeInterviewBehaviorWithTheBeyondWhereISaidIWantedToDoYouTubeVideos() : base("Had Fake Interview with the Beyond Claiming to Want to do YouTube Videos")
+        {
+        }
+    }
+
+    /// <summary>
     /// I performed a very strange ritual where I inappropriately threw away some of my mother's litter
     /// boxes, then did a grapevine down the road counting the number of grapevines, then got into my room
     /// with my eyes closed while saying "Joseph Heller" 22 times. Then I went into my room and made some
@@ -2930,6 +3082,35 @@ namespace Existence.Beyond.JudgmentDay
     public class PerformedLevel22TestWithJosephHellerCatch22Representing22 : BaseEvent
     {
         public PerformedLevel22TestWithJosephHellerCatch22Representing22() : base("Performed Irrational Level 22 Test")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I spent a bunch of time in 2023 working on a Mordor automation program, and then shelved it for months.
+    /// Later I told Coerce I had the automation program and told him my son and I might use Mordor. In hindsight
+    /// I shouldn't have promised anything, as I do not have motivation to do this anymore.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.Overpromising)]
+    public class PromisedCoerceIdReleaseMyMordorAutomationProgram : BaseEvent
+    {
+        public PromisedCoerceIdReleaseMyMordorAutomationProgram() : base("Promised Coerce Release of Mordor Automation Program")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I sent an email to Erica (finding her email via the UW Stevens Point directory) with a ghosting apology and 
+    /// a link to the AntiHero YouTube video where I said "Number of Females Ghosted = 1". She never responded, but
+    /// I have no idea if it wasn't the right email, the email got trapped by a spam filter, or there was no reason
+    /// for a response. Regardless it's way too late in the game to try atoning for my past behavior this way.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.PersonalCommunication)]
+    public class SentEmailToEricaRegardingGhostingYouTubeVideo : BaseEvent
+    {
+        public SentEmailToEricaRegardingGhostingYouTubeVideo() : base("Sent Old Flame Email About Ghosting YouTube Video")
         {
         }
     }

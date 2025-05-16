@@ -67,6 +67,9 @@ namespace Existence.Personal.Beyond
         /// discussed the ability to "crack" chess in high school locker room
         /// sex: 5x
         /// 
+        /// I promised Nate Herbst via email I would get him something. I think I meant it to be a YouTube
+        /// video for After the Storm, but I haven't gotten around to it. Potential overpromising sin.
+        /// 
         /// The number 22:
         /// - There are currently 21 catholic councils accepted by vatican, next one is 22
         /// - The Hunger Games (first movie) countdown to start the games stops at 22

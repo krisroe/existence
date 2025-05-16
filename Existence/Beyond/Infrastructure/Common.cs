@@ -934,6 +934,7 @@ namespace Existence.Beyond.Infrastructure
         Recklessness,
         RefusalToDoExpectedBehavior,
         ResponsibilityShirking,
+        SelfSabotage,
         SexualAbuse,
         SexualConsentViolation,
         SexualWithholding,
