@@ -52,7 +52,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 8, 0, 0)]
             [YearDate(2025, 5, 16)]
-            OverpromisingAndSelfSabotageSinsMoreTherapyMagicWordsAndUnwiseEmails
+            OverpromisingAndSelfSabotageSinsMoreTherapyMagicWordsAndUnwiseEmails,
+
+            [BeyondObjectVersion(1, 9, 0, 0)]
+            [YearDate(2025, 5, 18)]
+            JerrySnadraExcommunicatedFakeAneurysmAndRecentSins
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -131,6 +135,7 @@ namespace Existence.Beyond.JudgmentDay
             new YellingFineWhenAskedHowIWasDoing(new KarmaForYellingFineWithMySonExpectingNoResponse()),
             new HittingMySister(),
             new CheatedAtUpperElementaryDodgeball(),
+            new EnteredPublishersClearinghouseSweepstakesUnderFakeName(),
             new DidntWantMyPictureTaken(new EmbarrassingLittleKidBehaviorAtProfessionalPhotographer()),
             new ToldMyMotherSheWasntInOnPerformanceNuances(),
             new EmbarrassingEpisodeWithInfoFromTheJerkReadToHealthClass(),
@@ -161,6 +166,7 @@ namespace Existence.Beyond.JudgmentDay
             new LiedAboutHavingGirlfriend(),
             new WCATYAntiTeachingAssistantFeedback(),
             new UsedCrushLinkToAvoidCrushCommunication(),
+            new ListedMyselfAsExcommunicatedFromChurch(),
             new GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt(),
             new HitATurkeyWithACar(),
             new PlayedEuchreWithPartnerSignalling(),
@@ -264,10 +270,11 @@ namespace Existence.Beyond.JudgmentDay
             new MatrixBrokeDownSouthOfLodi(),
             new DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred(),
             new WeirdCallToMentalHealthHotline(),
-            new DeletedTherapyBookFromLastPass(),
             new ToldSpouseStopItButItWasntCorrect(),
             new ScreamedAtSpouseOverReasonableness(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
+            new IncorrectlyThoughtIWasDyingTriggeringAnAmbulanceVisit(),
+            new DeletedTherapyBookFromLastPass(),
             new DidNotGiveSolicitorAnyMoneyAtGasStation(),
             new PutFinaleOnWorkLocalMachine(new RemovedFinaleFromWorkLocalMachineViaITTicket()),
             new LostMyKeysAndNotSureIfReal(),
@@ -283,7 +290,9 @@ namespace Existence.Beyond.JudgmentDay
             new PromisedCoerceIdReleaseMyMordorAutomationProgram(),
             new SentEmailToEricaRegardingGhostingYouTubeVideo(),
             new AllowedForgingOfSpousesSignature(),
-            new IntentionallyDestroyedCurrency()
+            new IntentionallyDestroyedCurrency(),
+            new PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance(),
+            new MadeInappropriateRemarkInMySpousesMothersPresence()
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -773,6 +782,21 @@ namespace Existence.Beyond.JudgmentDay
     public class CheatedAtUpperElementaryDodgeball : BaseEvent
     {
         public CheatedAtUpperElementaryDodgeball() : base("Cheated at Elementary School Dodgeball")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Growing up we got Publisher's Clearinghouse Sweepstakes in the mail. They offered a sweepstakes, and
+    /// wanted users to buy magazines through them. Somehow, we got a second account for awhile under the name
+    /// "Jerry Snadra". We sent in sweepstakes for a while under both real and fake names. We never won anything.
+    /// </summary>
+    [MagicWords("Jerry Snadra", "Publishers Clearinghouse", "Mail", "Mail")]
+    [ApproximateAgeInYears(12)]
+    [SinType(SinType.Fraud)]
+    public class EnteredPublishersClearinghouseSweepstakesUnderFakeName : BaseEvent
+    {
+        public EnteredPublishersClearinghouseSweepstakesUnderFakeName() : base("Entered Publishers Clearinhouse Sweepstakes under Fake Name")
         {
         }
     }
@@ -1450,6 +1474,20 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I don't even remember the context, but I remember having to fill out a form where religion was relevant.
+    /// I listed myself as "excommunicated" from the Lutheran Church. This was incorrect, as I was merely
+    /// nonpracticing after confirmation.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.Lie)]
+    public class ListedMyselfAsExcommunicatedFromChurch : BaseEvent
+    {
+        public ListedMyselfAsExcommunicatedFromChurch() : base("Called Myself Excommunicated from Church")
+        {
+        }
+    }
+
+    /// <summary>
     /// worst day of my life. Car wouldn't start in the morning, there was a snafu with where I was being
     /// picked up from (Spring Hill vs Wisconsin Dells High School) so I didn't get picked up with my
     /// sister going to gymnastics. I chose to walk 13.5 miles home from school which was very uncomfortable
@@ -1601,6 +1639,8 @@ namespace Existence.Beyond.JudgmentDay
     /// rationally perceive". Her comeback was "Reality is for the birds".
     /// Much later, rational experience of psychosis has rendered my
     /// position unsustainable. Maybe reality really is for the birds.
+    /// Or maybe we are just talking about "flippant remarks", a phrase I
+    /// used in a small number of subsequent communications.
     /// </summary>
     [YearDate(2000)]
     [MagicWords("Reality is what you rationally perceive.",
@@ -2872,6 +2912,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// During my manic episode in early 2023, in the morning in bed, I got interesting feeling in my mind and 
+    /// thought I was having an aneurysm. I ran downstairs, injuring my left, went to the couch and laid down and 
+    /// claimed I was dying. My mother said I wasn't dying, but I persisted and she called an ambulance. 
+    /// The ambulance came, but I must have realized I was okay and sent them away without me going with them. We
+    /// eventually got a $500 bill for the ambulance which I paid several months later.
+    /// </summary>
+    [Year(2023)]
+    [SinType(SinType.IrrationalBehavior)]
+    public class IncorrectlyThoughtIWasDyingTriggeringAnAmbulanceVisit : BaseEvent
+    {
+        public IncorrectlyThoughtIWasDyingTriggeringAnAmbulanceVisit() : base("Incorrectly Thought I was Dying Triggering an Ambulance Visit")
+        {
+        }
+    }
+
+    /// <summary>
     /// I was parked at the Madison Quik Trip at the corner of Century Ave and Branch St. I was sitting 
     /// at the westmost stall on the inside position, getting gas. A man drove up to the outside
     /// position stall and asked for money. I very quickly finished my credit card transaction (I was
@@ -3126,6 +3182,36 @@ namespace Existence.Beyond.JudgmentDay
     public class AllowedForgingOfSpousesSignature : BaseEvent
     {
         public AllowedForgingOfSpousesSignature() : base("Allowed Forging Spouse's Signature")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In the wake of moving psychiatrists the old psychiatrist office sent a form that I ignored since I thought
+    /// it was potentially malicious. Then they called saying there was a billing problem. They sent the form twice
+    /// more and I filled it in. I called them. They never called back. The bill was paid by my credit card.
+    /// I did nothing, figuring it was karma for my misbehavior in the manic episode earlier in the year.
+    /// </summary>
+    [YearDate(2025, 5, 16)]
+    [SinType(SinType.NotUsingInsurance)]
+    public class PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance : BaseEvent
+    {
+        public PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance() : base("Paid for Psychiatrist Visit Out of Pocket instead of Using Insurance")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My spouse, son, daughter and spouse's mother were eating at the Nitty Gritty. My son and I were making
+    /// ridiculous remarks and I said "Big Bird should be shot on sight" in the context of Sesame Street being
+    /// a conversation topic. That was over the line, even though there were no consequences.
+    /// </summary>
+    [YearDate(2025, 5, 19)]
+    [MagicWords("Big Bird should be shot on sight.", "Me", "Restaurant", "Nuclear Family and Spouse's Mother")]
+    [SinType(SinType.FlippantRemarks)]
+    public class MadeInappropriateRemarkInMySpousesMothersPresence : BaseEvent
+    {
+        public MadeInappropriateRemarkInMySpousesMothersPresence() : base("Made Inappropriate Remark in my Spouse's Mother's Presence")
         {
         }
     }
