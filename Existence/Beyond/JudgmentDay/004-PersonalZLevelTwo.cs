@@ -56,7 +56,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 9, 0, 0)]
             [YearDate(2025, 5, 18)]
-            JerrySnadraExcommunicatedFakeAneurysmAndRecentSins
+            JerrySnadraExcommunicatedFakeAneurysmAndRecentSins,
+
+            [BeyondObjectVersion(1, 10, 0, 0)]
+            [YearDate(2025, 5, 28)]
+            GayCollegeEnglishSickComputerLabBottleWaterBetterPersonPracticeArguing,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -187,19 +191,22 @@ namespace Existence.Beyond.JudgmentDay
             new CruddyRemonumentationWork(),
             new InappropriateBehaviorOnDate(),
             new GhostedGirlEvenThoughSheWasAtOurHouse(),
+            new UsedGayAsAnAdjectiveInappropriately(),
             new InappropriateAliensJoke(),
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
             new EmailExchangeRegardingRealityWhereILostTheArgumentLongterm(),
-            new FailedIntroductoryCollegeEnglishCourseTwice(),
+            new FailedIntroductoryCollegeEnglishCoursev1(),
             new WroteMOMMUSTDIEOnMothersBedroomWall(
                 new RemovedMOMMUSTDIEOnMothersBedroomWall(),
                 new LivedWithMyMotherWhileSheWasDyingOfCancer()),
             new GaveSolicitorTwentyDollars(),
             new TapedPrurientMaterialOnMyMothersVHSTapes(),
+            new WentToCollegeComputerLabWhileCoughing(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
             new ShirkedSnowShovellingAt215Ingersoll(),
+            new FailedIntroductoryCollegeEnglishCoursev2(),
             new BoughtNewYorkCityWorldTradeTowersPuzzleAfter911(),
             new ListenedToRoommatesSexualActivity(),
             new ToldEpicManagerSomethingWasDoneInstantly(),
@@ -266,12 +273,15 @@ namespace Existence.Beyond.JudgmentDay
             new PastUseOfAnarchySymbolAsJIRAUserAvatar(),
             new DidntRespondToCoworkersEmailBeforeShooting(),
             new DidntTakeShootingDeposition(),
+            new ToldTherapistIWasBetterPersonAtPostShootingEvent(),
+            new SnuckBottledWaterIntoPackerGame(),
             new DeletedPostShootingNotes(),
             new MatrixBrokeDownSouthOfLodi(),
             new DidntBelieveTheWorldWarIIJapaneseBombingOfDarwinOccurred(),
             new WeirdCallToMentalHealthHotline(),
             new ToldSpouseStopItButItWasntCorrect(),
             new ScreamedAtSpouseOverReasonableness(),
+            new TriedToArgueWithSpouseThinkingItWasWhatSheWanted(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
             new IncorrectlyThoughtIWasDyingTriggeringAnAmbulanceVisit(),
             new DeletedTherapyBookFromLastPass(),
@@ -1618,13 +1628,28 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// In South Park the word "gay" is used as a synonym for "stupid". I've used it that way a few times.
+    /// I've also used it in similar context to the "nigger" entry to try and fail to provoke spouse.
+    /// There's a bit of political correctness in it too.
+    /// </summary>
+    [YearRange(1998, 2012)]
+    [SinTypes(SinType.InappropriateJoke, SinType.InappropriatePersonalCommunication, SinType.PoliticalCorrectness)]
+    public class UsedGayAsAnAdjectiveInappropriately : BaseEvent
+    {
+        public UsedGayAsAnAdjectiveInappropriately() : base("Used \"Gay\" as Inappropriate Adjective")
+        {
+
+        }
+    }
+
+    /// <summary>
     /// At high school graduation, we walked across the stage to get our diplomas, then circling back
     /// to get to our seats. That route took us in front of the high school band. The band director
     /// (Mr. Spargo) shook hands with graduates. I held out my hand and pulled it away before he could shake
     /// my hand.
     /// </summary>
-    [SinType(SinType.PracticalJoke)]
     [YearDate(1999, 5, 28)]
+    [SinType(SinType.PracticalJoke)]
     public class RefusedToShakeBandDirectorsHandAtHighSchoolGraduation : BaseEvent
     {
         public RefusedToShakeBandDirectorsHandAtHighSchoolGraduation() : base("Graduation Refusal to Shake Hands with Band Directory")
@@ -1656,23 +1681,17 @@ namespace Existence.Beyond.JudgmentDay
     /// <summary>
     /// I tried to take a basic college introductory English course. I had
     /// major problems trying to write a paper with appropriate symbolic
-    /// logic. I ended up writing an incoherent mess of politically 
-    /// correct (diversity) content and received an F. I rewrote it and got
-    /// a C which was probably charitable. I believed the course was beyond
-    /// me and quit, receiving an F. A later year I tried again, again
-    /// not being able to handle the symbolic logic and believing it beyond
-    /// me, I gave up again. I ended up getting the English credit through
-    /// an African Studies course, a course where the essay requirements
-    /// were spelled out in extreme detail (I think many students had 
-    /// similar problems, as the African Studies course was very large).
-    /// So I ended up meeting the English graduation requirement in the
-    /// end.
+    /// logic. I ended up writing an incoherent mess of pro- and anti- politically 
+    /// correct (diversity) content and received an F. I remember discussing it with the TA (David LaFleur)
+    /// trying and mostly failing to understand. I rewrote it with mostly pro- politically correct content
+    /// and got a C, which was probably charitable. I believed the course was beyond
+    /// me and quit, receiving an F.
     /// </summary>
     [Year(2000)]
     [SinTypes(SinType.GivingUp, SinType.PoliticalCorrectness, SinType.SymbolicLogicFailure)]
-    public class FailedIntroductoryCollegeEnglishCourseTwice : BaseEvent
+    public class FailedIntroductoryCollegeEnglishCoursev1: BaseEvent
     {
-        public FailedIntroductoryCollegeEnglishCourseTwice() : base("Failed College Introductory English Course Twice")
+        public FailedIntroductoryCollegeEnglishCoursev1() : base("Failed First College Introductory English Course")
         {
         }
     }
@@ -1747,12 +1766,27 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I was coughing, probably having a cold at some level, and went to the UW college computer lab anyway.
+    /// Another student noticed I was coughing and asked me to leave, which I did. It was probably a reasonable
+    /// request.
+    /// </summary>
+    [Year(2000)]
+    [SinType(SinType.ExposeSickness)]
+    public class WentToCollegeComputerLabWhileCoughing : BaseEvent
+    {
+        public WentToCollegeComputerLabWhileCoughing() : base("Went to College Computer Lab While Sick Coughing")
+        {
+        }
+    }
+
+    /// <summary>
     /// For an introductory to data structures class (given by Mike C Wade), a classmate had
     /// difficulty doing the programming, which was supposed to be done by themself. The
     /// classmate was reasonably bright but was not a programmer. The suggestions got so 
     /// specific that it stepped across my line of cheating. However, my line of cheating on
     /// this type of thing is likely more strict than others.
     /// </summary>
+    [Year(2001)]
     [Witness((int)YearAboveClassmateList.BrianWimann)]
     [SinType(SinType.Cheating)]
     public class HelpedCollegeClassmateCheatOnCollegeCompSciClass : BaseEvent
@@ -1771,6 +1805,25 @@ namespace Existence.Beyond.JudgmentDay
     public class ShirkedSnowShovellingAt215Ingersoll : BaseEvent
     {
         public ShirkedSnowShovellingAt215Ingersoll() : base("Responsibility Shortcomings Shovelling Snow")
+        {
+        }
+    }
+
+    /// <summary>
+    /// After the failure of the first introductory English course, I tried again, trying to face my fears.
+    /// The stress got to me (not entirely related to the English course). I was still not able to handle the
+    /// symbolic logic and gave up again thinking myself incapable of handling it. I ended up using a theatre
+    /// course for some of the requirements, where I did acceptably on the symbolic logic. I ended up getting the 
+    /// final English credit through an African Studies course, a course where the essay requirements
+    /// were spelled out in extreme detail (I think many students had 
+    /// similar problems, as the African Studies course was very large).
+    /// So I ended up meeting the English graduation requirement in the end.
+    /// </summary>
+    [Year(2002)]
+    [SinTypes(SinType.GivingUp, SinType.SymbolicLogicFailure)]
+    public class FailedIntroductoryCollegeEnglishCoursev2 : BaseEvent
+    {
+        public FailedIntroductoryCollegeEnglishCoursev2() : base("Failed Second College Introductory English Course")
         {
         }
     }
@@ -2522,6 +2575,10 @@ namespace Existence.Beyond.JudgmentDay
     /// exasperatingly said to both of us "Why are you in this relationship?" I don't recall either
     /// of us responding positively to the comment.
     /// 
+    /// It seemed to me like spouse had an unreasonable definition of what "caring" meant, in that "caring"
+    /// about someone meant not offending them. In that context I angrily said "I don't care about you!". Given
+    /// the context it was a reasonable thing to say, but an objective observer might disagree.
+    /// 
     /// I had the last word at the end of the session while we were walking out.
     /// I thought we had reached some sort of understanding we were staying together
     /// for the good of the children and said "Let's raise the children". No one
@@ -2785,6 +2842,40 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// At the post-shooting event, several therapists from the Psychology Center were present, including
+    /// Andrew who had presided over the marriage counseling fiasco in 2012. As the therapist was leaving,
+    /// I addressed him and said something about how I was a better person. I think in some sense this was true,
+    /// although the manic episode was still swinging, and even if true I still had a long way to go.
+    /// </summary>
+    [Year(2018)]
+    [SinType(SinType.SocialUnawareness)]
+    public class ToldTherapistIWasBetterPersonAtPostShootingEvent : BaseEvent
+    {
+        public ToldTherapistIWasBetterPersonAtPostShootingEvent() : base("Told Therapist I was a Better Person at Post Shooting Event")
+        {
+        }
+    }
+
+    /// <summary>
+    /// We went to the Packers/Bills game at Lambeau Field. I had a bottle of water from the pregame tailgate. We
+    /// weren't allowed to take beverages into the stadium, but we went through the security so fast (or the 
+    /// procedure could have been lax) that smuggling the water in worked. I think my Dad's intention was to take
+    /// the water in and plead ignorance if found out. Anyhow I was worried about getting caught, although in
+    /// hindsight I think there was no chance of that. I thought a police officer came up from behind our seats
+    /// before the singing of "Roll out the Barrel", but either I hallucinated it or it had nothing to do with
+    /// me. I emptied my pockets to prove I had nothing suspicious in them (I was dressed in black). After we
+    /// started singing the song the police officer went away. The Packers won 22-0 (level 14 scorigami).
+    /// </summary>
+    [YearDate(2018, 9, 30)]
+    [SinType(SinType.Smuggling)]
+    public class SnuckBottledWaterIntoPackerGame : BaseEvent
+    {
+        public SnuckBottledWaterIntoPackerGame() : base("Snuck Bottled Water into Packer Game")
+        {
+        }
+    }
+
+    /// <summary>
     /// After the shooting I kept a notebook with some of my thoughts.
     /// Eventually it got uncomfortable (my recollection is there was
     /// denial involved) and I destroyed the useful pages in the 
@@ -2891,6 +2982,22 @@ namespace Existence.Beyond.JudgmentDay
     public class ScreamedAtSpouseOverReasonableness : BaseEvent
     {
         public ScreamedAtSpouseOverReasonableness() : base("Spouse and I Screamed at each Other over Reasonableness")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In a therapy call after the reasonableness episode, spouse said she wished she could argue. I thought
+    /// the best approach was to try to argue. So I brought up politics a few times. Instead of arguing she shut
+    /// down the conversation (sending off vibes of contempt). I've never found a practical way to practice this,
+    /// since to have the argument in the first place puts it outside the range of acceptable conversation.
+    /// </summary>
+    [Year(2022)]
+    [SinType(SinType.SocialUnawareness)]
+    [MagicWords("I wish we could argue", "Spouse", "Therapist Call", "Both Spouses and Therapist")]
+    public class TriedToArgueWithSpouseThinkingItWasWhatSheWanted : BaseEvent
+    {
+        public TriedToArgueWithSpouseThinkingItWasWhatSheWanted() : base("Tried to Argue with Spouse Thinking it was what She Wanted")
         {
         }
     }
