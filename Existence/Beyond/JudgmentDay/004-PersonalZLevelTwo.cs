@@ -1,5 +1,4 @@
-﻿using System;
-using Existence.Beyond.CosmicGambling;
+﻿using Existence.Beyond.CosmicGambling;
 using Existence.Beyond.Infrastructure;
 using Existence.Beyond.References;
 using Existence.Earth.Alphabet;
@@ -61,6 +60,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 10, 0, 0)]
             [YearDate(2025, 5, 28)]
             GayCollegeEnglishSickComputerLabBottleWaterBetterPersonPracticeArguing,
+
+            [BeyondObjectVersion(1, 11, 0, 0)]
+            [YearDate(2025, 6, 4)]
+            ImSorryYouHateMeAlanGreenspan,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -208,6 +211,7 @@ namespace Existence.Beyond.JudgmentDay
             new ShirkedSnowShovellingAt215Ingersoll(),
             new FailedIntroductoryCollegeEnglishCoursev2(),
             new BoughtNewYorkCityWorldTradeTowersPuzzleAfter911(),
+            new CalledAlanGreenspanAGenius(),
             new ListenedToRoommatesSexualActivity(),
             new ToldEpicManagerSomethingWasDoneInstantly(),
             new TryingToCountCardsAtBlackjack2(),
@@ -252,6 +256,7 @@ namespace Existence.Beyond.JudgmentDay
             new ToldStopItWasMagicWordByTherapist(),
             new ToldTherapistSpouseUnderstandsMe(),
             new TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior(),
+            new ImSorryYouHateMeMagicWords(),
             new TriedToTeachSpouseCommunication(),
             new AskedSpouseToIncreaseCharitableGivingForWrongReasons(),
             new RefusedToEngageInSexBeforeVasectomy(),
@@ -1844,6 +1849,20 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// Alan Greenspan had a public reputation as being good for economic perfomance as chairman of the Federal
+    /// Reserve. In conversation with my father, I called him a "genius". I have since learned that things are
+    /// not so simple and while the Federal Reserve can affect the economy, it can't master manage its behavior.
+    /// </summary>
+    [Year(2003)]
+    [SinType(SinType.Ignorance)]
+    public class CalledAlanGreenspanAGenius : BaseEvent
+    {
+        public CalledAlanGreenspanAGenius() : base("Called Alan Greenspan a Genius")
+        {
+        }
+    }
+
+    /// <summary>
     /// While living at Sherman Terrace, I had a roommate Todd Hamm. One 
     /// morning I was quietly putting together a large 3D puzzle. My roommate
     /// and his girlfriend had sex. I was in the next room so I could hear,
@@ -2507,6 +2526,22 @@ namespace Existence.Beyond.JudgmentDay
     public class TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior : BaseEvent
     {
         public TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior() : base("Unhelpful Communication Making Therapist Question Relationship")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I remember using the phrase "I'm sorry you hate me" toward spouse as a response to her angry reaction
+    /// to conflict. It was also discussed in the context of marriage therapy. I did not understand that she
+    /// did not have functional emotional response or functional communication in these cases. Because of that
+    /// the quote did not accurately reflect the reality of the situation.
+    /// </summary>
+    [Year(2012)]
+    [MagicWords("I'm sorry you hate me", "Me", "Home", "Spouse")]
+    [SinType(SinType.SocialUnawareness)]
+    public class ImSorryYouHateMeMagicWords : BaseEvent
+    {
+        public ImSorryYouHateMeMagicWords() : base("Told spouse \"I'm sorry you hate me\"")
         {
         }
     }
