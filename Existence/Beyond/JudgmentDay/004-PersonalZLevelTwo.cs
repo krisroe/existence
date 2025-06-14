@@ -64,6 +64,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 11, 0, 0)]
             [YearDate(2025, 6, 4)]
             ImSorryYouHateMeAlanGreenspan,
+
+            [BeyondObjectVersion(1, 12, 0, 0)]
+            [YearDate(2025, 6, 14)]
+            RecklessDeathExperiencesFartingInOthersPresenceMontessoriAdolescentGraduation,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -192,6 +196,7 @@ namespace Existence.Beyond.JudgmentDay
             new SpentHighSchoolPromPlayingFreeCell(),
             new PassedOutFromDeerHeartInHighSchoolAnatomyClass(),
             new CruddyRemonumentationWork(),
+            new AlmostRanIntoPostOnUniversityOfWisconsinCampus(),
             new InappropriateBehaviorOnDate(),
             new GhostedGirlEvenThoughSheWasAtOurHouse(),
             new UsedGayAsAnAdjectiveInappropriately(),
@@ -199,6 +204,7 @@ namespace Existence.Beyond.JudgmentDay
             new TakingInsuranceInBlackjack(),
             new TryingToCountCardsAtBlackjack1(),
             new RefusedToShakeBandDirectorsHandAtHighSchoolGraduation(),
+            new ToldMySisterIThoughtIWasGoingToDie(),
             new EmailExchangeRegardingRealityWhereILostTheArgumentLongterm(),
             new FailedIntroductoryCollegeEnglishCoursev1(),
             new WroteMOMMUSTDIEOnMothersBedroomWall(
@@ -271,6 +277,7 @@ namespace Existence.Beyond.JudgmentDay
             new DeferredConversionsInfrastructure(),
             new ThoughtSpouseCouldLearnFromMe(),
             new ToldSpouseSheWasntMyFriend(),
+            new FartedIntentionallyWithOthersAround(),
             new TrackedSpouseFriendStatusOnFacebook(),
             new LightStrangulationOfChild(),
             new DidntRespondToSolarEclipseEmail(),
@@ -307,7 +314,8 @@ namespace Existence.Beyond.JudgmentDay
             new AllowedForgingOfSpousesSignature(),
             new IntentionallyDestroyedCurrency(),
             new PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance(),
-            new MadeInappropriateRemarkInMySpousesMothersPresence()
+            new MadeInappropriateRemarkInMySpousesMothersPresence(),
+            new DisruptionAtDaughtersMontessoriAdolescentGraduation(),
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -1602,6 +1610,26 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// At a WCATY summer event, some participants were located at 
+    /// observatory drive west of Elizabeth Waters Hall. The drive was
+    /// on high ground with a slow decline toward the lake. Some of
+    /// us thought it would be fun to roll down the incline. I did that,
+    /// got up, was dizzy, and then ran out of control. I almost 
+    /// sideswiped a pole with my head. There was no injury, but just
+    /// a little change in position could have produced serious, even
+    /// fatal injury. I don't believe I have reached that level of 
+    /// recklessness since.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.Recklessness)]
+    public class AlmostRanIntoPostOnUniversityOfWisconsinCampus : BaseEvent
+    {
+        public AlmostRanIntoPostOnUniversityOfWisconsinCampus() : base("Almost ran into Post on UW-Madison Campus")
+        {
+        }
+    }
+
+    /// <summary>
     /// Erica J Ringelspaugh took the lead and setup a pseudo-date with
     /// her and Abby (WCATY friend). We got some pizza. I didn't know what
     /// to say but my behavior was very inappropriate (inappropriate jokes,
@@ -1658,6 +1686,21 @@ namespace Existence.Beyond.JudgmentDay
     public class RefusedToShakeBandDirectorsHandAtHighSchoolGraduation : BaseEvent
     {
         public RefusedToShakeBandDirectorsHandAtHighSchoolGraduation() : base("Graduation Refusal to Shake Hands with Band Directory")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Around my high school gratuation (I remember as a bit later)
+    /// I was feeling unsettled and told my sister I thought I would
+    /// be dead in six months (I really believed it too). That didn't 
+    /// happen. In hindsight I misinterpreted my anxiety.
+    /// </summary>
+    [Year(1999)]
+    [SinType(SinType.MisinterpretingInternalFeelings)]
+    public class ToldMySisterIThoughtIWasGoingToDie : BaseEvent
+    {
+        public ToldMySisterIThoughtIWasGoingToDie() : base("Told my Sister I would Die Soon")
         {
         }
     }
@@ -1744,7 +1787,7 @@ namespace Existence.Beyond.JudgmentDay
     /// since I feel guilty either way.
     /// </summary>
     [Year(2000)]
-    [SinType(SinType.BeggingQuestionableResponse)]
+    [SinType(SinType.QuestionableResponseToBegging)]
     public class GaveSolicitorTwentyDollars : BaseEvent
     {
         public GaveSolicitorTwentyDollars() : base("Gave Beggar Twenty Dollars")
@@ -2769,6 +2812,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I thought it interesting to intentionally perform socially inappropriate
+    /// behavior of farting with others around. I grew out of it, but it took
+    /// a very long time. Some of it was to provoke a reaction in others
+    /// with low social reciprocity, some of it was finding inappropriate
+    /// behavior funny
+    /// </summary>
+    [YearRange(1994, 2016)]
+    [SinTypes(SinType.FindSomethingInappropriateFunny, SinType.TryingToProvokeAReaction)]
+    public class FartedIntentionallyWithOthersAround : BaseEvent
+    {
+        public FartedIntentionallyWithOthersAround() : base("Farted Intentionally in Others' Presence")
+        {
+        }
+    }
+
+    /// <summary>
     /// I have friended/defriended people on Facebook based on my mental state. This is especially
     /// nonsensical with respect to spouse. Using "being a friend on Facebook" to track "being a friend
     /// in real life" seems very irrational.
@@ -3081,7 +3140,7 @@ namespace Existence.Beyond.JudgmentDay
     /// answer to.
     /// </summary>
     [Year(2024)]
-    [SinTypes(SinType.BeggingQuestionableResponse, SinType.Hallucination)]
+    [SinTypes(SinType.QuestionableResponseToBegging, SinType.Hallucination)]
     public class DidNotGiveSolicitorAnyMoneyAtGasStation : BaseEvent
     {
         public DidNotGiveSolicitorAnyMoneyAtGasStation() : base("Did not Assist Man asking for Gas Money")
@@ -3355,6 +3414,25 @@ namespace Existence.Beyond.JudgmentDay
     {
         public MadeInappropriateRemarkInMySpousesMothersPresence() : base("Made Inappropriate Remark in my Spouse's Mother's Presence")
         {
+        }
+    }
+
+    /// <summary>
+    /// At my daughter's Montessori adolescent class graduation, I 
+    /// stood at the back, as is my custom, partially for social
+    /// avoidance. As the students were processing in to
+    /// "Pomp and Circumstance", I accidentally backed into the 
+    /// phone, causing the phone to make sounds indicating there
+    /// weren't any messages. I quickly turned off the phone, and 
+    /// no one said anything, but it felt odd.
+    /// </summary>
+    [YearDate(2025, 6, 10)]
+    [SinTypes(SinType.SocialAvoidance, SinType.Disruption, SinType.EmbarrassingBehavior)]
+    public class DisruptionAtDaughtersMontessoriAdolescentGraduation : BaseEvent
+    {
+        public DisruptionAtDaughtersMontessoriAdolescentGraduation() : base("Accidentally Disrupted Daughter's Montessori Adolescent Graduation")
+        {
+
         }
     }
 
