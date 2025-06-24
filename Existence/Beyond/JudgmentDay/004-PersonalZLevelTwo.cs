@@ -68,6 +68,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 12, 0, 0)]
             [YearDate(2025, 6, 14)]
             RecklessDeathExperiencesFartingInOthersPresenceMontessoriAdolescentGraduation,
+
+            [BeyondObjectVersion(1, 13, 0, 0)]
+            [YearDate(2025, 6, 23)]
+            YoureInARelationshipAndOtherSins,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -116,10 +120,13 @@ namespace Existence.Beyond.JudgmentDay
             new StickingFingerInExposedPowerOutlets(),
             new HeadInjuryFromRunningAroundHouseTooFast(),
             new ClassAssignmentWhereCalledStoryCharactersDumb(),
+            new PlayingWithSisterDisrobed(),
             new ILikeToFartHandPuppetPlay(),
             new HidSistersBlanketComfortObject(),
             new SomeoneClaimedSomeoneElseWasDeadInSchool(),
             new FeelingNothingForBenjisDeath(),
+            new ExtremelyScaredOfSnake(),
+            new RecklessDrivingWhenGivenControlOfCar(),
             new SomeoneCalledMeAGeniusGhosting(),
             new SkippedOutOnHalloweenClassParty(),
             new FlashcardsDomination(),
@@ -178,6 +185,7 @@ namespace Existence.Beyond.JudgmentDay
             new WCATYAntiTeachingAssistantFeedback(),
             new UsedCrushLinkToAvoidCrushCommunication(),
             new ListedMyselfAsExcommunicatedFromChurch(),
+            new ExpressedConfidenceChessCouldBeSolved(),
             new GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt(),
             new HitATurkeyWithACar(),
             new PlayedEuchreWithPartnerSignalling(),
@@ -260,6 +268,7 @@ namespace Existence.Beyond.JudgmentDay
             new SpouseBecameStayAtHomeParent(),
             new DeclinedWTSParadigmOwnershipOffer(),
             new ToldStopItWasMagicWordByTherapist(),
+            new SpouseToldMeYoureInARelationship(),
             new ToldTherapistSpouseUnderstandsMe(),
             new TherapistAskedMeWhyIWasInTheRelationshipRespondingToUnhelpfulBehavior(),
             new ImSorryYouHateMeMagicWords(),
@@ -305,10 +314,12 @@ namespace Existence.Beyond.JudgmentDay
             new HitADeerWithCar(),
             new SentEmailToHelgaAfterMovingOnFromHer(),
             new MissedAVISAPayment(),
+            new AccidentallyDeletedAYouTubeVideoBecauseIGotVideosMixedUp(),
             new DeletedMyProductionEnvironment(),
             new PerformedAlienNorthStarTest(),
             new HadFakeInterviewBehaviorWithTheBeyondWhereISaidIWantedToDoYouTubeVideos(),
             new PerformedLevel22TestWithJosephHellerCatch22Representing22(),
+            new AtePartOfAMarijuanaGummy(),
             new PromisedCoerceIdReleaseMyMordorAutomationProgram(),
             new SentEmailToEricaRegardingGhostingYouTubeVideo(),
             new AllowedForgingOfSpousesSignature(),
@@ -316,6 +327,7 @@ namespace Existence.Beyond.JudgmentDay
             new PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance(),
             new MadeInappropriateRemarkInMySpousesMothersPresence(),
             new DisruptionAtDaughtersMontessoriAdolescentGraduation(),
+            new ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange()
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -404,6 +416,21 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// my sister and I were playing outside in the backyard by the fort
+    /// and the tire. I took my clothes off and may have persuaded my
+    /// sister to do so, although nakedness was as far as it got.
+    /// My father came out back and was really mad.
+    /// </summary>
+    [ApproximateAgeInYears(9)]
+    [SinTypes(SinType.InappropriateSexRelatedBehavior)]
+    public class PlayingWithSisterDisrobed : BaseEvent
+    {
+        public PlayingWithSisterDisrobed() : base("Playing with Sister in Underwear")
+        {
+        }
+    }
+
+    /// <summary>
     /// I remember this as happening around my mother's parents' 40th anniversary party. I 
     /// hid my sister's blanket (yellowish) comfort object. My sister got very upset over this, although
     /// it may have been a path on the road to no longer needing a comfort object.
@@ -437,11 +464,46 @@ namespace Existence.Beyond.JudgmentDay
     /// Benji was pseudo-owned by my sister, not by me, so I felt nothing
     /// when she died (Teddy was pseudo-owned by me)
     /// </summary>
-    [SinType(SinType.LackOfSympathy)]
     [Age(8, Earth.Time.TimePeriods.Years)]
+    [SinType(SinType.LackOfSympathy)]
     public class FeelingNothingForBenjisDeath : BaseEvent
     {
         public FeelingNothingForBenjisDeath() : base("Felt Nothing When Family Pet Died")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I was with my sister (I think she was there) playing outside
+    /// in the backyard. We were playing near a notable large log we
+    /// would play around and sit on. One time there was a hole, and a
+    /// small snake was looking out at it (I remember it putting its
+    /// tongue out). We screamed and ran all the way back to the house.
+    /// </summary>
+    [ApproximateAgeInYears(8)]
+    [SinType(SinType.InappropriateFear)]
+    public class ExtremelyScaredOfSnake : BaseEvent
+    {
+        public ExtremelyScaredOfSnake() : base("Was Extremely Scared of Snake")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My recollection is a parent (my guess is my father) gave me a 
+    /// chance to sit in the driver's seat of the car. I remember swinging
+    /// the steering wheel wildly, although I'm not sure if it was 
+    /// deliberate swerving or just trying to control the car without 
+    /// understanding the sensitivity of the steering wheel. I remember
+    /// swerving to both sides of the car, nearly going off-road. In
+    /// hindsight, I'm not even sure any of it really happened, and it
+    /// could have been a dream.
+    /// </summary>
+    [ApproximateAgeInYears(8)]
+    [SinType(SinType.Recklessness)]
+    public class RecklessDrivingWhenGivenControlOfCar : BaseEvent
+    {
+        public RecklessDrivingWhenGivenControlOfCar() : base("Reckless Driving in Control of Car")
         {
         }
     }
@@ -1511,6 +1573,26 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I was talking with Jason White in the Wisconsin Dells High 
+    /// School boys locker room (not sure whether it was after gym
+    /// class or wrestling practice). We had a discussion of computers
+    /// solving games. At the time checkers had been solved, and chess
+    /// had not. I thought it possible chess could be solved by computers.
+    /// I did not understand just how big the chess search space was.
+    /// Eventually computers using neural networks would become dominant
+    /// over humans, but the bigger question of mathematical certainty
+    /// remains unsolved pending seemingly impossible advances in computing.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.Ignorance)]
+    public class ExpressedConfidenceChessCouldBeSolved : BaseEvent
+    {
+        public ExpressedConfidenceChessCouldBeSolved() : base("Expressed Confidence Chess Would be a Solved Game")
+        {
+        }
+    }
+
+    /// <summary>
     /// worst day of my life. Car wouldn't start in the morning, there was a snafu with where I was being
     /// picked up from (Spring Hill vs Wisconsin Dells High School) so I didn't get picked up with my
     /// sister going to gymnastics. I chose to walk 13.5 miles home from school which was very uncomfortable
@@ -2543,6 +2625,24 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I was happening difficulties with spouse, and I tried to
+    /// confront her with what I considered abusive-type behavior. She
+    /// dismissed my concerns, saying the magic words "You're in a
+    /// relationship!". I have since learned that is a common phrase
+    /// used in abusive relationships, not really fully understanding
+    /// what a relationship can and should be.
+    /// </summary>
+    [Year(2012)]
+    [MagicWords("You're in a relationship", "Spouse", "Home", "Me")]
+    [SinType(SinType.SocialUnawareness)]
+    public class SpouseToldMeYoureInARelationship : BaseEvent
+    {
+        public SpouseToldMeYoureInARelationship() : base("Spouse Told me \"You're in a relationship\"")
+        {
+        }
+    }
+
+    /// <summary>
     /// When asked by Andrew why I was in a relationship with spouse, I responded "She understands me".
     /// This was completely the opposite of the truth. I did not understand her then and have not
     /// understood her since, although perhaps my understanding of psychological mechanisms has improved
@@ -3295,6 +3395,25 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I had previously posted a YouTube video from the Song with No 
+    /// Name. After recording a second video also from that song, 
+    /// I sent it to the cloud and back and thought the video had been 
+    /// recut by unseen actors. I annotated the video as if it had been 
+    /// changed by artficial intelligence. I was unhappy with the 
+    /// results. Intending to delete the second video, I accidentally
+    /// deleted the first video. I hastily had to scramble to get 
+    /// another version of the first video online.
+    /// </summary>
+    [Year(2024)]
+    [SinTypes(SinType.IrrationalBehavior, SinType.Inattention)]
+    public class AccidentallyDeletedAYouTubeVideoBecauseIGotVideosMixedUp : BaseEvent
+    {
+        public AccidentallyDeletedAYouTubeVideoBecauseIGotVideosMixedUp() : base("Accidentally Deleted a YouTube Video in Mixup")
+        {
+        }
+    }
+
+    /// <summary>
     /// I began to think it was significant that Indie the dog had two ways to get into the house (via the dog
     /// door and the garage) but could only do one of them. I analogized this to a hypothetical wayfaring problem 
     /// faced by aliens. I performed a test where I went outside to a fork in the path (Indie used this fork
@@ -3339,6 +3458,26 @@ namespace Existence.Beyond.JudgmentDay
     public class PerformedLevel22TestWithJosephHellerCatch22Representing22 : BaseEvent
     {
         public PerformedLevel22TestWithJosephHellerCatch22Representing22() : base("Performed Irrational Level 22 Test")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My mother's cancer was reaching its conclusion, and Sonya had
+    /// taken over care responsibilities after my manic episode. One
+    /// of the things she tried was marijuana gummies for pain control.
+    /// Sonya had got some gummies in Illinois where these are legal,
+    /// and taken to them in Wisconsin where they were not. On somewhat
+    /// of a dare, I ate part of a gummy, and worried there might be
+    /// unseen consequences I ate less than half of it. There was zero
+    /// chance of the authorities punishing me for it, but it was still
+    /// illegal.
+    /// </summary>
+    [Year(2024)]
+    [SinType(SinType.IllegalDrugUse)]
+    public class AtePartOfAMarijuanaGummy : BaseEvent
+    {
+        public AtePartOfAMarijuanaGummy() : base("Illegally Ate Part of a Marijuana Gummy")
         {
         }
     }
@@ -3433,6 +3572,27 @@ namespace Existence.Beyond.JudgmentDay
         public DisruptionAtDaughtersMontessoriAdolescentGraduation() : base("Accidentally Disrupted Daughter's Montessori Adolescent Graduation")
         {
 
+        }
+    }
+
+    /// <summary>
+    /// I was at work, avoiding stressful work by watching a Chess Simp
+    /// YouTube video. All of a sudden, my laptop connection to the 
+    /// docking station failed, with the result that my hearing the
+    /// video through the headphones didn't work anymore, and the video
+    /// played fairly loudly through the laptop speakers. I scrambled
+    /// to try to shut the video off, with multiple attempts failing
+    /// (e.g. through the second monitors that were no longer working
+    /// or by closing the computer case). It took like 15 seconds to 
+    /// turn off, which seemed like an eternity in the quiet business
+    /// atmosphere. It was embarrassing, although no one said anything.
+    /// </summary>
+    [YearDate(2025, 6, 23)]
+    [SinTypes(SinType.Disruption, SinType.EmbarrassingBehavior, SinType.Laziness)]
+    public class ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange : BaseEvent
+    {
+        public ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange() : base("Played Chess Simp Video at Office within Range of Coworkers")
+        {
         }
     }
 
