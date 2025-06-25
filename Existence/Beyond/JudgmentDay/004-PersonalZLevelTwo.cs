@@ -72,6 +72,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 13, 0, 0)]
             [YearDate(2025, 6, 23)]
             YoureInARelationshipAndOtherSins,
+
+            [BeyondObjectVersion(1, 14, 0, 0)]
+            [YearDate(2025, 6, 25)]
+            TherapyThingsHaveChangedMockingAntiEnvironmentalism,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -203,6 +207,8 @@ namespace Existence.Beyond.JudgmentDay
             new RefusedToAskAnyOneOutToHighSchoolProm(),
             new SpentHighSchoolPromPlayingFreeCell(),
             new PassedOutFromDeerHeartInHighSchoolAnatomyClass(),
+            new CaptainPlanetEarthWindWaterFireParody(),
+            new CaptainPlanetMockerySong(),
             new CruddyRemonumentationWork(),
             new AlmostRanIntoPostOnUniversityOfWisconsinCampus(),
             new InappropriateBehaviorOnDate(),
@@ -219,6 +225,7 @@ namespace Existence.Beyond.JudgmentDay
                 new RemovedMOMMUSTDIEOnMothersBedroomWall(),
                 new LivedWithMyMotherWhileSheWasDyingOfCancer()),
             new GaveSolicitorTwentyDollars(),
+            new DefacedEnvironmentalBookWithSaveTheHumans(),
             new TapedPrurientMaterialOnMyMothersVHSTapes(),
             new WentToCollegeComputerLabWhileCoughing(),
             new HelpedCollegeClassmateCheatOnCollegeCompSciClass(),
@@ -304,6 +311,7 @@ namespace Existence.Beyond.JudgmentDay
             new ScreamedAtSpouseOverReasonableness(),
             new TriedToArgueWithSpouseThinkingItWasWhatSheWanted(),
             new PsychiatristToldMeYoureReallyGoodAtThis(),
+            new ToldTherapistThingsHadChangedInMyEmpathyUnderstandingAndThenEndedRelationship(),
             new IncorrectlyThoughtIWasDyingTriggeringAnAmbulanceVisit(),
             new DeletedTherapyBookFromLastPass(),
             new DidNotGiveSolicitorAnyMoneyAtGasStation(),
@@ -1660,6 +1668,42 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// For band we had a concert with a piece involving the classical
+    /// elements earth/wind/water/fire. We were encouraged to create our
+    /// own art using the elements. I did a Captain Planet parody since
+    /// 4/5 Captain Planet elements are covered. I added a fifth of "heart"
+    /// referring to the deer heart incident. My art had nothing to do
+    /// with the main song concept.
+    /// </summary>
+    [Year(1998)]
+    [SinTypes(SinType.FindSomethingInappropriateFunny, SinType.IneffectiveCommunicationOfPoliticalViews)]
+    public class CaptainPlanetEarthWindWaterFireParody : BaseEvent
+    {
+        public CaptainPlanetEarthWindWaterFireParody() : base("Created Captain Planet Earth Wind Water Fire Parody")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I parodied the Captain Planet theme song with the words "Captain
+    /// Planet, he's a zero, gonna take pollution up to here! Oh!"
+    /// I forget if I had a lyric to replace "He's a hero magnified".
+    /// But after that I had "And he's fighting on the bad guy's side."
+    /// It was a reflection of anti-environmentalist views I had at the
+    /// time, and not particularly clever. My views on environmentalism
+    /// remain mainly against, but this wouldn't be helpful in persuading
+    /// anyone.
+    /// </summary>
+    [Year(1998)]
+    [SinTypes(SinType.IneffectiveCommunicationOfPoliticalViews, SinType.FindSomethingInappropriateFunny)]
+    public class CaptainPlanetMockerySong : BaseEvent
+    {
+        public CaptainPlanetMockerySong() : base("Created Captain Planet Mockery Song")
+        {
+        }
+    }
+
+    /// <summary>
     /// This was during the AP Calculus test when I was a junior. The test had Areas 1, 
     /// 2, and 3, and I made a joke there was no Area 51. Not really a sin at the time, but
     /// I'm including it due to possible intergalactic pulsar time implications.
@@ -1873,6 +1917,24 @@ namespace Existence.Beyond.JudgmentDay
     public class GaveSolicitorTwentyDollars : BaseEvent
     {
         public GaveSolicitorTwentyDollars() : base("Gave Beggar Twenty Dollars")
+        {
+        }
+    }
+
+    /// <summary>
+    /// There was a book at my mother's house named something like "Save
+    /// the Planet". I defaced the front cover, and probably the back
+    /// cover too, to say "Save the Humans". This was a reflection of
+    /// my anti-environmentalist views. I think my opinion was along the
+    /// lines of behaviors allegedly saving the planet are neglecting 
+    /// humans, making those behaviors ineffective. But I doubt anyone
+    /// would be persuaded by my book defacing.
+    /// </summary>
+    [Year(2000)]
+    [SinTypes(SinType.IneffectiveCommunicationOfPoliticalViews, SinType.PropertyDamage)]
+    public class DefacedEnvironmentalBookWithSaveTheHumans : BaseEvent
+    {
+        public DefacedEnvironmentalBookWithSaveTheHumans() : base("Defaced \"Save the Planet\" book with \"Save the Humans\"")
         {
         }
     }
@@ -3208,6 +3270,30 @@ namespace Existence.Beyond.JudgmentDay
     public class PsychiatristToldMeYoureReallyGoodAtThis : BaseEvent
     {
         public PsychiatristToldMeYoureReallyGoodAtThis() : base("My psychiatrist said you're really good at this.")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I had a breakthrough that spouse lacked empathy, which led
+    /// me to an understanding of her autism. I decided to tell this
+    /// to the therapist in a phone call. I told him things had 
+    /// changed. He was skeptical, maybe he thought I thought spouse
+    /// had changed. What I really meant was my understanding of
+    /// empathy had improved and this changed my mental health.
+    /// It became clear from the conversation he didn't understand
+    /// or disagreed with me. I ended the conversation with "I will
+    /// not call you again" ending the relationship. I maintain
+    /// this was actually a big deal, perhaps bringing the
+    /// therapist into it could work, but it's not how I roll, sad
+    /// as that may be.
+    /// </summary>
+    [Year(2022)]
+    [MagicWords("Things have changed", "Me", "Phone", "Therapist")]
+    [SinType(SinType.InappropriateUseOfTherapy)]
+    public class ToldTherapistThingsHadChangedInMyEmpathyUnderstandingAndThenEndedRelationship : BaseEvent
+    {
+        public ToldTherapistThingsHadChangedInMyEmpathyUnderstandingAndThenEndedRelationship() : base("Told Therapist Things have Changed as Last Communication")
         {
         }
     }
