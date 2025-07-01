@@ -963,11 +963,13 @@ namespace Existence.Beyond.Infrastructure
         TattleTale,
         TaxEvasion,
         Thoughtcrime,
+        Torture,
         TryingToProvokeAReaction,
         UnauthorizedAccess,
         UnhealthyBehavior,
         Voyeurism,
         WasteMoney,
         WasteResources,
+        WorkingForFree,
     }
 }

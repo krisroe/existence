@@ -76,6 +76,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 14, 0, 0)]
             [YearDate(2025, 6, 25)]
             TherapyThingsHaveChangedMockingAntiEnvironmentalism,
+
+            [BeyondObjectVersion(1, 15, 0, 0)]
+            [YearDate(2025, 6, 30)]
+            FreeEpicHelpDangerousSoccerHeaderFireflyKilling
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -197,6 +201,7 @@ namespace Existence.Beyond.JudgmentDay
             new SpanishClassSkitWhereAnAirlinerExploded(),
             new InappropriatelyPutArmAroundGirl(),
             new ToldClassmateIHadContactsWhenIDidnt(),
+            new DangerousHeaderInSoccerGame(),
             new PretendedDrugIVUseInPsychology(),
             new SomehowBrokeTeachersComputer(),
             new SemipubliclyClaimToBeTheAntichristAsAJoke(),
@@ -241,6 +246,7 @@ namespace Existence.Beyond.JudgmentDay
             new WatchedVideoForSexualGratificationAndWasntSureIfVisibleToNeighbors(),
             new Did360InTheSnowAtMineralPointAndWhitneyWay(),
             new ExposedPersonalInformationInGarbage(),
+            new GaveGirlfriendAssistanceForEpicWorkWhenIWasNotWorkingThere(),
             new FutureSpouseMentionedAbusiveTendenciesAndIMisinterpretedIt(),
             new UnproductiveConversationsWithFutureSpouseAboutPastBoyfriends(),
             new DidNotCorrectIncorrectTornadoAnecdote(),
@@ -335,7 +341,8 @@ namespace Existence.Beyond.JudgmentDay
             new PaidForPsychiatristVisitOutOfPocketInsteadOfUsingInsurance(),
             new MadeInappropriateRemarkInMySpousesMothersPresence(),
             new DisruptionAtDaughtersMontessoriAdolescentGraduation(),
-            new ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange()
+            new ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange(),
+            new KilledAFireflyAtBaseballGame()
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -1407,6 +1414,24 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// I remember a soccer game where the other teams' goalie
+    /// boomed the ball downfield and I, in opposition, and 
+    /// other players competed for the ball. The ball came
+    /// whizzing at high speed and I took the full force of
+    /// the ball a bit above my forehead. I remember there was
+    /// a bit of recovery from the impact, but in hindsight seems
+    /// too risk of concussion.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.Recklessness)]
+    public class DangerousHeaderInSoccerGame : BaseEvent
+    {
+        public DangerousHeaderInSoccerGame() : base("Took a Dangerous Header in a Soccer Game")
+        {
+        }
+    }
+
+    /// <summary>
     /// for psychology class we had a project that involved performance. I chose to 
     /// try to portray someone using illegal drugs via IV. I don't remember any of the
     /// reaction, although I vaguely feel it was embarrassing.
@@ -2157,6 +2182,22 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// After I left Epic the first time, within a week of this,
+    /// then-girlfriend spouse called me at home and asked me for
+    /// help with a problem she had at work. Despite not actually
+    /// working at Epic, I tried to help her out. I don't remember
+    /// if I was actually of any assistance, but I did try.
+    /// </summary>
+    [Year(2006)] //August
+    [SinType(SinType.WorkingForFree)]
+    public class GaveGirlfriendAssistanceForEpicWorkWhenIWasNotWorkingThere : BaseEvent
+    {
+        public GaveGirlfriendAssistanceForEpicWorkWhenIWasNotWorkingThere() : base("Gave Spouse Assistance with Epic Problem while Not Working There")
+        {
+        }
+    }
+
+    /// <summary>
     /// Spouse mentioned once that she'd been told she had abusive tendencies,
     /// I think by one of her past boyfriends. I interpreted this as a mature
     /// way of explaining how she'd grown. This was entirely incorrect, as
@@ -2617,7 +2658,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [Year(2011)]
     [IsDisqualifyingSin]
-    [SinType(SinType.InappropriateAngerOutlet)]
+    [SinTypes(SinType.InappropriateAngerOutlet, SinType.Torture)]
     public class TorturedAPug : BaseEvent
     {
         public LivedWithThePugWhileSheWasDying Atonement { get; set; }
@@ -3678,6 +3719,28 @@ namespace Existence.Beyond.JudgmentDay
     public class ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange : BaseEvent
     {
         public ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange() : base("Played Chess Simp Video at Office within Range of Coworkers")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Setting: Madison Mallards (home) - Wausau Woodchucks baseball game 
+    /// (0-0 after 9 innings, ended in 2-1 Woodchucks victory in
+    /// 10 inning. Near the end of the game, a firefly hovered in
+    /// front of my face. Without thinking I clapped my hands on
+    /// it and it went down. Then I saw a green glow from it and
+    /// realized it was a firefly. I wouldn't have killed it if
+    /// I had realized it was a firefly. I tried to stomp on it
+    /// to kill it on the ground, but a bit later I noticed it
+    /// was still giving a green glow. I don't know how alive it
+    /// was at that point, but my intent was not to torture it
+    /// either.
+    /// </summary>
+    [YearDate(2026, 6, 26)]
+    [SinTypes(SinType.Murder, SinType.Torture)]
+    public class KilledAFireflyAtBaseballGame : BaseEvent
+    {
+        public KilledAFireflyAtBaseballGame() : base("Killed a Firefly at a Baseball Game")
         {
         }
     }
