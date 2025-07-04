@@ -96,6 +96,16 @@ namespace Existence.Personal.Beyond
         /// 
         /// (June 2025): daughters friend Mitali moved to house number 9501 (matching
         /// WCP-9501, the time traveling message box incident)
+        /// 
+        /// February 4, 2025 Middleton hs ice hockey vs sun
+        /// prairie. son's pep band. had confusion regarding use
+        /// of the penalty box for penalties. Seemed to have
+        /// 2 hallucinations around player going to the penalty box.
+        /// It seemed like the players went into the penalty box and
+        /// didn't come out. I looked afterward and there didn't
+        /// seem to be an exit to the penalty box. A much later
+        /// look at the rules indicated penalty boxes are usually
+        /// used for high school hockey.
         /// </summary>
         internal class WorkingIdeas
         {
