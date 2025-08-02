@@ -133,6 +133,7 @@ namespace Existence.Personal
         KristinPearce,
         LauraCummings,
         LukePeyton,
+        MarkFela,
         /// <summary>
         /// not sure on the spelling, he was Indian (presumably Ho Chunk)
         /// </summary>
@@ -149,6 +150,7 @@ namespace Existence.Personal
         RyanWalker,
         StephanieHartman,
         TamekaGray,
+        TJClark,
         TonyLeggett,
         WayneCoder,
         ZachNemitz,

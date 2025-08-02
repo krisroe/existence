@@ -202,8 +202,14 @@ namespace Existence.Beyond.JudgmentDay
             new InappropriatelyPutArmAroundGirl(),
             new ToldClassmateIHadContactsWhenIDidnt(),
             new DangerousHeaderInSoccerGame(),
+            new SouthParkRipoffInHomeMovie(),
+            new SpitOutCranberryJuiceInHomeMovie(),
             new PretendedDrugIVUseInPsychology(),
             new SomehowBrokeTeachersComputer(),
+            new WrotePimpinStoryInHighSchoolEnglishCompositionClass(),
+            new WroteWeightLossStoryInHighSchoolEnglishCompositionClass(),
+            new CreatedSouthParkRipoffMagazineCoverInHighSchoolEnglishCompositionClass(),
+            new DidNotAssertMyselfInMagazineAssignmentInHighSchoolEnglishCompositionClass(),
             new SemipubliclyClaimToBeTheAntichristAsAJoke(),
             new SowingChaosAtHighSchoolBandPractice(),
             new ClaimedPsychologyIsBullshitInClassAssignment(),
@@ -279,6 +285,7 @@ namespace Existence.Beyond.JudgmentDay
             new SaidTheWordNiggerOutLoudToSpouse(),
             new TorturedAPug(new LivedWithThePugWhileSheWasDying()),
             new SpouseBecameStayAtHomeParent(),
+            new HeardSpousesMethodForNotGettingADivorce(),
             new DeclinedWTSParadigmOwnershipOffer(),
             new ToldStopItWasMagicWordByTherapist(),
             new SpouseToldMeYoureInARelationship(),
@@ -342,7 +349,9 @@ namespace Existence.Beyond.JudgmentDay
             new MadeInappropriateRemarkInMySpousesMothersPresence(),
             new DisruptionAtDaughtersMontessoriAdolescentGraduation(),
             new ChessSimpYouTubeVideoPlayedAtOfficeInOthersHearingRange(),
-            new KilledAFireflyAtBaseballGame()
+            new KilledAFireflyAtBaseballGame(),
+            new StoleSpousesGlutenFreeMarshmallowRoastingStick(),
+            new UsedSpousesPhoneToSendNonsenseTexts()
             };
 
                 List<BaseEvent> ongoingSins = new List<BaseEvent>()
@@ -358,6 +367,7 @@ namespace Existence.Beyond.JudgmentDay
                 new SuboptimalEmailResponse(),
                 new MedicationAbuseNoPromises(),
                 new UnauthorizedVideoGameUseInWorkArcade(),
+                new ExcessivePointingOutOfSpouseGlutenAllergy(),
                 new GivingUpGivingUpSomethingForLentForLent(religiousFlags)
             };
             }
@@ -1432,6 +1442,40 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// during a home movie, I randomly said the word "Toilet Shark".
+    /// Then I said to try the take again. This was an obvious ripoff
+    /// of a South Park episode where the mayor did something similar,
+    /// although "Toilet Shark" wasn't part of that bit.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [MagicWords("Toilet Shark", "Me", "Home Movie Filmed by Sister", "Sister")]
+    [SinType(SinType.RipoffOthersArt)]
+    public class SouthParkRipoffInHomeMovie : BaseEvent
+    {
+        public SouthParkRipoffInHomeMovie() : base("South Park Ripoff in Home Movie")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In a home movie I was making a detailed explanation of
+    /// how awful cranberry juice was, while pouring/stirring the
+    /// cranberry juice. At the end I took a drink of the cranberry
+    /// juice and spit/blasted it out making a mess. My sister
+    /// freaked out a little bit, yelling "It's sugary!" I think we
+    /// did have some cleanup to do after the incident.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [MagicWords("It's sugary!", "Sister", "Home Movie Filmed by Sister", "Sister")]
+    [SinType(SinType.MakingAMess)]
+    public class SpitOutCranberryJuiceInHomeMovie : BaseEvent
+    {
+        public SpitOutCranberryJuiceInHomeMovie() : base("Spit out Cranberry Juice in Home Movie")
+        {
+        }
+    }
+
+    /// <summary>
     /// for psychology class we had a project that involved performance. I chose to 
     /// try to portray someone using illegal drugs via IV. I don't remember any of the
     /// reaction, although I vaguely feel it was embarrassing.
@@ -1460,6 +1504,91 @@ namespace Existence.Beyond.JudgmentDay
         {
         }
     }
+
+    /// <summary>
+    /// In English composition class in high school each of our
+    /// class had to create a magazine and get other classmates to
+    /// write articles for the magazine. TJ Clark wrote a magazine
+    /// about pimpin'. I tried to write a satirical article in
+    /// line with the style of The Onion, but in hindsight it was
+    /// probably indistinguishable from random objectification of
+    /// females. Then again, the article is lost to time.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [Witness((int)ClassmateList.TJClark)]
+    [SinTypes(SinType.ObjectificationOfFemales, SinType.InappropriateJoke)]
+    public class WrotePimpinStoryInHighSchoolEnglishCompositionClass : BaseEvent
+    {
+        public WrotePimpinStoryInHighSchoolEnglishCompositionClass() : base("Wrote Composition about Pimping in High School")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Another English composition was an article about Mr. Brancel's
+    /// weight loss method for a science magazine which I don't remember
+    /// who owned. The method was fairly uncomplicated, involving
+    /// drinking plenty of water and exercising. I tried to write it in
+    /// the style of The Onion, with pictures of three teachers with
+    /// made up comments, two of which I remember. In hindsight it's
+    /// an embarrassing article, particularly in concert with other
+    /// making fun of fatness in my sister and cats, and my later in
+    /// life efforts to maintain a reasonably healthy weight.
+    /// Ms. Roxanne Biffert: "It didn't work for me. He's not a miracle worker."
+    /// [I don't even remember Ms. Biffert as overweight, which may
+    /// have been part of the joke]
+    /// Mr. John Torgerson: "Brancel is brilliant! I lost two ounces!"
+    /// [I don't remember Mr. Torgerson as overweight either].
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinTypes(SinType.InappropriateJoke)]
+    public class WroteWeightLossStoryInHighSchoolEnglishCompositionClass : BaseEvent
+    {
+        public WroteWeightLossStoryInHighSchoolEnglishCompositionClass() : base("Wrote ridiculing weight loss story in High School composition class")
+        {
+        }
+    }
+
+    /// <summary>
+    /// My magazine for high school English composition class was
+    /// about trying to take over the work. The personal story I wrote
+    /// was about betting being done over history over whether people such
+    /// as Napoleon would take over parts of the world. The cover art
+    /// for the magazine was ripped off from a TV screen capture of the 
+    /// South Park episode "Mecha Streisand".
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [SinType(SinType.RipoffOthersArt)]
+    public class CreatedSouthParkRipoffMagazineCoverInHighSchoolEnglishCompositionClass : BaseEvent
+    {
+        public CreatedSouthParkRipoffMagazineCoverInHighSchoolEnglishCompositionClass() : base("Write South Park Ripoff Story in English Composition Class")
+        {
+        }
+    }
+
+    /// <summary>
+    /// The high school English composition magazine assignment had
+    /// a social component, where we had to get other students to write
+    /// articles for us. I didn't have much success, partly because my
+    /// magazine around "Taking Over the World" had a limited audience,
+    /// and partly because I didn't assert myself in this regard. Students
+    /// who didn't get enough articles written had their magazines "auctioned off"
+    /// which allowed other students to "buy" other student's magazines and
+    /// complete them to get a better grade. I actively campaigned against
+    /// my magazine being bought, which most students respected, except
+    /// Mark Fela bought it. In hindsight none of this matters much, but
+    /// it is kind of embarrassing.
+    /// </summary>
+    [ApproximateAgeInYears(17)]
+    [Witness((int)ClassmateList.MarkFela)]
+    [SinType(SinType.NonAssertiveBehavior)]
+    public class DidNotAssertMyselfInMagazineAssignmentInHighSchoolEnglishCompositionClass : BaseEvent
+    {
+        public DidNotAssertMyselfInMagazineAssignmentInHighSchoolEnglishCompositionClass() : base("Did not Assert Myself in High School English Magazine Assignment")
+        {
+        }
+    }
+
 
     /// <summary>
     /// Main example is intentionally playing just a bit off to confuse the choir director. This is
@@ -2696,6 +2825,25 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// At some point when the subject of divorce came up generally
+    /// spouse stated that her strategy for not getting a divorce was to
+    /// not get a divorce. At the time I thought it a bit odd, but I
+    /// didn't say anything. In retrospect it's clear that spouse did
+    /// not understand interactions necessary to maintain a healthy
+    /// relationship, which was a bad omen for the future of the
+    /// relationship.
+    /// </summary>
+    [Year(2011)]
+    [MagicWords("The way to not get a divorce is not to get a divorce", "Spouse", "Home", "Spouse")]
+    [SinType(SinType.SocialUnawareness)]
+    public class HeardSpousesMethodForNotGettingADivorce : BaseEvent
+    {
+        public HeardSpousesMethodForNotGettingADivorce() : base("Spouse Told me Her non-Divorce Method and I didn't Respond")
+        {
+        }
+    }
+
+    /// <summary>
     /// At some point when Mike Moede was manager, he called me into his office and talked about an offer
     /// for some piece of ownership of the company. It might have been stock options or something conceptually
     /// similar I declined, thinking I hadn't really earned it. It also may have been a factor that I was planning
@@ -3745,6 +3893,45 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    /// <summary>
+    /// At my father's Door County house, we were roasting marshmallows,
+    /// with both gluteny and gluten-free available. Spouse reserved for
+    /// herself a stick for gluten-free use (since using a gluteny marshmallow
+    /// would tarnish the stick with gluten). I wanted a stick and I didn't
+    /// know where they were. I took spouse's stick as the only one available.
+    /// After putting the marshmallow on, spouse objected to this. Spouse
+    /// was able to get another stick. My father's spouse got some tape
+    /// and unmistakingly labeled the stick as gluten-free to solve the problem.
+    /// </summary>
+    [YearDate(2025, 7, 31)]
+    [SinTypes(SinType.ForgettingImportantInformation, SinType.Theft)]
+    public class StoleSpousesGlutenFreeMarshmallowRoastingStick : BaseEvent
+    {
+        public StoleSpousesGlutenFreeMarshmallowRoastingStick() : base("Stole spouse's gluten-free marshmallow roasting stick")
+        {
+        }
+    }
+
+    /// <summary>
+    /// While driving home from my father's Door County house,
+    /// spouse was driving since Adam wasn't feeling good and 
+    /// spouse's driving is less jerky. I was navigating using
+    /// spouse's phone. I sent a series of nonsense messages to
+    /// Beverly's phone, where she was a passenger and spouse's
+    /// mother was driving. The messages included random emojis,
+    /// random NATO alphabet characters, and messages that seemed
+    /// plausibly useful but weren't in actuality. Spouse seemed
+    /// annoyed by this, but didn't bring it up directly.
+    /// </summary>
+    [YearDate(2025, 8, 1)]
+    [SinTypes(SinType.Impersonation, SinType.InappropriateJoke, SinType.IntentionalIrritation)]
+    public class UsedSpousesPhoneToSendNonsenseTexts : BaseEvent
+    {
+        public UsedSpousesPhoneToSendNonsenseTexts() : base("Used Spouse's Phone to Send Nonsense Texts")
+        {
+        }
+    }
+
     #region Ongoing
 
     /// <summary>
@@ -3907,11 +4094,25 @@ namespace Existence.Beyond.JudgmentDay
     /// older video games that may be of sketchy legality. My kids and I continue to use the arcade
     /// on a regular basis despite it being questionable this is above board.
     /// </summary>
-    [SinType(SinType.LicenseShadiness)]
     [StartYear(2020)]
+    [SinType(SinType.LicenseShadiness)]
     public class UnauthorizedVideoGameUseInWorkArcade : BaseEvent
     {
         public UnauthorizedVideoGameUseInWorkArcade() : base("Unauthorized Video Game Use in Work Arcade")
+        {
+        }
+    }
+
+    /// <summary>
+    /// I highlight spouse's gluten allergy way more than is necessary.
+    /// Some of it is just to remind myself of the allergy, but most
+    /// of it is for the purpose of ridicule.
+    /// </summary>
+    [StartYear(2019)]
+    [SinType(SinType.IntentionalIrritation)]
+    public class ExcessivePointingOutOfSpouseGlutenAllergy : BaseEvent
+    {
+        public ExcessivePointingOutOfSpouseGlutenAllergy() : base("Excessive pointing out of spouse's gluten allergy")
         {
         }
     }
