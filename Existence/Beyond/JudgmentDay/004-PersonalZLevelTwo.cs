@@ -79,7 +79,11 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 15, 0, 0)]
             [YearDate(2025, 6, 30)]
-            FreeEpicHelpDangerousSoccerHeaderFireflyKilling
+            FreeEpicHelpDangerousSoccerHeaderFireflyKilling,
+
+            [BeyondObjectVersion(1, 16, 0, 0)]
+            [YearDate(2025, 8, 16)]
+            LeydonJarComputerGamesCenterOfMass,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -188,11 +192,14 @@ namespace Existence.Beyond.JudgmentDay
             new ParticipationInEENFL(),
             new ChairBurningAtPicnicPoint(),
             new AteEntireBatchOfHomemadeNoodles(),
+            new ClaimedToBeGoodAtComputerGames(),
             new ToldGirlILovedHerTakenOutOfContext(),
             new LiedAboutHavingGirlfriend(),
             new WCATYAntiTeachingAssistantFeedback(),
             new UsedCrushLinkToAvoidCrushCommunication(),
             new ListedMyselfAsExcommunicatedFromChurch(),
+            new FoundFunnyManipulationOfPlayerToSayTheWordAss(),
+            new RecklessBehaviorWithLeydonJar(),
             new ExpressedConfidenceChessCouldBeSolved(),
             new GaveMySoulToAClassmateAndIDontKnowWhatHappenedToIt(),
             new HitATurkeyWithACar(),
@@ -1652,6 +1659,24 @@ namespace Existence.Beyond.JudgmentDay
     }
 
     /// <summary>
+    /// In discussions with classmates (I think math class), including
+    /// they talked about their prowess at video games. We didn't
+    /// have a video game console so I didn't really understand what
+    /// the video games were. I was familiar with computers so I claimed
+    /// I was good at computer games but not video games. In truth I
+    /// hadn't been exposed to a lot of coputer games either. My position
+    /// wasn't really believed anyways.
+    /// </summary>
+    [ApproximateAgeInYears(16)]
+    [SinTypes(SinType.Arrogance, SinType.Ignorance)]
+    public class ClaimedToBeGoodAtComputerGames : BaseEvent
+    {
+        public ClaimedToBeGoodAtComputerGames() : base("Claimed to be Good at Computer Games")
+        {
+        }
+    }
+
+    /// <summary>
     /// At a WCATY event, during leisure time, Erica J. Ringelspaugh and 
     /// I were partners in Euchre and she had a good hand that helped 
     /// out to have a result in our favor. I said the magic words,
@@ -1746,10 +1771,49 @@ namespace Existence.Beyond.JudgmentDay
     /// remains unsolved pending seemingly impossible advances in computing.
     /// </summary>
     [Year(1998)]
+    [Witness((int)ClassmateList.JasonWhite)]
     [SinType(SinType.Ignorance)]
     public class ExpressedConfidenceChessCouldBeSolved : BaseEvent
     {
         public ExpressedConfidenceChessCouldBeSolved() : base("Expressed Confidence Chess Would be a Solved Game")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In Physics class we made a Leydon jar and made a broken circle of
+    /// people. The people on the broken edges touched the Leydon jar, sending
+    /// an electrical shock around the circle. That setup isn't dangerous,
+    /// but it was said to be dangerous for a single person to touch the Leydon jar
+    /// at both ends, because the electrical shock could cause heart problems.
+    /// I did it anyway (once). Nothing bad happened. I am unsure exactly
+    /// how much risk I was taking on.
+    /// </summary>
+    [Year(1998)]
+    [SinType(SinType.Recklessness)]
+    public class RecklessBehaviorWithLeydonJar : BaseEvent
+    {
+        public RecklessBehaviorWithLeydonJar() : base("Reckless Behavior with Leydon Jar")
+        {
+        }
+    }
+
+    /// <summary>
+    /// In high school physics class, there was a lesson player that
+    /// discussed the concept of "center of mass". David Borud found if
+    /// you stopped the player at a precise point and pressed play and stopped
+    /// immediately it would say "Ass". Then if the back button was pressed to
+    /// go back a frame some specific number of times (I remember 19 but that could be
+    /// wrong), you could repeat it saying "Ass". And you could do this many
+    /// times in a row. I found this hilarious and even made up a song containing
+    /// the concepts of "ass" and "center of mass".
+    /// </summary>
+    [Year(1998)]
+    [Witness((int)YearAboveClassmateList.DavidBorud)]
+    [SinType(SinType.FindSomethingInappropriateFunny)]
+    public class FoundFunnyManipulationOfPlayerToSayTheWordAss : BaseEvent
+    {
+        public FoundFunnyManipulationOfPlayerToSayTheWordAss() : base("Found Funny Making a School Player Play the word \"Ass\"")
         {
         }
     }

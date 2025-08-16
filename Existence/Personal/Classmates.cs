@@ -91,6 +91,7 @@ namespace Existence.Personal
 
     public enum YearAboveClassmateList
     {
+        DavidBorud,
         CarolBraun,
         HeatherDakter,
         MelissaHamburg,
