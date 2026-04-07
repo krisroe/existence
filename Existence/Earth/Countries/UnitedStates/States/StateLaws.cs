@@ -582,8 +582,10 @@ namespace Existence.Earth.Countries.UnitedStates.States
         AgardMelissa,
         CrawfordSusan,
         KinserBrittany,
+        LazarMaria,
         RatzlaffStephen,
         SchimelBrad,
+        TaylorChris,
         UnderlyJill,
     }
 }
