@@ -224,19 +224,19 @@ namespace Existence.Earth.War
         /// </summary>
         BrodskiKiril = 41,
         /// <summary>
-        /// released
+        /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         BrodutchHagar = 42,
         /// <summary>
-        /// released
+        /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         BrodutchOfri = 43,
         /// <summary>
-        /// released
+        /// Brodetz is a transformation of the Hebrew.
         /// </summary>
-        BrodutchUriah = 44,
+        BrodutchOriya = 44,
         /// <summary>
-        /// released
+        /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         BrodutchYuval = 45,
         /// <summary>
@@ -1244,7 +1244,7 @@ namespace Existence.Earth.War
                     HostageList.AvrihamElma,
                     HostageList.BrodutchHagar,
                     HostageList.BrodutchOfri,
-                    HostageList.BrodutchUriah,
+                    HostageList.BrodutchOriya,
                     HostageList.BrodutchYuval,
                     HostageList.EdanAbigail,
                     HostageList.ElyakimDafna,
