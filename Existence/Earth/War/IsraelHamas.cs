@@ -995,7 +995,7 @@ namespace Existence.Earth.War
         /// </summary>
         TarshanskyGali = 218,
         /// <summary>
-        /// released, mother of Yelena Troufanov
+        /// released, mother of Yelena Trufanov and Alexander (Sasha) Trufanov
         /// </summary>
         TatiIrena = 219,
         /// <summary>
@@ -1020,13 +1020,13 @@ namespace Existence.Earth.War
         /// </summary>
         TornsokreePattanayut = 224,
         /// <summary>
-        /// released
+        /// Trupanob is a transformation of the Hebrew.
         /// </summary>
-        TroufanovYelena = 225,
+        TrufanovYelena = 225,
         /// <summary>
-        /// released (29 yr)
+        /// Trupanob is a transformation of the Hebrew. (29 yr)
         /// </summary>
-        TrupanobAlexanderSasha = 226,
+        TrufanovAlexanderSasha = 226,
         /// <summary>
         /// body recovered
         /// </summary>
@@ -1301,11 +1301,6 @@ namespace Existence.Earth.War
                     HostageList.TornsokreePattanayut)]
                 public static class November28 { }
 
-                /// <summary>
-                /// Ofir Tzarfati, Liat Beinin, Raz Ben-Ami, Ofir Engel, Yarden Roman-Gat, Liam Or, Itay Regev, Raaya Rotem
-                /// Amit Shani, Gali Tarshansky, Moran Stela Yanai, Paiboon Ratanin, Kong Saelao, Chalermchai Sangkaew, Jakkrapan Srikeina
-                /// Yelena Troufanov, Irena Tati (mother of Yelena Troufanov)
-                /// </summary>
                 [Number(17)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -1323,7 +1318,7 @@ namespace Existence.Earth.War
                     HostageList.SaelaoKong,
                     HostageList.SangkaewChalermchai,
                     HostageList.SrikeinaJakkrapan,
-                    HostageList.TroufanovYelena,
+                    HostageList.TrufanovYelena,
                     HostageList.TatiIrena)]
                 public static class November29 { }
 
@@ -1590,7 +1585,7 @@ namespace Existence.Earth.War
                 /// Released: Sagui Dekel-Chen, Alexandre (Sasha) Troufanov, Iair Horn 46
                 /// </summary>
                 [Hostages(HostageList.DekelChenSagui,
-                    HostageList.TrupanobAlexanderSasha,
+                    HostageList.TrufanovAlexanderSasha,
                     HostageList.HornIair)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Number(3)]
