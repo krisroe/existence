@@ -28,6 +28,7 @@ namespace Existence.Earth.War
     {
         ReleasedBody,
         ReleasedAlive,
+        RemainsIdentified,
         RecoveredBody,
         RecoveredBodyKilledByIsrael,
         RescuedAlive,
@@ -39,6 +40,10 @@ namespace Existence.Earth.War
     public enum HostageList
     {
         /// <summary>
+        /// released body
+        /// </summary>
+        AdarTamir = 1,
+        /// <summary>
         /// released (85 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
@@ -47,6 +52,10 @@ namespace Existence.Earth.War
         /// Staff Sergeant, body recovered (20 yr)
         /// </summary>
         AhimasTomerYaakov = 2,
+        /// <summary>
+        /// 39 yr, released body, Israeli Bedouin soldier
+        /// </summary>
+        AlAtreshMuhammad = 3,
         /// <summary>
         /// released (45 yr)
         /// </summary>
@@ -91,9 +100,8 @@ namespace Existence.Earth.War
         AngkaewAnucha = 11,
 
         /// <summary>
-        /// 32 yr
+        /// Israeli solder captured during the October 7 attacks, 32 yr, released
         /// </summary>
-        [TODO("")]
         AngrestMatan = 12,
 
         /// <summary>
@@ -136,6 +144,14 @@ namespace Existence.Earth.War
         /// </summary>
         BabadillaNoralin = 21,
         /// <summary>
+        /// released body
+        /// </summary>
+        BaruchSahar = 22,
+        /// <summary>
+        /// released body
+        /// </summary>
+        BaruchUriael = 22,
+        /// <summary>
         /// released
         /// </summary>
         BeininLiat = 22,
@@ -161,15 +177,13 @@ namespace Existence.Earth.War
         BergerAgam = 27,
 
         /// <summary>
-        /// 26 yr
+        /// 26 yr, released, Gali/Ziv Berman are twins
         /// </summary>
-        [TODO("")]
         BermanGali = 28,
 
         /// <summary>
-        /// 26 yr
+        /// 26 yr, released, Gali/Ziv Berman are twins
         /// </summary>
-        [TODO("")]
         BermanZiv = 29,
 
         /// <summary>
@@ -190,9 +204,8 @@ namespace Existence.Earth.War
         BibasYarden = 33,
 
         /// <summary>
-        /// 34 yr
+        /// 34 yr, released
         /// </summary>
-        [TODO("")]
         BohbotElkana = 34,
 
         /// <summary>
@@ -201,7 +214,9 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         BoonpromSanti = 35,
 
-        [TODO("")]
+        /// <summary>
+        /// released
+        /// </summary>
         BraslavskiRom = 36,
 
         /// <summary>
@@ -237,6 +252,10 @@ namespace Existence.Earth.War
         /// </summary>
         BuskilaEstherAmit = 44,
         /// <summary>
+        /// body recovered
+        /// </summary>
+        ChenItay = 45,
+        /// <summary>
         /// released
         /// </summary>
         ChombuaKomkrit = 45,
@@ -246,9 +265,8 @@ namespace Existence.Earth.War
         CohenEliya = 46,
 
         /// <summary>
-        /// 19 yr
+        /// Israeli solder captured during the October 7 attacks, 19 yr, released
         /// </summary>
-        [TODO("")]
         CohenNimrod = 47,
 
         /// <summary>
@@ -257,21 +275,18 @@ namespace Existence.Earth.War
         CohenSapir = 48,
 
         /// <summary>
-        /// 84 yr
+        /// 84 yr, released body
         /// </summary>
-        [TODO("")]
         CooperAmiram = 49,
 
         /// <summary>
-        /// 26 yr
+        /// 26 yr, released
         /// </summary>
-        [TODO("")]
         CunioAriel = 50,
 
         /// <summary>
-        /// 33 yr
+        /// 33 yr, released
         /// </summary>
-        [TODO("")]
         CunioDavid = 51,
 
         /// <summary>
@@ -304,9 +319,8 @@ namespace Existence.Earth.War
         DaninoOri = 58,
 
         /// <summary>
-        /// 23 yr
+        /// 23 yr, released
         /// </summary>
-        [TODO("")]
         DavidEvyatar = 59,
 
         /// <summary>
@@ -342,6 +356,10 @@ namespace Existence.Earth.War
         /// </summary>
         EngelOfir = 67,
         /// <summary>
+        /// released body
+        /// </summary>
+        EngelRonan = 68,
+        /// <summary>
         /// released
         /// </summary>
         EngelYuval = 68,
@@ -356,13 +374,17 @@ namespace Existence.Earth.War
         /// <summary>
         /// released (20 yr)
         /// </summary>
-        GilboaDaniella = 71, //(orignally named Danielle)
+        GilboaDaniella = 71, //(originally named Danielle)
 
         /// <summary>
-        /// 22 yr
+        /// 22 yr, released, Guy Gilboa-Dalal
         /// </summary>
-        [TODO("")]
         GilboaDalalGuy = 72,
+
+        /// <summary>
+        /// released body
+        /// </summary>
+        GodardManny = 73,
 
         /// <summary>
         /// body recovered, executed by Hamas (American) (23 yr)
@@ -370,9 +392,8 @@ namespace Existence.Earth.War
         GoldbergPolinHersh = 73,
 
         /// <summary>
-        /// 32 yr
+        /// 32 yr, body released
         /// </summary>
-        [TODO("")]
         GoldinHadar = 74,
 
         /// <summary>
@@ -413,21 +434,27 @@ namespace Existence.Earth.War
         GritzewskyIlana = 83,
 
         /// <summary>
-        /// 24 yr
+        /// 24 yr, aka Rani, body recovered, last hostage accounted for
         /// </summary>
-        [TODO("")]
         GviliRan = 84,
 
         /// <summary>
-        /// 73 yr
+        /// 73 yr, aka Gadi, released body
         /// </summary>
-        [TODO("")]
         HaggaiGad = 85,
 
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
         HaimYotam = 86,
+        /// <summary>
+        /// body recovered
+        /// </summary>
+        HaimiTal = 87,
+        /// <summary>
+        /// body released
+        /// </summary>
+        HamamiAsaf = 88,
         /// <summary>
         /// released
         /// </summary>
@@ -441,26 +468,22 @@ namespace Existence.Earth.War
         /// </summary>
         HarLuis = 89,
         /// <summary>
+        /// released body, 26 yr
+        /// </summary>
+        HaymanInbar = 90,
+        /// <summary>
         /// released
         /// </summary>
         HeimanDitza = 90,
 
         /// <summary>
-        /// 35 yr
+        /// 35 yr, released
         /// </summary>
-        [TODO("")]
         HerkinMaxim = 91,
 
         /// <summary>
-        /// 30 yr
+        /// 37 yr, released
         /// </summary>
-        [TODO("")]
-        HernandezOryon = 92,
-
-        /// <summary>
-        /// 37 yr
-        /// </summary>
-        [TODO("")]
         HornEitan = 93,
 
         /// <summary>
@@ -485,9 +508,8 @@ namespace Existence.Earth.War
         JirachartManee = 98,
 
         /// <summary>
-        /// 23 yr
+        /// 23 yr, released body
         /// </summary>
-        [TODO("")]
         JoshiBipin = 99,
 
         /// <summary>
@@ -509,9 +531,8 @@ namespace Existence.Earth.War
         KalderonSahar = 103,
 
         /// <summary>
-        /// 25 yr
+        /// 25 yr, released
         /// </summary>
-        [TODO("")]
         KalfonSegev = 104,
 
         /// <summary>
@@ -546,9 +567,8 @@ namespace Existence.Earth.War
         KriboyRoni = 111,
 
         /// <summary>
-        /// 22 yr
+        /// 22 yr, aka Kuperstein, released
         /// </summary>
-        [TODO("")]
         KupershteinBar = 112,
 
         /// <summary>
@@ -559,6 +579,10 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         LeimbertMia = 114,
+        /// <summary>
+        /// rleeased body
+        /// </summary>
+        LevyEitan = 115,
         /// <summary>
         /// released (20 yr)
         /// </summary>
@@ -591,6 +615,10 @@ namespace Existence.Earth.War
         /// recovered body (corporal)
         /// </summary>
         MarcianoNoa = 122,
+        /// <summary>
+        /// recovered body
+        /// </summary>
+        MargalitEliyahu = 123,
         /// <summary>
         /// released
         /// </summary>
@@ -625,15 +653,18 @@ namespace Existence.Earth.War
         MetzgerYoram = 130,
 
         /// <summary>
-        /// 46 yr
+        /// 46 yr, released
         /// </summary>
-        [TODO("")]
         MiranOmri = 131,
 
         /// <summary>
-        /// 23 yr
+        /// body released
         /// </summary>
-        [TODO("")]
+        MollelJoshua = 132,
+
+        /// <summary>
+        /// 23 yr, released
+        /// </summary>
         MorEitanAbraham = 132,
 
         /// <summary>
@@ -680,15 +711,13 @@ namespace Existence.Earth.War
         MunkanNattawaree = 140,
 
         /// <summary>
-        /// 22 yr
+        /// 22 yr, released body
         /// </summary>
-        [TODO("")]
-        NeutraOmer = 141,
+        NeutraOmerMaxim = 141,
 
         /// <summary>
-        /// 19 yr
+        /// 19 yr, released body
         /// </summary>
-        [TODO("")]
         NimrodTamir = 142,
 
         /// <summary>
@@ -697,15 +726,19 @@ namespace Existence.Earth.War
         NisenbaumMichel = 143,
 
         /// <summary>
-        /// 23 yr
+        /// released body, 30 yr
         /// </summary>
-        [TODO("")]
-        OhanaYosef = 144,
+        [Country(CountryLikeThings.Thailand)]
+        OakkharasriSonthaya = 144,
 
         /// <summary>
-        /// 22 yr
+        /// Yosek-Haim Ohana, 23 yr, released
         /// </summary>
-        [TODO("")]
+        OhanaYosefHaim = 144,
+
+        /// <summary>
+        /// 22 yr, released
+        /// </summary>
         OhelAlon = 145,
 
         /// <summary>
@@ -718,15 +751,13 @@ namespace Existence.Earth.War
         OrAlma = 147,
 
         /// <summary>
-        /// 30 yr
+        /// 30 yr, released
         /// </summary>
-        [TODO("")]
         OrAvinathan = 148,
 
         /// <summary>
-        /// 48 yr
+        /// 48 yr, released body
         /// </summary>
-        [TODO("")]
         OrDror = 149,
 
         /// <summary>
@@ -737,6 +768,10 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         OrNoam = 151,
+        /// <summary>
+        /// released body
+        /// </summary>
+        OzDaniel = 152,
         /// <summary>
         /// released
         /// </summary>
@@ -799,6 +834,11 @@ namespace Existence.Earth.War
         /// </summary>
         RegevMaya = 165,
         /// <summary>
+        /// body released
+        /// </summary>
+        [Country(CountryLikeThings.Thailand)]
+        RinthalakSudthisak = 166,
+        /// <summary>
         /// released
         /// </summary>
         RoitmanOfelia = 166,
@@ -816,9 +856,8 @@ namespace Existence.Earth.War
         RotemRaaya = 169,
 
         /// <summary>
-        /// 61 yr
+        /// 61 yr, released body
         /// </summary>
-        [TODO("")]
         RudaeffLior = 170,
 
         /// <summary>
@@ -873,9 +912,8 @@ namespace Existence.Earth.War
         SharabiEli = 182,
 
         /// <summary>
-        /// 30 yr
+        /// 30 yr, recovered body
         /// </summary>
-        [TODO("")]
         ShaulOron = 183,
 
         /// <summary>
@@ -908,9 +946,8 @@ namespace Existence.Earth.War
         ShoshaniHilaRotem = 190,
 
         /// <summary>
-        /// 28 yr
+        /// 28 yr, recovered body
         /// </summary>
-        [TODO("")]
         ShtiviIdan = 191,
 
         /// <summary>
@@ -1000,9 +1037,13 @@ namespace Existence.Earth.War
         TzarfatiOfir = 212,
 
         /// <summary>
-        /// 56 yr
+        /// released body, Judith Weinstein-Haggai
         /// </summary>
-        [TODO("")]
+        WeinsteinHaggaiJudith = 213,
+
+        /// <summary>
+        /// 56 yr, recovered body
+        /// </summary>
         WeissIlan = 213,
 
         /// <summary>
@@ -1043,9 +1084,8 @@ namespace Existence.Earth.War
         YehoudArbel = 222,
 
         /// <summary>
-        /// 35 yr
+        /// 35 yr, killed during the October 7 attacks, but never taken into Gaza
         /// </summary>
-        [TODO("")]
         YehoudDolev = 223,
 
         /// <summary>
@@ -1056,11 +1096,13 @@ namespace Existence.Earth.War
         /// released elderly Israli woman (goes by Cooper)
         /// </summary>
         YitzhakNuritCooper = 225,
-
         /// <summary>
-        /// 24 yr
+        /// released body
         /// </summary>
-        [TODO("")]
+        ZalmanovitchArye = 226,
+        /// <summary>
+        /// 24 yr, released
+        /// </summary>
         ZangaukerMatan = 226,
 
         /// <summary>
@@ -1395,13 +1437,18 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             public static class May24 { }
 
+            [Number(1)]
+            [Hostages(HostageList.YehoudDolev)]
+            [HostageOutcome(HostageOutcome.RemainsIdentified)]
+            public static class June3 { }
+
             /// <summary>
             /// rescued from Nuseirat refugee camp: Noa Argamani, Almog Meir Jan, Andrey Kozlov, and Shlomi Ziv
             /// </summary>
             [Number(4)]
             [HostageOutcome(HostageOutcome.RescuedAlive)]
             [Hostages(
-                HostageList.ArgamaniNoa, 
+                HostageList.ArgamaniNoa,
                 HostageList.MeirJanAlmog,
                 HostageList.KozlovAndrey,
                 HostageList.ZivShlomi)]
@@ -1486,7 +1533,12 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             public static class January10 { }
 
-            [Number(33)] //?
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.ShaulOron)]
+            public static class January19RecoveredBody { }
+
+            //30 living hostages and 8 bodies were returned
             public static class January15HostageReturnAgreementPhase1
             {
                 /// <summary>
@@ -1495,16 +1547,16 @@ namespace Existence.Earth.War
                 [Number(3)]
                 [Hostages(HostageList.DamariEmily, HostageList.GonenRomi, HostageList.SteinbrecherDoron)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
-                public static class January19Release { }
+                public static class January19ReleasedAlive { }
 
                 /// <summary>
                 /// Released: Liri Albag, Karina Ariev, Daniella Gilboa, Naama Levy
                 /// </summary>
                 [Number(4)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
-                [Hostages(HostageList.AlbagLiri, 
-                    HostageList.ArievKarina, 
-                    HostageList.GilboaDaniella, 
+                [Hostages(HostageList.AlbagLiri,
+                    HostageList.ArievKarina,
+                    HostageList.GilboaDaniella,
                     HostageList.LevyNaama)]
                 public static class January25 { }
 
@@ -1513,8 +1565,8 @@ namespace Existence.Earth.War
                 /// </summary>
                 [Number(8)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
-                [Hostages(HostageList.YehoudArbel, 
-                    HostageList.BergerAgam, 
+                [Hostages(HostageList.YehoudArbel,
+                    HostageList.BergerAgam,
                     HostageList.MozesGadiMoshe, //had listed as Gadi Moses
                     HostageList.RumnaoSurasak,
                     HostageList.SaethaoBannawat,
@@ -1542,8 +1594,8 @@ namespace Existence.Earth.War
                 /// <summary>
                 /// Released: Sagui Dekel-Chen, Alexandre (Sasha) Troufanov, Iair Horn 46
                 /// </summary>
-                [Hostages(HostageList.DekelChenSagui, 
-                    HostageList.TrupanobAlexanderSasha, 
+                [Hostages(HostageList.DekelChenSagui,
+                    HostageList.TrupanobAlexanderSasha,
                     HostageList.HornIair)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Number(3)]
@@ -1594,12 +1646,147 @@ namespace Existence.Earth.War
                     HostageList.IdanTsachi,
                     HostageList.ElgaratItzhk)]
                 public static class February26 { }
-
-                [Number(1)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
-                [Hostages(HostageList.AlexanderEdan)]
-                public static class March12 { }
             }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [Hostages(HostageList.AlexanderEdan)]
+            public static class March12 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.HaggaiGad,
+                      HostageList.WeinsteinHaggaiJudith)]
+            public static class June5 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.ShtiviIdan,
+                      HostageList.WeissIlan)]
+            public static class August29 { }
+
+            [Number(20)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [Hostages(HostageList.OhelAlon,
+                      HostageList.CunioAriel,
+                      HostageList.OrAvinathan,
+                      HostageList.KupershteinBar,
+                      HostageList.CunioDavid,
+                      HostageList.HornEitan,
+                      HostageList.MorEitanAbraham,
+                      HostageList.BohbotElkana,
+                      HostageList.DavidEvyatar,
+                      HostageList.BermanGali,
+                      HostageList.GilboaDalalGuy,
+                      HostageList.AngrestMatan,
+                      HostageList.ZangaukerMatan,
+                      HostageList.HerkinMaxim,
+                      HostageList.CohenNimrod,
+                      HostageList.MiranOmri,
+                      HostageList.BraslavskiRom,
+                      HostageList.KalfonSegev,
+                      HostageList.OhanaYosefHaim,
+                      HostageList.BermanZiv)]
+            public static class October13ReleasedAlive { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.JoshiBipin)]
+            public static class October13ReleasedBody { }
+
+            /// <summary>
+            /// a fourth body was also released, but was an unidentified Palestinian
+            /// </summary>
+            [Number(3)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.BaruchUriael,
+                      HostageList.LevyEitan,
+                      HostageList.NimrodTamir)]
+            public static class October14 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.AlAtreshMuhammad,
+                      HostageList.HaymanInbar)]
+            public static class October15 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.MargalitEliyahu)]
+            public static class October17 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.EngelRonan,
+                      HostageList.OakkharasriSonthaya)]
+            public static class October18 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.HaimiTal)]
+            public static class October20 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.AdarTamir,
+                      HostageList.ZalmanovitchArye)]
+            public static class October21 { }
+
+            [Number(2)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.BaruchSahar,
+                      HostageList.CooperAmiram)]
+            public static class October30 { }
+
+            [Number(3)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.OzDaniel,
+                      HostageList.HamamiAsaf,
+                      HostageList.NeutraOmerMaxim)]
+            public static class November2 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.ChenItay)]
+            public static class November4 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.MollelJoshua)]
+            public static class November5 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.RudaeffLior)]
+            public static class November7 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.GoldinHadar)]
+            public static class November9 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.GodardManny)]
+            public static class November13 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.OrDror)]
+            public static class November26 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [Hostages(HostageList.RinthalakSudthisak)]
+            public static class December3 { }
+        }
+
+        public static class v2026
+        {
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.GviliRan)]
+            public static class January26 { }
         }
     }
 }
