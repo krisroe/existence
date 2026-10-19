@@ -887,10 +887,6 @@ namespace Existence.Earth.War
         /// </summary>
         SangkaewChalermchai = 191,
         /// <summary>
-        /// body recovered
-        /// </summary>
-        SarfatiOphir = 192,
-        /// <summary>
         /// body recovered, executed by Hamas (26 yr)
         /// </summary>
         SarusiAlmog = 193,
@@ -1032,10 +1028,9 @@ namespace Existence.Earth.War
         /// </summary>
         TrupanobAlexanderSasha = 226,
         /// <summary>
-        /// released
+        /// body recovered
         /// </summary>
         TzarfatiOfir = 227,
-
         /// <summary>
         /// released body, Judith Weinstein-Haggai
         /// </summary>
@@ -1314,7 +1309,6 @@ namespace Existence.Earth.War
                 [Number(17)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
-                    HostageList.TzarfatiOfir,
                     HostageList.BeininLiat,
                     HostageList.BenAmiRaz,
                     HostageList.EngelOfir,
@@ -1355,7 +1349,7 @@ namespace Existence.Earth.War
             /// The IDF and Shin Bet announce they have recovered the body of deceased hostage Ophir Sarfati in recent days
             /// </summary>
             [Number(1)]
-            [Hostages(HostageList.SarfatiOphir)]
+            [Hostages(HostageList.TzarfatiOfir)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             public static class November29 { }
 
