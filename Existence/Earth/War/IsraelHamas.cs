@@ -47,29 +47,29 @@ namespace Existence.Earth.War
         /// released (85 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        AdarYafa = 1,
+        AdarYafa = 2,
         /// <summary>
         /// Staff Sergeant, body recovered (20 yr)
         /// </summary>
-        AhimasTomerYaakov = 2,
+        AhimasTomerYaakov = 3,
         /// <summary>
         /// 39 yr, released body, Israeli Bedouin soldier
         /// </summary>
-        AlAtreshMuhammad = 3,
+        AlAtreshMuhammad = 4,
         /// <summary>
         /// released (45 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        AloniDaniel = 3,
+        AloniDaniel = 5,
         /// <summary>
         /// released (5 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        AloniEmelia = 4,
+        AloniEmelia = 6,
         /// <summary>
         /// released, held by Hamas prior to 2023-10-7 (36 yr)
         /// </summary>
-        AlSayedHishamShaaban = 5,
+        AlSayedHishamShaaban = 7,
         /// <summary>
         /// body recovered (22 yr)
         /// </summary>
