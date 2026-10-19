@@ -1086,6 +1086,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// 35 yr, killed during the October 7 attacks, but never taken into Gaza
         /// </summary>
+        [NotActuallyAHostage]
         YehoudDolev = 239,
 
         /// <summary>
@@ -1790,3 +1791,11 @@ namespace Existence.Earth.War
         }
     }
 }
+
+internal class NotActuallyAHostageAttribute : Attribute
+{
+    public NotActuallyAHostageAttribute()
+    {
+    }
+}
+
