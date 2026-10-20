@@ -14,6 +14,11 @@ namespace Existence.Earth.Time
         Years,
     }
 
+    public static class TimeStatic
+    {
+        public const int UNKNOWN_TIME_PERIOD = -1;
+    }
+
     public class AgeAttribute : NumberAttribute
     {
         public TimePeriods Period { get; set; }
@@ -30,6 +35,7 @@ namespace Existence.Earth.Time
         }
         public AgeAttribute(int Age, TimePeriods Period) : base(Age)
         {
+            if (Age < TimeStatic.UNKNOWN_TIME_PERIOD) throw new ArgumentOutOfRangeException(nameof(Age));
             this.Period = Period;
         }
     }
@@ -40,11 +46,14 @@ namespace Existence.Earth.Time
         public int EndAge { get; set; }
         public ApproximateAgeInYearsAttribute(int StartAge, int EndAge)
         {
+            if (StartAge < TimeStatic.UNKNOWN_TIME_PERIOD) throw new ArgumentOutOfRangeException(nameof(StartAge));
+            if (EndAge < TimeStatic.UNKNOWN_TIME_PERIOD) throw new ArgumentOutOfRangeException(nameof(EndAge));
             this.StartAge = StartAge;
             this.EndAge = EndAge;
         }
         public ApproximateAgeInYearsAttribute(int Age)
         {
+            if (Age < TimeStatic.UNKNOWN_TIME_PERIOD) throw new ArgumentOutOfRangeException(nameof(Age));
             StartAge = EndAge = Age;
         }
     }

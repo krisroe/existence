@@ -254,6 +254,7 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         BoonpromSanti = 40,
 
         /// <summary>
@@ -664,11 +665,13 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KesoognernSurin = 119,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KongmaneeBancha = 120,
         /// <summary>
         /// rescued
@@ -961,6 +964,7 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         PhachuabboonMongkol = 174,
         /// <summary>
         /// released
@@ -1055,11 +1059,13 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengboonBuddhee = 192,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengnuanUthai = 193,
         /// <summary>
         /// released
@@ -1076,6 +1082,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SangkaewChalermchai = 197,
         /// <summary>
         /// body recovered, executed by Hamas
@@ -1178,6 +1185,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SrikeinaJakkrapan = 217,
         /// <summary>
         /// released
@@ -1238,10 +1246,12 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         ToonsriUthai = 229,
         /// <summary>
         /// released
         /// </summary>
+        [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         TornsokreePattanayut = 230,
         /// <summary>
         /// Trupanob is a transformation of the Hebrew.
