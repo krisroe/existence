@@ -557,6 +557,10 @@ namespace Existence.Earth.War
         /// </summary>
         KatzRavid = 116,
         /// <summary>
+        /// 21 yr
+        /// </summary>
+        KeldarOfra = 117,
+        /// <summary>
         /// released
         /// </summary>
         KesoognernSurin = 117,
@@ -587,6 +591,10 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         LeimbertMia = 123,
+        /// <summary>
+        /// 19 yr
+        /// </summary>
+        LevinsonShay = 124,
         /// <summary>
         /// rleeased body
         /// </summary>
@@ -894,6 +902,10 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         SagiAda = 190,
+        /// <summary>
+        /// 21 yr
+        /// </summary>
+        SameranoYonatan = 191,
         /// <summary>
         /// released
         /// </summary>
@@ -1668,6 +1680,13 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             [Hostages(HostageList.AtziliAviv)]
             public static class June11 { }
+
+            [Number(3)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.KeldarOfra,
+                      HostageList.LevinsonShay,
+                      HostageList.SameranoYonatan)]
+            public static class June22 { }
 
             [Number(2)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
