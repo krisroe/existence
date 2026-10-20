@@ -46,16 +46,15 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [Age(85, TimePeriods.Years)]
         AdarYafa = 2,
-        /// <summary>
-        /// Staff Sergeant
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(20, TimePeriods.Years)]
         AhimasTomerYaakov = 3,
         /// <summary>
-        /// Israeli Bedouin soldier
+        /// Bedouin
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant Major")]
         [Age(39, TimePeriods.Years)]
         AlAtreshMuhammad = 4,
         [Country(CountryLikeThings.Israel)]
@@ -75,10 +74,12 @@ namespace Existence.Earth.War
         [ApproximateAgeInYears(52, 53)]
         AlZayadniYosef = 9,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [Age(18, TimePeriods.Years)]
         AlbagLiri = 10,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(19, TimePeriods.Years)]
         AlexanderEdan = 11,
 
@@ -88,18 +89,15 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [Age(28, TimePeriods.Years)]
         AngkaewAnucha = 13,
-
-        /// <summary>
-        /// Israeli solder captured during the October 7 attacks
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(20, TimePeriods.Years)]
         AngrestMatan = 14,
-
         [Country(CountryLikeThings.Israel)]
         [Age(25, TimePeriods.Years)]
         ArgamaniNoa = 15,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [Age(19, TimePeriods.Years)]
         ArievKarina = 16,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
@@ -142,9 +140,10 @@ namespace Existence.Earth.War
         [Age(49, TimePeriods.Years)]
         BeininLiat = 27,
         /// <summary>
-        /// killed in IDF airstrike (Corporal)
+        /// killed in IDF airstrike
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Corporal")]
         [Age(19, TimePeriods.Years)]
         BeizerNik = 28,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
@@ -157,6 +156,7 @@ namespace Existence.Earth.War
         [Age(53, TimePeriods.Years)]
         BenjaminRon = 31,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [Age(19, TimePeriods.Years)]
         BergerAgam = 32,
 
@@ -199,10 +199,8 @@ namespace Existence.Earth.War
         [Age(19, TimePeriods.Years)]
         BraslavskiRom = 41,
 
-        /// <summary>
-        /// Sergeant
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant")]
         [Age(19, TimePeriods.Years)]
         BrodskiKiril = 42,
         /// <summary>
@@ -242,6 +240,7 @@ namespace Existence.Earth.War
         [Age(27, TimePeriods.Years)]
         BuskilaEstherAmit = 49,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany, CountryLikeThings.UnitedStates)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(19, TimePeriods.Years)]
         ChenItay = 50,
         [Country(CountryLikeThings.Thailand)]
@@ -251,10 +250,8 @@ namespace Existence.Earth.War
         [Age(26, TimePeriods.Years)]
         CohenEliya = 52,
 
-        /// <summary>
-        /// Israeli solder captured during the October 7 attacks
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant")]
         [Age(19, TimePeriods.Years)]
         CohenNimrod = 53,
 
@@ -285,13 +282,12 @@ namespace Existence.Earth.War
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [Age(3, TimePeriods.Years)]
         CunioYuli = 60,
-        /// <summary>
-        /// staff sergeant major
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Command Sergeant Major")]
         [Age(36, TimePeriods.Years)]
         DadoZiv = 61,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant")]
         [Age(19, TimePeriods.Years)]
         DahanShaked = 62,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
@@ -350,9 +346,13 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [Age(56, TimePeriods.Years)]
         GelerenterItzhak = 78,
+        /// <summary>
+        /// originally named Danielle
+        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [Age(19, TimePeriods.Years)]
-        GilboaDaniella = 79, //(originally named Danielle)
+        GilboaDaniella = 79,
 
         /// <summary>
         /// Guy Gilboa-Dalal
@@ -366,13 +366,14 @@ namespace Existence.Earth.War
         GodardManny = 81,
 
         /// <summary>
-        /// executed by Hamas (American)
+        /// executed by Hamas
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [Age(23, TimePeriods.Years)]
         GoldbergPolinHersh = 82,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Lieutenant")]
         [PreviouslyHeldAsHostage]
         [Age(23, TimePeriods.Years)]
         GoldinHadar = 83,
@@ -429,6 +430,7 @@ namespace Existence.Earth.War
         [Age(41, TimePeriods.Years)]
         HaimiTal = 96,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Colonel")]
         [Age(40, TimePeriods.Years)]
         HamamiAsaf = 97,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Ireland)]
@@ -496,6 +498,7 @@ namespace Existence.Earth.War
         [Age(47, TimePeriods.Years)]
         KatznirElad = 116,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant Major (res.)")]
         [Age(51, TimePeriods.Years)]
         KatzRavid = 117,
         [Country(CountryLikeThings.Israel)]
@@ -528,12 +531,14 @@ namespace Existence.Earth.War
         [Age(17, TimePeriods.Years)]
         LeimbertMia = 125,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(19, TimePeriods.Years)]
         LevinsonShay = 126,
         [Country(CountryLikeThings.Israel)]
         [Age(53, TimePeriods.Years)]
         LevyEitan = 127,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [Age(19, TimePeriods.Years)]
         LevyNaama = 128,
         [Country(CountryLikeThings.Israel)]
@@ -543,7 +548,7 @@ namespace Existence.Earth.War
         [Age(83, TimePeriods.Years)]
         LifshitzOded = 130,
         /// <summary>
-        /// elderly Israli woman
+        /// woman
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [Age(85, TimePeriods.Years)]
@@ -560,10 +565,8 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [Age(85, TimePeriods.Years)]
         MansourShlomo = 134,
-        /// <summary>
-        /// corporal
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Corporal")]
         [Age(18, TimePeriods.Years)]
         MarcianoNoa = 135,
         [Country(CountryLikeThings.Israel)]
@@ -573,9 +576,10 @@ namespace Existence.Earth.War
         [Age(41, TimePeriods.Years)]
         MargalitNili = 137,
         /// <summary>
-        /// female Israeli soldier
+        /// female
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Private")]
         [Age(19, TimePeriods.Years)]
         MegidishOri = 138,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
@@ -646,10 +650,12 @@ namespace Existence.Earth.War
         MunkanNattawaree = 155,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraelDefenceForcesSoldier("Captain")]
         [Age(21, TimePeriods.Years)]
         NeutraOmerMaxim = 156,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [Age(18, TimePeriods.Years)]
         NimrodTamir = 157,
 
@@ -694,6 +700,7 @@ namespace Existence.Earth.War
         [Age(17, TimePeriods.Years)]
         OrNoam = 167,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Sergeant")]
         [Age(19, TimePeriods.Years)]
         OzDaniel = 168,
         [Country(CountryLikeThings.Philippines)]
@@ -703,6 +710,7 @@ namespace Existence.Earth.War
         [Age(45, TimePeriods.Years)]
         PankhongBoonthom = 170,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica)]
+        [IsraelDefenceForcesSoldier("Captain")]
         [Age(22, TimePeriods.Years)]
         PerezDaniel = 171,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
@@ -720,24 +728,15 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [Age(30, TimePeriods.Years)]
         PinakalowPornsawan = 176,
-        /// <summary>
-        /// unknown age
-        /// </summary>
         [Country(CountryLikeThings.Thailand)]
         [ApproximateAgeInYears(35, 36)]
         PintaNattapong = 177,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
         [Age(51, TimePeriods.Years)]
         PopplewellNadav = 178,
-        /// <summary>
-        /// Israeli-American
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [Age(59, TimePeriods.Years)]
         RaananJudith = 179,
-        /// <summary>
-        /// Israeli-American
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [Age(17, TimePeriods.Years)]
         RaananNatalie = 180,
@@ -825,6 +824,7 @@ namespace Existence.Earth.War
         [Age(53, TimePeriods.Years)]
         SharabiYossi = 203,
         [Country(CountryLikeThings.Israel)]
+        [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [PreviouslyHeldAsHostage]
         [Age(20, TimePeriods.Years)]
         ShaulOron = 204,
@@ -832,9 +832,10 @@ namespace Existence.Earth.War
         [Age(20, TimePeriods.Years)]
         ShemTovOmer = 205,
         /// <summary>
-        /// killed in IDF airstrike (Sergeant)
+        /// killed in IDF airstrike
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina)]
+        [IsraelDefenceForcesSoldier("Sergeant")]
         [Age(19, TimePeriods.Years)]
         ShermanRon = 206,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
@@ -1007,7 +1008,7 @@ namespace Existence.Earth.War
         [Age(23, TimePeriods.Years)]
         YerushalmiEden = 249,
         /// <summary>
-        /// elderly Israli woman (goes by Cooper)
+        /// woman
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [Age(79, TimePeriods.Years)]
@@ -1733,5 +1734,15 @@ internal class PreviouslyHeldAsHostageAttribute : Attribute
     public PreviouslyHeldAsHostageAttribute()
     {
 
+    }
+}
+
+internal class IsraelDefenceForcesSoldierAttribute : Attribute
+{
+    public const string UNKNOWN_RANK = "Unknown";
+    public string Rank { get; set; }
+    public IsraelDefenceForcesSoldierAttribute(string Rank)
+    {
+        this.Rank = Rank;
     }
 }
