@@ -495,6 +495,10 @@ namespace Existence.Earth.War
         /// </summary>
         IdanTsachi = 104,
         /// <summary>
+        /// 26 yr
+        /// </summary>
+        IluzGuy = 105,
+        /// <summary>
         /// released
         /// </summary>
         JacobOr = 105,
@@ -783,6 +787,10 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         PankhongBoonthom = 167,
         /// <summary>
+        /// 22 yr
+        /// </summary>
+        PerezDaniel = 168,
+        /// <summary>
         /// body recovered (79 yr)
         /// </summary>
         PeriChaim = 168,
@@ -903,10 +911,13 @@ namespace Existence.Earth.War
         /// </summary>
         ShaniAmit = 195,
         /// <summary>
-        /// released (52 yr)
+        /// Sibling of Yossi Sharabi, released (52 yr)
         /// </summary>
         SharabiEli = 196,
-
+        /// <summary>
+        /// Sibling of Eli Sharabi, 53 yr
+        /// </summary>
+        SharabiYossi = 197,
         /// <summary>
         /// 30 yr, recovered body
         /// </summary>
@@ -1679,9 +1690,12 @@ namespace Existence.Earth.War
                       HostageList.BermanZiv)]
             public static class October13ReleasedAlive { }
 
-            [Number(1)]
+            [Number(2)]
             [HostageOutcome(HostageOutcome.ReleasedBody)]
-            [Hostages(HostageList.JoshiBipin)]
+            [Hostages(HostageList.JoshiBipin,
+                      HostageList.IluzGuy,
+                      HostageList.PerezDaniel,
+                      HostageList.SharabiYossi)]
             public static class October13ReleasedBody { }
 
             /// <summary>
