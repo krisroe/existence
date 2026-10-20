@@ -90,6 +90,9 @@ namespace Existence.Earth.War
         [Age(5, TimePeriods.Years)]
         AloniEmelia = 5,
 
+        /// <summary>
+        /// held hostage since 2015
+        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
@@ -656,6 +659,9 @@ namespace Existence.Earth.War
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         GoldbergPolinHersh = 81,
 
+        /// <summary>
+        /// Hamas had held the body since 2014 Operation Protective Edge
+        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Lieutenant")]
         [PreviouslyHeldAsHostage]
@@ -1073,6 +1079,9 @@ namespace Existence.Earth.War
         [Age(21, TimePeriods.Years)]
         MeirJanAlmog = 138,
 
+        /// <summary>
+        /// held hostage since 2014
+        /// </summary>
         [Countries(CountryLikeThings.Ethiopia, CountryLikeThings.Israel)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
@@ -1522,6 +1531,9 @@ namespace Existence.Earth.War
         [DeathDate(2024, 1, 10)]
         SharabiYossi = 202,
 
+        /// <summary>
+        /// Hamas had held the body since 2014 Operation Protective Edge
+        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [PreviouslyHeldAsHostage]
@@ -1919,14 +1931,6 @@ namespace Existence.Earth.War
     {
         public static class v2023
         {
-            /// <summary>
-            ///  Hamas had also held the bodies of two slain Israeli soldiers (since 2014 Operation Protective Edge)
-            ///  Hadar Goldin
-            ///  Oron Shaul (reovered by Israeli military 1-19-2025)
-            ///  Hamas was already holding two Israelis hostage
-            ///  Ethiopian Israeli Avera Mengistu (since 2014). Released February 22, 2025.
-            ///  Bedouin Israeli Hisham al-Sayed (since 2015). Released February 22, 2025.
-            /// </summary>
             public static class PriorToOctober7 { }
 
             [Hostages(HostageList.RaananJudith, HostageList.RaananNatalie)]
