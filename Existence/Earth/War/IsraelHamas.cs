@@ -112,12 +112,14 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         AlbagLiri = 9,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         AlexanderEdan = 10,
@@ -136,6 +138,7 @@ namespace Existence.Earth.War
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
         AngrestMatan = 13,
@@ -148,6 +151,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         ArievKarina = 15,
@@ -236,6 +240,7 @@ namespace Existence.Earth.War
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Corporal")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 11, 10)]
@@ -263,6 +268,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         BergerAgam = 31,
@@ -430,6 +436,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant")]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         CohenNimrod = 52,
@@ -495,6 +502,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant")]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -618,6 +626,7 @@ namespace Existence.Earth.War
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         GilboaDaniella = 78,
@@ -976,6 +985,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         LevyNaama = 127,
@@ -1026,6 +1036,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Corporal")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         [DeathDate(2023)]
@@ -1048,6 +1059,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Private")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         MegidishOri = 137,
@@ -1178,6 +1190,7 @@ namespace Existence.Earth.War
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [IsraelDefenceForcesSoldier("Captain")]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(21, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1185,6 +1198,7 @@ namespace Existence.Earth.War
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
         [DeathDate(2023, 10, 9)]
@@ -1261,6 +1275,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant")]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1523,6 +1538,7 @@ namespace Existence.Earth.War
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina)]
         [IsraelDefenceForcesSoldier("Sergeant")]
+        [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 11, 10)]
@@ -2627,7 +2643,9 @@ internal class KidnappedFromAttribute : Attribute
 internal enum KidnappedFrom
 {
     Kibbutz,
-    MusicFestival
+    MusicFestival,
+    MilitaryOutpost,
+    ArmoredVehicle,
 }
 
 internal enum IsraeliMusicFestivals
