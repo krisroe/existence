@@ -507,7 +507,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetColors(PetColors.Golden)]
         [DogBreed(DogBreeds.GoldenRetriever)]
         [Birthdate(1986, 5, 21)]
-        [DeathdateUnknown]
+        [DeathDateUnknown]
         [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
         Mickey,
 
@@ -646,7 +646,7 @@ namespace Existence.Beyond.JudgmentDay
         [PetColors(PetColors.Black, PetColors.Brown)]
         [PetOwners((int)SpecificFarms.MyMothersParentsFarm)]
         [BirthdateUnknown]
-        [DeathdateUnknown]
+        [DeathDateUnknown]
         [FinalRestingPlaceUnknown]
         Ollie,
 

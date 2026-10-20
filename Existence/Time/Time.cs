@@ -86,7 +86,10 @@ namespace Existence.Time
         Summer,
     }
 
-    public class DeathdateUnknownAttribute : Attribute
+    /// <summary>
+    /// used for entities where their death date is known
+    /// </summary>
+    public class DeathDateUnknownAttribute : Attribute
     {
     }
 
