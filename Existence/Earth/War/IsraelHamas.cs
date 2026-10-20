@@ -38,7 +38,7 @@ namespace Existence.Earth.War
     /// <summary>
     /// https://www.israelhayom.com/2023/10/31/these-are-the-captives-held-by-hamas/
     /// </summary>
-    public enum HostageList
+    public enum HostageList : short
     {
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [Age(38, TimePeriods.Years)]
