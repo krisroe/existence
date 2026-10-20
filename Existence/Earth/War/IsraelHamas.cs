@@ -134,561 +134,561 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
-        AvigdoriNoam = 20,
+        AvigdoriNoam = 21,
         /// <summary>
         /// released
         /// </summary>
-        AvigdoriSharon = 21,
+        AvigdoriSharon = 22,
         /// <summary>
         /// released
         /// </summary>
-        AvrihamElma = 22,
+        AvrihamElma = 23,
         /// <summary>
         /// released
         /// </summary>
-        BabadillaNoralin = 23,
+        BabadillaNoralin = 24,
         /// <summary>
         /// released body
         /// </summary>
-        BaruchSahar = 24,
+        BaruchSahar = 25,
         /// <summary>
         /// released body
         /// </summary>
-        BaruchUriael = 25,
+        BaruchUriael = 26,
         /// <summary>
         /// related to Aviv Atzili released
         /// </summary>
-        BeininLiat = 26,
+        BeininLiat = 27,
         /// <summary>
         /// body recovered, killed in IDF airstrike (Corporal)
         /// </summary>
-        BeizerNik = 27,
+        BeizerNik = 28,
         /// <summary>
         /// released (56 yr)
         /// </summary>
-        BenAmiOhad = 28,
+        BenAmiOhad = 29,
         /// <summary>
         /// released
         /// </summary>
-        BenAmiRaz = 29,
+        BenAmiRaz = 30,
         /// <summary>
         /// body recovered (53 yr)
         /// </summary>
-        BenjaminRon = 30,
+        BenjaminRon = 31,
         /// <summary>
         /// released (20 yr)
         /// </summary>
-        BergerAgam = 31,
+        BergerAgam = 32,
 
         /// <summary>
         /// 26 yr, released, Gali/Ziv Berman are twins
         /// </summary>
-        BermanGali = 32,
+        BermanGali = 33,
 
         /// <summary>
         /// 26 yr, released, Gali/Ziv Berman are twins
         /// </summary>
-        BermanZiv = 33,
+        BermanZiv = 34,
 
         /// <summary>
         /// released body (4 yr)
         /// </summary>
-        BibasAriel = 34,
+        BibasAriel = 35,
         /// <summary>
         /// released body (9 mo)
         /// </summary>
-        BibasKfir = 35,
+        BibasKfir = 36,
         /// <summary>
         /// released body (32 yr)
         /// </summary>
-        BibasShiri = 36,
+        BibasShiri = 37,
         /// <summary>
         /// released (35 yr)
         /// </summary>
-        BibasYarden = 37,
+        BibasYarden = 38,
 
         /// <summary>
         /// 34 yr, released
         /// </summary>
-        BohbotElkana = 38,
+        BohbotElkana = 39,
 
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        BoonpromSanti = 39,
+        BoonpromSanti = 40,
 
         /// <summary>
         /// released
         /// </summary>
-        BraslavskiRom = 40,
+        BraslavskiRom = 41,
 
         /// <summary>
         /// Sergeant, body recovered (19 yr)
         /// </summary>
-        BrodskiKiril = 41,
+        BrodskiKiril = 42,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
-        BrodutchHagar = 42,
+        BrodutchHagar = 43,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
-        BrodutchOfri = 43,
+        BrodutchOfri = 44,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
-        BrodutchOriya = 44,
+        BrodutchOriya = 45,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
-        BrodutchYuval = 45,
+        BrodutchYuval = 46,
         /// <summary>
         /// released
         /// </summary>
-        BuchshtavRimonKirsht = 46,
+        BuchshtavRimonKirsht = 47,
         /// <summary>
         /// body recovered (Buckshtav?) (34 yr)
         /// </summary>
-        BuchshtabYagev = 47,
+        BuchshtabYagev = 48,
         /// <summary>
         /// body recovered (28 yr)
         /// </summary>
-        BuskilaEstherAmit = 48,
+        BuskilaEstherAmit = 49,
         /// <summary>
         /// body recovered
         /// </summary>
-        ChenItay = 49,
+        ChenItay = 50,
         /// <summary>
         /// released
         /// </summary>
-        ChombuaKomkrit = 50,
+        ChombuaKomkrit = 51,
         /// <summary>
         /// released (27 yr)
         /// </summary>
-        CohenEliya = 51,
+        CohenEliya = 52,
 
         /// <summary>
         /// Israeli solder captured during the October 7 attacks, 19 yr, released
         /// </summary>
-        CohenNimrod = 52,
+        CohenNimrod = 53,
 
         /// <summary>
         /// released (girlfriend of Alexandre (Sasha) Troufanov)
         /// </summary>
-        CohenSapir = 53,
+        CohenSapir = 54,
 
         /// <summary>
         /// 84 yr, released body
         /// </summary>
-        CooperAmiram = 54,
+        CooperAmiram = 55,
 
         /// <summary>
         /// 26 yr, released
         /// </summary>
-        CunioAriel = 55,
+        CunioAriel = 56,
 
         /// <summary>
         /// 33 yr, released
         /// </summary>
-        CunioDavid = 56,
+        CunioDavid = 57,
 
         /// <summary>
         /// released? cunio?
         /// </summary>
-        CunionEmma = 57,
+        CunionEmma = 58,
         /// <summary>
         /// released
         /// </summary>
-        CunioSharonOlani = 58,
+        CunioSharonOlani = 59,
         /// <summary>
         /// released
         /// </summary>
-        CunioYuli = 59,
+        CunioYuli = 60,
         /// <summary>
         /// body recovered, staff sergeant major
         /// </summary>
-        DadoZiv = 60,
+        DadoZiv = 61,
         /// <summary>
         /// 19 yr
         /// </summary>
-        DahanShaked = 61,
+        DahanShaked = 62,
         /// <summary>
         /// released (28 yr)
         /// </summary>
-        DamariEmily = 61,
+        DamariEmily = 63,
         /// <summary>
         /// body recovered (75 yr)
         /// </summary>
-        DancygAlexander = 62,
+        DancygAlexander = 64,
         /// <summary>
         /// body recovered, executed by Hamas (24 yr)
         /// </summary>
-        DaninoOri = 63,
+        DaninoOri = 65,
 
         /// <summary>
         /// 23 yr, released
         /// </summary>
-        DavidEvyatar = 64,
+        DavidEvyatar = 66,
 
         /// <summary>
         /// released (36 yr)
         /// </summary>
-        DekelChenSagui = 65,
+        DekelChenSagui = 67,
         /// <summary>
         /// released
         /// </summary>
-        EdanAbigail = 66,
+        EdanAbigail = 68,
         /// <summary>
         /// body released (68 yr)
         /// </summary>
-        ElgaratItzhk = 67,
+        ElgaratItzhk = 69,
         /// <summary>
         /// released
         /// </summary>
-        ElyakimDafna = 68,
+        ElyakimDafna = 70,
         /// <summary>
         /// released
         /// </summary>
-        ElyakimEla = 69,
+        ElyakimEla = 71,
         /// <summary>
         /// released
         /// </summary>
-        EngelBartKarina = 70,
+        EngelBartKarina = 72,
         /// <summary>
         /// released
         /// </summary>
-        EngelMika = 71,
+        EngelMika = 73,
         /// <summary>
         /// released
         /// </summary>
-        EngelOfir = 72,
+        EngelOfir = 74,
         /// <summary>
         /// released body
         /// </summary>
-        EngelRonan = 73,
+        EngelRonan = 75,
         /// <summary>
         /// released
         /// </summary>
-        EngelYuval = 74,
+        EngelYuval = 76,
         /// <summary>
         /// body recovered, executed by Hamas (39 yr)
         /// </summary>
-        GatCarmel = 75,
+        GatCarmel = 77,
         /// <summary>
         /// body recovered (56 yr)
         /// </summary>
-        GelerenterItzhak = 76,
+        GelerenterItzhak = 78,
         /// <summary>
         /// released (20 yr)
         /// </summary>
-        GilboaDaniella = 77, //(originally named Danielle)
+        GilboaDaniella = 79, //(originally named Danielle)
 
         /// <summary>
         /// 22 yr, released, Guy Gilboa-Dalal
         /// </summary>
-        GilboaDalalGuy = 78,
+        GilboaDalalGuy = 80,
 
         /// <summary>
         /// released body
         /// </summary>
-        GodardManny = 79,
+        GodardManny = 81,
 
         /// <summary>
         /// body recovered, executed by Hamas (American) (23 yr)
         /// </summary>
-        GoldbergPolinHersh = 80,
+        GoldbergPolinHersh = 82,
 
         /// <summary>
         /// 32 yr, body released
         /// </summary>
-        GoldinHadar = 81,
+        GoldinHadar = 83,
 
         /// <summary>
         /// body recovered (33 yr)
         /// </summary>
-        GoldinOren = 82,
+        GoldinOren = 84,
         /// <summary>
         /// released
         /// </summary>
-        GoldsteinAlmogAgam = 83,
+        GoldsteinAlmogAgam = 85,
         /// <summary>
         /// released
         /// </summary>
-        GoldsteinAlmogChen = 84,
+        GoldsteinAlmogChen = 86,
         /// <summary>
         /// released
         /// </summary>
-        GoldsteinAlmogGal = 85,
+        GoldsteinAlmogGal = 87,
         /// <summary>
         /// released
         /// </summary>
-        GoldsteinAlmogTal = 86,
+        GoldsteinAlmogTal = 88,
         /// <summary>
         /// released (24 yr)
         /// </summary>
-        GonenRomi = 87,
+        GonenRomi = 89,
         /// <summary>
         /// body recovered (56 yr)
         /// </summary>
-        GorenMaya = 88,
+        GorenMaya = 90,
         /// <summary>
         /// released
         /// </summary>
-        GorenShani = 89,
+        GorenShani = 91,
         /// <summary>
         /// released
         /// </summary>
-        GritzewskyIlana = 90,
+        GritzewskyIlana = 92,
 
         /// <summary>
         /// 24 yr, aka Rani, body recovered, last hostage accounted for
         /// </summary>
-        GviliRan = 91,
+        GviliRan = 93,
 
         /// <summary>
         /// 73 yr, aka Gadi, released body
         /// </summary>
-        HaggaiGad = 92,
+        HaggaiGad = 94,
 
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
-        HaimYotam = 93,
+        HaimYotam = 95,
         /// <summary>
         /// body recovered
         /// </summary>
-        HaimiTal = 94,
+        HaimiTal = 96,
         /// <summary>
         /// body released
         /// </summary>
-        HamamiAsaf = 95,
+        HamamiAsaf = 97,
         /// <summary>
         /// released
         /// </summary>
-        HandEmily = 96,
+        HandEmily = 98,
         /// <summary>
         /// released
         /// </summary>
-        HaranShoshan = 97,
+        HaranShoshan = 99,
         /// <summary>
         /// rescued (70 yr)
         /// </summary>
-        HarLuis = 98,
+        HarLuis = 100,
         /// <summary>
         /// released body, 26 yr
         /// </summary>
-        HaymanInbar = 99,
+        HaymanInbar = 101,
         /// <summary>
         /// released
         /// </summary>
-        HeimanDitza = 100,
+        HeimanDitza = 102,
 
         /// <summary>
         /// 35 yr, released
         /// </summary>
-        HerkinMaxim = 101,
+        HerkinMaxim = 103,
 
         /// <summary>
         /// 37 yr, released
         /// </summary>
-        HornEitan = 102,
+        HornEitan = 104,
 
         /// <summary>
         /// released (46 yr)
         /// </summary>
-        HornIair = 103,
+        HornIair = 105,
         /// <summary>
         /// body released (49 yr)
         /// </summary>
-        IdanTsachi = 104,
+        IdanTsachi = 106,
         /// <summary>
         /// 26 yr
         /// </summary>
-        IluzGuy = 105,
+        IluzGuy = 107,
         /// <summary>
         /// released
         /// </summary>
-        JirachartManee = 107,
+        JirachartManee = 108,
 
         /// <summary>
         /// 23 yr, released body
         /// </summary>
-        JoshiBipin = 108,
+        JoshiBipin = 109,
 
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        KalapratVichai = 109,
+        KalapratVichai = 110,
         /// <summary>
         /// released
         /// </summary>
-        KalderonErez = 110,
+        KalderonErez = 111,
         /// <summary>
         /// released (54 yr)
         /// </summary>
-        KalderonOfer = 111,
+        KalderonOfer = 112,
         /// <summary>
         /// released
         /// </summary>
-        KalderonSahar = 112,
+        KalderonSahar = 113,
 
         /// <summary>
         /// 25 yr, released
         /// </summary>
-        KalfonSegev = 113,
+        KalfonSegev = 114,
 
         /// <summary>
         /// released (76 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        KatzirHannah = 114,
+        KatzirHannah = 115,
         /// <summary>
         /// body recovered
         /// </summary>
-        KatznirElad = 115,
+        KatznirElad = 116,
         /// <summary>
         /// body recovered (51 yr)
         /// </summary>
-        KatzRavid = 116,
+        KatzRavid = 117,
         /// <summary>
         /// 21 yr
         /// </summary>
-        KeldarOfra = 117,
+        KeldarOfra = 118,
         /// <summary>
         /// released
         /// </summary>
-        KesoognernSurin = 117,
+        KesoognernSurin = 119,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        KongmaneeBancha = 118,
+        KongmaneeBancha = 120,
         /// <summary>
         /// rescued (27 yr)
         /// </summary>
-        KozlovAndrey = 119,
+        KozlovAndrey = 121,
         /// <summary>
         /// released
         /// </summary>
-        KriboyRoni = 120,
+        KriboyRoni = 122,
 
         /// <summary>
         /// 22 yr, aka Kuperstein, released
         /// </summary>
-        KupershteinBar = 121,
+        KupershteinBar = 123,
 
         /// <summary>
         /// released
         /// </summary>
-        LeimbergGabriela = 122,
+        LeimbergGabriela = 124,
         /// <summary>
         /// released
         /// </summary>
-        LeimbertMia = 123,
+        LeimbertMia = 125,
         /// <summary>
         /// 19 yr
         /// </summary>
-        LevinsonShay = 124,
+        LevinsonShay = 126,
         /// <summary>
         /// rleeased body
         /// </summary>
-        LevyEitan = 124,
+        LevyEitan = 127,
         /// <summary>
         /// released (20 yr)
         /// </summary>
-        LevyNaama = 125,
+        LevyNaama = 128,
         /// <summary>
         /// released (34 yr)
         /// </summary>
-        LevyOr = 126,
+        LevyOr = 129,
         /// <summary>
         /// released body (84 yr)
         /// </summary>
-        LifshitzOded = 127,
+        LifshitzOded = 130,
         /// <summary>
         /// released elderly Israli woman
         /// </summary>
-        LifshitzYokheved = 128,
+        LifshitzYokheved = 131,
         /// <summary>
         /// body recovered, executed by Hamas (32 yr)
         /// </summary>
-        LobanovAlexander = 129,
+        LobanovAlexander = 132,
         /// <summary>
         /// body recovered
         /// </summary>
-        LoukShani = 130,
+        LoukShani = 133,
         /// <summary>
         /// body released (85 yr)
         /// </summary>
-        MansourShlomo = 131,
+        MansourShlomo = 134,
         /// <summary>
         /// recovered body (corporal)
         /// </summary>
-        MarcianoNoa = 132,
+        MarcianoNoa = 135,
         /// <summary>
         /// recovered body
         /// </summary>
-        MargalitEliyahu = 133,
+        MargalitEliyahu = 136,
         /// <summary>
         /// released
         /// </summary>
-        MargalitNili = 134,
+        MargalitNili = 137,
         /// <summary>
         /// rescued female Israeli soldier
         /// </summary>
-        MegidishOri = 135,
+        MegidishOri = 138,
         /// <summary>
         /// rescued (21 yr)
         /// </summary>
-        MeirJanAlmog = 136,
+        MeirJanAlmog = 139,
         /// <summary>
         /// released (held by Hamas prior to 2023-10-7) (38 yr)
         /// </summary>
-        MengistuAvera = 137,
+        MengistuAvera = 140,
         /// <summary>
         /// released
         /// </summary>
-        MermanClara = 138,
+        MermanClara = 141,
         /// <summary>
         /// rescued (60 yr)
         /// </summary>
-        MermanFernandoSimon = 139,
+        MermanFernandoSimon = 142,
         /// <summary>
         /// released
         /// </summary>
-        MetzgerTamar = 140,
+        MetzgerTamar = 143,
         /// <summary>
         /// body recovered (80 yr)
         /// </summary>
-        MetzgerYoram = 141,
+        MetzgerYoram = 144,
 
         /// <summary>
         /// 46 yr, released
         /// </summary>
-        MiranOmri = 142,
+        MiranOmri = 145,
 
         /// <summary>
         /// body released
         /// </summary>
-        MollelJoshua = 143,
+        MollelJoshua = 146,
 
         /// <summary>
         /// 23 yr, released
         /// </summary>
-        MorEitanAbraham = 144,
+        MorEitanAbraham = 147,
 
         /// <summary>
         /// released (72 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        MosheAdina = 145,
+        MosheAdina = 148,
         /// <summary>
         /// released, 77-year-old member of Kibbutz Nir Or
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        MosesMargalit = 146,
+        MosesMargalit = 149,
         /// <summary>
         /// released (79 yr) [sometimes refered to as Gadi Moses]
         /// His partner, Efrat Katz was presumed captive as well, but was likely killed
@@ -696,466 +696,466 @@ namespace Existence.Earth.War
         /// helicopter targeted a vehicle carrying Hamas gunmen, unaware that hostages
         /// were also inside.
         /// </summary>
-        MozesGadiMoshe = 147,
+        MozesGadiMoshe = 150,
         /// <summary>
         /// body recovered (78 yr)
         /// </summary>
-        MunderAbraham = 148,
+        MunderAbraham = 151,
         /// <summary>
         /// released (54 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        MunderKeren = 149,
+        MunderKeren = 152,
         /// <summary>
         /// released (9 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        MunderOhad = 150,
+        MunderOhad = 153,
         /// <summary>
         /// released (78 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        MunderRuth = 151,
+        MunderRuth = 154,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        MunkanNattawaree = 152,
+        MunkanNattawaree = 155,
 
         /// <summary>
         /// 22 yr, released body
         /// </summary>
-        NeutraOmerMaxim = 153,
+        NeutraOmerMaxim = 156,
 
         /// <summary>
         /// 19 yr, released body
         /// </summary>
-        NimrodTamir = 154,
+        NimrodTamir = 157,
 
         /// <summary>
         /// rescued (59 yr)
         /// </summary>
-        NisenbaumMichel = 155,
+        NisenbaumMichel = 158,
 
         /// <summary>
         /// released body, 30 yr
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        OakkharasriSonthaya = 156,
+        OakkharasriSonthaya = 159,
 
         /// <summary>
         /// Yosek-Haim Ohana, 23 yr, released
         /// </summary>
-        OhanaYosefHaim = 157,
+        OhanaYosefHaim = 160,
 
         /// <summary>
         /// 22 yr, released
         /// </summary>
-        OhelAlon = 158,
+        OhelAlon = 161,
 
         /// <summary>
         /// released
         /// </summary>
-        OnkaewNatthaporn = 159,
+        OnkaewNatthaporn = 162,
         /// <summary>
         /// released
         /// </summary>
-        OrAlma = 160,
+        OrAlma = 163,
 
         /// <summary>
         /// 30 yr, released
         /// </summary>
-        OrAvinathan = 161,
+        OrAvinathan = 164,
 
         /// <summary>
         /// 48 yr, released body
         /// </summary>
-        OrDror = 162,
+        OrDror = 165,
 
         /// <summary>
         /// released
         /// </summary>
-        OrLiam = 163,
+        OrLiam = 166,
         /// <summary>
         /// released
         /// </summary>
-        OrNoam = 164,
+        OrNoam = 167,
         /// <summary>
         /// released body
         /// </summary>
-        OzDaniel = 165,
+        OzDaniel = 168,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Philippines)]
-        PachecoGelienorJimmy = 166,
+        PachecoGelienorJimmy = 169,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        PankhongBoonthom = 167,
+        PankhongBoonthom = 170,
         /// <summary>
         /// 22 yr
         /// </summary>
-        PerezDaniel = 168,
+        PerezDaniel = 171,
         /// <summary>
         /// body recovered (79 yr)
         /// </summary>
-        PeriChaim = 168,
+        PeriChaim = 172,
         /// <summary>
         /// released (79 yr)
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        PeriChanna = 169,
+        PeriChanna = 173,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        PhachuabboonMongkol = 170,
+        PhachuabboonMongkol = 174,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        PhoomeVetoon = 171,
+        PhoomeVetoon = 175,
         /// <summary>
         /// released
         /// </summary>
-        PinakalowPornsawan = 172,
+        PinakalowPornsawan = 176,
         /// <summary>
         /// unknown age
         /// </summary>
-        PintaNattapong = 173,
+        PintaNattapong = 177,
         /// <summary>
         /// body recovered (51 yr)
         /// </summary>
-        PopplewellNadav = 173,
+        PopplewellNadav = 178,
         /// <summary>
         /// Israeli-American, released
         /// </summary>
-        RaananJudith = 174,
+        RaananJudith = 179,
         /// <summary>
         /// Israeli-American, released
         /// </summary>
-        RaananNatalie = 175,
+        RaananNatalie = 180,
         /// <summary>
         /// rescued (30 yr)
         /// </summary>
-        RadouxOriónHernández = 176,
+        RadouxOriónHernández = 181,
         /// <summary>
         /// released
         /// </summary>
-        RataninPaiboon = 177,
+        RataninPaiboon = 182,
         /// <summary>
         /// released
         /// </summary>
-        RegevItay = 178,
+        RegevItay = 183,
         /// <summary>
         /// released
         /// </summary>
-        RegevMaya = 179,
+        RegevMaya = 184,
         /// <summary>
         /// body released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        RinthalakSudthisak = 180,
+        RinthalakSudthisak = 185,
         /// <summary>
         /// released
         /// </summary>
-        RoitmanOfelia = 181,
+        RoitmanOfelia = 186,
         /// <summary>
         /// released
         /// </summary>
-        RomanGatYarden = 182,
+        RomanGatYarden = 187,
         /// <summary>
         /// released (32 yr)
         /// </summary>
-        RumnaoSurasak = 183,
+        RumnaoSurasak = 188,
         /// <summary>
         /// released
         /// </summary>
-        RotemRaaya = 184,
+        RotemRaaya = 189,
 
         /// <summary>
         /// 61 yr, released body
         /// </summary>
-        RudaeffLior = 185,
+        RudaeffLior = 190,
 
         /// <summary>
         /// released
         /// </summary>
-        SaelaoKong = 186,
+        SaelaoKong = 191,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        SaengboonBuddhee = 187,
+        SaengboonBuddhee = 192,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        SaengnuanUthai = 188,
+        SaengnuanUthai = 193,
         /// <summary>
         /// released (27 yr)
         /// </summary>
-        SaethaoBannawat = 189,
+        SaethaoBannawat = 194,
         /// <summary>
         /// released
         /// </summary>
-        SagiAda = 190,
+        SagiAda = 195,
         /// <summary>
         /// 21 yr
         /// </summary>
-        SameranoYonatan = 191,
+        SameranoYonatan = 196,
         /// <summary>
         /// released
         /// </summary>
-        SangkaewChalermchai = 191,
+        SangkaewChalermchai = 197,
         /// <summary>
         /// body recovered, executed by Hamas (26 yr)
         /// </summary>
-        SarusiAlmog = 192,
+        SarusiAlmog = 198,
         /// <summary>
         /// released
         /// </summary>
-        SchemMia = 193,
+        SchemMia = 199,
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
-        ShamrizAlon = 194,
+        ShamrizAlon = 200,
         /// <summary>
         /// released
         /// </summary>
-        ShaniAmit = 195,
+        ShaniAmit = 201,
         /// <summary>
         /// Sibling of Yossi Sharabi, released (52 yr)
         /// </summary>
-        SharabiEli = 196,
+        SharabiEli = 202,
         /// <summary>
         /// Sibling of Eli Sharabi, 53 yr
         /// </summary>
-        SharabiYossi = 197,
+        SharabiYossi = 203,
         /// <summary>
         /// 30 yr, recovered body
         /// </summary>
-        ShaulOron = 197,
+        ShaulOron = 204,
 
         /// <summary>
         /// released (22 yr)
         /// </summary>
-        ShemTovOmer = 198,
+        ShemTovOmer = 205,
         /// <summary>
         /// bodies recovered, killed in IDF airstrike (Sergeant)
         /// </summary>
-        ShermanRon = 199,
+        ShermanRon = 206,
         /// <summary>
         /// released
         /// </summary>
-        ShohamAdi = 200,
+        ShohamAdi = 207,
         /// <summary>
         /// released
         /// </summary>
-        ShohamNave = 201,
+        ShohamNave = 208,
         /// <summary>
         /// released (40 yr)
         /// </summary>
-        ShohamTal = 202,
+        ShohamTal = 209,
         /// <summary>
         /// released
         /// </summary>
-        ShohamYahel = 203,
+        ShohamYahel = 210,
         /// <summary>
         /// released
         /// </summary>
-        ShoshaniHilaRotem = 204,
+        ShoshaniHilaRotem = 211,
 
         /// <summary>
         /// 28 yr, recovered body
         /// </summary>
-        ShtiviIdan = 205,
+        ShtiviIdan = 212,
 
         /// <summary>
         /// released (62 yr)
         /// </summary>
-        SiegelAdrienneAviva = 206,
+        SiegelAdrienneAviva = 213,
         /// <summary>
         /// released (65 yr)
         /// </summary>
-        SiegelSamuelKeith = 207,
+        SiegelSamuelKeith = 214,
         /// <summary>
         /// released (50 yr)
         /// </summary>
-        SoussanaAmit = 208,
+        SoussanaAmit = 215,
         /// <summary>
         /// released (33 yr)
         /// </summary>
-        SriaounWatchara = 209,
+        SriaounWatchara = 216,
         /// <summary>
         /// released
         /// </summary>
-        SrikeinaJakkrapan = 210,
+        SrikeinaJakkrapan = 217,
         /// <summary>
         /// released 31 yr (seen 35 but that looks wrong)
         /// </summary>
-        SteinbrecherDoron = 211,
+        SteinbrecherDoron = 218,
         /// <summary>
         /// released
         /// </summary>
-        SuriyasriOwas = 212,
+        SuriyasriOwas = 219,
         /// <summary>
         /// released (35 yr)
         /// </summary>
-        SuwannakhamSathian = 213,
+        SuwannakhamSathian = 220,
         /// <summary>
         /// body recovered
         /// </summary>
-        SvirskyItai = 214,
+        SvirskyItai = 221,
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
-        TalalkaSamer = 215,
+        TalalkaSamer = 222,
         /// <summary>
         /// released
         /// </summary>
-        TalMeirav = 216,
+        TalMeirav = 223,
         /// <summary>
         /// released
         /// </summary>
-        TarshanskyGali = 217,
+        TarshanskyGali = 224,
         /// <summary>
         /// released, mother of Yelena Trufanov and Alexander (Sasha) Trufanov
         /// </summary>
-        TatiIrena = 218,
+        TatiIrena = 225,
         /// <summary>
         /// released
         /// </summary>
-        TemthongVichian = 219,
+        TemthongVichian = 226,
         /// <summary>
         /// released (36 yr)
         /// </summary>
-        ThaennaPongsak = 220,
+        ThaennaPongsak = 227,
         /// <summary>
         /// body recovered, killed in IDF airstrike (civilian)
         /// </summary>
-        ToledanoElia = 221,
+        ToledanoElia = 228,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
-        ToonsriUthai = 222,
+        ToonsriUthai = 229,
         /// <summary>
         /// released
         /// </summary>
-        TornsokreePattanayut = 223,
+        TornsokreePattanayut = 230,
         /// <summary>
         /// Trupanob is a transformation of the Hebrew.
         /// </summary>
-        TrufanovYelena = 224,
+        TrufanovYelena = 231,
         /// <summary>
         /// Trupanob is a transformation of the Hebrew. (29 yr)
         /// </summary>
-        TrufanovAlexanderSasha = 225,
+        TrufanovAlexanderSasha = 232,
         /// <summary>
         /// body recovered
         /// </summary>
-        TzarfatiOfir = 226,
+        TzarfatiOfir = 233,
         /// <summary>
         /// released body, Judith Weinstein-Haggai
         /// </summary>
-        WeinsteinHaggaiJudith = 227,
+        WeinsteinHaggaiJudith = 234,
 
         /// <summary>
         /// 56 yr, recovered body
         /// </summary>
-        WeissIlan = 228,
+        WeissIlan = 235,
 
         /// <summary>
         /// released
         /// </summary>
-        WeissNoga = 229,
+        WeissNoga = 236,
         /// <summary>
         /// released
         /// </summary>
-        WeissShiri = 230,
+        WeissShiri = 237,
         /// <summary>
         /// recovered body
         /// </summary>
-        WeissYehudit = 231,
+        WeissYehudit = 238,
         /// <summary>
         /// released (23 yr)
         /// </summary>
-        WenkertOmer = 232,
+        WenkertOmer = 239,
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
-        YaakovOr = 105,
+        YaakovOr = 240,
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
-        YaakovYagil = 106,
+        YaakovYagil = 241,
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs, 59 yr
         /// </summary>
-        YaakovYair = 233,
+        YaakovYair = 242,
         /// <summary>
         /// rescued (42 yr)
         /// </summary>
-        YablonkaHanan = 233,
+        YablonkaHanan = 243,
         /// <summary>
         /// released (12 yr)
         /// </summary>
-        YahalomiEitan = 234,
+        YahalomiEitan = 244,
         /// <summary>
         /// body released (49 yr)
         /// </summary>
-        YahalomiOhad = 235,
+        YahalomiOhad = 245,
         /// <summary>
         /// released
         /// </summary>
-        YanaiMoranStela = 236,
+        YanaiMoranStela = 246,
         /// <summary>
         /// released (29 yr)
         /// </summary>
-        YehoudArbel = 237,
+        YehoudArbel = 247,
 
         /// <summary>
         /// 35 yr, killed during the October 7 attacks, but never taken into Gaza
         /// </summary>
         [NotActuallyAHostage]
-        YehoudDolev = 238,
+        YehoudDolev = 248,
 
         /// <summary>
         /// body recovered, executed by Hamas (24 yr)
         /// </summary>
-        YerushalmiEden = 239,
+        YerushalmiEden = 249,
         /// <summary>
         /// released elderly Israli woman (goes by Cooper)
         /// </summary>
-        YitzhakNuritCooper = 240,
+        YitzhakNuritCooper = 250,
         /// <summary>
         /// released body
         /// </summary>
-        ZalmanovitchArye = 241,
+        ZalmanovitchArye = 251,
         /// <summary>
         /// 24 yr, released
         /// </summary>
-        ZangaukerMatan = 242,
+        ZangaukerMatan = 252,
 
         /// <summary>
         /// body recovered
         /// </summary>
-        ZechariahEden = 243,
+        ZechariahEden = 253,
         /// <summary>
         /// rescued
         /// </summary>
-        ZivShlomi = 244,
+        ZivShlomi = 254,
         /// <summary>
         /// released (17 yr)
         /// </summary>
-        ZiyadneAisha = 245,
+        ZiyadneAisha = 255,
         /// <summary>
         /// released (18 yr)
         /// </summary>
-        ZiyadneBilal = 246,
+        ZiyadneBilal = 256,
     }
 
     /// <summary>
