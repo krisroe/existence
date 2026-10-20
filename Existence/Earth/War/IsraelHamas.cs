@@ -50,16 +50,19 @@ namespace Existence.Earth.War
         [Age(38, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         AdarTamir = 0,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(85, TimePeriods.Years)]
         AdarYafa = 1,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         AhimasTomerYaakov = 2,
+
         /// <summary>
         /// Bedouin
         /// </summary>
@@ -69,29 +72,35 @@ namespace Existence.Earth.War
         [Age(39, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         AlAtreshMuhammad = 3,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(44, TimePeriods.Years)]
         AloniDaniel = 4,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(5, TimePeriods.Years)]
         AloniEmelia = 5,
+
         [Country(CountryLikeThings.Israel)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
         AlSayedHishamShaaban = 6,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(22, TimePeriods.Years)]
         [DeathDateUnknown]
         AlZayadniHamzah = 7,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [ApproximateAgeInYears(52, 53)]
         [DeathDateUnknown]
         AlZayadniYosef = 8,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [HumanGender(HumanGender.Female)]
@@ -108,36 +117,44 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         AlkadiQaidFarhan = 11,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(28, TimePeriods.Years)]
         AngkaewAnucha = 12,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
         AngrestMatan = 13,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(25, TimePeriods.Years)]
         ArgamaniNoa = 14,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         ArievKarina = 15,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(2, TimePeriods.Years)]
         AsherAviv = 16,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(34, TimePeriods.Years)]
         AsherDoronKatz = 17,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(4, TimePeriods.Years)]
         AsherRaz = 18,
+
         /// <summary>
         /// related to BeininLiat
         /// </summary>
@@ -146,32 +163,39 @@ namespace Existence.Earth.War
         [Age(49, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         AtziliAviv = 19,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(12, TimePeriods.Years)]
         AvigdoriNoam = 20,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(52, TimePeriods.Years)]
         AvigdoriSharon = 21,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(84, TimePeriods.Years)]
         AvrihamElma = 22,
+
         [Countries(CountryLikeThings.Philippines, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(60, TimePeriods.Years)]
         BabadillaNoralin = 23,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
         [HumanGender(HumanGender.Male)]
         [Age(24, TimePeriods.Years)]
         [DeathDate(2023, 12, 8)]
         BaruchSahar = 24,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(34, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         BaruchUriael = 25,
+
         /// <summary>
         /// related to Aviv Atzili
         /// </summary>
@@ -179,6 +203,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(49, TimePeriods.Years)]
         BeininLiat = 26,
+
         /// <summary>
         /// killed in IDF airstrike
         /// </summary>
@@ -188,19 +213,23 @@ namespace Existence.Earth.War
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 11, 10)]
         BeizerNik = 27,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(54, TimePeriods.Years)]
         BenAmiOhad = 28,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(56, TimePeriods.Years)]
         BenAmiRaz = 29,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(53, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         BenjaminRon = 30,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [HumanGender(HumanGender.Female)]
@@ -228,16 +257,19 @@ namespace Existence.Earth.War
         [Age(4, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         BibasAriel = 34,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(8, TimePeriods.Months)]
         [DeathDate(2023, 11)]
         BibasKfir = 35,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(32, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         BibasShiri = 36,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
@@ -264,6 +296,7 @@ namespace Existence.Earth.War
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         BrodskiKiril = 41,
+
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
@@ -271,6 +304,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(40, TimePeriods.Years)]
         BrodutchHagar = 42,
+
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
@@ -278,6 +312,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(9, TimePeriods.Years)]
         BrodutchOfri = 43,
+
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
@@ -285,6 +320,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(4, TimePeriods.Years)]
         BrodutchOriya = 44,
+
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
@@ -292,10 +328,12 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(9, TimePeriods.Years)]
         BrodutchYuval = 45,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(36, TimePeriods.Years)]
         BuchshtavRimonKirsht = 46,
+
         /// <summary>
         /// Buckshtav?
         /// </summary>
@@ -304,21 +342,25 @@ namespace Existence.Earth.War
         [Age(34, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         BuchshtabYagev = 47,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(27, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         BuskilaEstherAmit = 48,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany, CountryLikeThings.UnitedStates)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         ChenItay = 49,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(29, TimePeriods.Years)]
         ChombuaKomkrit = 50,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
@@ -353,39 +395,47 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         CunioDavid = 56,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         CunioEmma = 57,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(34, TimePeriods.Years)]
         CunioSharonOlani = 58,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         CunioYuli = 59,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Command Sergeant Major")]
         [HumanGender(HumanGender.Male)]
         [Age(36, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         DadoZiv = 60,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         DahanShaked = 61,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
         [HumanGender(HumanGender.Female)]
         [Age(27, TimePeriods.Years)]
         DamariEmily = 62,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
         [Age(75, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         DancygAlexander = 63,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(24, TimePeriods.Years)]
@@ -402,55 +452,67 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(35, TimePeriods.Years)]
         DekelChenSagui = 66,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         EdanAbigail = 67,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(68, TimePeriods.Years)]
         [DeathDateUnknown]
         ElgaratItzhk = 68,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(15, TimePeriods.Years)]
         ElyakimDafna = 69,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(8, TimePeriods.Years)]
         ElyakimEla = 70,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(51, TimePeriods.Years)]
         EngelBartKarina = 71,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         EngelMika = 72,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Netherlands)]
         [HumanGender(HumanGender.Male)]
         [Age(17, TimePeriods.Years)]
         EngelOfir = 73,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(54, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         EngelRonan = 74,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(11, TimePeriods.Years)]
         EngelYuval = 75,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(39, TimePeriods.Years)]
         [DeathDate(2024, 8)]
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         GatCarmel = 76,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(56, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         GelerenterItzhak = 77,
+
         /// <summary>
         /// originally named Danielle
         /// </summary>
@@ -494,35 +556,43 @@ namespace Existence.Earth.War
         [Age(33, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         GoldinOren = 83,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(17, TimePeriods.Years)]
         GoldsteinAlmogAgam = 84,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(48, TimePeriods.Years)]
         GoldsteinAlmogChen = 85,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(11, TimePeriods.Years)]
         GoldsteinAlmogGal = 86,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(9, TimePeriods.Years)]
         GoldsteinAlmogTal = 87,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(23, TimePeriods.Years)]
         GonenRomi = 88,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(56, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         GorenMaya = 89,
+
         [Countries(CountryLikeThings.Uruguay, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(29, TimePeriods.Years)]
         GorenShani = 90,
+
         [Countries(CountryLikeThings.Mexico, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(30, TimePeriods.Years)]
@@ -554,34 +624,41 @@ namespace Existence.Earth.War
         [Age(28, TimePeriods.Years)]
         [DeathDate(2023, 12, 15)]
         HaimYotam = 94,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Romania)]
         [HumanGender(HumanGender.Male)]
         [Age(41, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         HaimiTal = 95,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Colonel")]
         [HumanGender(HumanGender.Male)]
         [Age(40, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         HamamiAsaf = 96,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Ireland)]
         [HumanGender(HumanGender.Female)]
         [Age(8, TimePeriods.Years)]
         HandEmily = 97,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(67, TimePeriods.Years)]
         HaranShoshan = 98,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(70, TimePeriods.Years)]
         HarLuis = 99,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(27, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         HaymanInbar = 100,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(84, TimePeriods.Years)]
@@ -601,16 +678,19 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(45, TimePeriods.Years)]
         HornIair = 104,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(49, TimePeriods.Years)]
         [DeathDate(2023, 12, 4)]
         IdanTsachi = 105,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         [DeathDate(2023)]
         IluzGuy = 106,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(29, TimePeriods.Years)]
@@ -626,14 +706,17 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(28, TimePeriods.Years)]
         KalapratVichai = 109,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Male)]
         [Age(11, TimePeriods.Years)]
         KalderonErez = 110,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France, CountryLikeThings.Portugal)]
         [HumanGender(HumanGender.Male)]
         [Age(52, TimePeriods.Years)]
         KalderonOfer = 111,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Female)]
         [Age(16, TimePeriods.Years)]
@@ -643,6 +726,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(25, TimePeriods.Years)]
         KalfonSegev = 113,
+
         /// <summary>
         /// Death (after release) was attributed to medical complications from her time as a hostage
         /// </summary>
@@ -651,34 +735,41 @@ namespace Existence.Earth.War
         [Age(76, TimePeriods.Years)]
         [DeathDate(2024, 12, 24)]
         KatzirHannah = 114,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
         [Age(47, TimePeriods.Years)]
         [DeathDate(2024, 1)]
         KatznirElad = 115,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant Major (res.)")]
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         KatzRavid = 116,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(70, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         KeidarOfra = 117,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KesoognernSurin = 118,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KongmaneeBancha = 119,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
         KozlovAndrey = 120,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [HumanGender(HumanGender.Male)]
         [Age(25, TimePeriods.Years)]
@@ -696,96 +787,116 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(59, TimePeriods.Years)]
         LeimbergGabriela = 123,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(17, TimePeriods.Years)]
         LeimbertMia = 124,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         LevinsonShay = 125,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(53, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         LevyEitan = 126,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         LevyNaama = 127,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         LevyOr = 128,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(83, TimePeriods.Years)]
         [DeathDate(2023)]
         LifshitzOded = 129,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(85, TimePeriods.Years)]
         LifshitzYokheved = 130,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [HumanGender(HumanGender.Male)]
         [Age(32, TimePeriods.Years)]
         [DeathDate(2024, 8)]
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         LobanovAlexander = 131,
+
         [Countries(CountryLikeThings.Germany, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(22, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         LoukShani = 132,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(85, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         MansourShlomo = 133,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Corporal")]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         [DeathDate(2023)]
         MarcianoNoa = 134,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(75, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         MargalitEliyahu = 135,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(41, TimePeriods.Years)]
         MargalitNili = 136,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Private")]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
         MegidishOri = 137,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
         [Age(21, TimePeriods.Years)]
         MeirJanAlmog = 138,
+
         [Countries(CountryLikeThings.Ethiopia, CountryLikeThings.Israel)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(28, TimePeriods.Years)]
         MengistuAvera = 139,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(62, TimePeriods.Years)]
         MermanClara = 140,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(60, TimePeriods.Years)]
         MermanFernandoSimon = 141,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(78, TimePeriods.Years)]
         MetzgerTamar = 142,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(80, TimePeriods.Years)]
@@ -812,6 +923,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(72, TimePeriods.Years)]
         MosheAdina = 147,
+
         /// <summary>
         /// member of Kibbutz Nir Or
         /// </summary>
@@ -819,6 +931,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [ApproximateAgeInYears(77, 78)]
         MosesMargalit = 148,
+
         /// <summary>
         /// [sometimes refered to as Gadi Moses]
         /// His partner, Efrat Katz was presumed captive as well, but was likely killed
@@ -830,23 +943,28 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(79, TimePeriods.Years)]
         MozesGadiMoshe = 149,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(78, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         MunderAbraham = 150,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(54, TimePeriods.Years)]
         MunderKeren = 151,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(8, TimePeriods.Years)]
         MunderOhad = 152,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(78, TimePeriods.Years)]
         MunderRuth = 153,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Female)]
         [Age(35, TimePeriods.Years)]
@@ -895,6 +1013,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         OnkaewNatthaporn = 161,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(13, TimePeriods.Years)]
@@ -915,103 +1034,126 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
         OrLiam = 165,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(17, TimePeriods.Years)]
         OrNoam = 166,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant")]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         OzDaniel = 167,
+
         [Country(CountryLikeThings.Philippines)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         PachecoGelienorJimmy = 168,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(45, TimePeriods.Years)]
         PankhongBoonthom = 169,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica)]
         [IsraelDefenceForcesSoldier("Captain")]
         [HumanGender(HumanGender.Male)]
         [Age(22, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         PerezDaniel = 170,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
         [Age(79, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         PeriChaim = 171,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica)]
         [HumanGender(HumanGender.Female)]
         [Age(79, TimePeriods.Years)]
         PeriChanna = 172,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         PhachuabboonMongkol = 173,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         PhoomeVetoon = 174,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(30, TimePeriods.Years)]
         PinakalowPornsawan = 175,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [ApproximateAgeInYears(35, 36)]
         [DeathDate(2023, 12)]
         PintaNattapong = 176,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         PopplewellNadav = 177,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [HumanGender(HumanGender.Female)]
         [Age(59, TimePeriods.Years)]
         RaananJudith = 178,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [HumanGender(HumanGender.Female)]
         [Age(17, TimePeriods.Years)]
         RaananNatalie = 179,
+
         [Countries(CountryLikeThings.Mexico, CountryLikeThings.France)]
         [HumanGender(HumanGender.Male)]
         [Age(30, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         RadouxOriónHernández = 180,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(42, TimePeriods.Years)]
         RataninPaiboon = 181,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
         RegevItay = 182,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(21, TimePeriods.Years)]
         RegevMaya = 183,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [ApproximateAgeInYears(42, 43)]
         [DeathDate(2023, 10, 7)]
         RinthalakSudthisak = 184,
+
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(77, TimePeriods.Years)]
         RoitmanOfelia = 185,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(35, TimePeriods.Years)]
         RomanGatYarden = 186,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [ApproximateAgeInYears(30, 31)]
         RumnaoSurasak = 187,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(54, TimePeriods.Years)]
@@ -1027,41 +1169,50 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         SaelaoKong = 190,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengboonBuddhee = 191,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengnuanUthai = 192,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
         SaethaoBannawat = 193,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(74, TimePeriods.Years)]
         SagiAda = 194,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(21, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         SameranoYonatan = 195,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SangkaewChalermchai = 196,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         [DeathDate(2024, 8)]
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         SarusiAlmog = 197,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Female)]
         [Age(21, TimePeriods.Years)]
         SchemMia = 198,
+
         /// <summary>
         /// killed by friendly fire while surrendering
         /// </summary>
@@ -1070,10 +1221,12 @@ namespace Existence.Earth.War
         [Age(26, TimePeriods.Years)]
         [DeathDate(2023, 12, 15)]
         ShamrizAlon = 199,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(15, TimePeriods.Years)]
         ShaniAmit = 200,
+
         /// <summary>
         /// Sibling of Yossi Sharabi
         /// </summary>
@@ -1081,6 +1234,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         SharabiEli = 201,
+
         /// <summary>
         /// Sibling of Eli Sharabi
         /// </summary>
@@ -1089,6 +1243,7 @@ namespace Existence.Earth.War
         [Age(53, TimePeriods.Years)]
         [DeathDate(2024, 1, 10)]
         SharabiYossi = 202,
+
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [PreviouslyHeldAsHostage]
@@ -1096,10 +1251,12 @@ namespace Existence.Earth.War
         [Age(20, TimePeriods.Years)]
         [DeathDate(2014, 7, 20)]
         ShaulOron = 203,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
         ShemTovOmer = 204,
+
         /// <summary>
         /// killed in IDF airstrike
         /// </summary>
@@ -1109,22 +1266,27 @@ namespace Existence.Earth.War
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 11, 10)]
         ShermanRon = 205,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(38, TimePeriods.Years)]
         ShohamAdi = 206,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(8, TimePeriods.Years)]
         ShohamNave = 207,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Austria, CountryLikeThings.Italy)]
         [HumanGender(HumanGender.Male)]
         [Age(38, TimePeriods.Years)]
         ShohamTal = 208,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         ShohamYahel = 209,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(12, TimePeriods.Years)]
@@ -1140,39 +1302,48 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(62, TimePeriods.Years)]
         SiegelAdrienneAviva = 212,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [HumanGender(HumanGender.Male)]
         [Age(64, TimePeriods.Years)]
         SiegelSamuelKeith = 213,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(40, TimePeriods.Years)]
         SoussanaAmit = 214,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(32, TimePeriods.Years)]
         SriaounWatchara = 215,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SrikeinaJakkrapan = 216,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Romania)]
         [HumanGender(HumanGender.Female)]
         [Age(30, TimePeriods.Years)]
         SteinbrecherDoron = 217,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(40, TimePeriods.Years)]
         SuriyasriOwas = 218,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(34, TimePeriods.Years)]
         SuwannakhamSathian = 219,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Male)]
         [Age(38, TimePeriods.Years)]
         [DeathDate(2024, 1)]
         SvirskyItai = 220,
+
         /// <summary>
         /// killed by friendly fire while surrendering
         /// </summary>
@@ -1181,14 +1352,17 @@ namespace Existence.Earth.War
         [Age(24, TimePeriods.Years)]
         [DeathDate(2023, 12, 15)]
         TalalkaSamer = 221,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(54, TimePeriods.Years)]
         TalMeirav = 222,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(13, TimePeriods.Years)]
         TarshanskyGali = 223,
+
         /// <summary>
         /// mother of Yelena Trufanov and Alexander (Sasha) Trufanov
         /// </summary>
@@ -1196,14 +1370,17 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(73, TimePeriods.Years)]
         TatiIrena = 224,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(37, TimePeriods.Years)]
         TemthongVichian = 225,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(35, TimePeriods.Years)]
         ThaennaPongsak = 226,
+
         /// <summary>
         /// killed in IDF airstrike (civilian)
         /// </summary>
@@ -1212,14 +1389,17 @@ namespace Existence.Earth.War
         [Age(27, TimePeriods.Years)]
         [DeathDate(2023, 11, 10)]
         ToledanoElia = 227,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         ToonsriUthai = 228,
+
         [Country(CountryLikeThings.Thailand)]
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         TornsokreePattanayut = 229,
+
         /// <summary>
         /// Trupanob is a transformation of the Hebrew.
         /// </summary>
@@ -1227,6 +1407,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(50, TimePeriods.Years)]
         TrufanovYelena = 230,
+
         /// <summary>
         /// Trupanob is a transformation of the Hebrew.
         /// </summary>
@@ -1234,11 +1415,13 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
         TrufanovAlexanderSasha = 231,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
         [DeathDate(2023)]
         TzarfatiOfir = 232,
+
         /// <summary>
         /// Judith Weinstein-Haggai
         /// </summary>
@@ -1258,19 +1441,23 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         WeissNoga = 235,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(53, TimePeriods.Years)]
         WeissShiri = 236,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(65, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         WeissYehudit = 237,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(22, TimePeriods.Years)]
         WenkertOmer = 238,
+
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
@@ -1278,6 +1465,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(16, TimePeriods.Years)]
         YaakovOr = 239,
+
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
@@ -1285,6 +1473,7 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(12, TimePeriods.Years)]
         YaakovYagil = 240,
+
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
@@ -1293,24 +1482,29 @@ namespace Existence.Earth.War
         [Age(59, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         YaakovYair = 241,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(41, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         YablonkaHanan = 242,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Male)]
         [Age(12, TimePeriods.Years)]
         YahalomiEitan = 243,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Male)]
         [Age(49, TimePeriods.Years)]
         [DeathDate(2024, 1, 19)]
         YahalomiOhad = 244,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(40, TimePeriods.Years)]
         YanaiMoranStela = 245,
+
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(28, TimePeriods.Years)]
@@ -1332,15 +1526,18 @@ namespace Existence.Earth.War
         [DeathDate(2024, 8)]
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         YerushalmiEden = 248,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(79, TimePeriods.Years)]
         YitzhakNuritCooper = 249,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(85, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         ZalmanovitchArye = 250,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(23, TimePeriods.Years)]
@@ -1351,14 +1548,17 @@ namespace Existence.Earth.War
         [Age(27, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         ZechariahEden = 252,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(40, TimePeriods.Years)]
         ZivShlomi = 253,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(17, TimePeriods.Years)]
         ZiyadneAisha = 254,
+
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
