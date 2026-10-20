@@ -649,10 +649,13 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(25, TimePeriods.Years)]
         KalfonSegev = 113,
-
+        /// <summary>
+        /// Death (after release) was attributed to medical complications from her time as a hostage
+        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(76, TimePeriods.Years)]
+        [DeathDate(2024, 12, 24)]
         KatzirHannah = 114,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
