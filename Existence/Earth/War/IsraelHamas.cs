@@ -1,5 +1,4 @@
 ﻿
-using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.People;
@@ -1958,8 +1957,6 @@ namespace Existence.Earth.War
 
             /// <summary>
             /// Ceasefire agreement led to releases over several days (81 Israelis, 23 Thais, 1 Filipino), November 24-30.
-            /// 
-            /// published number is 105, while the numbers below add to 106
             /// </summary>
             public static class November21
             {
@@ -2105,7 +2102,7 @@ namespace Existence.Earth.War
             }
 
             /// <summary>
-            /// The IDF and Shin Bet announce they have recovered the body of deceased hostage Ophir Sarfati in recent days
+            /// The IDF and Shin Bet announce they have recovered the body of deceased hostage in recent days
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.TzarfatiOfir)]
@@ -2134,8 +2131,8 @@ namespace Existence.Earth.War
             public static class December15A { }
 
             /// <summary>
-            /// During the Battle of Shuja'iyya, Israeli Defense Forces (IDF) mistakenly identified three Israeli hostages—Alon Shamriz, Yotam Haim, 
-            /// and Samer Talalka—as threats and opened fire, resulting in their deaths. The hostages were reportedly waving a white flag at the time. 
+            /// During the Battle of Shuja'iyya, Israeli Defense Forces (IDF) mistakenly identified three Israeli hostages
+            /// and opened fire, resulting in their deaths. The hostages were reportedly waving a white flag at the time. 
             /// </summary>
             [Number(3)]
             [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael)]
@@ -2286,7 +2283,18 @@ namespace Existence.Earth.War
             [Hostages(HostageList.ShaulOron)]
             public static class January19RecoveredBody { }
 
-            //30 living hostages and 8 bodies were returned
+            /// <summary>
+            /// not part of 2025-01-15 return agreement (home country negotiated their release separately)
+            /// </summary>
+            [Number(5)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [Hostages(HostageList.RumnaoSurasak,
+                HostageList.SaethaoBannawat,
+                HostageList.SriaounWatchara,
+                HostageList.ThaennaPongsak,
+                HostageList.SuwannakhamSathian)]
+            public static class January30 { }
+
             public static class January15HostageReturnAgreementPhase1
             {
                 [Number(3)]
@@ -2306,12 +2314,7 @@ namespace Existence.Earth.War
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(HostageList.YehoudArbel,
                     HostageList.BergerAgam,
-                    HostageList.MozesGadiMoshe,
-                    HostageList.RumnaoSurasak,
-                    HostageList.SaethaoBannawat,
-                    HostageList.SriaounWatchara,
-                    HostageList.ThaennaPongsak,
-                    HostageList.SuwannakhamSathian)]
+                    HostageList.MozesGadiMoshe)]
                 public static class January30 { }
 
                 [Hostages(HostageList.KalderonOfer, HostageList.BibasYarden, HostageList.SiegelSamuelKeith)]
