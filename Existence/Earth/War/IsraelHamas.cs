@@ -1026,6 +1026,9 @@ namespace Existence.Earth.War
         [DeathDate(2023, 10, 7)]
         LoukShani = 132,
 
+        /// <summary>
+        /// Iraq-born
+        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.Kissufim)]
@@ -1931,24 +1934,18 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.ReleasedAlive)]
             public static class October20 { }
 
-            /// <summary>
-            /// released elderly Israeli women (Yokheved Lifshitz and Nurit Yitzhak [Nurit Cooper])
-            /// </summary>
             [Hostages(HostageList.LifshitzYokheved, HostageList.YitzhakNuritCooper)]
             [Number(2)]
             [HostageOutcome(HostageOutcome.ReleasedAlive)]
             public static class October23 { }
 
-            /// <summary>
-            /// Israeli forces rescued soldier Ori Megidish (female soldier)
-            /// </summary>
             [Hostages(HostageList.MegidishOri)]
             [Number(1)]
             [HostageOutcome(HostageOutcome.RescuedAlive)]
             public static class October30 { }
 
             /// <summary>
-            /// recovered bodies of Yehudit Weiss and Corporal Noa Marciano, from buildings adjacent to Al-Shifa hospital
+            /// recovered bodies from buildings adjacent to Al-Shifa hospital
             /// </summary>
             [Hostages(HostageList.WeissYehudit, HostageList.MarcianoNoa)]
             [Number(2)]
@@ -1962,11 +1959,6 @@ namespace Existence.Earth.War
             /// </summary>
             public static class November21
             {
-                /// <summary>
-                /// Yafa Adar, Daniel Aloni, Emilia Aloni, Aviv Asher, Doron Katz Asher, Raz Asher, Hannah Katzir, Margalit Moses (77-year-old member of Kibbutz Nir Or)
-                /// Adina Moshe, Keren Munder, Ohad Munder, Ruth Munder, Nattaware Munkan, Hanna Peri, Santi Boonprom, Vichai Kalaprat
-                /// Bancha Kongmanee, Gelienor "Jimmy" Pacheco, Boonthom Pankhong, Mongkol Phachuabboon, Vetoon Phoome, Buddhee Saengboon, Uthai Saengnuan, Uthai Toonsri
-                /// </summary>
                 [Number(24)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -1996,11 +1988,6 @@ namespace Existence.Earth.War
                     HostageList.ToonsriUthai)]
                 public static class November24 { }
 
-                /// <summary>
-                /// Noam Avigdori, Sharon Avigdori, Emily Hand, Shoshan Haran, Alma Or, Noam Or, Maya Regev, Adi Shoham
-                /// Nave Shoham, Yahel Shoham, Hila Rotem Shoshani, Noga Weiss, Shiri Weiss, Anucha Angkaew, Komkrit Chombua, Manee Jirachart
-                /// Natthaporn Onkaew
-                /// </summary>
                 [Number(17)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2023,11 +2010,6 @@ namespace Existence.Earth.War
                     HostageList.OnkaewNatthaporn)]
                 public static class November25 { }
 
-                /// <summary>
-                /// Elma Avraham, Hagar Brodutch, Ofri Brodutch, Uriah Brodutch, Yuval Brodutch, Abigail Edan, Dafna Elyakim, Ela Elyakim
-                /// Agam Goldstein-Almog, Chen Goldstein-Almog, Gal Goldstein-Almog, Tal Goldstein-Almog, Roni Kriboy, Adrienne Siegel, Surin Kesoognern, Pornsawan Pinakalow
-                /// Vichian Temthong
-                /// </summary>
                 [Number(17)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2050,10 +2032,6 @@ namespace Existence.Earth.War
                     HostageList.TemthongVichian)]
                 public static class November26 { }
 
-                /// <summary>
-                /// Sharon Olani Cunio, Emma Cunion, Yuli Cunio, Karina Engel-Bart, Mika Engel, Yuval Engel, Or Jacob, Yagil Jacob
-                /// Erez Kalderon, Sahar Kalderon, Eitan Yahaloni
-                /// </summary>
                 [Number(11)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2070,10 +2048,6 @@ namespace Existence.Earth.War
                     HostageList.YahalomiEitan)]
                 public static class November27 { }
 
-                /// <summary>
-                /// Noralin Babadilla, Ditza Heiman, Rimon Kirsht, Gabriela Leimberg, Mia Leimbert, Clara Merman, Tamar Metzger, Ofelia Roitman
-                /// Ada Sagi, Owas Suriyasri, Meirav Tal, Pattanayut Tornsokree
-                /// </summary>
                 [Number(12)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2112,10 +2086,6 @@ namespace Existence.Earth.War
                     HostageList.TatiIrena)]
                 public static class November29 { }
 
-                /// <summary>
-                /// Siblings Bilal (18) and Aisha Ziyadne (17), Ilana Gritzewsky, Nili Margalit; Shani Goren, Amit Soussana (50), Mia Schem (21)
-                /// Sapir Cohen (girlfriend of Alexandre (Sasha) Troufanov)
-                /// </summary>
                 [Number(8)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2139,7 +2109,7 @@ namespace Existence.Earth.War
             public static class November29 { }
 
             /// <summary>
-            /// The IDF recovers the bodies of Eden Zechariah and Staff Sergeant Major Ziv Dado in underground tunnels in Jabalia, Gaza
+            /// The IDF recovers bodies in underground tunnels in Jabalia, Gaza
             /// </summary>
             [Number(2)]
             [Hostages(HostageList.ZechariahEden, HostageList.DadoZiv)]
@@ -2148,7 +2118,7 @@ namespace Existence.Earth.War
 
             /// <summary>
             /// An IDF airstrike targeting Hamas's northern Gaza brigade chief, Ahmed Ghandour, killed three hostages, but their
-            /// bodies were not recovered until December 15th (Sgt. Ron Sherman, Cpl. Nik Beizer, and civilian Elia Toledano)
+            /// bodies were not recovered until December 15th
             /// </summary>
             [Number(3)]
             [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael)]
@@ -2174,7 +2144,7 @@ namespace Existence.Earth.War
         public static class v2024
         {
             /// <summary>
-            /// Operation Golden Hand: rescued Fernando Simon Merman (60) and Luis Har (70) in Rafah, Gaza
+            /// Operation Golden Hand: rescued in Rafah, Gaza
             /// </summary>
             [Number(2)]
             [Hostages(HostageList.MermanFernandoSimon, HostageList.HarLuis)]
@@ -2182,7 +2152,7 @@ namespace Existence.Earth.War
             public static class February12 { }
 
             /// <summary>
-            ///	The IDF announces it has recovered the body of deceased hostage Elad Katzir 
+            ///	The IDF announces it has recovered one body
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.KatznirElad)]
@@ -2190,7 +2160,7 @@ namespace Existence.Earth.War
             public static class April6 { }
 
             /// <summary>
-            /// Shani Louk, Amit Buskila, and Itzhak Gelerenter, reportedly kidnapped during the attack on the Nova festival
+            /// Rreportedly kidnapped during the attack on the Nova festival
             /// All three were killed near the site of the attack and their bodies were taken into Gaza and later recovered in a Hamas tunnel
             /// </summary>
             [Hostages(HostageList.LoukShani, HostageList.BuskilaEstherAmit, HostageList.GelerenterItzhak)]
@@ -2199,9 +2169,8 @@ namespace Existence.Earth.War
             public static class May17 { }
 
             /// <summary>
-            /// It was announced by the IDF that they had also recovered the body of deceased hostage Ron Benjamin, and his body was recovered 
-            /// alongside those announced the day before. Benjamin was 53-years-old and abducted from the Be'eri kibbutz while riding his bike 
-            /// on the day of the attack
+            /// It was announced by the IDF that they had also recovered the body of a deceased hostag whose body was recovered 
+            /// alongside those announced the day before. The hostage was abducted while riding his bike on the day of the attack
             /// </summary>
             [Hostages(HostageList.BenjaminRon)]
             [Number(1)]
@@ -2209,8 +2178,7 @@ namespace Existence.Earth.War
             public static class May18 { }
 
             /// <summary>
-            /// The Israel Defense Forces has recovered the bodies of three more hostages from the northern Gaza Strip in an overnight operation,
-            /// Orión Hernández Radoux, 30, Hanan Yablonka, 42, and Michel Nisenbaum, 59, were all killed on October 7,
+            /// The Israel Defense Forces has recovered the bodies of three more hostages from the northern Gaza Strip in an overnight operation.
             /// </summary>
             [Number(3)]
             [Hostages(HostageList.RadouxOriónHernández, HostageList.YablonkaHanan, HostageList.NisenbaumMichel)]
@@ -2223,7 +2191,7 @@ namespace Existence.Earth.War
             public static class June3 { }
 
             /// <summary>
-            /// rescued from Nuseirat refugee camp: Noa Argamani, Almog Meir Jan, Andrey Kozlov, and Shlomi Ziv
+            /// rescued from Nuseirat refugee camp
             /// </summary>
             [Number(4)]
             [HostageOutcome(HostageOutcome.RescuedAlive)]
@@ -2235,8 +2203,7 @@ namespace Existence.Earth.War
             public static class June8 { }
 
             /// <summary>
-            /// bodies recovered from a tunnel located in the Israeli-designated humanitarian zone in the southern Gaza Strip,
-            /// Ravid Katz, 51, Oren Goldin, 33, Maya Goren, 56, Sgt. Kiril Brodski, 19, and Staff Sgt. Tomer Yaakov Ahimas, 20
+            /// bodies recovered from a tunnel located in the Israeli-designated humanitarian zone in the southern Gaza Strip
             /// </summary>
             [Number(5)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
@@ -2250,7 +2217,6 @@ namespace Existence.Earth.War
 
             /// <summary>
             ///  bodies of the six hostages recovered by the IDF from southern Gaza’s Khan Younis 
-            ///  (Alexander Dancyg, Yagev Buchshtav, Chaim Peri, Yoram Metzger, Nadav Popplewell, and Avraham Munder)
             /// </summary>
             [Number(6)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
@@ -2264,7 +2230,7 @@ namespace Existence.Earth.War
             public static class August1920 { }
 
             /// <summary>
-            /// Qaid Farhan al-Qadi (Israeli-Bedouin), rescued in a tunnel in southern Gaza during a joint op by IDF and Shin Bet
+            /// rescued in a tunnel in southern Gaza during a joint op by IDF and Shin Bet
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.AlkadiQaidFarhan)]
@@ -2292,7 +2258,7 @@ namespace Existence.Earth.War
             public static class August31 { }
 
             /// <summary>
-            /// The remains of Itai Svirsky, taken hostage from kibbutz Be'eri on October 7, was recovered by the IDF
+            /// Remains taken hostage on October 7, was recovered by the IDF
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.SvirskyItai)]
@@ -2344,25 +2310,16 @@ namespace Existence.Earth.War
                     HostageList.SuwannakhamSathian)]
                 public static class January30 { }
 
-                /// <summary>
-                /// Released: Ofer Kalderon 54, Yarden Bibas 35, Keith Siegel 65
-                /// </summary>
                 [Hostages(HostageList.KalderonOfer, HostageList.BibasYarden, HostageList.SiegelSamuelKeith)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Number(3)]
                 public static class February1 { }
 
-                /// <summary>
-                /// Released: Ohad Ben Ami, Eli Sharabi, Or Levy
-                /// </summary>
                 [Hostages(HostageList.BenAmiOhad, HostageList.SharabiEli, HostageList.LevyOr)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Number(3)]
                 public static class February8 { }
 
-                /// <summary>
-                /// Released: Sagui Dekel-Chen, Alexandre (Sasha) Troufanov, Iair Horn 46
-                /// </summary>
                 [Hostages(HostageList.DekelChenSagui,
                     HostageList.TrufanovAlexanderSasha,
                     HostageList.HornIair)]
@@ -2370,27 +2327,16 @@ namespace Existence.Earth.War
                 [Number(3)]
                 public static class February15 { }
 
-                /// <summary>
-                /// released body: Oded Lifshitz, Ariel/Kfir Bibas
-                /// </summary>
                 [Number(3)]
                 [Hostages(HostageList.LifshitzOded, HostageList.BibasAriel, HostageList.BibasKfir)]
                 [HostageOutcome(HostageOutcome.ReleasedBody)]
                 public static class February20 { }
 
-                /// <summary>
-                /// released body: Shiri Bibas
-                /// </summary>
                 [Hostages(HostageList.BibasShiri)]
                 [HostageOutcome(HostageOutcome.ReleasedBody)]
                 [Number(1)]
                 public static class February21 { }
 
-                /// <summary>
-                /// released: Omer Wenkert, Omer Shem Tov, Eliya Cohen, Tal Shoham
-                /// Avera Mengistu (held by Hamas prior to 2023-10-7)
-                /// Hisham al-Sayed (held by Hamas prior to 2023-10-7)
-                /// </summary>
                 [Number(6)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(
@@ -2402,11 +2348,6 @@ namespace Existence.Earth.War
                     HostageList.AlSayedHishamShaaban)]
                 public static class February22 { }
 
-                /// <summary>
-                /// bodies released
-                /// Shlomo Mansour 86 (Iraq-born from Kibbutz Kissufim)
-                /// Ohad Yahalomi, 50, Tsachi Idan, 50, and Itzik Elgarat, 69
-                /// </summary>
                 [Number(4)]
                 [HostageOutcome(HostageOutcome.ReleasedBody)]
                 [Hostages(
