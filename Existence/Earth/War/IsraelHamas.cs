@@ -386,13 +386,11 @@ namespace Existence.Earth.War
         [Age(75, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         DancygAlexander = 63,
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(24, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         DaninoOri = 64,
 
         [Country(CountryLikeThings.Israel)]
@@ -442,13 +440,11 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(11, TimePeriods.Years)]
         EngelYuval = 75,
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [HumanGender(HumanGender.Female)]
         [Age(39, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         GatCarmel = 76,
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
@@ -478,13 +474,11 @@ namespace Existence.Earth.War
         [DeathDate(2023, 10, 7)]
         GodardManny = 80,
 
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [HumanGender(HumanGender.Male)]
         [Age(23, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         GoldbergPolinHersh = 81,
 
         [Country(CountryLikeThings.Israel)]
@@ -735,13 +729,11 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Female)]
         [Age(85, TimePeriods.Years)]
         LifshitzYokheved = 130,
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [HumanGender(HumanGender.Male)]
         [Age(32, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         LobanovAlexander = 131,
         [Countries(CountryLikeThings.Germany, CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
@@ -1060,13 +1052,11 @@ namespace Existence.Earth.War
         [HumanGender(HumanGender.Male)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SangkaewChalermchai = 196,
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         SarusiAlmog = 197,
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
         [HumanGender(HumanGender.Female)]
@@ -1336,13 +1326,11 @@ namespace Existence.Earth.War
         [DeathDate(2023, 10, 7)]
         YehoudDolev = 247,
 
-        /// <summary>
-        /// executed by Hamas
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
         [Age(23, TimePeriods.Years)]
         [DeathDate(2024, 8)]
+        [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         YerushalmiEden = 248,
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
@@ -1747,7 +1735,6 @@ namespace Existence.Earth.War
             /// <summary>
             /// recovered the bodies of these hostages from a tunnel in Rafah, Gaza
             /// Believed to be executed by Hamas, shot at close range 1-2 days prior to discovery.
-            /// Hersh Goldberg-Polin (23, American), Eden Yerushalmi, 24, Ori Danino, 25, Alex Lobanov, 32, Carmel Gat, 40, and Almog Sarusi, 27.
             /// </summary>
             [Number(6)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
@@ -1770,17 +1757,11 @@ namespace Existence.Earth.War
         }
         public static class v2025
         {
-            /// <summary>
-            /// Body recovered by Israeli Military: Yousef Alziadana
-            /// </summary>
             [Number(1)]
             [Hostages(HostageList.AlZayadniYosef)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             public static class January8 { }
 
-            /// <summary>
-            /// Body Recovered by Israeli Military: Hamza Alziadana
-            /// </summary>
             [Number(1)]
             [Hostages(HostageList.AlZayadniHamzah)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
@@ -1794,17 +1775,11 @@ namespace Existence.Earth.War
             //30 living hostages and 8 bodies were returned
             public static class January15HostageReturnAgreementPhase1
             {
-                /// <summary>
-                /// Released: Emily Damari 28, Romi Gonen 24, Doron Steinbrecher 31
-                /// </summary>
                 [Number(3)]
                 [Hostages(HostageList.DamariEmily, HostageList.GonenRomi, HostageList.SteinbrecherDoron)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 public static class January19ReleasedAlive { }
 
-                /// <summary>
-                /// Released: Liri Albag, Karina Ariev, Daniella Gilboa, Naama Levy
-                /// </summary>
                 [Number(4)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(HostageList.AlbagLiri,
@@ -1813,14 +1788,11 @@ namespace Existence.Earth.War
                     HostageList.LevyNaama)]
                 public static class January25 { }
 
-                /// <summary>
-                /// Released: Arbel Yehoud 29, Agam Berger 20, Gadi Moses 80, Surasak Romneo, Bannawat Saethao, Watchara Sriaoun, Pongsak Thaenna, Sathian Suwannakham
-                /// </summary>
                 [Number(8)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive)]
                 [Hostages(HostageList.YehoudArbel,
                     HostageList.BergerAgam,
-                    HostageList.MozesGadiMoshe, //had listed as Gadi Moses
+                    HostageList.MozesGadiMoshe,
                     HostageList.RumnaoSurasak,
                     HostageList.SaethaoBannawat,
                     HostageList.SriaounWatchara,
@@ -2088,4 +2060,20 @@ internal class IsraelDefenceForcesSoldierAttribute : Attribute
     {
         this.Rank = Rank;
     }
+}
+
+internal class ExecutedByPalestinianMilitantGroup : ExecutedAttribute
+{
+    public PalestinianMilitantGroups PalestinianMilitantGroup { get; set; }
+    public ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups palestinianMiltantGroup)
+    {
+        PalestinianMilitantGroup = palestinianMiltantGroup;
+    }
+}
+
+internal enum PalestinianMilitantGroups
+{
+    Hamas,
+    PalestinianIslamicJihad,
+    Other,
 }

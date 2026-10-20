@@ -102,6 +102,10 @@ namespace Existence.Time
         }
     }
 
+    public class ExecutedAttribute : Attribute
+    {
+    }
+
     public class CauseOfDeathAttribute : Attribute
     {
         public CausesOfDeath Cause { get; set; }
