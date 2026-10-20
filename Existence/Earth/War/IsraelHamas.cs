@@ -85,10 +85,12 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(22, TimePeriods.Years)]
+        [DeathDateUnknown]
         AlZayadniHamzah = 7,
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [ApproximateAgeInYears(52, 53)]
+        [DeathDateUnknown]
         AlZayadniYosef = 8,
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
@@ -339,6 +341,7 @@ namespace Existence.Earth.War
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
         [HumanGender(HumanGender.Male)]
         [Age(84, TimePeriods.Years)]
+        [DeathDateUnknown]
         CooperAmiram = 54,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
@@ -408,6 +411,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Male)]
         [Age(68, TimePeriods.Years)]
+        [DeathDateUnknown]
         ElgaratItzhk = 68,
         [Country(CountryLikeThings.Israel)]
         [HumanGender(HumanGender.Female)]
