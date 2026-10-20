@@ -67,8 +67,9 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         AloniEmelia = 6,
         /// <summary>
-        /// released, held by Hamas prior to 2023-10-7 (36 yr)
+        /// released, (36 yr)
         /// </summary>
+        [PreviouslyHeldAsHostage]
         AlSayedHishamShaaban = 7,
         /// <summary>
         /// body recovered (22 yr)
@@ -400,8 +401,9 @@ namespace Existence.Earth.War
         GoldbergPolinHersh = 82,
 
         /// <summary>
-        /// 32 yr, body released
+        /// 32 yr
         /// </summary>
+        [PreviouslyHeldAsHostage]
         GoldinHadar = 83,
 
         /// <summary>
@@ -644,8 +646,9 @@ namespace Existence.Earth.War
         /// </summary>
         MeirJanAlmog = 139,
         /// <summary>
-        /// released (held by Hamas prior to 2023-10-7) (38 yr)
+        /// (38 yr
         /// </summary>
+        [PreviouslyHeldAsHostage]
         MengistuAvera = 140,
         /// <summary>
         /// released
@@ -937,8 +940,8 @@ namespace Existence.Earth.War
         /// <summary>
         /// 30 yr, recovered body
         /// </summary>
+        [PreviouslyHeldAsHostage]
         ShaulOron = 204,
-
         /// <summary>
         /// released (22 yr)
         /// </summary>
@@ -1853,3 +1856,10 @@ internal class NotActuallyAHostageAttribute : Attribute
     }
 }
 
+internal class PreviouslyHeldAsHostageAttribute : Attribute
+{
+    public PreviouslyHeldAsHostageAttribute()
+    {
+
+    }
+}
