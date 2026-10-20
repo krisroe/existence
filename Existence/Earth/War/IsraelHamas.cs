@@ -555,7 +555,7 @@ namespace Existence.Earth.War
         /// <summary>
         /// 21 yr
         /// </summary>
-        KeldarOfra = 118,
+        KeidarOfra = 118,
         /// <summary>
         /// released
         /// </summary>
@@ -1706,7 +1706,7 @@ namespace Existence.Earth.War
 
             [Number(3)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
-            [Hostages(HostageList.KeldarOfra,
+            [Hostages(HostageList.KeidarOfra,
                       HostageList.LevinsonShay,
                       HostageList.SameranoYonatan)]
             public static class June22 { }
