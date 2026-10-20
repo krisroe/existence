@@ -137,29 +137,29 @@ namespace Existence.Time
         public MissingdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
-    public class DeathdateAttribute : YearDateAttribute
+    public class DeathDateAttribute : YearDateAttribute
     {
         public Seasons? Season { get; set; }
-        public DeathdateAttribute(int Year) : base(Year, 0, 0)
+        public DeathDateAttribute(int Year) : base(Year, 0, 0)
         {
 
         }
-        public DeathdateAttribute(int Year, Seasons Season) : base(Year, 0, 0)
+        public DeathDateAttribute(int Year, Seasons Season) : base(Year, 0, 0)
         {
             this.Season = Season;
         }
 
-        public DeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+        public DeathDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
-    public class MindDeathdateAttribute : DeathdateAttribute
+    public class MindDeathdateAttribute : DeathDateAttribute
     {
         public MindDeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
         {
         }
     }
 
-    public class BodyDeathdateAttribute : DeathdateAttribute
+    public class BodyDeathdateAttribute : DeathDateAttribute
     {
         public BodyDeathdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
         {

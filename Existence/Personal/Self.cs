@@ -39,7 +39,7 @@ namespace Existence.Personal
         /// ambiguous pisces/aquarius without more information
         /// </summary>
         [Birthdate(1952, 2, 18)]
-        [Deathdate(2024, 7, 21)]
+        [DeathDate(2024, 7, 21)]
         public static class Mother { }
 
         [AstrologicalSign(AstrologicalSigns.Cancer)]
