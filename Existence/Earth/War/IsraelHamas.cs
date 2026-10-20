@@ -2161,7 +2161,7 @@ namespace Existence.Earth.War
             public static class April6 { }
 
             /// <summary>
-            /// Rreportedly kidnapped during the attack on the Nova festival
+            /// Reportedly kidnapped during the attack on the Nova festival
             /// All three were killed near the site of the attack and their bodies were taken into Gaza and later recovered in a Hamas tunnel
             /// </summary>
             [Hostages(HostageList.LoukShani, HostageList.BuskilaEstherAmit, HostageList.GelerenterItzhak)]
@@ -2170,7 +2170,7 @@ namespace Existence.Earth.War
             public static class May17 { }
 
             /// <summary>
-            /// It was announced by the IDF that they had also recovered the body of a deceased hostag whose body was recovered 
+            /// It was announced by the IDF that they had also recovered the body of a deceased hostage whose body was recovered 
             /// alongside those announced the day before. The hostage was abducted while riding his bike on the day of the attack
             /// </summary>
             [Hostages(HostageList.BenjaminRon)]
@@ -2617,4 +2617,9 @@ internal enum IsraeliKibbutz
     NirOz,
     NirYitzhak,
     Nirim,
+}
+
+internal enum IsraeliAssassinationTarget
+{
+
 }
