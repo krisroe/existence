@@ -2,6 +2,7 @@
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Time;
 using System;
 
 namespace Existence.Earth.War
@@ -42,175 +43,211 @@ namespace Existence.Earth.War
         /// <summary>
         /// released body
         /// </summary>
+        [Age(38, TimePeriods.Years)]
         AdarTamir = 1,
         /// <summary>
-        /// released (85 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(85, TimePeriods.Years)]
         AdarYafa = 2,
         /// <summary>
-        /// Staff Sergeant, body recovered (20 yr)
+        /// Staff Sergeant, body recovered
         /// </summary>
+        [Age(20, TimePeriods.Years)]
         AhimasTomerYaakov = 3,
         /// <summary>
-        /// 39 yr, released body, Israeli Bedouin soldier
+        /// released body, Israeli Bedouin soldier
         /// </summary>
+        [Age(39, TimePeriods.Years)]
         AlAtreshMuhammad = 4,
         /// <summary>
-        /// released (45 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(44, TimePeriods.Years)]
         AloniDaniel = 5,
         /// <summary>
-        /// released (5 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(5, TimePeriods.Years)]
         AloniEmelia = 6,
         /// <summary>
-        /// released, (36 yr)
+        /// released
         /// </summary>
         [PreviouslyHeldAsHostage]
+        [Age(27, TimePeriods.Years)]
         AlSayedHishamShaaban = 7,
         /// <summary>
-        /// body recovered (22 yr)
+        /// body recovered
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         AlZayadniHamzah = 8,
         /// <summary>
-        /// body recovered (53 yr)
+        /// body recovered
         /// </summary>
+        [ApproximateAgeInYears(52, 53)]
         AlZayadniYosef = 9,
         /// <summary>
-        /// released (19 yr)
+        /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         AlbagLiri = 10,
 
-        /// <summary>
-        /// 18 yr
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [Age(19, TimePeriods.Years)]
         AlexanderEdan = 11,
 
         /// <summary>
-        /// rescued (53 yr)
+        /// rescued
         /// </summary>
+        [Age(51, TimePeriods.Years)]
         AlkadiQaidFarhan = 12,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(28, TimePeriods.Years)]
         AngkaewAnucha = 13,
 
         /// <summary>
-        /// Israeli solder captured during the October 7 attacks, 32 yr, released
+        /// Israeli solder captured during the October 7 attacks, released
         /// </summary>
+        [Age(20, TimePeriods.Years)]
         AngrestMatan = 14,
 
         /// <summary>
-        /// rescued (26 yr)
+        /// rescued
         /// </summary>
+        [Age(25, TimePeriods.Years)]
         ArgamaniNoa = 15,
         /// <summary>
-        /// released (20 yr)
+        /// released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         ArievKarina = 16,
         /// <summary>
-        /// released (2 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(2, TimePeriods.Years)]
         AsherAviv = 17,
         /// <summary>
-        /// released (34 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(34, TimePeriods.Years)]
         AsherDoronKatz = 18,
         /// <summary>
-        /// released (4 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(4, TimePeriods.Years)]
         AsherRaz = 19,
         /// <summary>
-        /// related to BeininLiat, 49 yr
+        /// related to BeininLiat
         /// </summary>
+        [Age(49, TimePeriods.Years)]
         AtziliAviv = 20,
         /// <summary>
         /// released
         /// </summary>
+        [Age(12, TimePeriods.Years)]
         AvigdoriNoam = 21,
         /// <summary>
         /// released
         /// </summary>
+        [Age(52, TimePeriods.Years)]
         AvigdoriSharon = 22,
         /// <summary>
         /// released
         /// </summary>
+        [Age(84, TimePeriods.Years)]
         AvrihamElma = 23,
         /// <summary>
         /// released
         /// </summary>
+        [Age(60, TimePeriods.Years)]
         BabadillaNoralin = 24,
         /// <summary>
         /// released body
         /// </summary>
+        [Age(24, TimePeriods.Years)]
         BaruchSahar = 25,
         /// <summary>
         /// released body
         /// </summary>
+        [Age(34, TimePeriods.Years)]
         BaruchUriael = 26,
         /// <summary>
         /// related to Aviv Atzili released
         /// </summary>
+        [Age(49, TimePeriods.Years)]
         BeininLiat = 27,
         /// <summary>
         /// body recovered, killed in IDF airstrike (Corporal)
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         BeizerNik = 28,
         /// <summary>
-        /// released (56 yr)
+        /// released
         /// </summary>
+        [Age(54, TimePeriods.Years)]
         BenAmiOhad = 29,
         /// <summary>
         /// released
         /// </summary>
+        [Age(56, TimePeriods.Years)]
         BenAmiRaz = 30,
         /// <summary>
-        /// body recovered (53 yr)
+        /// body recovered
         /// </summary>
+        [Age(53, TimePeriods.Years)]
         BenjaminRon = 31,
         /// <summary>
-        /// released (20 yr)
+        /// released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         BergerAgam = 32,
 
         /// <summary>
-        /// 26 yr, released, Gali/Ziv Berman are twins
+        /// released, Gali/Ziv Berman are twins
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         BermanGali = 33,
 
         /// <summary>
-        /// 26 yr, released, Gali/Ziv Berman are twins
+        /// released, Gali/Ziv Berman are twins
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         BermanZiv = 34,
 
         /// <summary>
-        /// released body (4 yr)
+        /// released body
         /// </summary>
+        [Age(4, TimePeriods.Years)]
         BibasAriel = 35,
         /// <summary>
-        /// released body (9 mo)
+        /// released body
         /// </summary>
+        [Age(8, TimePeriods.Months)]
         BibasKfir = 36,
         /// <summary>
-        /// released body (32 yr)
+        /// released body
         /// </summary>
+        [Age(32, TimePeriods.Years)]
         BibasShiri = 37,
         /// <summary>
-        /// released (35 yr)
+        /// released
         /// </summary>
+        [Age(33, TimePeriods.Years)]
         BibasYarden = 38,
 
         /// <summary>
-        /// 34 yr, released
+        /// released
         /// </summary>
+        [Age(34, TimePeriods.Years)]
         BohbotElkana = 39,
 
         /// <summary>
@@ -222,341 +259,407 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         BraslavskiRom = 41,
 
         /// <summary>
-        /// Sergeant, body recovered (19 yr)
+        /// Sergeant, body recovered
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         BrodskiKiril = 42,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         BrodutchHagar = 43,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
+        [Age(9, TimePeriods.Years)]
         BrodutchOfri = 44,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
+        [Age(4, TimePeriods.Years)]
         BrodutchOriya = 45,
         /// <summary>
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
+        [Age(9, TimePeriods.Years)]
         BrodutchYuval = 46,
         /// <summary>
         /// released
         /// </summary>
+        [Age(36, TimePeriods.Years)]
         BuchshtavRimonKirsht = 47,
         /// <summary>
-        /// body recovered (Buckshtav?) (34 yr)
+        /// body recovered (Buckshtav?)
         /// </summary>
+        [Age(34, TimePeriods.Years)]
         BuchshtabYagev = 48,
         /// <summary>
-        /// body recovered (28 yr)
+        /// body recovered
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         BuskilaEstherAmit = 49,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         ChenItay = 50,
         /// <summary>
         /// released
         /// </summary>
+        [Age(29, TimePeriods.Years)]
         ChombuaKomkrit = 51,
         /// <summary>
-        /// released (27 yr)
+        /// released
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         CohenEliya = 52,
 
         /// <summary>
-        /// Israeli solder captured during the October 7 attacks, 19 yr, released
+        /// Israeli solder captured during the October 7 attacks, released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         CohenNimrod = 53,
 
         /// <summary>
         /// released (girlfriend of Alexandre (Sasha) Troufanov)
         /// </summary>
+        [Age(29, TimePeriods.Years)]
         CohenSapir = 54,
 
         /// <summary>
-        /// 84 yr, released body
+        /// released body
         /// </summary>
+        [Age(84, TimePeriods.Years)]
         CooperAmiram = 55,
 
         /// <summary>
-        /// 26 yr, released
+        /// released
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         CunioAriel = 56,
 
         /// <summary>
-        /// 33 yr, released
+        /// released
         /// </summary>
+        [Age(33, TimePeriods.Years)]
         CunioDavid = 57,
 
         /// <summary>
         /// released? cunio?
         /// </summary>
+        [Age(3, TimePeriods.Years)]
         CunionEmma = 58,
         /// <summary>
         /// released
         /// </summary>
+        [Age(34, TimePeriods.Years)]
         CunioSharonOlani = 59,
         /// <summary>
         /// released
         /// </summary>
+        [Age(3, TimePeriods.Years)]
         CunioYuli = 60,
         /// <summary>
         /// body recovered, staff sergeant major
         /// </summary>
+        [Age(36, TimePeriods.Years)]
         DadoZiv = 61,
-        /// <summary>
-        /// 19 yr
-        /// </summary>
+        [Age(19, TimePeriods.Years)]
         DahanShaked = 62,
         /// <summary>
-        /// released (28 yr)
+        /// released
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         DamariEmily = 63,
         /// <summary>
-        /// body recovered (75 yr)
+        /// body recovered
         /// </summary>
+        [Age(75, TimePeriods.Years)]
         DancygAlexander = 64,
         /// <summary>
-        /// body recovered, executed by Hamas (24 yr)
+        /// body recovered, executed by Hamas
         /// </summary>
+        [Age(24, TimePeriods.Years)]
         DaninoOri = 65,
 
         /// <summary>
-        /// 23 yr, released
+        /// released
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         DavidEvyatar = 66,
 
         /// <summary>
-        /// released (36 yr)
+        /// released
         /// </summary>
+        [Age(35, TimePeriods.Years)]
         DekelChenSagui = 67,
         /// <summary>
         /// released
         /// </summary>
+        [Age(3, TimePeriods.Years)]
         EdanAbigail = 68,
         /// <summary>
-        /// body released (68 yr)
+        /// body released
         /// </summary>
+        [Age(68, TimePeriods.Years)]
         ElgaratItzhk = 69,
         /// <summary>
         /// released
         /// </summary>
+        [Age(15, TimePeriods.Years)]
         ElyakimDafna = 70,
         /// <summary>
         /// released
         /// </summary>
+        [Age(8, TimePeriods.Years)]
         ElyakimEla = 71,
         /// <summary>
         /// released
         /// </summary>
+        [Age(51, TimePeriods.Years)]
         EngelBartKarina = 72,
         /// <summary>
         /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         EngelMika = 73,
         /// <summary>
         /// released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         EngelOfir = 74,
         /// <summary>
         /// released body
         /// </summary>
+        [Age(54, TimePeriods.Years)]
         EngelRonan = 75,
         /// <summary>
         /// released
         /// </summary>
+        [Age(11, TimePeriods.Years)]
         EngelYuval = 76,
         /// <summary>
-        /// body recovered, executed by Hamas (39 yr)
+        /// body recovered, executed by Hamas
         /// </summary>
+        [Age(39, TimePeriods.Years)]
         GatCarmel = 77,
         /// <summary>
-        /// body recovered (56 yr)
+        /// body recovered
         /// </summary>
+        [Age(56, TimePeriods.Years)]
         GelerenterItzhak = 78,
         /// <summary>
-        /// released (20 yr)
+        /// released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         GilboaDaniella = 79, //(originally named Danielle)
 
         /// <summary>
-        /// 22 yr, released, Guy Gilboa-Dalal
+        /// released, Guy Gilboa-Dalal
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         GilboaDalalGuy = 80,
 
         /// <summary>
         /// released body
         /// </summary>
+        [Age(73, TimePeriods.Years)]
         GodardManny = 81,
 
         /// <summary>
-        /// body recovered, executed by Hamas (American) (23 yr)
+        /// body recovered, executed by Hamas (American)
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         GoldbergPolinHersh = 82,
 
-        /// <summary>
-        /// 32 yr
-        /// </summary>
         [PreviouslyHeldAsHostage]
+        [Age(23, TimePeriods.Years)]
         GoldinHadar = 83,
 
         /// <summary>
-        /// body recovered (33 yr)
+        /// body recovered
         /// </summary>
+        [Age(33, TimePeriods.Years)]
         GoldinOren = 84,
         /// <summary>
         /// released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         GoldsteinAlmogAgam = 85,
         /// <summary>
         /// released
         /// </summary>
+        [Age(48, TimePeriods.Years)]
         GoldsteinAlmogChen = 86,
         /// <summary>
         /// released
         /// </summary>
+        [Age(11, TimePeriods.Years)]
         GoldsteinAlmogGal = 87,
         /// <summary>
         /// released
         /// </summary>
+        [Age(9, TimePeriods.Years)]
         GoldsteinAlmogTal = 88,
         /// <summary>
-        /// released (24 yr)
+        /// released
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         GonenRomi = 89,
         /// <summary>
-        /// body recovered (56 yr)
+        /// body recovered
         /// </summary>
+        [Age(56, TimePeriods.Years)]
         GorenMaya = 90,
         /// <summary>
         /// released
         /// </summary>
+        [Age(29, TimePeriods.Years)]
         GorenShani = 91,
         /// <summary>
         /// released
         /// </summary>
+        [Age(30, TimePeriods.Years)]
         GritzewskyIlana = 92,
 
         /// <summary>
-        /// 24 yr, aka Rani, body recovered, last hostage accounted for
+        /// aka Rani, body recovered, last hostage accounted for
         /// </summary>
+        [Age(24, TimePeriods.Years)]
         GviliRan = 93,
 
         /// <summary>
-        /// 73 yr, aka Gadi, released body
+        /// aka Gadi, released body
         /// </summary>
+        [Age(72, TimePeriods.Years)]
         HaggaiGad = 94,
 
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
+        [Age(28, TimePeriods.Years)]
         HaimYotam = 95,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(41, TimePeriods.Years)]
         HaimiTal = 96,
         /// <summary>
         /// body released
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         HamamiAsaf = 97,
         /// <summary>
         /// released
         /// </summary>
+        [Age(8, TimePeriods.Years)]
         HandEmily = 98,
         /// <summary>
         /// released
         /// </summary>
+        [Age(67, TimePeriods.Years)]
         HaranShoshan = 99,
         /// <summary>
-        /// rescued (70 yr)
+        /// rescued
         /// </summary>
+        [Age(70, TimePeriods.Years)]
         HarLuis = 100,
         /// <summary>
-        /// released body, 26 yr
+        /// released body
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         HaymanInbar = 101,
         /// <summary>
         /// released
         /// </summary>
+        [Age(84, TimePeriods.Years)]
         HeimanDitza = 102,
 
         /// <summary>
-        /// 35 yr, released
+        /// released
         /// </summary>
+        [Age(35, TimePeriods.Years)]
         HerkinMaxim = 103,
 
         /// <summary>
-        /// 37 yr, released
+        /// released
         /// </summary>
+        [Age(37, TimePeriods.Years)]
         HornEitan = 104,
 
         /// <summary>
-        /// released (46 yr)
+        /// released
         /// </summary>
+        [Age(45, TimePeriods.Years)]
         HornIair = 105,
         /// <summary>
-        /// body released (49 yr)
+        /// body released
         /// </summary>
+        [Age(49, TimePeriods.Years)]
         IdanTsachi = 106,
-        /// <summary>
-        /// 26 yr
-        /// </summary>
+        [Age(26, TimePeriods.Years)]
         IluzGuy = 107,
         /// <summary>
         /// released
         /// </summary>
+        [Age(29, TimePeriods.Years)]
         JirachartManee = 108,
 
         /// <summary>
-        /// 23 yr, released body
+        /// released body
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         JoshiBipin = 109,
 
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(28, TimePeriods.Years)]
         KalapratVichai = 110,
         /// <summary>
         /// released
         /// </summary>
+        [Age(11, TimePeriods.Years)]
         KalderonErez = 111,
         /// <summary>
-        /// released (54 yr)
+        /// released
         /// </summary>
+        [Age(52, TimePeriods.Years)]
         KalderonOfer = 112,
         /// <summary>
         /// released
         /// </summary>
+        [Age(16, TimePeriods.Years)]
         KalderonSahar = 113,
 
         /// <summary>
-        /// 25 yr, released
+        /// released
         /// </summary>
+        [Age(25, TimePeriods.Years)]
         KalfonSegev = 114,
 
         /// <summary>
-        /// released (76 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(76, TimePeriods.Years)]
         KatzirHannah = 115,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(47, TimePeriods.Years)]
         KatznirElad = 116,
         /// <summary>
-        /// body recovered (51 yr)
+        /// body recovered
         /// </summary>
+        [Age(51, TimePeriods.Years)]
         KatzRavid = 117,
-        /// <summary>
-        /// 21 yr
-        /// </summary>
+        [Age(70, TimePeriods.Years)]
         KeidarOfra = 118,
         /// <summary>
         /// released
@@ -568,247 +671,291 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         KongmaneeBancha = 120,
         /// <summary>
-        /// rescued (27 yr)
+        /// rescued
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         KozlovAndrey = 121,
         /// <summary>
         /// released
         /// </summary>
+        [Age(25, TimePeriods.Years)]
         KriboyRoni = 122,
 
         /// <summary>
-        /// 22 yr, aka Kuperstein, released
+        /// aka Kuperstein, released
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         KupershteinBar = 123,
 
         /// <summary>
         /// released
         /// </summary>
+        [Age(59, TimePeriods.Years)]
         LeimbergGabriela = 124,
         /// <summary>
         /// released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         LeimbertMia = 125,
-        /// <summary>
-        /// 19 yr
-        /// </summary>
+        [Age(19, TimePeriods.Years)]
         LevinsonShay = 126,
         /// <summary>
         /// rleeased body
         /// </summary>
+        [Age(53, TimePeriods.Years)]
         LevyEitan = 127,
         /// <summary>
-        /// released (20 yr)
+        /// released
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         LevyNaama = 128,
         /// <summary>
-        /// released (34 yr)
+        /// released
         /// </summary>
+        [Age(33, TimePeriods.Years)]
         LevyOr = 129,
         /// <summary>
-        /// released body (84 yr)
+        /// released body
         /// </summary>
+        [Age(83, TimePeriods.Years)]
         LifshitzOded = 130,
         /// <summary>
         /// released elderly Israli woman
         /// </summary>
+        [Age(85, TimePeriods.Years)]
         LifshitzYokheved = 131,
         /// <summary>
-        /// body recovered, executed by Hamas (32 yr)
+        /// body recovered, executed by Hamas
         /// </summary>
+        [Age(32, TimePeriods.Years)]
         LobanovAlexander = 132,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         LoukShani = 133,
         /// <summary>
-        /// body released (85 yr)
+        /// body released
         /// </summary>
+        [Age(85, TimePeriods.Years)]
         MansourShlomo = 134,
         /// <summary>
         /// recovered body (corporal)
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         MarcianoNoa = 135,
         /// <summary>
         /// recovered body
         /// </summary>
+        [Age(75, TimePeriods.Years)]
         MargalitEliyahu = 136,
         /// <summary>
         /// released
         /// </summary>
+        [Age(41, TimePeriods.Years)]
         MargalitNili = 137,
         /// <summary>
         /// rescued female Israeli soldier
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         MegidishOri = 138,
         /// <summary>
-        /// rescued (21 yr)
+        /// rescued
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         MeirJanAlmog = 139,
-        /// <summary>
-        /// (38 yr
-        /// </summary>
         [PreviouslyHeldAsHostage]
+        [Age(28, TimePeriods.Years)]
         MengistuAvera = 140,
         /// <summary>
         /// released
         /// </summary>
+        [Age(62, TimePeriods.Years)]
         MermanClara = 141,
         /// <summary>
-        /// rescued (60 yr)
+        /// rescued
         /// </summary>
+        [Age(60, TimePeriods.Years)]
         MermanFernandoSimon = 142,
         /// <summary>
         /// released
         /// </summary>
+        [Age(78, TimePeriods.Years)]
         MetzgerTamar = 143,
         /// <summary>
-        /// body recovered (80 yr)
+        /// body recovered
         /// </summary>
+        [Age(80, TimePeriods.Years)]
         MetzgerYoram = 144,
 
         /// <summary>
-        /// 46 yr, released
+        /// released
         /// </summary>
+        [Age(46, TimePeriods.Years)]
         MiranOmri = 145,
 
         /// <summary>
         /// body released
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         MollelJoshua = 146,
 
         /// <summary>
-        /// 23 yr, released
+        /// released
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         MorEitanAbraham = 147,
 
         /// <summary>
-        /// released (72 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(72, TimePeriods.Years)]
         MosheAdina = 148,
         /// <summary>
-        /// released, 77-year-old member of Kibbutz Nir Or
+        /// released, member of Kibbutz Nir Or
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [ApproximateAgeInYears(77, 78)]
         MosesMargalit = 149,
         /// <summary>
-        /// released (79 yr) [sometimes refered to as Gadi Moses]
+        /// released [sometimes refered to as Gadi Moses]
         /// His partner, Efrat Katz was presumed captive as well, but was likely killed
         /// 2023-10-07 by an Israeli helicopter gunship responding to the assault. The
         /// helicopter targeted a vehicle carrying Hamas gunmen, unaware that hostages
         /// were also inside.
         /// </summary>
+        [Age(79, TimePeriods.Years)]
         MozesGadiMoshe = 150,
         /// <summary>
-        /// body recovered (78 yr)
+        /// body recovered
         /// </summary>
+        [Age(78, TimePeriods.Years)]
         MunderAbraham = 151,
         /// <summary>
-        /// released (54 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(54, TimePeriods.Years)]
         MunderKeren = 152,
         /// <summary>
-        /// released (9 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(8, TimePeriods.Years)]
         MunderOhad = 153,
         /// <summary>
-        /// released (78 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(78, TimePeriods.Years)]
         MunderRuth = 154,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(35, TimePeriods.Years)]
         MunkanNattawaree = 155,
 
         /// <summary>
-        /// 22 yr, released body
+        /// released body
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         NeutraOmerMaxim = 156,
 
         /// <summary>
-        /// 19 yr, released body
+        /// released body
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         NimrodTamir = 157,
 
         /// <summary>
-        /// rescued (59 yr)
+        /// rescued
         /// </summary>
+        [Age(59, TimePeriods.Years)]
         NisenbaumMichel = 158,
 
         /// <summary>
-        /// released body, 30 yr
+        /// released body
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(30, TimePeriods.Years)]
         OakkharasriSonthaya = 159,
 
         /// <summary>
-        /// Yosek-Haim Ohana, 23 yr, released
+        /// Yosek-Haim Ohana, released
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         OhanaYosefHaim = 160,
 
         /// <summary>
-        /// 22 yr, released
+        /// released
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         OhelAlon = 161,
 
         /// <summary>
         /// released
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         OnkaewNatthaporn = 162,
         /// <summary>
         /// released
         /// </summary>
+        [Age(13, TimePeriods.Years)]
         OrAlma = 163,
 
         /// <summary>
-        /// 30 yr, released
+        /// released
         /// </summary>
+        [Age(30, TimePeriods.Years)]
         OrAvinathan = 164,
 
         /// <summary>
-        /// 48 yr, released body
+        /// released body
         /// </summary>
+        [Age(48, TimePeriods.Years)]
         OrDror = 165,
 
         /// <summary>
         /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         OrLiam = 166,
         /// <summary>
         /// released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         OrNoam = 167,
         /// <summary>
         /// released body
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         OzDaniel = 168,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Philippines)]
+        [Age(33, TimePeriods.Years)]
         PachecoGelienorJimmy = 169,
         /// <summary>
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(45, TimePeriods.Years)]
         PankhongBoonthom = 170,
-        /// <summary>
-        /// 22 yr
-        /// </summary>
+        [Age(22, TimePeriods.Years)]
         PerezDaniel = 171,
         /// <summary>
-        /// body recovered (79 yr)
+        /// body recovered
         /// </summary>
+        [Age(79, TimePeriods.Years)]
         PeriChaim = 172,
         /// <summary>
-        /// released (79 yr)
+        /// released
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [Age(79, TimePeriods.Years)]
         PeriChanna = 173,
         /// <summary>
         /// released
@@ -819,73 +966,90 @@ namespace Existence.Earth.War
         /// released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [Age(33, TimePeriods.Years)]
         PhoomeVetoon = 175,
         /// <summary>
         /// released
         /// </summary>
+        [Age(30, TimePeriods.Years)]
         PinakalowPornsawan = 176,
         /// <summary>
         /// unknown age
         /// </summary>
+        [ApproximateAgeInYears(35, 36)]
         PintaNattapong = 177,
         /// <summary>
-        /// body recovered (51 yr)
+        /// body recovered
         /// </summary>
+        [Age(51, TimePeriods.Years)]
         PopplewellNadav = 178,
         /// <summary>
         /// Israeli-American, released
         /// </summary>
+        [Age(59, TimePeriods.Years)]
         RaananJudith = 179,
         /// <summary>
         /// Israeli-American, released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         RaananNatalie = 180,
         /// <summary>
-        /// rescued (30 yr)
+        /// rescued
         /// </summary>
+        [Age(30, TimePeriods.Years)]
         RadouxOriónHernández = 181,
         /// <summary>
         /// released
         /// </summary>
+        [Age(42, TimePeriods.Years)]
         RataninPaiboon = 182,
         /// <summary>
         /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         RegevItay = 183,
         /// <summary>
         /// released
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         RegevMaya = 184,
         /// <summary>
         /// body released
         /// </summary>
         [Country(CountryLikeThings.Thailand)]
+        [ApproximateAgeInYears(42, 43)]
         RinthalakSudthisak = 185,
         /// <summary>
         /// released
         /// </summary>
+        [Age(77, TimePeriods.Years)]
         RoitmanOfelia = 186,
         /// <summary>
         /// released
         /// </summary>
+        [Age(35, TimePeriods.Years)]
         RomanGatYarden = 187,
         /// <summary>
-        /// released (32 yr)
+        /// released
         /// </summary>
+        [ApproximateAgeInYears(30, 31)]
         RumnaoSurasak = 188,
         /// <summary>
         /// released
         /// </summary>
+        [Age(54, TimePeriods.Years)]
         RotemRaaya = 189,
 
         /// <summary>
-        /// 61 yr, released body
+        /// released body
         /// </summary>
+        [Age(61, TimePeriods.Years)]
         RudaeffLior = 190,
 
         /// <summary>
         /// released
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         SaelaoKong = 191,
         /// <summary>
         /// released
@@ -898,147 +1062,177 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         SaengnuanUthai = 193,
         /// <summary>
-        /// released (27 yr)
+        /// released
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         SaethaoBannawat = 194,
         /// <summary>
         /// released
         /// </summary>
+        [Age(74, TimePeriods.Years)]
         SagiAda = 195,
-        /// <summary>
-        /// 21 yr
-        /// </summary>
+        [Age(21, TimePeriods.Years)]
         SameranoYonatan = 196,
         /// <summary>
         /// released
         /// </summary>
         SangkaewChalermchai = 197,
         /// <summary>
-        /// body recovered, executed by Hamas (26 yr)
+        /// body recovered, executed by Hamas
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         SarusiAlmog = 198,
         /// <summary>
         /// released
         /// </summary>
+        [Age(21, TimePeriods.Years)]
         SchemMia = 199,
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
+        [Age(26, TimePeriods.Years)]
         ShamrizAlon = 200,
         /// <summary>
         /// released
         /// </summary>
+        [Age(15, TimePeriods.Years)]
         ShaniAmit = 201,
         /// <summary>
-        /// Sibling of Yossi Sharabi, released (52 yr)
+        /// Sibling of Yossi Sharabi, released
         /// </summary>
+        [Age(51, TimePeriods.Years)]
         SharabiEli = 202,
         /// <summary>
-        /// Sibling of Eli Sharabi, 53 yr
+        /// Sibling of Eli Sharabi
         /// </summary>
+        [Age(53, TimePeriods.Years)]
         SharabiYossi = 203,
         /// <summary>
-        /// 30 yr, recovered body
+        /// recovered body
         /// </summary>
         [PreviouslyHeldAsHostage]
+        [Age(20, TimePeriods.Years)]
         ShaulOron = 204,
         /// <summary>
-        /// released (22 yr)
+        /// released
         /// </summary>
+        [Age(20, TimePeriods.Years)]
         ShemTovOmer = 205,
         /// <summary>
         /// bodies recovered, killed in IDF airstrike (Sergeant)
         /// </summary>
+        [Age(19, TimePeriods.Years)]
         ShermanRon = 206,
         /// <summary>
         /// released
         /// </summary>
+        [Age(38, TimePeriods.Years)]
         ShohamAdi = 207,
         /// <summary>
         /// released
         /// </summary>
+        [Age(8, TimePeriods.Years)]
         ShohamNave = 208,
         /// <summary>
-        /// released (40 yr)
+        /// released
         /// </summary>
+        [Age(38, TimePeriods.Years)]
         ShohamTal = 209,
         /// <summary>
         /// released
         /// </summary>
+        [Age(3, TimePeriods.Years)]
         ShohamYahel = 210,
         /// <summary>
         /// released
         /// </summary>
+        [Age(12, TimePeriods.Years)]
         ShoshaniHilaRotem = 211,
 
         /// <summary>
-        /// 28 yr, recovered body
+        /// recovered body
         /// </summary>
+        [Age(28, TimePeriods.Years)]
         ShtiviIdan = 212,
 
         /// <summary>
-        /// released (62 yr)
+        /// released
         /// </summary>
+        [Age(62, TimePeriods.Years)]
         SiegelAdrienneAviva = 213,
         /// <summary>
-        /// released (65 yr)
+        /// released
         /// </summary>
+        [Age(64, TimePeriods.Years)]
         SiegelSamuelKeith = 214,
         /// <summary>
-        /// released (50 yr)
+        /// released
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         SoussanaAmit = 215,
         /// <summary>
-        /// released (33 yr)
+        /// released
         /// </summary>
+        [Age(32, TimePeriods.Years)]
         SriaounWatchara = 216,
         /// <summary>
         /// released
         /// </summary>
         SrikeinaJakkrapan = 217,
         /// <summary>
-        /// released 31 yr (seen 35 but that looks wrong)
+        /// released
         /// </summary>
+        [Age(30, TimePeriods.Years)]
         SteinbrecherDoron = 218,
         /// <summary>
         /// released
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         SuriyasriOwas = 219,
         /// <summary>
-        /// released (35 yr)
+        /// released
         /// </summary>
+        [Age(34, TimePeriods.Years)]
         SuwannakhamSathian = 220,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(38, TimePeriods.Years)]
         SvirskyItai = 221,
         /// <summary>
         /// body recovered, killed by friendly fire while surrendering
         /// </summary>
+        [Age(24, TimePeriods.Years)]
         TalalkaSamer = 222,
         /// <summary>
         /// released
         /// </summary>
+        [Age(54, TimePeriods.Years)]
         TalMeirav = 223,
         /// <summary>
         /// released
         /// </summary>
+        [Age(13, TimePeriods.Years)]
         TarshanskyGali = 224,
         /// <summary>
         /// released, mother of Yelena Trufanov and Alexander (Sasha) Trufanov
         /// </summary>
+        [Age(73, TimePeriods.Years)]
         TatiIrena = 225,
         /// <summary>
         /// released
         /// </summary>
+        [Age(37, TimePeriods.Years)]
         TemthongVichian = 226,
         /// <summary>
-        /// released (36 yr)
+        /// released
         /// </summary>
+        [Age(35, TimePeriods.Years)]
         ThaennaPongsak = 227,
         /// <summary>
         /// body recovered, killed in IDF airstrike (civilian)
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         ToledanoElia = 228,
         /// <summary>
         /// released
@@ -1052,112 +1246,138 @@ namespace Existence.Earth.War
         /// <summary>
         /// Trupanob is a transformation of the Hebrew.
         /// </summary>
+        [Age(50, TimePeriods.Years)]
         TrufanovYelena = 231,
         /// <summary>
-        /// Trupanob is a transformation of the Hebrew. (29 yr)
+        /// Trupanob is a transformation of the Hebrew.
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         TrufanovAlexanderSasha = 232,
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         TzarfatiOfir = 233,
         /// <summary>
         /// released body, Judith Weinstein-Haggai
         /// </summary>
+        [Age(70, TimePeriods.Years)]
         WeinsteinHaggaiJudith = 234,
 
         /// <summary>
-        /// 56 yr, recovered body
+        /// recovered body
         /// </summary>
+        [Age(55, TimePeriods.Years)]
         WeissIlan = 235,
 
         /// <summary>
         /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         WeissNoga = 236,
         /// <summary>
         /// released
         /// </summary>
+        [Age(53, TimePeriods.Years)]
         WeissShiri = 237,
         /// <summary>
         /// recovered body
         /// </summary>
+        [Age(65, TimePeriods.Years)]
         WeissYehudit = 238,
         /// <summary>
-        /// released (23 yr)
+        /// released
         /// </summary>
+        [Age(22, TimePeriods.Years)]
         WenkertOmer = 239,
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
+        [Age(16, TimePeriods.Years)]
         YaakovOr = 240,
         /// <summary>
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
+        [Age(12, TimePeriods.Years)]
         YaakovYagil = 241,
         /// <summary>
-        /// Jacob is alternate spelling of last name, related to the other Yaakovs, 59 yr
+        /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
+        [Age(59, TimePeriods.Years)]
         YaakovYair = 242,
         /// <summary>
-        /// rescued (42 yr)
+        /// rescued
         /// </summary>
+        [Age(41, TimePeriods.Years)]
         YablonkaHanan = 243,
         /// <summary>
-        /// released (12 yr)
+        /// released
         /// </summary>
+        [Age(12, TimePeriods.Years)]
         YahalomiEitan = 244,
         /// <summary>
-        /// body released (49 yr)
+        /// body released
         /// </summary>
+        [Age(49, TimePeriods.Years)]
         YahalomiOhad = 245,
         /// <summary>
         /// released
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         YanaiMoranStela = 246,
         /// <summary>
-        /// released (29 yr)
+        /// released
         /// </summary>
+        [Age(28, TimePeriods.Years)]
         YehoudArbel = 247,
 
         /// <summary>
-        /// 35 yr, killed during the October 7 attacks, but never taken into Gaza
+        /// killed during the October 7 attacks, but never taken into Gaza
         /// </summary>
         [NotActuallyAHostage]
+        [Age(35, TimePeriods.Years)]
         YehoudDolev = 248,
 
         /// <summary>
-        /// body recovered, executed by Hamas (24 yr)
+        /// body recovered, executed by Hamas
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         YerushalmiEden = 249,
         /// <summary>
         /// released elderly Israli woman (goes by Cooper)
         /// </summary>
+        [Age(79, TimePeriods.Years)]
         YitzhakNuritCooper = 250,
         /// <summary>
         /// released body
         /// </summary>
+        [Age(85, TimePeriods.Years)]
         ZalmanovitchArye = 251,
         /// <summary>
-        /// 24 yr, released
+        /// released
         /// </summary>
+        [Age(23, TimePeriods.Years)]
         ZangaukerMatan = 252,
 
         /// <summary>
         /// body recovered
         /// </summary>
+        [Age(27, TimePeriods.Years)]
         ZechariahEden = 253,
         /// <summary>
         /// rescued
         /// </summary>
+        [Age(40, TimePeriods.Years)]
         ZivShlomi = 254,
         /// <summary>
-        /// released (17 yr)
+        /// released
         /// </summary>
+        [Age(17, TimePeriods.Years)]
         ZiyadneAisha = 255,
         /// <summary>
-        /// released (18 yr)
+        /// released
         /// </summary>
+        [Age(18, TimePeriods.Years)]
         ZiyadneBilal = 256,
     }
 

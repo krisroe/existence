@@ -92,7 +92,7 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
         public ApproximateAgeInYearsAttribute(int Age)
         {
-            StartAge = EndAge = StartAge;
+            StartAge = EndAge = Age;
         }
     }
 

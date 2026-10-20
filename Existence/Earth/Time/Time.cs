@@ -7,6 +7,7 @@ namespace Existence.Earth.Time
         Minutes,
         Hours,
         Days,
+        Months,
         Years,
     }
 }
