@@ -37,6 +37,9 @@ namespace Existence.Earth.War
 
     /// <summary>
     /// https://www.israelhayom.com/2023/10/31/these-are-the-captives-held-by-hamas/
+    ///
+    /// short rather than byte: the 256 entries currently fill 0-255, and others who belong on this list
+    /// (e.g. people marked with <see cref="NotActuallyAHostageAttribute"/>) may still need to be added.
     /// </summary>
     public enum HostageList : short
     {
