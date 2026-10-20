@@ -149,6 +149,8 @@ namespace Existence.Time
             this.Season = Season;
         }
 
+        public DeathDateAttribute(int Year, int Month) : base(Year, Month, 0) { }
+
         public DeathDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
