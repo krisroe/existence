@@ -1085,6 +1085,10 @@ namespace Existence.Earth.War
         /// </summary>
         WenkertOmer = 232,
         /// <summary>
+        /// 59 yr
+        /// </summary>
+        YaakovYair = 233,
+        /// <summary>
         /// rescued (42 yr)
         /// </summary>
         YablonkaHanan = 233,
@@ -1678,7 +1682,8 @@ namespace Existence.Earth.War
 
             [Number(1)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
-            [Hostages(HostageList.AtziliAviv)]
+            [Hostages(HostageList.AtziliAviv,
+                      HostageList.YaakovYair)]
             public static class June11 { }
 
             [Number(3)]
