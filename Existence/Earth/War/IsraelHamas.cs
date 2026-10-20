@@ -128,6 +128,10 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         AsherRaz = 19,
         /// <summary>
+        /// 49 yr
+        /// </summary>
+        AtziliAviv = 20,
+        /// <summary>
         /// released
         /// </summary>
         AvigdoriNoam = 20,
@@ -1659,6 +1663,11 @@ namespace Existence.Earth.War
             [Hostages(HostageList.HaggaiGad,
                       HostageList.WeinsteinHaggaiJudith)]
             public static class June5 { }
+
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.AtziliAviv)]
+            public static class June11 { }
 
             [Number(2)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
