@@ -310,6 +310,10 @@ namespace Existence.Earth.War
         /// </summary>
         DadoZiv = 60,
         /// <summary>
+        /// 19 yr
+        /// </summary>
+        DahanShaked = 61,
+        /// <summary>
         /// released (28 yr)
         /// </summary>
         DamariEmily = 61,
@@ -1515,6 +1519,11 @@ namespace Existence.Earth.War
             [Hostages(HostageList.AlkadiQaidFarhan)]
             [HostageOutcome(HostageOutcome.RescuedAlive)]
             public static class August27 { }
+
+            [Number(1)]
+            [Hostages(HostageList.DahanShaked)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            public static class August28 { }
 
             /// <summary>
             /// recovered the bodies of these hostages from a tunnel in Rafah, Gaza
