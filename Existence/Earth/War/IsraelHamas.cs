@@ -128,7 +128,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         AsherRaz = 19,
         /// <summary>
-        /// 49 yr
+        /// related to BeininLiat, 49 yr
         /// </summary>
         AtziliAviv = 20,
         /// <summary>
@@ -156,7 +156,7 @@ namespace Existence.Earth.War
         /// </summary>
         BaruchUriael = 25,
         /// <summary>
-        /// released
+        /// related to Aviv Atzili released
         /// </summary>
         BeininLiat = 26,
         /// <summary>
@@ -505,14 +505,6 @@ namespace Existence.Earth.War
         /// <summary>
         /// released
         /// </summary>
-        JacobOr = 105,
-        /// <summary>
-        /// released
-        /// </summary>
-        JacobYagil = 106,
-        /// <summary>
-        /// released
-        /// </summary>
         JirachartManee = 107,
 
         /// <summary>
@@ -826,6 +818,10 @@ namespace Existence.Earth.War
         /// </summary>
         PinakalowPornsawan = 172,
         /// <summary>
+        /// unknown age
+        /// </summary>
+        PintaNattapong = 173,
+        /// <summary>
         /// body recovered (51 yr)
         /// </summary>
         PopplewellNadav = 173,
@@ -1085,7 +1081,15 @@ namespace Existence.Earth.War
         /// </summary>
         WenkertOmer = 232,
         /// <summary>
-        /// 59 yr
+        /// Jacob is alternate spelling of last name, related to the other Yaakovs
+        /// </summary>
+        YaakovOr = 105,
+        /// <summary>
+        /// Jacob is alternate spelling of last name, related to the other Yaakovs
+        /// </summary>
+        YaakovYagil = 106,
+        /// <summary>
+        /// Jacob is alternate spelling of last name, related to the other Yaakovs, 59 yr
         /// </summary>
         YaakovYair = 233,
         /// <summary>
@@ -1304,8 +1308,8 @@ namespace Existence.Earth.War
                     HostageList.EngelBartKarina,
                     HostageList.EngelMika,
                     HostageList.EngelYuval,
-                    HostageList.JacobOr,
-                    HostageList.JacobYagil,
+                    HostageList.YaakovOr,
+                    HostageList.YaakovYagil,
                     HostageList.KalderonErez,
                     HostageList.KalderonSahar,
                     HostageList.YahalomiEitan)]
@@ -1681,6 +1685,11 @@ namespace Existence.Earth.War
             public static class June5 { }
 
             [Number(1)]
+            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [Hostages(HostageList.PintaNattapong)]
+            public static class June7 { }
+
+            [Number(3)]
             [HostageOutcome(HostageOutcome.RecoveredBody)]
             [Hostages(HostageList.AtziliAviv,
                       HostageList.YaakovYair)]
