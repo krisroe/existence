@@ -67,7 +67,14 @@ namespace Existence.Beyond.JudgmentDay
 
             [BeyondObjectVersion(1, 9, 0, 0)]
             [YearDate(2025, 5, 2)]
-            AddLanceDetails
+            AddLanceDetails,
+
+            /// <summary>
+            /// death and birth attributes for abe had wrong placement of month/day/year. I don't think there is any ambiguity about what it should be.
+            /// </summary>
+            [BeyondObjectVersion(1, 10, 0, 0)]
+            [YearDate(2026, 10, 20)]
+            CorrectBirthAndDeathDateForAbe,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -458,8 +465,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Black, PetColors.White)]
         [DogBreed(DogBreeds.GermanShepherd)]
-        [Birthdate(5, 19, 1979)]
-        [DeathDate(6, 17, 1992)]
+        [Birthdate(1979, 5, 19)]
+        [DeathDate(1992, 6, 17)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalRestingPlaceInMyMothersPetGraveyard]
         Abe,
