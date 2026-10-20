@@ -46,12 +46,14 @@ namespace Existence.Earth.War
     public enum HostageList : short
     {
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(38, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         AdarTamir = 0,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(85, TimePeriods.Years)]
         AdarYafa = 1,
@@ -159,6 +161,7 @@ namespace Existence.Earth.War
         /// related to BeininLiat
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(49, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -175,6 +178,7 @@ namespace Existence.Earth.War
         AvigdoriSharon = 21,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NahalOz)]
         [HumanGender(HumanGender.Female)]
         [Age(84, TimePeriods.Years)]
         AvrihamElma = 22,
@@ -185,6 +189,7 @@ namespace Existence.Earth.War
         BabadillaNoralin = 23,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(24, TimePeriods.Years)]
         [DeathDate(2023, 12, 8)]
@@ -200,6 +205,7 @@ namespace Existence.Earth.War
         /// related to Aviv Atzili
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(49, TimePeriods.Years)]
         BeininLiat = 26,
@@ -215,11 +221,13 @@ namespace Existence.Earth.War
         BeizerNik = 27,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(54, TimePeriods.Years)]
         BenAmiOhad = 28,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(56, TimePeriods.Years)]
         BenAmiRaz = 29,
@@ -240,6 +248,7 @@ namespace Existence.Earth.War
         /// Gali/Ziv Berman are twins
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         BermanGali = 32,
@@ -248,29 +257,34 @@ namespace Existence.Earth.War
         /// Gali/Ziv Berman are twins
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         BermanZiv = 33,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(4, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         BibasAriel = 34,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(8, TimePeriods.Months)]
         [DeathDate(2023, 11)]
         BibasKfir = 35,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(32, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         BibasShiri = 36,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         BibasYarden = 37,
@@ -301,6 +315,7 @@ namespace Existence.Earth.War
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(40, TimePeriods.Years)]
         BrodutchHagar = 42,
@@ -309,6 +324,7 @@ namespace Existence.Earth.War
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(9, TimePeriods.Years)]
         BrodutchOfri = 43,
@@ -317,6 +333,7 @@ namespace Existence.Earth.War
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(4, TimePeriods.Years)]
         BrodutchOriya = 44,
@@ -325,11 +342,13 @@ namespace Existence.Earth.War
         /// Brodetz is a transformation of the Hebrew.
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(9, TimePeriods.Years)]
         BrodutchYuval = 45,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.Nirim)]
         [HumanGender(HumanGender.Female)]
         [Age(36, TimePeriods.Years)]
         BuchshtavRimonKirsht = 46,
@@ -338,6 +357,7 @@ namespace Existence.Earth.War
         /// Buckshtav?
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Nirim)]
         [HumanGender(HumanGender.Male)]
         [Age(34, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
@@ -381,32 +401,38 @@ namespace Existence.Earth.War
         CohenSapir = 53,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(84, TimePeriods.Years)]
         [DeathDateUnknown]
         CooperAmiram = 54,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         CunioAriel = 55,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         CunioDavid = 56,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         CunioEmma = 57,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(34, TimePeriods.Years)]
         CunioSharonOlani = 58,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         CunioYuli = 59,
@@ -426,11 +452,13 @@ namespace Existence.Earth.War
         DahanShaked = 61,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(27, TimePeriods.Years)]
         DamariEmily = 62,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(75, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
@@ -449,16 +477,19 @@ namespace Existence.Earth.War
         DavidEvyatar = 65,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(35, TimePeriods.Years)]
         DekelChenSagui = 66,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(3, TimePeriods.Years)]
         EdanAbigail = 67,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(68, TimePeriods.Years)]
         [DeathDateUnknown]
@@ -475,11 +506,13 @@ namespace Existence.Earth.War
         ElyakimEla = 70,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(51, TimePeriods.Years)]
         EngelBartKarina = 71,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         EngelMika = 72,
@@ -490,12 +523,14 @@ namespace Existence.Earth.War
         EngelOfir = 73,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(54, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         EngelRonan = 74,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(11, TimePeriods.Years)]
         EngelYuval = 75,
@@ -531,6 +566,7 @@ namespace Existence.Earth.War
         GilboaDalalGuy = 79,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(73, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -552,27 +588,32 @@ namespace Existence.Earth.War
         GoldinHadar = 82,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirYitzhak)]
         [HumanGender(HumanGender.Male)]
         [Age(33, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         GoldinOren = 83,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(17, TimePeriods.Years)]
         GoldsteinAlmogAgam = 84,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(48, TimePeriods.Years)]
         GoldsteinAlmogChen = 85,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(11, TimePeriods.Years)]
         GoldsteinAlmogGal = 86,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(9, TimePeriods.Years)]
         GoldsteinAlmogTal = 87,
@@ -583,12 +624,14 @@ namespace Existence.Earth.War
         GonenRomi = 88,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(56, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         GorenMaya = 89,
 
         [Countries(CountryLikeThings.Uruguay, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(29, TimePeriods.Years)]
         GorenShani = 90,
@@ -611,6 +654,7 @@ namespace Existence.Earth.War
         /// aka Gadi
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(72, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -620,12 +664,14 @@ namespace Existence.Earth.War
         /// killed by friendly fire while surrendering
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(28, TimePeriods.Years)]
         [DeathDate(2023, 12, 15)]
         HaimYotam = 94,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Romania)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirYitzhak)]
         [HumanGender(HumanGender.Male)]
         [Age(41, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -639,11 +685,13 @@ namespace Existence.Earth.War
         HamamiAsaf = 96,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Ireland)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(8, TimePeriods.Years)]
         HandEmily = 97,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(67, TimePeriods.Years)]
         HaranShoshan = 98,
@@ -660,6 +708,7 @@ namespace Existence.Earth.War
         HaymanInbar = 100,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(84, TimePeriods.Years)]
         HeimanDitza = 101,
@@ -675,11 +724,13 @@ namespace Existence.Earth.War
         HornEitan = 103,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(45, TimePeriods.Years)]
         HornIair = 104,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NahalOz)]
         [HumanGender(HumanGender.Male)]
         [Age(49, TimePeriods.Years)]
         [DeathDate(2023, 12, 4)]
@@ -708,16 +759,19 @@ namespace Existence.Earth.War
         KalapratVichai = 109,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(11, TimePeriods.Years)]
         KalderonErez = 110,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France, CountryLikeThings.Portugal)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(52, TimePeriods.Years)]
         KalderonOfer = 111,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(16, TimePeriods.Years)]
         KalderonSahar = 112,
@@ -731,12 +785,14 @@ namespace Existence.Earth.War
         /// Death (after release) was attributed to medical complications from her time as a hostage
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(76, TimePeriods.Years)]
         [DeathDate(2024, 12, 24)]
         KatzirHannah = 114,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(47, TimePeriods.Years)]
         [DeathDate(2024, 1)]
@@ -744,12 +800,14 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Sergeant Major (res.)")]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         KatzRavid = 116,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(70, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -818,12 +876,14 @@ namespace Existence.Earth.War
         LevyOr = 128,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(83, TimePeriods.Years)]
         [DeathDate(2023)]
         LifshitzOded = 129,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(85, TimePeriods.Years)]
         LifshitzYokheved = 130,
@@ -842,6 +902,7 @@ namespace Existence.Earth.War
         LoukShani = 132,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Kissufim)]
         [HumanGender(HumanGender.Male)]
         [Age(85, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -855,12 +916,14 @@ namespace Existence.Earth.War
         MarcianoNoa = 134,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(75, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         MargalitEliyahu = 135,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(41, TimePeriods.Years)]
         MargalitNili = 136,
@@ -883,6 +946,7 @@ namespace Existence.Earth.War
         MengistuAvera = 139,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirYitzhak)]
         [HumanGender(HumanGender.Female)]
         [Age(62, TimePeriods.Years)]
         MermanClara = 140,
@@ -893,17 +957,20 @@ namespace Existence.Earth.War
         MermanFernandoSimon = 141,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(78, TimePeriods.Years)]
         MetzgerTamar = 142,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(80, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         MetzgerYoram = 143,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Hungary)]
+        [IsraeliKibbutz(IsraeliKibbutz.NahalOz)]
         [HumanGender(HumanGender.Male)]
         [Age(46, TimePeriods.Years)]
         MiranOmri = 144,
@@ -920,6 +987,7 @@ namespace Existence.Earth.War
         MorEitanAbraham = 146,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Portugal)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(72, TimePeriods.Years)]
         MosheAdina = 147,
@@ -928,6 +996,7 @@ namespace Existence.Earth.War
         /// member of Kibbutz Nir Or
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [ApproximateAgeInYears(77, 78)]
         MosesMargalit = 148,
@@ -940,11 +1009,13 @@ namespace Existence.Earth.War
         /// were also inside.
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(79, TimePeriods.Years)]
         MozesGadiMoshe = 149,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(78, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
@@ -961,6 +1032,7 @@ namespace Existence.Earth.War
         MunderOhad = 152,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(78, TimePeriods.Years)]
         MunderRuth = 153,
@@ -1015,6 +1087,7 @@ namespace Existence.Earth.War
         OnkaewNatthaporn = 161,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(13, TimePeriods.Years)]
         OrAlma = 162,
@@ -1025,17 +1098,20 @@ namespace Existence.Earth.War
         OrAvinathan = 163,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Portugal)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(48, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         OrDror = 164,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
         OrLiam = 165,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(17, TimePeriods.Years)]
         OrNoam = 166,
@@ -1065,12 +1141,14 @@ namespace Existence.Earth.War
         PerezDaniel = 170,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Poland)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(79, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
         PeriChaim = 171,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica)]
+        [IsraeliKibbutz(IsraeliKibbutz.Nirim)]
         [HumanGender(HumanGender.Female)]
         [Age(79, TimePeriods.Years)]
         PeriChanna = 172,
@@ -1097,6 +1175,7 @@ namespace Existence.Earth.War
         PintaNattapong = 176,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedKingdom)]
+        [IsraeliKibbutz(IsraeliKibbutz.Nirim)]
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         [DeathDate(2024, 2, 14)]
@@ -1140,6 +1219,7 @@ namespace Existence.Earth.War
         RinthalakSudthisak = 184,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(77, TimePeriods.Years)]
         RoitmanOfelia = 185,
@@ -1155,11 +1235,13 @@ namespace Existence.Earth.War
         RumnaoSurasak = 187,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(54, TimePeriods.Years)]
         RotemRaaya = 188,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirYitzhak)]
         [HumanGender(HumanGender.Male)]
         [Age(61, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1186,6 +1268,7 @@ namespace Existence.Earth.War
         SaethaoBannawat = 193,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(74, TimePeriods.Years)]
         SagiAda = 194,
@@ -1217,12 +1300,14 @@ namespace Existence.Earth.War
         /// killed by friendly fire while surrendering
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(26, TimePeriods.Years)]
         [DeathDate(2023, 12, 15)]
         ShamrizAlon = 199,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(15, TimePeriods.Years)]
         ShaniAmit = 200,
@@ -1231,6 +1316,7 @@ namespace Existence.Earth.War
         /// Sibling of Yossi Sharabi
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(51, TimePeriods.Years)]
         SharabiEli = 201,
@@ -1239,6 +1325,7 @@ namespace Existence.Earth.War
         /// Sibling of Eli Sharabi
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Portugal)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(53, TimePeriods.Years)]
         [DeathDate(2024, 1, 10)]
@@ -1288,6 +1375,7 @@ namespace Existence.Earth.War
         ShohamYahel = 209,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(12, TimePeriods.Years)]
         ShoshaniHilaRotem = 210,
@@ -1299,16 +1387,19 @@ namespace Existence.Earth.War
         ShtiviIdan = 211,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(62, TimePeriods.Years)]
         SiegelAdrienneAviva = 212,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Male)]
         [Age(64, TimePeriods.Years)]
         SiegelSamuelKeith = 213,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(40, TimePeriods.Years)]
         SoussanaAmit = 214,
@@ -1324,6 +1415,7 @@ namespace Existence.Earth.War
         SrikeinaJakkrapan = 216,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Romania)]
+        [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [HumanGender(HumanGender.Female)]
         [Age(30, TimePeriods.Years)]
         SteinbrecherDoron = 217,
@@ -1359,6 +1451,7 @@ namespace Existence.Earth.War
         TalMeirav = 222,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(13, TimePeriods.Years)]
         TarshanskyGali = 223,
@@ -1404,6 +1497,7 @@ namespace Existence.Earth.War
         /// Trupanob is a transformation of the Hebrew.
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(50, TimePeriods.Years)]
         TrufanovYelena = 230,
@@ -1426,28 +1520,33 @@ namespace Existence.Earth.War
         /// Judith Weinstein-Haggai
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(70, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         WeinsteinHaggaiJudith = 233,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Hungary)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Male)]
         [Age(55, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         WeissIlan = 234,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Hungary)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         WeissNoga = 235,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(53, TimePeriods.Years)]
         WeissShiri = 236,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [HumanGender(HumanGender.Female)]
         [Age(65, TimePeriods.Years)]
         [DeathDate(2023, 11)]
@@ -1462,6 +1561,7 @@ namespace Existence.Earth.War
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(16, TimePeriods.Years)]
         YaakovOr = 239,
@@ -1470,6 +1570,7 @@ namespace Existence.Earth.War
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(12, TimePeriods.Years)]
         YaakovYagil = 240,
@@ -1478,6 +1579,7 @@ namespace Existence.Earth.War
         /// Jacob is alternate spelling of last name, related to the other Yaakovs
         /// </summary>
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(59, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1490,11 +1592,13 @@ namespace Existence.Earth.War
         YablonkaHanan = 242,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(12, TimePeriods.Years)]
         YahalomiEitan = 243,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(49, TimePeriods.Years)]
         [DeathDate(2024, 1, 19)]
@@ -1506,6 +1610,7 @@ namespace Existence.Earth.War
         YanaiMoranStela = 245,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(28, TimePeriods.Years)]
         YehoudArbel = 246,
@@ -1528,17 +1633,20 @@ namespace Existence.Earth.War
         YerushalmiEden = 248,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Female)]
         [Age(79, TimePeriods.Years)]
         YitzhakNuritCooper = 249,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(85, TimePeriods.Years)]
         [DeathDate(2023, 11)]
         ZalmanovitchArye = 250,
 
         [Country(CountryLikeThings.Israel)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
         [Age(23, TimePeriods.Years)]
         ZangaukerMatan = 251,
@@ -2276,4 +2384,24 @@ internal enum PalestinianMilitantGroups
     Hamas,
     PalestinianIslamicJihad,
     Other,
+}
+
+internal class IsraeliKibbutzAttribute : Attribute
+{
+    public IsraeliKibbutz Kibbutz { get; set; }
+    public IsraeliKibbutzAttribute(IsraeliKibbutz kibbutz)
+    {
+        Kibbutz = kibbutz;
+    }
+}
+
+internal enum IsraeliKibbutz
+{
+    Beeri,
+    KfarAza,
+    Kissufim,
+    NahalOz,
+    NirOz,
+    NirYitzhak,
+    Nirim,
 }
