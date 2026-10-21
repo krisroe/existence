@@ -1,4 +1,5 @@
 ﻿
+using Existence.Earth.War;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates
@@ -26,25 +27,25 @@ namespace Existence.Earth.Countries.UnitedStates
         public static class MillardFilmore { }
         public static class FranklinPierce { }
         public static class JamesBuchanan { }
-        public static class AbrahamLincoln
-        {
-            public static class Assassinated { }
-        }
+
+        [Assassinated]
+        public static class AbrahamLincoln { }
+
         public static class AndrewJohnson { }
         public static class UlyssesSGrant { }
         public static class RutherfordBHayes { }
-        public static class JamesAGarfield
-        {
-            public static class Assassinated { }
-        }
+
+        [Assassinated]
+        public static class JamesAGarfield { }
+
         public static class ChesterAArthur { }
         public static class GroverClevelandFirstTerm { }
         public static class BenjaminHarrison { }
         public static class GroverClevelandSecondTerm { }
-        public static class WilliamMcKinley
-        {
-            public static class Assassinated { }
-        }
+
+        [Assassinated]
+        public static class WilliamMcKinley { }
+
         public static class TheodoreRoosevelt { }
         public static class WilliamHowardTaft { }
         public static class WoodrowWilson { }
@@ -60,10 +61,10 @@ namespace Existence.Earth.Countries.UnitedStates
         }
         public static class HarrySTruman { }
         public static class DwightDEisenhowever { }
-        public static class JohnFKennedy
-        {
-            public static class Assassinated { }
-        }
+
+        [Assassinated]
+        public static class JohnFKennedy { }
+
         public static class LyndonBJohnson { }
         public static class RichardNixon { }
         public static class GeraldFord { }
