@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Existence.Earth.Countries;
 using Existence.Time;
 
 namespace Existence.Earth.Time
@@ -279,5 +281,27 @@ namespace Existence.Earth.Time
         Celtic,
 
         #endregion
+    }
+}
+
+public class CountryGregorianCalendarSwitchDate
+{
+    public static List<CountryGregorianCalendarSwitchDate> CountryLikeEntitySwitchDates;
+
+    static CountryGregorianCalendarSwitchDate()
+    {
+        CountryLikeEntitySwitchDates = new List<CountryGregorianCalendarSwitchDate>()
+        {
+            //at the time it was the Kingdom of Great Britain
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.UnitedKingdom, new StartDateAttribute(1752, 9, 14)),
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new StartDateAttribute(1752, 9, 14))
+        };
+    }
+    public CountryLikeThings CountryLikeThing { get; set; }
+    public StartDateAttribute StartDate { get; set; }
+    public CountryGregorianCalendarSwitchDate(CountryLikeThings CountryLikeThing, StartDateAttribute StartDate)
+    {
+        this.CountryLikeThing = CountryLikeThing;
+        this.StartDate = StartDate;
     }
 }
