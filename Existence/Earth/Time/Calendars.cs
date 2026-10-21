@@ -292,8 +292,10 @@ public class CountryGregorianCalendarSwitchDate
     {
         CountryLikeEntitySwitchDates = new List<CountryGregorianCalendarSwitchDate>()
         {
-            //at the time it was the Kingdom of Great Britain
+            //at the time it was the Kingdom of Great Britain, including England+Wales+Scotland
             new CountryGregorianCalendarSwitchDate(CountryLikeThings.UnitedKingdom, new StartDateAttribute(1752, 9, 14)),
+
+            //same king as the Kingdom of Great Britain, but a different country
             new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new StartDateAttribute(1752, 9, 14))
         };
     }
