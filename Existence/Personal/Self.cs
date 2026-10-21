@@ -4,7 +4,7 @@ using Existence.Time;
 namespace Existence.Personal
 {
     [AstrologicalSign(AstrologicalSigns.Sagittarius)]
-    [Birthdate(1980, 12, 6)]
+    [BirthDate(1980, 12, 6)]
     internal static class Self
     {
         public static class Characteristics
@@ -38,34 +38,34 @@ namespace Existence.Personal
         /// <summary>
         /// ambiguous pisces/aquarius without more information
         /// </summary>
-        [Birthdate(1952, 2, 18)]
+        [BirthDate(1952, 2, 18)]
         [DeathDate(2024, 7, 21)]
         public static class Mother { }
 
         [AstrologicalSign(AstrologicalSigns.Cancer)]
-        [Birthdate(1952, 7, 4)]
+        [BirthDate(1952, 7, 4)]
         public static class Father { }
 
         [AstrologicalSign(AstrologicalSigns.Capricorn)]
-        [Birthdate(1982, 12, 31)]
+        [BirthDate(1982, 12, 31)]
         public static class Sister { }
 
         public static class Married
         {
-            [Birthdate(1973, 7, 18)]
+            [BirthDate(1973, 7, 18)]
             [AstrologicalSign(AstrologicalSigns.Cancer)]
             public static class FemaleSpouse { }
             public static class Alive { }
         }
 
-        [Birthdate(2011, 6, 28)]
+        [BirthDate(2011, 6, 28)]
         [AstrologicalSign(AstrologicalSigns.Cancer)]
         public static class Child1
         {
             public static class Female { }
         }
 
-        [Birthdate(2013, 4, 11)]
+        [BirthDate(2013, 4, 11)]
         [AstrologicalSign(AstrologicalSigns.Aries)]
         public static class Child2
         {

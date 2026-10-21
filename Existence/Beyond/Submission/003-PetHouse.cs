@@ -176,7 +176,7 @@ namespace Existence.Beyond.Submission
         [PetColors(PetColors.Black, PetColors.White)]
         [PetMother((int)PetHousePetCats.Snowball)]
         [PetFather((int)PetHousePetCats.Ollie)]
-        [Birthdate(1990)]
+        [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Fatness", "Eats refrigerators and restaurants")]
         Elsie,
@@ -185,7 +185,7 @@ namespace Existence.Beyond.Submission
         [PetColors(PetColors.White)]
         [PetMother((int)PetHousePetCats.Snowball)]
         [PetFather((int)PetHousePetCats.Ollie)]
-        [Birthdate(1990)]
+        [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Mathematical Talent", "Red Spot")]
         Gretel,
@@ -224,7 +224,7 @@ namespace Existence.Beyond.Submission
         [PetColors(PetColors.White)]
         [PetMother((int)PetHousePetCats.Snowball)]
         [PetFather((int)PetHousePetCats.Ollie)]
-        [Birthdate(1990)]
+        [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Makes Potions", "Time Travel", "Steals Ted's Food")]
         Snowflake,
@@ -246,7 +246,7 @@ namespace Existence.Beyond.Submission
         [PetColors(PetColors.Calico, PetColors.Black, PetColors.Orange, PetColors.White)]
         [PetMother((int)PetHousePetCats.Snowball)]
         [PetFather((int)PetHousePetCats.Ollie)]
-        [Birthdate(1990)]
+        [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Drives Impossibly Fast", "Friendly")]
         Tigger,

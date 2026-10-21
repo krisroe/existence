@@ -470,8 +470,8 @@ namespace Existence.Beyond.JudgmentDay
     /// seem non strict as it stands today.
     /// </summary>
     [HomeAfterBirth(USCities.WisconsinHarmonyGrove)]
-    [Birthdate(1980, 12, 6)]
-    [BirthdatePrecise(1980, 12, 6, 12, 53)]
+    [BirthDate(1980, 12, 6)]
+    [BirthDatePrecise(1980, 12, 6, 12, 53)]
     [LocationInteger((int)PersonalHospitals.SaintMarysMadisonWisconsin)]
     public class PersonalBirth : ZBirth
     {

@@ -200,7 +200,7 @@ namespace Existence.Beyond.CosmicSubmission
     [MusicNotesRepositoryImageFile("St. Mary's Hospital, Madison, WI, USA",
                                "Certificate of Birth",
                                 @"Released\Images\002-certificateofbirth{0}.tif", 1, 3)]
-    [BirthdatePrecise(1980, 12, 6, 12, 53)]
+    [BirthDatePrecise(1980, 12, 6, 12, 53)]
     public class PersonalBirthPrecise : PersonalBirth
     {
         public PersonalBirthPrecise(MyReligiousFlags religiousFlags) : base(religiousFlags)

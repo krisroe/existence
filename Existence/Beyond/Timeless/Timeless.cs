@@ -140,7 +140,7 @@ namespace Existence.Beyond.Timeless
         [SecondFavoriteNumber(4)]
         [Sex(Sexes.Male)]
         [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)ChristianDenominations.LutheranELCA)]
-        [BirthdatePrecise(1980, 12, 6, 12, 53)]
+        [BirthDatePrecise(1980, 12, 6, 12, 53)]
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]
@@ -167,7 +167,7 @@ namespace Existence.Beyond.Timeless
                 [Religion((int)ChristianDenominations.Lutheran)]
                 public static class v1
                 {
-                    [Birthdate(1952, 2, 18)]
+                    [BirthDate(1952, 2, 18)]
                     [MindDeathdate(2024, 7, 21)]
                     [BodyDeathdate(2024, 7, 21)]
                     public class Mother
@@ -182,13 +182,13 @@ namespace Existence.Beyond.Timeless
                     }
 
                     [FavoriteColor(KnownColor.Green)]
-                    [Birthdate(1952, 7, 4)]
+                    [BirthDate(1952, 7, 4)]
                     public class Father { }
 
                     [FavoriteColor(KnownColor.Red)]
                     public class Brother { }
 
-                    [Birthdate(1982, 12, 31)]
+                    [BirthDate(1982, 12, 31)]
                     public class Sister { }
                 }
 
@@ -208,17 +208,17 @@ namespace Existence.Beyond.Timeless
                 [Religion((int)ChristianDenominations.Episcopal)]
                 public static class v3
                 {
-                    [Birthdate(1973, 7, 18)]
+                    [BirthDate(1973, 7, 18)]
                     [Sex(Sexes.Female)]
                     public class Spouse1 { }
 
                     [Arrangement(ImportantSongs.WadeInTheWater, ArrangementType.SoloVoiceAndPiano)]
                     public class Spouse2 { }
 
-                    [Birthdate(2011, 6, 28)]
+                    [BirthDate(2011, 6, 28)]
                     public class Sister { }
 
-                    [Birthdate(2013, 4, 11)]
+                    [BirthDate(2013, 4, 11)]
                     public class Brother { }
                 }
             }

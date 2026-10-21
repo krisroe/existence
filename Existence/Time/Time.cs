@@ -175,7 +175,7 @@ namespace Existence.Time
         }
     }
 
-    public class ApproximateBirthdateAttribute : BirthdateAttribute
+    public class ApproximateBirthdateAttribute : BirthDateAttribute
     {
         public ApproximateBirthdateAttribute(int Year) : base(Year, 0, 0)
         {
@@ -186,7 +186,7 @@ namespace Existence.Time
     {
     }
 
-    public class BirthdatePreciseAttribute : BirthdateAttribute
+    public class BirthDatePreciseAttribute : BirthDateAttribute
     {
         /// <summary>
         /// specifies birthdate
@@ -196,20 +196,20 @@ namespace Existence.Time
         /// <param name="Day">day</param>
         /// <param name="Hour">hour (24 hour clock)</param>
         /// <param name="Minute">minute</param>
-        public BirthdatePreciseAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+        public BirthDatePreciseAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
     }
 
-    public class BirthdateAttribute : YearDateAttribute
+    public class BirthDateAttribute : YearDateAttribute
     {
         public Seasons? Season { get; set; }
-        public BirthdateAttribute(int Year) : base(Year) { }
+        public BirthDateAttribute(int Year) : base(Year) { }
 
-        public BirthdateAttribute(int Year, Seasons Season) : base(Year)
+        public BirthDateAttribute(int Year, Seasons Season) : base(Year)
         {
             this.Season = Season;
         }
-        public BirthdateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
-        protected BirthdateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+        public BirthDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+        protected BirthDateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
     }
 
     public class MarriageAttribute : Attribute

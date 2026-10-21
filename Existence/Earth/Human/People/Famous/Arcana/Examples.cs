@@ -12,14 +12,14 @@ namespace Existence.Earth.Human.People.Famous.Arcana
         /// <summary>
         /// oldest living human female (44724 days)
         /// </summary>
-        [Birthdate(1875, 2, 21)]
+        [BirthDate(1875, 2, 21)]
         [DeathDate(1997, 8, 4)]
         public static class JeanneLouiseCalment { }
 
         /// <summary>
         /// oldest living human males (42422 days)
         /// </summary>
-        [Birthdate(1897, 4, 19)]
+        [BirthDate(1897, 4, 19)]
         [DeathDate(2013, 6, 12)]
         public static class JiroemonKimura { }
     }
