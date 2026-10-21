@@ -1,5 +1,6 @@
 ﻿using System;
 using Existence.Earth.Alphabet;
+using Existence.Earth.War;
 
 namespace Existence.Time
 {
@@ -209,7 +210,22 @@ namespace Existence.Time
             this.Season = Season;
         }
         public BirthDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+
         protected BirthDateAttribute(int Year, int Month, int Day, int Hour, int Minute) : base(Year, Month, Day, Hour, Minute) { }
+    }
+
+    public class BirthDateAttributeWithJulianAndGregorianCalendarsAttribute : Attribute
+    {
+        public BirthDateAttributeWithJulianAndGregorianCalendarsAttribute(int JulianYear, int JulianMonth, int JulianDay, int GregorianYear, int GregorianMonth, int GregorianDay)
+        {
+            JulianBirthDate = new BirthDateAttribute(JulianYear, JulianMonth, JulianDay);
+            GregorianBirthDate = new BirthDateAttribute(GregorianYear, GregorianMonth, GregorianDay);
+        }
+
+        public BirthDateAttribute JulianBirthDate { get; set; }
+
+        public BirthDateAttribute GregorianBirthDate { get; set; }
+
     }
 
     public class MarriageAttribute : Attribute

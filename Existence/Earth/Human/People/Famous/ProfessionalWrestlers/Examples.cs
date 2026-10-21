@@ -7,16 +7,10 @@ namespace Existence.Earth.Human.People.Famous.ProfessionalWrestlers
     }
     public static class Examples
     {
-        public static class BillGoldberg
-        {
-        }
+        public static class BillGoldberg { }
         public static class BookerT { }
-        public static class ChrisBenoit
-        {
-        }
-        public static class ChrisJericho
-        {
-        }
+        public static class ChrisBenoit { }
+        public static class ChrisJericho { }
         public static class DiamondDallasPage
         {
             public static class DDP { }
@@ -32,10 +26,7 @@ namespace Existence.Earth.Human.People.Famous.ProfessionalWrestlers
         {
             public static class Hollywood { }
         }
-        public static class Kane
-        {
-
-        }
+        public static class Kane { }
         public static class KevinNash
         {
             public static class Diesel { }
