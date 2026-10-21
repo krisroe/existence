@@ -653,7 +653,7 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
         [PetEyeColors(PetEyeColors.Blue, PetEyeColors.Green)]
-        [ApproximateBirthdate(1988)]
+        [ApproximateBirthDate(1988)]
         [DeathDate(2005, 1, 12)]
         [PetOwners((int)SpecificFarms.MyMothersParentsFarm, (int)FamilyMembers.MyNuclearFamilyChildhood)]
         [FinalPetOwner((int)FamilyMembers.MyMotherSandy)]

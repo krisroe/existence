@@ -176,9 +176,9 @@ namespace Existence.Time
         }
     }
 
-    public class ApproximateBirthdateAttribute : BirthDateAttribute
+    public class ApproximateBirthDateAttribute : BirthDateAttribute
     {
-        public ApproximateBirthdateAttribute(int Year) : base(Year, 0, 0)
+        public ApproximateBirthDateAttribute(int Year) : base(Year, 0, 0)
         {
         }
     }
