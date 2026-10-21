@@ -2625,105 +2625,105 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Iranian nuclear scientist. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     AbbasiFereydoon,
 
     /// <summary>
     /// Commander of Hezbollah's Nasr unit. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 6, 11)]
     AbdullahTaleb,
 
     /// <summary>
     /// IRGC commander. Killed in Syria.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 6, 3)]
     AbiyarSaeed,
 
     /// <summary>
     /// Al-Quds Brigades (Palestinian Islamic Jihad) spokesperson. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AbuHamza,
 
     /// <summary>
     /// Head of Hamas's aerial array. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AbuMuradMurad,
 
     /// <summary>
     /// Qassam Brigades (Hamas) spokesperson. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 8, 30)]
     AbuObeida,
 
     /// <summary>
     /// Secretary-General of the Mujahideen Brigades. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 6, 7)]
     AbuShariaAsad,
 
     /// <summary>
     /// Head of Hamas's administrative and combat support staff. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     AbuTamaaGhazi,
 
     /// <summary>
     /// Head of Hezbollah's media relations. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 11, 17)]
     AfifMohammad,
 
     /// <summary>
     /// Head of Basij intelligence. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 17)]
     AhmadiEsmail,
 
     /// <summary>
     /// Deputy chairman of the Hamas Political Bureau. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 2)]
     AlArouriSaleh,
 
     /// <summary>
     /// Hamas Political Bureau member. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 23)]
     AlBardawilSalah,
 
     /// <summary>
     /// Head of Hamas's Government Administrative Committee in Gaza. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AlDaalisIssam,
 
     /// <summary>
     /// Houthi chief of staff. Killed in Sanaa.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Yemen)]
     [DeathDate(2025, 8, 28)]
     AlGhamariMuhammadAbdAlKarim,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed in Gaza City.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 5, 15)]
     AlHaddadIzzAlDin,
 
@@ -2735,112 +2735,112 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's combat support and administrative headquarters. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 6, 27)]
     AlIssaHakhamMuhammadIssa,
 
     /// <summary>
     /// Hamas commander of the Kfar Aza massacre. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 15)]
     AlKedraBillal,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed in Baalbek.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 2, 20)]
     AlMoussawiAliZeid,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed in Baalbek.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 2, 20)]
     AlMoussawiMuhammadIbrahim,
 
     /// <summary>
     /// Senior Palestinian Islamic Jihad commander. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 3, 3)]
     AlOthmanAdhamAdnan,
 
     /// <summary>
     /// Hamas Nukhba company commander on 2023-10-07. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AlQadiAli,
 
     /// <summary>
     /// Houthi prime minister. Killed in Sanaa.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Yemen)]
     [DeathDate(2025, 8, 28)]
     AlRahawiAhmed,
 
     /// <summary>
     /// Senior Hezbollah Radwan Force commander. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 8)]
     AlTawilWissam,
 
     /// <summary>
     /// Head of Hezbollah's Radwan Force. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 20)]
     AqilIbrahim,
 
     /// <summary>
     /// Iranian intelligence head. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     AsadiSaleh,
 
     /// <summary>
     /// Hezbollah Nasr unit rocket and missile commander. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 6, 17)]
     AyoubMuhammadMustafa,
 
     /// <summary>
-    /// Senior member of Hezbollah's Unit 151. Killed in Lebanon.
+    /// Senior member of Hezbollah's Unit 151. Killed in Al-Qusayr, Syria.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 11, 9)]
     AyyashSalim,
 
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     BagheriMohammad,
 
     /// <summary>
     /// Commander of Hezbollah's aerial forces. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 9)]
     BarjiAliHussein,
 
     /// <summary>
     /// Hamas commander of Central Jabaliya. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 31)]
     BiariIbrahim,
 
     /// <summary>
     /// Senior Hezbollah commander. Targeted 2024-11-09 in Syria; killed in southern Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 6, 12)]
     DaqduqAliMusa,
 
@@ -2852,63 +2852,63 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the Qassam Brigades (Hamas). Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 7, 13)]
     DeifMohammed,
 
     /// <summary>
     /// Commander of Hamas's Northern Gaza Brigade. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11, 10)]
     GhandourAhmed,
 
     /// <summary>
     /// Commander of the IRGC Aerospace Force. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     HajizadehAmirAli,
 
     /// <summary>
     /// Hamas commander. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11, 10)]
     HalifaFarsan,
 
     /// <summary>
     /// Chairman of the Hamas Political Bureau. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2024, 7, 31)]
     HaniyehIsmail,
 
     /// <summary>
     /// Commander of Hezbollah's intelligence headquarters. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 10, 3)]
     HazimaAliHussein,
 
     /// <summary>
     /// Deputy commander of the Qassam Brigades (Hamas). Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     IssaMarwan,
 
     /// <summary>
     /// Head of the Quds Force's Palestine branch. Killed in Iran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 21)]
     IzadiSaeed,
 
     /// <summary>
     /// Chairman of SPND (defensive innovation and research). Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     JabalAmelianHossein,
 
@@ -2920,49 +2920,49 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's Southern Front. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 27)]
     KarakiAli,
 
     /// <summary>
     /// Head of the IRGC Intelligence Organization. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 15)]
     KazemiMohammad,
 
     /// <summary>
     /// Head of IRGC intelligence.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 4, 6)]
     KhademiMajid,
 
     /// <summary>
     /// Supreme Leader of Iran. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     KhameneiAli,
 
     /// <summary>
     /// Head of Iran's Strategic Council on Foreign Relations.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 4, 1)]
     KharaziKamal,
 
     /// <summary>
     /// Iranian Minister of Intelligence.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 18)]
     KhatibEsmaeil,
 
     /// <summary>
     /// Secretary of Iran's Supreme National Security Council. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 17)]
     LarijaniAli,
 
@@ -2974,259 +2974,259 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy head of intelligence, Armed Forces General Staff. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     MehrabiGholamreza,
 
     /// <summary>
     /// Commander of the Quds Force's Unit 840.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 4, 6)]
     MirYazdan,
 
     /// <summary>
     /// Deputy head of the IRGC Intelligence Organization. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 15)]
     MohagheghHassan,
 
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces (succeeded Bagheri). Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     MousaviAbdolrahim,
 
     /// <summary>
     /// IRGC Quds Force commander. Killed in Damascus.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2023, 12, 25)]
     MousaviRazi,
 
     /// <summary>
     /// Former chairman of SPND. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     MozaffariNiaReza,
 
     /// <summary>
     /// IRGC spokesperson.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 20)]
     NainiAliMohammad,
 
     /// <summary>
     /// Iranian Minister of Defense. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     NasirzadehAziz,
 
     /// <summary>
     /// Secretary-General of Hezbollah. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 27)]
     NasrallahHassan,
 
     /// <summary>
     /// Commander of Hezbollah's Aziz unit. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 7, 3)]
     NasserMohammedNehme,
 
     /// <summary>
     /// Quds Force commander in Lebanon. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 27)]
     NilforoushanAbbas,
 
     /// <summary>
     /// Commander of Hamas's Central Gaza Brigade. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
     NofalAyman,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed in Gaza City.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 5, 26)]
     OdehMohammed,
 
     /// <summary>
     /// Head of Quds Force intelligence in Syria. Killed in Damascus.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 1, 20)]
     OmidzadehSadegh,
 
     /// <summary>
     /// Commander-in-Chief of the IRGC. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     PakpourMohammad,
 
     /// <summary>
     /// Deputy head of Hezbollah's Executive Council. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 28)]
     QaoukNabil,
 
     /// <summary>
     /// Commander of Hamas's South Khan Younis Battalion. Killed in Khan Yunis.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 5, 13)]
     QuaraMahdi,
 
     /// <summary>
     /// Commander of Hezbollah's missile and rocket unit. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 24)]
     QubaisiIbrahim,
 
     /// <summary>
     /// Deputy head of operations, Armed Forces General Staff. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     RabbaniMehdi,
 
     /// <summary>
     /// Deputy commander of Hamas's Northern Gaza Brigade. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11, 10)]
     RajebWael,
 
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     RashidGholamAli,
 
     /// <summary>
     /// Head of IRGC Navy intelligence.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 26)]
     RezaeiBehnam,
 
     /// <summary>
     /// Head of the Qassam Brigades' production headquarters (Hamas). Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 12, 13)]
     SaadRaad,
 
     /// <summary>
     /// Head of Hezbollah's Executive Council. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 10, 3)]
     SafieddineHashem,
 
     /// <summary>
     /// Commander of Hamas's Khan Yunis Brigade. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 7, 13)]
     SalamaRafa,
 
     /// <summary>
     /// Commander-in-Chief of the IRGC. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     SalamiHossein,
 
     /// <summary>
     /// Hamas commander. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11, 10)]
     SalmanRafet,
 
     /// <summary>
     /// Commander of Hamas's Rafah Brigade. Killed in Khan Yunis.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 5, 13)]
     ShabanaMuhammad,
 
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 17)]
     ShadmaniAli,
 
     /// <summary>
     /// Hamas head of operations in Lebanon. Killed in Sidon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2025, 2, 18)]
     ShaheenMuhammad,
 
     /// <summary>
     /// Senior IRGC official (Unit 190). Killed in Iran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 21)]
     ShahriyariBehnam,
 
     /// <summary>
     /// Adviser to Khamenei and Secretary of the Defense Council. Targeted 2025-06-13 and survived; killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     ShamkhaniAli,
 
     /// <summary>
     /// Hamas commander in Lebanon. Killed in Lebanon.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 29)]
     SharifFatah,
 
     /// <summary>
     /// Chief of Khamenei's military bureau. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 2, 28)]
     ShiraziMohammad,
 
     /// <summary>
     /// Head of Hezbollah's Strategic Unit. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 7, 30)]
     ShukrFuad,
 
     /// <summary>
     /// Head of Hamas's rocket array. Killed in Gaza.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11, 10)]
     SiamAyman,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed in Khan Yunis.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 5, 13)]
     SinwarMohammed,
 
@@ -3238,63 +3238,63 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the Basij. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 17)]
     SoleimaniGholamreza,
 
     /// <summary>
     /// Hamas financier.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 4, 9)]
     SrourMohammad,
 
     /// <summary>
     /// Commander of Hezbollah's drone unit. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 26)]
     SrourMuhammadHussein,
 
     /// <summary>
     /// Senior Hezbollah commander and chief of staff to Naim Qassem. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2025, 11, 23)]
     TabatabaiHaythamAli,
 
     /// <summary>
     /// Commander of the IRGC Navy.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2026, 3, 26)]
     TangsiriAlireza,
 
     /// <summary>
     /// Iranian nuclear scientist. Killed in Tehran.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Iran)]
     [DeathDate(2025, 6, 13)]
     TehranchiMohammadMehdi,
 
     /// <summary>
     /// Head of Hezbollah Radwan Force training. Killed in Beirut.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 9, 20)]
     WahbiAhmed,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed in Baalbek.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 2, 20)]
     YaghiHussein,
 
     /// <summary>
     /// Quds Force commander in Lebanon and Syria. Killed in Damascus.
     /// </summary>
-    [Assassinated]
+    [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 4, 1)]
     ZahediMohammadReza,
 }

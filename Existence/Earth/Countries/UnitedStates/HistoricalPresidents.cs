@@ -28,14 +28,14 @@ namespace Existence.Earth.Countries.UnitedStates
         public static class FranklinPierce { }
         public static class JamesBuchanan { }
 
-        [Assassinated]
+        [Assassinated(CountryLikeThings.UnitedStates)]
         public static class AbrahamLincoln { }
 
         public static class AndrewJohnson { }
         public static class UlyssesSGrant { }
         public static class RutherfordBHayes { }
 
-        [Assassinated]
+        [Assassinated(CountryLikeThings.UnitedStates)]
         public static class JamesAGarfield { }
 
         public static class ChesterAArthur { }
@@ -43,7 +43,7 @@ namespace Existence.Earth.Countries.UnitedStates
         public static class BenjaminHarrison { }
         public static class GroverClevelandSecondTerm { }
 
-        [Assassinated]
+        [Assassinated(CountryLikeThings.UnitedStates)]
         public static class WilliamMcKinley { }
 
         public static class TheodoreRoosevelt { }
@@ -62,7 +62,7 @@ namespace Existence.Earth.Countries.UnitedStates
         public static class HarrySTruman { }
         public static class DwightDEisenhowever { }
 
-        [Assassinated]
+        [Assassinated(CountryLikeThings.UnitedStates)]
         public static class JohnFKennedy { }
 
         public static class LyndonBJohnson { }
