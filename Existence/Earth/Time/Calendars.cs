@@ -296,7 +296,20 @@ public class CountryGregorianCalendarSwitchDate
             new CountryGregorianCalendarSwitchDate(CountryLikeThings.UnitedKingdom, new StartDateAttribute(1752, 9, 14)),
 
             //same king as the Kingdom of Great Britain, but a different country
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new StartDateAttribute(1752, 9, 14))
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new StartDateAttribute(1752, 9, 14)),
+
+            //first adopters: Thursday 1582-10-04 (Julian) was followed by Friday 1582-10-15 (Gregorian)
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Spain, new StartDateAttribute(1582, 10, 15)),
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Portugal, new StartDateAttribute(1582, 10, 15)),
+
+            //Italy was not yet unified; the Papal States and most Italian states switched on this date
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Italy, new StartDateAttribute(1582, 10, 15)),
+
+            //Soviet Russia: 1918-01-31 (Julian) was followed by 1918-02-14 (Gregorian)
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Russia, new StartDateAttribute(1918, 2, 14)),
+
+            //1923-02-15 (Julian) was followed by 1923-03-01 (Gregorian)
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Greece, new StartDateAttribute(1923, 3, 1))
         };
     }
     public CountryLikeThings CountryLikeThing { get; set; }
