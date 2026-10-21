@@ -3,6 +3,7 @@ using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.People;
 using Existence.Earth.Time;
+using Existence.Earth.War;
 using Existence.Time;
 using System;
 
@@ -2624,76 +2625,91 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Iranian nuclear scientist. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     AbbasiFereydoon,
 
     /// <summary>
     /// Commander of Hezbollah's Nasr unit. Killed 2024-06-11, Lebanon.
     /// </summary>
+    [Assassinated]
     AbdullahTaleb,
 
     /// <summary>
     /// IRGC commander. Killed 2024-06-03, Syria.
     /// </summary>
+    [Assassinated]
     AbiyarSaeed,
 
     /// <summary>
     /// Al-Quds Brigades (Palestinian Islamic Jihad) spokesperson. Killed 2025-03-18, Gaza.
     /// </summary>
+    [Assassinated]
     AbuHamza,
 
     /// <summary>
     /// Head of Hamas's aerial array. Killed 2023-10-14, Gaza.
     /// </summary>
+    [Assassinated]
     AbuMuradMurad,
 
     /// <summary>
     /// Qassam Brigades (Hamas) spokesperson. Killed 2025-08-30, Gaza.
     /// </summary>
+    [Assassinated]
     AbuObeida,
 
     /// <summary>
     /// Secretary-General of the Mujahideen Brigades. Killed 2025-06-07, Gaza.
     /// </summary>
+    [Assassinated]
     AbuShariaAsad,
 
     /// <summary>
     /// Head of Hamas's administrative and combat support staff. Killed 2024-03-10, Gaza.
     /// </summary>
+    [Assassinated]
     AbuTamaaGhazi,
 
     /// <summary>
     /// Head of Hezbollah's media relations. Killed 2024-11-17, Beirut.
     /// </summary>
+    [Assassinated]
     AfifMohammad,
 
     /// <summary>
     /// Head of Basij intelligence. Killed 2026-03-17, Tehran.
     /// </summary>
+    [Assassinated]
     AhmadiEsmail,
 
     /// <summary>
     /// Deputy chairman of the Hamas Political Bureau. Killed 2024-01-02, Beirut.
     /// </summary>
+    [Assassinated]
     AlArouriSaleh,
 
     /// <summary>
     /// Hamas Political Bureau member. Killed 2025-03-23, Gaza.
     /// </summary>
+    [Assassinated]
     AlBardawilSalah,
 
     /// <summary>
     /// Head of Hamas's Government Administrative Committee in Gaza. Killed 2025-03-18, Gaza.
     /// </summary>
+    [Assassinated]
     AlDaalisIssam,
 
     /// <summary>
     /// Houthi chief of staff. Killed 2025-08-28 strike, Sanaa.
     /// </summary>
+    [Assassinated]
     AlGhamariMuhammadAbdAlKarim,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed 2026-05-15, Gaza City.
     /// </summary>
+    [Assassinated]
     AlHaddadIzzAlDin,
 
     /// <summary>
@@ -2704,81 +2720,97 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's combat support and administrative headquarters. Killed 2025-06-27, Gaza.
     /// </summary>
+    [Assassinated]
     AlIssaHakhamMuhammadIssa,
 
     /// <summary>
     /// Hamas commander of the Kfar Aza massacre. Killed 2023-10-15, Gaza.
     /// </summary>
+    [Assassinated]
     AlKedraBillal,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed 2026-02-20, Baalbek.
     /// </summary>
+    [Assassinated]
     AlMoussawiAliZeid,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed 2026-02-20, Baalbek.
     /// </summary>
+    [Assassinated]
     AlMoussawiMuhammadIbrahim,
 
     /// <summary>
     /// Senior Palestinian Islamic Jihad commander. Killed 2026-03-03, Beirut.
     /// </summary>
+    [Assassinated]
     AlOthmanAdhamAdnan,
 
     /// <summary>
     /// Hamas Nukhba company commander on 2023-10-07. Killed 2023-10-14, Gaza.
     /// </summary>
+    [Assassinated]
     AlQadiAli,
 
     /// <summary>
     /// Houthi prime minister. Killed 2025-08-28, Sanaa.
     /// </summary>
+    [Assassinated]
     AlRahawiAhmed,
 
     /// <summary>
     /// Senior Hezbollah Radwan Force commander. Killed 2024-01-08, Lebanon.
     /// </summary>
+    [Assassinated]
     AlTawilWissam,
 
     /// <summary>
     /// Head of Hezbollah's Radwan Force. Killed 2024-09-20, Beirut.
     /// </summary>
+    [Assassinated]
     AqilIbrahim,
 
     /// <summary>
     /// Iranian intelligence head. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     AsadiSaleh,
 
     /// <summary>
     /// Hezbollah Nasr unit rocket and missile commander. Killed 2024-06-17, Lebanon.
     /// </summary>
+    [Assassinated]
     AyoubMuhammadMustafa,
 
     /// <summary>
     /// Senior member of Hezbollah's Unit 151. Killed 2024-11-09, Lebanon.
     /// </summary>
+    [Assassinated]
     AyyashSalim,
 
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     BagheriMohammad,
 
     /// <summary>
     /// Commander of Hezbollah's aerial forces. Killed 2024-01-09, Lebanon.
     /// </summary>
+    [Assassinated]
     BarjiAliHussein,
 
     /// <summary>
     /// Hamas commander of Central Jabaliya. Killed 2023-10-31, Gaza.
     /// </summary>
+    [Assassinated]
     BiariIbrahim,
 
     /// <summary>
     /// Senior Hezbollah commander. Targeted 2024-11-09 in Syria; killed 2026-06-12, southern Lebanon.
     /// </summary>
+    [Assassinated]
     DaqduqAliMusa,
 
     /// <summary>
@@ -2789,46 +2821,55 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the Qassam Brigades (Hamas). Killed 2024-07-13, Gaza.
     /// </summary>
+    [Assassinated]
     DeifMohammed,
 
     /// <summary>
     /// Commander of Hamas's Northern Gaza Brigade. Killed 2023-11-10, Gaza.
     /// </summary>
+    [Assassinated]
     GhandourAhmed,
 
     /// <summary>
     /// Commander of the IRGC Aerospace Force. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     HajizadehAmirAli,
 
     /// <summary>
     /// Hamas commander. Killed 2023-11-10, Gaza.
     /// </summary>
+    [Assassinated]
     HalifaFarsan,
 
     /// <summary>
     /// Chairman of the Hamas Political Bureau. Killed 2024-07-31, Tehran.
     /// </summary>
+    [Assassinated]
     HaniyehIsmail,
 
     /// <summary>
     /// Commander of Hezbollah's intelligence headquarters. Killed 2024-10-03, Beirut.
     /// </summary>
+    [Assassinated]
     HazimaAliHussein,
 
     /// <summary>
     /// Deputy commander of the Qassam Brigades (Hamas). Killed 2024-03-10, Gaza.
     /// </summary>
+    [Assassinated]
     IssaMarwan,
 
     /// <summary>
     /// Head of the Quds Force's Palestine branch. Killed 2025-06-21, Iran.
     /// </summary>
+    [Assassinated]
     IzadiSaeed,
 
     /// <summary>
     /// Chairman of SPND (defensive innovation and research). Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     JabalAmelianHossein,
 
     /// <summary>
@@ -2839,36 +2880,43 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's Southern Front. Killed 2024-09-27, Beirut.
     /// </summary>
+    [Assassinated]
     KarakiAli,
 
     /// <summary>
     /// Head of the IRGC Intelligence Organization. Killed 2025-06-15, Tehran.
     /// </summary>
+    [Assassinated]
     KazemiMohammad,
 
     /// <summary>
     /// Head of IRGC intelligence. Killed 2026-04-06.
     /// </summary>
+    [Assassinated]
     KhademiMajid,
 
     /// <summary>
     /// Supreme Leader of Iran. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     KhameneiAli,
 
     /// <summary>
     /// Head of Iran's Strategic Council on Foreign Relations. Killed 2026-04-01.
     /// </summary>
+    [Assassinated]
     KharaziKamal,
 
     /// <summary>
     /// Iranian Minister of Intelligence. Killed 2026-03-18.
     /// </summary>
+    [Assassinated]
     KhatibEsmaeil,
 
     /// <summary>
     /// Secretary of Iran's Supreme National Security Council. Killed 2026-03-17, Tehran.
     /// </summary>
+    [Assassinated]
     LarijaniAli,
 
     /// <summary>
@@ -2879,186 +2927,223 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy head of intelligence, Armed Forces General Staff. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     MehrabiGholamreza,
 
     /// <summary>
     /// Commander of the Quds Force's Unit 840. Killed 2026-04-06.
     /// </summary>
+    [Assassinated]
     MirYazdan,
 
     /// <summary>
     /// Deputy head of the IRGC Intelligence Organization. Killed 2025-06-15, Tehran.
     /// </summary>
+    [Assassinated]
     MohagheghHassan,
 
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces (succeeded Bagheri). Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     MousaviAbdolrahim,
 
     /// <summary>
     /// IRGC Quds Force commander. Killed 2023-12-25, Damascus.
     /// </summary>
+    [Assassinated]
     MousaviRazi,
 
     /// <summary>
     /// Former chairman of SPND. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     MozaffariNiaReza,
 
     /// <summary>
     /// IRGC spokesperson. Killed 2026-03-20.
     /// </summary>
+    [Assassinated]
     NainiAliMohammad,
 
     /// <summary>
     /// Iranian Minister of Defense. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     NasirzadehAziz,
 
     /// <summary>
     /// Secretary-General of Hezbollah. Killed 2024-09-27, Beirut.
     /// </summary>
+    [Assassinated]
     NasrallahHassan,
 
     /// <summary>
     /// Commander of Hezbollah's Aziz unit. Killed 2024-07-03, Lebanon.
     /// </summary>
+    [Assassinated]
     NasserMohammedNehme,
 
     /// <summary>
     /// Quds Force commander in Lebanon. Killed 2024-09-27, Beirut.
     /// </summary>
+    [Assassinated]
     NilforoushanAbbas,
 
     /// <summary>
     /// Commander of Hamas's Central Gaza Brigade. Killed 2023-10-17, Gaza.
     /// </summary>
+    [Assassinated]
     NofalAyman,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed 2026-05-26, Gaza City.
     /// </summary>
+    [Assassinated]
     OdehMohammed,
 
     /// <summary>
     /// Head of Quds Force intelligence in Syria. Killed 2024-01-20, Damascus.
     /// </summary>
+    [Assassinated]
     OmidzadehSadegh,
 
     /// <summary>
     /// Commander-in-Chief of the IRGC. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     PakpourMohammad,
 
     /// <summary>
     /// Deputy head of Hezbollah's Executive Council. Killed 2024-09-28, Beirut.
     /// </summary>
+    [Assassinated]
     QaoukNabil,
 
     /// <summary>
     /// Commander of Hamas's South Khan Younis Battalion. Killed 2025-05-13, Khan Yunis.
     /// </summary>
+    [Assassinated]
     QuaraMahdi,
 
     /// <summary>
     /// Commander of Hezbollah's missile and rocket unit. Killed 2024-09-24, Beirut.
     /// </summary>
+    [Assassinated]
     QubaisiIbrahim,
 
     /// <summary>
     /// Deputy head of operations, Armed Forces General Staff. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     RabbaniMehdi,
 
     /// <summary>
     /// Deputy commander of Hamas's Northern Gaza Brigade. Killed 2023-11-10, Gaza.
     /// </summary>
+    [Assassinated]
     RajebWael,
 
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     RashidGholamAli,
 
     /// <summary>
     /// Head of IRGC Navy intelligence. Killed 2026-03-26.
     /// </summary>
+    [Assassinated]
     RezaeiBehnam,
 
     /// <summary>
     /// Head of the Qassam Brigades' production headquarters (Hamas). Killed 2025-12-13, Gaza.
     /// </summary>
+    [Assassinated]
     SaadRaad,
 
     /// <summary>
     /// Head of Hezbollah's Executive Council. Killed 2024-10-03, Beirut.
     /// </summary>
+    [Assassinated]
     SafieddineHashem,
 
     /// <summary>
     /// Commander of Hamas's Khan Yunis Brigade. Killed 2024-07-13, Gaza.
     /// </summary>
+    [Assassinated]
     SalamaRafa,
 
     /// <summary>
     /// Commander-in-Chief of the IRGC. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     SalamiHossein,
 
     /// <summary>
     /// Hamas commander. Killed 2023-11-10, Gaza.
     /// </summary>
+    [Assassinated]
     SalmanRafet,
 
     /// <summary>
     /// Commander of Hamas's Rafah Brigade. Killed 2025-05-13, Khan Yunis.
     /// </summary>
+    [Assassinated]
     ShabanaMuhammad,
 
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters. Killed 2025-06-17, Tehran.
     /// </summary>
+    [Assassinated]
     ShadmaniAli,
 
     /// <summary>
     /// Hamas head of operations in Lebanon. Killed 2025-02-18, Sidon.
     /// </summary>
+    [Assassinated]
     ShaheenMuhammad,
 
     /// <summary>
     /// Senior IRGC official (Unit 190). Killed 2025-06-21, Iran.
     /// </summary>
+    [Assassinated]
     ShahriyariBehnam,
 
     /// <summary>
     /// Adviser to Khamenei and Secretary of the Defense Council. Targeted 2025-06-13 and survived; killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     ShamkhaniAli,
 
     /// <summary>
     /// Hamas commander in Lebanon. Killed 2024-09-29, Lebanon.
     /// </summary>
+    [Assassinated]
     SharifFatah,
 
     /// <summary>
     /// Chief of Khamenei's military bureau. Killed 2026-02-28, Tehran.
     /// </summary>
+    [Assassinated]
     ShiraziMohammad,
 
     /// <summary>
     /// Head of Hezbollah's Strategic Unit. Killed 2024-07-30, Beirut.
     /// </summary>
+    [Assassinated]
     ShukrFuad,
 
     /// <summary>
     /// Head of Hamas's rocket array. Killed 2023-11-10, Gaza.
     /// </summary>
+    [Assassinated]
     SiamAyman,
 
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander. Killed 2025-05-13, Khan Yunis.
     /// </summary>
+    [Assassinated]
     SinwarMohammed,
 
     /// <summary>
@@ -3069,45 +3154,54 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the Basij. Killed 2026-03-17, Tehran.
     /// </summary>
+    [Assassinated]
     SoleimaniGholamreza,
 
     /// <summary>
     /// Hamas financier. Killed 2024-04-09.
     /// </summary>
+    [Assassinated]
     SrourMohammad,
 
     /// <summary>
     /// Commander of Hezbollah's drone unit. Killed 2024-09-26, Beirut.
     /// </summary>
+    [Assassinated]
     SrourMuhammadHussein,
 
     /// <summary>
     /// Senior Hezbollah commander and chief of staff to Naim Qassem. Killed 2025-11-23, Beirut.
     /// </summary>
+    [Assassinated]
     TabatabaiHaythamAli,
 
     /// <summary>
     /// Commander of the IRGC Navy. Killed 2026-03-26.
     /// </summary>
+    [Assassinated]
     TangsiriAlireza,
 
     /// <summary>
     /// Iranian nuclear scientist. Killed 2025-06-13, Tehran.
     /// </summary>
+    [Assassinated]
     TehranchiMohammadMehdi,
 
     /// <summary>
     /// Head of Hezbollah Radwan Force training. Killed 2024-09-20, Beirut.
     /// </summary>
+    [Assassinated]
     WahbiAhmed,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed 2026-02-20, Baalbek.
     /// </summary>
+    [Assassinated]
     YaghiHussein,
 
     /// <summary>
     /// Quds Force commander in Lebanon and Syria. Killed 2024-04-01, Damascus.
     /// </summary>
+    [Assassinated]
     ZahediMohammadReza,
 }
