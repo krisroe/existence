@@ -280,6 +280,13 @@ namespace Existence.Time
         }
     }
 
+    public class EndDateAttribute : YearDateAttribute
+    {
+        public EndDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+        }
+    }
+
     public class CalendarDateAttribute : Attribute
     {
         public int? Month { get; set; }

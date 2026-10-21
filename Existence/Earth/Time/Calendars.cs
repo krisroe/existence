@@ -284,6 +284,10 @@ namespace Existence.Earth.Time
     }
 }
 
+//TODO: country list is incomplete
+/// <summary>
+/// represents country switches from Julian to Gregorian calendar
+/// </summary>
 public class CountryGregorianCalendarSwitchDate
 {
     public static List<CountryGregorianCalendarSwitchDate> CountryLikeEntitySwitchDates;
@@ -292,31 +296,54 @@ public class CountryGregorianCalendarSwitchDate
     {
         CountryLikeEntitySwitchDates = new List<CountryGregorianCalendarSwitchDate>()
         {
-            //at the time it was the Kingdom of Great Britain, including England+Wales+Scotland
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.UnitedKingdom, new StartDateAttribute(1752, 9, 14)),
-
-            //same king as the Kingdom of Great Britain, but a different country
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new StartDateAttribute(1752, 9, 14)),
-
-            //first adopters: Thursday 1582-10-04 (Julian) was followed by Friday 1582-10-15 (Gregorian)
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Spain, new StartDateAttribute(1582, 10, 15)),
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Portugal, new StartDateAttribute(1582, 10, 15)),
+            #region first adopters
 
             //Italy was not yet unified; the Papal States and most Italian states switched on this date
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Italy, new StartDateAttribute(1582, 10, 15)),
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Italy, new EndDateAttribute(1582, 10, 4), new StartDateAttribute(1582, 10, 15)),
 
-            //Soviet Russia: 1918-01-31 (Julian) was followed by 1918-02-14 (Gregorian)
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Russia, new StartDateAttribute(1918, 2, 14)),
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Spain, new EndDateAttribute(1582, 10, 4), new StartDateAttribute(1582, 10, 15)),
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Portugal, new EndDateAttribute(1582, 10, 4), new StartDateAttribute(1582, 10, 15)),
 
-            //1923-02-15 (Julian) was followed by 1923-03-01 (Gregorian)
-            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Greece, new StartDateAttribute(1923, 3, 1))
+            #endregion
+
+            //at the time it was the Kingdom of Great Britain, including England+Wales+Scotland
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.UnitedKingdom, new EndDateAttribute(1752, 9, 2), new StartDateAttribute(1752, 9, 14)),
+
+            //same king as the Kingdom of Great Britain, but a different country
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Ireland, new EndDateAttribute(1752, 9, 2), new StartDateAttribute(1752, 9, 14)),
+
+            //Soviet Russia
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Russia, new EndDateAttribute(1918, 1, 31), new StartDateAttribute(1918, 2, 14)),
+
+            new CountryGregorianCalendarSwitchDate(CountryLikeThings.Greece, new EndDateAttribute(1923, 2, 15), new StartDateAttribute(1923, 3, 1))
         };
     }
     public CountryLikeThings CountryLikeThing { get; set; }
-    public StartDateAttribute StartDate { get; set; }
-    public CountryGregorianCalendarSwitchDate(CountryLikeThings CountryLikeThing, StartDateAttribute StartDate)
+
+    /// <summary>
+    /// last date the country used with respect to the Julian calendar
+    /// </summary>
+    public EndDateAttribute JulianEndDate { get; set; }
+
+    /// <summary>
+    /// first date the country used with respect to the Gregorian calendar
+    /// </summary>
+    public StartDateAttribute GregorianStartDate { get; set; }
+
+    /// <summary>
+    /// number of dates skipped (that did not exist) in the switch
+    /// </summary>
+    public int GapDays { get; set; }
+
+    public CountryGregorianCalendarSwitchDate(CountryLikeThings CountryLikeThing, EndDateAttribute JulianEndDate, StartDateAttribute GregorianStartDate)
     {
         this.CountryLikeThing = CountryLikeThing;
-        this.StartDate = StartDate;
+        this.JulianEndDate = JulianEndDate;
+        this.GregorianStartDate = GregorianStartDate;
+        if (JulianEndDate.Month == null || JulianEndDate.Day == null) throw new ArgumentException("A month and day are required.", nameof(JulianEndDate));
+        if (GregorianStartDate.Month == null || GregorianStartDate.Day == null) throw new ArgumentException("A month and day are required.", nameof(GregorianStartDate));
+        DateTime julian = new DateTime(JulianEndDate.Year, JulianEndDate.Month.Value, JulianEndDate.Day.Value);
+        DateTime gregorian = new DateTime(GregorianStartDate.Year, GregorianStartDate.Month.Value, GregorianStartDate.Day.Value);
+        GapDays = (gregorian - julian).Days - 1;
     }
 }
