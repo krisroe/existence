@@ -18,13 +18,62 @@ namespace Existence.Earth.War
         }
     }
 
+    /// <summary>
+    /// contains the outcome of a hostage situation
+    /// </summary>
     public class HostageOutcomeAttribute : Attribute
     {
+        /// <summary>
+        /// outcome type
+        /// </summary>
         public HostageOutcome Outcome { get; set; }
+
+        /// <summary>
+        /// country where the outcome took place (general rule being this is where the transfer away from the hostage-taker took place)
+        /// 1. Released body or released alive, this is where the transfer happened
+        /// 2. Remains identified: This is where the remains were found
+        /// 3. Recovered or rescued: This is where the recovery or rescue tookplace
+        /// </summary>
+        public CountryLikeThings? Country { get; set; }
+
+        /// <summary>
+        /// city where the outcome took place
+        /// </summary>
+        /// <remarks>see country documentation for the rules around city assignment</remarks>
+        public WorldCities? City { get; set; }
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="Outcome">outcome of the hostage situation</param>
         public HostageOutcomeAttribute(HostageOutcome Outcome)
         {
             this.Outcome = Outcome;
+            this.Country = null;
+            this.City = null;
         }
+
+        /// <summary>
+        /// constructor for a country
+        /// </summary>
+        /// <param name="Outcome">outcome of the hostage situation</param>
+        /// <param name="Country">country where the outcome took place</param>
+        public HostageOutcomeAttribute(HostageOutcome Outcome, CountryLikeThings Country) : this(Outcome)
+        {
+            this.Country = Country;
+        }
+
+        /// <summary>
+        /// constructor for a country and city
+        /// </summary>
+        /// <param name="Outcome">outcome of the hostage situation</param>
+        /// <param name="Country">country where the outcome took place</param>
+        /// <param name="City">city where the outcome took place</param>
+        public HostageOutcomeAttribute(HostageOutcome Outcome, CountryLikeThings Country, WorldCities City) : this (Outcome, Country)
+        {
+            this.City = City;
+        }
+
     }
 
     public enum HostageOutcome
@@ -1935,17 +1984,17 @@ namespace Existence.Earth.War
 
             [Hostages(HostageList.RaananJudith, HostageList.RaananNatalie)]
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
             public static class October20 { }
 
             [Hostages(HostageList.LifshitzYokheved, HostageList.YitzhakNuritCooper)]
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
             public static class October23 { }
 
             [Hostages(HostageList.MegidishOri)]
             [Number(1)]
-            [HostageOutcome(HostageOutcome.RescuedAlive)]
+            [HostageOutcome(HostageOutcome.RescuedAlive, CountryLikeThings.PalestineGaza)]
             public static class October30 { }
 
             /// <summary>
@@ -1953,7 +2002,7 @@ namespace Existence.Earth.War
             /// </summary>
             [Hostages(HostageList.WeissYehudit, HostageList.MarcianoNoa)]
             [Number(2)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
             public static class November1617 { }
 
             /// <summary>
@@ -1962,7 +2011,7 @@ namespace Existence.Earth.War
             public static class November21
             {
                 [Number(24)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.AdarYafa,
                     HostageList.AloniDaniel,
@@ -1991,7 +2040,7 @@ namespace Existence.Earth.War
                 public static class November24 { }
 
                 [Number(17)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.AvigdoriNoam,
                     HostageList.AvigdoriSharon,
@@ -2013,7 +2062,7 @@ namespace Existence.Earth.War
                 public static class November25 { }
 
                 [Number(17)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.AvrihamElma,
                     HostageList.BrodutchHagar,
@@ -2035,7 +2084,7 @@ namespace Existence.Earth.War
                 public static class November26 { }
 
                 [Number(11)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.CunioSharonOlani,
                     HostageList.CunioEmma,
@@ -2051,7 +2100,7 @@ namespace Existence.Earth.War
                 public static class November27 { }
 
                 [Number(12)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.BabadillaNoralin,
                     HostageList.HeimanDitza,
@@ -2068,7 +2117,7 @@ namespace Existence.Earth.War
                 public static class November28 { }
 
                 [Number(16)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.BeininLiat,
                     HostageList.BenAmiRaz,
@@ -2089,7 +2138,7 @@ namespace Existence.Earth.War
                 public static class November29 { }
 
                 [Number(8)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.ZiyadneAisha,
                     HostageList.ZiyadneBilal,
@@ -2107,7 +2156,7 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.TzarfatiOfir)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             public static class November29 { }
 
             /// <summary>
@@ -2115,7 +2164,7 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(2)]
             [Hostages(HostageList.ZechariahEden, HostageList.DadoZiv)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
             public static class December12 { }
 
             /// <summary>
@@ -2123,7 +2172,7 @@ namespace Existence.Earth.War
             /// bodies were not recovered until December 15th
             /// </summary>
             [Number(3)]
-            [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael)]
+            [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael, CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
             [Hostages(
                 HostageList.ShermanRon,
                 HostageList.BeizerNik,
@@ -2136,7 +2185,7 @@ namespace Existence.Earth.War
             /// and opened fire, resulting in their deaths. The hostages were reportedly waving a white flag at the time. 
             /// </summary>
             [Number(3)]
-            [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael)]
+            [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
             [Hostages(
                 HostageList.ShamrizAlon,
                 HostageList.HaimYotam,
@@ -2150,7 +2199,7 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(2)]
             [Hostages(HostageList.MermanFernandoSimon, HostageList.HarLuis)]
-            [HostageOutcome(HostageOutcome.RescuedAlive)]
+            [HostageOutcome(HostageOutcome.RescuedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             public static class February12 { }
 
             /// <summary>
@@ -2158,16 +2207,17 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.KatznirElad)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             public static class April6 { }
 
             /// <summary>
             /// Reportedly kidnapped during the attack on the Nova festival
             /// All three were killed near the site of the attack and their bodies were taken into Gaza and later recovered in a Hamas tunnel
+            /// JPost says they were recovered in Jabalia (what the IDF reported at the time), JNS says Rafah.
             /// </summary>
             [Hostages(HostageList.LoukShani, HostageList.BuskilaEstherAmit, HostageList.GelerenterItzhak)]
             [Number(3)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             public static class May17 { }
 
             /// <summary>
@@ -2176,7 +2226,7 @@ namespace Existence.Earth.War
             /// </summary>
             [Hostages(HostageList.BenjaminRon)]
             [Number(1)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
             public static class May18 { }
 
             /// <summary>
@@ -2184,19 +2234,19 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(3)]
             [Hostages(HostageList.RadouxOriónHernández, HostageList.YablonkaHanan, HostageList.NisenbaumMichel)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
             public static class May24 { }
 
             [Number(1)]
             [Hostages(HostageList.YehoudDolev)]
-            [HostageOutcome(HostageOutcome.RemainsIdentified)]
+            [HostageOutcome(HostageOutcome.RemainsIdentified, CountryLikeThings.Israel)]
             public static class June3 { }
 
             /// <summary>
             /// rescued from Nuseirat refugee camp
             /// </summary>
             [Number(4)]
-            [HostageOutcome(HostageOutcome.RescuedAlive)]
+            [HostageOutcome(HostageOutcome.RescuedAlive, CountryLikeThings.PalestineGaza)]
             [Hostages(
                 HostageList.ArgamaniNoa,
                 HostageList.MeirJanAlmog,
@@ -2208,7 +2258,7 @@ namespace Existence.Earth.War
             /// bodies recovered from a tunnel located in the Israeli-designated humanitarian zone in the southern Gaza Strip
             /// </summary>
             [Number(5)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(
                 HostageList.KatzRavid,
                 HostageList.GoldinOren,
@@ -2221,7 +2271,7 @@ namespace Existence.Earth.War
             ///  bodies of the six hostages recovered by the IDF from southern Gaza’s Khan Younis 
             /// </summary>
             [Number(6)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(
                 HostageList.DancygAlexander,
                 HostageList.BuchshtabYagev,
@@ -2236,12 +2286,12 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.AlkadiQaidFarhan)]
-            [HostageOutcome(HostageOutcome.RescuedAlive)]
+            [HostageOutcome(HostageOutcome.RescuedAlive, CountryLikeThings.PalestineGaza)]
             public static class August27 { }
 
             [Number(1)]
             [Hostages(HostageList.DahanShaked)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             public static class August28 { }
 
             /// <summary>
@@ -2249,7 +2299,7 @@ namespace Existence.Earth.War
             /// Believed to be executed by Hamas, shot at close range 1-2 days prior to discovery.
             /// </summary>
             [Number(6)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             [Hostages(
                 HostageList.GoldbergPolinHersh,
                 HostageList.YerushalmiEden,
@@ -2264,23 +2314,23 @@ namespace Existence.Earth.War
             /// </summary>
             [Number(1)]
             [Hostages(HostageList.SvirskyItai)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             public static class December4 { }
         }
         public static class v2025
         {
             [Number(1)]
             [Hostages(HostageList.AlZayadniYosef)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             public static class January8 { }
 
             [Number(1)]
             [Hostages(HostageList.AlZayadniHamzah)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             public static class January10 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.ShaulOron)]
             public static class January19RecoveredBody { }
 
@@ -2288,7 +2338,7 @@ namespace Existence.Earth.War
             /// not part of 2025-01-15 return agreement (home country negotiated their release separately)
             /// </summary>
             [Number(5)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(HostageList.RumnaoSurasak,
                 HostageList.SaethaoBannawat,
                 HostageList.SriaounWatchara,
@@ -2300,11 +2350,11 @@ namespace Existence.Earth.War
             {
                 [Number(3)]
                 [Hostages(HostageList.DamariEmily, HostageList.GonenRomi, HostageList.SteinbrecherDoron)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
                 public static class January19ReleasedAlive { }
 
                 [Number(4)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
                 [Hostages(HostageList.AlbagLiri,
                     HostageList.ArievKarina,
                     HostageList.GilboaDaniella,
@@ -2312,41 +2362,41 @@ namespace Existence.Earth.War
                 public static class January25 { }
 
                 [Number(8)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(HostageList.YehoudArbel,
                     HostageList.BergerAgam,
                     HostageList.MozesGadiMoshe)]
                 public static class January30 { }
 
                 [Hostages(HostageList.KalderonOfer, HostageList.BibasYarden, HostageList.SiegelSamuelKeith)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Number(3)]
                 public static class February1 { }
 
                 [Hostages(HostageList.BenAmiOhad, HostageList.SharabiEli, HostageList.LevyOr)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaDeirAlBalah)]
                 [Number(3)]
                 public static class February8 { }
 
                 [Hostages(HostageList.DekelChenSagui,
                     HostageList.TrufanovAlexanderSasha,
                     HostageList.HornIair)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
                 [Number(3)]
                 public static class February15 { }
 
                 [Number(3)]
                 [Hostages(HostageList.LifshitzOded, HostageList.BibasAriel, HostageList.BibasKfir)]
-                [HostageOutcome(HostageOutcome.ReleasedBody)]
+                [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
                 public static class February20 { }
 
                 [Hostages(HostageList.BibasShiri)]
-                [HostageOutcome(HostageOutcome.ReleasedBody)]
+                [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
                 [Number(1)]
                 public static class February21 { }
 
                 [Number(6)]
-                [HostageOutcome(HostageOutcome.ReleasedAlive)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.WenkertOmer,
                     HostageList.ShemTovOmer,
@@ -2357,7 +2407,7 @@ namespace Existence.Earth.War
                 public static class February22 { }
 
                 [Number(4)]
-                [HostageOutcome(HostageOutcome.ReleasedBody)]
+                [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
                 [Hostages(
                     HostageList.MansourShlomo,
                     HostageList.YahalomiOhad,
@@ -2367,42 +2417,42 @@ namespace Existence.Earth.War
             }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(HostageList.AlexanderEdan)]
             public static class May12 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(HostageList.HaggaiGad,
                       HostageList.WeinsteinHaggaiJudith)]
             public static class June5 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             [Hostages(HostageList.PintaNattapong)]
             public static class June7 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
             [Hostages(HostageList.AtziliAviv,
                       HostageList.YaakovYair)]
             public static class June11 { }
 
             [Number(3)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.KeidarOfra,
                       HostageList.LevinsonShay,
                       HostageList.SameranoYonatan)]
             public static class June22 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.ShtiviIdan,
                       HostageList.WeissIlan)]
             public static class August29 { }
 
             [Number(20)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.OhelAlon,
                       HostageList.CunioAriel,
                       HostageList.OrAvinathan,
@@ -2426,7 +2476,7 @@ namespace Existence.Earth.War
             public static class October13ReleasedAlive { }
 
             [Number(4)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.JoshiBipin,
                       HostageList.IluzGuy,
                       HostageList.PerezDaniel,
@@ -2437,85 +2487,85 @@ namespace Existence.Earth.War
             /// a fourth body was also released, but was an unidentified Palestinian
             /// </summary>
             [Number(3)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.BaruchUriael,
                       HostageList.LevyEitan,
                       HostageList.NimrodTamir)]
             public static class October14 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.AlAtreshMuhammad,
                       HostageList.HaymanInbar)]
             public static class October15 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.MargalitEliyahu)]
             public static class October17 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.EngelRonan,
                       HostageList.OakkharasriSonthaya)]
             public static class October18 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.HaimiTal)]
             public static class October20 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.AdarTamir,
                       HostageList.ZalmanovitchArye)]
             public static class October21 { }
 
             [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.BaruchSahar,
                       HostageList.CooperAmiram)]
             public static class October30 { }
 
             [Number(3)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.OzDaniel,
                       HostageList.HamamiAsaf,
                       HostageList.NeutraOmerMaxim)]
             public static class November2 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.ChenItay)]
             public static class November4 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.MollelJoshua)]
             public static class November5 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.RudaeffLior)]
             public static class November7 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.GoldinHadar)]
             public static class November9 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.GodardManny)]
             public static class November13 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.OrDror)]
             public static class November26 { }
 
             [Number(1)]
-            [HostageOutcome(HostageOutcome.ReleasedBody)]
+            [HostageOutcome(HostageOutcome.ReleasedBody, CountryLikeThings.PalestineGaza)]
             [Hostages(HostageList.RinthalakSudthisak)]
             public static class December3 { }
         }
@@ -2523,7 +2573,7 @@ namespace Existence.Earth.War
         public static class v2026
         {
             [Number(1)]
-            [HostageOutcome(HostageOutcome.RecoveredBody)]
+            [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
             [Hostages(HostageList.GviliRan)]
             public static class January26 { }
         }
