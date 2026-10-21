@@ -17,7 +17,7 @@ namespace Existence.Earth.People.Famous.Physics
                 private static class Calculus { }
             }
 
-            [BirthDate(1564, 2, 15)]
+            [BirthDateAttributeWithJulianAndGregorianCalendars(1564, 2, 15, 1564, 2, 25)]
             private static class GalileoGalilei
             {
                 private static class ExperimentalPhysics { }
@@ -37,7 +37,7 @@ namespace Existence.Earth.People.Famous.Physics
                 private static class FaradaysLawOfInduction { }
                 private static class FaradayCage { }
             }
-            [BirthDate(1571, 12, 27)]
+            [BirthDateAttributeWithJulianAndGregorianCalendars(1571, 12, 27, 1572, 1, 6)]
             private static class JohannesKepler 
             {
                 private static class LawsOfPlanetaryMotion { }
