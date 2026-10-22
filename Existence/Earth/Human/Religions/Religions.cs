@@ -2,6 +2,7 @@
 using Existence.Earth.Alphabet;
 using Existence.Earth.Human;
 using Existence.Earth.Time;
+using Existence.Time;
 
 namespace Existence.Earth.Religions
 {
@@ -24,9 +25,33 @@ namespace Existence.Earth.Religions
 
     /// <summary>
     /// no conversions into the religion, only born into it. If you leave, there's no way back in.
+    ///
+    /// For rationale, reasons are mixed
+    /// and every closed religion also shares a common one: surviving as a small, often persecuted
+    /// minority without being absorbed through conversion or intermarriage. Rationale captures the reason
+    /// that distinguishes each religion from the others.
+    ///
+    /// ClosedYears is only set when the religion closed at a specific point in history, and is a range because
+    /// sources disagree on the exact year (this attribute is present specifically to capture information about
+    /// Druze). Religions without a closed year attribute lack memory for when they became closed.
     /// </summary>
-    public class ClosedReligion : Attribute
+    public class ClosedReligionAttribute : Attribute
     {
+        public string Rationale { get; set; }
+        public YearRangeAttribute? ClosedYears { get; set; }
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="Rationale">one or two word simplification of why the religion is closed</param>
+        public ClosedReligionAttribute(string Rationale)
+        {
+            this.Rationale = Rationale;
+            this.ClosedYears = null;
+        }
+        public ClosedReligionAttribute(string Rationale, int ClosedStartYear, int ClosedEndYear) : this(Rationale)
+        {
+            ClosedYears = new YearRangeAttribute(ClosedStartYear, ClosedEndYear);
+        }
     }
 
     public class ThePope
@@ -160,11 +185,11 @@ namespace Existence.Earth.Religions
         /// </summary>
         [NumberOfFollowers(1000000, 1500000)] //1-1.5 million
         [AbrahamicReligion]
-        [ClosedReligion()]
+        [ClosedReligion("Doctrine", 1042, 1043)] //the call to join ended, and Druze souls are reincarnated only as Druze
         Druze,
 
         [NumberOfFollowers(700000, 1000000)] //700,000-1 million
-        [ClosedReligion()]
+        [ClosedReligion("Bloodline")] //Yazidis descend from Adam alone; also endogamous castes (Sheikh, Pir, Murid)
         Yazidism,
 
         /// <summary>
@@ -179,7 +204,7 @@ namespace Existence.Earth.Religions
 
         [NumberOfFollowers(60000, 100000)]
         [Calendar(Calendars.Mandaean)]
-        [ClosedReligion()]
+        [ClosedReligion("Ritual purity")] //membership and purifying baptism require two Mandaean parents
         Mandaeism,
 
         [AbrahamicReligion]
