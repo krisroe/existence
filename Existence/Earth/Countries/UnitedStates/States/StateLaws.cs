@@ -9,172 +9,172 @@ namespace Existence.Earth.Countries.UnitedStates.States
     {
         public static class AbortionLists
         {
-            public static List<USStatesAndTerritories> OverturningRoevWadeHadNoEffectPerStateLaw = new List<USStatesAndTerritories>()
+            public static List<ProvincesAndTerritoriesUnitedStates> OverturningRoevWadeHadNoEffectPerStateLaw = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
-            USStatesAndTerritories.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
-            USStatesAndTerritories.Colorado, //State law (Reproductive Health Equity Act, 2022) explicitly protects abortion rights.
-            USStatesAndTerritories.Connecticut, //State law (1990 law) codifies Roe v. Wade protections.
-            USStatesAndTerritories.Delaware, //State law (2017 law) protects abortion rights.
-            USStatesAndTerritories.Hawaii, //State law (1970 law, before Roe) guarantees abortion rights.
-            USStatesAndTerritories.Illinois, //State law (Reproductive Health Act, 2019) protects abortion access.
-            USStatesAndTerritories.Kansas, //state supreme court decision from 2019, although poltical battle continued
-            USStatesAndTerritories.Maine, //State law (1993 law) guarantees abortion access.
-            USStatesAndTerritories.Maryland, //State law (1991 law, confirmed by a 1992 referendum) protects abortion rights.
-            USStatesAndTerritories.Massachusetts, //State law (ROE Act, 2020) guarantees abortion access.
-            USStatesAndTerritories.Minnesota, //State constitution protects abortion rights (Doe v. Gomez, 1995).
-            USStatesAndTerritories.Nevada, //State law (1990 voter referendum) guarantees abortion rights.
-            USStatesAndTerritories.NewHampshire, //limited effect because law only bans abortion after 24 weeks
-            USStatesAndTerritories.NewJersey, //State law (Freedom of Reproductive Choice Act, 2022) protects abortion access.
-            USStatesAndTerritories.NewMexico, //State law (2021 repeal of pre-Roe ban) protects abortion access.
-            USStatesAndTerritories.NewYork, //State law (Reproductive Health Act, 2019) protects abortion rights.
-            USStatesAndTerritories.Oregon, //	State law (Reproductive Health Equity Act, 2017) guarantees abortion access.
-            USStatesAndTerritories.Pennsylvania, //abortion banned after 24 weeks
-            USStatesAndTerritories.RhodeIsland, //State law (Reproductive Privacy Act, 2019) protects abortion rights.
-            USStatesAndTerritories.Vermont, //State constitution guarantees abortion rights (affirmed by Proposal 5, 2022).
-            USStatesAndTerritories.Washington, //State law (1991 voter-approved law) guarantees abortion rights.
-            USStatesAndTerritories.WashingtonDC, //right to access abortion services without mandatory waiting periods, parental involvement, or spousal consent since 1970s
-            USStatesAndTerritories.PuertoRico,
-            USStatesAndTerritories.Guam, //abortion is legal but no local healthcare provider support it
-            USStatesAndTerritories.UnitedStatesVirginIslands, //legal up to 24 weeks
+            ProvincesAndTerritoriesUnitedStates.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
+            ProvincesAndTerritoriesUnitedStates.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
+            ProvincesAndTerritoriesUnitedStates.Colorado, //State law (Reproductive Health Equity Act, 2022) explicitly protects abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Connecticut, //State law (1990 law) codifies Roe v. Wade protections.
+            ProvincesAndTerritoriesUnitedStates.Delaware, //State law (2017 law) protects abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Hawaii, //State law (1970 law, before Roe) guarantees abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Illinois, //State law (Reproductive Health Act, 2019) protects abortion access.
+            ProvincesAndTerritoriesUnitedStates.Kansas, //state supreme court decision from 2019, although poltical battle continued
+            ProvincesAndTerritoriesUnitedStates.Maine, //State law (1993 law) guarantees abortion access.
+            ProvincesAndTerritoriesUnitedStates.Maryland, //State law (1991 law, confirmed by a 1992 referendum) protects abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Massachusetts, //State law (ROE Act, 2020) guarantees abortion access.
+            ProvincesAndTerritoriesUnitedStates.Minnesota, //State constitution protects abortion rights (Doe v. Gomez, 1995).
+            ProvincesAndTerritoriesUnitedStates.Nevada, //State law (1990 voter referendum) guarantees abortion rights.
+            ProvincesAndTerritoriesUnitedStates.NewHampshire, //limited effect because law only bans abortion after 24 weeks
+            ProvincesAndTerritoriesUnitedStates.NewJersey, //State law (Freedom of Reproductive Choice Act, 2022) protects abortion access.
+            ProvincesAndTerritoriesUnitedStates.NewMexico, //State law (2021 repeal of pre-Roe ban) protects abortion access.
+            ProvincesAndTerritoriesUnitedStates.NewYork, //State law (Reproductive Health Act, 2019) protects abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Oregon, //	State law (Reproductive Health Equity Act, 2017) guarantees abortion access.
+            ProvincesAndTerritoriesUnitedStates.Pennsylvania, //abortion banned after 24 weeks
+            ProvincesAndTerritoriesUnitedStates.RhodeIsland, //State law (Reproductive Privacy Act, 2019) protects abortion rights.
+            ProvincesAndTerritoriesUnitedStates.Vermont, //State constitution guarantees abortion rights (affirmed by Proposal 5, 2022).
+            ProvincesAndTerritoriesUnitedStates.Washington, //State law (1991 voter-approved law) guarantees abortion rights.
+            ProvincesAndTerritoriesUnitedStates.WashingtonDC, //right to access abortion services without mandatory waiting periods, parental involvement, or spousal consent since 1970s
+            ProvincesAndTerritoriesUnitedStates.PuertoRico,
+            ProvincesAndTerritoriesUnitedStates.Guam, //abortion is legal but no local healthcare provider support it
+            ProvincesAndTerritoriesUnitedStates.UnitedStatesVirginIslands, //legal up to 24 weeks
         };
-            public static List<USStatesAndTerritories> PostDobbsAbortionRights = new List<USStatesAndTerritories>()
+            public static List<ProvincesAndTerritoriesUnitedStates> PostDobbsAbortionRights = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Arizona, //2024 ballot initiative Proposition 139
-            USStatesAndTerritories.Michigan, //2022 ballot initiative Proposal 3
-            USStatesAndTerritories.Missouri, //2024 ballot initiative Amendment 3
-            USStatesAndTerritories.Montana, //2024 ballot initiative
-            USStatesAndTerritories.Ohio, //2023 ballot initiative Issue 1
+            ProvincesAndTerritoriesUnitedStates.Arizona, //2024 ballot initiative Proposition 139
+            ProvincesAndTerritoriesUnitedStates.Michigan, //2022 ballot initiative Proposal 3
+            ProvincesAndTerritoriesUnitedStates.Missouri, //2024 ballot initiative Amendment 3
+            ProvincesAndTerritoriesUnitedStates.Montana, //2024 ballot initiative
+            ProvincesAndTerritoriesUnitedStates.Ohio, //2023 ballot initiative Issue 1
         };
-            public static List<USStatesAndTerritories> PerhapsResolvedByFutureBallotInitiative = new List<USStatesAndTerritories>()
+            public static List<ProvincesAndTerritoriesUnitedStates> PerhapsResolvedByFutureBallotInitiative = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Virginia
+            ProvincesAndTerritoriesUnitedStates.Virginia
         };
-            public static List<USStatesAndTerritories> LawsYetToBeResolvedInLegalSystem = new List<USStatesAndTerritories>()
+            public static List<ProvincesAndTerritoriesUnitedStates> LawsYetToBeResolvedInLegalSystem = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Georgia, //6 weeks
-            USStatesAndTerritories.NorthDakota, //total
-            USStatesAndTerritories.SouthCarolina, //6 weeks
-            USStatesAndTerritories.Utah, //18 weeks or total
-            USStatesAndTerritories.Wisconsin, //1849 ban treated as total ban
-            USStatesAndTerritories.Wyoming //fetal viability or total
+            ProvincesAndTerritoriesUnitedStates.Georgia, //6 weeks
+            ProvincesAndTerritoriesUnitedStates.NorthDakota, //total
+            ProvincesAndTerritoriesUnitedStates.SouthCarolina, //6 weeks
+            ProvincesAndTerritoriesUnitedStates.Utah, //18 weeks or total
+            ProvincesAndTerritoriesUnitedStates.Wisconsin, //1849 ban treated as total ban
+            ProvincesAndTerritoriesUnitedStates.Wyoming //fetal viability or total
         };
-            public static List<USStatesAndTerritories> AbortionGenerallyIllegalPerStateLaw = new List<USStatesAndTerritories>()
+            public static List<ProvincesAndTerritoriesUnitedStates> AbortionGenerallyIllegalPerStateLaw = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alabama, //total
-            USStatesAndTerritories.Arkansas, //total
-            USStatesAndTerritories.Florida, //6 weeks
-            USStatesAndTerritories.Idaho, //total
-            USStatesAndTerritories.Iowa, //6 weeks
-            USStatesAndTerritories.Indiana, //total
-            USStatesAndTerritories.Kentucky, //total
-            USStatesAndTerritories.Louisiana, //total
-            USStatesAndTerritories.Mississippi, //total
-            USStatesAndTerritories.Nebraska, //12 week ban
-            USStatesAndTerritories.NorthCarolina, //12 week ban (less restrictive than other southern states)
-            USStatesAndTerritories.Oklahoma, //total
-            USStatesAndTerritories.SouthDakota, //total
-            USStatesAndTerritories.Tennessee, //total
-            USStatesAndTerritories.Texas, //total
-            USStatesAndTerritories.WestVirginia, //total
-            USStatesAndTerritories.NorthernMarianaIslands, //total
-            USStatesAndTerritories.AmericanSamoa, //total
+            ProvincesAndTerritoriesUnitedStates.Alabama, //total
+            ProvincesAndTerritoriesUnitedStates.Arkansas, //total
+            ProvincesAndTerritoriesUnitedStates.Florida, //6 weeks
+            ProvincesAndTerritoriesUnitedStates.Idaho, //total
+            ProvincesAndTerritoriesUnitedStates.Iowa, //6 weeks
+            ProvincesAndTerritoriesUnitedStates.Indiana, //total
+            ProvincesAndTerritoriesUnitedStates.Kentucky, //total
+            ProvincesAndTerritoriesUnitedStates.Louisiana, //total
+            ProvincesAndTerritoriesUnitedStates.Mississippi, //total
+            ProvincesAndTerritoriesUnitedStates.Nebraska, //12 week ban
+            ProvincesAndTerritoriesUnitedStates.NorthCarolina, //12 week ban (less restrictive than other southern states)
+            ProvincesAndTerritoriesUnitedStates.Oklahoma, //total
+            ProvincesAndTerritoriesUnitedStates.SouthDakota, //total
+            ProvincesAndTerritoriesUnitedStates.Tennessee, //total
+            ProvincesAndTerritoriesUnitedStates.Texas, //total
+            ProvincesAndTerritoriesUnitedStates.WestVirginia, //total
+            ProvincesAndTerritoriesUnitedStates.NorthernMarianaIslands, //total
+            ProvincesAndTerritoriesUnitedStates.AmericanSamoa, //total
         };
         }
-        public static List<USStatesAndTerritories> RankedChoiceVotingIllegal = new List<USStatesAndTerritories>()
+        public static List<ProvincesAndTerritoriesUnitedStates> RankedChoiceVotingIllegal = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alabama, //SB 1886 (2024-05-10)
-            USStatesAndTerritories.Florida, //S 524 (2022-04-26)
-            USStatesAndTerritories.Idaho, //H 179 (2023-03-24)
-            USStatesAndTerritories.Kentucky, //HB 44 (2024-04-12)
-            USStatesAndTerritories.Louisiana, //SB 101 (2024-05-28)
-            USStatesAndTerritories.Mississippi, //SB 2144 (2024-05-13)
-            USStatesAndTerritories.Mississippi, //2024-11-05 ballot initiative Amendment 7
-            USStatesAndTerritories.Montana, //HB 598 (2023-04-27)
-            USStatesAndTerritories.Oklahoma, //HB 3156 (2024-04-29)
-            USStatesAndTerritories.SouthDakota, //SB 55 (2023-03-27)
-            USStatesAndTerritories.Tennessee, //HB 1868, SB 1820 (2022-03-07)
+            ProvincesAndTerritoriesUnitedStates.Alabama, //SB 1886 (2024-05-10)
+            ProvincesAndTerritoriesUnitedStates.Florida, //S 524 (2022-04-26)
+            ProvincesAndTerritoriesUnitedStates.Idaho, //H 179 (2023-03-24)
+            ProvincesAndTerritoriesUnitedStates.Kentucky, //HB 44 (2024-04-12)
+            ProvincesAndTerritoriesUnitedStates.Louisiana, //SB 101 (2024-05-28)
+            ProvincesAndTerritoriesUnitedStates.Mississippi, //SB 2144 (2024-05-13)
+            ProvincesAndTerritoriesUnitedStates.Mississippi, //2024-11-05 ballot initiative Amendment 7
+            ProvincesAndTerritoriesUnitedStates.Montana, //HB 598 (2023-04-27)
+            ProvincesAndTerritoriesUnitedStates.Oklahoma, //HB 3156 (2024-04-29)
+            ProvincesAndTerritoriesUnitedStates.SouthDakota, //SB 55 (2023-03-27)
+            ProvincesAndTerritoriesUnitedStates.Tennessee, //HB 1868, SB 1820 (2022-03-07)
         };
         //taken from ballotpedia
-        public static List<USStatesAndTerritories> VoterPhotoIDRequired = new List<USStatesAndTerritories>()
+        public static List<ProvincesAndTerritoriesUnitedStates> VoterPhotoIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alabama,
-            USStatesAndTerritories.Arkansas,
-            USStatesAndTerritories.Florida,
-            USStatesAndTerritories.Georgia,
-            USStatesAndTerritories.Idaho,
-            USStatesAndTerritories.Indiana,
-            USStatesAndTerritories.Kansas,
-            USStatesAndTerritories.Kentucky,
-            USStatesAndTerritories.Louisiana,
-            USStatesAndTerritories.Michigan,
-            USStatesAndTerritories.Mississippi,
-            USStatesAndTerritories.Missouri,
-            USStatesAndTerritories.Montana,
-            USStatesAndTerritories.Nebraska,
-            USStatesAndTerritories.NewHampshire,
-            USStatesAndTerritories.NorthCarolina,
-            USStatesAndTerritories.Ohio,
-            USStatesAndTerritories.RhodeIsland,
-            USStatesAndTerritories.SouthDakota,
-            USStatesAndTerritories.SouthCarolina,
-            USStatesAndTerritories.Texas,
-            USStatesAndTerritories.Tennessee,
-            USStatesAndTerritories.Wisconsin,
+            ProvincesAndTerritoriesUnitedStates.Alabama,
+            ProvincesAndTerritoriesUnitedStates.Arkansas,
+            ProvincesAndTerritoriesUnitedStates.Florida,
+            ProvincesAndTerritoriesUnitedStates.Georgia,
+            ProvincesAndTerritoriesUnitedStates.Idaho,
+            ProvincesAndTerritoriesUnitedStates.Indiana,
+            ProvincesAndTerritoriesUnitedStates.Kansas,
+            ProvincesAndTerritoriesUnitedStates.Kentucky,
+            ProvincesAndTerritoriesUnitedStates.Louisiana,
+            ProvincesAndTerritoriesUnitedStates.Michigan,
+            ProvincesAndTerritoriesUnitedStates.Mississippi,
+            ProvincesAndTerritoriesUnitedStates.Missouri,
+            ProvincesAndTerritoriesUnitedStates.Montana,
+            ProvincesAndTerritoriesUnitedStates.Nebraska,
+            ProvincesAndTerritoriesUnitedStates.NewHampshire,
+            ProvincesAndTerritoriesUnitedStates.NorthCarolina,
+            ProvincesAndTerritoriesUnitedStates.Ohio,
+            ProvincesAndTerritoriesUnitedStates.RhodeIsland,
+            ProvincesAndTerritoriesUnitedStates.SouthDakota,
+            ProvincesAndTerritoriesUnitedStates.SouthCarolina,
+            ProvincesAndTerritoriesUnitedStates.Texas,
+            ProvincesAndTerritoriesUnitedStates.Tennessee,
+            ProvincesAndTerritoriesUnitedStates.Wisconsin,
         };
         //from ballotpedia
-        public static List<USStatesAndTerritories> VoterNonPhotoIDRequired = new List<USStatesAndTerritories>()
+        public static List<ProvincesAndTerritoriesUnitedStates> VoterNonPhotoIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alaska,
-            USStatesAndTerritories.Arizona,
-            USStatesAndTerritories.Colorado,
-            USStatesAndTerritories.Connecticut,
-            USStatesAndTerritories.Delaware,
-            USStatesAndTerritories.Iowa,
-            USStatesAndTerritories.NorthDakota,
-            USStatesAndTerritories.Oklahoma,
-            USStatesAndTerritories.Utah,
-            USStatesAndTerritories.Virginia,
-            USStatesAndTerritories.WestVirginia,
-            USStatesAndTerritories.Wyoming,
+            ProvincesAndTerritoriesUnitedStates.Alaska,
+            ProvincesAndTerritoriesUnitedStates.Arizona,
+            ProvincesAndTerritoriesUnitedStates.Colorado,
+            ProvincesAndTerritoriesUnitedStates.Connecticut,
+            ProvincesAndTerritoriesUnitedStates.Delaware,
+            ProvincesAndTerritoriesUnitedStates.Iowa,
+            ProvincesAndTerritoriesUnitedStates.NorthDakota,
+            ProvincesAndTerritoriesUnitedStates.Oklahoma,
+            ProvincesAndTerritoriesUnitedStates.Utah,
+            ProvincesAndTerritoriesUnitedStates.Virginia,
+            ProvincesAndTerritoriesUnitedStates.WestVirginia,
+            ProvincesAndTerritoriesUnitedStates.Wyoming,
         };
         //from ballotpedia
-        public static List<USStatesAndTerritories> NoVoterIDRequired = new List<USStatesAndTerritories>()
+        public static List<ProvincesAndTerritoriesUnitedStates> NoVoterIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.California,
-            USStatesAndTerritories.Hawaii,
-            USStatesAndTerritories.Illinois,
-            USStatesAndTerritories.Maine,
-            USStatesAndTerritories.Maryland,
-            USStatesAndTerritories.Massachusetts,
-            USStatesAndTerritories.Minnesota,
-            USStatesAndTerritories.Nevada,
-            USStatesAndTerritories.NewJersey,
-            USStatesAndTerritories.NewMexico,
-            USStatesAndTerritories.NewYork,
-            USStatesAndTerritories.Oregon,
-            USStatesAndTerritories.Pennsylvania,
-            USStatesAndTerritories.Vermont,
-            USStatesAndTerritories.Washington,
-            USStatesAndTerritories.WashingtonDC,
+            ProvincesAndTerritoriesUnitedStates.California,
+            ProvincesAndTerritoriesUnitedStates.Hawaii,
+            ProvincesAndTerritoriesUnitedStates.Illinois,
+            ProvincesAndTerritoriesUnitedStates.Maine,
+            ProvincesAndTerritoriesUnitedStates.Maryland,
+            ProvincesAndTerritoriesUnitedStates.Massachusetts,
+            ProvincesAndTerritoriesUnitedStates.Minnesota,
+            ProvincesAndTerritoriesUnitedStates.Nevada,
+            ProvincesAndTerritoriesUnitedStates.NewJersey,
+            ProvincesAndTerritoriesUnitedStates.NewMexico,
+            ProvincesAndTerritoriesUnitedStates.NewYork,
+            ProvincesAndTerritoriesUnitedStates.Oregon,
+            ProvincesAndTerritoriesUnitedStates.Pennsylvania,
+            ProvincesAndTerritoriesUnitedStates.Vermont,
+            ProvincesAndTerritoriesUnitedStates.Washington,
+            ProvincesAndTerritoriesUnitedStates.WashingtonDC,
         };
-        public static List<USStatesAndTerritories> NonCitizenVotingProhibitedStateAndLocalLevelWithStateConstitutionalAmendments = new List<USStatesAndTerritories>()
+        public static List<ProvincesAndTerritoriesUnitedStates> NonCitizenVotingProhibitedStateAndLocalLevelWithStateConstitutionalAmendments = new List<ProvincesAndTerritoriesUnitedStates>()
         {
-            USStatesAndTerritories.Alabama,
-            USStatesAndTerritories.Arizona,
-            USStatesAndTerritories.Colorado,
-            USStatesAndTerritories.Florida,
-            USStatesAndTerritories.Idaho,
-            USStatesAndTerritories.Iowa,
-            USStatesAndTerritories.Kentucky,
-            USStatesAndTerritories.Louisiana,
-            USStatesAndTerritories.Missouri,
-            USStatesAndTerritories.NorthCarolina,
-            USStatesAndTerritories.NorthDakota,
-            USStatesAndTerritories.Ohio,
-            USStatesAndTerritories.Oklahoma,
-            USStatesAndTerritories.SouthCarolina,
-            USStatesAndTerritories.Wisconsin
+            ProvincesAndTerritoriesUnitedStates.Alabama,
+            ProvincesAndTerritoriesUnitedStates.Arizona,
+            ProvincesAndTerritoriesUnitedStates.Colorado,
+            ProvincesAndTerritoriesUnitedStates.Florida,
+            ProvincesAndTerritoriesUnitedStates.Idaho,
+            ProvincesAndTerritoriesUnitedStates.Iowa,
+            ProvincesAndTerritoriesUnitedStates.Kentucky,
+            ProvincesAndTerritoriesUnitedStates.Louisiana,
+            ProvincesAndTerritoriesUnitedStates.Missouri,
+            ProvincesAndTerritoriesUnitedStates.NorthCarolina,
+            ProvincesAndTerritoriesUnitedStates.NorthDakota,
+            ProvincesAndTerritoriesUnitedStates.Ohio,
+            ProvincesAndTerritoriesUnitedStates.Oklahoma,
+            ProvincesAndTerritoriesUnitedStates.SouthCarolina,
+            ProvincesAndTerritoriesUnitedStates.Wisconsin
         };
 
         public static class Alabama
