@@ -20,9 +20,9 @@ namespace Existence.Earth.Languages
 
     public class NumberOfSpeakersAttribute : Attribute
     {
-        public int LowEstimate { get; set; }
-        public int HighEstimate { get; set; }
-        public NumberOfSpeakersAttribute(int LowEstimate, int HighEstimate)
+        public long LowEstimate { get; set; }
+        public long HighEstimate { get; set; }
+        public NumberOfSpeakersAttribute(long LowEstimate, long HighEstimate)
         {
             this.LowEstimate = LowEstimate;
             this.HighEstimate = HighEstimate;
@@ -31,21 +31,21 @@ namespace Existence.Earth.Languages
 
     public class NumberOfFluentSpeakersAttribute : NumberOfSpeakersAttribute
     {
-        public NumberOfFluentSpeakersAttribute(int LowEstimate, int HighEstimate) : base(LowEstimate, HighEstimate)
+        public NumberOfFluentSpeakersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
         }
     }
 
     public class NumberOfNativeSpeakersAttribute : NumberOfSpeakersAttribute
     {
-        public NumberOfNativeSpeakersAttribute(int LowEstimate, int HighEstimate) : base(LowEstimate, HighEstimate)
+        public NumberOfNativeSpeakersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
         }
     }
 
     public class NumberOfSomewhatFunctionalSpeakers : NumberOfSpeakersAttribute
     {
-        public NumberOfSomewhatFunctionalSpeakers(int LowEstimate, int HighEstimate) : base(LowEstimate, HighEstimate)
+        public NumberOfSomewhatFunctionalSpeakers(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
         }
     }
