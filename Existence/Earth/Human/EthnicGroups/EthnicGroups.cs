@@ -2,14 +2,10 @@ using System;
 
 namespace Existence.Earth.Human.EthnicGroups
 {
-    public class NumberOfMembersAttribute : Attribute
+    public class NumberOfMembersAttribute : NumberOfPeopleAttribute
     {
-        public long LowEstimate { get; set; }
-        public long HighEstimate { get; set; }
-        public NumberOfMembersAttribute(long LowEstimate, long HighEstimate)
+        public NumberOfMembersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
-            this.LowEstimate = LowEstimate;
-            this.HighEstimate = HighEstimate;
         }
     }
 

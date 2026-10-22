@@ -1,5 +1,6 @@
 ﻿using System;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Human;
 
 namespace Existence.Earth.Languages
 {
@@ -18,14 +19,10 @@ namespace Existence.Earth.Languages
         }
     }
 
-    public class NumberOfSpeakersAttribute : Attribute
+    public class NumberOfSpeakersAttribute : NumberOfPeopleAttribute
     {
-        public long LowEstimate { get; set; }
-        public long HighEstimate { get; set; }
-        public NumberOfSpeakersAttribute(long LowEstimate, long HighEstimate)
+        public NumberOfSpeakersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
-            this.LowEstimate = LowEstimate;
-            this.HighEstimate = HighEstimate;
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Existence.Earth.Alphabet;
+using Existence.Earth.Human;
 using Existence.Earth.Time;
 
 namespace Existence.Earth.Religions
@@ -11,18 +12,13 @@ namespace Existence.Earth.Religions
     {
     }
 
-    public class NumberOfFollowersAttribute : Attribute
+    public class NumberOfFollowersAttribute : NumberOfPeopleAttribute
     {
-        public long LowEstimate { get; set; }
-        public long HighEstimate { get; set; }
-        public NumberOfFollowersAttribute(long Estimate)
+        public NumberOfFollowersAttribute(long Estimate) : base(Estimate)
         {
-            LowEstimate = HighEstimate = Estimate;
         }
-        public NumberOfFollowersAttribute(long LowEstimate, long HighEstimate)
+        public NumberOfFollowersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
         {
-            this.LowEstimate = LowEstimate;
-            this.HighEstimate = HighEstimate;
         }
     }
 
