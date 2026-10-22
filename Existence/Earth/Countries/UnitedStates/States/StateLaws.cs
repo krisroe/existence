@@ -9,172 +9,172 @@ namespace Existence.Earth.Countries.UnitedStates.States
     {
         public static class AbortionLists
         {
-            public static List<ProvincesAndTerritoriesUnitedStates> OverturningRoevWadeHadNoEffectPerStateLaw = new List<ProvincesAndTerritoriesUnitedStates>()
+            public static List<StateSubsidiariesUnitedStates> OverturningRoevWadeHadNoEffectPerStateLaw = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
-            ProvincesAndTerritoriesUnitedStates.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
-            ProvincesAndTerritoriesUnitedStates.Colorado, //State law (Reproductive Health Equity Act, 2022) explicitly protects abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Connecticut, //State law (1990 law) codifies Roe v. Wade protections.
-            ProvincesAndTerritoriesUnitedStates.Delaware, //State law (2017 law) protects abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Hawaii, //State law (1970 law, before Roe) guarantees abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Illinois, //State law (Reproductive Health Act, 2019) protects abortion access.
-            ProvincesAndTerritoriesUnitedStates.Kansas, //state supreme court decision from 2019, although poltical battle continued
-            ProvincesAndTerritoriesUnitedStates.Maine, //State law (1993 law) guarantees abortion access.
-            ProvincesAndTerritoriesUnitedStates.Maryland, //State law (1991 law, confirmed by a 1992 referendum) protects abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Massachusetts, //State law (ROE Act, 2020) guarantees abortion access.
-            ProvincesAndTerritoriesUnitedStates.Minnesota, //State constitution protects abortion rights (Doe v. Gomez, 1995).
-            ProvincesAndTerritoriesUnitedStates.Nevada, //State law (1990 voter referendum) guarantees abortion rights.
-            ProvincesAndTerritoriesUnitedStates.NewHampshire, //limited effect because law only bans abortion after 24 weeks
-            ProvincesAndTerritoriesUnitedStates.NewJersey, //State law (Freedom of Reproductive Choice Act, 2022) protects abortion access.
-            ProvincesAndTerritoriesUnitedStates.NewMexico, //State law (2021 repeal of pre-Roe ban) protects abortion access.
-            ProvincesAndTerritoriesUnitedStates.NewYork, //State law (Reproductive Health Act, 2019) protects abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Oregon, //	State law (Reproductive Health Equity Act, 2017) guarantees abortion access.
-            ProvincesAndTerritoriesUnitedStates.Pennsylvania, //abortion banned after 24 weeks
-            ProvincesAndTerritoriesUnitedStates.RhodeIsland, //State law (Reproductive Privacy Act, 2019) protects abortion rights.
-            ProvincesAndTerritoriesUnitedStates.Vermont, //State constitution guarantees abortion rights (affirmed by Proposal 5, 2022).
-            ProvincesAndTerritoriesUnitedStates.Washington, //State law (1991 voter-approved law) guarantees abortion rights.
-            ProvincesAndTerritoriesUnitedStates.WashingtonDC, //right to access abortion services without mandatory waiting periods, parental involvement, or spousal consent since 1970s
-            ProvincesAndTerritoriesUnitedStates.PuertoRico,
-            ProvincesAndTerritoriesUnitedStates.Guam, //abortion is legal but no local healthcare provider support it
-            ProvincesAndTerritoriesUnitedStates.UnitedStatesVirginIslands, //legal up to 24 weeks
+            StateSubsidiariesUnitedStates.Alaska, //1997 state supreme court ruling that state right to privacy protects abortion rights
+            StateSubsidiariesUnitedStates.California, //State constitution guarantees abortion rights (affirmed by Proposition 1, 2022).
+            StateSubsidiariesUnitedStates.Colorado, //State law (Reproductive Health Equity Act, 2022) explicitly protects abortion rights.
+            StateSubsidiariesUnitedStates.Connecticut, //State law (1990 law) codifies Roe v. Wade protections.
+            StateSubsidiariesUnitedStates.Delaware, //State law (2017 law) protects abortion rights.
+            StateSubsidiariesUnitedStates.Hawaii, //State law (1970 law, before Roe) guarantees abortion rights.
+            StateSubsidiariesUnitedStates.Illinois, //State law (Reproductive Health Act, 2019) protects abortion access.
+            StateSubsidiariesUnitedStates.Kansas, //state supreme court decision from 2019, although poltical battle continued
+            StateSubsidiariesUnitedStates.Maine, //State law (1993 law) guarantees abortion access.
+            StateSubsidiariesUnitedStates.Maryland, //State law (1991 law, confirmed by a 1992 referendum) protects abortion rights.
+            StateSubsidiariesUnitedStates.Massachusetts, //State law (ROE Act, 2020) guarantees abortion access.
+            StateSubsidiariesUnitedStates.Minnesota, //State constitution protects abortion rights (Doe v. Gomez, 1995).
+            StateSubsidiariesUnitedStates.Nevada, //State law (1990 voter referendum) guarantees abortion rights.
+            StateSubsidiariesUnitedStates.NewHampshire, //limited effect because law only bans abortion after 24 weeks
+            StateSubsidiariesUnitedStates.NewJersey, //State law (Freedom of Reproductive Choice Act, 2022) protects abortion access.
+            StateSubsidiariesUnitedStates.NewMexico, //State law (2021 repeal of pre-Roe ban) protects abortion access.
+            StateSubsidiariesUnitedStates.NewYork, //State law (Reproductive Health Act, 2019) protects abortion rights.
+            StateSubsidiariesUnitedStates.Oregon, //	State law (Reproductive Health Equity Act, 2017) guarantees abortion access.
+            StateSubsidiariesUnitedStates.Pennsylvania, //abortion banned after 24 weeks
+            StateSubsidiariesUnitedStates.RhodeIsland, //State law (Reproductive Privacy Act, 2019) protects abortion rights.
+            StateSubsidiariesUnitedStates.Vermont, //State constitution guarantees abortion rights (affirmed by Proposal 5, 2022).
+            StateSubsidiariesUnitedStates.Washington, //State law (1991 voter-approved law) guarantees abortion rights.
+            StateSubsidiariesUnitedStates.WashingtonDC, //right to access abortion services without mandatory waiting periods, parental involvement, or spousal consent since 1970s
+            StateSubsidiariesUnitedStates.PuertoRico,
+            StateSubsidiariesUnitedStates.Guam, //abortion is legal but no local healthcare provider support it
+            StateSubsidiariesUnitedStates.UnitedStatesVirginIslands, //legal up to 24 weeks
         };
-            public static List<ProvincesAndTerritoriesUnitedStates> PostDobbsAbortionRights = new List<ProvincesAndTerritoriesUnitedStates>()
+            public static List<StateSubsidiariesUnitedStates> PostDobbsAbortionRights = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Arizona, //2024 ballot initiative Proposition 139
-            ProvincesAndTerritoriesUnitedStates.Michigan, //2022 ballot initiative Proposal 3
-            ProvincesAndTerritoriesUnitedStates.Missouri, //2024 ballot initiative Amendment 3
-            ProvincesAndTerritoriesUnitedStates.Montana, //2024 ballot initiative
-            ProvincesAndTerritoriesUnitedStates.Ohio, //2023 ballot initiative Issue 1
+            StateSubsidiariesUnitedStates.Arizona, //2024 ballot initiative Proposition 139
+            StateSubsidiariesUnitedStates.Michigan, //2022 ballot initiative Proposal 3
+            StateSubsidiariesUnitedStates.Missouri, //2024 ballot initiative Amendment 3
+            StateSubsidiariesUnitedStates.Montana, //2024 ballot initiative
+            StateSubsidiariesUnitedStates.Ohio, //2023 ballot initiative Issue 1
         };
-            public static List<ProvincesAndTerritoriesUnitedStates> PerhapsResolvedByFutureBallotInitiative = new List<ProvincesAndTerritoriesUnitedStates>()
+            public static List<StateSubsidiariesUnitedStates> PerhapsResolvedByFutureBallotInitiative = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Virginia
+            StateSubsidiariesUnitedStates.Virginia
         };
-            public static List<ProvincesAndTerritoriesUnitedStates> LawsYetToBeResolvedInLegalSystem = new List<ProvincesAndTerritoriesUnitedStates>()
+            public static List<StateSubsidiariesUnitedStates> LawsYetToBeResolvedInLegalSystem = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Georgia, //6 weeks
-            ProvincesAndTerritoriesUnitedStates.NorthDakota, //total
-            ProvincesAndTerritoriesUnitedStates.SouthCarolina, //6 weeks
-            ProvincesAndTerritoriesUnitedStates.Utah, //18 weeks or total
-            ProvincesAndTerritoriesUnitedStates.Wisconsin, //1849 ban treated as total ban
-            ProvincesAndTerritoriesUnitedStates.Wyoming //fetal viability or total
+            StateSubsidiariesUnitedStates.Georgia, //6 weeks
+            StateSubsidiariesUnitedStates.NorthDakota, //total
+            StateSubsidiariesUnitedStates.SouthCarolina, //6 weeks
+            StateSubsidiariesUnitedStates.Utah, //18 weeks or total
+            StateSubsidiariesUnitedStates.Wisconsin, //1849 ban treated as total ban
+            StateSubsidiariesUnitedStates.Wyoming //fetal viability or total
         };
-            public static List<ProvincesAndTerritoriesUnitedStates> AbortionGenerallyIllegalPerStateLaw = new List<ProvincesAndTerritoriesUnitedStates>()
+            public static List<StateSubsidiariesUnitedStates> AbortionGenerallyIllegalPerStateLaw = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alabama, //total
-            ProvincesAndTerritoriesUnitedStates.Arkansas, //total
-            ProvincesAndTerritoriesUnitedStates.Florida, //6 weeks
-            ProvincesAndTerritoriesUnitedStates.Idaho, //total
-            ProvincesAndTerritoriesUnitedStates.Iowa, //6 weeks
-            ProvincesAndTerritoriesUnitedStates.Indiana, //total
-            ProvincesAndTerritoriesUnitedStates.Kentucky, //total
-            ProvincesAndTerritoriesUnitedStates.Louisiana, //total
-            ProvincesAndTerritoriesUnitedStates.Mississippi, //total
-            ProvincesAndTerritoriesUnitedStates.Nebraska, //12 week ban
-            ProvincesAndTerritoriesUnitedStates.NorthCarolina, //12 week ban (less restrictive than other southern states)
-            ProvincesAndTerritoriesUnitedStates.Oklahoma, //total
-            ProvincesAndTerritoriesUnitedStates.SouthDakota, //total
-            ProvincesAndTerritoriesUnitedStates.Tennessee, //total
-            ProvincesAndTerritoriesUnitedStates.Texas, //total
-            ProvincesAndTerritoriesUnitedStates.WestVirginia, //total
-            ProvincesAndTerritoriesUnitedStates.NorthernMarianaIslands, //total
-            ProvincesAndTerritoriesUnitedStates.AmericanSamoa, //total
+            StateSubsidiariesUnitedStates.Alabama, //total
+            StateSubsidiariesUnitedStates.Arkansas, //total
+            StateSubsidiariesUnitedStates.Florida, //6 weeks
+            StateSubsidiariesUnitedStates.Idaho, //total
+            StateSubsidiariesUnitedStates.Iowa, //6 weeks
+            StateSubsidiariesUnitedStates.Indiana, //total
+            StateSubsidiariesUnitedStates.Kentucky, //total
+            StateSubsidiariesUnitedStates.Louisiana, //total
+            StateSubsidiariesUnitedStates.Mississippi, //total
+            StateSubsidiariesUnitedStates.Nebraska, //12 week ban
+            StateSubsidiariesUnitedStates.NorthCarolina, //12 week ban (less restrictive than other southern states)
+            StateSubsidiariesUnitedStates.Oklahoma, //total
+            StateSubsidiariesUnitedStates.SouthDakota, //total
+            StateSubsidiariesUnitedStates.Tennessee, //total
+            StateSubsidiariesUnitedStates.Texas, //total
+            StateSubsidiariesUnitedStates.WestVirginia, //total
+            StateSubsidiariesUnitedStates.NorthernMarianaIslands, //total
+            StateSubsidiariesUnitedStates.AmericanSamoa, //total
         };
         }
-        public static List<ProvincesAndTerritoriesUnitedStates> RankedChoiceVotingIllegal = new List<ProvincesAndTerritoriesUnitedStates>()
+        public static List<StateSubsidiariesUnitedStates> RankedChoiceVotingIllegal = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alabama, //SB 1886 (2024-05-10)
-            ProvincesAndTerritoriesUnitedStates.Florida, //S 524 (2022-04-26)
-            ProvincesAndTerritoriesUnitedStates.Idaho, //H 179 (2023-03-24)
-            ProvincesAndTerritoriesUnitedStates.Kentucky, //HB 44 (2024-04-12)
-            ProvincesAndTerritoriesUnitedStates.Louisiana, //SB 101 (2024-05-28)
-            ProvincesAndTerritoriesUnitedStates.Mississippi, //SB 2144 (2024-05-13)
-            ProvincesAndTerritoriesUnitedStates.Mississippi, //2024-11-05 ballot initiative Amendment 7
-            ProvincesAndTerritoriesUnitedStates.Montana, //HB 598 (2023-04-27)
-            ProvincesAndTerritoriesUnitedStates.Oklahoma, //HB 3156 (2024-04-29)
-            ProvincesAndTerritoriesUnitedStates.SouthDakota, //SB 55 (2023-03-27)
-            ProvincesAndTerritoriesUnitedStates.Tennessee, //HB 1868, SB 1820 (2022-03-07)
+            StateSubsidiariesUnitedStates.Alabama, //SB 1886 (2024-05-10)
+            StateSubsidiariesUnitedStates.Florida, //S 524 (2022-04-26)
+            StateSubsidiariesUnitedStates.Idaho, //H 179 (2023-03-24)
+            StateSubsidiariesUnitedStates.Kentucky, //HB 44 (2024-04-12)
+            StateSubsidiariesUnitedStates.Louisiana, //SB 101 (2024-05-28)
+            StateSubsidiariesUnitedStates.Mississippi, //SB 2144 (2024-05-13)
+            StateSubsidiariesUnitedStates.Mississippi, //2024-11-05 ballot initiative Amendment 7
+            StateSubsidiariesUnitedStates.Montana, //HB 598 (2023-04-27)
+            StateSubsidiariesUnitedStates.Oklahoma, //HB 3156 (2024-04-29)
+            StateSubsidiariesUnitedStates.SouthDakota, //SB 55 (2023-03-27)
+            StateSubsidiariesUnitedStates.Tennessee, //HB 1868, SB 1820 (2022-03-07)
         };
         //taken from ballotpedia
-        public static List<ProvincesAndTerritoriesUnitedStates> VoterPhotoIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
+        public static List<StateSubsidiariesUnitedStates> VoterPhotoIDRequired = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alabama,
-            ProvincesAndTerritoriesUnitedStates.Arkansas,
-            ProvincesAndTerritoriesUnitedStates.Florida,
-            ProvincesAndTerritoriesUnitedStates.Georgia,
-            ProvincesAndTerritoriesUnitedStates.Idaho,
-            ProvincesAndTerritoriesUnitedStates.Indiana,
-            ProvincesAndTerritoriesUnitedStates.Kansas,
-            ProvincesAndTerritoriesUnitedStates.Kentucky,
-            ProvincesAndTerritoriesUnitedStates.Louisiana,
-            ProvincesAndTerritoriesUnitedStates.Michigan,
-            ProvincesAndTerritoriesUnitedStates.Mississippi,
-            ProvincesAndTerritoriesUnitedStates.Missouri,
-            ProvincesAndTerritoriesUnitedStates.Montana,
-            ProvincesAndTerritoriesUnitedStates.Nebraska,
-            ProvincesAndTerritoriesUnitedStates.NewHampshire,
-            ProvincesAndTerritoriesUnitedStates.NorthCarolina,
-            ProvincesAndTerritoriesUnitedStates.Ohio,
-            ProvincesAndTerritoriesUnitedStates.RhodeIsland,
-            ProvincesAndTerritoriesUnitedStates.SouthDakota,
-            ProvincesAndTerritoriesUnitedStates.SouthCarolina,
-            ProvincesAndTerritoriesUnitedStates.Texas,
-            ProvincesAndTerritoriesUnitedStates.Tennessee,
-            ProvincesAndTerritoriesUnitedStates.Wisconsin,
+            StateSubsidiariesUnitedStates.Alabama,
+            StateSubsidiariesUnitedStates.Arkansas,
+            StateSubsidiariesUnitedStates.Florida,
+            StateSubsidiariesUnitedStates.Georgia,
+            StateSubsidiariesUnitedStates.Idaho,
+            StateSubsidiariesUnitedStates.Indiana,
+            StateSubsidiariesUnitedStates.Kansas,
+            StateSubsidiariesUnitedStates.Kentucky,
+            StateSubsidiariesUnitedStates.Louisiana,
+            StateSubsidiariesUnitedStates.Michigan,
+            StateSubsidiariesUnitedStates.Mississippi,
+            StateSubsidiariesUnitedStates.Missouri,
+            StateSubsidiariesUnitedStates.Montana,
+            StateSubsidiariesUnitedStates.Nebraska,
+            StateSubsidiariesUnitedStates.NewHampshire,
+            StateSubsidiariesUnitedStates.NorthCarolina,
+            StateSubsidiariesUnitedStates.Ohio,
+            StateSubsidiariesUnitedStates.RhodeIsland,
+            StateSubsidiariesUnitedStates.SouthDakota,
+            StateSubsidiariesUnitedStates.SouthCarolina,
+            StateSubsidiariesUnitedStates.Texas,
+            StateSubsidiariesUnitedStates.Tennessee,
+            StateSubsidiariesUnitedStates.Wisconsin,
         };
         //from ballotpedia
-        public static List<ProvincesAndTerritoriesUnitedStates> VoterNonPhotoIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
+        public static List<StateSubsidiariesUnitedStates> VoterNonPhotoIDRequired = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alaska,
-            ProvincesAndTerritoriesUnitedStates.Arizona,
-            ProvincesAndTerritoriesUnitedStates.Colorado,
-            ProvincesAndTerritoriesUnitedStates.Connecticut,
-            ProvincesAndTerritoriesUnitedStates.Delaware,
-            ProvincesAndTerritoriesUnitedStates.Iowa,
-            ProvincesAndTerritoriesUnitedStates.NorthDakota,
-            ProvincesAndTerritoriesUnitedStates.Oklahoma,
-            ProvincesAndTerritoriesUnitedStates.Utah,
-            ProvincesAndTerritoriesUnitedStates.Virginia,
-            ProvincesAndTerritoriesUnitedStates.WestVirginia,
-            ProvincesAndTerritoriesUnitedStates.Wyoming,
+            StateSubsidiariesUnitedStates.Alaska,
+            StateSubsidiariesUnitedStates.Arizona,
+            StateSubsidiariesUnitedStates.Colorado,
+            StateSubsidiariesUnitedStates.Connecticut,
+            StateSubsidiariesUnitedStates.Delaware,
+            StateSubsidiariesUnitedStates.Iowa,
+            StateSubsidiariesUnitedStates.NorthDakota,
+            StateSubsidiariesUnitedStates.Oklahoma,
+            StateSubsidiariesUnitedStates.Utah,
+            StateSubsidiariesUnitedStates.Virginia,
+            StateSubsidiariesUnitedStates.WestVirginia,
+            StateSubsidiariesUnitedStates.Wyoming,
         };
         //from ballotpedia
-        public static List<ProvincesAndTerritoriesUnitedStates> NoVoterIDRequired = new List<ProvincesAndTerritoriesUnitedStates>()
+        public static List<StateSubsidiariesUnitedStates> NoVoterIDRequired = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.California,
-            ProvincesAndTerritoriesUnitedStates.Hawaii,
-            ProvincesAndTerritoriesUnitedStates.Illinois,
-            ProvincesAndTerritoriesUnitedStates.Maine,
-            ProvincesAndTerritoriesUnitedStates.Maryland,
-            ProvincesAndTerritoriesUnitedStates.Massachusetts,
-            ProvincesAndTerritoriesUnitedStates.Minnesota,
-            ProvincesAndTerritoriesUnitedStates.Nevada,
-            ProvincesAndTerritoriesUnitedStates.NewJersey,
-            ProvincesAndTerritoriesUnitedStates.NewMexico,
-            ProvincesAndTerritoriesUnitedStates.NewYork,
-            ProvincesAndTerritoriesUnitedStates.Oregon,
-            ProvincesAndTerritoriesUnitedStates.Pennsylvania,
-            ProvincesAndTerritoriesUnitedStates.Vermont,
-            ProvincesAndTerritoriesUnitedStates.Washington,
-            ProvincesAndTerritoriesUnitedStates.WashingtonDC,
+            StateSubsidiariesUnitedStates.California,
+            StateSubsidiariesUnitedStates.Hawaii,
+            StateSubsidiariesUnitedStates.Illinois,
+            StateSubsidiariesUnitedStates.Maine,
+            StateSubsidiariesUnitedStates.Maryland,
+            StateSubsidiariesUnitedStates.Massachusetts,
+            StateSubsidiariesUnitedStates.Minnesota,
+            StateSubsidiariesUnitedStates.Nevada,
+            StateSubsidiariesUnitedStates.NewJersey,
+            StateSubsidiariesUnitedStates.NewMexico,
+            StateSubsidiariesUnitedStates.NewYork,
+            StateSubsidiariesUnitedStates.Oregon,
+            StateSubsidiariesUnitedStates.Pennsylvania,
+            StateSubsidiariesUnitedStates.Vermont,
+            StateSubsidiariesUnitedStates.Washington,
+            StateSubsidiariesUnitedStates.WashingtonDC,
         };
-        public static List<ProvincesAndTerritoriesUnitedStates> NonCitizenVotingProhibitedStateAndLocalLevelWithStateConstitutionalAmendments = new List<ProvincesAndTerritoriesUnitedStates>()
+        public static List<StateSubsidiariesUnitedStates> NonCitizenVotingProhibitedStateAndLocalLevelWithStateConstitutionalAmendments = new List<StateSubsidiariesUnitedStates>()
         {
-            ProvincesAndTerritoriesUnitedStates.Alabama,
-            ProvincesAndTerritoriesUnitedStates.Arizona,
-            ProvincesAndTerritoriesUnitedStates.Colorado,
-            ProvincesAndTerritoriesUnitedStates.Florida,
-            ProvincesAndTerritoriesUnitedStates.Idaho,
-            ProvincesAndTerritoriesUnitedStates.Iowa,
-            ProvincesAndTerritoriesUnitedStates.Kentucky,
-            ProvincesAndTerritoriesUnitedStates.Louisiana,
-            ProvincesAndTerritoriesUnitedStates.Missouri,
-            ProvincesAndTerritoriesUnitedStates.NorthCarolina,
-            ProvincesAndTerritoriesUnitedStates.NorthDakota,
-            ProvincesAndTerritoriesUnitedStates.Ohio,
-            ProvincesAndTerritoriesUnitedStates.Oklahoma,
-            ProvincesAndTerritoriesUnitedStates.SouthCarolina,
-            ProvincesAndTerritoriesUnitedStates.Wisconsin
+            StateSubsidiariesUnitedStates.Alabama,
+            StateSubsidiariesUnitedStates.Arizona,
+            StateSubsidiariesUnitedStates.Colorado,
+            StateSubsidiariesUnitedStates.Florida,
+            StateSubsidiariesUnitedStates.Idaho,
+            StateSubsidiariesUnitedStates.Iowa,
+            StateSubsidiariesUnitedStates.Kentucky,
+            StateSubsidiariesUnitedStates.Louisiana,
+            StateSubsidiariesUnitedStates.Missouri,
+            StateSubsidiariesUnitedStates.NorthCarolina,
+            StateSubsidiariesUnitedStates.NorthDakota,
+            StateSubsidiariesUnitedStates.Ohio,
+            StateSubsidiariesUnitedStates.Oklahoma,
+            StateSubsidiariesUnitedStates.SouthCarolina,
+            StateSubsidiariesUnitedStates.Wisconsin
         };
 
         public static class Alabama
