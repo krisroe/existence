@@ -1021,12 +1021,35 @@ namespace Existence.Earth.Countries
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Liberia,
 
+        /// <summary>
+        /// Eastern and most of southern Libya, controlled by Khalifa Haftar's Libyan National Army (LNA)
+        /// and governed through a rival government backed by the eastern-based House of Representatives.
+        /// Haftar has increasingly handed power to his sons. Haftar's forces control most of Libya's oil
+        /// fields and export terminals, but oil revenue flows through the National Oil Corporation and the
+        /// Central Bank in Tripoli, which pay salaries in both halves of Libya. This gives both sides a
+        /// reason to avoid renewed war.
+        /// </summary>
+        [DeFactoCapital((int)WorldCities.LibyaBenghazi)]
+        [LargestCity((int)WorldCities.LibyaBenghazi)]
+        [PopulationEstimate(2800000)] //2.8 million
+        [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
+        LibyaEast,
+
+        /// <summary>
+        /// Western Libya, governed from Tripoli by the Government of National Unity (GNU), which holds
+        /// Libya's seat in the United Nations. After Qaddafi's fall in 2011, Libya split between rival
+        /// governments in the west and east, and civil war broke out in 2014. Haftar's 2019-2020 offensive
+        /// on Tripoli failed, and an October 2020 ceasefire has largely held since. The GNU was installed in
+        /// 2021 through a UN-led process to hold national elections, but the December 2021 elections
+        /// collapsed and the GNU stayed in power after the House of Representatives withdrew confidence in
+        /// it. The GNU relies on a patchwork of militias, which periodically clash in Tripoli.
+        /// </summary>
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.LibyaTripoli)]
         [LargestCity((int)WorldCities.LibyaTripoli)]
-        [PopulationEstimate(7038380)] //7.0 million
+        [PopulationEstimate(4600000)] //4.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
-        Libya,
+        LibyaWest,
 
         [UnitedNationsMembership(1990, 9, 18)]
         [Capital((int)WorldCities.LiechtensteinVaduz)]

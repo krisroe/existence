@@ -167,6 +167,7 @@ namespace Existence.Earth.Countries
         LebanonSidon,
         LesothoMaseru,
         LiberiaMonrovia,
+        LibyaBenghazi,
         LibyaTripoli,
         LiechtensteinVaduz,
         LithuaniaVilnius,
