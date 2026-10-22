@@ -23,13 +23,14 @@ namespace Existence.Earth.Countries.UnitedStates
 
     public class ProvincesAttribute : Attribute
     {
-        public StateSubsidiariesUnitedStates[] Provinces { get; set; }
-        public ProvincesAttribute(params StateSubsidiariesUnitedStates[] Provinces)
+        public int[] Provinces { get; set; }
+        public ProvincesAttribute(params int[] Provinces)
         {
             this.Provinces = Provinces;
         }
     }
 
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class ProvinceAttribute : Attribute
     {
         public int Province { get; set; }
