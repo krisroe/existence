@@ -5,8 +5,8 @@ using System.Security.Cryptography;
 using Existence.Beyond.JudgmentDay;
 using Existence.Earth;
 using Existence.Earth.FieldsOfStudy.Psychology;
-using Existence.Earth.Human;
 using Existence.Earth.Human.People;
+using Existence.Earth.Human.Politics;
 using Existence.Logic.Random;
 using Existence.Time;
 
