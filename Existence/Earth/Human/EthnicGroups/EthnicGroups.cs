@@ -1,6 +1,25 @@
+using System;
 
 namespace Existence.Earth.Human.EthnicGroups
 {
+    public class EthnicGroupAttribute : Attribute
+    {
+        public WorldEthnicGroups EthnicGroup { get; set; }
+        public EthnicGroupAttribute(WorldEthnicGroups EthnicGroup)
+        {
+            this.EthnicGroup = EthnicGroup;
+        }
+    }
+
+    public class EthnicGroupsAttribute : Attribute
+    {
+        public WorldEthnicGroups[] EthnicGroups { get; set; }
+        public EthnicGroupsAttribute(params WorldEthnicGroups[] EthnicGroups)
+        {
+            this.EthnicGroups = EthnicGroups;
+        }
+    }
+
     /// <summary>
     /// ethnic groups separate from country or religion based ethnic groups
     /// 
