@@ -178,7 +178,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// <summary>
         /// China, plus Dungan descendants in Kyrgyzstan and Kazakhstan
         /// Chinese-speaking Muslims. An officially recognized ethnic group in China, inherited by descent,
-        /// so non-practicing Hui are still Hui and Han converts to Islam don't become Hui.
+        /// so non-practicing Hui are still Hui, and Han Chinese who convert to Islam become Muslim but stay officially Han.
         /// </summary>
         [NumberOfMembers(11000000, 12000000)] //11-12 million
         Hui,
