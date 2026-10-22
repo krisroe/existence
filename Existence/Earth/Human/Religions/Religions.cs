@@ -137,6 +137,10 @@ namespace Existence.Earth.Religions
         [NumberOfFollowers(6000000, 10000000)] //6-10 million
         Confucianism,
 
+        /// <summary>
+        /// grew out of Shia Islam in 1840s–60s, sees ALL major religions as successive chapters of one ongoing revelation,
+        /// rather than seeing itself as the final or only complete one
+        /// </summary>
         [NumberOfFollowers(5000000, 8000000)] //5-8 million
         [Calendar(Calendars.Baháʼí)]
         [AbrahamicReligion]
