@@ -157,6 +157,14 @@ namespace Existence.Earth.Human.EthnicGroups
         Uyghur,
 
         /// <summary>
+        /// China, plus Dungan descendants in Kyrgyzstan and Kazakhstan
+        /// Chinese-speaking Muslims. An officially recognized ethnic group in China, inherited by descent,
+        /// so non-practicing Hui are still Hui and Han converts to Islam don't become Hui.
+        /// </summary>
+        [NumberOfMembers(11000000, 12000000)] //11-12 million
+        Hui,
+
+        /// <summary>
         /// Pakistan, Iran, Afghanistan
         /// </summary>
         [NumberOfMembers(10000000, 15000000)] //10-15 million
