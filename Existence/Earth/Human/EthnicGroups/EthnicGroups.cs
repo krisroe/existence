@@ -1,17 +1,6 @@
-using System;
 
 namespace Existence.Earth.Human.EthnicGroups
 {
-    public class NumberOfMembersAttribute : NumberOfPeopleAttribute
-    {
-        public NumberOfMembersAttribute(long Estimate) : base(Estimate)
-        {
-        }
-        public NumberOfMembersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
-        {
-        }
-    }
-
     /// <summary>
     /// ethnic groups separate from country or religion based ethnic groups
     /// 

@@ -21,4 +21,14 @@ namespace Existence.Earth.Human
             this.HighEstimate = HighEstimate;
         }
     }
+
+    public class NumberOfMembersAttribute : NumberOfPeopleAttribute
+    {
+        public NumberOfMembersAttribute(long Estimate) : base(Estimate)
+        {
+        }
+        public NumberOfMembersAttribute(long LowEstimate, long HighEstimate) : base(LowEstimate, HighEstimate)
+        {
+        }
+    }
 }
