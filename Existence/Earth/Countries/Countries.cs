@@ -277,6 +277,7 @@ namespace Existence.Earth.Countries
         }
     }
 
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class CountryAttribute : Attribute
     {
         public CountryLikeThings Country { get; set; }

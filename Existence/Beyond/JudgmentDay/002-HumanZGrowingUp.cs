@@ -429,6 +429,7 @@ namespace Existence.Beyond.JudgmentDay
         }
     }
 
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class PreviousPetOwnerAttribute : Attribute
     {
         public int Owner { get; set; }

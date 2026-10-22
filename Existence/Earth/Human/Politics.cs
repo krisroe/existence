@@ -2,6 +2,7 @@
 
 namespace Existence.Earth.Human.Politics
 {
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class StateSubsidiaryAttribute : Attribute
     {
         public int StateSubsidiary { get; set; }
@@ -49,6 +50,7 @@ namespace Existence.Earth.Human.Politics
         }
     }
 
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class TerritoryAttribute : Attribute
     {
         public int Territory { get; set; }

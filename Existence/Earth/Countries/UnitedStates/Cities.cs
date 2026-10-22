@@ -2,6 +2,7 @@
 
 namespace Existence.Earth.Countries.UnitedStates
 {
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class USCityAttribute : Attribute
     {
         public USCities City { get; set; }
