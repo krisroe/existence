@@ -1,5 +1,6 @@
 ﻿using Existence.Earth.Alphabet;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Human.EthnicGroups;
 using Existence.Time;
 using System;
 
@@ -314,140 +315,140 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1946, 11, 19)]
         [Capital((int)WorldCities.AfghanistanKabul)]
         [LargestCity((int)WorldCities.AfghanistanKabul)]
-        [PopulationEstimate(43000000)] //43 million
+        [NumberOfMembers(43800000)] //43.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Theocratic)]
         Afghanistan,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.AlbaniaTirana)]
         [LargestCity((int)WorldCities.AlbaniaTirana)]
-        [PopulationEstimate(2800000)] //2.8 million
+        [NumberOfMembers(2400000)] //2.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Albania,
 
         [UnitedNationsMembership(1962, 10, 8)]
         [Capital((int)WorldCities.AlgeriaAlgiers)]
         [LargestCity((int)WorldCities.AlgeriaAlgiers)]
-        [PopulationEstimate(46000000)]
+        [NumberOfMembers(47400000)] //47.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Algeria,
 
         [UnitedNationsMembership(1993, 7, 28)]
         [Capital((int)WorldCities.AndorraAndorraLaVella)]
         [LargestCity((int)WorldCities.AndorraAndorraLaVella)]
-        [PopulationEstimate(80000)]
+        [NumberOfMembers(88000)] //88,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Andorra,
 
         [UnitedNationsMembership(1976, 12, 1)]
         [Capital((int)WorldCities.AngolaLuanda)]
         [LargestCity((int)WorldCities.AngolaLuanda)]
-        [PopulationEstimate(37000000)] //37 million
+        [NumberOfMembers(39000000)] //39 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Angola,
 
         [UnitedNationsMembership(1981, 11, 11)]
         [Capital((int)WorldCities.AntiguaAndBarbudaStJohns)]
         [LargestCity((int)WorldCities.AntiguaAndBarbudaStJohns)]
-        [PopulationEstimate(100000)]
+        [NumberOfMembers(94000)] //94,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         AntiguaAndBarbuda,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ArgentinaBuenosAires)]
         [LargestCity((int)WorldCities.ArgentinaBuenosAires)]
-        [PopulationEstimate(46000000)] //46 million
+        [NumberOfMembers(45900000)] //45.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Argentina,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.ArmeniaYerevan)]
         [LargestCity((int)WorldCities.ArmeniaYerevan)]
-        [PopulationEstimate(2800000)] //2.8 million
+        [NumberOfMembers(3000000)] //3 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Armenia,
 
         [UnitedNationsMembership(1945, 11, 1)]
         [Capital((int)WorldCities.AustraliaCanberra)]
         [LargestCity((int)WorldCities.AustraliaSydney)]
-        [PopulationEstimate(26500000)] //26.5 million
+        [NumberOfMembers(27400000)] //27.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Australia,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.AustriaVienna)]
         [LargestCity((int)WorldCities.AustriaVienna)]
-        [PopulationEstimate(9100000)] //9.1 million
+        [NumberOfMembers(9200000)] //9.2 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Austria,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.AzerbaijanBaku)]
         [LargestCity((int)WorldCities.AzerbaijanBaku)]
-        [PopulationEstimate(10400000)] //10.4 million
+        [NumberOfMembers(10200000)] //10.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Azerbaijan,
 
         [UnitedNationsMembership(1973, 9, 18)]
         [Capital((int)WorldCities.BahamasNassau)]
         [LargestCity((int)WorldCities.BahamasNassau)]
-        [PopulationEstimate(400000)]
+        [NumberOfMembers(400000)] //400,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Bahamas,
 
         [UnitedNationsMembership(1971, 9, 21)]
         [Capital((int)WorldCities.BahrainManama)]
         [LargestCity((int)WorldCities.BahrainManama)]
-        [PopulationEstimate(1500000)] //1.5 million
+        [NumberOfMembers(1600000)] //1.6 million
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Bahrain,
 
         [UnitedNationsMembership(1974, 9, 17)]
         [Capital((int)WorldCities.BangladeshDhaka)]
         [LargestCity((int)WorldCities.BangladeshDhaka)]
-        [PopulationEstimate(174950000)] //174.95 million
+        [NumberOfMembers(175700000)] //175.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Bangladesh,
 
         [UnitedNationsMembership(1966, 12, 9)]
         [Capital((int)WorldCities.BarbadosBridgetown)]
         [LargestCity((int)WorldCities.BarbadosBridgetown)]
-        [PopulationEstimate(280000)]
+        [NumberOfMembers(283000)] //283,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Barbados,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.BelarusMinsk)]
         [LargestCity((int)WorldCities.BelarusMinsk)]
-        [PopulationEstimate(9200000)] //9.2 million
+        [NumberOfMembers(9100000)] //9.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Belarus,
 
         [UnitedNationsMembership(1945, 12, 27)]
         [Capital((int)WorldCities.BelgiumBrussels)]
         [LargestCity((int)WorldCities.BelgiumBrussels)]
-        [PopulationEstimate(11700000)] //11.7 million
+        [NumberOfMembers(11900000)] //11.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Belgium,
 
         [UnitedNationsMembership(1981, 9, 25)]
         [Capital((int)WorldCities.BelizeBelmopan)]
         [LargestCity((int)WorldCities.BelizeBelizeCity)]
-        [PopulationEstimate(420000)]
+        [NumberOfMembers(420000)] //420,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Belize,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.BeninPortoNovo)]
         [LargestCity((int)WorldCities.BeninCotonou)]
-        [PopulationEstimate(13700000)] //13.7 million
+        [NumberOfMembers(14800000)] //14.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Benin,
 
         [UnitedNationsMembership(1971, 9, 21)]
         [Capital((int)WorldCities.BhutanThimphu)]
         [LargestCity((int)WorldCities.BhutanThimphu)]
-        [PopulationEstimate(780000)]
+        [NumberOfMembers(790000)] //790,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Bhutan,
 
@@ -456,28 +457,28 @@ namespace Existence.Earth.Countries
         [ConstitutionalCapital((int)WorldCities.BoliviaSucre)]
         [AdministrativeCapital((int)WorldCities.BoliviaLaPaz)]
         [LargestCity((int)WorldCities.BoliviaSantaCruzDeLaSierra)]
-        [PopulationEstimate(12200000)] //12.2 million
+        [NumberOfMembers(11300000)] //11.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Bolivia,
 
         [UnitedNationsMembership(1992, 5, 22)]
         [Capital((int)WorldCities.BosniaAndHerzegovinaSarajevo)]
         [LargestCity((int)WorldCities.BosniaAndHerzegovinaSarajevo)]
-        [PopulationEstimate(3200000)] //3.2 million
+        [NumberOfMembers(3100000)] //3.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Directorial)]
         BosniaAndHerzegovina,
 
         [UnitedNationsMembership(1966, 10, 17)]
         [Capital((int)WorldCities.BotswanaGaborone)]
         [LargestCity((int)WorldCities.BotswanaGaborone)]
-        [PopulationEstimate(2600000)] //2.6 million
+        [NumberOfMembers(2500000)] //2.5 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Botswana,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.BrazilBrasilia)]
         [LargestCity((int)WorldCities.BrazilSaoPaulo)]
-        [PopulationEstimate(218800000)] //218.8 million
+        [NumberOfMembers(213400000)] //213.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Brazil,
 
@@ -485,21 +486,21 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1984, 9, 21)]
         [Capital((int)WorldCities.BruneiBandarSeriBegawan)]
         [LargestCity((int)WorldCities.BruneiBandarSeriBegawan)]
-        [PopulationEstimate(460000)]
+        [NumberOfMembers(466000)] //466,000
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         Brunei,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.BulgariaSofia)]
         [LargestCity((int)WorldCities.BulgariaSofia)]
-        [PopulationEstimate(6500000)] //6.5 million
+        [NumberOfMembers(6400000)] //6.4 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Bulgaria,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.BurkinaFasoOuagadougou)]
         [LargestCity((int)WorldCities.BurkinaFasoOuagadougou)]
-        [PopulationEstimate(22500000)] //22.5 million
+        [NumberOfMembers(24100000)] //24.1 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         BurkinaFaso,
 
@@ -507,35 +508,35 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.BurmaNaypyidaw)]
         [LargestCity((int)WorldCities.BurmaRangoon)]
         [LocalName("Myanmar")]
-        [PopulationEstimate(55000000)] //55 million
+        [NumberOfMembers(54900000)] //54.9 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         Burma,
 
         [UnitedNationsMembership(1962, 9, 18)]
         [Capital((int)WorldCities.BurundiGitega)]
         [LargestCity((int)WorldCities.BurundiBujumbura)]
-        [PopulationEstimate(13000000)] //13 million
+        [NumberOfMembers(14400000)] //14.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Burundi,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.CambodiaPhnomPenh)]
         [LargestCity((int)WorldCities.CambodiaPhnomPenh)]
-        [PopulationEstimate(17000000)] //17 million
+        [NumberOfMembers(17800000)] //17.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Cambodia,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CameroonYaounde)]
         [LargestCity((int)WorldCities.CameroonDouala)]
-        [PopulationEstimate(30150000)] //30.15 million
+        [NumberOfMembers(29900000)] //29.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Cameroon,
 
         [UnitedNationsMembership(1945, 11, 9)]
         [Capital((int)WorldCities.CanadaOttawa)]
         [LargestCity((int)WorldCities.CanadaToronto)]
-        [PopulationEstimate(41700000)] //41.7 million
+        [NumberOfMembers(41600000)] //41.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Canada,
 
@@ -543,28 +544,28 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.CapeVerdePraia)]
         [LargestCity((int)WorldCities.CapeVerdePraia)]
         [LocalName("Cabo Verde")]
-        [PopulationEstimate(527326)]
+        [NumberOfMembers(527000)] //527,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         CapeVerde,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CentralAfricanRepublicBangui)]
         [LargestCity((int)WorldCities.CentralAfricanRepublicBangui)]
-        [PopulationEstimate(6100000)] //6.1 million
+        [NumberOfMembers(5500000)] //5.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         CentralAfricanRepublic,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.ChadNDjamena)]
         [LargestCity((int)WorldCities.ChadNDjamena)]
-        [PopulationEstimate(19400000)] //19.4 million
+        [NumberOfMembers(21000000)] //21 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Chad,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ChileSantiago)]
         [LargestCity((int)WorldCities.ChileSantiago)]
-        [PopulationEstimate(19700000)] //19.7 million
+        [NumberOfMembers(18500000)] //18.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Chile,
 
@@ -573,21 +574,21 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.ChinaShanghai)]
         [FullName("People's Republic of China")]
         [Abbreviation("PRC")]
-        [PopulationEstimate(1408000000)] //1.408 billion
+        [NumberOfMembers(1407000000)] //1.41 billion
         [ExecutivePowerType(ExecutivePowerTypes.OnePartyState)]
         China,
 
         [UnitedNationsMembership(1945, 11, 5)]
         [Capital((int)WorldCities.ColombiaBogota)]
         [LargestCity((int)WorldCities.ColombiaBogota)]
-        [PopulationEstimate(53100000)] //53.1 million
+        [NumberOfMembers(53100000)] //53.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Colombia,
 
         [UnitedNationsMembership(1975, 11, 12)]
         [Capital((int)WorldCities.ComorosMoroni)]
         [LargestCity((int)WorldCities.ComorosMoroni)]
-        [PopulationEstimate(969315)]
+        [NumberOfMembers(880000)] //880,000
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Comoros,
 
@@ -596,28 +597,28 @@ namespace Existence.Earth.Countries
         [LargestCity((int)WorldCities.CongoBrazzaville)]
         [FullName("Republic of the Congo")]
         [Abbreviation("ROC")]
-        [PopulationEstimate(6380000)] //6.38 million
+        [NumberOfMembers(6500000)] //6.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Congo,
 
         [UnitedNationsMembership(1945, 11, 2)]
         [Capital((int)WorldCities.CostaRicaSanJose)]
         [LargestCity((int)WorldCities.CostaRicaSanJose)]
-        [PopulationEstimate(5280199)]
+        [NumberOfMembers(5200000)] //5.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         CostaRica,
 
         [UnitedNationsMembership(1992, 5, 22)]
         [Capital((int)WorldCities.CroatiaZagreb)]
         [LargestCity((int)WorldCities.CroatiaZagreb)]
-        [PopulationEstimate(3960000)] //3.96 million
+        [NumberOfMembers(3870000)] //3.87 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         Croatia,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.CubaHavana)]
         [LargestCity((int)WorldCities.CubaHavana)]
-        [PopulationEstimate(11411842)] //11.4 million
+        [NumberOfMembers(9700000)] //9.7 million
         [ExecutivePowerType(ExecutivePowerTypes.OnePartyState)]
         Cuba,
 
@@ -639,14 +640,14 @@ namespace Existence.Earth.Countries
         /// </summary>
         [ClaimedCapital((int)WorldCities.NorthernCyprusNorthNicosia)]
         [LargestCity((int)WorldCities.NorthernCyprusNorthNicosia)]
-        [PopulationEstimate(400000)]
+        [NumberOfMembers(480000)] //480,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         CyprusNorth,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.CyprusSouthNicosia)]
         [LargestCity((int)WorldCities.CyprusSouthNicosia)]
-        [PopulationEstimate(1269748)] //1.27 million
+        [NumberOfMembers(970000)] //970,000
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         CyprusSouth,
 
@@ -654,35 +655,35 @@ namespace Existence.Earth.Countries
         [LocalName("Czechia")]
         [Capital((int)WorldCities.CzechRepublicPrague)]
         [LargestCity((int)WorldCities.CzechRepublicPrague)]
-        [PopulationEstimate(10509965)] //10.5 million
+        [NumberOfMembers(10900000)] //10.9 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         CzechRepublic,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.DenmarkCopenhagen)]
         [LargestCity((int)WorldCities.DenmarkCopenhagen)]
-        [PopulationEstimate(5800000)] //5.8 million
+        [NumberOfMembers(6000000)] //6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Denmark,
 
         [UnitedNationsMembership(1977, 9, 20)]
         [Capital((int)WorldCities.DjiboutiDjiboutiCity)]
         [LargestCity((int)WorldCities.DjiboutiDjiboutiCity)]
-        [PopulationEstimate(1000000)] //1 million
+        [NumberOfMembers(1200000)] //1.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Djibouti,
 
         [UnitedNationsMembership(1978, 12, 18)]
         [Capital((int)WorldCities.DominicaRoseau)]
         [LargestCity((int)WorldCities.DominicaRoseau)]
-        [PopulationEstimate(72000)]
+        [NumberOfMembers(66000)] //66,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Dominica,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.DominicanRepublicSantoDomingo)]
         [LargestCity((int)WorldCities.DominicanRepublicSantoDomingo)]
-        [PopulationEstimate(11000000)] //11 million
+        [NumberOfMembers(11500000)] //11.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         DominicanRepublic,
 
@@ -690,28 +691,28 @@ namespace Existence.Earth.Countries
         [LocalName("Timor-Leste")]
         [Capital((int)WorldCities.EastTimorDili)]
         [LargestCity((int)WorldCities.EastTimorDili)]
-        [PopulationEstimate(1300000)] //1.3 million
+        [NumberOfMembers(1400000)] //1.4 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         EastTimor,
 
         [UnitedNationsMembership(1945, 12, 21)]
         [Capital((int)WorldCities.EcuadorQuito)]
         [LargestCity((int)WorldCities.EcuadorGuayaquil)]
-        [PopulationEstimate(17700000)] //17.7 million
+        [NumberOfMembers(17300000)] //17.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Ecuador,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.EgyptCairo)]
         [LargestCity((int)WorldCities.EgyptCairo)]
-        [PopulationEstimate(104000000)] //104 million
+        [NumberOfMembers(108000000)] //108 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Egypt,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ElSalvadorSanSalvador)]
         [LargestCity((int)WorldCities.ElSalvadorSanSalvador)]
-        [PopulationEstimate(6500000)] //6.5 million
+        [NumberOfMembers(6000000)] //6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         ElSalvador,
 
@@ -719,56 +720,56 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.EquatorialGuineaMalabo)]
         [PlannedCapital((int)WorldCities.EquatorialGuineaCiudadDeLaPaz)]
         [LargestCity((int)WorldCities.EquatorialGuineaBata)]
-        [PopulationEstimate(1400000)] //1.4 million
+        [NumberOfMembers(1900000)] //1.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         EquitorialGuinea,
 
         [UnitedNationsMembership(1993, 5, 28)]
         [Capital((int)WorldCities.EritreaAsmara)]
         [LargestCity((int)WorldCities.EritreaAsmara)]
-        [PopulationEstimate(3600000)] //3.6 million
+        [NumberOfMembers(3600000)] //3.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Eritrea,
 
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.EstoniaTalinn)]
         [LargestCity((int)WorldCities.EstoniaTalinn)]
-        [PopulationEstimate(1300000)] //1.3 million
+        [NumberOfMembers(1370000)] //1.37 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Estonia,
 
         [UnitedNationsMembership(1945, 11, 13)]
         [Capital((int)WorldCities.EthiopiaAddisAbaba)]
         [LargestCity((int)WorldCities.EthiopiaAddisAbaba)]
-        [PopulationEstimate(120000000)] //120 million
+        [NumberOfMembers(135500000)] //135.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Ethiopia,
 
         [UnitedNationsMembership(1970, 10, 13)]
         [Capital((int)WorldCities.FijiSuva)]
         [LargestCity((int)WorldCities.FijiSuva)]
-        [PopulationEstimate(896000)]
+        [NumberOfMembers(930000)] //930,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Fiji,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.FinlandHelsinki)]
         [LargestCity((int)WorldCities.FinlandHelsinki)]
-        [PopulationEstimate(5500000)] //5.5 million
+        [NumberOfMembers(5640000)] //5.64 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Finland,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.FranceParis)]
         [LargestCity((int)WorldCities.FranceParis)]
-        [PopulationEstimate(67000000)] //67 million
+        [NumberOfMembers(68600000)] //68.6 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPremierPresidential)]
         France,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.GabonLibreville)]
         [LargestCity((int)WorldCities.GabonLibreville)]
-        [PopulationEstimate(2300000)] //2.3 million
+        [NumberOfMembers(2600000)] //2.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Gabon,
 
@@ -776,112 +777,112 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.GambiaBanjul)]
         [LargestCity((int)WorldCities.GambiaSerekunda)]
         [FullName("Republic of the Gambia")]
-        [PopulationEstimate(2400000)] //2.4 million
+        [NumberOfMembers(2800000)] //2.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Gambia,
 
         [UnitedNationsMembership(1992, 7, 31)]
         [Capital((int)WorldCities.GeorgiaTbilisi)]
         [LargestCity((int)WorldCities.GeorgiaTbilisi)]
-        [PopulationEstimate(3700000)] //3.7 million
+        [NumberOfMembers(3700000)] //3.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Georgia,
 
         [UnitedNationsMembership(1973, 9, 18)]
         [Capital((int)WorldCities.GermanyBerlin)]
         [LargestCity((int)WorldCities.GermanyBerlin)]
-        [PopulationEstimate(83000000)] //83 million
+        [NumberOfMembers(83500000)] //83.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Germany,
 
         [UnitedNationsMembership(1957, 3, 8)]
         [Capital((int)WorldCities.GhanaAccra)]
         [LargestCity((int)WorldCities.GhanaAccra)]
-        [PopulationEstimate(32000000)] //32 million
+        [NumberOfMembers(35000000)] //35 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Ghana,
 
         [UnitedNationsMembership(1945, 10, 25)]
         [Capital((int)WorldCities.GreeceAthens)]
         [LargestCity((int)WorldCities.GreeceAthens)]
-        [PopulationEstimate(10400000)] //10.4 million
+        [NumberOfMembers(10400000)] //10.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Greece,
 
         [UnitedNationsMembership(1974, 9, 17)]
         [Capital((int)WorldCities.GrenadaStGeorges)]
         [LargestCity((int)WorldCities.GrenadaStGeorges)]
-        [PopulationEstimate(113000)]
+        [NumberOfMembers(117000)] //117,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Greneda,
 
         [UnitedNationsMembership(1945, 11, 21)]
         [Capital((int)WorldCities.GuatemalaGuatemalaCity)]
         [LargestCity((int)WorldCities.GuatemalaGuatemalaCity)]
-        [PopulationEstimate(18500000)] //18.5 million
+        [NumberOfMembers(18700000)] //18.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Guatemala,
 
         [UnitedNationsMembership(1958, 12, 12)]
         [Capital((int)WorldCities.GuineaConakry)]
         [LargestCity((int)WorldCities.GuineaConakry)]
-        [PopulationEstimate(13500000)] //13.5 million
+        [NumberOfMembers(15100000)] //15.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Guinea,
 
         [UnitedNationsMembership(1974, 9, 17)]
         [Capital((int)WorldCities.GuineaBissauBissau)]
         [LargestCity((int)WorldCities.GuineaBissauBissau)]
-        [PopulationEstimate(2000000)] //2 million
+        [NumberOfMembers(2200000)] //2.2 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         GuineaBissau,
 
         [UnitedNationsMembership(1966, 9, 20)]
         [Capital((int)WorldCities.GuyanaGeorgetown)]
         [LargestCity((int)WorldCities.GuyanaGeorgetown)]
-        [PopulationEstimate(790000)]
+        [NumberOfMembers(830000)] //830,000
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Guyana,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.HaitiPortauPrince)]
         [LargestCity((int)WorldCities.HaitiPortauPrince)]
-        [PopulationEstimate(11400000)] //11.4 million
+        [NumberOfMembers(11900000)] //11.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Haiti,
 
         [UnitedNationsMembership(1945, 12, 17)]
         [Capital((int)WorldCities.HondurasTegucigalpa)]
         [LargestCity((int)WorldCities.HondurasSanPedroSula)]
-        [PopulationEstimate(10000000)] //10 million
+        [NumberOfMembers(10800000)] //10.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Honduras,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.HungaryBudapest)]
         [LargestCity((int)WorldCities.HungaryBudapest)]
-        [PopulationEstimate(9600000)] //9.6 million
+        [NumberOfMembers(9540000)] //9.54 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Hungary,
 
         [UnitedNationsMembership(1946, 11, 19)]
         [Capital((int)WorldCities.IcelandReykjavik)]
         [LargestCity((int)WorldCities.IcelandReykjavik)]
-        [PopulationEstimate(380000)]
+        [NumberOfMembers(390000)] //390,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Iceland,
 
         [UnitedNationsMembership(1945, 10, 30)]
         [Capital((int)WorldCities.IndiaNewDelhi)]
         [LargestCity((int)WorldCities.IndiaMumbai)]
-        [PopulationEstimate(1454000000)] //1.454 billion
+        [NumberOfMembers(1464000000)] //1.46 billion
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         India,
 
         [UnitedNationsMembership(1950, 9, 28)]
         [Capital((int)WorldCities.IndonesiaJakarta)]
         [LargestCity((int)WorldCities.IndonesiaJakarta)]
-        [PopulationEstimate(282000000)] //282-290 million
+        [NumberOfMembers(284400000)] //284.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Indonesia,
 
@@ -889,35 +890,35 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.IranTehran)]
         [LargestCity((int)WorldCities.IranTehran)]
         [FullName("Islamic Republic of Iran")]
-        [PopulationEstimate(92420000)] //92.42 million
+        [NumberOfMembers(92400000)] //92.4 million
         [ExecutivePowerType(ExecutivePowerTypes.TheocraticWithNonPaperPresident)]
         Iran,
 
         [UnitedNationsMembership(1945, 12, 21)]
         [Capital((int)WorldCities.IraqBaghdad)]
         [LargestCity((int)WorldCities.IraqBaghdad)]
-        [PopulationEstimate(46680000)] //46.68 million
+        [NumberOfMembers(46100000)] //46.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Iraq,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.IrelandDublin)]
         [LargestCity((int)WorldCities.IrelandDublin)]
-        [PopulationEstimate(5290000)] //5.29 million
+        [NumberOfMembers(5460000)] //5.46 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Ireland,
 
         [UnitedNationsMembership(1949, 5, 11)]
         [Capital((int)WorldCities.IsraelJerusalem)]
         [LargestCity((int)WorldCities.IsraelTelAviv)]
-        [PopulationEstimate(10000000)] //10 million
+        [NumberOfMembers(10100000)] //10.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Israel,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.ItalyRome)]
         [LargestCity((int)WorldCities.ItalyRome)]
-        [PopulationEstimate(59212298)] //59 million
+        [NumberOfMembers(58900000)] //58.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Italy,
 
@@ -925,63 +926,63 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.IvoryCoastYamoussoukro)]
         [LargestCity((int)WorldCities.IvoryCoastAbidjan)]
         [LocalName("Côte D'Ivoire")]
-        [PopulationEstimate(32440000)] //32.44 million
+        [NumberOfMembers(32700000)] //32.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         IvoryCoast,
 
         [UnitedNationsMembership(1962, 9, 18)]
         [Capital((int)WorldCities.JamaicaKingston)]
         [LargestCity((int)WorldCities.JamaicaKingston)]
-        [PopulationEstimate(2837783)] //2.8 million
+        [NumberOfMembers(2800000)] //2.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Jamaica,
 
         [UnitedNationsMembership(1956, 12, 18)]
         [Capital((int)WorldCities.JapanTokyo)]
         [LargestCity((int)WorldCities.JapanTokyo)]
-        [PopulationEstimate(123321241)] //123 million
+        [NumberOfMembers(123300000)] //123.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Japan,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.JordanAmman)]
         [LargestCity((int)WorldCities.JordanAmman)]
-        [PopulationEstimate(11531768)] //11.5 million
+        [NumberOfMembers(11500000)] //11.5 million
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Jordan,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.KazakhstanNurSultan)]
         [LargestCity((int)WorldCities.KazakhstanAlmaty)]
-        [PopulationEstimate(20758104)] //20.8 million
+        [NumberOfMembers(20500000)] //20.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Kazakhstan,
 
         [UnitedNationsMembership(1963, 12, 16)]
         [Capital((int)WorldCities.KenyaNairobi)]
         [LargestCity((int)WorldCities.KenyaNairobi)]
-        [PopulationEstimate(57532493)] //57.5 million
+        [NumberOfMembers(57500000)] //57.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Kenya,
 
         [UnitedNationsMembership(1999, 9, 14)]
         [Capital((int)WorldCities.KiribatiTarawa)]
         [LargestCity((int)WorldCities.KiribatiTarawa)]
-        [PopulationEstimate(137984)]
+        [NumberOfMembers(136000)] //136,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Kiribati,
 
         [UnitedNationsMembership(1963, 5, 14)]
         [Capital((int)WorldCities.KuwaitKuwaitCity)]
         [LargestCity((int)WorldCities.KuwaitKuwaitCity)]
-        [PopulationEstimate(4390000)] //4.39 million
+        [NumberOfMembers(5000000)] //5 million
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Kuwait,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.KyrgyzstanBishkek)]
         [LargestCity((int)WorldCities.KyrgyzstanBishkek)]
-        [PopulationEstimate(7027900)] //7.0 million
+        [NumberOfMembers(7300000)] //7.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Kyrgyzstan,
 
@@ -989,35 +990,35 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.LaosVientiane)]
         [LargestCity((int)WorldCities.LaosVientiane)]
         [FullName("Lao People’s Democratic Republic")]
-        [PopulationEstimate(7840000)] //7.84 million
+        [NumberOfMembers(7900000)] //7.9 million
         [ExecutivePowerType(ExecutivePowerTypes.OnePartyState)]
         Laos,
 
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.LatviaRiga)]
         [LargestCity((int)WorldCities.LatviaRiga)]
-        [PopulationEstimate(1790000)] //1.79 million
+        [NumberOfMembers(1860000)] //1.86 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Latvia,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.LebanonBeirut)]
         [LargestCity((int)WorldCities.LebanonBeirut)]
-        [PopulationEstimate(5850000)] //5.85 million
+        [NumberOfMembers(5800000)] //5.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Lebanon,
 
         [UnitedNationsMembership(1966, 10, 17)]
         [Capital((int)WorldCities.LesothoMaseru)]
         [LargestCity((int)WorldCities.LesothoMaseru)]
-        [PopulationEstimate(2380000)] //2.38 million
+        [NumberOfMembers(2360000)] //2.36 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Lesotho,
 
         [UnitedNationsMembership(1945, 11, 2)]
         [Capital((int)WorldCities.LiberiaMonrovia)]
         [LargestCity((int)WorldCities.LiberiaMonrovia)]
-        [PopulationEstimate(5680000)] //5.68 million
+        [NumberOfMembers(5700000)] //5.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Liberia,
 
@@ -1031,7 +1032,7 @@ namespace Existence.Earth.Countries
         /// </summary>
         [DeFactoCapital((int)WorldCities.LibyaBenghazi)]
         [LargestCity((int)WorldCities.LibyaBenghazi)]
-        [PopulationEstimate(2800000)] //2.8 million
+        [NumberOfMembers(2800000)] //2.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         LibyaEast,
 
@@ -1047,42 +1048,42 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.LibyaTripoli)]
         [LargestCity((int)WorldCities.LibyaTripoli)]
-        [PopulationEstimate(4600000)] //4.6 million
+        [NumberOfMembers(4600000)] //4.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         LibyaWest,
 
         [UnitedNationsMembership(1990, 9, 18)]
         [Capital((int)WorldCities.LiechtensteinVaduz)]
         [LargestCity((int)WorldCities.LiechtensteinVaduz)]
-        [PopulationEstimate(40000)]
+        [NumberOfMembers(40000)] //40,000
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Liechtenstein,
 
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.LithuaniaVilnius)]
         [LargestCity((int)WorldCities.LithuaniaVilnius)]
-        [PopulationEstimate(2890000)] //2.89 million
+        [NumberOfMembers(2890000)] //2.89 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPremierPresidential)]
         Lithuania,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.LuxembourgLuxembourgCity)]
         [LargestCity((int)WorldCities.LuxembourgLuxembourgCity)]
-        [PopulationEstimate(672050)]
+        [NumberOfMembers(680000)] //680,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Luxembourg,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.MadagascarAntananarivo)]
         [LargestCity((int)WorldCities.MadagascarAntananarivo)]
-        [PopulationEstimate(31800000)] //31.8 million
+        [NumberOfMembers(32700000)] //32.7 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         Madagascar,
 
         [UnitedNationsMembership(1964, 12, 1)]
         [Capital((int)WorldCities.MalawiLilongwe)]
         [LargestCity((int)WorldCities.MalawiLilongwe)]
-        [PopulationEstimate(22000000)] //22 million
+        [NumberOfMembers(22200000)] //22.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Malawi,
 
@@ -1090,28 +1091,28 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.MalaysiaKualaLumpur)]
         [AdministrativeCapital((int)WorldCities.MalaysiaPutrajaya)]
         [LargestCity((int)WorldCities.MalaysiaKualaLumpur)]
-        [PopulationEstimate(35800000)] //35.8 million
+        [NumberOfMembers(34200000)] //34.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Malaysia,
 
         [UnitedNationsMembership(1965, 9, 21)]
         [Capital((int)WorldCities.MaldivesMale)]
         [LargestCity((int)WorldCities.MaldivesMale)]
-        [PopulationEstimate(585332)]
+        [NumberOfMembers(530000)] //530,000
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Maldives,
 
         [UnitedNationsMembership(1960, 9, 28)]
         [Capital((int)WorldCities.MaliBamako)]
         [LargestCity((int)WorldCities.MaliBamako)]
-        [PopulationEstimate(24760000)] //24.76 million
+        [NumberOfMembers(25200000)] //25.2 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         Mali,
 
         [UnitedNationsMembership(1964, 12, 1)]
         [Capital((int)WorldCities.MaltaValletta)]
         [LargestCity((int)WorldCities.MaltaValletta)]
-        [PopulationEstimate(538297)]
+        [NumberOfMembers(570000)] //570,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Malta,
 
@@ -1120,35 +1121,35 @@ namespace Existence.Earth.Countries
         /// </summary>
         [UnitedNationsMembership(1994, 8, 24)]
         [FullName("Sovereign Military Order of Malta")]
-        [PopulationEstimate(13500)]
+        [NumberOfMembers(13500)] //13,500
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         MaltaSovereignMilitaryOrder,
 
         [UnitedNationsMembership(1991, 9, 17)]
         [Capital((int)WorldCities.MarshallIslandsMajuro)]
         [LargestCity((int)WorldCities.MarshallIslandsMajuro)]
-        [PopulationEstimate(42819)]
+        [NumberOfMembers(37000)] //37,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         MarshallIslands,
 
         [UnitedNationsMembership(1961, 10, 27)]
         [Capital((int)WorldCities.MauritaniaNouakchott)]
         [LargestCity((int)WorldCities.MauritaniaNouakchott)]
-        [PopulationEstimate(5130000)] //5.13 million
+        [NumberOfMembers(5300000)] //5.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Mauritania,
 
         [UnitedNationsMembership(1968, 4, 24)]
         [Capital((int)WorldCities.MauritiusPortLouis)]
         [LargestCity((int)WorldCities.MauritiusPortLouis)]
-        [PopulationEstimate(1303210)] //1.3 million
+        [NumberOfMembers(1260000)] //1.26 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Mauritius,
 
         [UnitedNationsMembership(1945, 11, 7)]
         [Capital((int)WorldCities.MexicoMexicoCity)]
         [LargestCity((int)WorldCities.MexicoMexicoCity)]
-        [PopulationEstimate(131700000)] //131.7 million
+        [NumberOfMembers(132000000)] //132 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Mexico,
 
@@ -1156,7 +1157,7 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.MicronesiaPalikir)]
         [LargestCity((int)WorldCities.MicronesiaPalikir)]
         [FullName("Federated States of Micronesia")]
-        [PopulationEstimate(115536)]
+        [NumberOfMembers(113000)] //113,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Micronesia,
 
@@ -1164,63 +1165,63 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.MoldovaChișinău)]
         [LargestCity((int)WorldCities.MoldovaChișinău)]
         [FullName("Republic of Moldova")]
-        [PopulationEstimate(2600000)] //2.6 million
+        [NumberOfMembers(2400000)] //2.4 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         Moldova,
 
         [UnitedNationsMembership(1993, 5, 28)]
         [Capital((int)WorldCities.MonacoMonacoCity)]
         [LargestCity((int)WorldCities.MonacoMonacoCity)]
-        [PopulationEstimate(38000)]
+        [NumberOfMembers(38000)] //38,000
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Monoco,
 
         [UnitedNationsMembership(1961, 10, 27)]
         [Capital((int)WorldCities.MongoliaUlaanbaatar)]
         [LargestCity((int)WorldCities.MongoliaUlaanbaatar)]
-        [PopulationEstimate(3300000)] //3.3 million
+        [NumberOfMembers(3500000)] //3.5 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         Mongolia,
 
         [UnitedNationsMembership(2006, 6, 28)]
         [Capital((int)WorldCities.MontenegroPodgorica)]
         [LargestCity((int)WorldCities.MontenegroPodgorica)]
-        [PopulationEstimate(620000)]
+        [NumberOfMembers(630000)] //630,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Montenegro,
 
         [UnitedNationsMembership(1956, 11, 12)]
         [Capital((int)WorldCities.MoroccoRabat)]
         [LargestCity((int)WorldCities.MoroccoCasablanca)]
-        [PopulationEstimate(37000000)] //37 million
+        [NumberOfMembers(36800000)] //36.8 million
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Morocco,
 
         [UnitedNationsMembership(1975, 9, 16)]
         [Capital((int)WorldCities.MozambiqueMaputo)]
         [LargestCity((int)WorldCities.MozambiqueMaputo)]
-        [PopulationEstimate(33000000)] //33 million
+        [NumberOfMembers(35600000)] //35.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Mozambique,
 
         [UnitedNationsMembership(1990, 4, 23)]
         [Capital((int)WorldCities.NamibiaWindhoek)]
         [LargestCity((int)WorldCities.NamibiaWindhoek)]
-        [PopulationEstimate(2600000)] //2.6 million
+        [NumberOfMembers(3100000)] //3.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Namibia,
 
         [UnitedNationsMembership(1999, 9, 14)]
         [UnofficialCapital((int)WorldCities.NauruYaren)]
         [LargestCity((int)WorldCities.NauruYaren)]
-        [PopulationEstimate(10000)]
+        [NumberOfMembers(12000)] //12,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Nauru,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.NepalKathmandu)]
         [LargestCity((int)WorldCities.NepalKathmandu)]
-        [PopulationEstimate(30000000)] //30 million
+        [NumberOfMembers(29600000)] //29.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Nepal,
 
@@ -1228,35 +1229,35 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.NetherlandsAmsterdam)]
         [LargestCity((int)WorldCities.NetherlandsTheHague)]
         [FullName("Kingdom of the Netherlands")]
-        [PopulationEstimate(17500000)] //17.5 million
+        [NumberOfMembers(18000000)] //18 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Netherlands,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.NewZealandWellington)]
         [LargestCity((int)WorldCities.NewZealandAuckland)]
-        [PopulationEstimate(5100000)] //5.1 million
+        [NumberOfMembers(5300000)] //5.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         NewZealand,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.NicaraguaManagua)]
         [LargestCity((int)WorldCities.NicaraguaManagua)]
-        [PopulationEstimate(6700000)] //6.7 million
+        [NumberOfMembers(7000000)] //7 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Nicaragua,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.NigerNiamey)]
         [LargestCity((int)WorldCities.NigerNiamey)]
-        [PopulationEstimate(25000000)] //25 million
+        [NumberOfMembers(27900000)] //27.9 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         Niger,
 
         [UnitedNationsMembership(1960, 10, 7)]
         [Capital((int)WorldCities.NigeriaAbuja)]
         [LargestCity((int)WorldCities.NigeriaLagos)]
-        [PopulationEstimate(234600000)] //234.6 million
+        [NumberOfMembers(237500000)] //237.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Nigeria,
 
@@ -1281,7 +1282,7 @@ namespace Existence.Earth.Countries
         /// </summary>
         [Capital((int)WorldCities.NorthernIrelandBelfast)]
         [LargestCity((int)WorldCities.NorthernIrelandBelfast)]
-        [PopulationEstimate(1920400)] //1.92 million
+        [NumberOfMembers(1930000)] //1.93 million
         [ExecutivePowerType(ExecutivePowerTypes.Dependency)]
         NorthernIreland,
 
@@ -1289,42 +1290,42 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.NorthKoreaPyongyang)]
         [LargestCity((int)WorldCities.NorthKoreaPyongyang)]
         [FullName("Democratic People's Republic of Korea")]
-        [PopulationEstimate(25000000)] //25 million
+        [NumberOfMembers(26600000)] //26.6 million
         [ExecutivePowerType(ExecutivePowerTypes.OnePartyState)]
         NorthKorea,
 
         [UnitedNationsMembership(1993, 4, 8)]
         [Capital((int)WorldCities.NorthMacedoniaSkopje)]
         [LargestCity((int)WorldCities.NorthMacedoniaSkopje)]
-        [PopulationEstimate(2100000)] //2.1 million
+        [NumberOfMembers(1800000)] //1.8 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         NorthMacedonia,
 
         [UnitedNationsMembership(1945, 11, 27)]
         [Capital((int)WorldCities.NorwayOslo)]
         [LargestCity((int)WorldCities.NorwayOslo)]
-        [PopulationEstimate(5400000)] //5.4 million
+        [NumberOfMembers(5600000)] //5.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Norway,
 
         [UnitedNationsMembership(1971, 10, 7)]
         [Capital((int)WorldCities.OmanMuscat)]
         [LargestCity((int)WorldCities.OmanMuscat)]
-        [PopulationEstimate(4800000)] //4.8 million
+        [NumberOfMembers(5300000)] //5.3 million
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         Oman,
 
         [UnitedNationsMembership(1947, 9, 30)]
         [Capital((int)WorldCities.PakistanIslamabad)]
         [LargestCity((int)WorldCities.PakistanKarachi)]
-        [PopulationEstimate(250000000)] //250 million
+        [NumberOfMembers(255000000)] //255 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Pakistan,
 
         [UnitedNationsMembership(1994, 12, 15)]
         [Capital((int)WorldCities.PalauNgerulmud)]
         [LargestCity((int)WorldCities.PalauKoror)]
-        [PopulationEstimate(18000)]
+        [NumberOfMembers(18000)] //18,000
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Palau,
 
@@ -1338,7 +1339,7 @@ namespace Existence.Earth.Countries
         /// </summary>
         [Capital((int)WorldCities.GazaGazaCity)]
         [LargestCity((int)WorldCities.GazaGazaCity)]
-        [PopulationEstimate(2000000)] //2 million
+        [NumberOfMembers(2100000)] //2.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Dependency)]
         PalestineGaza,
 
@@ -1349,70 +1350,70 @@ namespace Existence.Earth.Countries
         [DeFactoCapital((int)WorldCities.WestBankRamallah)]
         [ClaimedCapital((int)WorldCities.IsraelEastJerusalem)]
         [LargestCity((int)WorldCities.WestBankRamallah)]
-        [PopulationEstimate(3800000)] //3.8 million
+        [NumberOfMembers(3400000)] //3.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         PalestineWestBank,
 
         [UnitedNationsMembership(1945, 11, 13)]
         [Capital((int)WorldCities.PanamaPanamaCity)]
         [LargestCity((int)WorldCities.PanamaPanamaCity)]
-        [PopulationEstimate(4300000)] //4.3 million
+        [NumberOfMembers(4100000)] //4.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Panama,
 
         [UnitedNationsMembership(1975, 10, 10)]
         [Capital((int)WorldCities.PapuaNewGuineaPortMoresby)]
         [LargestCity((int)WorldCities.PapuaNewGuineaPortMoresby)]
-        [PopulationEstimate(9200000)] //9.2 million
+        [NumberOfMembers(10800000)] //10.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         PapuaNewGuinea,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.ParaguayAsunción)]
         [LargestCity((int)WorldCities.ParaguayAsunción)]
-        [PopulationEstimate(7300000)] //7.3 million
+        [NumberOfMembers(6200000)] //6.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Paraguay,
 
         [UnitedNationsMembership(1945, 10, 31)]
         [Capital((int)WorldCities.PeruLima)]
         [LargestCity((int)WorldCities.PeruLima)]
-        [PopulationEstimate(33000000)] //33 million
+        [NumberOfMembers(34400000)] //34.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Peru,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.PhilippinesManila)]
         [LargestCity((int)WorldCities.PhilippinesQuezonCity)]
-        [PopulationEstimate(117730000)] //117.73 million
+        [NumberOfMembers(113600000)] //113.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Philippines,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.PolandWarsaw)]
         [LargestCity((int)WorldCities.PolandWarsaw)]
-        [PopulationEstimate(38000000)] //38 million
+        [NumberOfMembers(37400000)] //37.4 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         Poland,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.PortugalLisbon)]
         [LargestCity((int)WorldCities.PortugalLisbon)]
-        [PopulationEstimate(10300000)] //10.3 million
+        [NumberOfMembers(10750000)] //10.75 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithNonPaperPresident)]
         Portugal,
 
         [UnitedNationsMembership(1971, 9, 21)]
         [Capital((int)WorldCities.QatarDoha)]
         [LargestCity((int)WorldCities.QatarDoha)]
-        [PopulationEstimate(2900000)] //2.9 million
+        [NumberOfMembers(3100000)] //3.1 million
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         Qatar,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.RomaniaBucharest)]
         [LargestCity((int)WorldCities.RomaniaBucharest)]
-        [PopulationEstimate(19000000)] //19 million
+        [NumberOfMembers(19000000)] //19 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPremierPresidential)]
         Romania,
 
@@ -1420,63 +1421,63 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.RussiaMoscow)]
         [LargestCity((int)WorldCities.RussiaMoscow)]
         [FullName("Russian Federation")]
-        [PopulationEstimate(146000000)] //146 million
+        [NumberOfMembers(146000000)] //146 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Russia,
 
         [UnitedNationsMembership(1962, 9, 18)]
         [Capital((int)WorldCities.RwandaKigali)]
         [LargestCity((int)WorldCities.RwandaKigali)]
-        [PopulationEstimate(14740000)] //14.7 million
+        [NumberOfMembers(14600000)] //14.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Rwanda,
 
         [UnitedNationsMembership(1983, 9, 23)]
         [Capital((int)WorldCities.SaintKittsAndNevisBasseterre)]
         [LargestCity((int)WorldCities.SaintKittsAndNevisBasseterre)]
-        [PopulationEstimate(55229)]
+        [NumberOfMembers(47000)] //47,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         SaintKittsAndNevis,
 
         [UnitedNationsMembership(1979, 9, 18)]
         [Capital((int)WorldCities.SaintLuciaCastries)]
         [LargestCity((int)WorldCities.SaintLuciaCastries)]
-        [PopulationEstimate(191029)]
+        [NumberOfMembers(180000)] //180,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         SaintLucia,
 
         [UnitedNationsMembership(1980, 9, 16)]
         [Capital((int)WorldCities.SaintVincentAndTheGrenadinesKingstown)]
         [LargestCity((int)WorldCities.SaintVincentAndTheGrenadinesKingstown)]
-        [PopulationEstimate(112000)]
+        [NumberOfMembers(100000)] //100,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         SaintVincentAndTheGrenadines,
 
         [UnitedNationsMembership(1976, 12, 15)]
         [Capital((int)WorldCities.SamoaApia)]
         [LargestCity((int)WorldCities.SamoaApia)]
-        [PopulationEstimate(207000)]
+        [NumberOfMembers(220000)] //220,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Samoa,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.SanMarinoSanMarinoCity)]
         [LargestCity((int)WorldCities.SanMarinoSanMarinoCity)]
-        [PopulationEstimate(34000)]
+        [NumberOfMembers(34000)] //34,000
         [ExecutivePowerType(ExecutivePowerTypes.Directorial)]
         SanMarino,
 
         [UnitedNationsMembership(1975, 9, 16)]
         [Capital((int)WorldCities.SãoToméandPríncipeSãoTomé)]
         [LargestCity((int)WorldCities.SãoToméandPríncipeSãoTomé)]
-        [PopulationEstimate(247000)]
+        [NumberOfMembers(235000)] //235,000
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPremierPresidential)]
         SãoToméandPríncipe,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.SaudiArabiaRiyadh)]
         [LargestCity((int)WorldCities.SaudiArabiaJeddah)]
-        [PopulationEstimate(37757000)] //37.757 million
+        [NumberOfMembers(35300000)] //35.3 million
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         SaudiArabia,
 
@@ -1492,35 +1493,35 @@ namespace Existence.Earth.Countries
         /// </summary>
         [Capital((int)WorldCities.ScotlandEdinburgh)]
         [LargestCity((int)WorldCities.ScotlandEdinburgh)]
-        [PopulationEstimate(5490100)] //5.49 million
+        [NumberOfMembers(5550000)] //5.55 million
         [ExecutivePowerType(ExecutivePowerTypes.Dependency)]
         Scotland,
         
         [UnitedNationsMembership(1960, 9, 28)]
         [Capital((int)WorldCities.SenegalDakar)]
         [LargestCity((int)WorldCities.SenegalDakar)]
-        [PopulationEstimate(20072000)] //20.072 million
+        [NumberOfMembers(18600000)] //18.6 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPresidentParliamentary)]
         Senegal,
 
         [UnitedNationsMembership(2000, 11, 1)]
         [Capital((int)WorldCities.SerbiaBelgrade)]
         [LargestCity((int)WorldCities.SerbiaBelgrade)]
-        [PopulationEstimate(6782000)] //6.782 milllion
+        [NumberOfMembers(6600000)] //6.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Serbia,
 
         [UnitedNationsMembership(1976, 9, 21)]
         [Capital((int)WorldCities.SeychellesVictoria)]
         [LargestCity((int)WorldCities.SeychellesVictoria)]
-        [PopulationEstimate(96000)]
+        [NumberOfMembers(125000)] //125,000
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Seychelles,
 
         [UnitedNationsMembership(1961, 9, 27)]
         [Capital((int)WorldCities.SierraLeoneFreetown)]
         [LargestCity((int)WorldCities.SierraLeoneFreetown)]
-        [PopulationEstimate(9042000)] //9.042 million
+        [NumberOfMembers(8800000)] //8.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         SierraLeone,
 
@@ -1530,35 +1531,35 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1965, 9, 21)]
         [Capital((int)WorldCities.SingaporeSingapore)]
         [LargestCity((int)WorldCities.SingaporeSingapore)]
-        [PopulationEstimate(6129000)] //6.129 million
+        [NumberOfMembers(6110000)] //6.11 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Singapore,
 
         [UnitedNationsMembership(1993, 1, 19)]
         [Capital((int)WorldCities.SlovakiaBratislava)]
         [LargestCity((int)WorldCities.SlovakiaBratislava)]
-        [PopulationEstimate(5402000)] //5.402 million
+        [NumberOfMembers(5420000)] //5.42 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Slovakia,
 
         [UnitedNationsMembership(1992, 5, 22)]
         [Capital((int)WorldCities.SloveniaLjubljana)]
         [LargestCity((int)WorldCities.SloveniaLjubljana)]
-        [PopulationEstimate(2063000)] //2.063 million
+        [NumberOfMembers(2130000)] //2.13 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentaryWithPaperPresident)]
         Slovenia,
 
         [UnitedNationsMembership(1978, 9, 19)]
         [Capital((int)WorldCities.SolomanIslandsHoniara)]
         [LargestCity((int)WorldCities.SolomanIslandsHoniara)]
-        [PopulationEstimate(721000)]
+        [NumberOfMembers(840000)] //840,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         SolomonIslands,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.SomaliaMogadishu)]
         [LargestCity((int)WorldCities.SomaliaMogadishu)]
-        [PopulationEstimate(19216000)] //19.216 million
+        [NumberOfMembers(19700000)] //19.7 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Somalia,
 
@@ -1567,7 +1568,7 @@ namespace Existence.Earth.Countries
         [LegislativeCapital((int)WorldCities.SouthAfricaCapeTown)]
         [JudicialCapital((int)WorldCities.SouthAfricaBloemfontein)]
         [LargestCity((int)WorldCities.SouthAfricaJohannesburg)]
-        [PopulationEstimate(62781000)] //62.781 million
+        [NumberOfMembers(63100000)] //63.1 million
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         SouthAfrica,
 
@@ -1575,42 +1576,42 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.SouthKoreaSeoul)]
         [LargestCity((int)WorldCities.SouthKoreaSeoul)]
         [FullName("Republic of Korea")]
-        [PopulationEstimate(52789000)] //52.789 million
+        [NumberOfMembers(51700000)] //51.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         SouthKorea,
 
         [UnitedNationsMembership(2011, 7, 14)]
         [Capital((int)WorldCities.SouthSudanJuba)]
         [LargestCity((int)WorldCities.SouthSudanJuba)]
-        [PopulationEstimate(15761000)] //15.761 million
+        [NumberOfMembers(12200000)] //12.2 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         SouthSudan,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.SpainMadrid)]
         [LargestCity((int)WorldCities.SpainMadrid)]
-        [PopulationEstimate(46324000)] //46.324 million
+        [NumberOfMembers(49400000)] //49.4 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Spain,
 
         [UnitedNationsMembership(1955, 12, 14)]
         [Capital((int)WorldCities.SriLankaSriJayawardenepuraKotte)]
         [LargestCity((int)WorldCities.SriLankaColombo)]
-        [PopulationEstimate(21837000)]
+        [NumberOfMembers(21800000)] //21.8 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPresidentParliamentary)]
         SriLanka,
 
         [UnitedNationsMembership(1956, 11, 12)]
         [Capital((int)WorldCities.SudanKhartoum)]
         [LargestCity((int)WorldCities.SudanKhartoum)]
-        [PopulationEstimate(50141000)] //50.141 million
+        [NumberOfMembers(51700000)] //51.7 million
         [ExecutivePowerType(ExecutivePowerTypes.MilitaryJunta)]
         Sudan,
 
         [UnitedNationsMembership(1975, 12, 4)]
         [Capital((int)WorldCities.SurinameParamaribo)]
         [LargestCity((int)WorldCities.SurinameParamaribo)]
-        [PopulationEstimate(603000)]
+        [NumberOfMembers(640000)] //640,000
         [ExecutivePowerType(ExecutivePowerTypes.ParliamentElectedPresident)]
         Suriname,
 
@@ -1620,21 +1621,21 @@ namespace Existence.Earth.Countries
         [RoyalCapital((int)WorldCities.SwazilandLobamba)]
         [LargestCity((int)WorldCities.SwazilandManzini)]
         [LocalName("Eswatini")]
-        [PopulationEstimate(1578000)] //1.578 million
+        [NumberOfMembers(1240000)] //1.24 million
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         Swaziland,
 
         [UnitedNationsMembership(1946, 11, 19)]
         [Capital((int)WorldCities.SwedenStockholm)]
         [LargestCity((int)WorldCities.SwedenStockholm)]
-        [PopulationEstimate(10586000)] //10.586 million
+        [NumberOfMembers(10600000)] //10.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Sweden,
 
         [UnitedNationsMembership(2002, 9, 10)]
         [Capital((int)WorldCities.SwitzerlandBern)]
         [LargestCity((int)WorldCities.SwitzerlandZurich)]
-        [PopulationEstimate(8986000)]
+        [NumberOfMembers(9050000)] //9.05 million
         [ExecutivePowerType(ExecutivePowerTypes.Directorial)]
         Switzerland,
 
@@ -1642,14 +1643,14 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.SyriaDamascus)]
         [LargestCity((int)WorldCities.SyriaDamascus)]
         [FullName("Syrian Arab Republic")]
-        [PopulationEstimate(24212000)] //24.212 million
+        [NumberOfMembers(25600000)] //25.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Syria,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.TajikistanDushanbe)]
         [LargestCity((int)WorldCities.TajikistanDushanbe)]
-        [PopulationEstimate(10530000)]
+        [NumberOfMembers(10800000)] //10.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Tajikistan,
 
@@ -1657,42 +1658,42 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.TanzaniaDodoma)]
         [LargestCity((int)WorldCities.TanzaniaDaresSalaam)]
         [FullName("United Republic of Tanzania")]
-        [PopulationEstimate(74794000)] //74.794 million
+        [NumberOfMembers(70500000)] //70.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Tanzania,
 
         [UnitedNationsMembership(1946, 12, 15)]
         [Capital((int)WorldCities.ThailandBangkok)]
         [LargestCity((int)WorldCities.ThailandBangkok)]
-        [PopulationEstimate(71950000)] //71.95 million
+        [NumberOfMembers(71600000)] //71.6 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Thailand,
 
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.TogoLomé)]
         [LargestCity((int)WorldCities.TogoLomé)]
-        [PopulationEstimate(9625000)] //9.625 million
+        [NumberOfMembers(9700000)] //9.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Togo,
 
         [UnitedNationsMembership(1999, 9, 14)]
         [Capital((int)WorldCities.TongaNukualofa)]
         [LargestCity((int)WorldCities.TongaNukualofa)]
-        [PopulationEstimate(117000)]
+        [NumberOfMembers(104000)] //104,000
         [ExecutivePowerType(ExecutivePowerTypes.ExecutiveMonarchy)]
         Tonga,
 
         [UnitedNationsMembership(1962, 9, 18)]
         [Capital((int)WorldCities.TrinidadAndTobagoPortofSpain)]
         [LargestCity((int)WorldCities.TrinidadAndTobagoSanFernando)]
-        [PopulationEstimate(1380000)]
+        [NumberOfMembers(1370000)] //1.37 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         TrinidadAndTobago,
 
         [UnitedNationsMembership(1956, 11, 12)]
         [Capital((int)WorldCities.TunisiaTunis)]
         [LargestCity((int)WorldCities.TunisiaTunis)]
-        [PopulationEstimate(12523000)]
+        [NumberOfMembers(12000000)] //12 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Tunisia,
 
@@ -1700,42 +1701,42 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.TurkeyAnkara)]
         [LargestCity((int)WorldCities.TurkeyIstanbul)]
         [LocalName("Türkiye")]
-        [PopulationEstimate(86538000)] //86.538 million
+        [NumberOfMembers(85700000)] //85.7 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Turkey,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.TurkmenistanAshgabat)]
         [LargestCity((int)WorldCities.TurkmenistanAshgabat)]
-        [PopulationEstimate(6502000)]
+        [NumberOfMembers(7100000)] //7.1 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Turkmenistan,
 
         [UnitedNationsMembership(2000, 9, 5)]
         [Capital((int)WorldCities.TuvaluFunafuti)]
         [LargestCity((int)WorldCities.TuvaluFunafuti)]
-        [PopulationEstimate(12000)]
+        [NumberOfMembers(10000)] //10,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Tuvalu,
 
         [UnitedNationsMembership(1962, 10, 25)]
         [Capital((int)WorldCities.UgandaKampala)]
         [LargestCity((int)WorldCities.UgandaKampala)]
-        [PopulationEstimate(56769000)] //56.769 million
+        [NumberOfMembers(47000000)] //47 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Uganda,
 
         [UnitedNationsMembership(1945, 10, 24)]
         [Capital((int)WorldCities.UkraineKiev)]
         [LargestCity((int)WorldCities.UkraineKiev)]
-        [PopulationEstimate(42472000)]
+        [NumberOfMembers(35000000)] //35 million
         [ExecutivePowerType(ExecutivePowerTypes.SemiPresidentialPremierPresidential)]
         Ukraine,
 
         [UnitedNationsMembership(1971, 12, 9)]
         [Capital((int)WorldCities.UnitedArabEmiratesAbuDhabi)]
         [LargestCity((int)WorldCities.UnitedArabEmiratesDubai)]
-        [PopulationEstimate(10560000)] //10.560 million
+        [NumberOfMembers(11000000)] //11 million
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         UnitedArabEmirates,
 
@@ -1743,7 +1744,7 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.EnglandLondon)]
         [LargestCity((int)WorldCities.EnglandLondon)]
         [FullName("United Kingdom of Great Britain and Northern Ireland")]
-        [PopulationEstimate(69111000)] //69.111 million
+        [NumberOfMembers(69300000)] //69.3 million
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         UnitedKingdom,
 
@@ -1751,28 +1752,28 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.UnitedStatesWashingtonDC)]
         [LargestCity((int)WorldCities.UnitedStatesNewYorkCity)]
         [FullName("United States of America")]
-        [PopulationEstimate(341145670)]
+        [NumberOfMembers(341800000)] //341.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         UnitedStates,
 
         [UnitedNationsMembership(1945, 12, 18)]
         [Capital((int)WorldCities.UruguayMontevideo)]
         [LargestCity((int)WorldCities.UruguayMontevideo)]
-        [PopulationEstimate(3559000)] //3.559 million
+        [NumberOfMembers(3450000)] //3.45 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Uruguay,
 
         [UnitedNationsMembership(1992, 3, 2)]
         [Capital((int)WorldCities.UzbekistanTashkent)]
         [LargestCity((int)WorldCities.UzbekistanTashkent)]
-        [PopulationEstimate(35311000)] //35.311 million
+        [NumberOfMembers(38000000)] //38 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Uzbekistan,
 
         [UnitedNationsMembership(1981, 9, 15)]
         [Capital((int)WorldCities.VanuatuPortVila)]
         [LargestCity((int)WorldCities.VanuatuPortVila)]
-        [PopulationEstimate(330000)]
+        [NumberOfMembers(330000)] //330,000
         [ExecutivePowerType(ExecutivePowerTypes.Parliamentary)]
         Vanuatu,
 
@@ -1781,7 +1782,7 @@ namespace Existence.Earth.Countries
         /// gained all rights of full UN membership except voting on 2004-07-01
         /// </summary>
         [UnitedNationsMembership(1964, 4, 6)]
-        [PopulationEstimate(764)]
+        [NumberOfMembers(880)] //880
         [FullName("Holy See")]
         [ExecutivePowerType(ExecutivePowerTypes.AbsoluteMonarchy)]
         VaticanCity,
@@ -1790,14 +1791,14 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.VenezuelaCaracas)]
         [LargestCity((int)WorldCities.VenezuelaCaracas)]
         [FullName("Bolivarian Republic of Venezuela")]
-        [PopulationEstimate(35396000)] //35.396 million
+        [NumberOfMembers(28500000)] //28.5 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Venezuela,
 
         [UnitedNationsMembership(1977, 9, 20)]
         [Capital((int)WorldCities.VietnamHanoi)]
         [LargestCity((int)WorldCities.VietnamHoChiMinhCity)]
-        [PopulationEstimate(100918000)] //100.918 million
+        [NumberOfMembers(101600000)] //101.6 million
         [ExecutivePowerType(ExecutivePowerTypes.OnePartyState)]
         Vietnam,
 
@@ -1808,7 +1809,7 @@ namespace Existence.Earth.Countries
         [Capital((int)WorldCities.YemenSanaa)]
         [DeFactoCapital((int)WorldCities.YemenAden)]
         [LargestCity((int)WorldCities.YemenSanaa)]
-        [PopulationEstimate(34218000)] //34.218 million
+        [NumberOfMembers(41800000)] //41.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Directorial)]
         Yemen,
 
@@ -1817,21 +1818,21 @@ namespace Existence.Earth.Countries
         [UnitedNationsMembership(1960, 9, 20)]
         [Capital((int)WorldCities.ZaireKinshasa)]
         [LargestCity((int)WorldCities.ZaireKinshasa)]
-        [PopulationEstimate(107343000)] //107.343 million
+        [NumberOfMembers(112800000)] //112.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Zaire,
 
         [UnitedNationsMembership(1964, 12, 1)]
         [Capital((int)WorldCities.ZambiaLusaka)]
         [LargestCity((int)WorldCities.ZambiaLusaka)]
-        [PopulationEstimate(22219000)] //22.219 million
+        [NumberOfMembers(21900000)] //21.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Presidential)]
         Zambia,
 
         [UnitedNationsMembership(1980, 8, 25)]
         [Capital((int)WorldCities.ZimbabweHarare)]
         [LargestCity((int)WorldCities.ZimbabweHarare)]
-        [PopulationEstimate(19956000)] //19.956 million
+        [NumberOfMembers(16900000)] //16.9 million
         [ExecutivePowerType(ExecutivePowerTypes.Autocracy)]
         Zimbabwe,
     }
