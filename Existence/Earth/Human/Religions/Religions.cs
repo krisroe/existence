@@ -22,6 +22,13 @@ namespace Existence.Earth.Religions
         }
     }
 
+    /// <summary>
+    /// no conversions into the religion, only born into it. If you leave, there's no way back in.
+    /// </summary>
+    public class ClosedReligion : Attribute
+    {
+    }
+
     public class ThePope
     {
         /// <summary>
@@ -76,7 +83,7 @@ namespace Existence.Earth.Religions
     public enum WorldReligions
     {
         /// <summary>
-        /// collective of christianity, islam, judaism, samaritanism
+        /// collective of christianity, islam, judaism, samaritanism, druze
         /// </summary>
         Abrahamic,
 
@@ -112,7 +119,10 @@ namespace Existence.Earth.Religions
         [NumberOfFollowers(25000000, 30000000)] //25-30 million
         [Calendar(Calendars.Nanakshahi)]
         Sikhism,
-
+        
+        /// <summary>
+        /// accepts converts but doesn't seek them out
+        /// </summary>
         [AbrahamicReligion]
         [NumberOfFollowers(15000000, 16000000)] //14-15 million
         [Calendar(Calendars.Hebrew)]
@@ -129,21 +139,43 @@ namespace Existence.Earth.Religions
 
         [NumberOfFollowers(5000000, 8000000)] //5-8 million
         [Calendar(Calendars.Baháʼí)]
+        [AbrahamicReligion]
         Baháʼí,
 
         [NumberOfFollowers(4000000, 6000000)] //4-6 million
         [Calendar(Calendars.Jain)]
         Jainism,
 
+        /// <summary>
+        /// Origin: it began around 1017 CE in Fatimid Egypt as an offshoot of Ismaili Shia Islam. Today most Druze, and many 
+        /// scholars, consider it a separate religion rather than a branch of Islam.
+        /// Name: Druze call themselves al-Muwahhidun, “the monotheists” or “the unitarians.”
+        /// Beliefs: strict monotheism, mixed with Neoplatonic and Gnostic ideas and a belief in reincarnation. Most of the 
+        /// religion’s teachings are kept secret: only initiated members (the ʿuqqal) can read the scriptures.
+        /// Druze revere Jethro (Shu’ayb) as their most important prophet, along with Abraham, Moses, Jesus and Muhammad.
+        /// </summary>
+        [NumberOfFollowers(1000000, 1500000)] //1-1.5 million
+        [AbrahamicReligion]
+        [ClosedReligion()]
+        Druze,
+
         [NumberOfFollowers(700000, 1000000)] //700,000-1 million
+        [ClosedReligion()]
         Yazidism,
 
+        /// <summary>
+        /// Subgroup: Parsi Zoastrian
+        /// Under a long-standing Indian legal tradition, a Parsi man’s children by a non-Parsi wife can be Parsi, but a Parsi 
+        /// woman’s children by a non-Parsi husband can’t. Women who marry out have sometimes been barred from fire temples 
+        /// and from funeral rites, which the Indian Supreme Court took up in 2017.
+        /// </summary>
         [NumberOfFollowers(110000, 200000)]
         [Calendar(Calendars.Zoroastrian)]
         Zoroastrianism,
 
         [NumberOfFollowers(60000, 100000)]
         [Calendar(Calendars.Mandaean)]
+        [ClosedReligion()]
         Mandaeism,
 
         [AbrahamicReligion]
