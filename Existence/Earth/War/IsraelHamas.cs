@@ -2368,7 +2368,7 @@ namespace Existence.Earth.War
                     HostageList.LevyNaama)]
                 public static class January25 { }
 
-                [Number(8)]
+                [Number(3)]
                 [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
                 [Hostages(HostageList.YehoudArbel,
                     HostageList.BergerAgam,
