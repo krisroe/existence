@@ -19,14 +19,21 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
-    public class FavoriteNumberRangeAttribute : Attribute
+    public class FavoriteNumberRangeAttribute : SingularObjectAttribute
     {
+        public int Ordinal { get; set; }
         public int Low { get; set; }
         public int High { get; set; }
-        public FavoriteNumberRangeAttribute(int Low, int High)
+        public FavoriteNumberRangeAttribute(int Ordinal, int Low, int High)
         {
+            this.Ordinal = Ordinal;
             this.Low = Low;
             this.High = High;
+        }
+        public FavoriteNumberRangeAttribute(int Ordinal, int ExactValue)
+        {
+            this.Ordinal = Ordinal;
+            this.Low = this.High = ExactValue;
         }
     }
 
@@ -49,6 +56,16 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
+    public class FavoriteNumbersAttribute : Attribute
+    {
+        public int[] FavoriteNumbers { get; set; }
+
+        public FavoriteNumbersAttribute(params int[] FavoriteNumbers)
+        {
+            this.FavoriteNumbers = FavoriteNumbers;
+        }
+    }
+
     public class SecondFavoriteNumberAttribute : NumberAttribute
     {
         public int SecondFavoriteNumber
@@ -63,6 +80,25 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
             }
         }
         public SecondFavoriteNumberAttribute(int SecondFavoriteNumber) : base(SecondFavoriteNumber)
+        {
+
+        }
+    }
+
+    public class ThirdFavoriteNumberAttribute : NumberAttribute
+    {
+        public int ThirdFavoriteNumber
+        {
+            get
+            {
+                return base.Number;
+            }
+            set
+            {
+                base.Number = value;
+            }
+        }
+        public ThirdFavoriteNumberAttribute(int ThirdFavoriteNumber) : base(ThirdFavoriteNumber)
         {
 
         }

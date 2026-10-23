@@ -8,6 +8,7 @@ using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human;
 using Existence.Earth.Human.People;
+using Existence.Earth.Human.Personal;
 using Existence.Earth.Human.Politics;
 using Existence.Earth.Religions;
 using Existence.Earth.Time;
@@ -126,6 +127,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(6, 0, 0, 0)]
             [YearDate(2026, 10, 22)]
             FixTestPetHouseUnitTest,
+
+            [BeyondObjectVersion(7, 0, 0, 0)]
+            [YearDate(2026, 10, 23)]
+            FourFavoriteNumbersAndNoTattoosForSelf,
         }
 
         /// <summary>
@@ -141,8 +146,7 @@ namespace Existence.Beyond.Timeless
         [Archetypes(Archetypes.Programmer)]
         [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
         [FavoriteColor(KnownColor.Transparent)]
-        [FavoriteNumber(24865)]
-        [SecondFavoriteNumber(4)]
+        [FavoriteNumbers(24865, 4, 22, 9501)]
         [Sex(Sexes.Male)]
         [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)ChristianDenominations.LutheranELCA)]
         [BirthDatePrecise(1980, 12, 6, 12, 53)]
@@ -150,6 +154,7 @@ namespace Existence.Beyond.Timeless
         [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]
         [HumanGender(HumanGender.Male)]
+        [HasTattoo(false)]
         public class HumanSelf
         {
             public const int YEAR_Z_DEVIATION = 2024;
@@ -470,8 +475,10 @@ namespace Existence.Beyond.Timeless
         [Archetypes(Archetypes.Programmer)]
         [FavoriteColor(KnownColor.Transparent)]
         [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
-        [FavoriteNumberRange(20000, 29999)]
+        [FavoriteNumberRange(1, 20000, 29999)]
         [SecondFavoriteNumber(4)]
+        [ThirdFavoriteNumber(22)]
+        [FavoriteNumberRange(4, 9000, 9999)]
         [Sex(Sexes.Male)]
         [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)WorldReligions.Christianity)]
         [HumanGender(HumanGender.Male)]
