@@ -2,6 +2,7 @@
 using Existence.Earth.War;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Existence.Tests
@@ -33,6 +34,46 @@ namespace Existence.Tests
         {
             int iTotalsChecked = ValidateTotalAttributes(typeof(IsraelHamasHostages));
             Assert.IsTrue(iTotalsChecked > 0, "no Total attributes found under IsraelHamasHostages");
+        }
+
+        /// <summary>
+        /// validates that the Total attribute on each IsraeliHamasHostageAgreement value matches the sum of the hostage outcome
+        /// Number attributes under the classes marked with that agreement (an agreement may span several classes)
+        /// </summary>
+        [TestMethod]
+        public void ValidateHostageAgreementTotals()
+        {
+            Dictionary<IsraeliHamasHostageAgreement, int> agreementCounts = new Dictionary<IsraeliHamasHostageAgreement, int>();
+            SumAgreementOutcomes(typeof(IsraelHamasHostages), agreementCounts);
+            foreach (IsraeliHamasHostageAgreement agreement in Enum.GetValues<IsraeliHamasHostageAgreement>())
+            {
+                TotalAttribute? total = typeof(IsraeliHamasHostageAgreement).GetField(agreement.ToString())!.GetCustomAttribute<TotalAttribute>();
+                Assert.IsNotNull(total, $"{agreement} has no Total attribute");
+                agreementCounts.TryGetValue(agreement, out int iOutcomeCount);
+                Assert.AreEqual(total.Number, iOutcomeCount, $"Total attribute on {agreement} does not match the sum of the hostage outcome Number attributes for that agreement");
+            }
+        }
+
+        /// <summary>
+        /// recursively sums the hostage outcome Number attributes under classes marked with an IsraeliHamasHostageAgreement attribute
+        /// </summary>
+        /// <param name="t">type whose nested types are searched</param>
+        /// <param name="agreementCounts">running sum of outcome Number attributes per agreement</param>
+        private static void SumAgreementOutcomes(Type t, Dictionary<IsraeliHamasHostageAgreement, int> agreementCounts)
+        {
+            foreach (Type tNested in t.GetNestedTypes(BindingFlags.Public))
+            {
+                IsraeliHamasHostageAgreementAttribute? agreement = tNested.GetCustomAttribute<IsraeliHamasHostageAgreementAttribute>(false);
+                if (agreement != null)
+                {
+                    agreementCounts.TryGetValue(agreement.Agreement, out int iCount);
+                    agreementCounts[agreement.Agreement] = iCount + SumNumberAttributes(tNested);
+                }
+                else
+                {
+                    SumAgreementOutcomes(tNested, agreementCounts);
+                }
+            }
         }
 
         /// <summary>
