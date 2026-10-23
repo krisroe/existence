@@ -126,7 +126,7 @@ namespace Existence.Earth.War
         /// Informal efforts by Thailand to release farm worker hostages separate from Israeli-Hamas negotiations. One Filipino hostage
         /// possibly included in the agreement but not publicly known (not treated as part of the agreement here)
         /// </summary>
-        [Total(30)]
+        [Total(23)]
         [Countries(CountryLikeThings.Thailand, CountryLikeThings.PalestineGaza)]
         November2023HostageReleaseAgreementThailand,
 
