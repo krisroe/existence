@@ -24,41 +24,21 @@ namespace Existence.Earth.Human.EthnicGroups
     /// ethnic groups separate from country or religion based ethnic groups
     /// 
     /// e.g.
-    /// Azerbaijani isn't here because Azerbaijan is a country (even though there are more Azerbaijanis in Iran) (~35 million)
     /// Somali isn't here because Somalia is a country (~25 million): Somalia, Ethiopia, Kenya, Djibouti
     /// Bengali isn't here because Bangledesh is a country (~280 million): Bangladesh, India (West Bengal)
     /// 
     /// </summary>
     public enum WorldEthnicGroups
     {
-        [NumberOfMembers(400000000, 450000000)] //400-450 million
-        Arab,
-
-        /// <summary>
-        /// Kurdistan is not a country - it is split between Turkey, Iraq, Iran, and Syria
-        /// </summary>
-        [NumberOfMembers(30000000, 45000000)] //30-45 million
-        Kurd,
-
-        /// <summary>
-        /// Amazigh
-        /// Estimates vary widely because many North Africans of Berber descent now identify as Arab
-        /// </summary>
-        [NumberOfMembers(25000000, 40000000)] //25-40 million
-        Berber,
-
-        /// <summary>
-        /// Estimates vary widely depending on whether settled descendants of nomadic Bedouin are counted
-        /// </summary>
-        [NumberOfMembers(5000000, 25000000)] //5-25 million
-        Bedouin,
-
         /// <summary>
         /// China, Taiwan, Singapore, worldwide diaspora. Largest ethnic group in the world.
         /// Not the same as Chinese nationality, since China officially recognizes 56 ethnic groups.
         /// </summary>
         [NumberOfMembers(1350000000, 1400000000)] //1.35-1.4 billion
         Han,
+
+        [NumberOfMembers(400000000, 450000000)] //400-450 million
+        Arab,
 
         /// <summary>
         /// Pakistan and India
@@ -97,6 +77,13 @@ namespace Existence.Earth.Human.EthnicGroups
         Hausa,
 
         /// <summary>
+        /// Fula/Peul
+        /// Spread across the Sahel and West Africa, from Senegal to Sudan
+        /// </summary>
+        [NumberOfMembers(40000000, 70000000)] //40-70 million
+        Fulani,
+
+        /// <summary>
         /// India, with diaspora in East Africa, the United Kingdom, and the United States
         /// </summary>
         [NumberOfMembers(55000000, 65000000)] //55-65 million
@@ -109,17 +96,20 @@ namespace Existence.Earth.Human.EthnicGroups
         Pashtun,
 
         /// <summary>
+        /// Iran (about half its population), plus a diaspora of a few million, largest in the United States
+        /// Not the same as Iranian nationality: many Iranians are Azerbaijani, Kurd, Lur, Arab, Baloch, etc.
+        /// Persian-speaking Tajiks and Hazaras in Afghanistan and Tajikistan are separate ethnic groups.
+        /// Included even though "Persia" was the Western name for Iran until 1935, since no country is named
+        /// Persia today.
+        /// </summary>
+        [NumberOfMembers(45000000, 60000000)] //45-60 million
+        Persian,
+
+        /// <summary>
         /// Nigeria, Benin, Togo
         /// </summary>
         [NumberOfMembers(45000000, 55000000)] //45-55 million
         Yoruba,
-
-        /// <summary>
-        /// Fula/Peul
-        /// Spread across the Sahel and West Africa, from Senegal to Sudan
-        /// </summary>
-        [NumberOfMembers(40000000, 70000000)] //40-70 million
-        Fulani,
 
         /// <summary>
         /// Nigeria
@@ -140,10 +130,23 @@ namespace Existence.Earth.Human.EthnicGroups
         Sundanese,
 
         /// <summary>
+        /// Kurdistan is not a country - it is split between Turkey, Iraq, Iran, and Syria
+        /// </summary>
+        [NumberOfMembers(30000000, 45000000)] //30-45 million
+        Kurd,
+
+        /// <summary>
         /// India (Kerala), Gulf states
         /// </summary>
         [NumberOfMembers(35000000, 40000000)] //35-40 million
         Malayali,
+
+        /// <summary>
+        /// Amazigh
+        /// Estimates vary widely because many North Africans of Berber descent now identify as Arab
+        /// </summary>
+        [NumberOfMembers(25000000, 40000000)] //25-40 million
+        Berber,
 
         /// <summary>
         /// Ethiopia
@@ -152,10 +155,23 @@ namespace Existence.Earth.Human.EthnicGroups
         Amhara,
 
         /// <summary>
+        /// Iran (the northwest, and a large share of Tehran) and Azerbaijan, plus Russia, Turkey, and Georgia
+        /// Included even though Azerbaijan is a country, because more Azerbaijanis live in Iran than in Azerbaijan.
+        /// </summary>
+        [NumberOfMembers(25000000, 35000000)] //25-35 million
+        Azerbaijani,
+
+        /// <summary>
         /// Ghana, Ivory Coast
         /// </summary>
         [NumberOfMembers(20000000, 25000000)] //20-25 million
         Akan,
+
+        /// <summary>
+        /// Estimates vary widely depending on whether settled descendants of nomadic Bedouin are counted
+        /// </summary>
+        [NumberOfMembers(5000000, 25000000)] //5-25 million
+        Bedouin,
 
         /// <summary>
         /// China (its largest ethnic minority)
@@ -170,6 +186,12 @@ namespace Existence.Earth.Human.EthnicGroups
         Zulu,
 
         /// <summary>
+        /// Pakistan, Iran, Afghanistan
+        /// </summary>
+        [NumberOfMembers(10000000, 15000000)] //10-15 million
+        Baloch,
+
+        /// <summary>
         /// China (Xinjiang), Central Asia
         /// </summary>
         [NumberOfMembers(12000000, 13000000)] //12-13 million
@@ -182,12 +204,6 @@ namespace Existence.Earth.Human.EthnicGroups
         /// </summary>
         [NumberOfMembers(11000000, 12000000)] //11-12 million
         Hui,
-
-        /// <summary>
-        /// Pakistan, Iran, Afghanistan
-        /// </summary>
-        [NumberOfMembers(10000000, 15000000)] //10-15 million
-        Baloch,
 
         /// <summary>
         /// Across Europe, with no homeland state

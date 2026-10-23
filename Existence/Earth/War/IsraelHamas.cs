@@ -3017,6 +3017,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Iranian nuclear scientist
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     AbbasiFereydoon,
@@ -3369,6 +3370,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Supreme Leader of Iran
     /// </summary>
+    [EthnicGroups(WorldEthnicGroups.Azerbaijani, WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     KhameneiAli,
@@ -3383,6 +3385,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Iranian Minister of Intelligence
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 18)]
     KhatibEsmaeil,
@@ -3475,6 +3478,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Quds Force commander in Lebanon
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 27)]
     NilforoushanAbbas,
@@ -3589,6 +3593,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander-in-Chief of the IRGC
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     SalamiHossein,
@@ -3718,6 +3723,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the IRGC Navy
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranBandarAbbas)]
     [DeathDate(2026, 3, 26)]
     TangsiriAlireza,
@@ -3748,6 +3754,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Quds Force commander in Lebanon and Syria
     /// </summary>
+    [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaDamascus)]
     [DeathDate(2024, 4, 1)]
     ZahediMohammadReza,
