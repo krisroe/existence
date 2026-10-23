@@ -15,13 +15,25 @@ namespace Existence.Tests
     public class IsraeliHamasHostagesTest
     {
         /// <summary>
+        /// validates the number of entries in the hostages enum matches the expected total
+        /// </summary>
+        [TestMethod]
+        public void ValidateCorrectNumberOfHostages()
+        {
+            int iHostageCount = GetHostagesEnumValueCount();
+            TotalAttribute? totalAttribute = typeof(HostageList).GetCustomAttribute<TotalAttribute>();
+            Assert.IsNotNull(totalAttribute, "HostageList has no Total attribute");
+            Assert.AreEqual(totalAttribute.Number, iHostageCount, "Total attribute on HostageList does not match the number of HostageList values");
+        }
+
+        /// <summary>
         /// validates that the Number attributes across the IsraelHamasHostages class structure
         /// add up to the number of values in the HostageList enumeration
         /// </summary>
         [TestMethod]
         public void ValidateHostagesEnumAgainstHostageOutcomes()
         {
-            int iHostageCount = Enum.GetValues<HostageList>().Length;
+            int iHostageCount = GetHostagesEnumValueCount();
             int iOutcomeCount = SumNumberAttributes(typeof(IsraelHamasHostages));
             Assert.AreEqual(iHostageCount, iOutcomeCount, "sum of Number attributes under IsraelHamasHostages does not match the HostageList count");
         }
@@ -197,6 +209,15 @@ namespace Existence.Tests
                 iCount += SumNumberAttributes(tNested);
             }
             return iCount;
+        }
+
+        /// <summary>
+        /// Gets the number of values defined in the HostageList enumeration.
+        /// </summary>
+        /// <returns>The count of HostageList enumeration values.</returns>
+        private static int GetHostagesEnumValueCount()
+        {
+            return Enum.GetValues<HostageList>().Length;
         }
     }
 }
