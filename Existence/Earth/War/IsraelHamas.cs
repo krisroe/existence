@@ -123,8 +123,8 @@ namespace Existence.Earth.War
         November2023HostageReleaseAgreementIsrael,
 
         /// <summary>
-        /// Informal efforts by Thailad to release farm worker hostages separate from Israeli-Hamas negotiations. One Filipino hostage
-        /// possibly included in the agreement but not publicly not and does not appear in the total.
+        /// Informal efforts by Thailand to release farm worker hostages separate from Israeli-Hamas negotiations. One Filipino hostage
+        /// possibly included in the agreement but not publicly known (not treated as part of the agreement here)
         /// </summary>
         [Total(30)]
         [Countries(CountryLikeThings.Thailand, CountryLikeThings.PalestineGaza)]
@@ -2095,23 +2095,24 @@ namespace Existence.Earth.War
                 public static class November24A { }
             }
 
-            /// <summary>
-            /// not part of the November 2023 agreement (Thai and Filipino nationals released through separate negotiations)
-            /// </summary>
-            [Number(10)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
-            [Hostages(
-                HostageList.MunkanNattawaree,
-                HostageList.BoonpromSanti,
-                HostageList.KalapratVichai,
-                HostageList.KongmaneeBancha,
-                HostageList.PankhongBoonthom,
-                HostageList.PhachuabboonMongkol,
-                HostageList.PhoomeVetoon,
-                HostageList.SaengboonBuddhee,
-                HostageList.SaengnuanUthai,
-                HostageList.ToonsriUthai)]
-            public static class November24B { }
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand)]
+            public static class November2023HostageReleaseAgreementThailandA
+            {
+                [Number(10)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+                [Hostages(
+                    HostageList.MunkanNattawaree,
+                    HostageList.BoonpromSanti,
+                    HostageList.KalapratVichai,
+                    HostageList.KongmaneeBancha,
+                    HostageList.PankhongBoonthom,
+                    HostageList.PhachuabboonMongkol,
+                    HostageList.PhoomeVetoon,
+                    HostageList.SaengboonBuddhee,
+                    HostageList.SaengnuanUthai,
+                    HostageList.ToonsriUthai)]
+                public static class November24B { }
+            }
 
             /// <summary>
             /// may or may not have been associated with the Thai informal agreement
@@ -2143,17 +2144,18 @@ namespace Existence.Earth.War
                 public static class November25A { }
             }
 
-            /// <summary>
-            /// not part of the November 2023 agreement (Thai nationals released through separate negotiations)
-            /// </summary>
-            [Number(4)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
-            [Hostages(
-                HostageList.AngkaewAnucha,
-                HostageList.ChombuaKomkrit,
-                HostageList.JirachartManee,
-                HostageList.OnkaewNatthaporn)]
-            public static class November25B { }
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand)]
+            public static class November2023HostageReleaseAgreementThailandB
+            {
+                [Number(4)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+                [Hostages(
+                    HostageList.AngkaewAnucha,
+                    HostageList.ChombuaKomkrit,
+                    HostageList.JirachartManee,
+                    HostageList.OnkaewNatthaporn)]
+                public static class November25B { }
+            }
 
             [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementC
@@ -2178,16 +2180,17 @@ namespace Existence.Earth.War
                 public static class November26A { }
             }
 
-            /// <summary>
-            /// not part of the November 2023 agreement (Thai nationals released through separate negotiations)
-            /// </summary>
-            [Number(3)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
-            [Hostages(
-                HostageList.KesoognernSurin,
-                HostageList.PinakalowPornsawan,
-                HostageList.TemthongVichian)]
-            public static class November26B { }
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand)]
+            public static class November2023HostageReleaseAgreementThailandC
+            {
+                [Number(3)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+                [Hostages(
+                    HostageList.KesoognernSurin,
+                    HostageList.PinakalowPornsawan,
+                    HostageList.TemthongVichian)]
+                public static class November26B { }
+            }
 
             [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementD
@@ -2224,15 +2227,16 @@ namespace Existence.Earth.War
                 public static class November28A { }
             }
 
-            /// <summary>
-            /// not part of the November 2023 agreement (Thai nationals released through separate negotiations)
-            /// </summary>
-            [Number(2)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
-            [Hostages(
-                HostageList.SuriyasriOwas,
-                HostageList.TornsokreePattanayut)]
-            public static class November28B { }
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand)]
+            public static class November2023HostageReleaseAgreementThailandD
+            {
+                [Number(2)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+                [Hostages(
+                    HostageList.SuriyasriOwas,
+                    HostageList.TornsokreePattanayut)]
+                public static class November28B { }
+            }
 
             [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementE
@@ -2255,17 +2259,18 @@ namespace Existence.Earth.War
                 public static class November29A { }
             }
 
-            /// <summary>
-            /// not part of the November 2023 agreement (Thai nationals released through separate negotiations)
-            /// </summary>
-            [Number(4)]
-            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
-            [Hostages(
-                HostageList.RataninPaiboon,
-                HostageList.SaelaoKong,
-                HostageList.SangkaewChalermchai,
-                HostageList.SrikeinaJakkrapan)]
-            public static class November29B { }
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand)]
+            public static class November2023HostageReleaseAgreementThailandE
+            {
+                [Number(4)]
+                [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+                [Hostages(
+                    HostageList.RataninPaiboon,
+                    HostageList.SaelaoKong,
+                    HostageList.SangkaewChalermchai,
+                    HostageList.SrikeinaJakkrapan)]
+                public static class November29B { }
+            }
 
             /// <summary>
             /// The IDF and Shin Bet announce they have recovered the body of deceased hostage in recent days
