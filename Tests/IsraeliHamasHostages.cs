@@ -25,6 +25,38 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that each Total attribute in the IsraelHamasHostages class structure (e.g. on the year classes)
+        /// matches the sum of the hostage outcome Number attributes beneath it
+        /// </summary>
+        [TestMethod]
+        public void ValidateHostageOutcomeIntermediateTotals()
+        {
+            int iTotalsChecked = ValidateTotalAttributes(typeof(IsraelHamasHostages));
+            Assert.IsTrue(iTotalsChecked > 0, "no Total attributes found under IsraelHamasHostages");
+        }
+
+        /// <summary>
+        /// recursively validates the Total attributes on the nested types of a type
+        /// </summary>
+        /// <param name="t">type whose nested types are validated</param>
+        /// <returns>number of Total attributes validated</returns>
+        private static int ValidateTotalAttributes(Type t)
+        {
+            int iTotalsChecked = 0;
+            foreach (Type tNested in t.GetNestedTypes(BindingFlags.Public))
+            {
+                TotalAttribute? total = tNested.GetCustomAttribute<TotalAttribute>(false);
+                if (total != null)
+                {
+                    Assert.AreEqual(total.Number, SumNumberAttributes(tNested), $"Total attribute on {tNested.FullName} does not match the sum of the hostage outcome Number attributes beneath it");
+                    iTotalsChecked++;
+                }
+                iTotalsChecked += ValidateTotalAttributes(tNested);
+            }
+            return iTotalsChecked;
+        }
+
+        /// <summary>
         /// recursively sums the Number attributes on the nested types of a type (years, events, sub-events),
         /// counting only types that also have a HostageOutcome attribute
         /// </summary>

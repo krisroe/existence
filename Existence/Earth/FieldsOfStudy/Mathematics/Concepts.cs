@@ -11,6 +11,14 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
     }
 
+    public class TotalAttribute : NumberAttribute
+    {
+        public TotalAttribute(int Total) : base(Total)
+        {
+
+        }
+    }
+
     public class FavoriteNumberRangeAttribute : Attribute
     {
         public int Low { get; set; }
