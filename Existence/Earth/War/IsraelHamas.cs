@@ -148,6 +148,39 @@ namespace Existence.Earth.War
     }
 
     /// <summary>
+    /// category of a military rank
+    /// </summary>
+    public enum MilitaryRankCategory
+    {
+        /// <summary>
+        /// enlisted personnel below the non-commissioned officer ranks
+        /// </summary>
+        Enlisted,
+
+        /// <summary>
+        /// non-commissioned officer
+        /// </summary>
+        NonCommissionedOfficer,
+
+        /// <summary>
+        /// commissioned officer
+        /// </summary>
+        Officer,
+    }
+
+    /// <summary>
+    /// category of a military rank (enlisted, non-commissioned officer, officer)
+    /// </summary>
+    public class MilitaryRankCategoryAttribute : Attribute
+    {
+        public MilitaryRankCategory Category { get; set; }
+        public MilitaryRankCategoryAttribute(MilitaryRankCategory Category)
+        {
+            this.Category = Category;
+        }
+    }
+
+    /// <summary>
     /// primary ranks of the Israel Defence Forces, lowest to highest; the ranks are shared by the army, navy and air force
     /// (only the insignia differ). Specialist ranks (e.g. academic officer) are not included.
     /// </summary>
@@ -155,93 +188,129 @@ namespace Existence.Earth.War
     public enum IsraelDefenceForcesRank
     {
         /// <summary>
-        /// Turai (enlisted)
+        /// Turai
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Enlisted)]
+        [Texts("Turai", "טוראי")]
         Private,
 
         /// <summary>
-        /// Rav Turai (enlisted)
+        /// Rav Turai
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Enlisted)]
+        [Texts("Rav Turai", "רב טוראי")]
         Corporal,
 
         /// <summary>
-        /// Samal (enlisted)
+        /// Samal
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Enlisted)]
+        [Texts("Samal", "סמל")]
         Sergeant,
 
         /// <summary>
-        /// Samal Rishon (enlisted)
+        /// Samal Rishon
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Enlisted)]
+        [Texts("Samal Rishon", "סמל ראשון")]
         StaffSergeant,
 
         /// <summary>
-        /// Rav Samal (non-commissioned officer)
+        /// Rav Samal
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.NonCommissionedOfficer)]
+        [Texts("Rav Samal", "רב סמל")]
         SergeantFirstClass,
 
         /// <summary>
-        /// Rav Samal Rishon (non-commissioned officer)
+        /// Rav Samal Rishon
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.NonCommissionedOfficer)]
+        [Texts("Rav Samal Rishon", "רב סמל ראשון")]
         MasterSergeant,
 
         /// <summary>
-        /// Rav Samal Mitkadem (non-commissioned officer)
+        /// Rav Samal Mitkadem
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.NonCommissionedOfficer)]
+        [Texts("Rav Samal Mitkadem", "רב סמל מתקדם")]
         SergeantMajor,
 
         /// <summary>
-        /// Rav Samal Bakhir (non-commissioned officer)
+        /// Rav Samal Bakhir
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.NonCommissionedOfficer)]
+        [Texts("Rav Samal Bakhir", "רב סמל בכיר")]
         CommandSergeantMajor,
 
         /// <summary>
-        /// Rav Nagad (non-commissioned officer)
+        /// Rav Nagad
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.NonCommissionedOfficer)]
+        [Texts("Rav Nagad", "רב נגד")]
         ChiefWarrantOfficer,
 
         /// <summary>
-        /// Segen Mishne (officer)
+        /// Segen Mishne
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Segen Mishne", "סגן משנה")]
         SecondLieutenant,
 
         /// <summary>
-        /// Segen (officer)
+        /// Segen
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Segen", "סגן")]
         Lieutenant,
 
         /// <summary>
-        /// Seren (officer)
+        /// Seren
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Seren", "סרן")]
         Captain,
 
         /// <summary>
-        /// Rav Seren (officer)
+        /// Rav Seren
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Rav Seren", "רב סרן")]
         Major,
 
         /// <summary>
-        /// Sgan Aluf (officer)
+        /// Sgan Aluf
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Sgan Aluf", "סגן אלוף")]
         LieutenantColonel,
 
         /// <summary>
-        /// Aluf Mishne (officer)
+        /// Aluf Mishne
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Aluf Mishne", "אלוף משנה")]
         Colonel,
 
         /// <summary>
-        /// Tat Aluf (officer)
+        /// Tat Aluf
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Tat Aluf", "תת אלוף")]
         BrigadierGeneral,
 
         /// <summary>
-        /// Aluf (officer)
+        /// Aluf
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Aluf", "אלוף")]
         MajorGeneral,
 
         /// <summary>
-        /// Rav Aluf (officer), held only by the Chief of the General Staff
+        /// Rav Aluf, held only by the Chief of the General Staff
         /// </summary>
+        [MilitaryRankCategory(MilitaryRankCategory.Officer)]
+        [Texts("Rav Aluf", "רב אלוף")]
         LieutenantGeneral,
     }
 
