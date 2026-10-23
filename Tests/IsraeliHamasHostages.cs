@@ -1,4 +1,5 @@
-﻿using Existence.Earth.FieldsOfStudy.Mathematics;
+﻿using Existence.Earth.Countries;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.War;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -52,6 +53,81 @@ namespace Existence.Tests
                 agreementCounts.TryGetValue(agreement, out int iOutcomeCount);
                 Assert.AreEqual(total.Number, iOutcomeCount, $"Total attribute on {agreement} does not match the sum of the hostage outcome Number attributes for that agreement");
             }
+        }
+
+        /// <summary>
+        /// validates that every hostage under the classes marked with the Thailand November 2023 agreement is a Thai national
+        /// </summary>
+        [TestMethod]
+        public void ValidateThailandAgreementHostagesAreThai()
+        {
+            List<HostageList> hostages = new List<HostageList>();
+            CollectAgreementHostages(typeof(IsraelHamasHostages), PostOctober7HostageAgreement.November2023HostageReleaseAgreementThailand, hostages);
+            Assert.IsTrue(hostages.Count > 0, "no hostages found under the November2023HostageReleaseAgreementThailand classes");
+            foreach (HostageList hostage in hostages)
+            {
+                Assert.IsTrue(GetHostageCountries(hostage).Contains(CountryLikeThings.Thailand), $"{hostage} is listed under the November2023HostageReleaseAgreementThailand classes but is not Thai");
+            }
+        }
+
+        /// <summary>
+        /// recursively collects the hostages listed under classes marked with a given agreement
+        /// </summary>
+        /// <param name="t">type whose nested types are searched</param>
+        /// <param name="agreement">agreement to collect hostages for</param>
+        /// <param name="hostages">collected hostages</param>
+        private static void CollectAgreementHostages(Type t, PostOctober7HostageAgreement agreement, List<HostageList> hostages)
+        {
+            foreach (Type tNested in t.GetNestedTypes(BindingFlags.Public))
+            {
+                IsraeliHamasHostageAgreementAttribute? agreementAttribute = tNested.GetCustomAttribute<IsraeliHamasHostageAgreementAttribute>(false);
+                if (agreementAttribute == null)
+                {
+                    CollectAgreementHostages(tNested, agreement, hostages);
+                }
+                else if (agreementAttribute.Agreement == agreement)
+                {
+                    CollectHostages(tNested, hostages);
+                }
+            }
+        }
+
+        /// <summary>
+        /// recursively collects the hostages listed in Hostages attributes on the nested types of a type
+        /// </summary>
+        /// <param name="t">type whose nested types are searched</param>
+        /// <param name="hostages">collected hostages</param>
+        private static void CollectHostages(Type t, List<HostageList> hostages)
+        {
+            foreach (Type tNested in t.GetNestedTypes(BindingFlags.Public))
+            {
+                HostagesAttribute? hostagesAttribute = tNested.GetCustomAttribute<HostagesAttribute>(false);
+                if (hostagesAttribute != null)
+                {
+                    hostages.AddRange(hostagesAttribute.Hostages);
+                }
+                CollectHostages(tNested, hostages);
+            }
+        }
+
+        /// <summary>
+        /// gets the countries of a hostage from the Country and Countries attributes on the HostageList value
+        /// </summary>
+        /// <param name="hostage">hostage</param>
+        /// <returns>countries of the hostage</returns>
+        private static HashSet<CountryLikeThings> GetHostageCountries(HostageList hostage)
+        {
+            FieldInfo field = typeof(HostageList).GetField(hostage.ToString())!;
+            HashSet<CountryLikeThings> countries = new HashSet<CountryLikeThings>();
+            foreach (CountryAttribute country in field.GetCustomAttributes<CountryAttribute>())
+            {
+                countries.Add(country.Country);
+            }
+            foreach (CountriesAttribute countriesAttribute in field.GetCustomAttributes<CountriesAttribute>())
+            {
+                countries.UnionWith(countriesAttribute.Countries);
+            }
+            return countries;
         }
 
         /// <summary>
