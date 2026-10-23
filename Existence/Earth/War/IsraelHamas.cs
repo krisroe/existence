@@ -1,4 +1,5 @@
 ﻿
+using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.EthnicGroups;
@@ -10,6 +11,11 @@ using System;
 
 namespace Existence.Earth.War
 {
+    public class HostagesConstants
+    {
+        public const string OPERATION_PROTECTIVE_EDGE = "Operation Protective Edge";
+    }
+
     public class HostagesAttribute : Attribute
     {
         public HostageList[] Hostages { get; set; }
@@ -138,14 +144,12 @@ namespace Existence.Earth.War
         [Age(5, TimePeriods.Years)]
         AloniEmelia = 5,
 
-        /// <summary>
-        /// held hostage since 2015
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(27, TimePeriods.Years)]
+        [StartYear(2015)]
         AlSayedHishamShaaban = 6,
 
         [Country(CountryLikeThings.Israel)]
@@ -712,15 +716,14 @@ namespace Existence.Earth.War
         [ExecutedByPalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
         GoldbergPolinHersh = 81,
 
-        /// <summary>
-        /// Hamas had held the body since 2014 Operation Protective Edge
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Lieutenant")]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(23, TimePeriods.Years)]
         [DeathDate(2014, 8, 1)]
+        [Text(HostagesConstants.OPERATION_PROTECTIVE_EDGE)]
+        [StartYear(2014)]
         GoldinHadar = 82,
 
         [Country(CountryLikeThings.Israel)]
@@ -1132,13 +1135,11 @@ namespace Existence.Earth.War
         [Age(21, TimePeriods.Years)]
         MeirJanAlmog = 138,
 
-        /// <summary>
-        /// held hostage since 2014
-        /// </summary>
         [Countries(CountryLikeThings.Ethiopia, CountryLikeThings.Israel)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(28, TimePeriods.Years)]
+        [StartYear(2014)]
         MengistuAvera = 139,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
@@ -1584,15 +1585,14 @@ namespace Existence.Earth.War
         [DeathDate(2024, 1, 10)]
         SharabiYossi = 202,
 
-        /// <summary>
-        /// Hamas had held the body since 2014 Operation Protective Edge
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [IsraelDefenceForcesSoldier("Staff Sergeant")]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
         [DeathDate(2014, 7, 20)]
+        [StartYear(2014)]
+        [Text(HostagesConstants.OPERATION_PROTECTIVE_EDGE)]
         ShaulOron = 203,
 
         [Country(CountryLikeThings.Israel)]
@@ -1987,6 +1987,12 @@ namespace Existence.Earth.War
     {
         public static class v2023
         {
+            [Hostages(
+                HostageList.ShaulOron,
+                HostageList.GoldinHadar,
+                HostageList.MengistuAvera,
+                HostageList.AlSayedHishamShaaban)]
+            [Number(4)]
             public static class PriorToOctober7 { }
 
             [Hostages(HostageList.RaananJudith, HostageList.RaananNatalie)]
