@@ -2,8 +2,7 @@ using System;
 
 namespace Existence.Earth.Human.EthnicGroups
 {
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class EthnicGroupAttribute : Attribute
+    public class EthnicGroupAttribute : SingularObjectAttribute
     {
         public WorldEthnicGroups EthnicGroup { get; set; }
         public EthnicGroupAttribute(WorldEthnicGroups EthnicGroup)

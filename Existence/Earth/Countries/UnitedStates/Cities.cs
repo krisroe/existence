@@ -2,8 +2,7 @@
 
 namespace Existence.Earth.Countries.UnitedStates
 {
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class USCityAttribute : Attribute
+    public class USCityAttribute : SingularObjectAttribute
     {
         public USCities City { get; set; }
         public USCityAttribute(USCities City)

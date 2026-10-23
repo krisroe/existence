@@ -817,8 +817,7 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class SinTypeAttribute : Attribute
+    public class SinTypeAttribute : SingularObjectAttribute
     {
         public SinType SinType { get; set; }
         public SinTypeAttribute(SinType SinType)

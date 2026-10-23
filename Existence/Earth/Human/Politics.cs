@@ -2,8 +2,7 @@
 
 namespace Existence.Earth.Human.Politics
 {
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class StateSubsidiaryAttribute : Attribute
+    public class StateSubsidiaryAttribute : SingularObjectAttribute
     {
         public int StateSubsidiary { get; set; }
         public StateSubsidiaryAttribute(int StateSubsidiary)
@@ -31,8 +30,7 @@ namespace Existence.Earth.Human.Politics
         }
     }
 
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class ProvinceAttribute : Attribute
+    public class ProvinceAttribute : SingularObjectAttribute
     {
         public int Province { get; set; }
         public ProvinceAttribute(int Province)
@@ -50,8 +48,7 @@ namespace Existence.Earth.Human.Politics
         }
     }
 
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class TerritoryAttribute : Attribute
+    public class TerritoryAttribute : SingularObjectAttribute
     {
         public int Territory { get; set; }
         public TerritoryAttribute(int Territory)
