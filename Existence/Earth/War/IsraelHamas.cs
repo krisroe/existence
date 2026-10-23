@@ -148,6 +148,104 @@ namespace Existence.Earth.War
     }
 
     /// <summary>
+    /// primary ranks of the Israel Defence Forces, lowest to highest; the ranks are shared by the army, navy and air force
+    /// (only the insignia differ). Specialist ranks (e.g. academic officer) are not included.
+    /// </summary>
+    /// <remarks>English names for the senior non-commissioned officer ranks vary between sources, the Hebrew names are noted on each value</remarks>
+    public enum IsraelDefenceForcesRank
+    {
+        /// <summary>
+        /// Turai (enlisted)
+        /// </summary>
+        Private,
+
+        /// <summary>
+        /// Rav Turai (enlisted)
+        /// </summary>
+        Corporal,
+
+        /// <summary>
+        /// Samal (enlisted)
+        /// </summary>
+        Sergeant,
+
+        /// <summary>
+        /// Samal Rishon (enlisted)
+        /// </summary>
+        StaffSergeant,
+
+        /// <summary>
+        /// Rav Samal (non-commissioned officer)
+        /// </summary>
+        SergeantFirstClass,
+
+        /// <summary>
+        /// Rav Samal Rishon (non-commissioned officer)
+        /// </summary>
+        MasterSergeant,
+
+        /// <summary>
+        /// Rav Samal Mitkadem (non-commissioned officer)
+        /// </summary>
+        SergeantMajor,
+
+        /// <summary>
+        /// Rav Samal Bakhir (non-commissioned officer)
+        /// </summary>
+        CommandSergeantMajor,
+
+        /// <summary>
+        /// Rav Nagad (non-commissioned officer)
+        /// </summary>
+        ChiefWarrantOfficer,
+
+        /// <summary>
+        /// Segen Mishne (officer)
+        /// </summary>
+        SecondLieutenant,
+
+        /// <summary>
+        /// Segen (officer)
+        /// </summary>
+        Lieutenant,
+
+        /// <summary>
+        /// Seren (officer)
+        /// </summary>
+        Captain,
+
+        /// <summary>
+        /// Rav Seren (officer)
+        /// </summary>
+        Major,
+
+        /// <summary>
+        /// Sgan Aluf (officer)
+        /// </summary>
+        LieutenantColonel,
+
+        /// <summary>
+        /// Aluf Mishne (officer)
+        /// </summary>
+        Colonel,
+
+        /// <summary>
+        /// Tat Aluf (officer)
+        /// </summary>
+        BrigadierGeneral,
+
+        /// <summary>
+        /// Aluf (officer)
+        /// </summary>
+        MajorGeneral,
+
+        /// <summary>
+        /// Rav Aluf (officer), held only by the Chief of the General Staff
+        /// </summary>
+        LieutenantGeneral,
+    }
+
+    /// <summary>
     /// https://www.israelhayom.com/2023/10/31/these-are-the-captives-held-by-hamas/
     ///
     /// short rather than byte: the 256 entries currently fill 0-255, and others who belong on this list
@@ -171,7 +269,7 @@ namespace Existence.Earth.War
         AdarYafa = 1,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
@@ -180,7 +278,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Israel)]
         [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
-        [IsraelDefenceForcesSoldier("Sergeant Major")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.SergeantMajor)]
         [HumanGender(HumanGender.Male)]
         [Age(39, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -223,14 +321,14 @@ namespace Existence.Earth.War
         AlZayadniYosef = 8,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
         AlbagLiri = 9,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -250,7 +348,7 @@ namespace Existence.Earth.War
         AngkaewAnucha = 12,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
@@ -264,7 +362,7 @@ namespace Existence.Earth.War
         ArgamaniNoa = 14,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
@@ -353,7 +451,7 @@ namespace Existence.Earth.War
         /// killed in IDF airstrike
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Corporal")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Corporal)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -381,7 +479,7 @@ namespace Existence.Earth.War
         BenjaminRon = 30,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
@@ -457,7 +555,7 @@ namespace Existence.Earth.War
         BraslavskiRom = 40,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Sergeant)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -530,7 +628,7 @@ namespace Existence.Earth.War
         BuskilaEstherAmit = 48,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany, CountryLikeThings.UnitedStates)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -549,7 +647,7 @@ namespace Existence.Earth.War
         CohenEliya = 51,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Sergeant)]
         [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -608,14 +706,14 @@ namespace Existence.Earth.War
         CunioYuli = 59,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Command Sergeant Major")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.CommandSergeantMajor)]
         [HumanGender(HumanGender.Male)]
         [Age(36, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         DadoZiv = 60,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Sergeant)]
         [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -739,7 +837,7 @@ namespace Existence.Earth.War
         /// originally named Danielle
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
-        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
@@ -771,7 +869,7 @@ namespace Existence.Earth.War
         GoldbergPolinHersh = 81,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Lieutenant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Lieutenant)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(23, TimePeriods.Years)]
@@ -884,7 +982,7 @@ namespace Existence.Earth.War
         HaimiTal = 95,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Colonel")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Colonel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [HumanGender(HumanGender.Male)]
         [Age(40, TimePeriods.Years)]
@@ -1025,7 +1123,7 @@ namespace Existence.Earth.War
         KatznirElad = 115,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Sergeant Major (res.)")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.SergeantMajor, true)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [HumanGender(HumanGender.Male)]
@@ -1086,7 +1184,7 @@ namespace Existence.Earth.War
         LeimbertMia = 124,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1100,7 +1198,7 @@ namespace Existence.Earth.War
         LevyEitan = 126,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier(IsraelDefenceForcesSoldierAttribute.UNKNOWN_RANK)]
+        [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
@@ -1154,7 +1252,7 @@ namespace Existence.Earth.War
         MansourShlomo = 133,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Corporal")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Corporal)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(18, TimePeriods.Years)]
@@ -1177,7 +1275,7 @@ namespace Existence.Earth.War
         MargalitNili = 136,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Private")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Private)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Female)]
         [Age(19, TimePeriods.Years)]
@@ -1309,7 +1407,7 @@ namespace Existence.Earth.War
         MunkanNattawaree = 154,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
-        [IsraelDefenceForcesSoldier("Captain")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Captain)]
         [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(21, TimePeriods.Years)]
@@ -1317,7 +1415,7 @@ namespace Existence.Earth.War
         NeutraOmerMaxim = 155,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(18, TimePeriods.Years)]
@@ -1394,7 +1492,7 @@ namespace Existence.Earth.War
         OrNoam = 166,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Sergeant)]
         [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -1414,7 +1512,7 @@ namespace Existence.Earth.War
         PankhongBoonthom = 169,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.SouthAfrica)]
-        [IsraelDefenceForcesSoldier("Captain")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Captain)]
         [HumanGender(HumanGender.Male)]
         [Age(22, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
@@ -1640,7 +1738,7 @@ namespace Existence.Earth.War
         SharabiYossi = 202,
 
         [Country(CountryLikeThings.Israel)]
-        [IsraelDefenceForcesSoldier("Staff Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.StaffSergeant)]
         [PreviouslyHeldAsHostage]
         [HumanGender(HumanGender.Male)]
         [Age(20, TimePeriods.Years)]
@@ -1659,7 +1757,7 @@ namespace Existence.Earth.War
         /// killed in IDF airstrike
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Argentina)]
-        [IsraelDefenceForcesSoldier("Sergeant")]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Sergeant)]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [HumanGender(HumanGender.Male)]
         [Age(19, TimePeriods.Years)]
@@ -2751,11 +2849,32 @@ internal class PreviouslyHeldAsHostageAttribute : Attribute
 
 internal class IsraelDefenceForcesSoldierAttribute : Attribute
 {
-    public const string UNKNOWN_RANK = "Unknown";
-    public string Rank { get; set; }
-    public IsraelDefenceForcesSoldierAttribute(string Rank)
+    /// <summary>
+    /// rank, when it is one of the primary ranks
+    /// </summary>
+    public IsraelDefenceForcesRank? Rank { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the item is reserved.
+    /// </summary>
+    public bool IsReserve { get; set; }
+
+    /// <summary>
+    /// constructor for soldier with no rank
+    /// </summary>
+    public IsraelDefenceForcesSoldierAttribute()
+    {
+    }
+
+    /// <summary>
+    /// constructor for soldier with rank and optionally reserve status
+    /// </summary>
+    /// <param name="Rank">rank</param>
+    /// <param name="IsReserve">reserve status</param>
+    public IsraelDefenceForcesSoldierAttribute(IsraelDefenceForcesRank Rank, bool IsReserve = false)
     {
         this.Rank = Rank;
+        this.IsReserve = IsReserve;
     }
 }
 
