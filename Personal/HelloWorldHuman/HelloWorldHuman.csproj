@@ -10,7 +10,7 @@
   <Nullable>enable</Nullable>
   <OutputPath>bin\</OutputPath>
   <OutputType>Exe</OutputType>
-  <TargetFramework>net9.0</TargetFramework>
+  <TargetFramework>net10.0</TargetFramework>
  </PropertyGroup>
  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
    <Optimize>False</Optimize>
