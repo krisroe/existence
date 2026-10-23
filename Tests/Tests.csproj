@@ -3,7 +3,6 @@
   <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   <ImplicitUsings>disable</ImplicitUsings>
   <IsTestProject>true</IsTestProject>
   <LangVersion>latest</LangVersion>
