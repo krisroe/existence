@@ -88,8 +88,8 @@ namespace Existence.Earth.War
     /// </summary>
     public class IsraeliHamasHostageAgreementAttribute : Attribute
     {
-        public IsraeliHamasHostageAgreement Agreement { get; set; }
-        public IsraeliHamasHostageAgreementAttribute(IsraeliHamasHostageAgreement Agreement)
+        public PostOctober7HostageAgreement Agreement { get; set; }
+        public IsraeliHamasHostageAgreementAttribute(PostOctober7HostageAgreement Agreement)
         {
             this.Agreement = Agreement;
         }
@@ -112,21 +112,30 @@ namespace Existence.Earth.War
     /// returns outside of an Israel-Hamas agreement are not included, e.g. the October 2023 releases
     /// releases of Thai nationals negotiated separately by Thailand, and the May 2025 release of a United States hostage (negotiated between the US and Hamas)
     /// </remarks>
-    public enum IsraeliHamasHostageAgreement
+    public enum PostOctober7HostageAgreement
     {
         /// <summary>
         /// Qatar/Egypt/United States mediated truce agreed November 22, 2023, in effect November 24 - December 1, 2023 (extended twice);
-        /// hostages exchanged for Palestinian prisoners; 81 hostages released under the agreement, with 23 Thai nationals and
-        /// 1 Filipino released on the same days through separate negotiations
+        /// hostages exchanged for Palestinian prisoners
         /// </summary>
         [Total(81)]
-        November2023HostageReleaseAgreement,
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.PalestineGaza, CountryLikeThings.Qatar, CountryLikeThings.Egypt, CountryLikeThings.UnitedStates)]
+        November2023HostageReleaseAgreementIsrael,
+
+        /// <summary>
+        /// Informal efforts by Thailad to release farm worker hostages separate from Israeli-Hamas negotiations. One Filipino hostage
+        /// possibly included in the agreement but not publicly not and does not appear in the total.
+        /// </summary>
+        [Total(30)]
+        [Countries(CountryLikeThings.Thailand, CountryLikeThings.PalestineGaza)]
+        November2023HostageReleaseAgreementThailand,
 
         /// <summary>
         /// Qatar/Egypt/United States mediated ceasefire agreed January 15, 2025, in effect January 19, 2025; only phase 1
         /// (through March 1, 2025) was carried out before fighting resumed March 18, 2025
         /// </summary>
         [Total(33)]
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.PalestineGaza, CountryLikeThings.Qatar, CountryLikeThings.Egypt, CountryLikeThings.UnitedStates)]
         January2025HostageReturnAgreement,
 
         /// <summary>
@@ -134,6 +143,7 @@ namespace Existence.Earth.War
         /// all living hostages released October 13, 2025, with the remains of deceased hostages returned afterward
         /// </summary>
         [Total(47)]
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.PalestineGaza, CountryLikeThings.UnitedStates)]
         October2025HostageReturnAgreement,
     }
 
@@ -2063,7 +2073,7 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
             public static class November1617 { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementA
             {
                 [Number(13)]
@@ -2088,14 +2098,13 @@ namespace Existence.Earth.War
             /// <summary>
             /// not part of the November 2023 agreement (Thai and Filipino nationals released through separate negotiations)
             /// </summary>
-            [Number(11)]
+            [Number(10)]
             [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
             [Hostages(
                 HostageList.MunkanNattawaree,
                 HostageList.BoonpromSanti,
                 HostageList.KalapratVichai,
                 HostageList.KongmaneeBancha,
-                HostageList.PachecoGelienorJimmy,
                 HostageList.PankhongBoonthom,
                 HostageList.PhachuabboonMongkol,
                 HostageList.PhoomeVetoon,
@@ -2104,7 +2113,15 @@ namespace Existence.Earth.War
                 HostageList.ToonsriUthai)]
             public static class November24B { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            /// <summary>
+            /// may or may not have been associated with the Thai informal agreement
+            /// </summary>
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.ReleasedAlive, CountryLikeThings.PalestineGaza)]
+            [Hostages(HostageList.PachecoGelienorJimmy)]
+            public static class November24C { }
+
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementB
             {
                 [Number(13)]
@@ -2138,7 +2155,7 @@ namespace Existence.Earth.War
                 HostageList.OnkaewNatthaporn)]
             public static class November25B { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementC
             {
                 [Number(14)]
@@ -2172,7 +2189,7 @@ namespace Existence.Earth.War
                 HostageList.TemthongVichian)]
             public static class November26B { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementD
             {
                 [Number(11)]
@@ -2217,7 +2234,7 @@ namespace Existence.Earth.War
                 HostageList.TornsokreePattanayut)]
             public static class November28B { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementE
             {
                 [Number(12)]
@@ -2258,7 +2275,7 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza)]
             public static class November29 { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.November2023HostageReleaseAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.November2023HostageReleaseAgreementIsrael)]
             public static class November2023HostageReleaseAgreementF
             {
                 [Number(8)]
@@ -2447,7 +2464,7 @@ namespace Existence.Earth.War
             [HostageOutcome(HostageOutcome.RecoveredBody, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
             public static class January10 { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.January2025HostageReturnAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.January2025HostageReturnAgreement)]
             public static class January2025HostageReturnAgreementA
             {
                 [Number(3)]
@@ -2461,7 +2478,7 @@ namespace Existence.Earth.War
             [Hostages(HostageList.ShaulOron)]
             public static class January19RecoveredBody { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.January2025HostageReturnAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.January2025HostageReturnAgreement)]
             public static class January2025HostageReturnAgreementB
             {
                 [Number(4)]
@@ -2492,7 +2509,7 @@ namespace Existence.Earth.War
                 HostageList.SuwannakhamSathian)]
             public static class January30B { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.January2025HostageReturnAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.January2025HostageReturnAgreement)]
             public static class January2025HostageReturnAgreementC
             {
                 [Hostages(HostageList.KalderonOfer, HostageList.BibasYarden, HostageList.SiegelSamuelKeith)]
@@ -2578,7 +2595,7 @@ namespace Existence.Earth.War
                       HostageList.WeissIlan)]
             public static class August29 { }
 
-            [IsraeliHamasHostageAgreement(IsraeliHamasHostageAgreement.October2025HostageReturnAgreement)]
+            [IsraeliHamasHostageAgreement(PostOctober7HostageAgreement.October2025HostageReturnAgreement)]
             public static class October2025HostageReturnAgreementA
             {
                 [Number(20)]

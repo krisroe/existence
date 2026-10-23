@@ -43,11 +43,11 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateHostageAgreementTotals()
         {
-            Dictionary<IsraeliHamasHostageAgreement, int> agreementCounts = new Dictionary<IsraeliHamasHostageAgreement, int>();
+            Dictionary<PostOctober7HostageAgreement, int> agreementCounts = new Dictionary<PostOctober7HostageAgreement, int>();
             SumAgreementOutcomes(typeof(IsraelHamasHostages), agreementCounts);
-            foreach (IsraeliHamasHostageAgreement agreement in Enum.GetValues<IsraeliHamasHostageAgreement>())
+            foreach (PostOctober7HostageAgreement agreement in Enum.GetValues<PostOctober7HostageAgreement>())
             {
-                TotalAttribute? total = typeof(IsraeliHamasHostageAgreement).GetField(agreement.ToString())!.GetCustomAttribute<TotalAttribute>();
+                TotalAttribute? total = typeof(PostOctober7HostageAgreement).GetField(agreement.ToString())!.GetCustomAttribute<TotalAttribute>();
                 Assert.IsNotNull(total, $"{agreement} has no Total attribute");
                 agreementCounts.TryGetValue(agreement, out int iOutcomeCount);
                 Assert.AreEqual(total.Number, iOutcomeCount, $"Total attribute on {agreement} does not match the sum of the hostage outcome Number attributes for that agreement");
@@ -59,7 +59,7 @@ namespace Existence.Tests
         /// </summary>
         /// <param name="t">type whose nested types are searched</param>
         /// <param name="agreementCounts">running sum of outcome Number attributes per agreement</param>
-        private static void SumAgreementOutcomes(Type t, Dictionary<IsraeliHamasHostageAgreement, int> agreementCounts)
+        private static void SumAgreementOutcomes(Type t, Dictionary<PostOctober7HostageAgreement, int> agreementCounts)
         {
             foreach (Type tNested in t.GetNestedTypes(BindingFlags.Public))
             {
