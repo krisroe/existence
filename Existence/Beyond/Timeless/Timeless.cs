@@ -122,6 +122,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(5, 9, 0, 0)]
             [YearDate(2025, 5, 12)]
             TwoWorkplacesDetails,
+
+            [BeyondObjectVersion(6, 0, 0, 0)]
+            [YearDate(2026, 10, 22)]
+            FixTestPetHouseUnitTest,
         }
 
         /// <summary>
@@ -411,7 +415,6 @@ namespace Existence.Beyond.Timeless
                 SongsToPets = new Dictionary<TimelessSongEvent, List<Pet>>();
                 FictionalPetMapping = new Dictionary<string, Pet>(8);
                 NonFictionalPetMapping = new Dictionary<string, Pet>(8);
-                LittersMotherAndKittens = new List<Tuple<Pet, List<Pet>>>(2);
                 List<Tuple<string, string, string, Sexes, int?, PetTypes>> petInfo = new List<Tuple<string, string, string, Sexes, int?, PetTypes>>()
                 {
                     new Tuple<string, string, string, Sexes, int?, PetTypes>(PetHouse.ELSIE_NAME, "Fatness", "Fatness, eats refrigerators and restaurants", Sexes.Female, 1990, PetTypes.Cat),
@@ -430,8 +433,11 @@ namespace Existence.Beyond.Timeless
                     HandlePetHousePet(TruthClassification.Fictional, nextPet, fictionalLitter, nonFictionalLitter);
                     HandlePetHousePet(TruthClassification.Nonfictional, nextPet, fictionalLitter, nonFictionalLitter);
                 }
-                LittersMotherAndKittens[0] = new Tuple<Pet, List<Pet>>(FictionalPetMapping[PetHouse.SNOWBALL_NAME], fictionalLitter);
-                LittersMotherAndKittens[1] = new Tuple<Pet, List<Pet>>(NonFictionalPetMapping[PetHouse.SNOWBALL_NAME], nonFictionalLitter);
+                LittersMotherAndKittens = new List<Tuple<Pet, List<Pet>>>(2)
+                {
+                    new Tuple<Pet, List<Pet>>(FictionalPetMapping[PetHouse.SNOWBALL_NAME], fictionalLitter),
+                    new Tuple<Pet, List<Pet>>(NonFictionalPetMapping[PetHouse.SNOWBALL_NAME], nonFictionalLitter),
+                };
                 List<Pet> pets = SongsToPets[InspirationalOriginSongPrimary] = new List<Pet>();
                 foreach (string n in PETHOUSE_ORIGIN_SONG_PET_ORDER)
                 {
