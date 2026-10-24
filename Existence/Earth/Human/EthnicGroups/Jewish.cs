@@ -439,6 +439,23 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Oberlander,
 
         /// <summary>
+        /// Old Yishuv ("the old settlement" in Hebrew), Palestinian Jews, Jewish Palestinians
+        /// Ottoman Palestine, mainly the four holy cities of Jerusalem, Hebron, Safed, and Tiberias, now Israel
+        /// The Jews who lived in the Land of Israel before Zionist immigration began in 1881, about 25,000 at the time.
+        /// Included the Musta'arabim, Arabic-speaking Jews whose families had stayed through the centuries (some families in
+        /// Peki'in claim unbroken residence since ancient times), who were largely absorbed into the Sephardic exiles who settled
+        /// there after 1492, especially in Safed. Ashkenazi groups arrived from the 18th century on, and by the 1880s made up
+        /// close to half. Mostly lived on charity from abroad (the halukka) and devoted to religious study.
+        /// Under the British Mandate (1920-1948) all residents of Palestine, Jews included, were called Palestinians.
+        /// No modern count exists; the estimate is of descendants of the community of about 25,000 in 1881.
+        /// The Ashkenazi/Sephardi split is a rough estimate, with a small Mizrahi remainder.
+        /// </summary>
+        [NumberOfMembers(150000, 300000)] //150,000-300,000
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Ashkenazi, 40, JewishEthnicDivisionsLevel1.Sephardi, 55)]
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.PalestineWestBank)]
+        Palestinian,
+
+        /// <summary>
         /// Iranian Jews
         /// Iran (mainly Tehran, Isfahan, Shiraz, Hamadan, and Mashhad), now mostly Israel and the United States (Los Angeles, New York)
         /// One of the oldest diaspora communities, dating to the Babylonian exile and the Persian Empire; the Book of Esther is set
@@ -449,6 +466,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iran)]
         Persian,
+
+        /// <summary>
+        /// Romaniote Jews, Greek Jews
+        /// Greece (mainly Ioannina, also Chalkis, Arta, and Corfu) and the old Byzantine Empire, now mostly Israel, Greece, and New York
+        /// Greek-speaking Jews who have lived in Greece for over 2,000 years, among the oldest Jewish communities in Europe.
+        /// Named for the "Romans", as the Byzantines called themselves. Spoke Yevanic (Judeo-Greek), now nearly extinct, and kept
+        /// their own prayer rite. After 1492 the far larger Sephardic arrivals absorbed most Romaniote communities, including that
+        /// of Thessaloniki; Ioannina remained the main exception. Most of the remaining Romaniotes were murdered in the Holocaust
+        /// in 1944. Kehila Kedosha Janina in New York is the only Romaniote synagogue in the Western Hemisphere.
+        /// No modern count exists; the estimate is a rough figure for those who still identify as Romaniote.
+        /// </summary>
+        [NumberOfMembers(5000, 15000)] //5,000-15,000
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.Greece)]
+        Romaniote,
 
         /// <summary>
         /// Sudan (mostly Khartoum and Omdurman)
