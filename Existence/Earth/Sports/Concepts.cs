@@ -173,11 +173,31 @@ namespace Existence.Earth.Sports
         }
     }
 
+    /// <summary>
+    /// outcome of a two player game
+    /// </summary>
     public enum TwoPlayerGameOutcome
     {
+        /// <summary>
+        /// the player won
+        /// </summary>
         Win,
+        /// <summary>
+        /// the player lost
+        /// </summary>
         Loss,
+        /// <summary>
+        /// it was a time
+        /// </summary>
         Tie,
+        /// <summary>
+        /// the result is unknown
+        /// </summary>
+        Unknown,
+        /// <summary>
+        /// the result will occur in the future
+        /// </summary>
+        Future,
     }
 
     public class WorldSeriesAttribute : Attribute
