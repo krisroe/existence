@@ -333,6 +333,17 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Juhurim,
 
         /// <summary>
+        /// Crimea, mainly Karasubazar (now Bilohirsk). Now mostly Israel, Russia, and Ukraine
+        /// Rabbinic Jews who speak Krymchak, a Turkic language close to Crimean Tatar. Formed from ancient Black Sea and Byzantine
+        /// Jewish communities, later joined by Italian, Ashkenazi, and Sephardic Jews. Not the same as the Crimean Karaites,
+        /// who share their region and Turkic language but follow Karaite Judaism. Unlike the Karaites, the Nazis classed them as
+        /// Jews, and about three quarters were murdered in 1941-1942.
+        /// </summary>
+        [NumberOfMembers(1000, 2000)] //1,000-2,000
+        [Country(CountryLikeThings.Ukraine)]
+        Krymchak,
+
+        /// <summary>
         /// Lithuanian Jews
         /// The lands of the old Grand Duchy of Lithuania: Lithuania, Belarus, eastern Latvia, and northeastern Poland
         /// (Vilnius, Minsk, Grodno, Bialystok), now mostly the United States, Israel, and South Africa
