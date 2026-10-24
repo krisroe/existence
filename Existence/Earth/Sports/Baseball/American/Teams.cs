@@ -61,6 +61,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     RollieFingers,
+                    /// <summary>
+                    /// not actually an All-Star; included as the AL Cy Young Award winner
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    PeteVuckovich,
                 }
 
                 public enum BattingAllStars
@@ -120,6 +125,11 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 public enum PitchingAllStars
                 {
+                    /// <summary>
+                    /// NL Cy Young Award winner
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+                    SteveCarlton,
                 }
 
                 public enum BattingAllStars
@@ -177,6 +187,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     ScottKazmir,
+                    /// <summary>
+                    /// AL Cy Young Award winner
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
+                    CliffLee,
                 }
 
                 public enum BattingAllStars
@@ -238,6 +253,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                     BradLidge,
+                    /// <summary>
+                    /// NL Cy Young Award winner; selected, but did not pitch due to flu-like symptoms
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
+                    TimLincecum,
                 }
 
                 public enum BattingAllStars
@@ -302,6 +322,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 // the 2020 All-Star Game was canceled due to COVID-19, so no All-Stars were selected
                 public enum PitchingAllStars
                 {
+                    /// <summary>
+                    /// not actually an All-Star; included as the AL Cy Young Award winner
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
+                    ShaneBieber,
                 }
 
                 public enum BattingAllStars
@@ -358,6 +383,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 // the 2020 All-Star Game was canceled due to COVID-19, so no All-Stars were selected
                 public enum PitchingAllStars
                 {
+                    /// <summary>
+                    /// not actually an All-Star; included as the NL Cy Young Award winner
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+                    TrevorBauer,
                 }
 
                 public enum BattingAllStars
