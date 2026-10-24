@@ -1,0 +1,41 @@
+Fully deleting a commit from a local git repository
+
+1. Clone the repo
+2. git reset --keep HEAD~1 (moves your local branch to a different commit)
+3. Check that nothing else uses it
+3a. git branch -a --contains SHA (checks if any branch uses the commit hash)
+3b. git tag --contains SHA (checks if any branch uses the commit hash)
+3c. git push --force-with-lease origin BRANCHNAME (this updates the server to match the local branch, but does NOT remove the commit from the server)
+3d. git update-ref -d refs/remotes/origin/BRANCHNAME (deletes the local bookmark for the branch stored in local .git folder, but NOT the branch itself)
+4. Delete the temporary pointers
+4a. git update-ref -d ORIG_HEAD (deletes the HEAD [where you were before] pointer)
+4b. git update-ref -d FETCH_HEAD (deletes the fetch head [where you were last fetch] pointer). Note: if you have never fetched or pulled to the local repo this file won't exist.
+5. Clear the reflog (git reflog expire --expire=now --all) (permanently empties the reflog, history of every position each branch and HEAD pointed to)
+6. Delete the commit's data (git gc --prune=now) (delete unreachable commit data entirely, not just for one commit, all unreachable ones)
+7. Check that it's gone (git cat-file -t SHA)
+
+Bookmark (informal name for a remote-tracking-branch). This is a snapshot of where the branch pointed last time it was fetched. Can't be committed to.
+
+---
+
+Overwriting a server repository from a local repository (GitHub)
+
+1. Settings → General → Danger Zone → Delete this repository.
+2. Note the number of stars and watchers
+3. Click "I want to delete this repository"
+4. Message: unexpected bad things will happen if you don't read this! This will permanently delete the GITHUBUSERNAME/REPONAME repository, wiki, issues, comments, packages, secrets, workflow runs, and remove all collaborator associations. Click "I have read and understood these effects."
+5. Message: "To confirm, type "GITHUBUSERNAME/REPONAME" in the box below. Enter the value and click "Delete this repository".
+6. Enter GitHub password. Click confirm. The repository is now deleted from GitHub.
+7. Click New to create a repository
+8. Enter the repository name
+9. Description = "My personal version of existence"
+10. You have a choice to keep it public or private. If it's public, others can see what you are doing.
+11. Do NOT add a README, .gitignore, or license
+12. Click Create repository
+13. Push the local repository to the server
+13a. git push -u origin --all (push to the server)
+13b. git push origin --tags (push tags)
+
+Caveats:
+1. GitHub keeps deleted repositories for about 90 days so the owner can restore them, and it has internal backups. For guaranteed removal (for example, leaked secrets), contact GitHub Support.
+2. If the repository was public, forks, other people’s clones and public archives like GH Archive (which record push events) are out of your control.

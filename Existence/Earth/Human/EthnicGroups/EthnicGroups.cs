@@ -21,12 +21,7 @@ namespace Existence.Earth.Human.EthnicGroups
     }
 
     /// <summary>
-    /// ethnic groups separate from country or religion based ethnic groups
-    /// 
-    /// e.g.
-    /// Somali isn't here because Somalia is a country (~25 million): Somalia, Ethiopia, Kenya, Djibouti
-    /// Bengali isn't here because Bangledesh is a country (~280 million): Bangladesh, India (West Bengal)
-    /// 
+    /// ethnic groups mostly separate from religion based ethnic groups
     /// </summary>
     public enum WorldEthnicGroups
     {
@@ -37,8 +32,21 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(1350000000, 1400000000)] //1.35-1.4 billion
         Han,
 
+        /// <summary>
+        /// Middle East and North Africa (most of the Arab League countries), plus a worldwide diaspora, largest in the Americas and Europe
+        /// Defined mainly by the Arabic language and culture rather than descent, so it includes peoples
+        /// of many origins who became Arabic-speaking after the Arab conquests of the 7th century onward.
+        /// </summary>
         [NumberOfMembers(400000000, 450000000)] //400-450 million
         Arab,
+
+        /// <summary>
+        /// Bangladesh (about 170 million) and India (about 100 million, mostly West Bengal, Tripura, and Assam),
+        /// plus a diaspora of several million, largest in the United Kingdom and the Gulf states
+        /// Included even though Bangladesh is a country, because over a third of Bengalis live in India.
+        /// </summary>
+        [NumberOfMembers(270000000, 300000000)] //270-300 million
+        Bengali,
 
         /// <summary>
         /// Pakistan and India
@@ -160,6 +168,13 @@ namespace Existence.Earth.Human.EthnicGroups
         /// </summary>
         [NumberOfMembers(25000000, 35000000)] //25-35 million
         Azerbaijani,
+
+        /// <summary>
+        /// Somalia, Ethiopia (Somali Region), Kenya, Djibouti, plus a diaspora of 1-2 million
+        /// Included even though Somalia is a country, because about a third of Somalis live outside it.
+        /// </summary>
+        [NumberOfMembers(25000000, 30000000)] //25-30 million
+        Somali,
 
         /// <summary>
         /// Ghana, Ivory Coast
