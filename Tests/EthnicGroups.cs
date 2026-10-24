@@ -13,15 +13,15 @@ namespace Existence.Tests
     public class EthnicGroupsTest
     {
         /// <summary>
-        /// validates that every OriginatedFrom attribute in the JewishEthnic(Sub...)Subdivisions enums specifies its
+        /// validates that every OriginatedFrom attribute in the JewishEthnicDivisionsLevel(N) enums specifies its
         /// HierarchyItemOriginTypes value explicitly, instead of using the constructor that defaults it to Main
         /// </summary>
         [TestMethod]
         public void ValidateJewishEthnicOriginTypesAreExplicit()
         {
-            Regex rJewishEthnicSubdivisions = new Regex("^JewishEthnic(Sub)+divisions$");
-            Type[] enumTypes = typeof(OriginatedFromAttribute).Assembly.GetTypes().Where(t => t.IsEnum && rJewishEthnicSubdivisions.IsMatch(t.Name)).ToArray();
-            Assert.IsTrue(enumTypes.Length > 0, "no JewishEthnic(Sub...)Subdivisions enums found");
+            Regex rJewishEthnicDivisions = new Regex(@"^JewishEthnicDivisionsLevel\d+$");
+            Type[] enumTypes = typeof(OriginatedFromAttribute).Assembly.GetTypes().Where(t => t.IsEnum && rJewishEthnicDivisions.IsMatch(t.Name)).ToArray();
+            Assert.IsTrue(enumTypes.Length > 0, "no JewishEthnicDivisionsLevel(N) enums found");
             int iOriginatedFromCount = 0;
             foreach (Type t in enumTypes)
             {
@@ -35,7 +35,7 @@ namespace Existence.Tests
                     }
                 }
             }
-            Assert.IsTrue(iOriginatedFromCount > 0, "no OriginatedFrom attributes found in the JewishEthnic(Sub...)Subdivisions enums");
+            Assert.IsTrue(iOriginatedFromCount > 0, "no OriginatedFrom attributes found in the JewishEthnicDivisionsLevel(N) enums");
         }
     }
 }
