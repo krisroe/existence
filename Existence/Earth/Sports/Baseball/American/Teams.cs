@@ -664,7 +664,7 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 [StartingPitcher((int)AmericanLeague.PitchingAllStars.NickMartinez)]
                 [StartingPitcher((int)NationalLeague.PitchingAllStars.JacobMisiorowski)]
-                // score as of the 8th inning
+                // score as of the 9th inning
                 [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game1 { }
             }
