@@ -275,6 +275,7 @@ namespace Existence.Earth.Human.EthnicGroups
         Galitzianer,
 
         /// <summary>
+        /// Georgian Jews
         /// Georgia (mainly Tbilisi, Kutaisi, and Oni), now mostly Israel
         /// One of the oldest diaspora communities, by tradition arriving after the Babylonian exile about 2,600 years ago.
         /// Spoke Georgian, and lived for centuries with little of the persecution Jews faced elsewhere. Among the first Soviet Jews
@@ -284,7 +285,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(100000, 140000)] //100,000-140,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
         [Country(CountryLikeThings.Georgia)]
-        Georgian,
+        Gruzim,
 
         /// <summary>
         /// Habban, in eastern Yemen
@@ -297,6 +298,21 @@ namespace Existence.Earth.Human.EthnicGroups
         Habbani,
 
         /// <summary>
+        /// Western Sephardim (the more common name), Spanish and Portuguese Jews
+        /// Spain and Portugal, resettled in Amsterdam, London, Hamburg, southwestern France, and the Americas
+        /// Descendants of Iberian Jews forced to convert to Catholicism, many of whom fled in the 16th and 17th centuries and
+        /// returned to Judaism openly where it was tolerated. Kept a Portuguese and Spanish rather than a Ladino tradition.
+        /// Founded some of the oldest synagogues still in use in the Western world, including the Portuguese Synagogue in
+        /// Amsterdam (1675), Bevis Marks in London (1701), and Shearith Israel, New York's oldest Jewish congregation.
+        /// The count is of those still in Western Sephardic families and congregations, which today also include many
+        /// members of other origins; far more people have some Western Sephardic ancestry.
+        /// </summary>
+        [NumberOfMembers(10000, 30000)] //10,000-30,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
+        [Countries(CountryLikeThings.Portugal, CountryLikeThings.Spain)]
+        Iberian,
+
+        /// <summary>
         /// Italian Jews
         /// Italy (mainly Rome, also Venice, Florence, Livorno, and Turin), now mostly Italy and Israel
         /// The oldest Jewish community in Europe: Jews have lived in Rome continuously since the 2nd century BCE. Follow their own
@@ -307,6 +323,20 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(20000, 40000)] //20,000-40,000
         [Country(CountryLikeThings.Italy)]
         Italkim,
+
+        /// <summary>
+        /// Mountain Jews, Juhuro
+        /// The eastern Caucasus: northern Azerbaijan (Quba) and Dagestan and Kabardino-Balkaria in Russia (Derbent, Makhachkala, Nalchik), now mostly Israel,
+        /// plus Russia, Azerbaijan, and New York
+        /// Descended from Persian Jews who settled in the Caucasus more than a thousand years ago. Speak Juhuri (Judeo-Tat),
+        /// a Persian language. The Red Village (Qirmizi Qasaba) near Quba, Azerbaijan, is one of the only all-Jewish towns
+        /// outside Israel. Not the same as Georgian Jews (Gruzim), who live in the western Caucasus and speak Georgian.
+        /// </summary>
+        [NumberOfMembers(150000, 250000)] //150,000-250,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Countries(CountryLikeThings.Azerbaijan, CountryLikeThings.Russia)]
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Persian, HierarchyItemOriginTypes.Main)]
+        Juhurim,
 
         /// <summary>
         /// Lithuanian Jews
