@@ -30,6 +30,15 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
+    public class HigherLevelJewishEthnicSubdivisionsAttribute : Attribute
+    {
+        public JewishEthnicSubdivisions[] Subdivisions { get; set; }
+        public HigherLevelJewishEthnicSubdivisionsAttribute(params JewishEthnicSubdivisions[] Subdivisions)
+        {
+            this.Subdivisions = Subdivisions;
+        }
+    }
+
     public class HigherLevelJewishEthnicSubSubdivisionAttribute : Attribute
     {
         public JewishEthnicSubSubdivisions Subdivision { get; set; }
@@ -223,6 +232,32 @@ namespace Existence.Earth.Human.EthnicGroups
         Cochin,
 
         /// <summary>
+        /// Crimean Karaims (Qaraylar in their own language). From Crimea, mainly Yevpatoria and Chufut-Kale
+        /// Followers of Karaite Judaism, which accepts the Hebrew Bible but rejects the rabbinic Talmud. Speak Karaim, a Turkic
+        /// language. In 1863 the Russian Empire recognized them as separate from Jews, exempting them from anti-Jewish laws, and
+        /// in World War II the Nazis classified them as non-Jews, sparing most of them. Many today identify as a Turkic people
+        /// rather than as Jews. Related to, but separate from, the Karaims of Lithuania and western Ukraine, and not the same as
+        /// the Krymchaks, the Turkic-speaking rabbinic Jews of Crimea.
+        /// Not part of any of the higher level subdivisions.
+        /// </summary>
+        [NumberOfMembers(1000, 3000)] //1,000-3,000
+        [Country(CountryLikeThings.Ukraine)]
+        CrimeanKaraite,
+
+        /// <summary>
+        /// Egypt (mainly Cairo and Alexandria), now mostly Israel, France, the United States, and Brazil
+        /// One of the oldest diaspora communities; Maimonides lived in Cairo, and its Ben Ezra Synagogue held the Cairo Geniza,
+        /// a vast store of medieval manuscripts. By the 20th century it mixed Arabic-speaking native Jews, Sephardic and Italian
+        /// families, Ashkenazi immigrants, and a community of Karaites. Nearly all left or were expelled after 1948, 1956, and 1967;
+        /// only a handful remain.
+        /// No modern count exists; the estimate is based on a population of about 75,000-80,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(150000, 250000)] //150,000-250,000
+        [HigherLevelJewishEthnicSubdivisions(JewishEthnicSubdivisions.Mizrahi, JewishEthnicSubdivisions.Sephardi)]
+        [Country(CountryLikeThings.Egypt)]
+        Egyptian,
+
+        /// <summary>
         /// Habban, in eastern Yemen
         /// A small, isolated community with its own customs and dress. Nearly all moved to Israel around 1950.
         /// No modern count exists; the estimate is based on the few hundred who emigrated around 1950.
@@ -240,7 +275,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// No modern count exists; the estimate is based on the community's peak of about a thousand.
         /// </summary>
         [NumberOfMembers(2000, 5000)] //2,000-5,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
+        [HigherLevelJewishEthnicSubdivisions(JewishEthnicSubdivisions.Mizrahi, JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Sudan)]
         Sudanese,
 
@@ -251,7 +286,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// The count covers the Halabi and Shami communities combined.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [HigherLevelJewishEthnicSubdivisions(JewishEthnicSubdivisions.Mizrahi, JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Syria)]
         [HasSubdivisions]
         Syrian,
@@ -342,7 +377,7 @@ namespace Existence.Earth.Human.EthnicGroups
 
         /// <summary>
         /// Damascus (al-Sham in Arabic), now mostly Brooklyn, Israel, and Argentina
-        /// An ancient community, smaller and less influenced by Sephardic exiles than the Halabi Jews. Known for the
+        /// An ancient community, smaller than the Halabi Jews, that also absorbed Sephardic exiles after 1492. Known for the
         /// Damascus affair of 1840, a blood libel that drew international protest.
         /// Not the same as the Shami prayer rite of Yemenite Jews, which is named for the Levant as a whole.
         /// No census exists; the estimate is the smaller share of the Syrian Jewish diaspora
