@@ -111,6 +111,76 @@ namespace Existence.Earth.Human.EthnicGroups
         Adeni,
 
         /// <summary>
+        /// Afghanistan (mainly Herat, Kabul, and Balkh), now mostly Israel and New York
+        /// Closely tied to Persian Jews and spoke a Judeo-Persian dialect; many came from Mashhad, Iran, after its Jews were
+        /// forced to convert in 1839. Most left for Israel after 1948, and the last known Jew left Afghanistan in 2021.
+        /// No modern count exists; the estimate is based on a population of about 5,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(10000, 20000)] //10,000-20,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Country(CountryLikeThings.Afghanistan)]
+        Afghan,
+
+        /// <summary>
+        /// Algeria, now mostly France
+        /// An ancient community joined by Sephardic exiles after 1492. The Cremieux Decree of 1870 made them French citizens,
+        /// so nearly all left for France rather than Israel when Algeria became independent in 1962.
+        /// No modern count exists; the estimate is based on a population of about 140,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(200000, 350000)] //200,000-350,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Maghrebi)]
+        [Country(CountryLikeThings.Algeria)]
+        Algerian,
+
+        /// <summary>
+        /// Babylonian Jews, Iraqi Jews
+        /// Iraq (mainly Baghdad, also Basra and Mosul), now mostly Israel, plus the United Kingdom and the United States
+        /// Descended from the Babylonian exile of 586 BCE, and for centuries the center of Jewish scholarship, where the Babylonian
+        /// Talmud was written. Spoke Judeo-Arabic. After the Farhud pogrom of 1941 and the founding of Israel, about 120,000 were
+        /// airlifted to Israel in 1950-1951. Kurdish Jews of northern Iraq are a separate community.
+        /// No modern count exists; the estimate is based on a population of about 135,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(450000, 600000)] //450,000-600,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Country(CountryLikeThings.Iraq)]
+        Bavlim,
+
+        /// <summary>
+        /// Belmonte, a small town in eastern Portugal
+        /// Crypto-Jews whose ancestors were forced to convert to Catholicism in 1497, but who secretly kept Jewish prayers and
+        /// customs, passed down mostly by women, for nearly 500 years. Discovered by outsiders in 1917, they formally
+        /// returned to Judaism in the late 20th century and opened a synagogue in 1996.
+        /// </summary>
+        [NumberOfMembers(100, 300)] //100-300
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
+        [Country(CountryLikeThings.Portugal)]
+        Belmonte,
+
+        /// <summary>
+        /// India (the Konkan coast of Maharashtra, later Mumbai), now mostly Israel
+        /// By tradition descended from Jews shipwrecked on the Konkan coast about 2,000 years ago. Spoke Marathi, and lived
+        /// largely cut off from other Jews, keeping the Sabbath, circumcision, and dietary laws, until contact was renewed
+        /// in the 18th century. Most moved to Israel in the 1950s and 1960s; about 4,000-5,000 remain in India.
+        /// Not part of any of the higher level subdivisions.
+        /// No modern count exists; the estimate is based on a population of about 20,000-30,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(60000, 85000)] //60,000-85,000
+        [Country(CountryLikeThings.India)]
+        BeneIsrael,
+
+        /// <summary>
+        /// Amazigh Jews
+        /// Villages of the Atlas Mountains and the valleys south of them (Draa, Sous, Todra), Morocco, now mostly Israel
+        /// Rural Jews who lived among Berber tribes and spoke Judeo-Berber rather than Judeo-Arabic. Whether they descend
+        /// partly from Berbers who converted to Judaism is debated. Nearly all left for Israel in the 1950s and 1960s.
+        /// No modern count exists; the estimate is based on a rural Atlas population of a few tens of thousands in 1948.
+        /// </summary>
+        [NumberOfMembers(50000, 150000)] //50,000-150,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Maghrebi)]
+        [Country(CountryLikeThings.Morocco)]
+        Berber,
+
+        /// <summary>
         /// Ethiopia (mostly around Gondar, also Tigray and Qwara), now nearly all Israel
         /// Developed separately from other Jewish communities for centuries, with scriptures and prayers in Ge'ez.
         /// Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
@@ -119,6 +189,29 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(160000, 180000)] //160,000-180,000
         [Country(CountryLikeThings.Ethiopia)]
         BetaIsrael,
+
+        /// <summary>
+        /// Central Asia, mainly Uzbekistan (Bukhara, Samarkand, Tashkent) and Tajikistan (Dushanbe), now mostly Israel and New York (Queens)
+        /// Named for the old Emirate of Bukhara. Descended from Persian Jews, and spoke Bukhori, a Jewish dialect of Tajik.
+        /// Nearly all left after the fall of the Soviet Union in 1991; only a few hundred remain in Central Asia.
+        /// </summary>
+        [NumberOfMembers(150000, 250000)] //150,000-250,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Countries(CountryLikeThings.Tajikistan, CountryLikeThings.Uzbekistan)]
+        Bukharan,
+
+        /// <summary>
+        /// Malabar Jews
+        /// Kerala, India (mainly Kochi, also Ernakulam, Parur, and Mala), now mostly Israel
+        /// The oldest Jewish community in India, by tradition founded by traders in ancient times. Spoke Judeo-Malayalam.
+        /// Split historically between the older Malabari Jews and the Paradesi ("foreign") Jews, who arrived from Europe and
+        /// the Middle East from the 16th century on. Nearly all left for Israel in the 1950s; only a handful remain in Kerala.
+        /// No modern count exists; the estimate is based on a population of about 2,500 in 1948.
+        /// </summary>
+        [NumberOfMembers(7000, 10000)] //7,000-10,000
+        [Country(CountryLikeThings.India)]
+        [HasSubdivisions]
+        Cochin,
 
         /// <summary>
         /// Habban, in eastern Yemen
