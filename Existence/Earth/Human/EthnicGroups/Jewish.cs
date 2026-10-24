@@ -78,7 +78,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on the community's size of about 8,000 in 1947.
         /// </summary>
         [NumberOfMembers(10000, 25000)] //10,000-25,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Teimani)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Teimani)]
         [Country(CountryLikeThings.Yemen)]
         Adeni,
 
@@ -89,7 +89,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 5,000 in 1948.
         /// </summary>
         [NumberOfMembers(10000, 20000)] //10,000-20,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Afghanistan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
         Afghan,
@@ -101,7 +101,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 140,000 in 1948.
         /// </summary>
         [NumberOfMembers(200000, 350000)] //200,000-350,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Maghrebi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Algeria)]
         Algerian,
 
@@ -114,7 +114,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 135,000 in 1948.
         /// </summary>
         [NumberOfMembers(450000, 600000)] //450,000-600,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iraq)]
         Bavlim,
 
@@ -125,7 +125,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// returned to Judaism in the late 20th century and opened a synagogue in 1996.
         /// </summary>
         [NumberOfMembers(100, 300)] //100-300
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
         [Country(CountryLikeThings.Portugal)]
         Belmonte,
 
@@ -149,7 +149,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a rural Atlas population of a few tens of thousands in 1948.
         /// </summary>
         [NumberOfMembers(50000, 150000)] //50,000-150,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Maghrebi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Morocco)]
         Berber,
 
@@ -169,7 +169,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// Nearly all left after the fall of the Soviet Union in 1991; only a few hundred remain in Central Asia.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Countries(CountryLikeThings.Tajikistan, CountryLikeThings.Uzbekistan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
         Bukharan,
@@ -209,7 +209,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 75,000-80,000 in 1948.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishEthnicSubdivisions(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
         [Country(CountryLikeThings.Egypt)]
         Egyptian,
 
@@ -224,7 +224,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is of descendants of a population of about 870,000 in 1910.
         /// </summary>
         [NumberOfMembers(1000000, 2000000)] //1-2 million
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Countries(CountryLikeThings.Poland, CountryLikeThings.Ukraine)]
         Galitzianer,
 
@@ -237,7 +237,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// thousand remain in Georgia.
         /// </summary>
         [NumberOfMembers(100000, 140000)] //100,000-140,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Georgia)]
         Gruzim,
 
@@ -247,7 +247,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on the few hundred who emigrated around 1950.
         /// </summary>
         [NumberOfMembers(3000, 10000)] //3,000-10,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Teimani)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Teimani)]
         [Country(CountryLikeThings.Yemen)]
         Habbani,
 
@@ -262,7 +262,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// members of other origins; far more people have some Western Sephardic ancestry.
         /// </summary>
         [NumberOfMembers(10000, 30000)] //10,000-30,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
         [Countries(CountryLikeThings.Portugal, CountryLikeThings.Spain)]
         Iberian,
 
@@ -287,7 +287,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// outside Israel. Not the same as Georgian Jews (Gruzim), who live in the western Caucasus and speak Georgian.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Countries(CountryLikeThings.Azerbaijan, CountryLikeThings.Russia)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
         Juhurim,
@@ -303,7 +303,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is of descendants of a population of about 1.5 million in 1897.
         /// </summary>
         [NumberOfMembers(2000000, 4000000)] //2-4 million
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Countries(CountryLikeThings.Belarus, CountryLikeThings.Latvia, CountryLikeThings.Lithuania, CountryLikeThings.Poland)]
         Litvak,
 
@@ -315,7 +315,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// revolution, after which most left; about 8,000-10,000 remain, the largest Jewish community in the Middle East outside Israel.
         /// </summary>
         [NumberOfMembers(250000, 350000)] //250,000-350,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iran)]
         Persian,
 
@@ -327,7 +327,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on the community's peak of about a thousand.
         /// </summary>
         [NumberOfMembers(2000, 5000)] //2,000-5,000
-        [HigherLevelJewishEthnicSubdivisions(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
         [Country(CountryLikeThings.Sudan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Egyptian, HierarchyItemOriginTypes.Main)]
         Sudanese,
@@ -339,7 +339,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// The count covers the Halabi and Shami communities combined.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishEthnicSubdivisions(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
         [Country(CountryLikeThings.Syria)]
         [HasSubdivisions]
         Syrian,
@@ -352,7 +352,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// Russian censuses count only a few thousand Jews in the two republics; the high estimate includes emigrants to Israel.
         /// </summary>
         [NumberOfMembers(3000, 10000)] //3,000-10,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Country(CountryLikeThings.Russia)]
         Tatar,
 
@@ -363,7 +363,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 105,000 in 1948.
         /// </summary>
         [NumberOfMembers(250000, 350000)] //250,000-350,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Maghrebi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Tunisia)]
         Tunisian,
 
@@ -374,7 +374,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is of survivors' descendants, mostly in Hasidic communities in New York and Israel.
         /// </summary>
         [NumberOfMembers(100000, 300000)] //100,000-300,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Countries(CountryLikeThings.Hungary, CountryLikeThings.Romania, CountryLikeThings.Slovakia, CountryLikeThings.Ukraine)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Galitzianer, HierarchyItemOriginTypes.Main)]
         Unterlander,
@@ -386,7 +386,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// The count is of Majorcans who carry one of the traditional Xueta surnames.
         /// </summary>
         [NumberOfMembers(15000, 20000)] //15,000-20,000
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
         [Country(CountryLikeThings.Spain)]
         Xuetes,
 
@@ -400,7 +400,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// about 190,000 in Austria, and the German-speaking share of about 120,000 in the Czech lands.
         /// </summary>
         [NumberOfMembers(700000, 1400000)] //700,000-1.4 million
-        [HigherLevelJewishEthnicSubdivision(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Countries(CountryLikeThings.Austria, CountryLikeThings.CzechRepublic, CountryLikeThings.Germany)]
         Yekke,
     }
@@ -421,7 +421,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is the larger share of the Syrian Jewish diaspora
         /// </summary>
         [NumberOfMembers(100000, 160000)] //100,000-160,000
-        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicDivisionsLevel2.Syrian)]
+        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
         Halabi,
 
         /// <summary>
@@ -431,7 +431,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is most of the Cochin Jewish population.
         /// </summary>
         [NumberOfMembers(6500, 9500)] //6,500-9,500
-        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicDivisionsLevel2.Cochin)]
+        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
         Malabari,
 
         /// <summary>
@@ -442,7 +442,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is based on a community of a few hundred in 1948.
         /// </summary>
         [NumberOfMembers(300, 600)] //300-600
-        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicDivisionsLevel2.Cochin)]
+        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
         [HasSubdivisions]
         [OriginatedFrom(JewishEthnicDivisionsLevel1.Sephardi, HierarchyItemOriginTypes.Main)]
         Paradesi,
@@ -455,7 +455,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is the smaller share of the Syrian Jewish diaspora
         /// </summary>
         [NumberOfMembers(50000, 90000)] //50,000-90,000
-        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicDivisionsLevel2.Syrian)]
+        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
         Shami,
     }
 }
@@ -476,7 +476,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level4
         /// The term "Brown Jews" was sometimes used to apply to them, but not as prevalent as for "White Jews" and "Black Jews".
         /// </summary>
         [NumberOfMembers(100, 300)] //100-300
-        [HigherLevelJewishEthnicSubSubSubdivision(JewishEthnicDivisionsLevel3.Paradesi)]
+        [LowerLevelJewishSubdivisionLevel3(JewishEthnicDivisionsLevel3.Paradesi)]
         Meshuchrari,
     }
 }

@@ -23,37 +23,37 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
-    public class HigherLevelJewishEthnicSubdivisionAttribute : Attribute
+    public class HigherLevelJewishSubdivisionLevel1Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel1 Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubdivisionAttribute(JewishEthnicDivisionsLevel1 Subdivision)
+        public HigherLevelJewishSubdivisionLevel1Attribute(JewishEthnicDivisionsLevel1 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
     }
 
-    public class HigherLevelJewishEthnicSubdivisionsAttribute : Attribute
+    public class HigherLevelJewishSubdivisionsLevel1Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel1[] Subdivisions { get; set; }
-        public HigherLevelJewishEthnicSubdivisionsAttribute(params JewishEthnicDivisionsLevel1[] Subdivisions)
+        public HigherLevelJewishSubdivisionsLevel1Attribute(params JewishEthnicDivisionsLevel1[] Subdivisions)
         {
             this.Subdivisions = Subdivisions;
         }
     }
 
-    public class HigherLevelJewishEthnicSubSubdivisionAttribute : Attribute
+    public class MainLevelJewishSubdivisionLevel2Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel2 Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubSubdivisionAttribute(JewishEthnicDivisionsLevel2 Subdivision)
+        public MainLevelJewishSubdivisionLevel2Attribute(JewishEthnicDivisionsLevel2 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
     }
 
-    public class HigherLevelJewishEthnicSubSubSubdivisionAttribute : Attribute
+    public class LowerLevelJewishSubdivisionLevel3Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel3 Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubSubSubdivisionAttribute(JewishEthnicDivisionsLevel3 Subdivision)
+        public LowerLevelJewishSubdivisionLevel3Attribute(JewishEthnicDivisionsLevel3 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
