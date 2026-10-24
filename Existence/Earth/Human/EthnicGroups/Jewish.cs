@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Reflection.Metadata;
 using Existence.Earth.Countries;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
@@ -423,6 +424,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Moroccan,
 
         /// <summary>
+        /// The "Oberland" of the old Kingdom of Hungary: western Hungary (Sopron, Gyor), Burgenland (now Austria), and western
+        /// Slovakia (Bratislava, then Pressburg), now mostly the United States and Israel
+        /// Descended mainly from Moravian and Austrian Jews who moved east in the 17th and 18th centuries, keeping German and
+        /// Western Yiddish speech. Orthodox but not Hasidic, unlike the Unterlander Jews of eastern Hungary. Pressburg's yeshiva,
+        /// led by the Chatam Sofer (Moses Sofer, 1762-1839), made the region the center of Orthodox opposition to Reform Judaism.
+        /// Burgenland's Jews were expelled after Austria's annexation in 1938, and most others were murdered in the Holocaust in 1944.
+        /// No modern count exists; the estimate is of descendants of a population of roughly 100,000-150,000 before World War II.
+        /// </summary>
+        [NumberOfMembers(100000, 200000)] //100,000-200,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Countries(CountryLikeThings.Austria, CountryLikeThings.Hungary, CountryLikeThings.Slovakia)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Yekke, HierarchyItemOriginTypes.Main)]
+        Oberlander,
+
+        /// <summary>
         /// Iranian Jews
         /// Iran (mainly Tehran, Isfahan, Shiraz, Hamadan, and Mashhad), now mostly Israel and the United States (Los Angeles, New York)
         /// One of the oldest diaspora communities, dating to the Babylonian exile and the Persian Empire; the Book of Esther is set
@@ -500,7 +516,10 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Unterlander,
 
         /// <summary>
-        /// Chuetas (spanish spelling), from Majorca (Balearic Islands, Spain)
+        /// Majorcan Jews, Chuetas (spanish spelling), from Majorca (Balearic Islands, Spain)
+        /// The medieval Jewish community of Majorca was known for its mapmakers, such as Cresques Abraham, who made the Catalan
+        /// Atlas of 1375. It ended in forced conversions after the 1391 massacres and in 1435; some fled to North Africa,
+        /// especially Algiers, and are counted as Algerian Jews.
         /// Descendants of Majorcan Jews forced to convert to Catholicism in the 14th and 15th centuries. Mostly Catholic today,
         /// but long discriminated against as a separate group. Israel's Chief Rabbinate recognized them as Jews in 2011.
         /// The count is of Majorcans who carry one of the traditional Xueta surnames.
@@ -655,5 +674,72 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level4
         [NumberOfMembers(100, 300)] //100-300
         [HigherLevelJewishSubdivisionLevel3(JewishEthnicDivisionsLevel3.Paradesi)]
         Meshuchrari,
+    }
+}
+
+namespace Existence.Earth.Human.EthnicGroups.Jewish.Historical
+{
+    /// <summary>
+    /// Jewish communities that no longer exist as distinct groups, so they have no member counts
+    /// Ordered from the most recent to die out to the oldest.
+    /// </summary>
+    public enum JewishEthnicDivisionsHistorical
+    {
+        /// <summary>
+        /// Oman, mainly the port cities of Sohar and Muscat
+        /// Jewish merchants lived in Sohar, a major Indian Ocean trading port, in the Middle Ages. A small community in Muscat
+        /// in the 19th century included Jews who had fled persecution in Baghdad. It disappeared by the early 20th century, its
+        /// members moving on to Aden, India, and elsewhere. Sources on the community are sparse.
+        /// </summary>
+        [Country(CountryLikeThings.Oman)]
+        Omani,
+
+        /// <summary>
+        /// Medieval French Jews, from Tzarfat, the Hebrew name for France; mainly northern France and Champagne (Troyes, Paris, Rouen)
+        /// Home of Rashi (1040-1105), the most widely studied Bible and Talmud commentator, and of the Tosafists who followed him.
+        /// Wrote French in Hebrew letters (Judeo-French). Expelled in 1182, readmitted in 1198, expelled again in 1306, and
+        /// finally in 1394; the survivors were absorbed into the Ashkenazi Jews of Germany and into the Jews of Provence and Italy.
+        /// </summary>
+        [Country(CountryLikeThings.France)]
+        Zarphatim,
+
+        /// <summary>
+        /// The Khazar Khaganate, a Turkic empire between the Black Sea, the Caspian Sea, and the Volga, 7th-10th centuries
+        /// Its ruling class converted to Judaism around the 8th-9th centuries; how far Judaism spread among ordinary Khazars is
+        /// debated. Known in Jewish tradition through the Khazar Correspondence and Judah Halevi's book the Kuzari. The empire
+        /// collapsed after the Rus destroyed its capital, Atil, in the 960s, and left no identifiable descendants. Genetic studies
+        /// have ruled out the theory that Ashkenazi Jews descend mainly from the Khazars.
+        /// </summary>
+        [Countries(CountryLikeThings.Kazakhstan, CountryLikeThings.Russia, CountryLikeThings.Ukraine)]
+        Khazar,
+
+        /// <summary>
+        /// The Hejaz in western Arabia: Medina (then Yathrib), the oasis of Khaybar, and towns such as Tayma and Fadak
+        /// Jewish tribes, including the Banu Qaynuqa, Banu Nadir, and Banu Qurayza of Medina, who lived there before Islam.
+        /// The Qaynuqa and Nadir were expelled from Medina in 624 and 625, the men of the Qurayza were killed in 627, and
+        /// Khaybar was conquered in 628. The remaining Jews were expelled from the Hejaz under the caliph Umar in the 640s;
+        /// some resettled in Syria and Iraq.
+        /// </summary>
+        [Country(CountryLikeThings.SaudiArabia)]
+        Arabian,
+
+        /// <summary>
+        /// The Kingdom of Himyar in Yemen
+        /// Himyar's rulers adopted Judaism in the late 4th century. Its last Jewish king, Dhu Nuwas, massacred the Christians
+        /// of Najran in 523, and an invasion from the Christian kingdom of Aksum, in Ethiopia, ended the kingdom in about 525.
+        /// Some of its people may have been absorbed into the Yemenite Jewish community.
+        /// </summary>
+        [Country(CountryLikeThings.Yemen)]
+        Himyarite,
+
+        /// <summary>
+        /// Alexandria, Egypt
+        /// The great Greek-speaking Jewish community of the ancient world, founded soon after the city in 331 BCE and one of
+        /// the largest in the diaspora. The Septuagint, the Greek translation of the Bible, was made there, and the philosopher
+        /// Philo lived there. It suffered riots in 38 CE and was largely destroyed in the diaspora revolt of 115-117 CE.
+        /// Later Jewish communities in Alexandria were founded anew and are counted as Egyptian Jews.
+        /// </summary>
+        [Country(CountryLikeThings.Egypt)]
+        Alexandrian,
     }
 }
