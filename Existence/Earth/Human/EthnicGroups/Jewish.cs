@@ -1,8 +1,48 @@
 ﻿
+using System;
 using Existence.Earth.Countries;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
+
+namespace Existence.Earth.Human.EthnicGroups.Jewish
+{
+    public class HigherLevelJewishSubdivisionLevel1Attribute : Attribute
+    {
+        public JewishEthnicDivisionsLevel1 Subdivision { get; set; }
+        public HigherLevelJewishSubdivisionLevel1Attribute(JewishEthnicDivisionsLevel1 Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+
+    public class HigherLevelJewishSubdivisionsLevel1Attribute : Attribute
+    {
+        public JewishEthnicDivisionsLevel1[] Subdivisions { get; set; }
+        public HigherLevelJewishSubdivisionsLevel1Attribute(params JewishEthnicDivisionsLevel1[] Subdivisions)
+        {
+            this.Subdivisions = Subdivisions;
+        }
+    }
+
+    public class MainLevelJewishSubdivisionLevel2Attribute : Attribute
+    {
+        public JewishEthnicDivisionsLevel2 Subdivision { get; set; }
+        public MainLevelJewishSubdivisionLevel2Attribute(JewishEthnicDivisionsLevel2 Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+
+    public class LowerLevelJewishSubdivisionLevel3Attribute : Attribute
+    {
+        public JewishEthnicDivisionsLevel3 Subdivision { get; set; }
+        public LowerLevelJewishSubdivisionLevel3Attribute(JewishEthnicDivisionsLevel3 Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+}
 
 namespace Existence.Earth.Human.EthnicGroups.Jewish.Level1
 {
