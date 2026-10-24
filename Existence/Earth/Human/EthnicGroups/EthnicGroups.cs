@@ -258,6 +258,33 @@ namespace Existence.Earth.Human.EthnicGroups
         Egyptian,
 
         /// <summary>
+        /// Galician Jews
+        /// Galicia, an Austrian province from 1772 to 1918, now southeastern Poland (Krakow, Tarnow, Rzeszow) and western Ukraine
+        /// (Lviv, Brody, Ternopil), now mostly the United States and Israel
+        /// A stronghold of Hasidism and the home of the Belz, Bobov, and Sanz dynasties. Known for a long-running friendly rivalry
+        /// with the Litvaks over Yiddish pronunciation, religious style, and food (Galitzianers sweeten their gefilte fish).
+        /// Hundreds of thousands emigrated, mostly to the United States, before World War I; most of those who stayed were murdered
+        /// in the Holocaust.
+        /// No modern count exists; the estimate is of descendants of a population of about 870,000 in 1910.
+        /// </summary>
+        [NumberOfMembers(1000000, 2000000)] //1-2 million
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
+        [Countries(CountryLikeThings.Poland, CountryLikeThings.Ukraine)]
+        Galitzianer,
+
+        /// <summary>
+        /// Georgia (mainly Tbilisi, Kutaisi, and Oni), now mostly Israel
+        /// One of the oldest diaspora communities, by tradition arriving after the Babylonian exile about 2,600 years ago.
+        /// Spoke Georgian, and lived for centuries with little of the persecution Jews faced elsewhere. Among the first Soviet Jews
+        /// to openly demand the right to emigrate, in 1969; most left for Israel in the 1970s and after 1991, and a few
+        /// thousand remain in Georgia.
+        /// </summary>
+        [NumberOfMembers(100000, 140000)] //100,000-140,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Country(CountryLikeThings.Georgia)]
+        Georgian,
+
+        /// <summary>
         /// Habban, in eastern Yemen
         /// A small, isolated community with its own customs and dress. Nearly all moved to Israel around 1950.
         /// No modern count exists; the estimate is based on the few hundred who emigrated around 1950.
@@ -266,6 +293,21 @@ namespace Existence.Earth.Human.EthnicGroups
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Teimani)]
         [Country(CountryLikeThings.Yemen)]
         Habbani,
+
+        /// <summary>
+        /// Lithuanian Jews
+        /// The lands of the old Grand Duchy of Lithuania: Lithuania, Belarus, eastern Latvia, and northeastern Poland
+        /// (Vilnius, Minsk, Grodno, Bialystok), now mostly the United States, Israel, and South Africa
+        /// Centered on Vilnius, the "Jerusalem of Lithuania", home of the Vilna Gaon, who led the opposition to Hasidism
+        /// in the 18th century. Known for their great yeshivas and for scholarship. Most South African Jews are of Litvak descent.
+        /// About 95% of Lithuania's Jews were murdered in the Holocaust. "Litvish" is also used today for any non-Hasidic
+        /// Haredi Jew in the yeshiva tradition, regardless of ancestry.
+        /// No modern count exists; the estimate is of descendants of a population of about 1.5 million in 1897.
+        /// </summary>
+        [NumberOfMembers(2000000, 4000000)] //2-4 million
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
+        [Countries(CountryLikeThings.Belarus, CountryLikeThings.Latvia, CountryLikeThings.Lithuania, CountryLikeThings.Poland)]
+        Litvak,
 
         /// <summary>
         /// Sudan (mostly Khartoum and Omdurman)
@@ -335,6 +377,20 @@ namespace Existence.Earth.Human.EthnicGroups
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Spain)]
         Xuetes,
+
+        /// <summary>
+        /// Germany, plus the German-speaking Jews of Austria and the Czech lands, now mostly the United States, Israel, and the United Kingdom
+        /// The original Ashkenazi Jews: "Ashkenaz" was the medieval Hebrew name for Germany, and Ashkenazi Jewry began in the
+        /// Rhineland towns of Speyer, Worms, and Mainz. In the 19th century they became highly assimilated, and gave rise to the
+        /// Jewish Enlightenment (Haskalah) and Reform Judaism. Most fled after the Nazis took power in 1933, and those who stayed
+        /// were mostly murdered in the Holocaust. Germany's Jewish community today is mostly from the former Soviet Union.
+        /// No modern count exists; the estimate is of descendants of a population of about 525,000 in Germany in 1933,
+        /// about 190,000 in Austria, and the German-speaking share of about 120,000 in the Czech lands.
+        /// </summary>
+        [NumberOfMembers(700000, 1400000)] //700,000-1.4 million
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
+        [Countries(CountryLikeThings.Austria, CountryLikeThings.CzechRepublic, CountryLikeThings.Germany)]
+        Yekke,
     }
 
     /// <summary>
