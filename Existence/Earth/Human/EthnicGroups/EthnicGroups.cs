@@ -57,8 +57,6 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
-    public class HasSubdivisionsAttribute : Attribute { }
-
     /// <summary>
     /// high level ethnic subdivisions of Jewish people
     /// Member counts are rough and add up to more than the world's ~16 million Jews, since many Jews
@@ -71,6 +69,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// The majority of the world's Jews. Traditional language is Yiddish.
         /// </summary>
         [NumberOfMembers(10000000, 11500000)] //10-11.5 million
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Yekke, HierarchyItemOriginTypes.Main)]
         Ashkenazi,
 
         /// <summary>
@@ -99,6 +98,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// </summary>
         [NumberOfMembers(1500000, 2000000)] //1.5-2 million
         [Countries(CountryLikeThings.Algeria, CountryLikeThings.Morocco, CountryLikeThings.LibyaWest, CountryLikeThings.LibyaEast, CountryLikeThings.Tunisia)]
+        [OriginatedFrom(JewishEthnicSubdivisions.Sephardi, HierarchyItemOriginTypes.Significant)]
         Maghrebi,
 
         /// <summary>
@@ -137,6 +137,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(10000, 20000)] //10,000-20,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
         [Country(CountryLikeThings.Afghanistan)]
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Persian, HierarchyItemOriginTypes.Main)]
         Afghan,
 
         /// <summary>
@@ -216,6 +217,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(150000, 250000)] //150,000-250,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
         [Countries(CountryLikeThings.Tajikistan, CountryLikeThings.Uzbekistan)]
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Persian, HierarchyItemOriginTypes.Main)]
         Bukharan,
 
         /// <summary>
@@ -295,6 +297,18 @@ namespace Existence.Earth.Human.EthnicGroups
         Habbani,
 
         /// <summary>
+        /// Italian Jews
+        /// Italy (mainly Rome, also Venice, Florence, Livorno, and Turin), now mostly Italy and Israel
+        /// The oldest Jewish community in Europe: Jews have lived in Rome continuously since the 2nd century BCE. Follow their own
+        /// Italian rite, neither Ashkenazi nor Sephardi. Venice's Jewish quarter of 1516 gave the world the word "ghetto".
+        /// Italy also had separate Sephardic and Ashkenazi communities, which are not counted here.
+        /// Not part of any of the higher level subdivisions.
+        /// </summary>
+        [NumberOfMembers(20000, 40000)] //20,000-40,000
+        [Country(CountryLikeThings.Italy)]
+        Italkim,
+
+        /// <summary>
         /// Lithuanian Jews
         /// The lands of the old Grand Duchy of Lithuania: Lithuania, Belarus, eastern Latvia, and northeastern Poland
         /// (Vilnius, Minsk, Grodno, Bialystok), now mostly the United States, Israel, and South Africa
@@ -310,6 +324,18 @@ namespace Existence.Earth.Human.EthnicGroups
         Litvak,
 
         /// <summary>
+        /// Iranian Jews
+        /// Iran (mainly Tehran, Isfahan, Shiraz, Hamadan, and Mashhad), now mostly Israel and the United States (Los Angeles, New York)
+        /// One of the oldest diaspora communities, dating to the Babylonian exile and the Persian Empire; the Book of Esther is set
+        /// in the Persian capital of Susa. Spoke Judeo-Persian dialects. About 80,000-100,000 lived in Iran before the 1979
+        /// revolution, after which most left; about 8,000-10,000 remain, the largest Jewish community in the Middle East outside Israel.
+        /// </summary>
+        [NumberOfMembers(250000, 350000)] //250,000-350,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Country(CountryLikeThings.Iran)]
+        Persian,
+
+        /// <summary>
         /// Sudan (mostly Khartoum and Omdurman)
         /// A small community, at most about a thousand people, mostly Sephardic families from Egypt and the Ottoman Empire
         /// who arrived in the late 19th and early 20th centuries. Nearly all left by the 1960s, for Israel, the United Kingdom,
@@ -319,6 +345,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(2000, 5000)] //2,000-5,000
         [HigherLevelJewishEthnicSubdivisions(JewishEthnicSubdivisions.Mizrahi, JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Sudan)]
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Egyptian, HierarchyItemOriginTypes.Main)]
         Sudanese,
 
         /// <summary>
@@ -365,6 +392,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(100000, 300000)] //100,000-300,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
         [Countries(CountryLikeThings.Hungary, CountryLikeThings.Romania, CountryLikeThings.Slovakia, CountryLikeThings.Ukraine)]
+        [OriginatedFrom(JewishEthnicSubSubdivisions.Galitzianer, HierarchyItemOriginTypes.Main)]
         Unterlander,
 
         /// <summary>
@@ -429,6 +457,7 @@ namespace Existence.Earth.Human.EthnicGroups
         [NumberOfMembers(300, 600)] //300-600
         [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Cochin)]
         [HasSubdivisions]
+        [OriginatedFrom(JewishEthnicSubdivisions.Sephardi, HierarchyItemOriginTypes.Main)]
         Paradesi,
 
         /// <summary>
