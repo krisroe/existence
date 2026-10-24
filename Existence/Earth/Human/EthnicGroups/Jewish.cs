@@ -197,18 +197,6 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         BeneIsrael,
 
         /// <summary>
-        /// Amazigh Jews
-        /// Villages of the Atlas Mountains and the valleys south of them (Draa, Sous, Todra), Morocco, now mostly Israel
-        /// Rural Jews who lived among Berber tribes and spoke Judeo-Berber rather than Judeo-Arabic. Whether they descend
-        /// partly from Berbers who converted to Judaism is debated. Nearly all left for Israel in the 1950s and 1960s.
-        /// No modern count exists; the estimate is based on a rural Atlas population of a few tens of thousands in 1948.
-        /// </summary>
-        [NumberOfMembers(50000, 150000)] //50,000-150,000
-        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
-        [Country(CountryLikeThings.Morocco)]
-        Berber,
-
-        /// <summary>
         /// Ethiopia (mostly around Gondar, also Tigray and Qwara), now nearly all Israel
         /// Developed separately from other Jewish communities for centuries, with scriptures and prayers in Ge'ez.
         /// Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
@@ -431,6 +419,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(900000, 1200000)] //900,000-1.2 million
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Morocco)]
+        [HasSubdivisions]
         Moroccan,
 
         /// <summary>
@@ -495,6 +484,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(250000, 350000)] //250,000-350,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Tunisia)]
+        [HasSubdivisions]
         Tunisian,
 
         /// <summary>
@@ -544,6 +534,18 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
     public enum JewishEthnicDivisionsLevel3
     {
         /// <summary>
+        /// Livornese Jews, Tunis, Tunisia, now mostly France, Italy, and Israel
+        /// From "Grana", the Arabic name for Livorno, Italy. Merchant families of Portuguese Sephardic descent who came from
+        /// Livorno from the 17th century on, speaking Italian and keeping European dress and customs. Founded their own
+        /// congregation in 1710, and kept separate synagogues, rabbis, and courts from the Twansa into the 20th century.
+        /// No census exists; the estimate is roughly a tenth of the Tunisian Jewish population.
+        /// </summary>
+        [NumberOfMembers(20000, 35000)] //20,000-35,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Tunisian)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Iberian, HierarchyItemOriginTypes.Main)]
+        Granas,
+
+        /// <summary>
         /// Aleppo (Halab in Arabic), now mostly Brooklyn, Israel, Mexico, Panama, and Argentina
         /// One of the oldest Jewish communities in the world, joined by Sephardic exiles after 1492. For about 600 years it kept
         /// the Aleppo Codex, the oldest near-complete Hebrew Bible manuscript, until riots in 1947 damaged it.
@@ -563,6 +565,18 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         [NumberOfMembers(6500, 9500)] //6,500-9,500
         [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
         Malabari,
+
+        /// <summary>
+        /// "The expelled" in Hebrew; mainly Fez, Tetouan, Tangier, Rabat, and Meknes, Morocco, now mostly Israel, France, and Canada
+        /// Sephardic exiles who arrived after 1391 and 1492, and their descendants. Northern communities spoke Haketia, a form of
+        /// Judeo-Spanish. Their Castilian customs and religious law came to dominate Moroccan Judaism, and in most places they
+        /// gradually merged with the Toshavim, so the line between the two is blurry today.
+        /// No census exists; the estimate is roughly 30% of the Moroccan Jewish population.
+        /// </summary>
+        [NumberOfMembers(250000, 400000)] //250,000-400,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Moroccan)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel1.Sephardi, HierarchyItemOriginTypes.Main)]
+        Megorashim,
 
         /// <summary>
         /// Jew Town in Kochi, Kerala, India, now mostly Israel, plus Australia and the United States
@@ -587,6 +601,28 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         [NumberOfMembers(50000, 90000)] //50,000-90,000
         [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
         Shami,
+
+        /// <summary>
+        /// "Residents" in Hebrew; Morocco, especially the interior, the south, and the Atlas villages, now mostly Israel
+        /// The native Moroccan Jews, descended from communities that were there before the Sephardic exiles arrived; some may
+        /// descend partly from Berbers who converted to Judaism. Spoke Judeo-Arabic or Judeo-Berber. The majority of Moroccan
+        /// Jews, though many adopted the Megorashim's customs over time. Includes the Berber Jews.
+        /// No census exists; the estimate is roughly 70% of the Moroccan Jewish population.
+        /// </summary>
+        [NumberOfMembers(600000, 850000)] //600,000-850,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Moroccan)]
+        [HasSubdivisions]
+        Toshavim,
+
+        /// <summary>
+        /// Touansa; "Tunisians" in Arabic; Tunis's Hara quarter, Djerba, Sfax, Sousse, and other towns, now mostly Israel and France
+        /// The native Tunisian Jews, including the ancient community of Djerba, home of the El Ghriba synagogue. Spoke Judeo-Arabic.
+        /// Absorbed some Iberian exiles after 1391 and 1492, but kept separate institutions from the Granas into the 20th century.
+        /// No census exists; the estimate is roughly 90% of the Tunisian Jewish population.
+        /// </summary>
+        [NumberOfMembers(220000, 320000)] //220,000-320,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Tunisian)]
+        Twansa,
     }
 }
 
@@ -597,6 +633,17 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level4
     /// </summary>
     public enum JewishEthnicDivisionsLevel4
     {
+        /// <summary>
+        /// Amazigh Jews
+        /// Villages of the Atlas Mountains and the valleys south of them (Draa, Sous, Todra), Morocco, now mostly Israel
+        /// Rural Jews who lived among Berber tribes and spoke Judeo-Berber rather than Judeo-Arabic. Whether they descend
+        /// partly from Berbers who converted to Judaism is debated. Nearly all left for Israel in the 1950s and 1960s.
+        /// No modern count exists; the estimate is based on a rural Atlas population of a few tens of thousands in 1948.
+        /// </summary>
+        [NumberOfMembers(50000, 150000)] //50,000-150,000
+        [HigherLevelJewishSubdivisionLevel3(JewishEthnicDivisionsLevel3.Toshavim)]
+        Berber,
+
         /// <summary>
         /// Meshuchrarim ("freed" in Hebrew), Kochi, Kerala, India, now mostly Israel
         /// Descendants of servants of Cochin Jews who were freed and converted to Judaism. Attached to the Paradesi community,
