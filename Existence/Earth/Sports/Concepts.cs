@@ -173,7 +173,36 @@ namespace Existence.Earth.Sports
         }
     }
 
-    public class TeamWinLossTieRecord : NumbersTrinary
+    public class TeamWinLossRecordAttribute : NumbersBinary
+    {
+        public int Wins
+        {
+            get
+            {
+                return base.NumberOne;
+            }
+            set
+            {
+                base.NumberOne = value;
+            }
+        }
+        public int Losses
+        {
+            get
+            {
+                return base.NumberTwo;
+            }
+            set
+            {
+                base.NumberTwo = value;
+            }
+        }
+        public TeamWinLossRecordAttribute(int Wins, int Losses) : base(Wins, Losses)
+        {
+        }
+    }
+
+    public class TeamWinLossTieRecordAttribute : NumbersTrinary
     {
         public int Wins
         {
@@ -208,7 +237,7 @@ namespace Existence.Earth.Sports
                 base.NumberThree = value;
             }
         }
-        public TeamWinLossTieRecord(int Wins, int Losses, int Ties) : base(Wins, Losses, Ties)
+        public TeamWinLossTieRecordAttribute(int Wins, int Losses, int Ties) : base(Wins, Losses, Ties)
         {
         }
     }
