@@ -135,7 +135,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// A small community, at most about a thousand people, mostly Sephardic families from Egypt and the Ottoman Empire
         /// who arrived in the late 19th and early 20th centuries. Nearly all left by the 1960s, for Israel, the United Kingdom,
         /// the United States, and Switzerland.
+        /// No modern count exists; the estimate is based on the community's peak of about a thousand.
         /// </summary>
+        [NumberOfMembers(2000, 5000)] //2,000-5,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Sudan)]
         Sudanese,
@@ -144,7 +146,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// Syria, mainly Aleppo (Halabi Jews) and Damascus (Shami Jews), now mostly Israel, Brooklyn, and Latin America
         /// An ancient community joined by Sephardic exiles after 1492. Nearly all left after 1948, with the last few
         /// thousand allowed out in 1992.
+        /// The count covers the Halabi and Shami communities combined.
         /// </summary>
+        [NumberOfMembers(150000, 250000)] //150,000-250,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
         [Country(CountryLikeThings.Syria)]
         [HasSubdivisions]
@@ -155,7 +159,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// Tatarstan and neighboring Udmurtia, in Russia's Volga-Ural region (mainly Kazan, Izhevsk, and Sarapul)
         /// Ashkenazi Jews who settled there in the 19th century, many of them former cantonists
         /// (boys conscripted into the Russian army). Their Yiddish dialect picked up Udmurt and Tatar words.
+        /// Russian censuses count only a few thousand Jews in the two republics; the high estimate includes emigrants to Israel.
         /// </summary>
+        [NumberOfMembers(3000, 10000)] //3,000-10,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
         [Country(CountryLikeThings.Russia)]
         Tatar,
@@ -164,7 +170,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// Tunisia, now mostly Israel and France
         /// Split historically between the Twansa, an ancient native community, and the Granas, who came from Livorno, Italy,
         /// from the 17th century on. About a thousand remain, mostly on the island of Djerba, home of the El Ghriba synagogue.
+        /// No modern count exists; the estimate is based on a population of about 105,000 in 1948.
         /// </summary>
+        [NumberOfMembers(250000, 350000)] //250,000-350,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Maghrebi)]
         [Country(CountryLikeThings.Tunisia)]
         Tunisian,
@@ -173,7 +181,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// The "Unterland" of the old Kingdom of Hungary: northeastern Hungary, Carpathian Ruthenia, eastern Slovakia, and Maramures
         /// Mostly Hasidic, unlike the more modernized Oberlander Jews of western Hungary. Most were murdered in the Holocaust
         /// in 1944, but several major Hasidic dynasties, such as Satmar and Munkacs, come from here.
+        /// No modern count exists; the estimate is of survivors' descendants, mostly in Hasidic communities in New York and Israel.
         /// </summary>
+        [NumberOfMembers(100000, 300000)] //100,000-300,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
         [Countries(CountryLikeThings.Hungary, CountryLikeThings.Romania, CountryLikeThings.Slovakia, CountryLikeThings.Ukraine)]
         Unterlander,
@@ -182,7 +192,9 @@ namespace Existence.Earth.Human.EthnicGroups
         /// Chuetas (spanish spelling), from Majorca (Balearic Islands, Spain)
         /// Descendants of Majorcan Jews forced to convert to Catholicism in the 14th and 15th centuries. Mostly Catholic today,
         /// but long discriminated against as a separate group. Israel's Chief Rabbinate recognized them as Jews in 2011.
+        /// The count is of Majorcans who carry one of the traditional Xueta surnames.
         /// </summary>
+        [NumberOfMembers(15000, 20000)] //15,000-20,000
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Spain)]
         Xuetes,
@@ -194,15 +206,27 @@ namespace Existence.Earth.Human.EthnicGroups
     public enum JewishEthnicSubSubSubdivisions
     {
         /// <summary>
-        /// 
+        /// Aleppo (Halab in Arabic), now mostly Brooklyn, Israel, Mexico, Panama, and Argentina
+        /// One of the oldest Jewish communities in the world, joined by Sephardic exiles after 1492. For about 600 years it kept
+        /// the Aleppo Codex, the oldest near-complete Hebrew Bible manuscript, until riots in 1947 damaged it.
+        /// Kept separate synagogues and community institutions from Shami Jews, even in the diaspora.
+        /// No census exists; the estimate is the larger share of the Syrian Jewish diaspora
         /// </summary>
+        [NumberOfMembers(100000, 160000)] //100,000-160,000
         [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
+        [Country(CountryLikeThings.Syria)]
         Halabi,
 
         /// <summary>
-        /// Represents the Shami type.
+        /// Damascus (al-Sham in Arabic), now mostly Brooklyn, Israel, and Argentina
+        /// An ancient community, smaller and less influenced by Sephardic exiles than the Halabi Jews. Known for the
+        /// Damascus affair of 1840, a blood libel that drew international protest.
+        /// Not the same as the Shami prayer rite of Yemenite Jews, which is named for the Levant as a whole.
+        /// No census exists; the estimate is the smaller share of the Syrian Jewish diaspora
         /// </summary>
+        [NumberOfMembers(50000, 90000)] //50,000-90,000
         [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
+        [Country(CountryLikeThings.Syria)]
         Shami,
     }
 
