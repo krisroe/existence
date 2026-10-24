@@ -97,14 +97,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    [FielderType(FielderType.FirstBase)]
+                    [FielderType(BaseballPositionType.FirstBase)]
                     CecilCooper,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    [FielderType(FielderType.Outfield)]
+                    [FielderType(BaseballPositionType.Outfield)]
                     BenOglivie,
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    [FielderType(FielderType.Shortstop)]
+                    [FielderType(BaseballPositionType.Shortstop)]
                     RobinYount,
                 }
 
@@ -161,13 +161,13 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
-                    [FielderType(FielderType.Outfield)]
+                    [FielderType(BaseballPositionType.Outfield)]
                     DaleMurphy,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
-                    [FielderType(FielderType.Outfield)]
+                    [FielderType(BaseballPositionType.Outfield)]
                     LonnieSmith,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
-                    [FielderType(FielderType.Shortstop)]
+                    [FielderType(BaseballPositionType.Shortstop)]
                     OzzieSmith,
                 }
 
@@ -233,14 +233,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    [FielderType(FielderType.ThirdBase)]
+                    [FielderType(BaseballPositionType.ThirdBase)]
                     EvanLongoria,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    [FielderType(FielderType.Catcher)]
+                    [FielderType(BaseballPositionType.Catcher)]
                     DionerNavarro,
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
-                    [FielderType(FielderType.SecondBase)]
+                    [FielderType(BaseballPositionType.SecondBase)]
                     DustinPedroia,
                 }
 
@@ -308,10 +308,10 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// </summary>
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
-                    [FielderType(FielderType.DesignatedHitter)]
+                    [FielderType(BaseballPositionType.DesignatedHitter)]
                     AlbertPujols,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
-                    [FielderType(FielderType.SecondBase)]
+                    [FielderType(BaseballPositionType.SecondBase)]
                     ChaseUtley,
                 }
 
@@ -395,7 +395,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// </summary>
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ChicagoWhiteSox)]
-                    [FielderType(FielderType.FirstBase)]
+                    [FielderType(BaseballPositionType.FirstBase)]
                     JoseAbreu,
                 }
 
@@ -464,7 +464,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// </summary>
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
-                    [FielderType(FielderType.FirstBase)]
+                    [FielderType(BaseballPositionType.FirstBase)]
                     FreddieFreeman,
                 }
 
@@ -543,10 +543,10 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    [FielderType(FielderType.ThirdBase)]
+                    [FielderType(BaseballPositionType.ThirdBase)]
                     JuniorCaminero,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    [FielderType(FielderType.DesignatedHitter)]
+                    [FielderType(BaseballPositionType.DesignatedHitter)]
                     YandyDiaz,
                 }
 
@@ -609,7 +609,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    [FielderType(FielderType.Catcher)]
+                    [FielderType(BaseballPositionType.Catcher)]
                     WilliamContreras,
                 }
 
@@ -664,8 +664,7 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 [StartingPitcher((int)AmericanLeague.PitchingAllStars.NickMartinez)]
                 [StartingPitcher((int)NationalLeague.PitchingAllStars.JacobMisiorowski)]
-                // score as of the 9th inning
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game1 { }
             }
         }
