@@ -39,6 +39,15 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
+    public class HigherLevelJewishEthnicSubSubSubdivisionAttribute : Attribute
+    {
+        public JewishEthnicSubSubSubdivisions Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubSubSubdivisionAttribute(JewishEthnicSubSubSubdivisions Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+
     public class HasSubdivisionsAttribute : Attribute { }
 
     /// <summary>
@@ -95,7 +104,7 @@ namespace Existence.Earth.Human.EthnicGroups
     }
 
     /// <summary>
-    /// lower level ethnic subdivisions of Jewish people
+    /// main level ethnic subdivisions of Jewish people
     /// </summary>
     public enum JewishEthnicSubSubdivisions
     {
@@ -294,7 +303,7 @@ namespace Existence.Earth.Human.EthnicGroups
     }
 
     /// <summary>
-    /// smallest level ethnic subdivisions of Jewish people
+    /// smaller level ethnic subdivisions of Jewish people
     /// </summary>
     public enum JewishEthnicSubSubSubdivisions
     {
@@ -307,8 +316,29 @@ namespace Existence.Earth.Human.EthnicGroups
         /// </summary>
         [NumberOfMembers(100000, 160000)] //100,000-160,000
         [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
-        [Country(CountryLikeThings.Syria)]
         Halabi,
+
+        /// <summary>
+        /// Kerala, India (mainly Ernakulam, Parur, Mala, and Chendamangalam), now mostly Israel
+        /// The older and much larger of the two Cochin Jewish communities, descended from the ancient settlers of the Malabar Coast.
+        /// Historically called "Black Jews" by Europeans. Kept their own synagogues and did not intermarry with the Paradesi Jews.
+        /// No census exists; the estimate is most of the Cochin Jewish population.
+        /// </summary>
+        [NumberOfMembers(6500, 9500)] //6,500-9,500
+        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Cochin)]
+        Malabari,
+
+        /// <summary>
+        /// Jew Town in Kochi, Kerala, India, now mostly Israel, plus Australia and the United States
+        /// "Foreigners": Jews who arrived from the 16th century on, mainly Sephardic exiles from Spain and Portugal, plus Jews
+        /// from the Netherlands, Germany, Iraq, and Syria. Historically called "White Jews" by Europeans. Built the Paradesi
+        /// Synagogue in 1568, still standing today.
+        /// No census exists; the estimate is based on a community of a few hundred in 1948.
+        /// </summary>
+        [NumberOfMembers(300, 600)] //300-600
+        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Cochin)]
+        [HasSubdivisions]
+        Paradesi,
 
         /// <summary>
         /// Damascus (al-Sham in Arabic), now mostly Brooklyn, Israel, and Argentina
@@ -319,8 +349,24 @@ namespace Existence.Earth.Human.EthnicGroups
         /// </summary>
         [NumberOfMembers(50000, 90000)] //50,000-90,000
         [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
-        [Country(CountryLikeThings.Syria)]
         Shami,
+    }
+
+    /// <summary>
+    /// smallest level ethnic subdivision(s) of Jewish people
+    /// </summary>
+    public enum JewishEthnicSubSubSubSubdivisions
+    {
+        /// <summary>
+        /// Meshuchrarim ("freed" in Hebrew), Kochi, Kerala, India, now mostly Israel
+        /// Descendants of servants of Cochin Jews who were freed and converted to Judaism. Attached to the Paradesi community,
+        /// but treated as lower status: they could not be called up to read the Torah or sit with other members in the Paradesi
+        /// Synagogue. Abraham Barak Salem, a Meshuchrari lawyer, led a Gandhi-style campaign against this in the 1930s.
+        /// No census exists; the estimate is based on a community of a few dozen families in 1948.
+        /// </summary>
+        [NumberOfMembers(100, 300)] //100-300
+        [HigherLevelJewishEthnicSubSubSubdivision(JewishEthnicSubSubSubdivisions.Paradesi)]
+        Meshuchrari,
     }
 
     /// <summary>
