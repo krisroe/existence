@@ -1,15 +1,81 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Existence.Earth.Sports.Baseball.American
 {
+    public enum MajorLeagueBaseballTeams
+    {
+        ArizonaDiamondbacks,
+        Athletics,
+        AtlantaBraves,
+        BaltimoreOrioles,
+        BostonRedSox,
+        CaliforniaAngels,
+        ChicagoCubs,
+        ChicagoWhiteSox,
+        CincinnatiReds,
+        ClevelandGuardians,
+        ClevelandIndians,
+        ColoradoRockies,
+        DetroitTigers,
+        FloridaMarlins,
+        HoustonAstros,
+        KansasCityRoyals,
+        LosAngelesAngels,
+        LosAngelesAngelsOfAnaheim,
+        LosAngelesDodgers,
+        MiamiMarlins,
+        MilwaukeeBrewers,
+        MinnesotaTwins,
+        MontrealExpos,
+        NewYorkMets,
+        NewYorkYankees,
+        OaklandAthletics,
+        PhiladelphiaPhillies,
+        PittsburghPirates,
+        SanDiegoPadres,
+        SanFranciscoGiants,
+        SeattleMariners,
+        StLouisCardinals,
+        TampaBayRays,
+        TexasRangers,
+        TorontoBlueJays,
+        WashingtonNationals,
+    }
+
+    public class MajorLeagueBaseballTeamAttribute : Attribute
+    {
+        public MajorLeagueBaseballTeams Team { get; set; }
+        public MajorLeagueBaseballTeamAttribute(MajorLeagueBaseballTeams Team)
+        {
+            this.Team = Team;
+        }
+    }
+
     public static class MajorLeagueBaseball
     {
         public static class v1982
         {
             public static class AmericanLeague
             {
+                public enum PitchingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    RollieFingers,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    [FielderType(FielderType.FirstBase)]
+                    CecilCooper,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    [FielderType(FielderType.Outfield)]
+                    BenOglivie,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    [FielderType(FielderType.Shortstop)]
+                    RobinYount,
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -52,6 +118,20 @@ namespace Existence.Earth.Sports.Baseball.American
 
             public static class NationalLeague
             {
+                public enum PitchingAllStars
+                {
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(FielderType.Outfield)]
+                    LonnieSmith,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(FielderType.Shortstop)]
+                    OzzieSmith,
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -93,6 +173,22 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             public static class AmericanLeague
             {
+                public enum PitchingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    ScottKazmir,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    [FielderType(FielderType.ThirdBase)]
+                    EvanLongoria,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    [FielderType(FielderType.Catcher)]
+                    DionerNavarro,
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -138,6 +234,19 @@ namespace Existence.Earth.Sports.Baseball.American
 
             public static class NationalLeague
             {
+                public enum PitchingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+                    BradLidge,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+                    [FielderType(FielderType.SecondBase)]
+                    ChaseUtley,
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -190,6 +299,15 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             public static class AmericanLeague
             {
+                // the 2020 All-Star Game was canceled due to COVID-19, so no All-Stars were selected
+                public enum PitchingAllStars
+                {
+                }
+
+                public enum BattingAllStars
+                {
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -237,6 +355,15 @@ namespace Existence.Earth.Sports.Baseball.American
 
             public static class NationalLeague
             {
+                // the 2020 All-Star Game was canceled due to COVID-19, so no All-Stars were selected
+                public enum PitchingAllStars
+                {
+                }
+
+                public enum BattingAllStars
+                {
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -287,6 +414,31 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             public static class AmericanLeague
             {
+                public enum PitchingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    BryanBaker,
+                    /// <summary>
+                    /// injury replacement for Ranger Suárez
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    NickMartinez,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    DrewRasmussen,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    [FielderType(FielderType.ThirdBase)]
+                    JuniorCaminero,
+                    /// <summary>
+                    /// designated hitter
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    YandyDiaz,
+                }
+
                 public static class Divisions
                 {
                     public static class East
@@ -334,6 +486,22 @@ namespace Existence.Earth.Sports.Baseball.American
 
             public static class NationalLeague
             {
+                public enum PitchingAllStars
+                {
+                    /// <summary>
+                    /// selected, but ineligible to pitch due to a recent start; replaced by Braxton Ashcraft
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    JacobMisiorowski,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                    [FielderType(FielderType.Catcher)]
+                    WilliamContreras,
+                }
+
                 public static class Divisions
                 {
                     public static class East
