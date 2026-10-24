@@ -20,12 +20,23 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish
         }
     }
 
+    /// <summary>
+    /// for subdivisions with significant populations from two higher level subdivisions. The percentages are rough
+    /// estimates of the share of the community from each. They need not add up to exactly 100, since a small
+    /// remainder from other groups is not worth tracking.
+    /// </summary>
     public class HigherLevelJewishSubdivisionsLevel1Attribute : Attribute
     {
-        public JewishEthnicDivisionsLevel1[] Subdivisions { get; set; }
-        public HigherLevelJewishSubdivisionsLevel1Attribute(params JewishEthnicDivisionsLevel1[] Subdivisions)
+        public JewishEthnicDivisionsLevel1 Subdivision1 { get; set; }
+        public int Subdivision1Percentage { get; set; }
+        public JewishEthnicDivisionsLevel1 Subdivision2 { get; set; }
+        public int Subdivision2Percentage { get; set; }
+        public HigherLevelJewishSubdivisionsLevel1Attribute(JewishEthnicDivisionsLevel1 Subdivision1, int Subdivision1Percentage, JewishEthnicDivisionsLevel1 Subdivision2, int Subdivision2Percentage)
         {
-            this.Subdivisions = Subdivisions;
+            this.Subdivision1 = Subdivision1;
+            this.Subdivision1Percentage = Subdivision1Percentage;
+            this.Subdivision2 = Subdivision2;
+            this.Subdivision2Percentage = Subdivision2Percentage;
         }
     }
 
@@ -253,9 +264,12 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// families, Ashkenazi immigrants, and a community of Karaites. Nearly all left or were expelled after 1948, 1956, and 1967;
         /// only a handful remain.
         /// No modern count exists; the estimate is based on a population of about 75,000-80,000 in 1948.
+        /// The Mizrahi/Sephardi split is a rough estimate: by the 20th century most families were immigrants, many of them
+        /// Sephardic from Ottoman lands and Italy, alongside native, Syrian, and Iraqi Jews and the Karaites. The remaining
+        /// ~10% of the community was Ashkenazi.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 40, JewishEthnicDivisionsLevel1.Sephardi, 50)]
         [Country(CountryLikeThings.Egypt)]
         Egyptian,
 
@@ -351,6 +365,46 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Krymchak,
 
         /// <summary>
+        /// Kurdistan: northern Iraq (Zakho, Amadiya, Erbil), northwestern Iran (Urmia, Sanandaj), and southeastern Turkey,
+        /// now mostly Israel
+        /// By tradition descended from the Israelites exiled by the Assyrians in the 8th century BCE. Spoke Jewish dialects of
+        /// Neo-Aramaic, the language of the Talmud, rather than Kurdish. Asenath Barzani, a 17th-century scholar who headed a
+        /// yeshiva in Mosul, is often called the first female rabbi. Nearly all left for Israel in the early 1950s.
+        /// </summary>
+        [NumberOfMembers(150000, 200000)] //150,000-200,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [Countries(CountryLikeThings.Iran, CountryLikeThings.Iraq, CountryLikeThings.Turkey)]
+        Kurdish,
+
+        /// <summary>
+        /// Lebanon (mainly Beirut's Wadi Abu Jamil quarter, also Sidon and Mount Lebanon), now mostly France, the United States,
+        /// Brazil, Mexico, Canada, and Israel
+        /// An ancient community, joined by Sephardic exiles after 1492 and by many Jews from Syria. Unusually, it grew after 1948,
+        /// as Jews fleeing Syria and Iraq arrived, peaking at about 10,000. Most left after 1967 and during the civil war of
+        /// 1975-1990; only a few dozen remain. Beirut's Maghen Abraham Synagogue was restored in the 2010s.
+        /// No modern count exists; the estimate is of descendants of a community that peaked at about 10,000.
+        /// The Mizrahi/Sephardi split is a rough estimate: the Sephardic exiles were a minority, and the later arrivals
+        /// from Syria and Iraq added mostly Mizrahi ancestry.
+        /// </summary>
+        [NumberOfMembers(20000, 40000)] //20,000-40,000
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 70, JewishEthnicDivisionsLevel1.Sephardi, 30)]
+        [Country(CountryLikeThings.Lebanon)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Syrian, HierarchyItemOriginTypes.Significant)]
+        Lebanese,
+
+        /// <summary>
+        /// Libya (mainly Tripoli and Benghazi, also villages in the Nafusa Mountains), now mostly Israel and Italy
+        /// One of the oldest communities in North Africa, dating to the Greek city of Cyrene. Under Italian rule in World War II,
+        /// Jews in Cyrenaica were sent to the Giado camp, where hundreds died. Riots in 1945 and 1948 killed well over a hundred;
+        /// about 30,000 left for Israel in 1949-1951, and the rest left for Italy after riots in 1967. None remain.
+        /// No modern count exists; the estimate is based on a population of about 35,000-38,000 in 1948.
+        /// </summary>
+        [NumberOfMembers(100000, 150000)] //100,000-150,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
+        [Countries(CountryLikeThings.LibyaEast, CountryLikeThings.LibyaWest)]
+        Libyan,
+
+        /// <summary>
         /// Lithuanian Jews
         /// The lands of the old Grand Duchy of Lithuania: Lithuania, Belarus, eastern Latvia, and northeastern Poland
         /// (Vilnius, Minsk, Grodno, Bialystok), now mostly the United States, Israel, and South Africa
@@ -364,6 +418,20 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
         [Countries(CountryLikeThings.Belarus, CountryLikeThings.Latvia, CountryLikeThings.Lithuania, CountryLikeThings.Poland)]
         Litvak,
+
+        /// <summary>
+        /// Morocco (mainly Casablanca, Fez, Marrakesh, Meknes, Tetouan, and the Atlas villages), now mostly Israel, France, and Canada (Montreal)
+        /// The largest Jewish community in the Muslim world in the 20th century, about 250,000-265,000 in 1948. A mix of ancient
+        /// native Jews (toshavim) and Sephardic exiles (megorashim) who arrived after 1492; northern Moroccan Jews spoke Haketia,
+        /// a form of Judeo-Spanish, while others spoke Judeo-Arabic or Judeo-Berber. Fez's mellah of 1438 was the first walled
+        /// Jewish quarter in Morocco. Most left from the 1950s on, about 97,000 of them secretly in Operation Yachin (1961-1964).
+        /// About 2,000 remain, the largest Jewish community left in the Arab world. Moroccan Jews are the largest Mizrahi or
+        /// Maghrebi group in Israel. The count includes the Berber Jews.
+        /// </summary>
+        [NumberOfMembers(900000, 1200000)] //900,000-1.2 million
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
+        [Country(CountryLikeThings.Morocco)]
+        Moroccan,
 
         /// <summary>
         /// Iranian Jews
@@ -383,9 +451,11 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// who arrived in the late 19th and early 20th centuries. Nearly all left by the 1960s, for Israel, the United Kingdom,
         /// the United States, and Switzerland.
         /// No modern count exists; the estimate is based on the community's peak of about a thousand.
+        /// The Mizrahi/Sephardi split is a rough estimate: most families were Sephardic, with a smaller number of
+        /// Mizrahi families from Egypt and Iraq.
         /// </summary>
         [NumberOfMembers(2000, 5000)] //2,000-5,000
-        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 30, JewishEthnicDivisionsLevel1.Sephardi, 70)]
         [Country(CountryLikeThings.Sudan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Egyptian, HierarchyItemOriginTypes.Main)]
         Sudanese,
@@ -395,9 +465,11 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// An ancient community joined by Sephardic exiles after 1492. Nearly all left after 1948, with the last few
         /// thousand allowed out in 1992.
         /// The count covers the Halabi and Shami communities combined.
+        /// The Mizrahi/Sephardi split is a rough estimate: the ancient native community was the majority, and the Sephardic
+        /// exiles merged into it over the following centuries, so most families have some of both.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
-        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, JewishEthnicDivisionsLevel1.Sephardi)]
+        [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 70, JewishEthnicDivisionsLevel1.Sephardi, 30)]
         [Country(CountryLikeThings.Syria)]
         [HasSubdivisions]
         Syrian,
