@@ -188,6 +188,15 @@ namespace Existence.Earth.Religions
         [ClosedReligion("Doctrine", 1042, 1043)] //the call to join ended, and Druze souls are reincarnated only as Druze
         Druze,
 
+        /// <summary>
+        /// traced to Sheikh Adi ibn Musafir (died 1162), a Sufi Muslim mystic from Lebanon
+        /// By ~14th century was clearly separate from Islam
+        /// Some Yazidis claim they are descended from Adam alone (not Adam and Eve)
+        /// Hereditary castes (also expected to marry within them)
+        /// Sheikh: highest caste, traces to the founder's family and surrounding holy figures
+        /// Pir: second religious caste
+        /// Murid: laypeople (the majority)
+        /// </summary>
         [NumberOfFollowers(700000, 1000000)] //700,000-1 million
         [ClosedReligion("Bloodline")] //Yazidis descend from Adam alone; also endogamous castes (Sheikh, Pir, Murid)
         Yazidism,
