@@ -51,6 +51,31 @@ namespace Existence.Earth.Sports.Baseball.American
         }
     }
 
+    public class MajorLeagueBaseballGameResultAttribute : Attribute
+    {
+        public MajorLeagueBaseballTeams WinningTeam { get; set; }
+        public int WinningTeamRuns { get; set; }
+        public MajorLeagueBaseballTeams LosingTeam { get; set; }
+        public int LosingTeamRuns { get; set; }
+        public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns)
+        {
+            this.WinningTeam = WinningTeam;
+            this.WinningTeamRuns = WinningTeamRuns;
+            this.LosingTeam = LosingTeam;
+            this.LosingTeamRuns = LosingTeamRuns;
+        }
+    }
+
+    /// <summary>
+    /// the game isn't finished; the winning and losing teams are the teams leading and trailing so far
+    /// </summary>
+    public class MajorLeagueBaseballGameResultInProgressAttribute : MajorLeagueBaseballGameResultAttribute
+    {
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        {
+        }
+    }
+
     public static class MajorLeagueBaseball
     {
         public static class v1982
@@ -186,6 +211,8 @@ namespace Existence.Earth.Sports.Baseball.American
             [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
             public static class WorldSeries
             {
+                // Mike Caldwell started for the Brewers and Bob Forsch for the Cardinals, but neither is in an enum yet
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 public static class Game1 { }
             }
         }
@@ -339,6 +366,9 @@ namespace Existence.Earth.Sports.Baseball.American
             [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
             public static class WorldSeries
             {
+                // Cole Hamels started for the Phillies, but isn't in an enum yet
+                [StartingPitcher((int)AmericanLeague.PitchingAllStars.ScottKazmir)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game1 { }
             }
         }
@@ -487,6 +517,8 @@ namespace Existence.Earth.Sports.Baseball.American
             [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
             public static class WorldSeries
             {
+                // Tyler Glasnow started for the Rays and Clayton Kershaw for the Dodgers, but neither is in an enum yet
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 8, MajorLeagueBaseballTeams.TampaBayRays, 3)]
                 public static class Game1 { }
             }
         }
@@ -630,6 +662,10 @@ namespace Existence.Earth.Sports.Baseball.American
             [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
             public static class WorldSeries
             {
+                [StartingPitcher((int)AmericanLeague.PitchingAllStars.NickMartinez)]
+                [StartingPitcher((int)NationalLeague.PitchingAllStars.JacobMisiorowski)]
+                // score as of the 8th inning
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game1 { }
             }
         }
