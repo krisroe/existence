@@ -25,8 +25,8 @@ namespace Existence.Earth.Human.EthnicGroups
 
     public class HigherLevelJewishEthnicSubdivisionAttribute : Attribute
     {
-        public JewishEthnicSubdivisions Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubdivisionAttribute(JewishEthnicSubdivisions Subdivision)
+        public JewishEthnicDivisionsLevel1 Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubdivisionAttribute(JewishEthnicDivisionsLevel1 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
@@ -34,8 +34,8 @@ namespace Existence.Earth.Human.EthnicGroups
 
     public class HigherLevelJewishEthnicSubdivisionsAttribute : Attribute
     {
-        public JewishEthnicSubdivisions[] Subdivisions { get; set; }
-        public HigherLevelJewishEthnicSubdivisionsAttribute(params JewishEthnicSubdivisions[] Subdivisions)
+        public JewishEthnicDivisionsLevel1[] Subdivisions { get; set; }
+        public HigherLevelJewishEthnicSubdivisionsAttribute(params JewishEthnicDivisionsLevel1[] Subdivisions)
         {
             this.Subdivisions = Subdivisions;
         }
@@ -43,8 +43,8 @@ namespace Existence.Earth.Human.EthnicGroups
 
     public class HigherLevelJewishEthnicSubSubdivisionAttribute : Attribute
     {
-        public JewishEthnicSubSubdivisions Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubSubdivisionAttribute(JewishEthnicSubSubdivisions Subdivision)
+        public JewishEthnicDivisionsLevel2 Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubSubdivisionAttribute(JewishEthnicDivisionsLevel2 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
@@ -52,8 +52,8 @@ namespace Existence.Earth.Human.EthnicGroups
 
     public class HigherLevelJewishEthnicSubSubSubdivisionAttribute : Attribute
     {
-        public JewishEthnicSubSubSubdivisions Subdivision { get; set; }
-        public HigherLevelJewishEthnicSubSubSubdivisionAttribute(JewishEthnicSubSubSubdivisions Subdivision)
+        public JewishEthnicDivisionsLevel3 Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubSubSubdivisionAttribute(JewishEthnicDivisionsLevel3 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
