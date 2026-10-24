@@ -1,3 +1,4 @@
+using Existence.Earth.Countries;
 using System;
 
 namespace Existence.Earth.Human.EthnicGroups
@@ -18,6 +19,132 @@ namespace Existence.Earth.Human.EthnicGroups
         {
             this.EthnicGroups = EthnicGroups;
         }
+    }
+
+    public class HigherLevelJewishEthnicSubdivisionAttribute : Attribute
+    {
+        public JewishEthnicSubdivisions Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubdivisionAttribute(JewishEthnicSubdivisions Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+
+    /// <summary>
+    /// high level ethnic subdivisions of Jewish people
+    /// Member counts are rough and add up to more than the world's ~16 million Jews, since many Jews
+    /// (especially in Israel) have mixed ancestry and are counted in more than one group.
+    /// </summary>
+    public enum JewishEthnicSubdivisions
+    {
+        /// <summary>
+        /// Central and Eastern Europe (originally the Rhineland, later Poland, Lithuania, and Russia), now mostly the United States and Israel
+        /// The majority of the world's Jews. Traditional language is Yiddish.
+        /// </summary>
+        [NumberOfMembers(10000000, 11500000)] //10-11.5 million
+        Ashkenazi,
+
+        /// <summary>
+        /// Descendants of the Jews of Spain and Portugal, expelled in 1492 and 1497, who resettled in the Ottoman Empire,
+        /// North Africa, the Netherlands, Italy, and the Americas. Traditional language is Ladino (Judeo-Spanish).
+        /// In Israel the term is often used loosely for all non-Ashkenazi Jews, since most follow the Sephardic religious rite.
+        /// The count here is for the narrower sense: descendants of the Iberian exiles.
+        /// </summary>
+        [NumberOfMembers(1000000, 2500000)] //1-2.5 million
+        [Countries(CountryLikeThings.Portugal, CountryLikeThings.Spain)]
+        Sephardi,
+
+        /// <summary>
+        /// "Easterners": Jews of the Middle East, the Caucasus, and Central Asia (Iraq, Iran, Syria, Kurdistan, Bukhara, Georgia)
+        /// Mostly descended from communities that stayed in the region since ancient times, rather than from Spanish exiles.
+        /// Nearly all left for Israel after 1948. In Israel the term often includes Maghrebi and Teimani Jews,
+        /// but the count here does not, since they are listed separately.
+        /// </summary>
+        [NumberOfMembers(1500000, 2500000)] //1.5-2.5 million
+        Mizrahi,
+
+        /// <summary>
+        /// North Africa (Morocco, Algeria, Tunisia, Libya), now mostly Israel and France
+        /// A mix of ancient local communities and Sephardic exiles who arrived after 1492.
+        /// Often counted as Mizrahi or Sephardi rather than as a separate group.
+        /// </summary>
+        [NumberOfMembers(1500000, 2000000)] //1.5-2 million
+        [Countries(CountryLikeThings.Algeria, CountryLikeThings.Morocco, CountryLikeThings.LibyaWest, CountryLikeThings.LibyaEast, CountryLikeThings.Tunisia)]
+        Maghrebi,
+
+        /// <summary>
+        /// Yemen, now mostly Israel
+        /// Isolated from other Jewish communities for centuries, keeping their own traditions, Hebrew pronunciation,
+        /// and prayer rites (Baladi and Shami). Nearly all were airlifted to Israel in Operation Magic Carpet (1949-1950).
+        /// The count includes the Adeni and Habbani communities.
+        /// </summary>
+        [NumberOfMembers(400000, 500000)] //400,000-500,000
+        [Country(CountryLikeThings.Yemen)]
+        Teimani,
+    }
+
+    /// <summary>
+    /// lower level ethnic subdivisions of Jewish people
+    /// </summary>
+    public enum JewishEthnicSubSubdivisions
+    {
+        /// <summary>
+        /// Aden, in southern Yemen, a British colony from 1839 to 1967
+        /// Ties to British India set them apart from the Jews of inland Yemen.
+        /// Most left for Israel and the United Kingdom after riots in 1947 and 1967.
+        /// No modern count exists; the estimate is based on the community's size of about 8,000 in 1947.
+        /// </summary>
+        [NumberOfMembers(10000, 25000)] //10,000-25,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Teimani)]
+        [Country(CountryLikeThings.Yemen)]
+        Adeni,
+
+        /// <summary>
+        /// Ethiopia (mostly around Gondar, also Tigray and Qwara), now nearly all Israel
+        /// Developed separately from other Jewish communities for centuries, with scriptures and prayers in Ge'ez.
+        /// Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
+        /// The count includes Israeli-born children and the Falash Mura.
+        /// </summary>
+        [NumberOfMembers(160000, 180000)] //160,000-180,000
+        [Country(CountryLikeThings.Ethiopia)]
+        BetaIsrael,
+
+        /// <summary>
+        /// Habban, in eastern Yemen
+        /// A small, isolated community with its own customs and dress. Nearly all moved to Israel around 1950.
+        /// No modern count exists; the estimate is based on the few hundred who emigrated around 1950.
+        /// </summary>
+        [NumberOfMembers(3000, 10000)] //3,000-10,000
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Teimani)]
+        [Country(CountryLikeThings.Yemen)]
+        Habbani,
+
+        /// <summary>
+        /// Udmurtia and Tatarstan, in Russia's Volga-Ural region
+        /// Ashkenazi Jews who settled there in the 19th century, many of them former cantonists
+        /// (boys conscripted into the Russian army). Their Yiddish dialect picked up Udmurt and Tatar words.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
+        [Country(CountryLikeThings.Russia)]
+        Udmurt,
+
+        /// <summary>
+        /// The "Unterland" of the old Kingdom of Hungary: northeastern Hungary, Carpathian Ruthenia, eastern Slovakia, and Maramures
+        /// Mostly Hasidic, unlike the more modernized Oberlander Jews of western Hungary. Most were murdered in the Holocaust
+        /// in 1944, but several major Hasidic dynasties, such as Satmar and Munkacs, come from here.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
+        [Countries(CountryLikeThings.Hungary, CountryLikeThings.Romania, CountryLikeThings.Slovakia, CountryLikeThings.Ukraine)]
+        Unterlander,
+
+        /// <summary>
+        /// Chuetas (spanish spelling), from Majorca (Balearic Islands, Spain)
+        /// Descendants of Majorcan Jews forced to convert to Catholicism in the 14th and 15th centuries. Mostly Catholic today,
+        /// but long discriminated against as a separate group. Israel's Chief Rabbinate recognized them as Jews in 2011.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
+        [Country(CountryLikeThings.Spain)]
+        Xuetes,
     }
 
     /// <summary>
