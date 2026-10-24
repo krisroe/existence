@@ -62,8 +62,9 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     RollieFingers,
                     /// <summary>
-                    /// not actually an All-Star; included as the AL Cy Young Award winner
+                    /// not actually an All-Star
                     /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     PeteVuckovich,
                 }
@@ -76,6 +77,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(FielderType.Outfield)]
                     BenOglivie,
+                    [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(FielderType.Shortstop)]
                     RobinYount,
@@ -125,15 +127,17 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 public enum PitchingAllStars
                 {
-                    /// <summary>
-                    /// NL Cy Young Award winner
-                    /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                     SteveCarlton,
                 }
 
                 public enum BattingAllStars
                 {
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+                    [FielderType(FielderType.Outfield)]
+                    DaleMurphy,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                     [FielderType(FielderType.Outfield)]
                     LonnieSmith,
@@ -177,6 +181,11 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            public static class WorldSeries
+            {
+                public static class Game1 { }
+            }
         }
 
         public static class v2008
@@ -187,9 +196,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     ScottKazmir,
-                    /// <summary>
-                    /// AL Cy Young Award winner
-                    /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
                     CliffLee,
                 }
@@ -202,6 +209,10 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(FielderType.Catcher)]
                     DionerNavarro,
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
+                    [FielderType(FielderType.SecondBase)]
+                    DustinPedroia,
                 }
 
                 public static class Divisions
@@ -254,14 +265,22 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                     BradLidge,
                     /// <summary>
-                    /// NL Cy Young Award winner; selected, but did not pitch due to flu-like symptoms
+                    /// selected, but did not pitch due to flu-like symptoms
                     /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                     TimLincecum,
                 }
 
                 public enum BattingAllStars
                 {
+                    /// <summary>
+                    /// fan-elected starter at designated hitter
+                    /// </summary>
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(FielderType.DesignatedHitter)]
+                    AlbertPujols,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                     [FielderType(FielderType.SecondBase)]
                     ChaseUtley,
@@ -313,6 +332,11 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            public static class WorldSeries
+            {
+                public static class Game1 { }
+            }
         }
 
         public static class v2020
@@ -323,14 +347,22 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     /// <summary>
-                    /// not actually an All-Star; included as the AL Cy Young Award winner
+                    /// not actually an All-Star
                     /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
                     ShaneBieber,
                 }
 
                 public enum BattingAllStars
                 {
+                    /// <summary>
+                    /// not actually an All-Star
+                    /// </summary>
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ChicagoWhiteSox)]
+                    [FielderType(FielderType.FirstBase)]
+                    JoseAbreu,
                 }
 
                 public static class Divisions
@@ -384,14 +416,22 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     /// <summary>
-                    /// not actually an All-Star; included as the NL Cy Young Award winner
+                    /// not actually an All-Star
                     /// </summary>
+                    [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                     TrevorBauer,
                 }
 
                 public enum BattingAllStars
                 {
+                    /// <summary>
+                    /// not actually an All-Star
+                    /// </summary>
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+                    [FielderType(FielderType.FirstBase)]
+                    FreddieFreeman,
                 }
 
                 public static class Divisions
@@ -437,6 +477,11 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanFranciscoGiants { }
                     }
                 }
+            }
+
+            public static class WorldSeries
+            {
+                public static class Game1 { }
             }
         }
 
@@ -573,6 +618,11 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanFranciscoGiants { }
                     }
                 }
+            }
+
+            public static class WorldSeries
+            {
+                public static class Game1 { }
             }
         }
     }

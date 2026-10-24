@@ -125,6 +125,16 @@ namespace Existence.Earth.Sports
         }
     }
 
+    /// <summary>
+    /// the player won the most valuable player award for the season
+    /// </summary>
+    public class MostValuablePlayerAttribute : Attribute { }
+
+    /// <summary>
+    /// the pitcher won the Cy Young award for the season
+    /// </summary>
+    public class CyYoungAttribute : Attribute { }
+
     public class GamePointsTieScore : NumberAttribute
     {
         public int TieScore
