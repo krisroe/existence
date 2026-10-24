@@ -1,4 +1,6 @@
+using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.EthnicGroups.Jewish;
+using Existence.Earth.Human.EthnicGroups.Jewish.Historical;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -66,6 +68,29 @@ namespace Existence.Tests
                 }
             }
             Assert.IsTrue(iCheckedCount > 0, "no values found in the JewishEthnicDivisionsLevel(N) enums below level 1");
+        }
+
+        /// <summary>
+        /// validates that the Total attribute on each JewishEthnicDivisionsLevel(N) enum and on JewishEthnicDivisionsHistorical
+        /// matches the number of values in that enum, and that the Total attribute on JewishEthnicDivisionsTotal matches the
+        /// number of values across all of them
+        /// </summary>
+        [TestMethod]
+        public void ValidateJewishEthnicDivisionTotals()
+        {
+            Type[] enumTypes = GetJewishEthnicDivisionEnums().Append(typeof(JewishEthnicDivisionsHistorical)).ToArray();
+            int iAllValuesCount = 0;
+            foreach (Type t in enumTypes)
+            {
+                int iValueCount = Enum.GetValues(t).Length;
+                iAllValuesCount += iValueCount;
+                TotalAttribute? totalAttribute = t.GetCustomAttribute<TotalAttribute>();
+                Assert.IsNotNull(totalAttribute, $"{t.Name} has no Total attribute");
+                Assert.AreEqual(totalAttribute.Number, iValueCount, $"Total attribute on {t.Name} does not match the number of {t.Name} values");
+            }
+            TotalAttribute? overallTotalAttribute = typeof(JewishEthnicDivisionsTotal).GetCustomAttribute<TotalAttribute>();
+            Assert.IsNotNull(overallTotalAttribute, "JewishEthnicDivisionsTotal has no Total attribute");
+            Assert.AreEqual(overallTotalAttribute.Number, iAllValuesCount, "Total attribute on JewishEthnicDivisionsTotal does not match the number of values across all Jewish ethnic division enums");
         }
 
         /// <summary>

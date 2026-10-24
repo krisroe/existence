@@ -1,7 +1,7 @@
 ﻿
 using System;
-using System.Reflection.Metadata;
 using Existence.Earth.Countries;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
@@ -61,6 +61,14 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish
     }
 
     /// <summary>
+    /// the total number of values across all of the JewishEthnicDivisionsLevel(N) enums and JewishEthnicDivisionsHistorical
+    /// </summary>
+    [Total(82)]
+    public static class JewishEthnicDivisionsTotal
+    {
+    }
+
+    /// <summary>
     /// the ten tribes of the northern Kingdom of Israel, exiled by the Assyrians in the 8th century BCE
     /// </summary>
     public enum LostTribesOfIsrael
@@ -108,6 +116,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level1
     /// Member counts are rough and add up to more than the world's ~16 million Jews, since many Jews
     /// (especially in Israel) have mixed ancestry and are counted in more than one group.
     /// </summary>
+    [Total(5)]
     public enum JewishEthnicDivisionsLevel1
     {
         /// <summary>
@@ -167,6 +176,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
     /// <summary>
     /// main level ethnic subdivisions of Jewish people
     /// </summary>
+    [Total(54)]
     public enum JewishEthnicDivisionsLevel2
     {
         /// <summary>
@@ -951,6 +961,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
     /// <summary>
     /// smaller level ethnic subdivisions of Jewish people
     /// </summary>
+    [Total(10)]
     public enum JewishEthnicDivisionsLevel3
     {
         /// <summary>
@@ -1078,6 +1089,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level4
     /// <summary>
     /// smallest level ethnic subdivision(s) of Jewish people
     /// </summary>
+    [Total(2)]
     public enum JewishEthnicDivisionsLevel4
     {
         /// <summary>
@@ -1112,6 +1124,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Historical
     /// Ordered from the most recent to die out to the oldest. For groups that were absorbed gradually rather than ending on a
     /// single date, the order uses roughly when they stopped being distinct.
     /// </summary>
+    [Total(11)]
     public enum JewishEthnicDivisionsHistorical
     {
         /// <summary>
