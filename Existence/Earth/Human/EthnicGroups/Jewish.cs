@@ -162,6 +162,23 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Algerian,
 
         /// <summary>
+        /// India (Bombay, Calcutta), Burma (Rangoon), Singapore, and China (Shanghai, Hong Kong), now mostly the United Kingdom,
+        /// Israel, Australia, and the United States
+        /// A trading diaspora of Jews from Baghdad, plus some from Aleppo and Persia, who followed British trade routes across
+        /// Asia from the late 18th century. David Sassoon fled persecution in Baghdad for Bombay in 1832 and founded one of the
+        /// great merchant houses of the British Empire; the Kadoorie family became leading businessmen in Shanghai and Hong Kong.
+        /// Spoke Judeo-Arabic and later English, and identified closely with the British. Kept apart from the older Bene Israel
+        /// and Cochin communities in India. Most left after Indian independence in 1947, Burma's in 1948, and the communist
+        /// takeover of China in 1949.
+        /// No modern count exists; the estimate is of descendants of a community of about 10,000-15,000 at its peak in the 1940s.
+        /// </summary>
+        [NumberOfMembers(20000, 40000)] //20,000-40,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
+        [Countries(CountryLikeThings.Burma, CountryLikeThings.China, CountryLikeThings.India, CountryLikeThings.Singapore)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Bavlim, HierarchyItemOriginTypes.Main)]
+        Baghdadi,
+
+        /// <summary>
         /// Babylonian Jews, Iraqi Jews
         /// Iraq (mainly Baghdad, also Basra and Mosul), now mostly Israel, plus the United Kingdom and the United States
         /// Descended from the Babylonian exile of 586 BCE, and for centuries the center of Jewish scholarship, where the Babylonian
@@ -198,6 +215,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         BeneIsrael,
 
         /// <summary>
+        /// Bessarabia, between the Prut and Dniester rivers, now Moldova and southwestern Ukraine (mainly Chisinau, then Kishinev),
+        /// now mostly Israel, the United States, and Moldova
+        /// Ashkenazi Jews of a region ruled by Russia from 1812, Romania from 1918, and the Soviet Union from 1940. About 228,000 in
+        /// 1897, nearly 12% of the population, with Jewish farming colonies as well as town communities. The Kishinev pogrom of 1903
+        /// drew international outrage and spurred emigration and Zionism. Most were murdered in the Holocaust in 1941-1944, many
+        /// after deportation by Romanian forces to Transnistria. The Jews of Bessarabia's Ukrainian part are counted here, not as
+        /// Ukrainian Jews.
+        /// No modern count exists; the estimate is of descendants of a population of about 228,000 in 1897.
+        /// </summary>
+        [NumberOfMembers(350000, 700000)] //350,000-700,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Countries(CountryLikeThings.Moldova, CountryLikeThings.Ukraine)]
+        Bessarabian,
+
+        /// <summary>
         /// Ethiopia (mostly around Gondar, also Tigray and Qwara), now nearly all Israel
         /// Developed separately from other Jewish communities for centuries, with scriptures and prayers in Ge'ez.
         /// Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
@@ -218,6 +250,20 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [Countries(CountryLikeThings.Tajikistan, CountryLikeThings.Uzbekistan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
         Bukharan,
+
+        /// <summary>
+        /// Bulgaria (mainly Sofia, Plovdiv, Ruse, Varna, and Vidin), now mostly Israel
+        /// Mostly Sephardic, descended from exiles who arrived after 1492 and absorbed earlier Romaniote and Ashkenazi communities.
+        /// Spoke Ladino. In World War II Bulgaria was allied with Nazi Germany and deported about 11,000 Jews from the Greek and
+        /// Yugoslav lands it occupied, nearly all murdered at Treblinka, but protests by the deputy speaker of parliament, Dimitar
+        /// Peshev, the Bulgarian Orthodox Church, and the public stopped the deportation of the roughly 48,000 Jews of Bulgaria
+        /// itself. About 90% of them moved to Israel in 1948-1949; a few thousand remain.
+        /// No modern count exists; the estimate is of descendants of a population of about 48,000 in 1943.
+        /// </summary>
+        [NumberOfMembers(80000, 130000)] //80,000-130,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
+        [Country(CountryLikeThings.Bulgaria)]
+        Bulgarian,
 
         /// <summary>
         /// Malabar Jews
@@ -299,6 +345,27 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Teimani)]
         [Country(CountryLikeThings.Yemen)]
         Habbani,
+
+        /// <summary>
+        /// Hungarian Jews
+        /// Central and southern Hungary (mainly Budapest, also Szeged and Debrecen) and Transylvania (Cluj, Oradea, now in Romania),
+        /// now mostly Israel, Hungary, and the United States
+        /// Ashkenazi Jews who came mainly from Moravia, Bohemia, and Galicia in the 18th and 19th centuries and became strongly
+        /// Hungarian in language and identity after emancipation in 1867. Split in 1869 between the Orthodox and the modernizing
+        /// Neolog movement, which was strongest here. Budapest had about 200,000 Jews before the Holocaust, and Theodor Herzl,
+        /// the founder of political Zionism, was born there. In 1944 about 437,000 Jews from outside Budapest, including Transylvania,
+        /// were deported to Auschwitz in under two months; many in Budapest survived, some protected by diplomats such as Raoul
+        /// Wallenberg. Hungary still has one of the largest Jewish communities in Europe. The Jews of western Hungary are counted
+        /// as Oberlanders and those of northeastern Hungary and Maramures as Unterlanders.
+        /// No modern count exists; the estimate is of descendants of a population of roughly 450,000 in this region in 1930.
+        /// </summary>
+        [NumberOfMembers(400000, 700000)] //400,000-700,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Countries(CountryLikeThings.Hungary, CountryLikeThings.Romania)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Galitzianer, HierarchyItemOriginTypes.Significant)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Yekke, HierarchyItemOriginTypes.Significant)]
+        [HasSubdivisions]
+        Hungarian,
 
         /// <summary>
         /// Western Sephardim (the more common name), Spanish and Portuguese Jews
@@ -483,6 +550,25 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Polish,
 
         /// <summary>
+        /// Romania's Old Kingdom, Moldavia (Iasi, Botosani) and Wallachia (Bucharest), plus Bukovina (Czernowitz, now Chernivtsi
+        /// in Ukraine), now mostly Israel
+        /// Mostly Ashkenazi Jews who settled in Moldavia from Galicia and Ukraine in the 18th and 19th centuries, plus a small
+        /// Sephardic community in Bucharest; Bukovina's Jews were German-speaking under Austrian rule. Romania denied most Jews
+        /// citizenship until 1923. In World War II the Antonescu regime carried out the Iasi pogrom of 1941 and deported the Jews
+        /// of Bessarabia and Bukovina to Transnistria, but refused to hand the Jews of the Old Kingdom over to the Nazis, so most
+        /// of them survived. About 350,000 moved to Israel from 1948 to 1989, many of them allowed out by the communist government
+        /// in exchange for payments. A few thousand remain. Bessarabian Jews are listed separately, and the Jews of Transylvania
+        /// are counted with Hungarian Jews, except Maramures, which is counted with the Unterlander Jews.
+        /// No modern count exists; the estimate is of descendants of a population of about 360,000 in 1930.
+        /// </summary>
+        [NumberOfMembers(500000, 900000)] //500,000-900,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Countries(CountryLikeThings.Romania, CountryLikeThings.Ukraine)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Galitzianer, HierarchyItemOriginTypes.Significant)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Ukrainian, HierarchyItemOriginTypes.Significant)]
+        Romanian,
+
+        /// <summary>
         /// Romaniote Jews, Greek Jews
         /// Greece (mainly Ioannina, also Chalkis, Arta, and Corfu) and the old Byzantine Empire, now mostly Israel, Greece, and New York
         /// Greek-speaking Jews who have lived in Greece for over 2,000 years, among the oldest Jewish communities in Europe.
@@ -514,6 +600,47 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Litvak, HierarchyItemOriginTypes.Significant)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Ukrainian, HierarchyItemOriginTypes.Significant)]
         Russim,
+
+        /// <summary>
+        /// Salonican Jews, Jews of Thessaloniki
+        /// Thessaloniki (Salonica), Greece, now mostly Israel, France, and the United States
+        /// After 1492 the Sephardic exiles made Thessaloniki a majority-Jewish city for about four centuries, and it was called
+        /// the "Jerusalem of the Balkans"; its port closed on Saturdays. Spoke Ladino, and absorbed the city's older Romaniote
+        /// community. The city passed from Ottoman to Greek rule in 1912, and the Great Fire of 1917 destroyed much of the Jewish
+        /// quarter; many then emigrated, including dockworkers who went to Haifa's port in the 1930s. In 1943 the Nazis deported
+        /// about 50,000 to Auschwitz, and more than 90% were murdered. About 1,000 Jews live in Thessaloniki today.
+        /// No modern count exists; the estimate is of descendants of a population of about 60,000-80,000 in the early 20th century.
+        /// </summary>
+        [NumberOfMembers(50000, 100000)] //50,000-100,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
+        [Country(CountryLikeThings.Greece)]
+        Salonikan,
+
+        /// <summary>
+        /// San Nicandro Garganico, a farming town in Apulia, southern Italy, now mostly Israel
+        /// Catholic peasants who adopted Judaism in the 1930s under Donato Manduzio, a disabled World War I veteran who came to it
+        /// by reading the Bible, without having met any Jews. After contact with Jewish soldiers from Palestine during World War II,
+        /// they formally converted in 1946, and most moved to Israel in 1949. A small community remains in San Nicandro.
+        /// No modern count exists; the estimate is of descendants of a community of about 80 people in the 1940s.
+        /// </summary>
+        [NumberOfMembers(200, 600)] //200-600
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.Italy)]
+        SanNicandro,
+
+        /// <summary>
+        /// Subbotniks ("Sabbath-keepers", from the Russian for Saturday)
+        /// Russia, especially the Voronezh region (Ilyinka, Vysokoye), plus places of exile in the Caucasus and Siberia, now Russia and Israel
+        /// Ethnic Russian peasants who began keeping the Sabbath and other biblical laws in the late 18th century. Some became
+        /// fully Jewish, while others remained Sabbath-keeping Christians. The tsars persecuted and exiled them. Some moved to
+        /// Ottoman Palestine around 1900 and joined the early Zionist pioneers; many more moved to Israel after 1991, though their
+        /// status as Jews has sometimes been questioned there.
+        /// No modern count exists; the estimate is a rough figure for those of Subbotnik descent who identify as Jewish.
+        /// </summary>
+        [NumberOfMembers(5000, 20000)] //5,000-20,000
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.Russia)]
+        Subbotnik,
 
         /// <summary>
         /// Sudan (mostly Khartoum and Omdurman)
@@ -567,6 +694,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [Country(CountryLikeThings.Tunisia)]
         [HasSubdivisions]
         Tunisian,
+
+        /// <summary>
+        /// Turkinos (an informal Israeli name)
+        /// Turkey (mainly Istanbul, Izmir, Edirne, and Bursa), now mostly Israel and Turkey
+        /// Mostly Sephardic: the Ottoman sultan Bayezid II welcomed the Jews expelled from Spain in 1492, and they soon absorbed
+        /// the older Greek-speaking Romaniote communities. Spoke Ladino. Istanbul and Izmir became major centers of Sephardic life,
+        /// and Izmir was the home of the false messiah Sabbatai Zevi in the 17th century. After the 1934 Thrace pogroms and the
+        /// 1942 wealth tax, which fell hardest on non-Muslims, about 35,000 moved to Israel in 1948-1951. About 14,000 remain,
+        /// mostly in Istanbul, along with a small Ashkenazi community.
+        /// No modern count exists; the estimate is of descendants of a population of about 80,000 in 1927.
+        /// </summary>
+        [NumberOfMembers(100000, 200000)] //100,000-200,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Sephardi)]
+        [Country(CountryLikeThings.Turkey)]
+        Turkish,
 
         /// <summary>
         /// Ukraine outside Galicia: Volhynia, Podolia, the Kyiv region, and the south (Odessa), now mostly the United States, Israel, and Ukraine
@@ -711,6 +853,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Moroccan)]
         [HasSubdivisions]
         Toshavim,
+
+        /// <summary>
+        /// Transylvanian Jews
+        /// Transylvania (mainly Cluj, Oradea, Alba Iulia, and Targu Mures) in today's Romania, now mostly Israel
+        /// In 1623 Prince Gabriel Bethlen invited Sephardic Jews from the Ottoman Empire to settle in his capital, Alba Iulia, and for
+        /// about two centuries Jews were allowed to live only there; it remained the seat of Transylvania's chief rabbi. Restrictions
+        /// eased in the 19th century, and the community grew with Ashkenazi newcomers from Hungary and Galicia, becoming mostly
+        /// Hungarian-speaking. In 1940 Transylvania was split: the Jews of the north, given to Hungary, were deported to Auschwitz
+        /// in 1944, while most of those in the south, which stayed Romanian, survived. The Hasidic Jews of Maramures and the
+        /// Satu Mare area are counted as Unterlanders.
+        /// No census exists; the estimate is of descendants of a population of roughly 100,000-130,000 in 1930.
+        /// </summary>
+        [NumberOfMembers(100000, 200000)] //100,000-200,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Hungarian)]
+        Transylvanian,
 
         /// <summary>
         /// Touansa; "Tunisians" in Arabic; Tunis's Hara quarter, Djerba, Sfax, Sousse, and other towns, now mostly Israel and France
