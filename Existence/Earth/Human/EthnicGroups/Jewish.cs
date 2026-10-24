@@ -5,6 +5,7 @@ using Existence.Earth.Countries;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
+using Existence.Earth.Human.EthnicGroups.Jewish.Historical;
 
 namespace Existence.Earth.Human.EthnicGroups.Jewish
 {
@@ -169,6 +170,20 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
     public enum JewishEthnicDivisionsLevel2
     {
         /// <summary>
+        /// "People of Judah" in Luganda
+        /// Villages around Mbale, near Mount Elgon in eastern Uganda
+        /// Founded in 1919 by Semei Kakungulu, a Ganda military leader who turned from Christianity to Judaism through reading the
+        /// Bible. Idi Amin banned Judaism in the 1970s, and the community shrank from about 3,000 to a few hundred before reviving.
+        /// Most were formally converted by visiting rabbis from 2002 on. Their rabbi, Gershom Sizomu, the first Black rabbi
+        /// ordained from sub-Saharan Africa, was elected to Uganda's parliament in 2016. Israel's recognition of them as Jews
+        /// for immigration has been disputed.
+        /// </summary>
+        [NumberOfMembers(2000, 3000)] //2,000-3,000
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.Uganda)]
+        Abayudaya,
+
+        /// <summary>
         /// Aden, in southern Yemen, a British colony from 1839 to 1967
         /// Ties to British India set them apart from the Jews of inland Yemen.
         /// Most left for Israel and the United Kingdom after riots in 1947 and 1967.
@@ -201,6 +216,22 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Country(CountryLikeThings.Algeria)]
         Algerian,
+
+        /// <summary>
+        /// Alsatian Jews
+        /// Alsace and neighboring Lorraine, eastern France (Strasbourg, Mulhouse, and many villages), now mostly France and the United States
+        /// Ashkenazi Jews who, unusually, lived mostly in small villages, working as cattle dealers and peddlers. Spoke Judeo-Alsatian,
+        /// a form of Western Yiddish. In 1791 they became among the first Jews in Europe to receive full citizenship, during the
+        /// French Revolution. When Germany annexed Alsace in 1871, many moved to Paris and elsewhere in France to stay French.
+        /// Alfred Dreyfus, the army officer at the center of the Dreyfus affair, came from an Alsatian Jewish family in Mulhouse.
+        /// Expelled to southern France in 1940; many were later deported and murdered. Strasbourg's Jewish community today is
+        /// largely of North African origin.
+        /// No modern count exists; the estimate is of descendants of a population of about 40,000 in the mid-19th century.
+        /// </summary>
+        [NumberOfMembers(80000, 150000)] //80,000-150,000
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Country(CountryLikeThings.France)]
+        Alsatian,
 
         /// <summary>
         /// India (Bombay, Calcutta), Burma (Rangoon), Singapore, and China (Shanghai, Hong Kong), now mostly the United Kingdom,
@@ -395,6 +426,8 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(150000, 250000)] //150,000-250,000
         [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 40, JewishEthnicDivisionsLevel1.Sephardi, 50)]
         [Country(CountryLikeThings.Egypt)]
+        [HasSubdivisions]
+        [OriginatedFrom(JewishEthnicDivisionsHistorical.Mustaarabim, HierarchyItemOriginTypes.Significant)]
         Egyptian,
 
         /// <summary>
@@ -502,6 +535,22 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Juhurim,
 
         /// <summary>
+        /// Kaifeng Jews, Chinese Jews
+        /// Kaifeng, Henan province, China, now mostly China, with a small number in Israel
+        /// Probably descended from Persian-speaking Jewish merchants who settled in Kaifeng, then the Chinese capital, during the
+        /// Song dynasty around the 10th-12th centuries. They built a synagogue in 1163 and left stone inscriptions about their
+        /// history in 1489, 1512, and 1663. Over the centuries they intermarried with Han Chinese and assimilated; the last rabbi
+        /// died in the early 19th century and floods destroyed the synagogue around 1850. Several hundred descendants still keep
+        /// a Jewish identity, and some have moved to Israel since 2009. China does not recognize them as a separate ethnic group.
+        /// No exact count exists; the estimate is of descendants who still identify with the community.
+        /// </summary>
+        [NumberOfMembers(600, 1000)] //600-1,000
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.China)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
+        Kaifeng,
+
+        /// <summary>
         /// Crimea, mainly Karasubazar (now Bilohirsk). Now mostly Israel, Russia, and Ukraine
         /// Rabbinic Jews who speak Krymchak, a Turkic language close to Crimean Tatar. Formed from ancient Black Sea and Byzantine
         /// Jewish communities, later joined by Italian, Ashkenazi, and Sephardic Jews. Not the same as the Crimean Karaites,
@@ -540,7 +589,24 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 70, JewishEthnicDivisionsLevel1.Sephardi, 30)]
         [Country(CountryLikeThings.Lebanon)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Syrian, HierarchyItemOriginTypes.Significant)]
+        [OriginatedFrom(JewishEthnicDivisionsHistorical.Mustaarabim, HierarchyItemOriginTypes.Significant)]
         Lebanese,
+
+        /// <summary>
+        /// vaRemba
+        /// Zimbabwe and northern South Africa (Limpopo), with smaller groups in Mozambique and Malawi
+        /// A Bantu-speaking people whose oral tradition says their ancestors were Jews who came from a city called Senna, far to
+        /// the north. Keep practices such as circumcision, avoiding pork, and ritual slaughter, and revere a sacred drum, the
+        /// ngoma lungundu, said to be modeled on the Ark of the Covenant. Genetic studies found Middle Eastern ancestry on the male
+        /// line, especially in the priestly Buba clan, though later work suggests it may not be specifically Jewish. Most Lemba are
+        /// Christian or Muslim today; a minority practice Judaism. Not recognized as Jews by Israel's rabbinate, and whether
+        /// they belong on a list of Jewish groups is disputed.
+        /// The count is of the Lemba people as a whole, most of whom do not practice Judaism.
+        /// </summary>
+        [NumberOfMembers(50000, 80000)] //50,000-80,000
+        [IndependentJewishSubdivision]
+        [Countries(CountryLikeThings.SouthAfrica, CountryLikeThings.Zimbabwe)]
+        Lemba,
 
         /// <summary>
         /// Libya (mainly Tripoli and Benghazi, also villages in the Nafusa Mountains), now mostly Israel and Italy
@@ -554,6 +620,21 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [Countries(CountryLikeThings.LibyaEast, CountryLikeThings.LibyaWest)]
         [AncientMigration]
         Libyan,
+
+        /// <summary>
+        /// Lithuanian Karaims, Trakai Karaites
+        /// Lithuania (mainly Trakai and Vilnius) and Poland, plus a nearly vanished community in Halych, western Ukraine
+        /// Followers of Karaite Judaism who speak the Trakai dialect of Karaim, a Turkic language. By tradition, Grand Duke Vytautas
+        /// brought several hundred Karaite families from Crimea around 1397 to serve as guards at Trakai, where their kenesa (prayer
+        /// house) and their pastry, kibinai, are still known. Like the Crimean Karaites, they were classed as non-Jews in the Russian
+        /// Empire and by the Nazis, and many today identify as a Turkic people rather than as Jews.
+        /// The count is of those in Lithuania and Poland who identify as Karaim.
+        /// </summary>
+        [NumberOfMembers(200, 500)] //200-500
+        [IndependentJewishSubdivision]
+        [Countries(CountryLikeThings.Lithuania, CountryLikeThings.Poland)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.CrimeanKaraite, HierarchyItemOriginTypes.Main)]
+        LithuanianKaraite,
 
         /// <summary>
         /// Lithuanian Jews
@@ -615,6 +696,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(150000, 300000)] //150,000-300,000
         [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Ashkenazi, 40, JewishEthnicDivisionsLevel1.Sephardi, 55)]
         [Countries(CountryLikeThings.Israel, CountryLikeThings.PalestineWestBank)]
+        [OriginatedFrom(JewishEthnicDivisionsHistorical.Mustaarabim, HierarchyItemOriginTypes.Significant)]
         Palestinian,
 
         /// <summary>
@@ -766,6 +848,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionsLevel1(JewishEthnicDivisionsLevel1.Mizrahi, 70, JewishEthnicDivisionsLevel1.Sephardi, 30)]
         [Country(CountryLikeThings.Syria)]
         [HasSubdivisions]
+        [OriginatedFrom(JewishEthnicDivisionsHistorical.Mustaarabim, HierarchyItemOriginTypes.Main)]
         Syrian,
 
         /// <summary>
@@ -870,6 +953,18 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
     /// </summary>
     public enum JewishEthnicDivisionsLevel3
     {
+        /// <summary>
+        /// Cairo's Karaite quarter, Egypt, now mostly Israel (Ramla, Ashdod, Beersheba) and the United States (the San Francisco area)
+        /// Followers of Karaite Judaism, which accepts the Hebrew Bible but rejects the rabbinic Talmud, in a community dating to
+        /// the 9th or 10th century. Spoke Judeo-Arabic like other Egyptian Jews, but kept their own synagogues, courts, and
+        /// calendar. About 5,000-7,000 lived in Egypt in 1948; nearly all left after 1948 and 1956. Most of Israel's Karaites are
+        /// of Egyptian origin, and founded the village of Matzliah in 1950. Not the same as the Turkic-speaking Crimean Karaites.
+        /// The count is of Israel's mostly Egyptian-origin Karaite community and the smaller diaspora.
+        /// </summary>
+        [NumberOfMembers(30000, 50000)] //30,000-50,000
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Egyptian)]
+        EgyptianKaraite,
+
         /// <summary>
         /// Livornese Jews, Tunis, Tunisia, now mostly France, Italy, and Israel
         /// From "Grana", the Arabic name for Livorno, Italy. Merchant families of Portuguese Sephardic descent who came from
@@ -1014,7 +1109,8 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Historical
 {
     /// <summary>
     /// Jewish communities that no longer exist as distinct groups, so they have no member counts
-    /// Ordered from the most recent to die out to the oldest.
+    /// Ordered from the most recent to die out to the oldest. For groups that were absorbed gradually rather than ending on a
+    /// single date, the order uses roughly when they stopped being distinct.
     /// </summary>
     public enum JewishEthnicDivisionsHistorical
     {
@@ -1028,6 +1124,54 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Historical
         Omani,
 
         /// <summary>
+        /// Provencal Jews, Juifs du Pape ("the Pope's Jews")
+        /// Provence and Languedoc in southern France (Narbonne, Montpellier, Lunel, Marseille), and later the papal territories
+        /// of Avignon and the Comtat Venaissin
+        /// A great medieval center of Jewish learning: the Ibn Tibbon family translated Maimonides and other works from Arabic into
+        /// Hebrew there, the philosopher and astronomer Gersonides worked there, and early Kabbalah took shape there. Expelled when
+        /// Provence passed to the French crown, around 1500, except in the lands ruled by the pope, where four communities
+        /// (Avignon, Carpentras, Cavaillon, and L'Isle-sur-la-Sorgue) survived for three more centuries. They spoke Shuadit
+        /// (Judeo-Provencal). After the French Revolution annexed the papal lands in 1791, they dispersed into French Jewry; the
+        /// last speaker of Shuadit, the writer Armand Lunel, died in 1977.
+        /// </summary>
+        [Country(CountryLikeThings.France)]
+        Provencal,
+
+        /// <summary>
+        /// Musta'arabim ("Arabized"), Musta'arabi Jews
+        /// The Land of Israel, Syria, Lebanon, and Egypt
+        /// The native Arabic-speaking Jews of the Levant and Egypt, descended from communities that had lived there since ancient
+        /// times. After 1492 the Sephardic exiles who settled among them in Safed, Jerusalem, Damascus, Aleppo, and Cairo at first
+        /// kept separate congregations, but over the following two centuries the Musta'arabim adopted Sephardic customs and merged
+        /// with them. Their descendants are counted today among the Syrian, Lebanese, Egyptian, and Palestinian Jews.
+        /// </summary>
+        [Countries(CountryLikeThings.Egypt, CountryLikeThings.Israel, CountryLikeThings.Lebanon, CountryLikeThings.Syria)]
+        Mustaarabim,
+
+        /// <summary>
+        /// Canaanite Jews, Judeo-Slavic-speaking Jews
+        /// Slavic lands of medieval Central and Eastern Europe, mainly Bohemia, Moravia, Poland, and Kievan Rus
+        /// Named for "Kna'an" (Canaan), the medieval Hebrew name for the Slavic lands. Spoke a Jewish form of Slavic (Knaanic),
+        /// known mostly from Slavic words written in Hebrew letters in rabbinic writings of the 11th-13th centuries. As
+        /// German-speaking Ashkenazi Jews moved east from the 13th century on, the Knaanim were absorbed into them and their
+        /// language died out by around the 16th century. How much they contributed to later Ashkenazi Jewry is debated.
+        /// </summary>
+        [Countries(CountryLikeThings.CzechRepublic, CountryLikeThings.Poland, CountryLikeThings.Ukraine)]
+        Knaanim,
+
+        /// <summary>
+        /// Sicily, mainly Palermo, Syracuse, Messina, and Trapani
+        /// Present since Roman times, and under Arab rule in the 9th-11th centuries part of the Arabic-speaking Jewish world, with
+        /// merchants who appear in the letters of the Cairo Geniza. Numbered in the tens of thousands by the 15th century. Sicily
+        /// was then ruled by Spain, and Ferdinand and Isabella's expulsion order of 1492 applied there too; the last Jews left in
+        /// early 1493. Many went to southern Italy, Rome, and the Ottoman Empire, where congregations named "Sicilia" survived for
+        /// centuries in cities such as Thessaloniki and Istanbul before merging into the Sephardic majority. Others converted
+        /// and stayed.
+        /// </summary>
+        [Country(CountryLikeThings.Italy)]
+        Sicilian,
+
+        /// <summary>
         /// Medieval French Jews, from Tzarfat, the Hebrew name for France; mainly northern France and Champagne (Troyes, Paris, Rouen)
         /// Home of Rashi (1040-1105), the most widely studied Bible and Talmud commentator, and of the Tosafists who followed him.
         /// Wrote French in Hebrew letters (Judeo-French). Expelled in 1182, readmitted in 1198, expelled again in 1306, and
@@ -1035,6 +1179,18 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Historical
         /// </summary>
         [Country(CountryLikeThings.France)]
         Zarphatim,
+
+        /// <summary>
+        /// Medieval Anglo-Jewry, Jews of medieval England
+        /// England, mainly London, York, Lincoln, Norwich, and Oxford
+        /// Came from Rouen in Normandy after the Norman Conquest of 1066, and lived under royal protection as moneylenders,
+        /// heavily taxed by the crown. Norwich was the source of the first known blood libel in Europe, in 1144, and about 150
+        /// Jews died in the York massacre of 1190. Edward I expelled all of England's Jews, a few thousand people, in 1290;
+        /// most went to France and Germany. Jews were not readmitted until 1656, and the modern British Jewish community
+        /// descends from later arrivals.
+        /// </summary>
+        [Country(CountryLikeThings.UnitedKingdom)]
+        MedievalEnglish,
 
         /// <summary>
         /// The Khazar Khaganate, a Turkic empire between the Black Sea, the Caspian Sea, and the Volga, 7th-10th centuries
