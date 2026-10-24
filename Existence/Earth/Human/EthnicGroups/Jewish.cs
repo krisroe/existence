@@ -58,6 +58,45 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish
             this.Subdivision = Subdivision;
         }
     }
+
+    /// <summary>
+    /// the ten tribes of the northern Kingdom of Israel, exiled by the Assyrians in the 8th century BCE
+    /// </summary>
+    public enum LostTribesOfIsrael
+    {
+        Asher,
+        Dan,
+        Ephraim,
+        Gad,
+        Issachar,
+        Manasseh,
+        Naphtali,
+        Reuben,
+        Simeon,
+        Zebulun,
+    }
+
+    /// <summary>
+    /// a community whose tradition holds that it descends from one or more of the lost tribes of Israel. This records the
+    /// tradition, not established fact. With no tribes listed, the tradition names no specific tribe.
+    /// Use this instead of AncientMigrationAttribute for lost-tribe traditions.
+    /// </summary>
+    public class LostTribeAttribute : Attribute
+    {
+        public LostTribesOfIsrael[] Tribes { get; set; }
+        public LostTribeAttribute(params LostTribesOfIsrael[] Tribes)
+        {
+            this.Tribes = Tribes;
+        }
+    }
+
+    /// <summary>
+    /// a community that, by tradition or historical record, settled where it lived in ancient times (by around the 1st
+    /// century CE) and lived there continuously afterward
+    /// </summary>
+    public class AncientMigrationAttribute : Attribute
+    {
+    }
 }
 
 namespace Existence.Earth.Human.EthnicGroups.Jewish.Level1
@@ -109,12 +148,14 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level1
 
         /// <summary>
         /// Yemen, now mostly Israel
+        /// By tradition they arrived before the destruction of the First Temple in 586 BCE.
         /// Isolated from other Jewish communities for centuries, keeping their own traditions, Hebrew pronunciation,
         /// and prayer rites (Baladi and Shami). Nearly all were airlifted to Israel in Operation Magic Carpet (1949-1950).
         /// The count includes the Adeni and Habbani communities.
         /// </summary>
         [NumberOfMembers(400000, 500000)] //400,000-500,000
         [Country(CountryLikeThings.Yemen)]
+        [AncientMigration]
         Teimani,
     }
 }
@@ -189,6 +230,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(450000, 600000)] //450,000-600,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iraq)]
+        [AncientMigration]
         Bavlim,
 
         /// <summary>
@@ -203,6 +245,19 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Belmonte,
 
         /// <summary>
+        /// Bene Ephraim ("Children of Ephraim"), Telugu Jews
+        /// Kottareddipalem, a village near Guntur in Andhra Pradesh, southern India
+        /// A small group of Telugu-speaking Christians from the Madiga community who took up Judaism in 1981, believing they descend
+        /// from the lost Israelite tribe of Ephraim. They have not been recognized as Jews by Israel's rabbinate.
+        /// No modern count exists; the estimate is a rough figure for the community of a few dozen families.
+        /// </summary>
+        [NumberOfMembers(200, 400)] //200-400
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.India)]
+        [LostTribe(LostTribesOfIsrael.Ephraim)]
+        BeneEphraim,
+
+        /// <summary>
         /// India (the Konkan coast of Maharashtra, later Mumbai), now mostly Israel
         /// By tradition descended from Jews shipwrecked on the Konkan coast about 2,000 years ago. Spoke Marathi, and lived
         /// largely cut off from other Jews, keeping the Sabbath, circumcision, and dietary laws, until contact was renewed
@@ -212,6 +267,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(60000, 85000)] //60,000-85,000
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.India)]
+        [AncientMigration]
         BeneIsrael,
 
         /// <summary>
@@ -232,23 +288,55 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// <summary>
         /// Ethiopia (mostly around Gondar, also Tigray and Qwara), now nearly all Israel
         /// Developed separately from other Jewish communities for centuries, with scriptures and prayers in Ge'ez.
-        /// Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
+        /// By one tradition descended from the lost tribe of Dan, the basis on which Israel's Sephardi Chief Rabbi recognized
+        /// them as Jews in 1973. Most were brought to Israel in Operation Moses (1984) and Operation Solomon (1991).
         /// The count includes Israeli-born children and the Falash Mura.
         /// </summary>
         [NumberOfMembers(160000, 180000)] //160,000-180,000
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Ethiopia)]
+        [LostTribe(LostTribesOfIsrael.Dan)]
         BetaIsrael,
+
+        /// <summary>
+        /// Bnei Menashe ("Children of Manasseh")
+        /// Mizoram and Manipur, northeastern India, now India and Israel
+        /// Members of the Mizo, Kuki, and Chin peoples who, beginning in the 1950s, came to believe they descend from the lost
+        /// Israelite tribe of Manasseh, and took up Judaism. Israel's Sephardi Chief Rabbi recognized them as descendants of a lost
+        /// tribe in 2005, though they must formally convert to be accepted as Jews; genetic studies have found little support for
+        /// Israelite ancestry. About half have moved to Israel, many settling in the north and in the West Bank.
+        /// No modern count exists; the estimate is a rough figure for those in the movement in India and Israel.
+        /// </summary>
+        [NumberOfMembers(8000, 12000)] //8,000-12,000
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.India)]
+        [LostTribe(LostTribesOfIsrael.Manasseh)]
+        BneiMenashe,
+
+        /// <summary>
+        /// Bnei Moshe ("Children of Moses", their own name), Inca Jews
+        /// Cajamarca and Trujillo, northern Peru, now mostly Israel
+        /// A group of Peruvian Catholics who began keeping Jewish law in the mid-20th century, led by Segundo Villanueva, who came
+        /// to Judaism by studying the Bible. Rabbis from Israel formally converted them in 1985 and 1990, and most then moved to
+        /// Israel. "Inca Jews" is a misnomer: they are mestizo Peruvians, not descendants of the Inca.
+        /// No modern count exists; the estimate is of a few hundred converts and their families and descendants.
+        /// </summary>
+        [NumberOfMembers(500, 1500)] //500-1,500
+        [IndependentJewishSubdivision]
+        [Country(CountryLikeThings.Peru)]
+        BneiMoshe,
 
         /// <summary>
         /// Central Asia, mainly Uzbekistan (Bukhara, Samarkand, Tashkent) and Tajikistan (Dushanbe), now mostly Israel and New York (Queens)
         /// Named for the old Emirate of Bukhara. Descended from Persian Jews, and spoke Bukhori, a Jewish dialect of Tajik.
+        /// One of their traditions traces them further back, to the lost tribes of Naphtali and Issachar.
         /// Nearly all left after the fall of the Soviet Union in 1991; only a few hundred remain in Central Asia.
         /// </summary>
         [NumberOfMembers(150000, 250000)] //150,000-250,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Countries(CountryLikeThings.Tajikistan, CountryLikeThings.Uzbekistan)]
         [OriginatedFrom(JewishEthnicDivisionsLevel2.Persian, HierarchyItemOriginTypes.Main)]
+        [LostTribe(LostTribesOfIsrael.Issachar, LostTribesOfIsrael.Naphtali)]
         Bukharan,
 
         /// <summary>
@@ -277,6 +365,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.India)]
         [HasSubdivisions]
+        [AncientMigration]
         Cochin,
 
         /// <summary>
@@ -334,16 +423,19 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(100000, 140000)] //100,000-140,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Georgia)]
+        [AncientMigration]
         Gruzim,
 
         /// <summary>
         /// Habban, in eastern Yemen
-        /// A small, isolated community with its own customs and dress. Nearly all moved to Israel around 1950.
+        /// A small, isolated community with its own customs and dress, by tradition descended from Judeans who arrived before
+        /// the destruction of the Second Temple in 70 CE. Nearly all moved to Israel around 1950.
         /// No modern count exists; the estimate is based on the few hundred who emigrated around 1950.
         /// </summary>
         [NumberOfMembers(3000, 10000)] //3,000-10,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Teimani)]
         [Country(CountryLikeThings.Yemen)]
+        [AncientMigration]
         Habbani,
 
         /// <summary>
@@ -392,6 +484,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(20000, 40000)] //20,000-40,000
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Italy)]
+        [AncientMigration]
         Italkim,
 
         /// <summary>
@@ -430,6 +523,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(150000, 200000)] //150,000-200,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Countries(CountryLikeThings.Iran, CountryLikeThings.Iraq, CountryLikeThings.Turkey)]
+        [LostTribe]
         Kurdish,
 
         /// <summary>
@@ -458,6 +552,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(100000, 150000)] //100,000-150,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Maghrebi)]
         [Countries(CountryLikeThings.LibyaEast, CountryLikeThings.LibyaWest)]
+        [AncientMigration]
         Libyan,
 
         /// <summary>
@@ -531,6 +626,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(250000, 350000)] //250,000-350,000
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iran)]
+        [AncientMigration]
         Persian,
 
         /// <summary>
@@ -581,6 +677,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [NumberOfMembers(5000, 15000)] //5,000-15,000
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Greece)]
+        [AncientMigration]
         Romaniote,
 
         /// <summary>
