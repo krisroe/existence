@@ -7,6 +7,10 @@ using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
 
 namespace Existence.Earth.Human.EthnicGroups.Jewish
 {
+    public class IndependentJewishSubdivisionAttribute : Attribute
+    {
+    }
+
     public class HigherLevelJewishSubdivisionLevel1Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel1 Subdivision { get; set; }
@@ -25,19 +29,19 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish
         }
     }
 
-    public class MainLevelJewishSubdivisionLevel2Attribute : Attribute
+    public class HigherLevelJewishSubdivisionLevel2Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel2 Subdivision { get; set; }
-        public MainLevelJewishSubdivisionLevel2Attribute(JewishEthnicDivisionsLevel2 Subdivision)
+        public HigherLevelJewishSubdivisionLevel2Attribute(JewishEthnicDivisionsLevel2 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
     }
 
-    public class LowerLevelJewishSubdivisionLevel3Attribute : Attribute
+    public class HigherLevelJewishSubdivisionLevel3Attribute : Attribute
     {
         public JewishEthnicDivisionsLevel3 Subdivision { get; set; }
-        public LowerLevelJewishSubdivisionLevel3Attribute(JewishEthnicDivisionsLevel3 Subdivision)
+        public HigherLevelJewishSubdivisionLevel3Attribute(JewishEthnicDivisionsLevel3 Subdivision)
         {
             this.Subdivision = Subdivision;
         }
@@ -174,10 +178,10 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// By tradition descended from Jews shipwrecked on the Konkan coast about 2,000 years ago. Spoke Marathi, and lived
         /// largely cut off from other Jews, keeping the Sabbath, circumcision, and dietary laws, until contact was renewed
         /// in the 18th century. Most moved to Israel in the 1950s and 1960s; about 4,000-5,000 remain in India.
-        /// Not part of any of the higher level subdivisions.
         /// No modern count exists; the estimate is based on a population of about 20,000-30,000 in 1948.
         /// </summary>
         [NumberOfMembers(60000, 85000)] //60,000-85,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.India)]
         BeneIsrael,
 
@@ -200,6 +204,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// The count includes Israeli-born children and the Falash Mura.
         /// </summary>
         [NumberOfMembers(160000, 180000)] //160,000-180,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Ethiopia)]
         BetaIsrael,
 
@@ -223,6 +228,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// No modern count exists; the estimate is based on a population of about 2,500 in 1948.
         /// </summary>
         [NumberOfMembers(7000, 10000)] //7,000-10,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.India)]
         [HasSubdivisions]
         Cochin,
@@ -234,9 +240,9 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// in World War II the Nazis classified them as non-Jews, sparing most of them. Many today identify as a Turkic people
         /// rather than as Jews. Related to, but separate from, the Karaims of Lithuania and western Ukraine, and not the same as
         /// the Krymchaks, the Turkic-speaking rabbinic Jews of Crimea.
-        /// Not part of any of the higher level subdivisions.
         /// </summary>
         [NumberOfMembers(1000, 3000)] //1,000-3,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Ukraine)]
         CrimeanKaraite,
 
@@ -312,9 +318,9 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// The oldest Jewish community in Europe: Jews have lived in Rome continuously since the 2nd century BCE. Follow their own
         /// Italian rite, neither Ashkenazi nor Sephardi. Venice's Jewish quarter of 1516 gave the world the word "ghetto".
         /// Italy also had separate Sephardic and Ashkenazi communities, which are not counted here.
-        /// Not part of any of the higher level subdivisions.
         /// </summary>
         [NumberOfMembers(20000, 40000)] //20,000-40,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Italy)]
         Italkim,
 
@@ -340,6 +346,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         /// Jews, and about three quarters were murdered in 1941-1942.
         /// </summary>
         [NumberOfMembers(1000, 2000)] //1,000-2,000
+        [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Ukraine)]
         Krymchak,
 
@@ -472,7 +479,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is the larger share of the Syrian Jewish diaspora
         /// </summary>
         [NumberOfMembers(100000, 160000)] //100,000-160,000
-        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
         Halabi,
 
         /// <summary>
@@ -482,7 +489,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is most of the Cochin Jewish population.
         /// </summary>
         [NumberOfMembers(6500, 9500)] //6,500-9,500
-        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
         Malabari,
 
         /// <summary>
@@ -493,7 +500,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is based on a community of a few hundred in 1948.
         /// </summary>
         [NumberOfMembers(300, 600)] //300-600
-        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Cochin)]
         [HasSubdivisions]
         [OriginatedFrom(JewishEthnicDivisionsLevel1.Sephardi, HierarchyItemOriginTypes.Main)]
         Paradesi,
@@ -506,7 +513,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level3
         /// No census exists; the estimate is the smaller share of the Syrian Jewish diaspora
         /// </summary>
         [NumberOfMembers(50000, 90000)] //50,000-90,000
-        [MainLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
+        [HigherLevelJewishSubdivisionLevel2(JewishEthnicDivisionsLevel2.Syrian)]
         Shami,
     }
 }
@@ -527,7 +534,7 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level4
         /// The term "Brown Jews" was sometimes used to apply to them, but not as prevalent as for "White Jews" and "Black Jews".
         /// </summary>
         [NumberOfMembers(100, 300)] //100-300
-        [LowerLevelJewishSubdivisionLevel3(JewishEthnicDivisionsLevel3.Paradesi)]
+        [HigherLevelJewishSubdivisionLevel3(JewishEthnicDivisionsLevel3.Paradesi)]
         Meshuchrari,
     }
 }

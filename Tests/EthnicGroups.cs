@@ -1,3 +1,4 @@
+using Existence.Earth.Human.EthnicGroups.Jewish;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Existence.Tests
     [TestClass]
     public class EthnicGroupsTest
     {
+        private static readonly Regex rJewishEthnicDivisions = new Regex(@"^JewishEthnicDivisionsLevel(\d+)$");
+
         /// <summary>
         /// validates that every OriginatedFrom attribute in the JewishEthnicDivisionsLevel(N) enums specifies its
         /// HierarchyItemOriginTypes value explicitly, instead of using the constructor that defaults it to Main
@@ -19,11 +22,8 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateJewishEthnicOriginTypesAreExplicit()
         {
-            Regex rJewishEthnicDivisions = new Regex(@"^JewishEthnicDivisionsLevel\d+$");
-            Type[] enumTypes = typeof(OriginatedFromAttribute).Assembly.GetTypes().Where(t => t.IsEnum && rJewishEthnicDivisions.IsMatch(t.Name)).ToArray();
-            Assert.IsTrue(enumTypes.Length > 0, "no JewishEthnicDivisionsLevel(N) enums found");
             int iOriginatedFromCount = 0;
-            foreach (Type t in enumTypes)
+            foreach (Type t in GetJewishEthnicDivisionEnums())
             {
                 foreach (FieldInfo field in t.GetFields(BindingFlags.Public | BindingFlags.Static))
                 {
@@ -36,6 +36,47 @@ namespace Existence.Tests
                 }
             }
             Assert.IsTrue(iOriginatedFromCount > 0, "no OriginatedFrom attributes found in the JewishEthnicDivisionsLevel(N) enums");
+        }
+
+        /// <summary>
+        /// validates that every value in the JewishEthnicDivisionsLevel(N) enums below level 1 has exactly one attribute
+        /// that either points to a higher level subdivision or marks it as independent
+        /// </summary>
+        [TestMethod]
+        public void ValidateJewishEthnicDivisionsHaveHigherLevelOrIndependent()
+        {
+            Type[] parentAttributeTypes = new Type[]
+            {
+                typeof(IndependentJewishSubdivisionAttribute),
+                typeof(HigherLevelJewishSubdivisionLevel1Attribute),
+                typeof(HigherLevelJewishSubdivisionsLevel1Attribute),
+                typeof(HigherLevelJewishSubdivisionLevel2Attribute),
+                typeof(HigherLevelJewishSubdivisionLevel3Attribute),
+            };
+            int iCheckedCount = 0;
+            foreach (Type t in GetJewishEthnicDivisionEnums())
+            {
+                int iLevel = int.Parse(rJewishEthnicDivisions.Match(t.Name).Groups[1].Value);
+                if (iLevel == 1) continue;
+                foreach (FieldInfo field in t.GetFields(BindingFlags.Public | BindingFlags.Static))
+                {
+                    iCheckedCount++;
+                    int iParentAttributeCount = parentAttributeTypes.Sum(attributeType => field.GetCustomAttributes(attributeType, false).Length);
+                    Assert.AreEqual(1, iParentAttributeCount, $"{t.Name}.{field.Name} must have exactly one IndependentJewishSubdivision or HigherLevelJewishSubdivision attribute, but has {iParentAttributeCount}");
+                }
+            }
+            Assert.IsTrue(iCheckedCount > 0, "no values found in the JewishEthnicDivisionsLevel(N) enums below level 1");
+        }
+
+        /// <summary>
+        /// gets the JewishEthnicDivisionsLevel(N) enums
+        /// </summary>
+        /// <returns>the JewishEthnicDivisionsLevel(N) enum types</returns>
+        private static Type[] GetJewishEthnicDivisionEnums()
+        {
+            Type[] enumTypes = typeof(OriginatedFromAttribute).Assembly.GetTypes().Where(t => t.IsEnum && rJewishEthnicDivisions.IsMatch(t.Name)).ToArray();
+            Assert.IsTrue(enumTypes.Length > 0, "no JewishEthnicDivisionsLevel(N) enums found");
+            return enumTypes;
         }
     }
 }
