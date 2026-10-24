@@ -30,6 +30,17 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
+    public class HigherLevelJewishEthnicSubSubdivisionAttribute : Attribute
+    {
+        public JewishEthnicSubSubdivisions Subdivision { get; set; }
+        public HigherLevelJewishEthnicSubSubdivisionAttribute(JewishEthnicSubSubdivisions Subdivision)
+        {
+            this.Subdivision = Subdivision;
+        }
+    }
+
+    public class HasSubdivisionsAttribute : Attribute { }
+
     /// <summary>
     /// high level ethnic subdivisions of Jewish people
     /// Member counts are rough and add up to more than the world's ~16 million Jews, since many Jews
@@ -120,13 +131,43 @@ namespace Existence.Earth.Human.EthnicGroups
         Habbani,
 
         /// <summary>
-        /// Udmurtia and Tatarstan, in Russia's Volga-Ural region
+        /// Sudan (mostly Khartoum and Omdurman)
+        /// A small community, at most about a thousand people, mostly Sephardic families from Egypt and the Ottoman Empire
+        /// who arrived in the late 19th and early 20th centuries. Nearly all left by the 1960s, for Israel, the United Kingdom,
+        /// the United States, and Switzerland.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
+        [Country(CountryLikeThings.Sudan)]
+        Sudanese,
+
+        /// <summary>
+        /// Syria, mainly Aleppo (Halabi Jews) and Damascus (Shami Jews), now mostly Israel, Brooklyn, and Latin America
+        /// An ancient community joined by Sephardic exiles after 1492. Nearly all left after 1948, with the last few
+        /// thousand allowed out in 1992.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Mizrahi)]
+        [Country(CountryLikeThings.Syria)]
+        [HasSubdivisions]
+        Syrian,
+
+        /// <summary>
+        /// Udmurt and Tatar Jews
+        /// Tatarstan and neighboring Udmurtia, in Russia's Volga-Ural region (mainly Kazan, Izhevsk, and Sarapul)
         /// Ashkenazi Jews who settled there in the 19th century, many of them former cantonists
         /// (boys conscripted into the Russian army). Their Yiddish dialect picked up Udmurt and Tatar words.
         /// </summary>
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Ashkenazi)]
         [Country(CountryLikeThings.Russia)]
-        Udmurt,
+        Tatar,
+
+        /// <summary>
+        /// Tunisia, now mostly Israel and France
+        /// Split historically between the Twansa, an ancient native community, and the Granas, who came from Livorno, Italy,
+        /// from the 17th century on. About a thousand remain, mostly on the island of Djerba, home of the El Ghriba synagogue.
+        /// </summary>
+        [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Maghrebi)]
+        [Country(CountryLikeThings.Tunisia)]
+        Tunisian,
 
         /// <summary>
         /// The "Unterland" of the old Kingdom of Hungary: northeastern Hungary, Carpathian Ruthenia, eastern Slovakia, and Maramures
@@ -145,6 +186,24 @@ namespace Existence.Earth.Human.EthnicGroups
         [HigherLevelJewishEthnicSubdivision(JewishEthnicSubdivisions.Sephardi)]
         [Country(CountryLikeThings.Spain)]
         Xuetes,
+    }
+
+    /// <summary>
+    /// smallest level ethnic subdivisions of Jewish people
+    /// </summary>
+    public enum JewishEthnicSubSubSubdivisions
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
+        Halabi,
+
+        /// <summary>
+        /// Represents the Shami type.
+        /// </summary>
+        [HigherLevelJewishEthnicSubSubdivision(JewishEthnicSubSubdivisions.Syrian)]
+        Shami,
     }
 
     /// <summary>
