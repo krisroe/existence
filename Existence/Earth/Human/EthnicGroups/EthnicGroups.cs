@@ -321,7 +321,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// <summary>
         /// Kerala, India (mainly Ernakulam, Parur, Mala, and Chendamangalam), now mostly Israel
         /// The older and much larger of the two Cochin Jewish communities, descended from the ancient settlers of the Malabar Coast.
-        /// Historically called "Black Jews" by Europeans. Kept their own synagogues and did not intermarry with the Paradesi Jews.
+        /// Historically called "Black Jews" by English-language sources. Kept their own synagogues and did not intermarry with the Paradesi Jews.
         /// No census exists; the estimate is most of the Cochin Jewish population.
         /// </summary>
         [NumberOfMembers(6500, 9500)] //6,500-9,500
@@ -331,7 +331,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// <summary>
         /// Jew Town in Kochi, Kerala, India, now mostly Israel, plus Australia and the United States
         /// "Foreigners": Jews who arrived from the 16th century on, mainly Sephardic exiles from Spain and Portugal, plus Jews
-        /// from the Netherlands, Germany, Iraq, and Syria. Historically called "White Jews" by Europeans. Built the Paradesi
+        /// from the Netherlands, Germany, Iraq, and Syria. Historically called "White Jews" by English-language sources. Built the Paradesi
         /// Synagogue in 1568, still standing today.
         /// No census exists; the estimate is based on a community of a few hundred in 1948.
         /// </summary>
@@ -363,6 +363,7 @@ namespace Existence.Earth.Human.EthnicGroups
         /// but treated as lower status: they could not be called up to read the Torah or sit with other members in the Paradesi
         /// Synagogue. Abraham Barak Salem, a Meshuchrari lawyer, led a Gandhi-style campaign against this in the 1930s.
         /// No census exists; the estimate is based on a community of a few dozen families in 1948.
+        /// The term "Brown Jews" was sometimes used to apply to them, but not as prevalent as for "White Jews" and "Black Jews".
         /// </summary>
         [NumberOfMembers(100, 300)] //100-300
         [HigherLevelJewishEthnicSubSubSubdivision(JewishEthnicSubSubSubdivisions.Paradesi)]
