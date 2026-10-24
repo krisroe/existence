@@ -456,7 +456,6 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         Palestinian,
 
         /// <summary>
-        /// Iranian Jews
         /// Iran (mainly Tehran, Isfahan, Shiraz, Hamadan, and Mashhad), now mostly Israel and the United States (Los Angeles, New York)
         /// One of the oldest diaspora communities, dating to the Babylonian exile and the Persian Empire; the Book of Esther is set
         /// in the Persian capital of Susa. Spoke Judeo-Persian dialects. About 80,000-100,000 lived in Iran before the 1979
@@ -466,6 +465,22 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Mizrahi)]
         [Country(CountryLikeThings.Iran)]
         Persian,
+
+        /// <summary>
+        /// Polish Jews, Poylishe Yidn (Yiddish)
+        /// Central Poland, the old Russian-ruled Kingdom of Poland (Warsaw, Lodz, Lublin), now mostly the United States and Israel
+        /// Ashkenazi Jews who spoke Central (Polish) Yiddish. Warsaw had about 350,000 Jews in 1939, the largest Jewish city in
+        /// Europe. Home of the Ger Hasidic dynasty, the largest in pre-war Poland, and of the Yeshivat Chachmei Lublin. About 90% of
+        /// Poland's Jews were murdered in the Holocaust, much of it in death camps the Nazis built in occupied Poland, such as
+        /// Treblinka and Auschwitz. Most survivors left after the Kielce pogrom of 1946 or the anti-Jewish campaign of 1968.
+        /// The Jews of Galicia (southern Poland) and of the Lithuanian lands (northeastern Poland) are counted as Galitzianers
+        /// and Litvaks.
+        /// No modern count exists; the estimate is of descendants of a population of about 1.3 million in 1897.
+        /// </summary>
+        [NumberOfMembers(2000000, 3500000)] //2-3.5 million
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Country(CountryLikeThings.Poland)]
+        Polish,
 
         /// <summary>
         /// Romaniote Jews, Greek Jews
@@ -481,6 +496,24 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [IndependentJewishSubdivision]
         [Country(CountryLikeThings.Greece)]
         Romaniote,
+
+        /// <summary>
+        /// Russian Jews, Russian-speaking Jews, Soviet Jews; "Russim" ("Russians" in Hebrew) is the name used in Israel
+        /// The former Soviet Union, mainly Russia, Ukraine, Belarus, and Moldova, now mostly Israel, the United States, Germany, and Russia
+        /// Ashkenazi Jews of the Soviet Union and its successor states, who came to share Russian as their main language and a
+        /// largely secular culture after decades of Soviet rule suppressed religion and Yiddish. About a million moved to Israel
+        /// after 1989, where they formed a distinct community with its own newspapers and political parties; most of Germany's
+        /// Jewish community today also comes from this migration. Descended mainly from the Jews of the old Pale of Settlement,
+        /// so the group overlaps heavily with Litvaks and other descent-based Ashkenazi groups. Bukharan, Georgian, and Mountain
+        /// Jews from the Soviet Union are listed separately.
+        /// No exact count exists; the estimate includes people of partial Jewish descent eligible to move to Israel.
+        /// </summary>
+        [NumberOfMembers(2000000, 3000000)] //2-3 million
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Countries(CountryLikeThings.Belarus, CountryLikeThings.Moldova, CountryLikeThings.Russia, CountryLikeThings.Ukraine)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Litvak, HierarchyItemOriginTypes.Significant)]
+        [OriginatedFrom(JewishEthnicDivisionsLevel2.Ukrainian, HierarchyItemOriginTypes.Significant)]
+        Russim,
 
         /// <summary>
         /// Sudan (mostly Khartoum and Omdurman)
@@ -534,6 +567,20 @@ namespace Existence.Earth.Human.EthnicGroups.Jewish.Level2
         [Country(CountryLikeThings.Tunisia)]
         [HasSubdivisions]
         Tunisian,
+
+        /// <summary>
+        /// Ukraine outside Galicia: Volhynia, Podolia, the Kyiv region, and the south (Odessa), now mostly the United States, Israel, and Ukraine
+        /// Ashkenazi Jews who spoke Southeastern (Ukrainian) Yiddish. Hasidism began here with the Baal Shem Tov in Podolia in
+        /// the 18th century. Suffered repeated mass killings: the Khmelnytsky uprising of 1648-1649, the pogroms of 1881-1882,
+        /// the civil war pogroms of 1918-1921, and the Holocaust, including the Babi Yar massacre outside Kyiv in 1941.
+        /// Huge numbers emigrated to the United States between 1881 and 1914, so many American Jews have Ukrainian roots.
+        /// The Jews of Galicia, now western Ukraine, are counted as Galitzianers.
+        /// No modern count exists; the estimate is of descendants of a population of about 2 million in 1897.
+        /// </summary>
+        [NumberOfMembers(3000000, 5000000)] //3-5 million
+        [HigherLevelJewishSubdivisionLevel1(JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [Country(CountryLikeThings.Ukraine)]
+        Ukrainian,
 
         /// <summary>
         /// The "Unterland" of the old Kingdom of Hungary: northeastern Hungary, Carpathian Ruthenia, eastern Slovakia, and Maramures
