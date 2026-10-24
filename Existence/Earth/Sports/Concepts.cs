@@ -173,6 +173,22 @@ namespace Existence.Earth.Sports
         }
     }
 
+    public enum TwoPlayerGameOutcome
+    {
+        Win,
+        Loss,
+        Tie,
+    }
+
+    public class WorldSeriesAttribute : Attribute
+    {
+        public TwoPlayerGameOutcome Outcome { get; set; }
+        public WorldSeriesAttribute(TwoPlayerGameOutcome Outcome)
+        {
+            this.Outcome = Outcome;
+        }
+    }
+
     public class TeamWinLossRecordAttribute : NumbersBinary
     {
         public int Wins

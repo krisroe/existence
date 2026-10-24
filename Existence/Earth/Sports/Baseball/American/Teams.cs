@@ -23,6 +23,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(83, 79)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(95, 67)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(79, 83)]
                         public static class NewYorkYankees { }
@@ -66,6 +67,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(84, 78)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(92, 70)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class StLouisCardinals { }
                     }
                     public static class West
@@ -102,6 +104,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(89, 73)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(97, 65)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(86, 76)]
                         public static class TorontoBlueJays { }
@@ -146,6 +149,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(89, 73)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(92, 70)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class PhiladelphiaPhillies { }
                         [TeamWinLossRecord(59, 102)]
                         public static class WashingtonNationals { }
@@ -197,6 +201,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(33, 27)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(40, 20)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(32, 28)]
                         public static class TorontoBlueJays { }
@@ -267,6 +272,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(26, 34)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(43, 17)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(37, 23)]
                         public static class SanDiegoPadres { }
