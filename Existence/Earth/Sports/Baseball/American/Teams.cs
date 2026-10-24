@@ -432,10 +432,8 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(FielderType.ThirdBase)]
                     JuniorCaminero,
-                    /// <summary>
-                    /// designated hitter
-                    /// </summary>
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                    [FielderType(FielderType.DesignatedHitter)]
                     YandyDiaz,
                 }
 
