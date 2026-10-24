@@ -42,7 +42,7 @@ namespace Existence.Earth.Sports.Baseball.American
         WashingtonNationals,
     }
 
-    public class MajorLeagueBaseballTeamAttribute : Attribute
+    public class MajorLeagueBaseballTeamAttribute : SingularObjectAttribute
     {
         public MajorLeagueBaseballTeams Team { get; set; }
         public MajorLeagueBaseballTeamAttribute(MajorLeagueBaseballTeams Team)
@@ -182,6 +182,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
             public static class WorldSeries
             {
                 public static class Game1 { }
@@ -333,6 +335,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
             public static class WorldSeries
             {
                 public static class Game1 { }
@@ -479,6 +483,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
             public static class WorldSeries
             {
                 public static class Game1 { }
@@ -620,6 +626,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
             public static class WorldSeries
             {
                 public static class Game1 { }
