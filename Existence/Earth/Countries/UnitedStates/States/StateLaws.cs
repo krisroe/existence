@@ -1,4 +1,5 @@
 ﻿using System;
+using Existence.Earth.Human.People;
 using System.Collections.Generic;
 using Existence.Earth.Alphabet;
 using Existence.Time;
@@ -579,13 +580,34 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
     public enum WisconsinPoliticians
     {
+        [Gender(Gender.Female)]
         AgardMelissa,
+
+        [Gender(Gender.Female)]
         CrawfordSusan,
+
+        [Gender(Gender.Male)]
+        CrowleyDavid,
+
+        [Gender(Gender.Female)]
+        HongFrancesca,
+
+        [Gender(Gender.Female)]
         KinserBrittany,
+
+        [Gender(Gender.Female)]
         LazarMaria,
+
+        [Gender(Gender.Male)]
         RatzlaffStephen,
+
+        [Gender(Gender.Male)]
         SchimelBrad,
+
+        [Gender(Gender.Female)]
         TaylorChris,
+
+        [Gender(Gender.Female)]
         UnderlyJill,
     }
 }
