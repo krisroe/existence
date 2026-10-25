@@ -1,7 +1,6 @@
 ﻿using Existence.Beyond.Infrastructure;
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
-using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Time;
 using Existence.Earth.Gambling;
 using Existence.Earth.Human.People;
@@ -28,7 +27,11 @@ namespace Existence.Beyond.CosmicGambling
 
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 5, 13)]
-            AddMissingDateToSonNamingMethod
+            AddMissingDateToSonNamingMethod,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2026, 10, 25)]
+            UpdatePapalVotePredictionCorrectnessNoChangeAndRemoveUnusedUsing,
         }
 
         /// <summary>
@@ -41,7 +44,13 @@ namespace Existence.Beyond.CosmicGambling
         /// </summary>
         [Odds(7.6, 1)]
         [Bet("Matteo Zuppi", 20, Currencies.UnitedStatesDollar)]
-        [ThumbOnTheScale((int)PeopleEnumerated.ZuppiMatteo, ThumbOnTheScaleAmount.Full, ThumbOnTheScaleImportance.Low, (int)PeopleEnumerated.ParolinPietro, (int)PeopleEnumerated.PrevostRobertFrancis)]
+        [ThumbOnTheScale((int)PeopleEnumerated.ZuppiMatteo, 
+                         ThumbOnTheScaleAmount.Full, 
+                         ThumbOnTheScaleImportance.Low, 
+                         (int)PeopleEnumerated.ParolinPietro,
+                         (int)PeopleEnumerated.PrevostRobertFrancis,
+                         PredictionCorrectness: Correctness.Incorrect,
+                         ThumbOnTheScaleHindsightCorrectness:Correctness.Future)]
         public enum PapalVacancyBet
         {
         }

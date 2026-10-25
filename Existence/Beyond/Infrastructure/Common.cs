@@ -12,6 +12,13 @@ using Existence.Time;
 
 namespace Existence.Beyond.Infrastructure
 {
+    public enum VersionHistory
+    {
+        [BeyondObjectVersion(1, 0, 0, 0)]
+        [YearDate(2025, 10, 25)]
+        FixMissingVersionHistoryAddCorrectnessForThumbOnTheScale,
+    }
+
     internal class ZLevelAttribute : Attribute
     {
         internal ZLevel ZLevel { get; set; }
@@ -755,6 +762,22 @@ namespace Existence.Beyond.Infrastructure
         Low = 2
     }
 
+    public enum Correctness
+    {
+        /// <summary>
+        /// fundamentally correct
+        /// </summary>
+        Correct = 0,
+        /// <summary>
+        /// fundamentally incorrect
+        /// </summary>
+        Incorrect = 1,
+        /// <summary>
+        /// too early to tell
+        /// </summary>
+        Future = 2
+    }
+
     internal class ThumbOnTheScaleAttribute : Attribute
     {
         public int Target { get; set; }
@@ -762,13 +785,36 @@ namespace Existence.Beyond.Infrastructure
         public ThumbOnTheScaleImportance Importance { get; set;  }
         public int Prediction { get; set; }
         public int Winner { get; set; }
-        public ThumbOnTheScaleAttribute(int Target, ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, int Prediction, int Winner)
+        public Correctness PredictionCorrectness { get; set; }
+        public Correctness ThumbOnTheScaleHindsightCorrectness { get; set; }
+        public string? Explanation { get; set; }
+        public ThumbOnTheScaleAttribute(int Target, 
+                                        ThumbOnTheScaleAmount Amount, 
+                                        ThumbOnTheScaleImportance Importance, 
+                                        int Prediction, 
+                                        int Winner, 
+                                        Correctness PredictionCorrectness, 
+                                        Correctness ThumbOnTheScaleHindsightCorrectness)
         {
             this.Target = Target;
             this.Amount = Amount;
             this.Importance = Importance;
             this.Prediction = Prediction;
             this.Winner = Winner;
+            this.PredictionCorrectness = PredictionCorrectness;
+            this.ThumbOnTheScaleHindsightCorrectness = ThumbOnTheScaleHindsightCorrectness;
+        }
+        public ThumbOnTheScaleAttribute(int Target, 
+                                        ThumbOnTheScaleAmount Amount,
+                                        ThumbOnTheScaleImportance Importance,
+                                        int Prediction,
+                                        int Winner,
+                                        Correctness PredictionCorrectness,
+                                        Correctness ThumbOnTheScaleHindsightCorrectness,
+                                        string Explanation)
+            : this(Target, Amount, Importance, Prediction, Winner, PredictionCorrectness, ThumbOnTheScaleHindsightCorrectness)
+        {
+            this.Explanation = Explanation;
         }
     }
 

@@ -51,6 +51,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(2, 4, 0, 0)]
             [YearDate(2025, 5, 8)]
             RestructureWinners,
+
+            [BeyondObjectVersion(2, 5, 0, 0)]
+            [YearDate(2025, 10, 25)]
+            UseCorrectDateInFileNameAndFillOutPredictionCorrectness,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -388,7 +392,9 @@ namespace Existence.Beyond.ThumbOnTheScale
                 ThumbOnTheScaleAmount.Full, 
                 ThumbOnTheScaleImportance.High, 
                 (int)WisconsinPoliticians.SchimelBrad,
-                (int)WisconsinPoliticians.CrawfordSusan)]
+                (int)WisconsinPoliticians.CrawfordSusan,
+                PredictionCorrectness: Correctness.Incorrect,
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
             public static class StateSupremeCourtJustice
             {
                 /// <summary>
@@ -517,7 +523,9 @@ namespace Existence.Beyond.ThumbOnTheScale
                 ThumbOnTheScaleAmount.Half, 
                 ThumbOnTheScaleImportance.Low, 
                 (int)WisconsinPoliticians.UnderlyJill,
-                (int)WisconsinPoliticians.UnderlyJill)]
+                (int)WisconsinPoliticians.UnderlyJill,
+                PredictionCorrectness: Correctness.Correct,
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
             public static class SuperintendantOfPublicInstruction
             {
                 /// <summary>
@@ -589,7 +597,9 @@ namespace Existence.Beyond.ThumbOnTheScale
                 ThumbOnTheScaleAmount.None, 
                 ThumbOnTheScaleImportance.Low, 
                 (int)ReferendumChoice.Yes,
-                (int)ReferendumChoice.Yes)]
+                (int)ReferendumChoice.Yes,
+                PredictionCorrectness: Correctness.Correct,
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
             public static class VoterPhotoIdentificationAmendment
             {
                 /// <summary>
@@ -621,7 +631,9 @@ namespace Existence.Beyond.ThumbOnTheScale
                 ThumbOnTheScaleAmount.Full, 
                 ThumbOnTheScaleImportance.Low, 
                 (int)WisconsinPoliticians.AgardMelissa,
-                (int)WisconsinPoliticians.AgardMelissa)]
+                (int)WisconsinPoliticians.AgardMelissa,
+                PredictionCorrectness: Correctness.Correct,
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
             public static class DaneCountyExecutive
             {
                 [Politician((int)WisconsinPoliticians.RatzlaffStephen)]

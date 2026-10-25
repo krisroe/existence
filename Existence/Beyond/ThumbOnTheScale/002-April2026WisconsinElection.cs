@@ -6,13 +6,17 @@ using Existence.Time;
 using System.ComponentModel;
 namespace Existence.Beyond.ThumbOnTheScale
 {
-    internal class ThumbOnTheScaleApril2006WisconsinElection : ThumbOnTheScaleBase
+    internal class ThumbOnTheScaleApril2026WisconsinElection : ThumbOnTheScaleBase
     {
         public enum VersionHistory
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2026, 4, 7)]
             Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2026, 10, 25)]
+            AddPredictionCorrectnessNoChangeAndUseCorrectYearForClassAndFileName,
         }
 
         [VotedAtLocation((int)PersonalChurches.SaintBernardCatholicChurch)]
@@ -29,7 +33,9 @@ namespace Existence.Beyond.ThumbOnTheScale
             ThumbOnTheScaleAmount.Full,
             ThumbOnTheScaleImportance.Medium,
             (int)WisconsinPoliticians.LazarMaria,
-            (int)WisconsinPoliticians.TaylorChris)]
+            (int)WisconsinPoliticians.TaylorChris,
+            Correctness.Incorrect,
+            Correctness.Future)]
         public static class StateSupremeCourtJustice
         {
             [Politician((int)WisconsinPoliticians.LazarMaria)]
