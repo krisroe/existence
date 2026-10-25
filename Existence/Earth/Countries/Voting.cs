@@ -63,16 +63,23 @@ namespace Existence.Earth.Countries
     /// </summary>
     public class AmbiguousRunoffElectionResultAttribute : Attribute
     {
-        public int Winner { get; set; }
-        public decimal WinnerResult { get; set; }
-        public int Loser { get; set; }
-        public decimal LoserResult { get; set; }
+        public int FirstPlace { get; set; }
+        public decimal FirstPlacePercentage { get; set; }
+        public int SecondPlace { get; set; }
+        public decimal SecondPlacePercentage { get; set; }
+        public int? ThirdPlace { get; set; }
+        public decimal? ThirdPlacePercentage { get; set; }
         public AmbiguousRunoffElectionResultAttribute(int Winner, double WinnerResult, int Loser, double LoserResult)
         {
-            this.Winner = Winner;
-            this.WinnerResult = (decimal)WinnerResult;
-            this.Loser = Loser;
-            this.LoserResult = (decimal)LoserResult;
+            this.FirstPlace = Winner;
+            this.FirstPlacePercentage = (decimal)WinnerResult;
+            this.SecondPlace = Loser;
+            this.SecondPlacePercentage = (decimal)LoserResult;
+        }
+        public AmbiguousRunoffElectionResultAttribute(int Winner, double WinnerResult, int Loser, double LoserResult, int ThirdPlace, double ThirdPlaceResult) : this(Winner, WinnerResult, Loser, LoserResult)
+        {
+            this.ThirdPlace = ThirdPlace;
+            this.ThirdPlacePercentage = (decimal)ThirdPlaceResult;
         }
     }
 
