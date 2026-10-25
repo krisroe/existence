@@ -66,11 +66,10 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
             public static class v2023 { }
 
             /// <summary>
-            /// PENDING
-            /// Brad Schimel
-            /// Susan Crawford
+            /// Susan Crawford                1,301,137 55.02%
+            /// Brad Schimel                  1,062,330 44.92%
             /// </summary>
-            [TODO("Future Election")]
+            [YearDate(2025, 4, 1)]
             public static class v2025 { }
         }
 

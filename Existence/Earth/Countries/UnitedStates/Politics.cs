@@ -1,4 +1,5 @@
 ﻿using Existence.Earth.Human.Politics;
+using Existence.Time;
 using System;
 
 namespace Existence.Earth.Countries.UnitedStates.Politics
@@ -417,5 +418,94 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         /// </summary>
         [Province((int)StateSubsidiariesUnitedStates.RhodeIsland)]
         CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationLifeTerm,
+    }
+
+    public static class Elections
+    {
+        /// <summary>
+        /// results are the national popular vote; the winner is the Electoral College winner
+        /// </summary>
+        public static class Presidential
+        {
+            /// <summary>
+            /// first Presidential election. Washington was unopposed and received all 69 electoral votes,
+            /// so there is no head-to-head result
+            /// </summary>
+            [YearRange(1788, 1789)]
+            public static class v1788 { }
+
+            [Omitted]public static class v1792 { }
+            [Omitted]public static class v1796 { }
+            [Omitted]public static class v1800 { }
+            [Omitted]public static class v1804 { }
+            [Omitted]public static class v1808 { }
+            [Omitted]public static class v1812 { }
+            [Omitted]public static class v1816 { }
+            [Omitted]public static class v1820 { }
+            [Omitted]public static class v1824 { }
+            [Omitted]public static class v1828 { }
+            [Omitted]public static class v1832 { }
+            [Omitted]public static class v1836 { }
+            [Omitted]public static class v1840 { }
+            [Omitted]public static class v1844 { }
+            [Omitted]public static class v1848 { }
+            [Omitted]public static class v1852 { }
+            [Omitted]public static class v1856 { }
+            [Omitted]public static class v1860 { }
+            [Omitted]public static class v1864 { }
+            [Omitted]public static class v1868 { }
+            [Omitted]public static class v1872 { }
+            [Omitted]public static class v1876 { }
+            [Omitted]public static class v1880 { }
+            [Omitted]public static class v1884 { }
+            [Omitted]public static class v1888 { }
+            [Omitted]public static class v1892 { }
+            [Omitted]public static class v1896 { }
+            [Omitted]public static class v1900 { }
+            [Omitted]public static class v1904 { }
+            [Omitted]public static class v1908 { }
+            [Omitted]public static class v1912 { }
+            [Omitted]public static class v1916 { }
+            [Omitted]public static class v1920 { }
+            [Omitted]public static class v1924 { }
+            [Omitted]public static class v1928 { }
+            [Omitted]public static class v1932 { }
+            [Omitted]public static class v1936 { }
+            [Omitted]public static class v1940 { }
+            [Omitted]public static class v1944 { }
+            [Omitted]public static class v1948 { }
+            [Omitted]public static class v1952 { }
+            [Omitted]public static class v1956 { }
+            [Omitted]public static class v1960 { }
+            [Omitted]public static class v1964 { }
+            [Omitted]public static class v1968 { }
+            [Omitted]public static class v1972 { }
+            [Omitted]public static class v1976 { }
+            [Omitted]public static class v1980 { }
+            [Omitted]public static class v1984 { }
+            [Omitted]public static class v1988 { }
+            [Omitted]public static class v1992 { }
+            [Omitted]public static class v1996 { }
+            [Omitted]public static class v2000 { }
+            [Omitted]public static class v2004 { }
+            [Omitted]public static class v2008 { }
+            [Omitted]public static class v2012 { }
+
+            /// <summary>
+            /// Trump won the Electoral College 304-227 while losing the popular vote
+            /// </summary>
+            [YearDate(2016, 11, 8)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 46.09, (int)UnitedStatesPoliticians.ClintonHillary, 48.18)]
+            public static class v2016 { }
+
+            [YearDate(2020, 11, 3)]
+            [Incumbent((int)UnitedStatesPoliticians.TrumpDonald)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BidenJoe, 51.31, (int)UnitedStatesPoliticians.TrumpDonald, 46.85)]
+            public static class v2020 { }
+
+            [YearDate(2024, 11, 5)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 49.80, (int)UnitedStatesPoliticians.HarrisKamala, 48.32)]
+            public static class v2024 { }
+        }
     }
 }

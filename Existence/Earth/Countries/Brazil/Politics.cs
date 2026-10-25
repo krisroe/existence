@@ -10,6 +10,7 @@ namespace Existence.Earth.Countries.Politics
         BolsonaroFlávio,
         
         [Gender(Gender.Male)]
+        [Child((int)Politicians.BolsonaroFlávio)]
         BolsonaroJair,
 
         [Gender(Gender.Male)]

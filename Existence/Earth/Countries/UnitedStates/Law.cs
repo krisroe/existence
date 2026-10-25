@@ -1,4 +1,5 @@
 ﻿using System;
+using Existence.Earth.Human.People;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates
@@ -67,12 +68,37 @@ namespace Existence.Earth.Countries.UnitedStates
 
     public enum UnitedStatesPoliticians
     {
+        [Gender(Gender.Male)]
+        BidenJoe,
+
+        [Gender(Gender.Male)]
         BrowneHarry,
+
+        [Gender(Gender.Female)]
+        ClintonHillary,
+
+        [Gender(Gender.Male)]
         DoleBob,
+
+        [Gender(Gender.Female)]
+        HarrisKamala,
+
+        [Gender(Gender.Male)]
         JohnsonGary,
+
+        [Gender(Gender.Male)]
         PaulRon,
+
+        [Gender(Gender.Male)]
         TrumpDonald,
+
+        [Gender(Gender.Male)]
         TsongasPaul,
+
+        [Gender(Gender.Male)]
         WalkerScott,
+
+        [Gender(Gender.Male)]
+        WashingtonGeorge,
     }
 }
