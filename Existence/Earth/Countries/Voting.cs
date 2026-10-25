@@ -40,6 +40,34 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician lost the election and did not publicly concede
+    /// </summary>
+    public class DidNotConcedeAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public DidNotConcedeAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the losing politician did not publicly concede, but reportedly conceded in private
+    /// </summary>
+    public class OnlyConcededPrivatelyAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public string ToWho { get; set; }
+        public string AllegedWords { get; set; }
+        public OnlyConcededPrivatelyAttribute(int Politician, string ToWho, string AllegedWords)
+        {
+            this.Politician = Politician;
+            this.ToWho = ToWho;
+            this.AllegedWords = AllegedWords;
+        }
+    }
+
+    /// <summary>
     /// decimal isn't a valid attribute parameter type, so the results are passed in as doubles and stored as decimals
     /// </summary>
     public class HeadToHeadElectionResultAttribute : Attribute

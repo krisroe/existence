@@ -530,6 +530,7 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [Incumbent((int)UnitedStatesPoliticians.TrumpDonald)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BidenJoe, 51.31, (int)UnitedStatesPoliticians.TrumpDonald, 46.85)]
             [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.BidenJoe, 306, (int)UnitedStatesPoliticians.TrumpDonald, 232)]
+            [DidNotConcede((int)UnitedStatesPoliticians.TrumpDonald)]
             public static class v2020 { }
 
             [YearDate(2024, 11, 5)]

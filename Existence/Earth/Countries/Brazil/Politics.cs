@@ -95,6 +95,7 @@ namespace Existence.Earth.Countries.Politics
 
                 [YearDate(2022, 10, 30)]
                 [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 50.90, (int)Politicians.BolsonaroJair, 49.10)]
+                [OnlyConcededPrivately((int)Politicians.BolsonaroJair, "Supreme Court justices", "acabou (it's over)")]
                 public static class SecondRound { }
 
             }
