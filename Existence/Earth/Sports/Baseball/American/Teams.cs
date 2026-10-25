@@ -983,6 +983,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
                 public static class Game2 { }
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
