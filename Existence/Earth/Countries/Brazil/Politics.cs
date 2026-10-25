@@ -7,7 +7,9 @@ namespace Existence.Earth.Countries.Politics
         BolsonaroFlávio,
         BolsonaroJair,
         daSilvaLula,
+        deMoraisPrudente,
         HaddadFernando,
+        PenaAfonso,
     }
 
     public static class Elections
@@ -17,13 +19,17 @@ namespace Existence.Earth.Countries.Politics
         /// </summary>
         public static class Presidential
         {
+            [YearDate(1894, 3, 1)]
+            [HeadToHeadElectionResult((int)Politicians.deMoraisPrudente, 80.15, (int)Politicians.PenaAfonso, 11.10)]
+            public static class v1894 { }
+
             public static class v2018
             {
                 [YearDate(2018, 10, 7)]
                 public static class FirstRound { }
 
                 [YearDate(2018, 10, 28)]
-                [RunoffElectionResult((int)Politicians.BolsonaroJair, 55.13, (int)Politicians.HaddadFernando, 44.87)]
+                [HeadToHeadElectionResult((int)Politicians.BolsonaroJair, 55.13, (int)Politicians.HaddadFernando, 44.87)]
                 public static class SecondRound { }
             }
 
@@ -34,7 +40,7 @@ namespace Existence.Earth.Countries.Politics
                 public static class FirstRound { }
 
                 [YearDate(2022, 10, 30)]
-                [RunoffElectionResult((int)Politicians.daSilvaLula, 50.90, (int)Politicians.BolsonaroJair, 49.10)]
+                [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 50.90, (int)Politicians.BolsonaroJair, 49.10)]
                 public static class SecondRound { }
 
             }
