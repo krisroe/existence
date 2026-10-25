@@ -219,6 +219,13 @@ namespace Existence.Earth.Sports
         }
     }
 
+    /// <summary>
+    /// whether a team has home field advantage in a series, so it would host the deciding game
+    /// </summary>
+    public class HomeFieldAdvantageAttribute : Attribute
+    {
+    }
+
     public class TeamWinLossRecordAttribute : NumbersBinary
     {
         public int Wins

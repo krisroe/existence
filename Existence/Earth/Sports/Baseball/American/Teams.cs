@@ -215,10 +215,21 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
             public static class WorldSeries
             {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                public static class AmericanLeagueTeam
+                {
+
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                [HomeFieldAdvantage]
+                public static class NationalLeagueTeam
+                {
+
+                }
+
                 // Mike Caldwell started for the Brewers and Bob Forsch for the Cardinals, but neither is in an enum yet
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 public static class Game1 { }
@@ -370,10 +381,21 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
             public static class WorldSeries
             {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                [HomeFieldAdvantage]
+                public static class AmericanLeagueTeam
+                {
+
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+                public static class NationalLeagueTeam
+                {
+
+                }
+
                 // Cole Hamels started for the Phillies, but isn't in an enum yet
                 [StartingPitcher((int)AmericanLeague.PitchingAllStars.ScottKazmir)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
@@ -521,10 +543,24 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
             public static class WorldSeries
             {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                public static class AmericanLeagueTeam
+                {
+
+                }
+
+                /// <summary>
+                /// the series was played at a neutral site, but the Dodgers were the designated home team for games 1, 2, 6, and 7
+                /// </summary>
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                [HomeFieldAdvantage]
+                public static class NationalLeagueTeam
+                {
+
+                }
+
                 // Tyler Glasnow started for the Rays and Clayton Kershaw for the Dodgers, but neither is in an enum yet
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 8, MajorLeagueBaseballTeams.TampaBayRays, 3)]
                 public static class Game1 { }
@@ -666,10 +702,21 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-            [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
             public static class WorldSeries
             {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                public static class AmericanLeagueTeam
+                {
+
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                [HomeFieldAdvantage]
+                public static class NationalLeagueTeam
+                {
+
+                }
+
                 /// <summary>
                 /// I started watching the regular World Series game, but at some point (1/2?) (2/3?) the game split and I watched the end of the game from another universe
                 /// </summary>
