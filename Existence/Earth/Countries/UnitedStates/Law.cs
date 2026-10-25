@@ -72,12 +72,20 @@ namespace Existence.Earth.Countries.UnitedStates
         AdamsJohn,
 
         [Gender(Gender.Male)]
+        BentsenLloyd,
+
+        [Gender(Gender.Male)]
         BidenJoe,
 
         [Gender(Gender.Male)]
         BrowneHarry,
 
         [Gender(Gender.Male)]
+        [Child((int)UnitedStatesPoliticians.BushGeorgeW)]
+        BushGeorgeHW,
+
+        [Gender(Gender.Male)]
+        [Father((int)UnitedStatesPoliticians.BushGeorgeHW)]
         BushGeorgeW,
 
         [Gender(Gender.Female)]
@@ -85,6 +93,9 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         DoleBob,
+
+        [Gender(Gender.Male)]
+        DukakisMichael,
 
         [Gender(Gender.Male)]
         GoreAl,

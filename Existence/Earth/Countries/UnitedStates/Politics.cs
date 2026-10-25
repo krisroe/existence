@@ -509,7 +509,16 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [Omitted]public static class v1976 { }
             [Omitted]public static class v1980 { }
             [Omitted]public static class v1984 { }
-            [Omitted]public static class v1988 { }
+
+            /// <summary>
+            /// a West Virginia faithless elector cast a vote for Bentsen for President (and Dukakis for Vice President)
+            /// </summary>
+            [YearDate(1988, 11, 8)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BushGeorgeHW, 53.37, (int)UnitedStatesPoliticians.DukakisMichael, 45.65)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.BushGeorgeHW, 426, (int)UnitedStatesPoliticians.DukakisMichael, 111, (int)UnitedStatesPoliticians.BentsenLloyd, 1)]
+            [ElectionNightConcession((int)UnitedStatesPoliticians.DukakisMichael)]
+            public static class v1988 { }
+
             [Omitted]public static class v1992 { }
             [Omitted]public static class v1996 { }
 
@@ -521,7 +530,7 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [YearDate(2000, 11, 7)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BushGeorgeW, 47.87, (int)UnitedStatesPoliticians.GoreAl, 48.38)]
             [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.BushGeorgeW, 271, (int)UnitedStatesPoliticians.GoreAl, 266)]
-            [Concession((int)UnitedStatesPoliticians.GoreAl, 2000, 12, 13)]
+            [LaterConcession((int)UnitedStatesPoliticians.GoreAl, 2000, 12, 13)]
             public static class v2000 { }
 
             [Omitted]public static class v2004 { }

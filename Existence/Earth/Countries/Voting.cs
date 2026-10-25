@@ -68,17 +68,37 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// the losing politician publicly conceded on this date
+    /// the losing politician publicly conceded
     /// </summary>
-    public class ConcessionAttribute : Attribute
+    public abstract class ConcessionAttribute : Attribute
     {
         public int Politician { get; set; }
+        protected ConcessionAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the losing politician publicly conceded on election night
+    /// </summary>
+    public class ElectionNightConcessionAttribute : ConcessionAttribute
+    {
+        public ElectionNightConcessionAttribute(int Politician) : base(Politician)
+        {
+        }
+    }
+
+    /// <summary>
+    /// the losing politician publicly conceded after election night, on this date
+    /// </summary>
+    public class LaterConcessionAttribute : ConcessionAttribute
+    {
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
-        public ConcessionAttribute(int Politician, int Year, int Month, int Day)
+        public LaterConcessionAttribute(int Politician, int Year, int Month, int Day) : base(Politician)
         {
-            this.Politician = Politician;
             this.Year = Year;
             this.Month = Month;
             this.Day = Day;
