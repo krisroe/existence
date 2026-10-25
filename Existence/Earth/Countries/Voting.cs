@@ -57,6 +57,25 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// first round of a runoff election; the winner and loser are the top two finishers, who most likely advance to the second round
+    /// (unless one of them dies or steps down). decimal isn't a valid attribute parameter type, so the results are passed in as doubles and stored as decimals
+    /// </summary>
+    public class AmbiguousRunoffElectionResultAttribute : Attribute
+    {
+        public int Winner { get; set; }
+        public decimal WinnerResult { get; set; }
+        public int Loser { get; set; }
+        public decimal LoserResult { get; set; }
+        public AmbiguousRunoffElectionResultAttribute(int Winner, double WinnerResult, int Loser, double LoserResult)
+        {
+            this.Winner = Winner;
+            this.WinnerResult = (decimal)WinnerResult;
+            this.Loser = Loser;
+            this.LoserResult = (decimal)LoserResult;
+        }
+    }
+
     public class IdeologyAttribute : TextAttribute
     {
         public string Ideology

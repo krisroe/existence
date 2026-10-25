@@ -26,6 +26,7 @@ namespace Existence.Earth.Countries.Politics
             public static class v2018
             {
                 [YearDate(2018, 10, 7)]
+                [AmbiguousRunoffElectionResult((int)Politicians.BolsonaroJair, 46.03, (int)Politicians.HaddadFernando, 29.28)]
                 public static class FirstRound { }
 
                 [YearDate(2018, 10, 28)]
@@ -37,6 +38,7 @@ namespace Existence.Earth.Countries.Politics
             public static class v2022
             {
                 [YearDate(2022, 10, 2)]
+                [AmbiguousRunoffElectionResult((int)Politicians.daSilvaLula, 48.43, (int)Politicians.BolsonaroJair, 43.20)]
                 public static class FirstRound { }
 
                 [YearDate(2022, 10, 30)]
@@ -49,6 +51,7 @@ namespace Existence.Earth.Countries.Politics
             public static class v2026
             {
                 [YearDate(2026, 10, 4)]
+                [AmbiguousRunoffElectionResult((int)Politicians.BolsonaroFlávio, 47.03, (int)Politicians.daSilvaLula, 45.16)]
                 public static class FirstRound { }
 
                 /// <summary>
