@@ -512,7 +512,18 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [Omitted]public static class v1988 { }
             [Omitted]public static class v1992 { }
             [Omitted]public static class v1996 { }
-            [Omitted]public static class v2000 { }
+
+            /// <summary>
+            /// Gore won the popular vote; Florida decided the Electoral College after Bush v. Gore (December 12).
+            /// Gore privately conceded to Bush on election night, then retracted it. One D.C. elector pledged to Gore
+            /// cast a blank ballot in protest of D.C.'s lack of voting representation in Congress
+            /// </summary>
+            [YearDate(2000, 11, 7)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BushGeorgeW, 47.87, (int)UnitedStatesPoliticians.GoreAl, 48.38)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.BushGeorgeW, 271, (int)UnitedStatesPoliticians.GoreAl, 266)]
+            [Concession((int)UnitedStatesPoliticians.GoreAl, 2000, 12, 13)]
+            public static class v2000 { }
+
             [Omitted]public static class v2004 { }
             [Omitted]public static class v2008 { }
             [Omitted]public static class v2012 { }

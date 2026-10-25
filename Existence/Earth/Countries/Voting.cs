@@ -68,6 +68,24 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the losing politician publicly conceded on this date
+    /// </summary>
+    public class ConcessionAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
+        public ConcessionAttribute(int Politician, int Year, int Month, int Day)
+        {
+            this.Politician = Politician;
+            this.Year = Year;
+            this.Month = Month;
+            this.Day = Day;
+        }
+    }
+
+    /// <summary>
     /// decimal isn't a valid attribute parameter type, so the results are passed in as doubles and stored as decimals
     /// </summary>
     public class HeadToHeadElectionResultAttribute : Attribute

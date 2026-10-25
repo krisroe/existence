@@ -77,11 +77,17 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Male)]
         BrowneHarry,
 
+        [Gender(Gender.Male)]
+        BushGeorgeW,
+
         [Gender(Gender.Female)]
         ClintonHillary,
 
         [Gender(Gender.Male)]
         DoleBob,
+
+        [Gender(Gender.Male)]
+        GoreAl,
 
         [Gender(Gender.Female)]
         HarrisKamala,
