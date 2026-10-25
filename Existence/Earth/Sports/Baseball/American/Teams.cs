@@ -95,27 +95,27 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    RollieFingers,
+                    FingersRollie,
                     /// <summary>
                     /// not actually an All-Star
                     /// </summary>
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    PeteVuckovich,
+                    VuckovichPete,
                 }
 
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(BaseballPositionType.FirstBase)]
-                    CecilCooper,
+                    CooperCecil,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(BaseballPositionType.Outfield)]
-                    BenOglivie,
+                    OglivieBen,
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(BaseballPositionType.Shortstop)]
-                    RobinYount,
+                    YountRobin,
                 }
 
                 public static class Divisions
@@ -164,7 +164,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
-                    SteveCarlton,
+                    CarltonSteve,
                 }
 
                 public enum BattingAllStars
@@ -172,13 +172,13 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                     [FielderType(BaseballPositionType.Outfield)]
-                    DaleMurphy,
+                    MurphyDale,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                     [FielderType(BaseballPositionType.Outfield)]
-                    LonnieSmith,
+                    SmithLonnie,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                     [FielderType(BaseballPositionType.Shortstop)]
-                    OzzieSmith,
+                    SmithOzzie,
                 }
 
                 public static class Divisions
@@ -320,24 +320,24 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    ScottKazmir,
+                    KazmirScott,
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
-                    CliffLee,
+                    LeeCliff,
                 }
 
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(BaseballPositionType.ThirdBase)]
-                    EvanLongoria,
+                    LongoriaEvan,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(BaseballPositionType.Catcher)]
-                    DionerNavarro,
+                    NavarroDioner,
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
                     [FielderType(BaseballPositionType.SecondBase)]
-                    DustinPedroia,
+                    PedroiaDustin,
                 }
 
                 public static class Divisions
@@ -388,13 +388,13 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
-                    BradLidge,
+                    LidgeBrad,
                     /// <summary>
                     /// selected, but did not pitch due to flu-like symptoms
                     /// </summary>
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
-                    TimLincecum,
+                    LincecumTim,
                 }
 
                 public enum BattingAllStars
@@ -405,10 +405,10 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                     [FielderType(BaseballPositionType.DesignatedHitter)]
-                    AlbertPujols,
+                    PujolsAlbert,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                     [FielderType(BaseballPositionType.SecondBase)]
-                    ChaseUtley,
+                    UtleyChase,
                 }
 
                 public static class Divisions
@@ -559,7 +559,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// </summary>
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
-                    ShaneBieber,
+                    BieberShane,
                 }
 
                 public enum BattingAllStars
@@ -570,7 +570,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ChicagoWhiteSox)]
                     [FielderType(BaseballPositionType.FirstBase)]
-                    JoseAbreu,
+                    AbreuJose,
                 }
 
                 public static class Divisions
@@ -628,7 +628,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// </summary>
                     [CyYoung]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
-                    TrevorBauer,
+                    BauerTrevor,
                 }
 
                 public enum BattingAllStars
@@ -639,7 +639,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [MostValuablePlayer]
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                     [FielderType(BaseballPositionType.FirstBase)]
-                    FreddieFreeman,
+                    FreemanFreddie,
                 }
 
                 public static class Divisions
@@ -788,24 +788,24 @@ namespace Existence.Earth.Sports.Baseball.American
                 public enum PitchingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    BryanBaker,
+                    BakerBryan,
                     /// <summary>
                     /// injury replacement for Ranger Suárez
                     /// </summary>
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    NickMartinez,
+                    MartinezNick,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
-                    DrewRasmussen,
+                    RasmussenDrew,
                 }
 
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(BaseballPositionType.ThirdBase)]
-                    JuniorCaminero,
+                    CamineroJunior,
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                     [FielderType(BaseballPositionType.DesignatedHitter)]
-                    YandyDiaz,
+                    DiazYandy,
                 }
 
                 public static class Divisions
@@ -861,14 +861,14 @@ namespace Existence.Earth.Sports.Baseball.American
                     /// selected, but ineligible to pitch due to a recent start; replaced by Braxton Ashcraft
                     /// </summary>
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
-                    JacobMisiorowski,
+                    MisiorowskiJacob,
                 }
 
                 public enum BattingAllStars
                 {
                     [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                     [FielderType(BaseballPositionType.Catcher)]
-                    WilliamContreras,
+                    ContrerasWilliam,
                 }
 
                 public static class Divisions
