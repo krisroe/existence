@@ -420,6 +420,31 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         CommissionRecommendationsGubernatorialAppointmentFromListLegislativeConfirmationLifeTerm,
     }
 
+    /// <summary>
+    /// top two (optionally three) recipients of electoral votes for President
+    /// </summary>
+    public class UnitedStatesElectoralCollegeResultAttribute : Attribute
+    {
+        public int FirstPlace { get; set; }
+        public int FirstPlaceElectoralVotes { get; set; }
+        public int SecondPlace { get; set; }
+        public int SecondPlaceElectoralVotes { get; set; }
+        public int? ThirdPlace { get; set; }
+        public int? ThirdPlaceElectoralVotes { get; set; }
+        public UnitedStatesElectoralCollegeResultAttribute(int FirstPlace, int FirstPlaceElectoralVotes, int SecondPlace, int SecondPlaceElectoralVotes)
+        {
+            this.FirstPlace = FirstPlace;
+            this.FirstPlaceElectoralVotes = FirstPlaceElectoralVotes;
+            this.SecondPlace = SecondPlace;
+            this.SecondPlaceElectoralVotes = SecondPlaceElectoralVotes;
+        }
+        public UnitedStatesElectoralCollegeResultAttribute(int FirstPlace, int FirstPlaceElectoralVotes, int SecondPlace, int SecondPlaceElectoralVotes, int ThirdPlace, int ThirdPlaceElectoralVotes) : this(FirstPlace, FirstPlaceElectoralVotes, SecondPlace, SecondPlaceElectoralVotes)
+        {
+            this.ThirdPlace = ThirdPlace;
+            this.ThirdPlaceElectoralVotes = ThirdPlaceElectoralVotes;
+        }
+    }
+
     public static class Elections
     {
         /// <summary>
@@ -428,10 +453,11 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         public static class Presidential
         {
             /// <summary>
-            /// first Presidential election. Washington was unopposed and received all 69 electoral votes,
-            /// so there is no head-to-head result
+            /// First Presidential election. Washington was unopposed and received an electoral vote from every voter.
+            /// Each elector cast two votes; the runner-up became Vice President
             /// </summary>
             [YearRange(1788, 1789)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.WashingtonGeorge, 69, (int)UnitedStatesPoliticians.AdamsJohn, 34, (int)UnitedStatesPoliticians.JayJohn, 9)]
             public static class v1788 { }
 
             [Omitted]public static class v1792 { }
@@ -492,19 +518,23 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [Omitted]public static class v2012 { }
 
             /// <summary>
-            /// Trump won the Electoral College 304-227 while losing the popular vote
+            /// Trump won the Electoral College while losing the popular vote. Powell's 3 electoral votes came from
+            /// faithless electors (Kasich, Ron Paul, Sanders, and Faith Spotted Eagle received 1 each)
             /// </summary>
             [YearDate(2016, 11, 8)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 46.09, (int)UnitedStatesPoliticians.ClintonHillary, 48.18)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.TrumpDonald, 304, (int)UnitedStatesPoliticians.ClintonHillary, 227, (int)UnitedStatesPoliticians.PowellColin, 3)]
             public static class v2016 { }
 
             [YearDate(2020, 11, 3)]
             [Incumbent((int)UnitedStatesPoliticians.TrumpDonald)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.BidenJoe, 51.31, (int)UnitedStatesPoliticians.TrumpDonald, 46.85)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.BidenJoe, 306, (int)UnitedStatesPoliticians.TrumpDonald, 232)]
             public static class v2020 { }
 
             [YearDate(2024, 11, 5)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 49.80, (int)UnitedStatesPoliticians.HarrisKamala, 48.32)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.TrumpDonald, 312, (int)UnitedStatesPoliticians.HarrisKamala, 226)]
             public static class v2024 { }
         }
     }

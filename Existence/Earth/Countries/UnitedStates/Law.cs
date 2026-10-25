@@ -69,6 +69,9 @@ namespace Existence.Earth.Countries.UnitedStates
     public enum UnitedStatesPoliticians
     {
         [Gender(Gender.Male)]
+        AdamsJohn,
+
+        [Gender(Gender.Male)]
         BidenJoe,
 
         [Gender(Gender.Male)]
@@ -84,10 +87,16 @@ namespace Existence.Earth.Countries.UnitedStates
         HarrisKamala,
 
         [Gender(Gender.Male)]
+        JayJohn,
+
+        [Gender(Gender.Male)]
         JohnsonGary,
 
         [Gender(Gender.Male)]
         PaulRon,
+
+        [Gender(Gender.Male)]
+        PowellColin,
 
         [Gender(Gender.Male)]
         TrumpDonald,
