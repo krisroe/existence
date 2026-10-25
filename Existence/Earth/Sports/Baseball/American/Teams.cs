@@ -51,10 +51,12 @@ namespace Existence.Earth.Sports.Baseball.American
         }
     }
 
-    public class PersonalMajorLeagueBaseballGameResultAttribute : MajorLeagueBaseballGameResultAttribute
+    public class AlternateMajorLeagueBaseballGameResultAttribute : MajorLeagueBaseballGameResultAttribute
     {
-        public PersonalMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public string AlternateExplanation { get; set; }
+        public AlternateMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string AlternateExplanation) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
         {
+            this.AlternateExplanation = AlternateExplanation;
         }
     }
 
@@ -707,24 +709,71 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 public static class AmericanLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started game 1
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MartinezNick,
+                        /// <summary>
+                        /// expected to start game 2
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        RasmussenDrew,
+                        /// <summary>
+                        /// expected to start game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        PeraltaFreddy,
+                        /// <summary>
+                        /// expected to start game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        JaxGriffin,
+                    }
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started game 1
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MisiorowskiJacob,
+                        /// <summary>
+                        /// expected to start game 2
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        HendersonLogan,
+                        /// <summary>
+                        /// expected to start game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        GasserRobert,
+                        /// <summary>
+                        /// expected to start game 4, though the Brewers may use an opener in front of him
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MayDustin,
+                    }
                 }
 
-                /// <summary>
-                /// I started watching the regular World Series game, but at some point (1/2?) (2/3?) the game split and I watched the end of the game from another universe
-                /// </summary>
-                [PersonalMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
-                [StartingPitcher((int)AmericanLeague.PitchingAllStars.NickMartinez)]
-                [StartingPitcher((int)NationalLeague.PitchingAllStars.JacobMisiorowski)]
+                [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome")]
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.MartinezNick)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
             }
         }
     }

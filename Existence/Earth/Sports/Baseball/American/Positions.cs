@@ -36,6 +36,26 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         Pitcher,
         /// <summary>
+        /// starting pitcher
+        /// </summary>
+        PitcherStarting,
+        /// <summary>
+        /// relief pitcher
+        /// </summary>
+        PitcherRelief,
+        /// <summary>
+        /// closing relief pitcher
+        /// </summary>
+        PitcherReliefCloser,
+        /// <summary>
+        /// middle relief pitcher (intermediate stretches)
+        /// </summary>
+        PitcherReliefMiddle,
+        /// <summary>
+        /// long relief pitcher (long stretches)
+        /// </summary>
+        PitcherReliefLong,
+        /// <summary>
         /// designated hitter
         /// </summary>
         DesignatedHitter,
