@@ -763,16 +763,22 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
-                [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome")]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.MartinezNick)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome")]
                 public static class Game1 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
                 public static class Game2 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
                 public static class Game3 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 public static class Game4 { }
             }
         }
