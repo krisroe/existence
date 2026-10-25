@@ -544,6 +544,7 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [YearDate(2016, 11, 8)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 46.09, (int)UnitedStatesPoliticians.ClintonHillary, 48.18)]
             [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.TrumpDonald, 304, (int)UnitedStatesPoliticians.ClintonHillary, 227, (int)UnitedStatesPoliticians.PowellColin, 3)]
+            [LaterConcession((int)UnitedStatesPoliticians.ClintonHillary, 2016, 11, 9)]
             public static class v2016 { }
 
             [YearDate(2020, 11, 3)]
@@ -556,6 +557,7 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
             [YearDate(2024, 11, 5)]
             [HeadToHeadElectionResult((int)UnitedStatesPoliticians.TrumpDonald, 49.80, (int)UnitedStatesPoliticians.HarrisKamala, 48.32)]
             [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.TrumpDonald, 312, (int)UnitedStatesPoliticians.HarrisKamala, 226)]
+            [LaterConcession((int)UnitedStatesPoliticians.HarrisKamala, 2024, 11, 6)]
             public static class v2024 { }
         }
     }
