@@ -51,6 +51,14 @@ namespace Existence.Earth.Sports.Baseball.American
         }
     }
 
+    public class PersonalMajorLeagueBaseballGameResultAttribute : MajorLeagueBaseballGameResultAttribute
+    {
+        public PersonalMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        {
+        }
+    }
+
+
     public class MajorLeagueBaseballGameResultAttribute : Attribute
     {
         public MajorLeagueBaseballTeams WinningTeam { get; set; }
@@ -662,6 +670,10 @@ namespace Existence.Earth.Sports.Baseball.American
             [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
             public static class WorldSeries
             {
+                /// <summary>
+                /// I started watching the regular World Series game, but at some point (1/2?) (2/3?) the game split and I watched the end of the game from another universe
+                /// </summary>
+                [PersonalMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 [StartingPitcher((int)AmericanLeague.PitchingAllStars.NickMartinez)]
                 [StartingPitcher((int)NationalLeague.PitchingAllStars.JacobMisiorowski)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
