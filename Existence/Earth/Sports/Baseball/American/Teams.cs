@@ -222,19 +222,94 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 public static class AmericanLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        CaldwellMike,
+                        /// <summary>
+                        /// started games 2 and 6
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        SuttonDon,
+                        /// <summary>
+                        /// started games 3 and 7
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        VuckovichPete,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        HaasMoose,
+                    }
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        ForschBob,
+                        /// <summary>
+                        /// started games 2 and 6
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        StuperJohn,
+                        /// <summary>
+                        /// started games 3 and 7
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        AndujarJoaquin,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        LaPointDave,
+                    }
                 }
 
-                // Mike Caldwell started for the Brewers and Bob Forsch for the Cardinals, but neither is in an enum yet
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 public static class Game1 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 5, MajorLeagueBaseballTeams.MilwaukeeBrewers, 4)]
+                public static class Game2 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2)]
+                public static class Game3 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.HaasMoose)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.LaPointDave)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 7, MajorLeagueBaseballTeams.StLouisCardinals, 5)]
+                public static class Game4 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 6, MajorLeagueBaseballTeams.StLouisCardinals, 4)]
+                public static class Game5 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 13, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
+                public static class Game6 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
+                public static class Game7 { }
             }
         }
 
@@ -389,19 +464,86 @@ namespace Existence.Earth.Sports.Baseball.American
                 [HomeFieldAdvantage]
                 public static class AmericanLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        KazmirScott,
+                        /// <summary>
+                        /// started game 2
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        ShieldsJames,
+                        /// <summary>
+                        /// started game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        GarzaMatt,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        SonnanstineAndy,
+                    }
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 public static class NationalLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        HamelsCole,
+                        /// <summary>
+                        /// started game 2
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MyersBrett,
+                        /// <summary>
+                        /// started game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MoyerJamie,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        BlantonJoe,
+                    }
                 }
 
-                // Cole Hamels started for the Phillies, but isn't in an enum yet
-                [StartingPitcher((int)AmericanLeague.PitchingAllStars.ScottKazmir)]
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game1 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.ShieldsJames)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MyersBrett)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2)]
+                public static class Game2 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.GarzaMatt)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MoyerJamie)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
+                public static class Game3 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SonnanstineAndy)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.BlantonJoe)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 10, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                public static class Game4 { }
+
+                /// <summary>
+                /// suspended due to rain in the middle of the 6th inning with the score tied 2-2, and completed two days later
+                /// </summary>
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 4, MajorLeagueBaseballTeams.TampaBayRays, 3)]
+                public static class Game5 { }
             }
         }
 
@@ -550,7 +692,29 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 public static class AmericanLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        GlasnowTyler,
+                        /// <summary>
+                        /// started games 2 and 6
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        SnellBlake,
+                        /// <summary>
+                        /// started game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        MortonCharlie,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        YarbroughRyan,
+                    }
                 }
 
                 /// <summary>
@@ -560,12 +724,60 @@ namespace Existence.Earth.Sports.Baseball.American
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
-
+                    public enum Roster
+                    {
+                        /// <summary>
+                        /// started games 1 and 5
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        KershawClayton,
+                        /// <summary>
+                        /// started games 2 and 6
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        GonsolinTony,
+                        /// <summary>
+                        /// started game 3
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        BuehlerWalker,
+                        /// <summary>
+                        /// started game 4
+                        /// </summary>
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        UriasJulio,
+                    }
                 }
 
-                // Tyler Glasnow started for the Rays and Clayton Kershaw for the Dodgers, but neither is in an enum yet
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 8, MajorLeagueBaseballTeams.TampaBayRays, 3)]
                 public static class Game1 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 6, MajorLeagueBaseballTeams.LosAngelesDodgers, 4)]
+                public static class Game2 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.MortonCharlie)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.BuehlerWalker)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 6, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                public static class Game3 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.YarbroughRyan)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.UriasJulio)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 8, MajorLeagueBaseballTeams.LosAngelesDodgers, 7)]
+                public static class Game4 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                public static class Game5 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
+                public static class Game6 { }
             }
         }
 
