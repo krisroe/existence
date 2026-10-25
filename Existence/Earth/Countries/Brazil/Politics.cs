@@ -30,6 +30,63 @@ namespace Existence.Earth.Countries.Politics
             [HeadToHeadElectionResult((int)Politicians.deMoraisPrudente, 80.15, (int)Politicians.PenaAfonso, 11.10)]
             public static class v1894 { }
 
+            [Omitted]
+            public static class v1898 { }
+            [Omitted]
+            public static class v1902 { }
+            [Omitted]
+            public static class v1906 { }
+            [Omitted]
+            public static class v1910 { }
+            [Omitted]
+            public static class v1914 { }
+            [Omitted]
+            public static class v1918 { }
+            [Omitted]
+            public static class v1919 { }
+            [Omitted]
+            public static class v1922 { }
+            [Omitted]
+            public static class v1926 { }
+            [Omitted]
+            public static class v1930 { }
+            [Omitted]
+            public static class v1934 { }
+            [Omitted]
+            public static class v1945 { }
+            [Omitted]
+            public static class v1950 { }
+            [Omitted]
+            public static class v1955 { }
+            [Omitted]
+            public static class v1960 { }
+            [Omitted]
+            public static class v1964 { }
+            [Omitted]
+            public static class v1966 { }
+            [Omitted]
+            public static class v1969 { }
+            [Omitted]
+            public static class v1974 { }
+            [Omitted]
+            public static class v1978 { }
+            [Omitted]
+            public static class v1985 { }
+            [Omitted]
+            public static class v1989 { }
+            [Omitted]
+            public static class v1994 { }
+            [Omitted]
+            public static class v1998 { }
+            [Omitted]
+            public static class v2002 { }
+            [Omitted]
+            public static class v2006 { }
+            [Omitted]
+            public static class v2010 { }
+            [Omitted]
+            public static class v2014 { }
+
             public static class v2018
             {
                 [YearDate(2018, 10, 7)]

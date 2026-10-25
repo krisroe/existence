@@ -17,6 +17,11 @@ namespace Existence
     public class HasSubdivisionsAttribute : Attribute { }
 
     /// <summary>
+    /// the item exists but its details are intentionally left out
+    /// </summary>
+    public class OmittedAttribute : Attribute { }
+
+    /// <summary>
     /// how strongly an item in a hierarchy originated from another item
     /// </summary>
     public enum HierarchyItemOriginTypes
