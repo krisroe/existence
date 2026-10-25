@@ -773,12 +773,12 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
                 public static class Game2 { }
 
-                [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
-                [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
+                [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
+                [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
                 public static class Game3 { }
 
-                [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
-                [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
+                [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
+                [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 public static class Game4 { }
             }
         }

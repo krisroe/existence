@@ -82,4 +82,17 @@ namespace Existence.Earth.Sports.Baseball.American
             this.Pitcher = Pitcher;
         }
     }
+
+    /// <summary>
+    /// same as StartingPitcher, but for a game that hasn't taken place yet;
+    /// apply once per team that is expected to start a pitcher in the game
+    /// </summary>
+    public class ExpectedStartingPitcherAttribute : SingularObjectAttribute
+    {
+        public int Pitcher { get; set; }
+        public ExpectedStartingPitcherAttribute(int Pitcher)
+        {
+            this.Pitcher = Pitcher;
+        }
+    }
 }
