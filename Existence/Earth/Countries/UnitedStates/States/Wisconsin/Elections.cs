@@ -108,5 +108,18 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
                 public static class Senate { }
             }
         }
+
+        public static class Governor
+        {
+            /// <summary>
+            /// Michels conceded to supporters around 12:20 a.m. Central on November 9, technically the day after the
+            /// election, but clearly an election night concession.
+            /// </summary>
+            [YearDate(2022, 11, 8)]
+            [Incumbent((int)WisconsinPoliticians.EversTony)]
+            [HeadToHeadElectionResult((int)WisconsinPoliticians.EversTony, 51.15, (int)WisconsinPoliticians.MichelsTim, 47.75)]
+            [ElectionNightConcession((int)WisconsinPoliticians.MichelsTim)]
+            public static class v2022 { }
+        }
     }
 }

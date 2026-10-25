@@ -589,6 +589,9 @@ namespace Existence.Earth.Countries.UnitedStates.States
         [Gender(Gender.Male)]
         CrowleyDavid,
 
+        [Gender(Gender.Male)]
+        EversTony,
+
         [Gender(Gender.Female)]
         HongFrancesca,
 
@@ -597,6 +600,9 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         [Gender(Gender.Female)]
         LazarMaria,
+
+        [Gender(Gender.Male)]
+        MichelsTim,
 
         [Gender(Gender.Male)]
         RatzlaffStephen,
