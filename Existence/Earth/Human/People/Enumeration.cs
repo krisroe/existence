@@ -40,16 +40,16 @@ namespace Existence.Earth.Human.People
         Male
     }
 
-    public class HumanGenderAttribute : Attribute
+    public class GenderAttribute : Attribute
     {
-        public HumanGender Gender { get; set; }
-        public HumanGenderAttribute(HumanGender Gender)
+        public Gender Gender { get; set; }
+        public GenderAttribute(Gender Gender)
         {
             this.Gender = Gender;
         }
     }
 
-    public enum HumanGender
+    public enum Gender
     {
         Female,
         Male,

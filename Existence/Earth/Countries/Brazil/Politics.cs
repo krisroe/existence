@@ -1,14 +1,21 @@
-﻿using Existence.Time;
+﻿using Existence.Earth.Human.People;
+using Existence.Time;
 
 namespace Existence.Earth.Countries.Politics
 {
     public enum Politicians
     {
+        [Gender(Gender.Male)]
         BolsonaroFlávio,
+        [Gender(Gender.Male)]
         BolsonaroJair,
+        [Gender(Gender.Male)]
         daSilvaLula,
+        [Gender(Gender.Male)]
         deMoraisPrudente,
+        [Gender(Gender.Male)]
         HaddadFernando,
+        [Gender(Gender.Male)]
         PenaAfonso,
     }
 

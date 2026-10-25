@@ -131,6 +131,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(7, 0, 0, 0)]
             [YearDate(2026, 10, 23)]
             FourFavoriteNumbersAndNoTattoosForSelf,
+
+            [BeyondObjectVersion(7, 0, 1, 0)]
+            [YearDate(2026, 10, 25)]
+            RenameHumanGenderToGender,
         }
 
         /// <summary>
@@ -153,7 +157,7 @@ namespace Existence.Beyond.Timeless
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]
-        [HumanGender(HumanGender.Male)]
+        [Gender(Gender.Male)]
         [HasTattoo(false)]
         public class HumanSelf
         {
@@ -481,7 +485,7 @@ namespace Existence.Beyond.Timeless
         [FavoriteNumberRange(4, 9000, 9999)]
         [Sex(Sexes.Male)]
         [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)WorldReligions.Christianity)]
-        [HumanGender(HumanGender.Male)]
+        [Gender(Gender.Male)]
         public class GenericHumanSelf
         {
             public static class FamilyUnits
