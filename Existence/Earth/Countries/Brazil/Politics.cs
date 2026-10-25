@@ -6,6 +6,7 @@ namespace Existence.Earth.Countries.Politics
     public enum Politicians
     {
         [Gender(Gender.Male)]
+        [Father((int)Politicians.BolsonaroJair)]
         BolsonaroFlávio,
         [Gender(Gender.Male)]
         BolsonaroJair,

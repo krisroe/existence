@@ -16,4 +16,22 @@ namespace Existence.Earth
             this.FamilyUnitType = FamilyUnitType;
         }
     }
+
+    public class MotherAttribute : Attribute
+    {
+        public int Mother { get; set; }
+        public MotherAttribute(int Mother)
+        {
+            this.Mother = Mother;
+        }
+    }
+
+    public class FatherAttribute : Attribute
+    {
+        public int Father { get; set; }
+        public FatherAttribute(int Father)
+        {
+            this.Father = Father;
+        }
+    }
 }

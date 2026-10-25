@@ -75,6 +75,13 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 10, 0, 0)]
             [YearDate(2026, 10, 20)]
             CorrectBirthAndDeathDateForAbe,
+
+            /// <summary>
+            /// move PetMother and PetFather to be generic enough to apply to humans
+            /// </summary>
+            [BeyondObjectVersion(1, 10, 1, 0)]
+            [YearDate(2026, 10, 25)]
+            GenericizePetMotherAndPetFatherAttributes,
         }
 
         public TheseAreOurPets TheseAreOurPets;
@@ -338,24 +345,6 @@ namespace Existence.Beyond.JudgmentDay
     [CosmicHumanLevel(HumanLevel.GrowingUp)]
     internal class TheseAreOurPetsSongComplete : TheseAreOurPets {}
 
-    public class PetMotherAttribute : Attribute
-    {
-        public int PetMother { get; set; }
-        public PetMotherAttribute(int PetMother)
-        {
-            this.PetMother = PetMother;
-        }
-    }
-
-    public class PetFatherAttribute : Attribute
-    {
-        public int PetFather { get; set; }
-        public PetFatherAttribute(int PetFather)
-        {
-            this.PetFather = PetFather;
-        }
-    }
-
     public enum SpecificFarms
     {
         UnknownFarm,
@@ -481,7 +470,7 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.Brown)]
         [DogBreed(DogBreeds.Mutt)]
-        [PetMother((int)PetDogs.Jenny)]
+        [Mother((int)PetDogs.Jenny)]
         [BirthDate(1988, 4, 11)]
         [DeathDate(1989, 1, 27)]
         [CauseOfDeath(CausesOfDeath.HitByACar)]
@@ -561,7 +550,7 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Brown)]
         [DogBreed(DogBreeds.Mutt)]
-        [PetMother((int)PetDogs.Jenny)]
+        [Mother((int)PetDogs.Jenny)]
         [BirthDate(1988, 4, 11)]
         [DeathDate(2003, 8, 19)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
@@ -608,8 +597,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.White)]
         [PetEyeColors(PetEyeColors.Green)]
-        [PetMother((int)PetCats.Snowball)]
-        [PetFather((int)PetCats.Ollie)]
+        [Mother((int)PetCats.Snowball)]
+        [Father((int)PetCats.Ollie)]
         [BirthDate(1990, 4, 10)]
         [DeathDate(2007, 4, 18)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
@@ -623,8 +612,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
         [PetEyeColors(PetEyeColors.Green)]
-        [PetMother((int)PetCats.Snowball)]
-        [PetFather((int)PetCats.Ollie)]
+        [Mother((int)PetCats.Snowball)]
+        [Father((int)PetCats.Ollie)]
         [BirthDate(1990, 4, 10)]
         [DeathDate(2005, 4, 17)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
@@ -663,8 +652,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
         [PetEyeColors(PetEyeColors.Green)]
-        [PetMother((int)PetCats.Snowball)]
-        [PetFather((int)PetCats.Ollie)]
+        [Mother((int)PetCats.Snowball)]
+        [Father((int)PetCats.Ollie)]
         [BirthDate(1990, 4, 10)]
         [DeathDate(2007, 8, 27)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
@@ -675,8 +664,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Gray)]
         [PetEyeColors(PetEyeColors.Green)]
-        [PetMother((int)PetCats.April)]
-        [PetFather((int)PetCats.Chaquita)]
+        [Mother((int)PetCats.April)]
+        [Father((int)PetCats.Chaquita)]
         [BirthDate(1978, 5, 24)]
         [DeathDate(1995, 2, 16)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]
@@ -699,8 +688,8 @@ namespace Existence.Beyond.JudgmentDay
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Calico, PetColors.Black, PetColors.Orange, PetColors.White)]
         [PetEyeColors(PetEyeColors.Green)]
-        [PetMother((int)PetCats.Snowball)]
-        [PetFather((int)PetCats.Ollie)]
+        [Mother((int)PetCats.Snowball)]
+        [Father((int)PetCats.Ollie)]
         [BirthDate(1990, 4, 10)]
         [DeathDate(2004, 8, 15)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhood)]

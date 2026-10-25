@@ -31,7 +31,14 @@ namespace Existence.Beyond.Submission
 
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2025, 3, 24)]
-            ClarifyTimelessChangesAndAddVersionHistory
+            ClarifyTimelessChangesAndAddVersionHistory,
+
+            /// <summary>
+            /// rename PetMother/PetFather
+            /// </summary>
+            [BeyondObjectVersion(1, 1, 1, 0)]
+            [YearDate(2026, 10, 25)]
+            GenericizePetMotherAndPetFatherAttributes,
         }
 
         [Creators((int)FamilyMembers.MyselfChris)]
@@ -174,8 +181,8 @@ namespace Existence.Beyond.Submission
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Black, PetColors.White)]
-        [PetMother((int)PetHousePetCats.Snowball)]
-        [PetFather((int)PetHousePetCats.Ollie)]
+        [Mother((int)PetHousePetCats.Snowball)]
+        [Father((int)PetHousePetCats.Ollie)]
         [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Fatness", "Eats refrigerators and restaurants")]
@@ -183,8 +190,8 @@ namespace Existence.Beyond.Submission
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
-        [PetMother((int)PetHousePetCats.Snowball)]
-        [PetFather((int)PetHousePetCats.Ollie)]
+        [Mother((int)PetHousePetCats.Snowball)]
+        [Father((int)PetHousePetCats.Ollie)]
         [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Mathematical Talent", "Red Spot")]
@@ -222,8 +229,8 @@ namespace Existence.Beyond.Submission
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.White)]
-        [PetMother((int)PetHousePetCats.Snowball)]
-        [PetFather((int)PetHousePetCats.Ollie)]
+        [Mother((int)PetHousePetCats.Snowball)]
+        [Father((int)PetHousePetCats.Ollie)]
         [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Makes Potions", "Time Travel", "Steals Ted's Food")]
@@ -231,8 +238,8 @@ namespace Existence.Beyond.Submission
 
         [Sex(Sexes.Male)]
         [PetColors(PetColors.Gray)]
-        [PetMother((int)PetHousePetCats.April)]
-        [PetFather((int)PetHousePetCats.Chaquita)]
+        [Mother((int)PetHousePetCats.April)]
+        [Father((int)PetHousePetCats.Chaquita)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Curmudgeonly")]
         Spike,
@@ -244,8 +251,8 @@ namespace Existence.Beyond.Submission
 
         [Sex(Sexes.Female)]
         [PetColors(PetColors.Calico, PetColors.Black, PetColors.Orange, PetColors.White)]
-        [PetMother((int)PetHousePetCats.Snowball)]
-        [PetFather((int)PetHousePetCats.Ollie)]
+        [Mother((int)PetHousePetCats.Snowball)]
+        [Father((int)PetHousePetCats.Ollie)]
         [BirthDate(1990)]
         [PetOwners((int)FamilyMembers.MyNuclearFamilyChildhoodAfterParentsSeparation)]
         [DefiningCharacteristics("Drives Impossibly Fast", "Friendly")]
