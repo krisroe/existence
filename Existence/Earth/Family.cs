@@ -34,4 +34,13 @@ namespace Existence.Earth
             this.Father = Father;
         }
     }
+
+    public class ChildAttribute : SingularObjectAttribute
+    {
+        public int Child { get; set; }
+        public ChildAttribute(int Child)
+        {
+            this.Child = Child;
+        }
+    }
 }
