@@ -29,6 +29,32 @@ namespace Existence.Earth.Countries
 
     public class IncumbentAttribute : Attribute
     {
+        public int? Politician { get; set; }
+        public IncumbentAttribute()
+        {
+        }
+        public IncumbentAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// decimal isn't a valid attribute parameter type, so the results are passed in as doubles and stored as decimals
+    /// </summary>
+    public class RunoffElectionResultAttribute : Attribute
+    {
+        public int Winner { get; set; }
+        public decimal WinnerResult { get; set; }
+        public int Loser { get; set; }
+        public decimal LoserResult { get; set; }
+        public RunoffElectionResultAttribute(int Winner, double WinnerResult, int Loser, double LoserResult)
+        {
+            this.Winner = Winner;
+            this.WinnerResult = (decimal)WinnerResult;
+            this.Loser = Loser;
+            this.LoserResult = (decimal)LoserResult;
+        }
     }
 
     public class IdeologyAttribute : TextAttribute
