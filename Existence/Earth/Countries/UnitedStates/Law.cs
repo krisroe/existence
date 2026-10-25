@@ -110,10 +110,16 @@ namespace Existence.Earth.Countries.UnitedStates
         JohnsonGary,
 
         [Gender(Gender.Male)]
+        ObamaBarack,
+
+        [Gender(Gender.Male)]
         PaulRon,
 
         [Gender(Gender.Male)]
         PowellColin,
+
+        [Gender(Gender.Male)]
+        RomneyMitt,
 
         [Gender(Gender.Male)]
         TrumpDonald,

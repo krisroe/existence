@@ -535,7 +535,18 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
 
             [Omitted]public static class v2004 { }
             [Omitted]public static class v2008 { }
-            [Omitted]public static class v2012 { }
+
+            /// <summary>
+            /// Romney called Obama and gave his concession speech around 1 a.m. Eastern on November 7, technically the day
+            /// after the election (though still November 6 in western time zones), but this is clearly an
+            /// election night concession.
+            /// </summary>
+            [YearDate(2012, 11, 6)]
+            [Incumbent((int)UnitedStatesPoliticians.ObamaBarack)]
+            [HeadToHeadElectionResult((int)UnitedStatesPoliticians.ObamaBarack, 51.06, (int)UnitedStatesPoliticians.RomneyMitt, 47.20)]
+            [UnitedStatesElectoralCollegeResult((int)UnitedStatesPoliticians.ObamaBarack, 332, (int)UnitedStatesPoliticians.RomneyMitt, 206)]
+            [ElectionNightConcession((int)UnitedStatesPoliticians.RomneyMitt)]
+            public static class v2012 { }
 
             /// <summary>
             /// Trump won the Electoral College while losing the popular vote. Powell's 3 electoral votes came from
