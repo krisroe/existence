@@ -71,6 +71,20 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician formally held the office of prime minister over the date range, while someone else acted as
+    /// prime minister
+    /// </summary>
+    public class PaperPrimeMinisterAttribute : PrimeMinisterAttribute
+    {
+        public PaperPrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay) : base(Politician, StartYear, StartMonth, StartDay)
+        {
+        }
+        public PaperPrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Politician, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
+        {
+        }
+    }
+
+    /// <summary>
     /// the factions a political party is split into
     /// </summary>
     public class FactionsAttribute : Attribute

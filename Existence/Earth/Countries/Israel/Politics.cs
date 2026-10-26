@@ -279,6 +279,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         /// was unofficially acting prime minister
         /// </summary>
         [PrimeMinister((int)Politicians.RabinYitzhak, 1974, 6, 3, 1977, 6, 21)]
+        [PaperPrimeMinister((int)Politicians.RabinYitzhak, 1977, 4, 22, 1977, 6, 21)]
         public static class v7 { }
 
         /// <summary>
@@ -325,6 +326,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         /// incapacitated on 2006-04-14, while Olmert was acting prime minister
         /// </summary>
         [PrimeMinister((int)Politicians.SharonAriel, 2001, 3, 7, 2006, 4, 14)]
+        [PaperPrimeMinister((int)Politicians.SharonAriel, 2006, 1, 4, 2006, 4, 14)]
         public static class v17 { }
 
         /// <summary>
