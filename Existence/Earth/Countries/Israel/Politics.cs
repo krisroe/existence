@@ -1,4 +1,8 @@
-﻿using Existence.Earth.Human.People;
+﻿using Existence.Earth.Human.EthnicGroups;
+using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
+using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
+using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
+using Existence.Earth.Human.People;
 using Existence.Time;
 using System;
 
@@ -34,55 +38,317 @@ namespace Existence.Earth.Countries.Israel.Politics
     public enum Politicians
     {
         [Gender(Gender.Male)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab)]
         AbbasMansour,
 
+        /// <summary>
+        /// born in Kfar Tavor to an Ashkenazi family
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
+        AllonYigal,
+
+        /// <summary>
+        /// father from Lithuania, mother from Poland
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak, (int)JewishEthnicDivisionsLevel2.Polish)]
+        BarakEhud,
+
+        /// <summary>
+        /// born in Brest-Litovsk
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        BeginMenachem,
+
+        /// <summary>
+        /// born in Plonsk, Poland
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Polish)]
+        BenGurionDavid,
+
+        /// <summary>
+        /// father from Iraq, mother from Iraqi Kurdistan
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Bavlim, (int)JewishEthnicDivisionsLevel2.Kurdish)]
         BenGvirItamar,
 
+        /// <summary>
+        /// parents were American immigrants from San Francisco
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
         BennettNaftali,
 
+        /// <summary>
+        /// born in Meknes, Morocco
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Moroccan)]
         DeriAryeh,
 
+        /// <summary>
+        /// parents immigrated from Morocco
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Moroccan)]
         EisenkotGadi,
 
+        /// <summary>
+        /// born in Oratov, near Kyiv
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Ukrainian)]
+        EshkolLevi,
+
+        /// <summary>
+        /// parents were Polish Holocaust survivors
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Polish)]
         GafniMoshe,
 
+        /// <summary>
+        /// father from Transylvania, mother from Hungary
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Hungarian)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel3.Transylvanian)]
         GantzBenny,
 
+        /// <summary>
+        /// father's family fled Nazi Germany in 1935, maternal grandfather immigrated from Ukraine in 1921
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Yekke, (int)JewishEthnicDivisionsLevel2.Ukrainian)]
         GolanYair,
 
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
         GoldknopfYitzhak,
 
+        /// <summary>
+        /// father, Tommy Lapid, was a Hungarian-speaking Jew from Novi Sad, Yugoslavia
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Hungarian)]
         LapidYair,
 
+        /// <summary>
+        /// born in Kishinev, Moldova
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Bessarabian)]
         LiebermanAvigdor,
 
+        /// <summary>
+        /// born Avigdor Fischheimer to Holocaust survivors
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
         MaozAvi,
 
+        /// <summary>
+        /// born in Kyiv
+        /// </summary>
+        [Gender(Gender.Female)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Ukrainian)]
+        MeirGolda,
+
+        /// <summary>
+        /// father's family (Mileikowsky) from Kreva, mother's parents from Kaunas
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
         NetanyahuBenjamin,
 
         [Gender(Gender.Male)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab)]
         OdehAyman,
 
+        /// <summary>
+        /// parents were Russian Jews who grew up in Harbin, China
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
+        OlmertEhud,
+
+        /// <summary>
+        /// born in Wiszniew (Vishnyeva), now Belarus
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        PeresShimon,
+
+        /// <summary>
+        /// father from Ukraine, mother from Mogilev, Belarus
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Ukrainian, (int)JewishEthnicDivisionsLevel2.Litvak)]
+        RabinYitzhak,
+
+        /// <summary>
+        /// father an Ashkenazi immigrant from Argentina, mother from a Bukharan family
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Bukharan)]
         SaarGideon,
 
+        /// <summary>
+        /// born in Ruzhany, now Belarus
+        /// </summary>
         [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        ShamirYitzhak,
+
+        /// <summary>
+        /// born in Kherson, Ukraine
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Ukrainian)]
+        SharettMoshe,
+
+        /// <summary>
+        /// parents from Brest-Litovsk and Mogilev, now Belarus
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        SharonAriel,
+
+        /// <summary>
+        /// paternal ancestors from Smotrych, Ukraine; maternal grandfather from a 13th-generation Jerusalem family
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Ukrainian, (int)JewishEthnicDivisionsLevel2.Palestinian)]
         SmotrichBezalel,
 
         [Gender(Gender.Male)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab)]
         TibiAhmad,
+    }
+
+    /// <summary>
+    /// prime ministerial tenures, counting non-consecutive terms separately and including interim and acting
+    /// tenures, some of which overlap. Israel officially numbers prime ministers by person (Netanyahu is the 9th).
+    /// The provisional government is v0, separate from Ben-Gurion's elected governments starting at v1
+    /// </summary>
+    public static class PrimeMinisters
+    {
+        /// <summary>
+        /// provisional government, from independence until the 1st government took office after the 1949 election
+        /// </summary>
+        [PrimeMinister((int)Politicians.BenGurionDavid, 1948, 5, 14, 1949, 3, 10)]
+        public static class v0 { }
+
+        /// <summary>
+        /// 1st-4th governments
+        /// </summary>
+        [PrimeMinister((int)Politicians.BenGurionDavid, 1949, 3, 10, 1953, 12, 7)]
+        public static class v1 { }
+
+        /// <summary>
+        /// took over when Ben-Gurion stepped down on 1953-12-07, formed his own government on 1954-01-26
+        /// </summary>
+        [PrimeMinister((int)Politicians.SharettMoshe, 1953, 12, 7, 1955, 11, 3)]
+        public static class v2 { }
+
+        [PrimeMinister((int)Politicians.BenGurionDavid, 1955, 11, 3, 1963, 6, 26)]
+        public static class v3 { }
+
+        /// <summary>
+        /// died in office
+        /// </summary>
+        [PrimeMinister((int)Politicians.EshkolLevi, 1963, 6, 26, 1969, 2, 26)]
+        public static class v4 { }
+
+        /// <summary>
+        /// interim prime minister after Eshkol's death
+        /// </summary>
+        [PrimeMinister((int)Politicians.AllonYigal, 1969, 2, 26, 1969, 3, 17)]
+        public static class v5 { }
+
+        [PrimeMinister((int)Politicians.MeirGolda, 1969, 3, 17, 1974, 6, 3)]
+        public static class v6 { }
+
+        /// <summary>
+        /// prime minister only on paper from 1977-04-22, after stepping aside over his wife's US bank account, while Peres
+        /// was unofficially acting prime minister
+        /// </summary>
+        [PrimeMinister((int)Politicians.RabinYitzhak, 1974, 6, 3, 1977, 6, 21)]
+        public static class v7 { }
+
+        /// <summary>
+        /// unofficially acting prime minister after Rabin stepped aside, while Rabin remained prime minister on paper
+        /// </summary>
+        [ActingPrimeMinister((int)Politicians.PeresShimon, 1977, 4, 22, 1977, 6, 21)]
+        public static class v8 { }
+
+        [PrimeMinister((int)Politicians.BeginMenachem, 1977, 6, 21, 1983, 10, 10)]
+        public static class v9 { }
+
+        [PrimeMinister((int)Politicians.ShamirYitzhak, 1983, 10, 10, 1984, 9, 13)]
+        public static class v10 { }
+
+        /// <summary>
+        /// rotation agreement with Shamir in a national unity government
+        /// </summary>
+        [PrimeMinister((int)Politicians.PeresShimon, 1984, 9, 13, 1986, 10, 20)]
+        public static class v11 { }
+
+        [PrimeMinister((int)Politicians.ShamirYitzhak, 1986, 10, 20, 1992, 7, 13)]
+        public static class v12 { }
+
+        /// <summary>
+        /// assassinated in office
+        /// </summary>
+        [PrimeMinister((int)Politicians.RabinYitzhak, 1992, 7, 13, 1995, 11, 4)]
+        public static class v13 { }
+
+        /// <summary>
+        /// interim prime minister after Rabin's assassination. The Knesset approved his government on 1995-11-22
+        /// </summary>
+        [PrimeMinister((int)Politicians.PeresShimon, 1995, 11, 4, 1996, 6, 18)]
+        public static class v14 { }
+
+        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 1996, 6, 18, 1999, 7, 6)]
+        public static class v15 { }
+
+        [PrimeMinister((int)Politicians.BarakEhud, 1999, 7, 6, 2001, 3, 7)]
+        public static class v16 { }
+
+        /// <summary>
+        /// incapacitated by a stroke on 2006-01-04 and prime minister only on paper until declared permanently
+        /// incapacitated on 2006-04-14, while Olmert was acting prime minister
+        /// </summary>
+        [PrimeMinister((int)Politicians.SharonAriel, 2001, 3, 7, 2006, 4, 14)]
+        public static class v17 { }
+
+        /// <summary>
+        /// acting prime minister from 2006-01-04 while Sharon was incapacitated, interim from 2006-04-14 once Sharon was
+        /// declared permanently incapacitated, prime minister from 2006-05-04
+        /// </summary>
+        [PrimeMinister((int)Politicians.OlmertEhud, 2006, 1, 4, 2009, 3, 31)]
+        [ActingPrimeMinister((int)Politicians.OlmertEhud, 2006, 1, 4, 2006, 4, 14)]
+        public static class v18 { }
+
+        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 2009, 3, 31, 2021, 6, 13)]
+        public static class v19 { }
+
+        /// <summary>
+        /// rotation agreement with Lapid
+        /// </summary>
+        [PrimeMinister((int)Politicians.BennettNaftali, 2021, 6, 13, 2022, 6, 30)]
+        public static class v20 { }
+
+        [PrimeMinister((int)Politicians.LapidYair, 2022, 7, 1, 2022, 12, 29)]
+        public static class v21 { }
+
+        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 2022, 12, 29)]
+        public static class v22 { }
     }
 
     public static class Knesset

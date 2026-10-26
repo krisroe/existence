@@ -1,6 +1,3 @@
-using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
-using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
-using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
 using System;
 
 namespace Existence.Earth.Human.EthnicGroups
@@ -14,10 +11,15 @@ namespace Existence.Earth.Human.EthnicGroups
         }
     }
 
+    /// <summary>
+    /// ethnic groups as ints, so values can come from WorldEthnicGroups or the Jewish ethnic division enums.
+    /// Apply once per enum, since the ints don't record which enum they came from
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class EthnicGroupsAttribute : Attribute
     {
-        public WorldEthnicGroups[] EthnicGroups { get; set; }
-        public EthnicGroupsAttribute(params WorldEthnicGroups[] EthnicGroups)
+        public int[] EthnicGroups { get; set; }
+        public EthnicGroupsAttribute(params int[] EthnicGroups)
         {
             this.EthnicGroups = EthnicGroups;
         }

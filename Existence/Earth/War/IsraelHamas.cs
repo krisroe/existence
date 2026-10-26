@@ -346,7 +346,7 @@ namespace Existence.Earth.War
         AhimasTomerYaakov = 2,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.SergeantMajor)]
         [Gender(Gender.Male)]
         [Age(39, TimePeriods.Years)]
@@ -366,7 +366,7 @@ namespace Existence.Earth.War
         AloniEmelia = 5,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [PreviouslyHeldAsHostage]
         [Gender(Gender.Male)]
         [Age(27, TimePeriods.Years)]
@@ -374,7 +374,7 @@ namespace Existence.Earth.War
         AlSayedHishamShaaban = 6,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [Age(22, TimePeriods.Years)]
@@ -382,7 +382,7 @@ namespace Existence.Earth.War
         AlZayadniHamzah = 7,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [ApproximateAgeInYears(52, 53)]
@@ -404,7 +404,7 @@ namespace Existence.Earth.War
         AlexanderEdan = 10,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [Age(51, TimePeriods.Years)]
@@ -1933,7 +1933,7 @@ namespace Existence.Earth.War
         /// killed by friendly fire while surrendering
         /// </summary>
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [Age(24, TimePeriods.Years)]
@@ -2187,14 +2187,14 @@ namespace Existence.Earth.War
         ZivShlomi = 253,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Female)]
         [Age(17, TimePeriods.Years)]
         ZiyadneAisha = 254,
 
         [Country(CountryLikeThings.Israel)]
-        [EthnicGroups(WorldEthnicGroups.Arab, WorldEthnicGroups.Bedouin)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [Age(18, TimePeriods.Years)]
@@ -3370,7 +3370,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Supreme Leader of Iran
     /// </summary>
-    [EthnicGroups(WorldEthnicGroups.Azerbaijani, WorldEthnicGroups.Persian)]
+    [EthnicGroups((int)WorldEthnicGroups.Azerbaijani, (int)WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     KhameneiAli,

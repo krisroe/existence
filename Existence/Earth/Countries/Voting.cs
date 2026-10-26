@@ -1,4 +1,5 @@
 ﻿using Existence.Earth.Alphabet;
+using Existence.Time;
 using System;
 
 namespace Existence.Earth.Countries
@@ -33,6 +34,39 @@ namespace Existence.Earth.Countries
         public PoliticalPartyLeaderAttribute(int Politician)
         {
             this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the politician was prime minister over the date range. EndDate is null while still in office
+    /// </summary>
+    public class PrimeMinisterAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public StartDateAttribute StartDate { get; set; }
+        public EndDateAttribute EndDate { get; set; }
+        public PrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay)
+        {
+            this.Politician = Politician;
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public PrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(Politician, StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// the politician acted as prime minister over the date range, without formally holding the office for at least
+    /// part of it
+    /// </summary>
+    public class ActingPrimeMinisterAttribute : PrimeMinisterAttribute
+    {
+        public ActingPrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay) : base(Politician, StartYear, StartMonth, StartDay)
+        {
+        }
+        public ActingPrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Politician, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
+        {
         }
     }
 
