@@ -247,6 +247,11 @@ namespace Existence.Time
         public MarriageDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
+    public class ElectionDateAttribute : YearDateAttribute
+    {
+        public ElectionDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
     public class YearDateAttribute : CalendarDateAttribute
     {
         public int Year { get; set; }
