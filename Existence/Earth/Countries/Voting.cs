@@ -38,6 +38,89 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// political parties that share something, such as one side of a surplus vote agreement. Apply once per group,
+    /// e.g. once for each side of the agreement
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class PoliticalPartiesAttribute : Attribute
+    {
+        public int[] PoliticalParties { get; set; }
+        public PoliticalPartiesAttribute(params int[] PoliticalParties)
+        {
+            this.PoliticalParties = PoliticalParties;
+        }
+    }
+
+    /// <summary>
+    /// percentage of the vote the political party got on its own list
+    /// </summary>
+    public class VotePercentageAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public VotePercentageAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
+    /// percentage of the vote for a joint list the political party ran on with other parties. Not a subclass of
+    /// VotePercentageAttribute, so that summing vote percentages doesn't count the joint list more than once
+    /// </summary>
+    public class JointListVotePercentageAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public JointListVotePercentageAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
+    /// number of seats the political party won on its own list
+    /// </summary>
+    public class NumberOfSeatsAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public NumberOfSeatsAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
+    /// number of seats won by a joint list the political party ran on with other parties. Not a subclass of
+    /// NumberOfSeatsAttribute, so that summing seats doesn't count the joint list more than once
+    /// </summary>
+    public class JointListNumberOfSeatsAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public JointListNumberOfSeatsAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
+    /// minimum percentage of the vote a list needs to win seats in a parliament
+    /// </summary>
+    public class ParliamentaryElectoralThresholdAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public ParliamentaryElectoralThresholdAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
+    /// the political party's list fell below the electoral threshold and won no seats
+    /// </summary>
+    public class BelowElectoralThresholdAttribute : Attribute
+    {
+    }
+
+    /// <summary>
     /// the politician was prime minister over the date range. EndDate is null while still in office
     /// </summary>
     public class PrimeMinisterAttribute : Attribute
@@ -68,6 +151,13 @@ namespace Existence.Earth.Countries
         public ActingPrimeMinisterAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Politician, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
         {
         }
+    }
+
+    /// <summary>
+    /// the politician is the current prime minister
+    /// </summary>
+    public class CurrentPrimeMinisterAttribute : Attribute
+    {
     }
 
     /// <summary>

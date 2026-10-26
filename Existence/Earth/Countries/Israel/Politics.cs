@@ -41,6 +41,10 @@ namespace Existence.Earth.Countries.Israel.Politics
         [EthnicGroups((int)WorldEthnicGroups.Arab)]
         AbbasMansour,
 
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab)]
+        AbuShehadehSami,
+
         /// <summary>
         /// born in Kfar Tavor to an Ashkenazi family
         /// </summary>
@@ -110,6 +114,13 @@ namespace Existence.Earth.Countries.Israel.Politics
         [Gender(Gender.Male)]
         [EthnicGroups((int)JewishEthnicDivisionsLevel2.Polish)]
         GafniMoshe,
+
+        /// <summary>
+        /// born in Vilnius, Lithuania
+        /// </summary>
+        [Gender(Gender.Female)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        GalonZehava,
 
         /// <summary>
         /// father from Transylvania, mother from Hungary
@@ -358,25 +369,39 @@ namespace Existence.Earth.Countries.Israel.Politics
     public static class Knesset
     {
         [ElectionDate(2022, 11, 1)]
+        [ParliamentaryElectoralThreshold(3.25)]
         public static class v25
         {
             /// <summary>
-            /// factions in the 25th Knesset (elected 2022-11-01)
+            /// Knesset factions, plus parties whose lists fell below the electoral threshold
             /// </summary>
             public enum PoliticalParties
             {
+                /// <summary>
+                /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
+                [VotePercentage(2.91)]
+                [BelowElectoralThreshold]
+                [NumberOfSeats(0)]
+                Balad,
+
                 /// <summary>
                 /// formerly National Unity, which New Hope split from in 2024
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                [JointListVotePercentage(9.08)]
+                [JointListNumberOfSeats(12)]
                 BlueAndWhiteNationalUnity,
 
                 /// <summary>
                 /// joint faction of Hadash and Ta'al
                 /// </summary>
                 [Factions((int)Factions.Hadash, (int)Factions.Taal)]
+                [VotePercentage(3.75)]
+                [NumberOfSeats(5)]
                 HadashTaal,
 
                 /// <summary>
@@ -385,6 +410,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                [VotePercentage(3.69)]
+                [NumberOfSeats(4)]
                 Labor,
 
                 /// <summary>
@@ -393,14 +420,30 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
+                [VotePercentage(23.41)]
+                [NumberOfSeats(32)]
                 Likud,
 
                 /// <summary>
-                /// merger into Likud agreed in 2025, but not approved by the Knesset House Committee
+                /// left-wing Zionist party that merged with Labor into The Democrats in 2024
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GalonZehava)]
+                [VotePercentage(3.16)]
+                [BelowElectoralThreshold]
+                [NumberOfSeats(0)]
+                Meretz,
+
+                /// <summary>
+                /// ran on the National Unity list with Blue and White in 2022, then split into its own faction in 2024.
+                /// Merger into Likud agreed in 2025, but not approved by the Knesset House Committee
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.SaarGideon)]
+                [JointListVotePercentage(9.08)]
+                [JointListNumberOfSeats(12)]
                 NewHope,
 
                 /// <summary>
@@ -409,6 +452,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
+                [JointListVotePercentage(10.84)]
+                [JointListNumberOfSeats(14)]
                 Noam,
 
                 /// <summary>
@@ -417,6 +462,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                [JointListVotePercentage(10.84)]
+                [JointListNumberOfSeats(14)]
                 OtzmaYehudit,
 
                 /// <summary>
@@ -425,6 +472,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [JointListVotePercentage(10.84)]
+                [JointListNumberOfSeats(14)]
                 ReligiousZionistParty,
 
                 /// <summary>
@@ -433,18 +482,24 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
                 [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                [VotePercentage(8.25)]
+                [NumberOfSeats(11)]
                 Shas,
 
                 /// <summary>
                 /// Ra'am
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                [VotePercentage(4.07)]
+                [NumberOfSeats(5)]
                 UnitedArabList,
 
                 /// <summary>
                 /// joint faction of Agudat Yisrael and Degel HaTorah
                 /// </summary>
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                [VotePercentage(5.88)]
+                [NumberOfSeats(7)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -453,6 +508,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.LapidYair)]
+                [VotePercentage(17.79)]
+                [NumberOfSeats(24)]
                 YeshAtid,
 
                 /// <summary>
@@ -461,6 +518,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
+                [VotePercentage(4.48)]
+                [NumberOfSeats(6)]
                 YisraelBeiteinu,
             }
 
@@ -492,6 +551,76 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
                 Taal,
+            }
+
+            /// <summary>
+            /// how the leftover seats were distributed. Surplus vote agreements come first, ordered by the combined votes
+            /// of both sides, with one PoliticalParties attribute per side listing every party on that side's list.
+            /// Lists that passed the threshold without an agreement follow, ordered by votes. Under the Bader-Ofer
+            /// method, the lists that passed the threshold had 4,347,342 votes between them, for a quota of about
+            /// 36,228 votes per seat. Whole quotas filled 113 seats, and the 7 leftover seats went one at a time to the
+            /// list (or pair of lists in an agreement) with the highest votes per seat if it got one more, then within
+            /// a pair to the list with the higher average:
+            /// 114th: Shas + UTJ -> Shas
+            /// 115th: Yesh Atid + National Unity -> National Unity
+            /// 116th: Likud + Religious Zionism -> Likud
+            /// 117th: Hadash-Ta'al (no agreement)
+            /// 118th: Yisrael Beiteinu (no agreement)
+            /// 119th: Yesh Atid + National Unity -> Yesh Atid
+            /// 120th: Likud + Religious Zionism -> Likud
+            /// Without any agreements, the 120th seat would have gone to Labor instead of Likud.
+            /// </summary>
+            public static class LeftoverSeatDistribution
+            {
+                /// <summary>
+                /// surplus vote agreement, 1,631,806 combined votes. Both leftover seats (116th and 120th) went to Likud:
+                /// Likud 30 -> 32, Religious Zionism stayed at 14
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.Likud)]
+                [PoliticalParties((int)PoliticalParties.ReligiousZionistParty, (int)PoliticalParties.OtzmaYehudit, (int)PoliticalParties.Noam)]
+                public static class No1 { }
+
+                /// <summary>
+                /// surplus vote agreement, 1,279,917 combined votes. One leftover seat each: National Unity 11 -> 12
+                /// (115th), Yesh Atid 23 -> 24 (119th)
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.YeshAtid)]
+                [PoliticalParties((int)PoliticalParties.BlueAndWhiteNationalUnity, (int)PoliticalParties.NewHope)]
+                public static class No2 { }
+
+                /// <summary>
+                /// surplus vote agreement, 673,158 combined votes. One leftover seat (114th) went to Shas: Shas 10 -> 11,
+                /// UTJ stayed at 7
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.Shas)]
+                [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
+                public static class No3 { }
+
+                /// <summary>
+                /// surplus vote agreement, 326,785 combined votes. Annulled when Meretz fell below the threshold, so Labor
+                /// competed for leftover seats alone and got none, staying at 4
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.Labor)]
+                [PoliticalParties((int)PoliticalParties.Meretz)]
+                public static class No4 { }
+
+                /// <summary>
+                /// no agreement, 213,687 votes. Got one leftover seat (118th): 5 -> 6
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.YisraelBeiteinu)]
+                public static class No5 { }
+
+                /// <summary>
+                /// no agreement, 194,047 votes. Got no leftover seat, staying at 5
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.UnitedArabList)]
+                public static class No6 { }
+
+                /// <summary>
+                /// no agreement, 178,735 votes. Got one leftover seat (117th): 4 -> 5
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.HadashTaal)]
+                public static class No7 { }
             }
         }
     }
