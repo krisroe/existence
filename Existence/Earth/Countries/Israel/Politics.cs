@@ -163,6 +163,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         /// </summary>
         [Gender(Gender.Male)]
         [EthnicGroups((int)JewishEthnicDivisionsLevel2.Litvak)]
+        [CurrentPrimeMinister]
         NetanyahuBenjamin,
 
         [Gender(Gender.Male)]
@@ -350,6 +351,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         public static class v21 { }
 
         [PrimeMinister((int)Politicians.NetanyahuBenjamin, 2022, 12, 29)]
+        [CurrentPrimeMinister]
         public static class v22 { }
     }
 
