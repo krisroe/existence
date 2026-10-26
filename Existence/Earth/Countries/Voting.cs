@@ -52,6 +52,43 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician I personally rooted for in the election.
+    /// Rooting is not a meaningless activity
+    /// </summary>
+    public class IRootedForAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public IRootedForAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the politician I personally predicted would win the election
+    /// </summary>
+    public class IPredictedElectionWinnerAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public IPredictedElectionWinnerAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the politician who appears likely to win while the result isn't final yet
+    /// </summary>
+    public class LikelyElectionWinnerAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public LikelyElectionWinnerAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
     /// the losing politician did not publicly concede, but reportedly conceded in private
     /// </summary>
     public class OnlyConcededPrivatelyAttribute : Attribute

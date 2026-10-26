@@ -1,8 +1,20 @@
-﻿using Existence.Earth.Human.People;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Human.People;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.Politics
 {
+    public enum VersionHistory
+    {
+        [BeyondObjectVersion(1, 0, 0, 0)]
+        [YearDate(2026, 10, 25)]
+        CreatedFor2026PresidentialElection,
+
+        [BeyondObjectVersion(1, 1, 0, 0)]
+        [YearDate(2026, 10, 25)]
+        RootedForAndPredicted2026PresidentialElection,
+    }
+
     public enum Politicians
     {
         [Gender(Gender.Male)]
@@ -111,6 +123,9 @@ namespace Existence.Earth.Countries.Politics
                 /// Flávio Bolsonaro vs Lula; result not yet known
                 /// </summary>
                 [YearDate(2026, 10, 25)]
+                [IRootedFor((int)Politicians.BolsonaroFlávio)]
+                [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio)]
+                [LikelyElectionWinner((int)Politicians.daSilvaLula)]
                 public static class SecondRound { }
             }
         }
