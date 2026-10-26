@@ -3024,7 +3024,7 @@ namespace Existence.Earth.Countries
         public static class CommunistGovernmentSeverelyRestrictsDissentAgainstTheGovernment { }
     }
 
-    public static class Israel
+    public static class IsraelDetail
     {
         public static class ParliamentaryDemocracy { }
         public static class JewishReligionState { }
