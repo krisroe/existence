@@ -1,4 +1,5 @@
-﻿using Existence.Time;
+﻿using Existence.Earth.Human.People;
+using Existence.Time;
 using System;
 
 namespace Existence.Earth.Countries.Israel.Politics
@@ -30,6 +31,59 @@ namespace Existence.Earth.Countries.Israel.Politics
         }
     }
 
+    public enum Politicians
+    {
+        [Gender(Gender.Male)]
+        AbbasMansour,
+
+        [Gender(Gender.Male)]
+        BenGvirItamar,
+
+        [Gender(Gender.Male)]
+        BennettNaftali,
+
+        [Gender(Gender.Male)]
+        DeriAryeh,
+
+        [Gender(Gender.Male)]
+        EisenkotGadi,
+
+        [Gender(Gender.Male)]
+        GafniMoshe,
+
+        [Gender(Gender.Male)]
+        GantzBenny,
+
+        [Gender(Gender.Male)]
+        GolanYair,
+
+        [Gender(Gender.Male)]
+        GoldknopfYitzhak,
+
+        [Gender(Gender.Male)]
+        LapidYair,
+
+        [Gender(Gender.Male)]
+        LiebermanAvigdor,
+
+        [Gender(Gender.Male)]
+        MaozAvi,
+
+        [Gender(Gender.Male)]
+        NetanyahuBenjamin,
+
+        [Gender(Gender.Male)]
+        OdehAyman,
+
+        [Gender(Gender.Male)]
+        SaarGideon,
+
+        [Gender(Gender.Male)]
+        SmotrichBezalel,
+
+        [Gender(Gender.Male)]
+        TibiAhmad,
+    }
 
     public static class Knesset
     {
@@ -46,11 +100,13 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
                 BlueAndWhiteNationalUnity,
 
                 /// <summary>
                 /// joint faction of Hadash and Ta'al
                 /// </summary>
+                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
                 HadashTaal,
 
                 /// <summary>
@@ -58,6 +114,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GolanYair)]
                 Labor,
 
                 /// <summary>
@@ -65,6 +122,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
                 Likud,
 
                 /// <summary>
@@ -72,6 +130,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.SaarGideon)]
                 NewHope,
 
                 /// <summary>
@@ -79,6 +138,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 Noam,
 
                 /// <summary>
@@ -86,6 +146,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
                 OtzmaYehudit,
 
                 /// <summary>
@@ -93,6 +154,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
                 ReligiousZionistParty,
 
                 /// <summary>
@@ -100,16 +162,19 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
+                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
                 Shas,
 
                 /// <summary>
                 /// Ra'am
                 /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 UnitedArabList,
 
                 /// <summary>
                 /// joint faction of Agudat Yisrael and Degel HaTorah
                 /// </summary>
+                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -117,6 +182,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.LapidYair)]
                 YeshAtid,
 
                 /// <summary>
@@ -124,7 +190,38 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
                 YisraelBeiteinu,
+            }
+
+            /// <summary>
+            /// component parties of the joint factions in the 25th Knesset
+            /// </summary>
+            public enum Factions
+            {
+                /// <summary>
+                /// Hasidic Haredi party, part of United Torah Judaism
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
+                AgudatYisrael,
+
+                /// <summary>
+                /// Lithuanian (non-Hasidic) Haredi party, part of United Torah Judaism
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.GafniMoshe)]
+                DegelHaTorah,
+
+                /// <summary>
+                /// Jewish-Arab socialist front led by the Israeli Communist Party, part of Hadash-Ta'al
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.OdehAyman)]
+                Hadash,
+
+                /// <summary>
+                /// Arab Movement for Renewal, part of Hadash-Ta'al
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
+                Taal,
             }
         }
     }

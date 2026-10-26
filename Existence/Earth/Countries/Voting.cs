@@ -27,6 +27,27 @@ namespace Existence.Earth.Countries
         }
     }
 
+    public class PoliticalPartyLeaderAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public PoliticalPartyLeaderAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
+    /// the factions a political party is split into
+    /// </summary>
+    public class FactionsAttribute : Attribute
+    {
+        public int[] Factions { get; set; }
+        public FactionsAttribute(params int[] Factions)
+        {
+            this.Factions = Factions;
+        }
+    }
+
     public class IncumbentAttribute : Attribute
     {
         public int? Politician { get; set; }
