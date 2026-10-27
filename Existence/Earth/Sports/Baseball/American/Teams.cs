@@ -172,15 +172,28 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the game isn't finished; the winning and losing teams are the teams leading and trailing as of the half inning
-    /// ending point
+    /// the game isn't finished; the winning and losing teams are the teams leading and trailing so far. HalfInningEndingPoint
+    /// is set when the score is as of a half inning boundary, and InProgressExplanation can describe when the score was
+    /// taken otherwise (e.g. mid inning)
     /// </summary>
     public class MajorLeagueBaseballGameResultInProgressAttribute : MajorLeagueBaseballGameResultAttribute
     {
-        public BaseballHalfInningEndingPoint HalfInningEndingPoint { get; set; }
-        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public BaseballHalfInningEndingPoint? HalfInningEndingPoint { get; set; }
+        public string? InProgressExplanation { get; set; }
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        {
+        }
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
         {
             this.HalfInningEndingPoint = HalfInningEndingPoint;
+        }
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint, string InProgressExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, HalfInningEndingPoint)
+        {
+            this.InProgressExplanation = InProgressExplanation;
+        }
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string InProgressExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        {
+            this.InProgressExplanation = InProgressExplanation;
         }
     }
 
@@ -1272,7 +1285,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.Halfway)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.TwoThirds, "Brewers Pitcher has faced the minimum number of batters")]
                 public static class Game3 { }
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
