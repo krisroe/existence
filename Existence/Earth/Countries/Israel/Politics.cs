@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Human;
+﻿using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Human;
 using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
@@ -1016,8 +1017,8 @@ namespace Existence.Earth.Countries.Israel.Politics
 
             /// <summary>
             /// my personal, simplified view of how the 2026 election shakes out: Likud and the religious parties, the
-            /// Zionist opposition, and each Arab party on its own. BeforePoliticalParties and BeforeFactions point to v25's
-            /// enums, AfterPoliticalParties and AfterFactions to v26's
+            /// Zionist opposition, and each Arab party on its own. BeforePoliticalPartiesAndFactions points to v25's
+            /// enums, AfterPoliticalPartiesAndFactions to v26's
             /// </summary>
             public enum MyPersonalView
             {
@@ -1025,58 +1026,62 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// the parties of the outgoing government, along with Noam and United Torah Judaism, which left it. New
                 /// Hope runs on the Likud list in 2026
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.Likud, 
-                                        (int)v25.PoliticalParties.NewHope,
-                                        (int)v25.PoliticalParties.Noam,
-                                        (int)v25.PoliticalParties.OtzmaYehudit,
-                                        (int)v25.PoliticalParties.ReligiousZionistParty,
-                                        (int)v25.PoliticalParties.Shas,
-                                        (int)v25.PoliticalParties.UnitedTorahJudaism)]
-                [AfterPoliticalParties((int)PoliticalParties.Likud, 
-                                       (int)PoliticalParties.Noam,
-                                       (int)PoliticalParties.OtzmaYehudit,
-                                       (int)PoliticalParties.ReligiousZionistPartyZehut,
-                                       (int)PoliticalParties.Shas,
-                                       (int)PoliticalParties.UnitedTorahJudaism)]
+                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.Likud, //23.41
+                                                   v25.PoliticalParties.Shas, //8.25
+                                                   v25.PoliticalParties.ReligiousZionistParty, //5.42
+                                                   v25.PoliticalParties.OtzmaYehudit, //4.65
+                                                   v25.Factions.AgudatYisrael, //3.36 (UTJ)
+                                                   v25.PoliticalParties.NewHope, //3.30
+                                                   v25.Factions.DegelHaTorah, //2.52 (UTJ)
+                                                   v25.PoliticalParties.Noam)] //0.77
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.Likud,
+                                                  PoliticalParties.Noam,
+                                                  PoliticalParties.OtzmaYehudit,
+                                                  PoliticalParties.ReligiousZionistPartyZehut,
+                                                  PoliticalParties.Shas,
+                                                  Factions.AgudatYisrael,
+                                                  Factions.DegelHaTorah)]
+                [VotePercentage(51.68)]
                 LikudAndReligiousParties,
 
                 /// <summary>
                 /// Zionist parties outside the outgoing government. Labor and Meretz merged into The Democrats, and Yashar
                 /// was founded by Gadi Eisenkot after he left National Unity
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.BlueAndWhiteNationalUnity,
-                                        (int)v25.PoliticalParties.Labor,
-                                        (int)v25.PoliticalParties.Meretz,
-                                        (int)v25.PoliticalParties.YeshAtid,
-                                        (int)v25.PoliticalParties.YisraelBeiteinu)]
-                [AfterPoliticalParties((int)PoliticalParties.AmchaYisrael,
-                                       (int)PoliticalParties.ReservistsNewEconomicParty,
-                                       (int)PoliticalParties.TheDemocrats,
-                                       (int)PoliticalParties.Together,
-                                       (int)PoliticalParties.Yashar,
-                                       (int)PoliticalParties.YisraelBeiteinu)]
+                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.YeshAtid, //17.79
+                                                   v25.PoliticalParties.BlueAndWhiteNationalUnity, //5.78
+                                                   v25.PoliticalParties.YisraelBeiteinu, //4.48
+                                                   v25.PoliticalParties.Labor, //3.69
+                                                   v25.PoliticalParties.Meretz)] //3.16
+                [VotePercentage(34.90)]
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.AmchaYisrael,
+                                                  PoliticalParties.ReservistsNewEconomicParty,
+                                                  PoliticalParties.TheDemocrats,
+                                                  PoliticalParties.Together,
+                                                  PoliticalParties.Yashar,
+                                                  PoliticalParties.YisraelBeiteinu)]
                 ZionistOpposition,
 
-                [BeforeFactions((int)v25.Factions.Hadash)]
-                [AfterFactions((int)Factions.Hadash)]
+                [BeforePoliticalPartiesAndFactions(v25.Factions.Hadash)]
+                [AfterPoliticalPartiesAndFactions(Factions.Hadash)]
                 Hadash,
 
-                [BeforeFactions((int)v25.Factions.Taal)]
-                [AfterFactions((int)Factions.Taal)]
+                [BeforePoliticalPartiesAndFactions(v25.Factions.Taal)]
+                [AfterPoliticalPartiesAndFactions(Factions.Taal)]
                 Taal,
 
                 /// <summary>
                 /// ran on its own list in 2022, and on the Joint List in 2026
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.Balad)]
-                [AfterFactions((int)Factions.Balad)]
+                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.Balad)]
+                [AfterPoliticalPartiesAndFactions(Factions.Balad)]
                 Balad,
 
                 /// <summary>
                 /// Ra'am
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.UnitedArabList)]
-                [AfterPoliticalParties((int)PoliticalParties.UnitedArabList)]
+                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.UnitedArabList)]
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.UnitedArabList)]
                 UnitedArabList,
             }
 
