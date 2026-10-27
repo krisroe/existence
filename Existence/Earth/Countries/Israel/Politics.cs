@@ -54,6 +54,12 @@ namespace Existence.Earth.Countries.Israel.Politics
         AllonYigal,
 
         /// <summary>
+        /// replaced Moshe Gafni as chairman of Degel HaTorah in September 2026
+        /// </summary>
+        [Gender(Gender.Male)]
+        AsherYaakov,
+
+        /// <summary>
         /// father from Lithuania, mother from Poland
         /// </summary>
         [Gender(Gender.Male)]
@@ -110,6 +116,12 @@ namespace Existence.Earth.Countries.Israel.Politics
         EshkolLevi,
 
         /// <summary>
+        /// leader of Zehut
+        /// </summary>
+        [Gender(Gender.Male)]
+        FeiglinMoshe,
+
+        /// <summary>
         /// parents were Polish Holocaust survivors
         /// </summary>
         [Gender(Gender.Male)]
@@ -141,6 +153,19 @@ namespace Existence.Earth.Countries.Israel.Politics
         [Gender(Gender.Male)]
         [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
         GoldknopfYitzhak,
+
+        /// <summary>
+        /// leader of The Reservists
+        /// </summary>
+        [Gender(Gender.Male)]
+        HendelYoaz,
+
+        /// <summary>
+        /// replaced Ayman Odeh as chairman of Hadash
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)WorldEthnicGroups.Arab)]
+        JabareenYousef,
 
         /// <summary>
         /// father, Tommy Lapid, was a Hungarian-speaking Jew from Novi Sad, Yugoslavia
@@ -242,6 +267,18 @@ namespace Existence.Earth.Countries.Israel.Politics
         [Gender(Gender.Male)]
         [EthnicGroups((int)WorldEthnicGroups.Arab)]
         TibiAhmad,
+
+        /// <summary>
+        /// former IDF general, leader of Amcha Yisrael
+        /// </summary>
+        [Gender(Gender.Male)]
+        WinterOfer,
+
+        /// <summary>
+        /// economist, leader of the New Economic Party
+        /// </summary>
+        [Gender(Gender.Male)]
+        ZelekhaYaron,
     }
 
     /// <summary>
@@ -675,6 +712,267 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalParties((int)PoliticalParties.HadashTaal)]
                 public static class No7 { }
+            }
+        }
+
+        [ElectionDate(2026, 10, 27)]
+        [ParliamentaryElectoralThreshold(3.25)]
+        [NumberOfMembers(120)]
+        public static class v26
+        {
+            /// <summary>
+            /// major lists running in the 2026 election, one entry per list on the ballot. The component parties of joint
+            /// lists are in Factions. Minor lists not expected to pass the threshold are left out
+            /// </summary>
+            public enum PoliticalParties
+            {
+                /// <summary>
+                /// new right-wing party
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.WinterOfer)]
+                AmchaYisrael,
+
+                /// <summary>
+                /// submitted a list, then withdrew from the election on 2026-10-19
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                BlueAndWhite,
+
+                /// <summary>
+                /// revived Joint List of Hadash, Ta'al and Balad
+                /// </summary>
+                [JointList((int)JointLists.JointList)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                JointList,
+
+                /// <summary>
+                /// includes New Hope, which merged into Likud. Gideon Sa'ar is 7th on the list
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
+                Likud,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.MaozAvi)]
+                Noam,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                OtzmaYehudit,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [JointList((int)JointLists.ReligiousZionistPartyZehut)]
+                [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
+                ReligiousZionistPartyZehut,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [JointList((int)JointLists.ReservistsNewEconomicParty)]
+                [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
+                ReservistsNewEconomicParty,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Formal)]
+                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                Shas,
+
+                /// <summary>
+                /// merger of Labor and Meretz
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                TheDemocrats,
+
+                /// <summary>
+                /// B'Yachad, joint list of Bennett 2026 and Yesh Atid
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [JointList((int)JointLists.Together)]
+                [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
+                Together,
+
+                /// <summary>
+                /// Ra'am
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                UnitedArabList,
+
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                UnitedTorahJudaism,
+
+                /// <summary>
+                /// founded by Gadi Eisenkot after leaving National Unity. Includes Hili Tropper, Matan Kahana and Orit
+                /// Farkash-Hacohen
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
+                Yashar,
+
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
+                YisraelBeiteinu,
+            }
+
+            /// <summary>
+            /// component parties of the joint lists in the 2026 election
+            /// </summary>
+            public enum Factions
+            {
+                /// <summary>
+                /// Hasidic Haredi party, part of United Torah Judaism
+                /// </summary>
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
+                AgudatYisrael,
+
+                /// <summary>
+                /// Arab nationalist party, part of the Joint List. Its chairman withdrew as a candidate on 2026-10-02 after
+                /// the Supreme Court indicated it would uphold his disqualification; Bakr Awawdeh, 4th on the list, is its
+                /// top candidate
+                /// </summary>
+                [JointList((int)JointLists.JointList)]
+                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
+                Balad,
+
+                /// <summary>
+                /// Naftali Bennett's party, part of Together
+                /// </summary>
+                [JointList((int)JointLists.Together)]
+                [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
+                Bennett2026,
+
+                /// <summary>
+                /// Lithuanian (non-Hasidic) Haredi party, part of United Torah Judaism
+                /// </summary>
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [PoliticalPartyLeader((int)Politicians.AsherYaakov)]
+                DegelHaTorah,
+
+                /// <summary>
+                /// Jewish-Arab socialist front led by the Israeli Communist Party, part of the Joint List
+                /// </summary>
+                [JointList((int)JointLists.JointList)]
+                [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
+                Hadash,
+
+                /// <summary>
+                /// part of Reservists-New Economic Party
+                /// </summary>
+                [JointList((int)JointLists.ReservistsNewEconomicParty)]
+                [PoliticalPartyLeader((int)Politicians.ZelekhaYaron)]
+                NewEconomicParty,
+
+                /// <summary>
+                /// part of Religious Zionist Party-Zehut
+                /// </summary>
+                [JointList((int)JointLists.ReligiousZionistPartyZehut)]
+                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                ReligiousZionistParty,
+
+                /// <summary>
+                /// part of Reservists-New Economic Party
+                /// </summary>
+                [JointList((int)JointLists.ReservistsNewEconomicParty)]
+                [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
+                Reservists,
+
+                /// <summary>
+                /// Arab Movement for Renewal, part of the Joint List
+                /// </summary>
+                [JointList((int)JointLists.JointList)]
+                [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
+                Taal,
+
+                /// <summary>
+                /// part of Together
+                /// </summary>
+                [JointList((int)JointLists.Together)]
+                [PoliticalPartyLeader((int)Politicians.LapidYair)]
+                YeshAtid,
+
+                /// <summary>
+                /// part of Religious Zionist Party-Zehut
+                /// </summary>
+                [JointList((int)JointLists.ReligiousZionistPartyZehut)]
+                [PoliticalPartyLeader((int)Politicians.FeiglinMoshe)]
+                Zehut,
+            }
+
+            /// <summary>
+            /// joint lists in the 2026 election, each pointing to its PoliticalParties entry and component Factions, with
+            /// the politician heading the list
+            /// </summary>
+            public enum JointLists
+            {
+                [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
+                [PoliticalParties((int)PoliticalParties.JointList)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                JointList,
+
+                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
+                [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
+                ReligiousZionistPartyZehut,
+
+                [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
+                [PoliticalParties((int)PoliticalParties.ReservistsNewEconomicParty)]
+                [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
+                ReservistsNewEconomicParty,
+
+                [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
+                [PoliticalParties((int)PoliticalParties.Together)]
+                [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
+                Together,
+
+                /// <summary>
+                /// Degel HaTorah's turn to head the list
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AsherYaakov)]
+                [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
+                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                UnitedTorahJudaism,
+            }
+
+            /// <summary>
+            /// surplus vote agreements signed by the 2026-10-16 deadline, with one PoliticalParties attribute per side.
+            /// Listed in the order reported before the election; reorder by combined votes once results are in, as in
+            /// v25's LeftoverSeatDistribution. The agreement between two minor lists (Eternal Covenant and Fixing the
+            /// Electoral and Governing System) is left out, since neither is in PoliticalParties
+            /// </summary>
+            public static class SurplusVoteAgreements
+            {
+                [PoliticalParties((int)PoliticalParties.Together)]
+                [PoliticalParties((int)PoliticalParties.YisraelBeiteinu)]
+                public static class No1 { }
+
+                [PoliticalParties((int)PoliticalParties.Yashar)]
+                [PoliticalParties((int)PoliticalParties.TheDemocrats)]
+                public static class No2 { }
+
+                [PoliticalParties((int)PoliticalParties.JointList)]
+                [PoliticalParties((int)PoliticalParties.UnitedArabList)]
+                public static class No3 { }
+
+                [PoliticalParties((int)PoliticalParties.Likud)]
+                [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
+                public static class No4 { }
+
+                [PoliticalParties((int)PoliticalParties.Shas)]
+                [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
+                public static class No5 { }
             }
         }
     }
