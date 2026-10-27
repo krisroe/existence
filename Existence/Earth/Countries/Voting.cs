@@ -233,6 +233,36 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// percentage of the vote a grouping's BeforePoliticalPartiesAndFactions got in the previous election, summing their
+    /// VotePercentage, RoughJointListVotePercentage, or JointListVotePercentage for a joint list sitting as one party.
+    /// Not a subclass of VotePercentageAttribute, since it isn't a result for the grouping itself
+    /// </summary>
+    public class BeforePreviousElectionVotePercentageAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public BeforePreviousElectionVotePercentageAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
+    /// the previous election's vote percentages applied to a grouping's AfterPoliticalPartiesAndFactions: each new
+    /// political party or faction counts the previous-election percentages of the old ones it came from, and a new one
+    /// with no previous-election counterpart counts nothing. A rough picture of where the previous election's votes land
+    /// under the new alignment, not a result of the new election. Not a subclass of VotePercentageAttribute, since it
+    /// isn't a result for the grouping itself
+    /// </summary>
+    public class AfterPreviousElectionVotePercentageAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public AfterPreviousElectionVotePercentageAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
     /// political parties and factions from after an election that a grouping maps to, using the new parliament's
     /// PoliticalParties and Factions enums. Takes the enum values themselves rather than ints, so that each value keeps
     /// its enum type and political parties can be told apart from factions. Not a subclass of PoliticalPartiesAttribute

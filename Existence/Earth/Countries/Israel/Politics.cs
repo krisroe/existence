@@ -1036,16 +1036,45 @@ namespace Existence.Earth.Countries.Israel.Politics
             }
 
             /// <summary>
-            /// my personal, simplified view of how the 2026 election shakes out: Likud and the religious parties, the
-            /// Zionist opposition, and each Arab party on its own. BeforePoliticalPartiesAndFactions points to v25's
-            /// enums, AfterPoliticalPartiesAndFactions to v26's
+            /// my personal, simplified view of how the 2026 election shakes out: the change coalition, which I guess ends
+            /// up winning, the conservative opposition (Likud and its allies, out of power after the election in my view),
+            /// and each Arab party on its own. BeforePoliticalPartiesAndFactions points to v25's enums,
+            /// AfterPoliticalPartiesAndFactions to v26's. The comments on each party or faction give its 2022 vote percentage,
+            /// with v26 entries counting the v25 ones they came from.
+            /// 
+            /// Shas and UTJ's Degel faction move to the other side.
             /// </summary>
             public enum MyPersonalView
             {
                 /// <summary>
+                /// a mixed coalition held together by replacing Netanyahu, running from the secular and nationalist right
+                /// (Bennett 2026, Yisrael Beiteinu) through the center (Yashar, Yesh Atid) to the Zionist left (The
+                /// Democrats). Before the election, these are the Zionist parties outside the outgoing government. Labor and
+                /// Meretz merged into The Democrats, and Yashar was founded by Gadi Eisenkot after he left National Unity.
+                /// In my view, Shas and Degel HaTorah join after the election through a draft deal protecting full-time
+                /// yeshiva students, while Agudat Yisrael, the harder case on the draft, stays in ConservativeOpposition
+                /// </summary>
+                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.YeshAtid, //17.79
+                                                   v25.PoliticalParties.BlueAndWhiteNationalUnity, //5.78
+                                                   v25.PoliticalParties.YisraelBeiteinu, //4.48
+                                                   v25.PoliticalParties.Labor, //3.69
+                                                   v25.PoliticalParties.Meretz)] //3.16
+                [BeforePreviousElectionVotePercentage(34.90)]
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.Together, //17.79 (Yesh Atid; Bennett 2026 not in v25)
+                                                  PoliticalParties.Shas, //8.25
+                                                  PoliticalParties.TheDemocrats, //6.85 (Labor 3.69 + Meretz 3.16)
+                                                  PoliticalParties.Yashar, //5.78 (Blue and White-National Unity, since Blue and White withdrew)
+                                                  PoliticalParties.YisraelBeiteinu, //4.48
+                                                  Factions.DegelHaTorah, //2.52 (UTJ)
+                                                  PoliticalParties.ReservistsNewEconomicParty, //0 (not in v25)
+                                                  PoliticalParties.AmchaYisrael)] //0 (not in v25)
+                [AfterPreviousElectionVotePercentage(45.67)]
+                ChangeCoalition,
+
+                /// <summary>
                 /// the parties of the outgoing government, along with Noam and United Torah Judaism, which left it. New
                 /// Hope runs on the Likud list in 2026. The Jewish Home fell below the threshold in 2022 but backed a
-                /// Netanyahu-led government
+                /// Netanyahu-led government; it has no v26 counterpart, so its 1.19 drops out after.
                 /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.Likud, //23.41
                                                    v25.PoliticalParties.Shas, //8.25
@@ -1056,54 +1085,49 @@ namespace Existence.Earth.Countries.Israel.Politics
                                                    v25.Factions.DegelHaTorah, //2.52 (UTJ)
                                                    v25.PoliticalParties.TheJewishHome, //1.19
                                                    v25.PoliticalParties.Noam)] //0.77
-                [AfterPoliticalPartiesAndFactions(PoliticalParties.Likud,
-                                                  PoliticalParties.Noam,
-                                                  PoliticalParties.OtzmaYehudit,
-                                                  PoliticalParties.ReligiousZionistPartyZehut,
-                                                  PoliticalParties.Shas,
-                                                  Factions.AgudatYisrael,
-                                                  Factions.DegelHaTorah)]
-                [VotePercentage(52.87)]
-                LikudAndReligiousParties,
+                [BeforePreviousElectionVotePercentage(52.87)]
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.Likud, //26.71 (Likud 23.41 + New Hope 3.30)
+                                                  PoliticalParties.ReligiousZionistPartyZehut, //5.42 (RZP; Zehut not in v25)
+                                                  PoliticalParties.OtzmaYehudit, //4.65
+                                                  Factions.AgudatYisrael, //3.36 (UTJ)
+                                                  PoliticalParties.Noam)] //0.77
+                [AfterPreviousElectionVotePercentage(40.91)]
+                ConservativeOpposition,
 
                 /// <summary>
-                /// Zionist parties outside the outgoing government. Labor and Meretz merged into The Democrats, and Yashar
-                /// was founded by Gadi Eisenkot after he left National Unity
+                /// percentages are Hadash's RoughJointListVotePercentage on Hadash-Ta'al
                 /// </summary>
-                [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.YeshAtid, //17.79
-                                                   v25.PoliticalParties.BlueAndWhiteNationalUnity, //5.78
-                                                   v25.PoliticalParties.YisraelBeiteinu, //4.48
-                                                   v25.PoliticalParties.Labor, //3.69
-                                                   v25.PoliticalParties.Meretz)] //3.16
-                [VotePercentage(34.90)]
-                [AfterPoliticalPartiesAndFactions(PoliticalParties.AmchaYisrael,
-                                                  PoliticalParties.ReservistsNewEconomicParty,
-                                                  PoliticalParties.TheDemocrats,
-                                                  PoliticalParties.Together,
-                                                  PoliticalParties.Yashar,
-                                                  PoliticalParties.YisraelBeiteinu)]
-                ZionistOpposition,
-
                 [BeforePoliticalPartiesAndFactions(v25.Factions.Hadash)]
+                [BeforePreviousElectionVotePercentage(2.81)]
                 [AfterPoliticalPartiesAndFactions(Factions.Hadash)]
+                [AfterPreviousElectionVotePercentage(2.81)]
                 Hadash,
 
+                /// <summary>
+                /// percentages are Ta'al's RoughJointListVotePercentage on Hadash-Ta'al
+                /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.Factions.Taal)]
+                [BeforePreviousElectionVotePercentage(0.94)]
                 [AfterPoliticalPartiesAndFactions(Factions.Taal)]
+                [AfterPreviousElectionVotePercentage(0.94)]
                 Taal,
 
                 /// <summary>
                 /// ran on its own list in 2022, and on the Joint List in 2026
                 /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.Balad)]
+                [BeforePreviousElectionVotePercentage(2.91)]
                 [AfterPoliticalPartiesAndFactions(Factions.Balad)]
+                [AfterPreviousElectionVotePercentage(2.91)]
                 Balad,
 
                 /// <summary>
                 /// Ra'am
                 /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.UnitedArabList)]
+                [BeforePreviousElectionVotePercentage(4.07)]
                 [AfterPoliticalPartiesAndFactions(PoliticalParties.UnitedArabList)]
+                [AfterPreviousElectionVotePercentage(4.07)]
                 UnitedArabList,
             }
 
