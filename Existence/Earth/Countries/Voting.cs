@@ -403,6 +403,13 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// generic rooting for something (rooting is not a meaningless activity)
+    /// </summary>
+    public class IRootedForThis : Attribute
+    {
+    }
+
+    /// <summary>
     /// the politician I personally predicted would win the election
     /// </summary>
     public class IPredictedElectionWinnerAttribute : Attribute

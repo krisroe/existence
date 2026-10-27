@@ -1042,7 +1042,7 @@ namespace Existence.Earth.Countries.Israel.Politics
             /// AfterPoliticalPartiesAndFactions to v26's. The comments on each party or faction give its 2022 vote percentage,
             /// with v26 entries counting the v25 ones they came from.
             /// 
-            /// Shas and UTJ's Degel faction move to the other side.
+            /// Shas and UTJ's Degel faction move to the other side (with some kind of compromise on the draft deal)
             /// </summary>
             public enum MyPersonalView
             {
@@ -1060,6 +1060,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                                                    v25.PoliticalParties.Labor, //3.69
                                                    v25.PoliticalParties.Meretz)] //3.16
                 [BeforePreviousElectionVotePercentage(34.90)]
+                [IRootedForThis]
                 [AfterPoliticalPartiesAndFactions(PoliticalParties.Together, //17.79 (Yesh Atid; Bennett 2026 not in v25)
                                                   PoliticalParties.Shas, //8.25
                                                   PoliticalParties.TheDemocrats, //6.85 (Labor 3.69 + Meretz 3.16)
