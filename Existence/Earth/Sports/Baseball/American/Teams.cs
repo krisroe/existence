@@ -226,40 +226,64 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class NationalLeague
             {
                 /// <summary>
-                /// standings for the first half of the season; the league had no divisions
+                /// standings for the first half of the season, April 12 to July 13; the league had no divisions
                 /// </summary>
                 public static class SplitSeason1
                 {
-                    public static class BaltimoreOrioles { }
+                    [TeamWinLossRecord(52, 22)]
                     public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(51, 26)]
                     public static class BrooklynGrooms { }
-                    public static class ChicagoColts { }
-                    public static class CincinnatiReds { }
-                    public static class ClevelandSpiders { }
-                    public static class LouisvilleColonels { }
-                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(46, 30)]
                     public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(44, 31)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(40, 33)]
+                    public static class ClevelandSpiders { }
+                    [TeamWinLossRecord(37, 39)]
                     public static class PittsburghPirates { }
-                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(35, 41)]
                     public static class WashingtonSenators { }
+                    [TeamWinLossRecord(31, 39)]
+                    public static class ChicagoColts { }
+                    [TeamWinLossRecord(31, 42)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(31, 43)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(30, 47)]
+                    public static class LouisvilleColonels { }
+                    [TeamWinLossRecord(20, 55)]
+                    public static class BaltimoreOrioles { }
                 }
 
                 /// <summary>
-                /// standings for the second half of the season; the league had no divisions
+                /// standings for the second half of the season, July 15 to October 15; the league had no divisions
                 /// </summary>
                 public static class SplitSeason2
                 {
-                    public static class BaltimoreOrioles { }
-                    public static class BostonBeaneaters { }
-                    public static class BrooklynGrooms { }
-                    public static class ChicagoColts { }
-                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(53, 23)]
                     public static class ClevelandSpiders { }
-                    public static class LouisvilleColonels { }
-                    public static class NewYorkGiants { }
-                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(50, 26)]
+                    public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(44, 33)]
+                    public static class BrooklynGrooms { }
+                    [TeamWinLossRecord(43, 34)]
                     public static class PittsburghPirates { }
+                    [TeamWinLossRecord(41, 36)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(40, 37)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(39, 37)]
+                    public static class ChicagoColts { }
+                    [TeamWinLossRecord(38, 37)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(33, 42)]
+                    public static class LouisvilleColonels { }
+                    [TeamWinLossRecord(26, 46)]
+                    public static class BaltimoreOrioles { }
+                    [TeamWinLossRecord(25, 52)]
                     public static class StLouisBrowns { }
+                    [TeamWinLossRecord(23, 52)]
                     public static class WashingtonSenators { }
                 }
             }
