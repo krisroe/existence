@@ -199,6 +199,86 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// the political party was in the government for the parliament's whole term, from when the government was formed
+    /// until the next election
+    /// </summary>
+    public class GovernmentAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// the political party or faction was unambiguously in the opposition for the parliament's whole term, never joining
+    /// the government or backing its coalition. Parties that only went into opposition partway through the term are
+    /// SometimesInGovernment instead
+    /// </summary>
+    public class OppositionAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// the political party was in the government for only part of the parliament's term, because it joined late, left,
+    /// or left and came back. Its time in the government is in its GovernmentTenure attributes
+    /// </summary>
+    public class SometimesInGovernmentAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// a stretch of time the political party was in the government. Apply once per stretch. EndDate is null if the party
+    /// was still in the government at the next election
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class GovernmentTenureAttribute : Attribute
+    {
+        public StartDateAttribute StartDate { get; set; }
+        public EndDateAttribute EndDate { get; set; }
+        public GovernmentTenureAttribute(int StartYear, int StartMonth, int StartDay)
+        {
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public GovernmentTenureAttribute(int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// a stretch of time the political party stayed in the coalition, backing the government in parliament, without
+    /// being in the government itself. Apply once per stretch. EndDate is null if this was still the case at the next
+    /// election. Not a subclass of GovernmentTenureAttribute, so that time outside the government isn't counted as
+    /// time in it
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class CoalitionOutsideGovernmentAttribute : Attribute
+    {
+        public StartDateAttribute StartDate { get; set; }
+        public EndDateAttribute EndDate { get; set; }
+        public CoalitionOutsideGovernmentAttribute(int StartYear, int StartMonth, int StartDay)
+        {
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public CoalitionOutsideGovernmentAttribute(int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// the political party was in the governing coalition when the next election was held, cooperating with the
+    /// government and not trying to bring it down, whether or not it had ministers
+    /// </summary>
+    public class InGovernmentCoalitionAtNextElectionAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// the political party had ministers in the government when the next election was held
+    /// </summary>
+    public class InGovernmentExecutiveAtNextElectionAttribute : Attribute
+    {
+    }
+
     public class IncumbentAttribute : Attribute
     {
         public int? Politician { get; set; }
