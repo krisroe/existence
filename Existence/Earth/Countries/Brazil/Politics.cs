@@ -122,9 +122,11 @@ namespace Existence.Earth.Countries.Politics
                 /// <summary>
                 /// Flávio Bolsonaro vs Lula; result not yet known
                 /// </summary>
-                [YearDate(2026, 10, 25)]
                 [IRootedFor((int)Politicians.BolsonaroFlávio)]
                 [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio)]
+                [YearDate(2026, 10, 25)]
+                [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 51.79, (int)Politicians.BolsonaroFlávio, 48.21)]
+                [VoteValidity(validPercent: 96.76, invalidPercent: 2.12, blankPercent: 1.12)]
                 [LikelyElectionWinner((int)Politicians.daSilvaLula)]
                 public static class SecondRound { }
             }

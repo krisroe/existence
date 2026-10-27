@@ -358,6 +358,23 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// percentages of the total votes cast that were valid, invalid (null), and blank. decimal isn't a valid attribute parameter type,
+    /// so the percentages are passed in as doubles and stored as decimals
+    /// </summary>
+    public class VoteValidityAttribute : Attribute
+    {
+        public decimal ValidPercentage { get; set; }
+        public decimal InvalidPercentage { get; set; }
+        public decimal BlankPercentage { get; set; }
+        public VoteValidityAttribute(double validPercent, double invalidPercent, double blankPercent)
+        {
+            this.ValidPercentage = (decimal)validPercent;
+            this.InvalidPercentage = (decimal)invalidPercent;
+            this.BlankPercentage = (decimal)blankPercent;
+        }
+    }
+
     public class IdeologyAttribute : TextAttribute
     {
         public string Ideology
