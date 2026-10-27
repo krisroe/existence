@@ -375,6 +375,22 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// the candidate was barred from appearing on the ballot, and their party ran the replacement candidate instead
+    /// </summary>
+    public class CandidateBarredAttribute : Attribute
+    {
+        public int BarredCandidate { get; set; }
+        public int ReplacementCandidate { get; set; }
+        public string Explanation { get; set; }
+        public CandidateBarredAttribute(int barredCandidate, int replacement, string explanation)
+        {
+            this.BarredCandidate = barredCandidate;
+            this.ReplacementCandidate = replacement;
+            this.Explanation = explanation;
+        }
+    }
+
     public class IdeologyAttribute : TextAttribute
     {
         public string Ideology

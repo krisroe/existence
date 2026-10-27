@@ -13,6 +13,10 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 1, 0, 0)]
         [YearDate(2026, 10, 25)]
         RootedForAndPredicted2026PresidentialElection,
+
+        [BeyondObjectVersion(1, 2, 0, 0)]
+        [YearDate(2026, 10, 26)]
+        AddLulaBarredIn2018,
     }
 
     public enum Politicians
@@ -90,6 +94,7 @@ namespace Existence.Earth.Countries.Politics
             public static class v2018
             {
                 [YearDate(2018, 10, 7)]
+                [CandidateBarred((int)Politicians.daSilvaLula, replacement: (int)Politicians.HaddadFernando, "Registered while in prison and leading the polls. Barred under the Ficha Limpa (Clean record) law")]
                 [AmbiguousRunoffElectionResult((int)Politicians.BolsonaroJair, 46.03, (int)Politicians.HaddadFernando, 29.28, (int)Politicians.GomesCiro, 12.47)]
                 public static class FirstRound { }
 
@@ -119,9 +124,6 @@ namespace Existence.Earth.Countries.Politics
                 [AmbiguousRunoffElectionResult((int)Politicians.BolsonaroFlávio, 47.03, (int)Politicians.daSilvaLula, 45.16, (int)Politicians.CuryAugustoJorge, 2.89)]
                 public static class FirstRound { }
 
-                /// <summary>
-                /// Flávio Bolsonaro vs Lula; result not yet known
-                /// </summary>
                 [IRootedFor((int)Politicians.BolsonaroFlávio)]
                 [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio)]
                 [YearDate(2026, 10, 25)]
