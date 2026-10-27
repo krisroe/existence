@@ -27,6 +27,10 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         TwoThirds = 12,
         AfterSeventhTop = 13,
+        /// <summary>
+        /// where traditionally "Take me out to the Ballgame" is perfomed
+        /// </summary>
+        SeventhInningStretch = 13,
         AfterSeventhBottom = 14,
         AfterEighthTop = 15,
         AfterEighthBottom = 16,
