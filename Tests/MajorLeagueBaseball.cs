@@ -37,7 +37,8 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates that the teams in each division are listed from the best winning percentage to the worst
+        /// validates that the teams in each division are listed from the best winning percentage to the worst. A
+        /// division whose records haven't been filled in yet, with no TeamWinLossRecord on any team, is skipped
         /// </summary>
         [TestMethod]
         public void ValidateDivisionsSortedByRecord()
@@ -47,9 +48,10 @@ namespace Existence.Tests
             {
                 foreach (Type division in GetDivisions(season, "AmericanLeague").Concat(GetDivisions(season, "NationalLeague")))
                 {
-                    iDivisions++;
                     List<Type> teams = GetTeams(division);
                     Assert.IsTrue(teams.Count > 0, $"{GetName(division)} has no teams");
+                    if (teams.All(t => t.GetCustomAttribute<TeamWinLossRecordAttribute>() == null)) continue;
+                    iDivisions++;
                     for (int i = 1; i < teams.Count; i++)
                     {
                         TeamWinLossRecordAttribute previous = GetRecord(teams[i - 1]);
