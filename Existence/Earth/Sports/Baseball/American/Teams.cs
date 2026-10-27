@@ -172,12 +172,15 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the game isn't finished; the winning and losing teams are the teams leading and trailing so far
+    /// the game isn't finished; the winning and losing teams are the teams leading and trailing as of the half inning
+    /// ending point
     /// </summary>
     public class MajorLeagueBaseballGameResultInProgressAttribute : MajorLeagueBaseballGameResultAttribute
     {
-        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public BaseballHalfInningEndingPoint HalfInningEndingPoint { get; set; }
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
         {
+            this.HalfInningEndingPoint = HalfInningEndingPoint;
         }
     }
 
@@ -1207,12 +1210,12 @@ namespace Existence.Earth.Sports.Baseball.American
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MartinezNick,
                         /// <summary>
-                        /// expected to start game 2
+                        /// started game 2
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         RasmussenDrew,
                         /// <summary>
-                        /// expected to start game 3
+                        /// started game 3
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         PeraltaFreddy,
@@ -1237,12 +1240,12 @@ namespace Existence.Earth.Sports.Baseball.American
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MisiorowskiJacob,
                         /// <summary>
-                        /// expected to start game 2
+                        /// started game 2
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         HendersonLogan,
                         /// <summary>
-                        /// expected to start game 3
+                        /// started game 3
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         GasserRobert,
@@ -1267,8 +1270,9 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 2, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game2 { }
 
-                [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
-                [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.Halfway)]
                 public static class Game3 { }
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
