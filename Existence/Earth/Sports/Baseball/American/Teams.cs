@@ -152,6 +152,25 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
+    /// the playoff series standing (e.g. 2-1) after the game it is applied to; when the series is tied, the team with
+    /// home field advantage is listed as the leading team
+    /// </summary>
+    public class MajorLeagueBaseballPlayoffSeriesAttribute : Attribute
+    {
+        public MajorLeagueBaseballTeams LeadingTeam { get; set; }
+        public int LeadingTeamWins { get; set; }
+        public MajorLeagueBaseballTeams TrailingTeam { get; set; }
+        public int TrailingTeamWins { get; set; }
+        public MajorLeagueBaseballPlayoffSeriesAttribute(MajorLeagueBaseballTeams LeadingTeam, int LeadingTeamWins, MajorLeagueBaseballTeams TrailingTeam, int TrailingTeamWins)
+        {
+            this.LeadingTeam = LeadingTeam;
+            this.LeadingTeamWins = LeadingTeamWins;
+            this.TrailingTeam = TrailingTeam;
+            this.TrailingTeamWins = TrailingTeamWins;
+        }
+    }
+
+    /// <summary>
     /// the game isn't finished; the winning and losing teams are the teams leading and trailing so far
     /// </summary>
     public class MajorLeagueBaseballGameResultInProgressAttribute : MajorLeagueBaseballGameResultAttribute
@@ -365,36 +384,43 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 1, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 public static class Game1 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 5, MajorLeagueBaseballTeams.MilwaukeeBrewers, 4)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 1, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
                 public static class Game2 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
                 public static class Game3 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.HaasMoose)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.LaPointDave)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 7, MajorLeagueBaseballTeams.StLouisCardinals, 5)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2)]
                 public static class Game4 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 6, MajorLeagueBaseballTeams.StLouisCardinals, 4)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.StLouisCardinals, 2)]
                 public static class Game5 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 13, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
                 public static class Game6 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
                 public static class Game7 { }
             }
         }
@@ -614,21 +640,25 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.ShieldsJames)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MyersBrett)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TampaBayRays, 1, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 1)]
                 public static class Game2 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GarzaMatt)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MoyerJamie)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game3 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SonnanstineAndy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.BlantonJoe)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 10, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game4 { }
 
                 /// <summary>
@@ -637,6 +667,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 4, MajorLeagueBaseballTeams.TampaBayRays, 3)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 4, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game5 { }
             }
         }
@@ -854,31 +885,37 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 8, MajorLeagueBaseballTeams.TampaBayRays, 3)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 6, MajorLeagueBaseballTeams.LosAngelesDodgers, 4)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 1, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game2 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.MortonCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.BuehlerWalker)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 6, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 2, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game3 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.YarbroughRyan)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.UriasJulio)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 8, MajorLeagueBaseballTeams.LosAngelesDodgers, 7)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 2, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game4 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TampaBayRays, 2)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game5 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game6 { }
             }
         }
@@ -1180,11 +1217,13 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome")]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 2, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game2 { }
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
