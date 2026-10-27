@@ -17,6 +17,15 @@ namespace Existence.Tests
     {
         private static readonly Regex rSeason = new Regex(@"^v\d{4}$");
         private static readonly Regex rGame = new Regex(@"^Game(\d+)$");
+        /// <summary>
+        /// the classes holding a league's divisions; a split season (e.g. 1981) has separate standings for each half
+        /// </summary>
+        private static readonly string[] asDivisions = { "Divisions", "SplitSeason1Divisions", "SplitSeason2Divisions" };
+        /// <summary>
+        /// the classes holding a league's teams directly, for a split season without divisions (e.g. 1892)
+        /// </summary>
+        private static readonly string[] asLeagueStandings = { "SplitSeason1", "SplitSeason2" };
+        private static readonly string[] asLeagues = { "AmericanLeague", "NationalLeague" };
 
         /// <summary>
         /// validates that every playoff series standing lists first the team with the same or more wins
@@ -37,8 +46,9 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates that the teams in each division are listed from the best winning percentage to the worst. A
-        /// division whose records haven't been filled in yet, with no TeamWinLossRecord on any team, is skipped
+        /// validates that the teams in each division, including each half of a split season with or without divisions,
+        /// are listed from the best winning percentage to the worst. A division whose records haven't been filled in
+        /// yet, with no TeamWinLossRecord on any team, is skipped
         /// </summary>
         [TestMethod]
         public void ValidateDivisionsSortedByRecord()
@@ -46,7 +56,7 @@ namespace Existence.Tests
             int iDivisions = 0;
             foreach (Type season in GetSeasons())
             {
-                foreach (Type division in GetDivisions(season, "AmericanLeague").Concat(GetDivisions(season, "NationalLeague")))
+                foreach (Type division in GetStandings(season))
                 {
                     List<Type> teams = GetTeams(division);
                     Assert.IsTrue(teams.Count > 0, $"{GetName(division)} has no teams");
@@ -139,9 +149,29 @@ namespace Existence.Tests
             return typeof(MajorLeagueBaseball).GetNestedTypes().Where(t => rSeason.IsMatch(t.Name));
         }
 
-        private static IEnumerable<Type> GetDivisions(Type season, string sLeague)
+        /// <summary>
+        /// gets every class whose nested classes are the teams of one set of standings: each division, and for a split
+        /// season each half's divisions, or each half of the league itself when it had no divisions
+        /// </summary>
+        private static IEnumerable<Type> GetStandings(Type season)
         {
-            return season.GetNestedType(sLeague)?.GetNestedType("Divisions")?.GetNestedTypes() ?? Enumerable.Empty<Type>();
+            foreach (string sLeague in asLeagues)
+            {
+                foreach (Type division in asDivisions.SelectMany(s => GetDivisions(season, sLeague, s)))
+                {
+                    yield return division;
+                }
+                foreach (string sLeagueStandings in asLeagueStandings)
+                {
+                    Type? standings = season.GetNestedType(sLeague)?.GetNestedType(sLeagueStandings);
+                    if (standings != null) yield return standings;
+                }
+            }
+        }
+
+        private static IEnumerable<Type> GetDivisions(Type season, string sLeague, string sDivisions = "Divisions")
+        {
+            return season.GetNestedType(sLeague)?.GetNestedType(sDivisions)?.GetNestedTypes() ?? Enumerable.Empty<Type>();
         }
 
         /// <summary>

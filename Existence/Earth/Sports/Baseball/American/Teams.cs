@@ -9,14 +9,22 @@ namespace Existence.Earth.Sports.Baseball.American
         ArizonaDiamondbacks,
         Athletics,
         AtlantaBraves,
+        /// <summary>
+        /// used by multiple franchises: the National League team that folded after 1899, and the American League team
+        /// that moved from St. Louis in 1954
+        /// </summary>
         BaltimoreOrioles,
+        BostonBeaneaters,
         BostonRedSox,
+        BrooklynGrooms,
         CaliforniaAngels,
+        ChicagoColts,
         ChicagoCubs,
         ChicagoWhiteSox,
         CincinnatiReds,
         ClevelandGuardians,
         ClevelandIndians,
+        ClevelandSpiders,
         ColoradoRockies,
         DetroitTigers,
         FloridaMarlins,
@@ -26,10 +34,12 @@ namespace Existence.Earth.Sports.Baseball.American
         LosAngelesAngels,
         LosAngelesAngelsOfAnaheim,
         LosAngelesDodgers,
+        LouisvilleColonels,
         MiamiMarlins,
         MilwaukeeBrewers,
         MinnesotaTwins,
         MontrealExpos,
+        NewYorkGiants,
         NewYorkMets,
         NewYorkYankees,
         OaklandAthletics,
@@ -39,11 +49,21 @@ namespace Existence.Earth.Sports.Baseball.American
         SanDiegoPadres,
         SanFranciscoGiants,
         SeattleMariners,
+        /// <summary>
+        /// used by multiple franchises: the National League team that later became the St. Louis Cardinals, and the
+        /// American League team (1902-1953) that later became the Baltimore Orioles
+        /// </summary>
+        StLouisBrowns,
         StLouisCardinals,
         TampaBayRays,
         TexasRangers,
         TorontoBlueJays,
         WashingtonNationals,
+        /// <summary>
+        /// used by multiple franchises: the National League team of the 1890s, the American League team (1901-1960) that
+        /// became the Minnesota Twins, and the American League team (1961-1971) that became the Texas Rangers
+        /// </summary>
+        WashingtonSenators,
     }
 
     public class MajorLeagueBaseballTeamAttribute : SingularObjectAttribute
@@ -201,6 +221,50 @@ namespace Existence.Earth.Sports.Baseball.American
 
     public static class MajorLeagueBaseball
     {
+        public static class v1892
+        {
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the first half of the season; the league had no divisions
+                /// </summary>
+                public static class SplitSeason1
+                {
+                    public static class BaltimoreOrioles { }
+                    public static class BostonBeaneaters { }
+                    public static class BrooklynGrooms { }
+                    public static class ChicagoColts { }
+                    public static class CincinnatiReds { }
+                    public static class ClevelandSpiders { }
+                    public static class LouisvilleColonels { }
+                    public static class NewYorkGiants { }
+                    public static class PhiladelphiaPhillies { }
+                    public static class PittsburghPirates { }
+                    public static class StLouisBrowns { }
+                    public static class WashingtonSenators { }
+                }
+
+                /// <summary>
+                /// standings for the second half of the season; the league had no divisions
+                /// </summary>
+                public static class SplitSeason2
+                {
+                    public static class BaltimoreOrioles { }
+                    public static class BostonBeaneaters { }
+                    public static class BrooklynGrooms { }
+                    public static class ChicagoColts { }
+                    public static class CincinnatiReds { }
+                    public static class ClevelandSpiders { }
+                    public static class LouisvilleColonels { }
+                    public static class NewYorkGiants { }
+                    public static class PhiladelphiaPhillies { }
+                    public static class PittsburghPirates { }
+                    public static class StLouisBrowns { }
+                    public static class WashingtonSenators { }
+                }
+            }
+        }
+
         public static class v1903
         {
             [BestOf(9)]
@@ -229,6 +293,119 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             [BestOf(9)]
             public static class WorldSeries { }
+        }
+
+        public static class v1981
+        {
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the first half of the season, before the players' strike that began on June 12
+                /// </summary>
+                public static class SplitSeason1Divisions
+                {
+                    public static class East
+                    {
+                        public static class BaltimoreOrioles { }
+                        public static class BostonRedSox { }
+                        public static class ClevelandIndians { }
+                        public static class DetroitTigers { }
+                        public static class MilwaukeeBrewers { }
+                        public static class NewYorkYankees { }
+                        public static class TorontoBlueJays { }
+                    }
+                    public static class West
+                    {
+                        public static class CaliforniaAngels { }
+                        public static class ChicagoWhiteSox { }
+                        public static class KansasCityRoyals { }
+                        public static class MinnesotaTwins { }
+                        public static class OaklandAthletics { }
+                        public static class SeattleMariners { }
+                        public static class TexasRangers { }
+                    }
+                }
+
+                /// <summary>
+                /// standings for the second half of the season, after play resumed on August 10
+                /// </summary>
+                public static class SplitSeason2Divisions
+                {
+                    public static class East
+                    {
+                        public static class BaltimoreOrioles { }
+                        public static class BostonRedSox { }
+                        public static class ClevelandIndians { }
+                        public static class DetroitTigers { }
+                        public static class MilwaukeeBrewers { }
+                        public static class NewYorkYankees { }
+                        public static class TorontoBlueJays { }
+                    }
+                    public static class West
+                    {
+                        public static class CaliforniaAngels { }
+                        public static class ChicagoWhiteSox { }
+                        public static class KansasCityRoyals { }
+                        public static class MinnesotaTwins { }
+                        public static class OaklandAthletics { }
+                        public static class SeattleMariners { }
+                        public static class TexasRangers { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the first half of the season, before the players' strike that began on June 12
+                /// </summary>
+                public static class SplitSeason1Divisions
+                {
+                    public static class East
+                    {
+                        public static class ChicagoCubs { }
+                        public static class MontrealExpos { }
+                        public static class NewYorkMets { }
+                        public static class PhiladelphiaPhillies { }
+                        public static class PittsburghPirates { }
+                        public static class StLouisCardinals { }
+                    }
+                    public static class West
+                    {
+                        public static class AtlantaBraves { }
+                        public static class CincinnatiReds { }
+                        public static class HoustonAstros { }
+                        public static class LosAngelesDodgers { }
+                        public static class SanDiegoPadres { }
+                        public static class SanFranciscoGiants { }
+                    }
+                }
+
+                /// <summary>
+                /// standings for the second half of the season, after play resumed on August 10
+                /// </summary>
+                public static class SplitSeason2Divisions
+                {
+                    public static class East
+                    {
+                        public static class ChicagoCubs { }
+                        public static class MontrealExpos { }
+                        public static class NewYorkMets { }
+                        public static class PhiladelphiaPhillies { }
+                        public static class PittsburghPirates { }
+                        public static class StLouisCardinals { }
+                    }
+                    public static class West
+                    {
+                        public static class AtlantaBraves { }
+                        public static class CincinnatiReds { }
+                        public static class HoustonAstros { }
+                        public static class LosAngelesDodgers { }
+                        public static class SanDiegoPadres { }
+                        public static class SanFranciscoGiants { }
+                    }
+                }
+            }
         }
 
         public static class v1982
