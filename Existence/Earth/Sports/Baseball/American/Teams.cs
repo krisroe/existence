@@ -1285,7 +1285,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterNinthTop, "Brewers pitchers faced the minimum number of batters")]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, "Brewers pitchers facing the mininum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base")]
                 public static class Game3 { }
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
