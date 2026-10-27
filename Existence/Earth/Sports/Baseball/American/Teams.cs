@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Existence.Time;
+using System;
 
 namespace Existence.Earth.Sports.Baseball.American
 {
@@ -51,6 +52,80 @@ namespace Existence.Earth.Sports.Baseball.American
         }
     }
 
+    /// <summary>
+    /// the manager can come from different enums (e.g. a season's Managers), so it's stored as an int;
+    /// a team with more than one manager in a season gets one attribute per manager with the date range of their
+    /// tenure. EndDate is null while still in the job
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class ManagerAttribute : Attribute
+    {
+        public int Manager { get; set; }
+        public StartDateAttribute? StartDate { get; set; }
+        public EndDateAttribute? EndDate { get; set; }
+        public ManagerAttribute(int Manager)
+        {
+            this.Manager = Manager;
+        }
+        public ManagerAttribute(int Manager, int StartYear, int StartMonth, int StartDay) : this(Manager)
+        {
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public ManagerAttribute(int Manager, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(Manager, StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// the manager was the interim manager over the date range; pairs with a ManagerAttribute covering the whole
+    /// tenure. EndDate is null while still the interim manager
+    /// </summary>
+    public class InterimManagerAttribute : ManagerAttribute
+    {
+        public InterimManagerAttribute(int Manager, int StartYear, int StartMonth, int StartDay) : base(Manager, StartYear, StartMonth, StartDay)
+        {
+        }
+        public InterimManagerAttribute(int Manager, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Manager, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
+        {
+        }
+    }
+
+    /// <summary>
+    /// how a team let its manager go
+    /// </summary>
+    public enum ManagerDismissalType
+    {
+        /// <summary>
+        /// the manager was fired
+        /// </summary>
+        Fired,
+        /// <summary>
+        /// it was reported that the manager's contract was not renewed
+        /// </summary>
+        ContractNotRenewed,
+    }
+
+    /// <summary>
+    /// the team let the manager go on the date, during or after the season
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class FiredManagerAttribute : Attribute
+    {
+        public int Manager { get; set; }
+        public YearDateAttribute Date { get; set; }
+        public ManagerDismissalType DismissalType { get; set; }
+        public FiredManagerAttribute(int Manager, int Year, int Month, int Day) : this(Manager, Year, Month, Day, ManagerDismissalType.Fired)
+        {
+        }
+        public FiredManagerAttribute(int Manager, int Year, int Month, int Day, ManagerDismissalType DismissalType)
+        {
+            this.Manager = Manager;
+            this.Date = new YearDateAttribute(Year, Month, Day);
+            this.DismissalType = DismissalType;
+        }
+    }
+
     public class AlternateMajorLeagueBaseballGameResultAttribute : MajorLeagueBaseballGameResultAttribute
     {
         public string AlternateExplanation { get; set; }
@@ -90,6 +165,15 @@ namespace Existence.Earth.Sports.Baseball.American
     {
         public static class v1982
         {
+            public enum Managers
+            {
+                HerzogWhitey,
+                /// <summary>
+                /// replaced Buck Rodgers in early June
+                /// </summary>
+                KuennHarvey,
+            }
+
             public static class AmericanLeague
             {
                 public enum PitchingAllStars
@@ -220,6 +304,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                [Manager((int)Managers.KuennHarvey)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -248,6 +333,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                [Manager((int)Managers.HerzogWhitey)]
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
@@ -315,6 +401,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2008
         {
+            public enum Managers
+            {
+                MaddonJoe,
+                ManuelCharlie,
+            }
+
             public static class AmericanLeague
             {
                 public enum PitchingAllStars
@@ -461,6 +553,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                [Manager((int)Managers.MaddonJoe)]
                 [HomeFieldAdvantage]
                 public static class AmericanLeagueTeam
                 {
@@ -490,6 +583,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+                [Manager((int)Managers.ManuelCharlie)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -549,6 +643,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2020
         {
+            public enum Managers
+            {
+                CashKevin,
+                RobertsDave,
+            }
+
             public static class AmericanLeague
             {
                 // the 2020 All-Star Game was canceled due to COVID-19, so no All-Stars were selected
@@ -690,6 +790,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                [Manager((int)Managers.CashKevin)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -721,6 +822,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// the series was played at a neutral site, but the Dodgers were the designated home team for games 1, 2, 6, and 7
                 /// </summary>
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                [Manager((int)Managers.RobertsDave)]
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
@@ -783,6 +885,61 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2026
         {
+            public enum Managers
+            {
+                AlbernazCraig,
+                BooneAaron,
+                ButeraBlake,
+                CashKevin,
+                /// <summary>
+                /// fired on April 25 after a 10-17 start
+                /// </summary>
+                CoraAlex,
+                CounsellCraig,
+                EspadaJoe,
+                FranconaTerry,
+                /// <summary>
+                /// interim manager after Carlos Mendoza was fired; named full-time manager on September 22
+                /// </summary>
+                GreenAndy,
+                HinchAJ,
+                KellyDon,
+                KotsayMark,
+                LovulloTorey,
+                MarmolOliver,
+                /// <summary>
+                /// interim manager after Rob Thomson was fired; named full-time manager on October 14
+                /// </summary>
+                MattinglyDon,
+                McCulloughClayton,
+                /// <summary>
+                /// fired on June 26 after a 34-47 start
+                /// </summary>
+                MendozaCarlos,
+                MurphyPat,
+                QuatraroMatt,
+                RobertsDave,
+                SchaefferWarren,
+                SchneiderJohn,
+                SchumakerSkip,
+                SheltonDerek,
+                StammenCraig,
+                SuzukiKurt,
+                /// <summary>
+                /// fired on April 28 after a 9-19 start
+                /// </summary>
+                ThomsonRob,
+                /// <summary>
+                /// interim manager after Alex Cora was fired; named full-time manager on September 22
+                /// </summary>
+                TracyChad,
+                VenableWill,
+                VitelloTony,
+                VogtStephen,
+                WeissWalt,
+                WilsonDan,
+            }
+
             public static class AmericanLeague
             {
                 public enum PitchingAllStars
@@ -813,41 +970,62 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class East
                     {
                         [TeamWinLossRecord(79, 82)]
+                        [Manager((int)Managers.AlbernazCraig)]
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(87, 75)]
+                        [Manager((int)Managers.CoraAlex, 2020, 11, 6, 2026, 4, 25)]
+                        [FiredManager((int)Managers.CoraAlex, 2026, 4, 25)]
+                        [Manager((int)Managers.TracyChad, 2026, 4, 26)]
+                        [InterimManager((int)Managers.TracyChad, 2026, 4, 26, 2026, 9, 22)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(93, 68)]
+                        [Manager((int)Managers.BooneAaron)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(98, 64)]
                         [WorldSeries(TwoPlayerGameOutcome.Future)]
+                        [Manager((int)Managers.CashKevin)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(79, 83)]
+                        [Manager((int)Managers.SchneiderJohn)]
                         public static class TorontoBlueJays { }
                     }
                     public static class Central
                     {
                         [TeamWinLossRecord(84, 78)]
+                        [Manager((int)Managers.VenableWill)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(85, 77)]
+                        [Manager((int)Managers.VogtStephen)]
                         public static class ClevelandGuardians { }
                         [TeamWinLossRecord(76, 86)]
+                        [Manager((int)Managers.HinchAJ)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(69, 93)]
+                        [Manager((int)Managers.QuatraroMatt)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.SheltonDerek)]
                         public static class MinnesotaTwins { }
                     }
                     public static class West
                     {
                         [TeamWinLossRecord(64, 98)]
+                        [Manager((int)Managers.KotsayMark)]
                         public static class Athletics { }
                         [TeamWinLossRecord(81, 81)]
+                        [Manager((int)Managers.EspadaJoe)]
+                        [FiredManager((int)Managers.EspadaJoe, 2026, 10, 14, ManagerDismissalType.ContractNotRenewed)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(62, 100)]
+                        [Manager((int)Managers.SuzukiKurt)]
+                        [FiredManager((int)Managers.SuzukiKurt, 2026, 10, 21)]
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(76, 86)]
+                        [Manager((int)Managers.WilsonDan)]
+                        [FiredManager((int)Managers.WilsonDan, 2026, 9, 27)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(80, 82)]
+                        [Manager((int)Managers.SchumakerSkip)]
                         public static class TexasRangers { }
                     }
                 }
@@ -876,41 +1054,62 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class East
                     {
                         [TeamWinLossRecord(94, 68)]
+                        [Manager((int)Managers.WeissWalt)]
                         public static class AtlantaBraves { }
                         [TeamWinLossRecord(80, 82)]
+                        [Manager((int)Managers.McCulloughClayton)]
                         public static class MiamiMarlins { }
                         [TeamWinLossRecord(74, 88)]
+                        [Manager((int)Managers.MendozaCarlos, 2023, 11, 13, 2026, 6, 26)]
+                        [FiredManager((int)Managers.MendozaCarlos, 2026, 6, 26)]
+                        [Manager((int)Managers.GreenAndy, 2026, 6, 26)]
+                        [InterimManager((int)Managers.GreenAndy, 2026, 6, 26, 2026, 9, 22)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(88, 74)]
+                        [Manager((int)Managers.ThomsonRob, 2022, 6, 3, 2026, 4, 28)]
+                        [FiredManager((int)Managers.ThomsonRob, 2026, 4, 28)]
+                        [Manager((int)Managers.MattinglyDon, 2026, 4, 28)]
+                        [InterimManager((int)Managers.MattinglyDon, 2026, 4, 28, 2026, 10, 14)]
                         public static class PhiladelphiaPhillies { }
                         [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.ButeraBlake)]
                         public static class WashingtonNationals { }
                     }
                     public static class Central
                     {
                         [TeamWinLossRecord(89, 73)]
+                        [Manager((int)Managers.CounsellCraig)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(75, 87)]
+                        [Manager((int)Managers.FranconaTerry)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(103, 59)]
                         [WorldSeries(TwoPlayerGameOutcome.Future)]
+                        [Manager((int)Managers.MurphyPat)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(82, 80)]
+                        [Manager((int)Managers.KellyDon)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.MarmolOliver)]
                         public static class StLouisCardinals { }
                     }
                     public static class West
                     {
                         [TeamWinLossRecord(86, 76)]
+                        [Manager((int)Managers.LovulloTorey)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(58, 104)]
+                        [Manager((int)Managers.SchaefferWarren)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(100, 62)]
+                        [Manager((int)Managers.RobertsDave)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(91, 71)]
+                        [Manager((int)Managers.StammenCraig)]
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(65, 97)]
+                        [Manager((int)Managers.VitelloTony)]
                         public static class SanFranciscoGiants { }
                     }
                 }
@@ -919,6 +1118,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
+                [Manager((int)Managers.CashKevin)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -947,6 +1147,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
+                [Manager((int)Managers.MurphyPat)]
                 [HomeFieldAdvantage]
                 public static class NationalLeagueTeam
                 {
