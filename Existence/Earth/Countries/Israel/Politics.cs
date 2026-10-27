@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Human.EthnicGroups;
+﻿using Existence.Earth.Human;
+using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level2;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level3;
@@ -370,6 +371,7 @@ namespace Existence.Earth.Countries.Israel.Politics
     {
         [ElectionDate(2022, 11, 1)]
         [ParliamentaryElectoralThreshold(3.25)]
+        [NumberOfMembers(120)]
         public static class v25
         {
             /// <summary>
