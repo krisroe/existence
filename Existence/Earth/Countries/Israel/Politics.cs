@@ -238,6 +238,14 @@ namespace Existence.Earth.Countries.Israel.Politics
         SaarGideon,
 
         /// <summary>
+        /// father's side Iraqi Jewish, mother's side Ashkenazi with Russian and Romanian roots
+        /// </summary>
+        [Gender(Gender.Female)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Bavlim, (int)JewishEthnicDivisionsLevel2.Romanian)]
+        ShakedAyelet,
+
+        /// <summary>
         /// born in Ruzhany, now Belarus
         /// </summary>
         [Gender(Gender.Male)]
@@ -586,6 +594,18 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [BelowElectoralThreshold]
                 [NumberOfSeats(0)]
                 Meretz,
+
+                /// <summary>
+                /// religious Zionist party, led in 2022 by Ayelet Shaked after Yamina broke up. Shaked said she would
+                /// probably recommend Netanyahu, and backed a Netanyahu-led right-wing government after the election
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.ShakedAyelet)]
+                [VotePercentage(1.19)]
+                [BelowElectoralThreshold]
+                [NumberOfSeats(0)]
+                TheJewishHome,
 
                 /// <summary>
                 /// Ra'am
@@ -1024,7 +1044,8 @@ namespace Existence.Earth.Countries.Israel.Politics
             {
                 /// <summary>
                 /// the parties of the outgoing government, along with Noam and United Torah Judaism, which left it. New
-                /// Hope runs on the Likud list in 2026
+                /// Hope runs on the Likud list in 2026. The Jewish Home fell below the threshold in 2022 but backed a
+                /// Netanyahu-led government
                 /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.Likud, //23.41
                                                    v25.PoliticalParties.Shas, //8.25
@@ -1033,6 +1054,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                                                    v25.Factions.AgudatYisrael, //3.36 (UTJ)
                                                    v25.PoliticalParties.NewHope, //3.30
                                                    v25.Factions.DegelHaTorah, //2.52 (UTJ)
+                                                   v25.PoliticalParties.TheJewishHome, //1.19
                                                    v25.PoliticalParties.Noam)] //0.77
                 [AfterPoliticalPartiesAndFactions(PoliticalParties.Likud,
                                                   PoliticalParties.Noam,
@@ -1041,7 +1063,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                                                   PoliticalParties.Shas,
                                                   Factions.AgudatYisrael,
                                                   Factions.DegelHaTorah)]
-                [VotePercentage(51.68)]
+                [VotePercentage(52.87)]
                 LikudAndReligiousParties,
 
                 /// <summary>
