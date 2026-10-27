@@ -1025,16 +1025,36 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// the parties of the outgoing government, along with Noam and United Torah Judaism, which left it. New
                 /// Hope runs on the Likud list in 2026
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.Likud, (int)v25.PoliticalParties.NewHope, (int)v25.PoliticalParties.Noam, (int)v25.PoliticalParties.OtzmaYehudit, (int)v25.PoliticalParties.ReligiousZionistParty, (int)v25.PoliticalParties.Shas, (int)v25.PoliticalParties.UnitedTorahJudaism)]
-                [AfterPoliticalParties((int)PoliticalParties.Likud, (int)PoliticalParties.Noam, (int)PoliticalParties.OtzmaYehudit, (int)PoliticalParties.ReligiousZionistPartyZehut, (int)PoliticalParties.Shas, (int)PoliticalParties.UnitedTorahJudaism)]
+                [BeforePoliticalParties((int)v25.PoliticalParties.Likud, 
+                                        (int)v25.PoliticalParties.NewHope,
+                                        (int)v25.PoliticalParties.Noam,
+                                        (int)v25.PoliticalParties.OtzmaYehudit,
+                                        (int)v25.PoliticalParties.ReligiousZionistParty,
+                                        (int)v25.PoliticalParties.Shas,
+                                        (int)v25.PoliticalParties.UnitedTorahJudaism)]
+                [AfterPoliticalParties((int)PoliticalParties.Likud, 
+                                       (int)PoliticalParties.Noam,
+                                       (int)PoliticalParties.OtzmaYehudit,
+                                       (int)PoliticalParties.ReligiousZionistPartyZehut,
+                                       (int)PoliticalParties.Shas,
+                                       (int)PoliticalParties.UnitedTorahJudaism)]
                 LikudAndReligiousParties,
 
                 /// <summary>
                 /// Zionist parties outside the outgoing government. Labor and Meretz merged into The Democrats, and Yashar
                 /// was founded by Gadi Eisenkot after he left National Unity
                 /// </summary>
-                [BeforePoliticalParties((int)v25.PoliticalParties.BlueAndWhiteNationalUnity, (int)v25.PoliticalParties.Labor, (int)v25.PoliticalParties.Meretz, (int)v25.PoliticalParties.YeshAtid, (int)v25.PoliticalParties.YisraelBeiteinu)]
-                [AfterPoliticalParties((int)PoliticalParties.AmchaYisrael, (int)PoliticalParties.ReservistsNewEconomicParty, (int)PoliticalParties.TheDemocrats, (int)PoliticalParties.Together, (int)PoliticalParties.Yashar, (int)PoliticalParties.YisraelBeiteinu)]
+                [BeforePoliticalParties((int)v25.PoliticalParties.BlueAndWhiteNationalUnity,
+                                        (int)v25.PoliticalParties.Labor,
+                                        (int)v25.PoliticalParties.Meretz,
+                                        (int)v25.PoliticalParties.YeshAtid,
+                                        (int)v25.PoliticalParties.YisraelBeiteinu)]
+                [AfterPoliticalParties((int)PoliticalParties.AmchaYisrael,
+                                       (int)PoliticalParties.ReservistsNewEconomicParty,
+                                       (int)PoliticalParties.TheDemocrats,
+                                       (int)PoliticalParties.Together,
+                                       (int)PoliticalParties.Yashar,
+                                       (int)PoliticalParties.YisraelBeiteinu)]
                 ZionistOpposition,
 
                 [BeforeFactions((int)v25.Factions.Hadash)]
