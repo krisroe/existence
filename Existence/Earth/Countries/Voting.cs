@@ -218,6 +218,58 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// political parties from before an election that a grouping maps from, using the previous parliament's political
+    /// parties. Not a subclass of PoliticalPartiesAttribute, so that the two parliaments' political parties aren't mixed
+    /// </summary>
+    public class BeforePoliticalPartiesAttribute : Attribute
+    {
+        public int[] PoliticalParties { get; set; }
+        public BeforePoliticalPartiesAttribute(params int[] PoliticalParties)
+        {
+            this.PoliticalParties = PoliticalParties;
+        }
+    }
+
+    /// <summary>
+    /// political parties from after an election that a grouping maps to, using the new parliament's political parties.
+    /// Not a subclass of PoliticalPartiesAttribute, so that the two parliaments' political parties aren't mixed
+    /// </summary>
+    public class AfterPoliticalPartiesAttribute : Attribute
+    {
+        public int[] PoliticalParties { get; set; }
+        public AfterPoliticalPartiesAttribute(params int[] PoliticalParties)
+        {
+            this.PoliticalParties = PoliticalParties;
+        }
+    }
+
+    /// <summary>
+    /// factions from before an election that a grouping maps from, using the previous parliament's factions. Not a
+    /// subclass of FactionsAttribute, so that the two parliaments' factions aren't mixed
+    /// </summary>
+    public class BeforeFactionsAttribute : Attribute
+    {
+        public int[] Factions { get; set; }
+        public BeforeFactionsAttribute(params int[] Factions)
+        {
+            this.Factions = Factions;
+        }
+    }
+
+    /// <summary>
+    /// factions from after an election that a grouping maps to, using the new parliament's factions. Not a subclass of
+    /// FactionsAttribute, so that the two parliaments' factions aren't mixed
+    /// </summary>
+    public class AfterFactionsAttribute : Attribute
+    {
+        public int[] Factions { get; set; }
+        public AfterFactionsAttribute(params int[] Factions)
+        {
+            this.Factions = Factions;
+        }
+    }
+
+    /// <summary>
     /// the political party was in the government for the parliament's whole term, from when the government was formed
     /// until the next election
     /// </summary>
