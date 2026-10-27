@@ -38,6 +38,18 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the joint list the political party ran on with other parties
+    /// </summary>
+    public class JointListAttribute : Attribute
+    {
+        public int JointList { get; set; }
+        public JointListAttribute(int JointList)
+        {
+            this.JointList = JointList;
+        }
+    }
+
+    /// <summary>
     /// political parties that share something, such as one side of a surplus vote agreement. Apply once per group,
     /// e.g. once for each side of the agreement
     /// </summary>
@@ -52,7 +64,8 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// percentage of the vote the political party got on its own list
+    /// percentage of the vote the political party got on its own list. Parties on a joint list have no vote
+    /// percentage of their own; the joint list has a JointListVotePercentage instead
     /// </summary>
     public class VotePercentageAttribute : Attribute
     {
@@ -64,8 +77,8 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// percentage of the vote for a joint list the political party ran on with other parties. Not a subclass of
-    /// VotePercentageAttribute, so that summing vote percentages doesn't count the joint list more than once
+    /// percentage of the vote a joint list of several political parties got. Not a subclass of
+    /// VotePercentageAttribute, so that vote percentages of joint lists and of parties are kept apart
     /// </summary>
     public class JointListVotePercentageAttribute : Attribute
     {
@@ -77,7 +90,7 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// number of seats the political party won on its own list
+    /// number of seats the political party won, either on its own list or as its share of a joint list's seats
     /// </summary>
     public class NumberOfSeatsAttribute : Attribute
     {
@@ -89,8 +102,8 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// number of seats won by a joint list the political party ran on with other parties. Not a subclass of
-    /// NumberOfSeatsAttribute, so that summing seats doesn't count the joint list more than once
+    /// number of seats a joint list of several political parties won. Not a subclass of NumberOfSeatsAttribute, so
+    /// that summing seats of parties doesn't count the joint list's seats again
     /// </summary>
     public class JointListNumberOfSeatsAttribute : Attribute
     {

@@ -392,16 +392,16 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GantzBenny)]
-                [JointListVotePercentage(9.08)]
-                [JointListNumberOfSeats(12)]
+                [JointList((int)JointLists.NationalUnity)]
+                [NumberOfSeats(8)]
                 BlueAndWhiteNationalUnity,
 
                 /// <summary>
                 /// joint faction of Hadash and Ta'al
                 /// </summary>
                 [Factions((int)Factions.Hadash, (int)Factions.Taal)]
-                [VotePercentage(3.75)]
                 [NumberOfSeats(5)]
+                [JointList((int)JointLists.HadashTaal)]
                 HadashTaal,
 
                 /// <summary>
@@ -442,8 +442,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.SaarGideon)]
-                [JointListVotePercentage(9.08)]
-                [JointListNumberOfSeats(12)]
+                [JointList((int)JointLists.NationalUnity)]
+                [NumberOfSeats(4)]
                 NewHope,
 
                 /// <summary>
@@ -452,8 +452,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
-                [JointListVotePercentage(10.84)]
-                [JointListNumberOfSeats(14)]
+                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [NumberOfSeats(1)]
                 Noam,
 
                 /// <summary>
@@ -462,8 +462,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
-                [JointListVotePercentage(10.84)]
-                [JointListNumberOfSeats(14)]
+                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [NumberOfSeats(6)]
                 OtzmaYehudit,
 
                 /// <summary>
@@ -472,8 +472,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
-                [JointListVotePercentage(10.84)]
-                [JointListNumberOfSeats(14)]
+                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [NumberOfSeats(7)]
                 ReligiousZionistParty,
 
                 /// <summary>
@@ -498,8 +498,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// joint faction of Agudat Yisrael and Degel HaTorah
                 /// </summary>
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
-                [VotePercentage(5.88)]
                 [NumberOfSeats(7)]
+                [JointList((int)JointLists.UnitedTorahJudaism)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -532,25 +532,77 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Hasidic Haredi party, part of United Torah Judaism
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [NumberOfSeats(4)]
                 AgudatYisrael,
 
                 /// <summary>
                 /// Lithuanian (non-Hasidic) Haredi party, part of United Torah Judaism
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.GafniMoshe)]
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [NumberOfSeats(3)]
                 DegelHaTorah,
 
                 /// <summary>
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of Hadash-Ta'al
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.OdehAyman)]
+                [JointList((int)JointLists.HadashTaal)]
+                [NumberOfSeats(4)]
                 Hadash,
 
                 /// <summary>
                 /// Arab Movement for Renewal, part of Hadash-Ta'al
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
+                [JointList((int)JointLists.HadashTaal)]
+                [NumberOfSeats(1)]
                 Taal,
+            }
+
+            /// <summary>
+            /// joint lists in the 2022 election, each pointing to the parties or factions on it. Lists that split into
+            /// separate Knesset factions point to PoliticalParties; lists that still sit as one faction point to that
+            /// PoliticalParties entry and to their component Factions
+            /// </summary>
+            public enum JointLists
+            {
+                /// <summary>
+                /// what remained of the Joint List after Balad and Ra'am ran separately. Still sits as one faction
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.HadashTaal)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
+                [JointListVotePercentage(3.75)]
+                [JointListNumberOfSeats(5)]
+                HadashTaal,
+
+                /// <summary>
+                /// Blue and White and New Hope, joined by Gadi Eisenkot and Yamina MKs Matan Kahana and Shirly Pinto.
+                /// New Hope split into its own faction in 2024
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.BlueAndWhiteNationalUnity, (int)PoliticalParties.NewHope)]
+                [JointListVotePercentage(9.08)]
+                [JointListNumberOfSeats(12)]
+                NationalUnity,
+
+                /// <summary>
+                /// technical bloc to pass the threshold. Split into three factions on 2022-11-20 under a pre-election
+                /// agreement
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.ReligiousZionistParty, (int)PoliticalParties.OtzmaYehudit, (int)PoliticalParties.Noam)]
+                [JointListVotePercentage(10.84)]
+                [JointListNumberOfSeats(14)]
+                ReligiousZionismOtzmaYehudit,
+
+                /// <summary>
+                /// long-standing Haredi alliance. Still sits as one faction
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
+                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                [JointListVotePercentage(5.88)]
+                [JointListNumberOfSeats(7)]
+                UnitedTorahJudaism,
             }
 
             /// <summary>
