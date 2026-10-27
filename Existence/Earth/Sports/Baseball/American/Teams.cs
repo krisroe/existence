@@ -1,4 +1,5 @@
-﻿using Existence.Time;
+﻿using Existence.Earth.Alphabet;
+using Existence.Time;
 using System;
 
 namespace Existence.Earth.Sports.Baseball.American
@@ -182,6 +183,36 @@ namespace Existence.Earth.Sports.Baseball.American
 
     public static class MajorLeagueBaseball
     {
+        public static class v1903
+        {
+            [BestOf(9)]
+            public static class WorldSeries { }
+        }
+
+        public static class v1904
+        {
+            [Text("No World Series was played because the National League champion New York Giants refused to play the American League champion Boston Americans")]
+            public static class WorldSeries { }
+        }
+
+        public static class v1919
+        {
+            [BestOf(9)]
+            public static class WorldSeries { }
+        }
+
+        public static class v1920
+        {
+            [BestOf(9)]
+            public static class WorldSeries { }
+        }
+
+        public static class v1921
+        {
+            [BestOf(9)]
+            public static class WorldSeries { }
+        }
+
         public static class v1982
         {
             public enum Managers
@@ -320,6 +351,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [BestOf(7)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
@@ -423,6 +455,12 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
                 public static class Game7 { }
             }
+        }
+
+        public static class v1994
+        {
+            [Text("No World Series was played because the players' strike that began on August 12 led to the rest of the season and the postseason being canceled")]
+            public static class WorldSeries { }
         }
 
         public static class v2008
@@ -576,6 +614,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [BestOf(7)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
@@ -818,6 +857,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [BestOf(7)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
@@ -1152,6 +1192,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
             }
 
+            [BestOf(7)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]

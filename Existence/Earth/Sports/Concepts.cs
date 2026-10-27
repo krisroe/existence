@@ -226,6 +226,18 @@ namespace Existence.Earth.Sports
     {
     }
 
+    /// <summary>
+    /// the maximum number of games in a series; the first team to win a majority of them wins the series
+    /// </summary>
+    public class BestOfAttribute : Attribute
+    {
+        public int Games { get; set; }
+        public BestOfAttribute(int Games)
+        {
+            this.Games = Games;
+        }
+    }
+
     public class TeamWinLossRecordAttribute : NumbersBinary
     {
         public int Wins
