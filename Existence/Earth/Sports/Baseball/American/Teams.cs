@@ -272,19 +272,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(95, 67)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(94, 68)]
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(89, 73)]
                         public static class BostonRedSox { }
-                        [TeamWinLossRecord(78, 84)]
-                        public static class ClevelandIndians { }
                         [TeamWinLossRecord(83, 79)]
                         public static class DetroitTigers { }
-                        [TeamWinLossRecord(95, 67)]
-                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
-                        public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(79, 83)]
                         public static class NewYorkYankees { }
+                        [TeamWinLossRecord(78, 84)]
+                        public static class ClevelandIndians { }
                         [TeamWinLossRecord(78, 84)]
                         public static class TorontoBlueJays { }
                     }
@@ -292,18 +292,18 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(93, 69)]
                         public static class CaliforniaAngels { }
-                        [TeamWinLossRecord(87, 75)]
-                        public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(90, 72)]
                         public static class KansasCityRoyals { }
-                        [TeamWinLossRecord(60, 102)]
-                        public static class MinnesotaTwins { }
-                        [TeamWinLossRecord(68, 94)]
-                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(87, 75)]
+                        public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(76, 86)]
                         public static class SeattleMariners { }
+                        [TeamWinLossRecord(68, 94)]
+                        public static class OaklandAthletics { }
                         [TeamWinLossRecord(64, 98)]
                         public static class TexasRangers { }
+                        [TeamWinLossRecord(60, 102)]
+                        public static class MinnesotaTwins { }
                     }
                 }
             }
@@ -335,34 +335,34 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        [TeamWinLossRecord(73, 89)]
-                        public static class ChicagoCubs { }
-                        [TeamWinLossRecord(86, 76)]
-                        public static class MontrealExpos { }
-                        [TeamWinLossRecord(65, 97)]
-                        public static class NewYorkMets { }
-                        [TeamWinLossRecord(89, 73)]
-                        public static class PhiladelphiaPhillies { }
-                        [TeamWinLossRecord(84, 78)]
-                        public static class PittsburghPirates { }
                         [TeamWinLossRecord(92, 70)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(89, 73)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(86, 76)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(84, 78)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(73, 89)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class NewYorkMets { }
                     }
                     public static class West
                     {
                         [TeamWinLossRecord(89, 73)]
                         public static class AtlantaBraves { }
-                        [TeamWinLossRecord(61, 101)]
-                        public static class CincinnatiReds { }
-                        [TeamWinLossRecord(77, 85)]
-                        public static class HoustonAstros { }
                         [TeamWinLossRecord(88, 74)]
                         public static class LosAngelesDodgers { }
-                        [TeamWinLossRecord(81, 81)]
-                        public static class SanDiegoPadres { }
                         [TeamWinLossRecord(87, 75)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(81, 81)]
+                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(61, 101)]
+                        public static class CincinnatiReds { }
                     }
                 }
             }
@@ -516,41 +516,45 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        [TeamWinLossRecord(68, 93)]
-                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(97, 65)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class TampaBayRays { }
                         [TeamWinLossRecord(95, 67)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(89, 73)]
                         public static class NewYorkYankees { }
-                        [TeamWinLossRecord(97, 65)]
-                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
-                        public static class TampaBayRays { }
                         [TeamWinLossRecord(86, 76)]
                         public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(68, 93)]
+                        public static class BaltimoreOrioles { }
                     }
                     public static class Central
                     {
+                        /// <summary>
+                        /// tied with the Minnesota Twins at 88-74 and beat them 1-0 in the tiebreaker on September 30
+                        /// </summary>
                         [TeamWinLossRecord(89, 74)]
+                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
                         public static class ChicagoWhiteSox { }
-                        [TeamWinLossRecord(81, 81)]
-                        public static class ClevelandIndians { }
-                        [TeamWinLossRecord(74, 88)]
-                        public static class DetroitTigers { }
-                        [TeamWinLossRecord(75, 87)]
-                        public static class KansasCityRoyals { }
                         [TeamWinLossRecord(88, 75)]
                         public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(81, 81)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(75, 87)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(74, 88)]
+                        public static class DetroitTigers { }
                     }
                     public static class West
                     {
                         [TeamWinLossRecord(100, 62)]
                         public static class LosAngelesAngelsOfAnaheim { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class TexasRangers { }
                         [TeamWinLossRecord(75, 86)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(61, 101)]
                         public static class SeattleMariners { }
-                        [TeamWinLossRecord(79, 83)]
-                        public static class TexasRangers { }
                     }
                 }
             }
@@ -587,15 +591,15 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        [TeamWinLossRecord(72, 90)]
-                        public static class AtlantaBraves { }
-                        [TeamWinLossRecord(84, 77)]
-                        public static class FloridaMarlins { }
-                        [TeamWinLossRecord(89, 73)]
-                        public static class NewYorkMets { }
                         [TeamWinLossRecord(92, 70)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(89, 73)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(84, 77)]
+                        public static class FloridaMarlins { }
+                        [TeamWinLossRecord(72, 90)]
+                        public static class AtlantaBraves { }
                         [TeamWinLossRecord(59, 102)]
                         public static class WashingtonNationals { }
                     }
@@ -603,29 +607,29 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(97, 64)]
                         public static class ChicagoCubs { }
-                        [TeamWinLossRecord(74, 88)]
-                        public static class CincinnatiReds { }
-                        [TeamWinLossRecord(86, 75)]
-                        public static class HoustonAstros { }
                         [TeamWinLossRecord(90, 72)]
                         public static class MilwaukeeBrewers { }
-                        [TeamWinLossRecord(67, 95)]
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(86, 75)]
+                        public static class HoustonAstros { }
                         [TeamWinLossRecord(86, 76)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(74, 88)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(67, 95)]
+                        public static class PittsburghPirates { }
                     }
                     public static class West
                     {
+                        [TeamWinLossRecord(84, 78)]
+                        public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(82, 80)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(74, 88)]
                         public static class ColoradoRockies { }
-                        [TeamWinLossRecord(84, 78)]
-                        public static class LosAngelesDodgers { }
-                        [TeamWinLossRecord(63, 99)]
-                        public static class SanDiegoPadres { }
                         [TeamWinLossRecord(72, 90)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(63, 99)]
+                        public static class SanDiegoPadres { }
                     }
                 }
             }
@@ -763,41 +767,41 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(40, 20)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class TampaBayRays { }
+                        [TeamWinLossRecord(33, 27)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(32, 28)]
+                        public static class TorontoBlueJays { }
                         [TeamWinLossRecord(25, 35)]
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(24, 36)]
                         public static class BostonRedSox { }
-                        [TeamWinLossRecord(33, 27)]
-                        public static class NewYorkYankees { }
-                        [TeamWinLossRecord(40, 20)]
-                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
-                        public static class TampaBayRays { }
-                        [TeamWinLossRecord(32, 28)]
-                        public static class TorontoBlueJays { }
                     }
                     public static class Central
                     {
-                        [TeamWinLossRecord(35, 25)]
-                        public static class ChicagoWhiteSox { }
-                        [TeamWinLossRecord(35, 25)]
-                        public static class ClevelandIndians { }
-                        [TeamWinLossRecord(23, 35)]
-                        public static class DetroitTigers { }
-                        [TeamWinLossRecord(26, 34)]
-                        public static class KansasCityRoyals { }
                         [TeamWinLossRecord(36, 24)]
                         public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(35, 25)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(35, 25)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(26, 34)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(23, 35)]
+                        public static class DetroitTigers { }
                     }
                     public static class West
                     {
-                        [TeamWinLossRecord(29, 31)]
-                        public static class HoustonAstros { }
-                        [TeamWinLossRecord(26, 34)]
-                        public static class LosAngelesAngels { }
                         [TeamWinLossRecord(36, 24)]
                         public static class OaklandAthletics { }
+                        [TeamWinLossRecord(29, 31)]
+                        public static class HoustonAstros { }
                         [TeamWinLossRecord(27, 33)]
                         public static class SeattleMariners { }
+                        [TeamWinLossRecord(26, 34)]
+                        public static class LosAngelesAngels { }
                         [TeamWinLossRecord(22, 38)]
                         public static class TexasRangers { }
                     }
@@ -836,10 +840,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class AtlantaBraves { }
                         [TeamWinLossRecord(31, 29)]
                         public static class MiamiMarlins { }
-                        [TeamWinLossRecord(26, 34)]
-                        public static class NewYorkMets { }
                         [TeamWinLossRecord(28, 32)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(26, 34)]
+                        public static class NewYorkMets { }
                         [TeamWinLossRecord(26, 34)]
                         public static class WashingtonNationals { }
                     }
@@ -847,21 +851,17 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(34, 26)]
                         public static class ChicagoCubs { }
+                        [TeamWinLossRecord(30, 28)]
+                        public static class StLouisCardinals { }
                         [TeamWinLossRecord(31, 29)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(29, 31)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(19, 41)]
                         public static class PittsburghPirates { }
-                        [TeamWinLossRecord(30, 28)]
-                        public static class StLouisCardinals { }
                     }
                     public static class West
                     {
-                        [TeamWinLossRecord(25, 35)]
-                        public static class ArizonaDiamondbacks { }
-                        [TeamWinLossRecord(26, 34)]
-                        public static class ColoradoRockies { }
                         [TeamWinLossRecord(43, 17)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class LosAngelesDodgers { }
@@ -869,6 +869,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(29, 31)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(26, 34)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(25, 35)]
+                        public static class ArizonaDiamondbacks { }
                     }
                 }
             }
@@ -1062,64 +1066,64 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        [TeamWinLossRecord(79, 82)]
-                        [Manager((int)Managers.AlbernazCraig)]
-                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(98, 64)]
+                        [WorldSeries(TwoPlayerGameOutcome.Future)]
+                        [Manager((int)Managers.CashKevin)]
+                        public static class TampaBayRays { }
+                        [TeamWinLossRecord(93, 68)]
+                        [Manager((int)Managers.BooneAaron)]
+                        public static class NewYorkYankees { }
                         [TeamWinLossRecord(87, 75)]
                         [Manager((int)Managers.CoraAlex, 2020, 11, 6, 2026, 4, 25)]
                         [FiredManager((int)Managers.CoraAlex, 2026, 4, 25)]
                         [Manager((int)Managers.TracyChad, 2026, 4, 26)]
                         [InterimManager((int)Managers.TracyChad, 2026, 4, 26, 2026, 9, 22)]
                         public static class BostonRedSox { }
-                        [TeamWinLossRecord(93, 68)]
-                        [Manager((int)Managers.BooneAaron)]
-                        public static class NewYorkYankees { }
-                        [TeamWinLossRecord(98, 64)]
-                        [WorldSeries(TwoPlayerGameOutcome.Future)]
-                        [Manager((int)Managers.CashKevin)]
-                        public static class TampaBayRays { }
+                        [TeamWinLossRecord(79, 82)]
+                        [Manager((int)Managers.AlbernazCraig)]
+                        public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(79, 83)]
                         [Manager((int)Managers.SchneiderJohn)]
                         public static class TorontoBlueJays { }
                     }
                     public static class Central
                     {
-                        [TeamWinLossRecord(84, 78)]
-                        [Manager((int)Managers.VenableWill)]
-                        public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(85, 77)]
                         [Manager((int)Managers.VogtStephen)]
                         public static class ClevelandGuardians { }
+                        [TeamWinLossRecord(84, 78)]
+                        [Manager((int)Managers.VenableWill)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.SheltonDerek)]
+                        public static class MinnesotaTwins { }
                         [TeamWinLossRecord(76, 86)]
                         [Manager((int)Managers.HinchAJ)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(69, 93)]
                         [Manager((int)Managers.QuatraroMatt)]
                         public static class KansasCityRoyals { }
-                        [TeamWinLossRecord(77, 85)]
-                        [Manager((int)Managers.SheltonDerek)]
-                        public static class MinnesotaTwins { }
                     }
                     public static class West
                     {
-                        [TeamWinLossRecord(64, 98)]
-                        [Manager((int)Managers.KotsayMark)]
-                        public static class Athletics { }
                         [TeamWinLossRecord(81, 81)]
                         [Manager((int)Managers.EspadaJoe)]
                         [FiredManager((int)Managers.EspadaJoe, 2026, 10, 14, ManagerDismissalType.ContractNotRenewed)]
                         public static class HoustonAstros { }
-                        [TeamWinLossRecord(62, 100)]
-                        [Manager((int)Managers.SuzukiKurt)]
-                        [FiredManager((int)Managers.SuzukiKurt, 2026, 10, 21)]
-                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(80, 82)]
+                        [Manager((int)Managers.SchumakerSkip)]
+                        public static class TexasRangers { }
                         [TeamWinLossRecord(76, 86)]
                         [Manager((int)Managers.WilsonDan)]
                         [FiredManager((int)Managers.WilsonDan, 2026, 9, 27)]
                         public static class SeattleMariners { }
-                        [TeamWinLossRecord(80, 82)]
-                        [Manager((int)Managers.SchumakerSkip)]
-                        public static class TexasRangers { }
+                        [TeamWinLossRecord(64, 98)]
+                        [Manager((int)Managers.KotsayMark)]
+                        public static class Athletics { }
+                        [TeamWinLossRecord(62, 100)]
+                        [Manager((int)Managers.SuzukiKurt)]
+                        [FiredManager((int)Managers.SuzukiKurt, 2026, 10, 21)]
+                        public static class LosAngelesAngels { }
                     }
                 }
             }
@@ -1149,61 +1153,61 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(94, 68)]
                         [Manager((int)Managers.WeissWalt)]
                         public static class AtlantaBraves { }
-                        [TeamWinLossRecord(80, 82)]
-                        [Manager((int)Managers.McCulloughClayton)]
-                        public static class MiamiMarlins { }
-                        [TeamWinLossRecord(74, 88)]
-                        [Manager((int)Managers.MendozaCarlos, 2023, 11, 13, 2026, 6, 26)]
-                        [FiredManager((int)Managers.MendozaCarlos, 2026, 6, 26)]
-                        [Manager((int)Managers.GreenAndy, 2026, 6, 26)]
-                        [InterimManager((int)Managers.GreenAndy, 2026, 6, 26, 2026, 9, 22)]
-                        public static class NewYorkMets { }
                         [TeamWinLossRecord(88, 74)]
                         [Manager((int)Managers.ThomsonRob, 2022, 6, 3, 2026, 4, 28)]
                         [FiredManager((int)Managers.ThomsonRob, 2026, 4, 28)]
                         [Manager((int)Managers.MattinglyDon, 2026, 4, 28)]
                         [InterimManager((int)Managers.MattinglyDon, 2026, 4, 28, 2026, 10, 14)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(80, 82)]
+                        [Manager((int)Managers.McCulloughClayton)]
+                        public static class MiamiMarlins { }
                         [TeamWinLossRecord(77, 85)]
                         [Manager((int)Managers.ButeraBlake)]
                         public static class WashingtonNationals { }
+                        [TeamWinLossRecord(74, 88)]
+                        [Manager((int)Managers.MendozaCarlos, 2023, 11, 13, 2026, 6, 26)]
+                        [FiredManager((int)Managers.MendozaCarlos, 2026, 6, 26)]
+                        [Manager((int)Managers.GreenAndy, 2026, 6, 26)]
+                        [InterimManager((int)Managers.GreenAndy, 2026, 6, 26, 2026, 9, 22)]
+                        public static class NewYorkMets { }
                     }
                     public static class Central
                     {
-                        [TeamWinLossRecord(89, 73)]
-                        [Manager((int)Managers.CounsellCraig)]
-                        public static class ChicagoCubs { }
-                        [TeamWinLossRecord(75, 87)]
-                        [Manager((int)Managers.FranconaTerry)]
-                        public static class CincinnatiReds { }
                         [TeamWinLossRecord(103, 59)]
                         [WorldSeries(TwoPlayerGameOutcome.Future)]
                         [Manager((int)Managers.MurphyPat)]
                         public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(89, 73)]
+                        [Manager((int)Managers.CounsellCraig)]
+                        public static class ChicagoCubs { }
                         [TeamWinLossRecord(82, 80)]
                         [Manager((int)Managers.KellyDon)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(77, 85)]
                         [Manager((int)Managers.MarmolOliver)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(75, 87)]
+                        [Manager((int)Managers.FranconaTerry)]
+                        public static class CincinnatiReds { }
                     }
                     public static class West
                     {
-                        [TeamWinLossRecord(86, 76)]
-                        [Manager((int)Managers.LovulloTorey)]
-                        public static class ArizonaDiamondbacks { }
-                        [TeamWinLossRecord(58, 104)]
-                        [Manager((int)Managers.SchaefferWarren)]
-                        public static class ColoradoRockies { }
                         [TeamWinLossRecord(100, 62)]
                         [Manager((int)Managers.RobertsDave)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(91, 71)]
                         [Manager((int)Managers.StammenCraig)]
                         public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Manager((int)Managers.LovulloTorey)]
+                        public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(65, 97)]
                         [Manager((int)Managers.VitelloTony)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(58, 104)]
+                        [Manager((int)Managers.SchaefferWarren)]
+                        public static class ColoradoRockies { }
                     }
                 }
             }

@@ -227,6 +227,22 @@ namespace Existence.Earth.Sports
     }
 
     /// <summary>
+    /// the team won its division for the season. The division winner is implicitly the first team listed, so this is only
+    /// needed when that's ambiguous (e.g. a tie for the division); TiebreakerExplanation describes how the tie was broken
+    /// </summary>
+    public class DivisionWinnerAttribute : Attribute
+    {
+        public string? TiebreakerExplanation { get; set; }
+        public DivisionWinnerAttribute()
+        {
+        }
+        public DivisionWinnerAttribute(string TiebreakerExplanation)
+        {
+            this.TiebreakerExplanation = TiebreakerExplanation;
+        }
+    }
+
+    /// <summary>
     /// the maximum number of games in a series; the first team to win a majority of them wins the series
     /// </summary>
     public class BestOfAttribute : Attribute
