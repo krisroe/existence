@@ -412,52 +412,12 @@ namespace Existence.Earth.Countries.Israel.Politics
         public static class v25
         {
             /// <summary>
-            /// Knesset factions, plus parties whose lists fell below the electoral threshold
+            /// Knesset factions, plus parties whose lists fell below the electoral threshold. The prime minister's party
+            /// comes first, then the other parties in the initial coalition, then the parties outside it, with the Arab
+            /// parties last. Largest number of seats first within each group
             /// </summary>
             public enum PoliticalParties
             {
-                /// <summary>
-                /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
-                /// </summary>
-                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
-                [VotePercentage(2.91)]
-                [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
-                Balad,
-
-                /// <summary>
-                /// formerly National Unity, which New Hope split from in 2024. Joined the emergency war government after
-                /// the October 7 attack, and left it in June 2024
-                /// </summary>
-                [Zionist]
-                [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
-                [JointList((int)JointLists.NationalUnity)]
-                [NumberOfSeats(8)]
-                [SometimesInGovernment]
-                [GovernmentTenure(2023, 10, 12, 2024, 6, 9)]
-                BlueAndWhiteNationalUnity,
-
-                /// <summary>
-                /// joint faction of Hadash and Ta'al
-                /// </summary>
-                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
-                [NumberOfSeats(5)]
-                [JointList((int)JointLists.HadashTaal)]
-                [Opposition]
-                HadashTaal,
-
-                /// <summary>
-                /// approved a merger with Meretz into The Democrats in 2024, but its members still sit as Labor
-                /// </summary>
-                [Zionist]
-                [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GolanYair)]
-                [VotePercentage(3.69)]
-                [NumberOfSeats(4)]
-                [Opposition]
-                Labor,
-
                 /// <summary>
                 /// main Israeli conservative party
                 /// </summary>
@@ -472,33 +432,64 @@ namespace Existence.Earth.Countries.Israel.Politics
                 Likud,
 
                 /// <summary>
-                /// left-wing Zionist party that merged with Labor into The Democrats in 2024
+                /// Sephardi and Mizrahi Haredi party. Its ministers resigned from the government in July 2025 over the
+                /// failure to pass a draft exemption law for yeshiva students, but it stayed in the coalition
                 /// </summary>
                 [Zionist]
-                [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GalonZehava)]
-                [VotePercentage(3.16)]
-                [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
-                Meretz,
+                [ZionistType(ZionistTypes.Formal)]
+                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                [VotePercentage(8.25)]
+                [NumberOfSeats(11)]
+                [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
+                [GovernmentTenure(2022, 12, 29, 2025, 7, 17)]
+                [CoalitionOutsideGovernment(2025, 7, 17)]
+                [InGovernmentCoalitionAtNextElection]
+                Shas,
 
                 /// <summary>
-                /// ran on the National Unity list with Blue and White in 2022, then split into its own faction in 2024.
-                /// Merger into Likud agreed in 2025, but not approved by the Knesset House Committee. Joined the emergency
-                /// war government as part of National Unity, split from it on 2024-03-13, and left the government on
-                /// 2024-03-25 when Sa'ar was refused a seat in the war cabinet. Rejoined the government on its own
+                /// joint faction of Agudat Yisrael and Degel HaTorah. Left the government and the coalition in July 2025
+                /// over the failure to pass a draft exemption law for yeshiva students
+                /// </summary>
+                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                [NumberOfSeats(7)]
+                [JointList((int)JointLists.UnitedTorahJudaism)]
+                [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
+                [GovernmentTenure(2022, 12, 29, 2025, 7, 15)]
+                UnitedTorahJudaism,
+
+                /// <summary>
+                /// pro-settlement party
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.SaarGideon)]
-                [JointList((int)JointLists.NationalUnity)]
-                [NumberOfSeats(4)]
-                [SometimesInGovernment]
-                [GovernmentTenure(2023, 10, 12, 2024, 3, 25)]
-                [GovernmentTenure(2024, 9, 30)]
+                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [RoughJointListVotePercentage(5.42)]
+                [NumberOfSeats(7)]
+                [Government]
                 [InGovernmentCoalitionAtNextElection]
                 [InGovernmentExecutiveAtNextElection]
-                NewHope,
+                ReligiousZionistParty,
+
+                /// <summary>
+                /// ran on the Religious Zionist slate in 2022, then split into its own faction. Left the government over
+                /// the January 2025 Gaza ceasefire, and returned when the fighting resumed in March 2025
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [RoughJointListVotePercentage(4.65)]
+                [NumberOfSeats(6)]
+                [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
+                [GovernmentTenure(2022, 12, 29, 2025, 1, 19)]
+                [GovernmentTenure(2025, 3, 19)]
+                [InGovernmentCoalitionAtNextElection]
+                [InGovernmentExecutiveAtNextElection]
+                OtzmaYehudit,
 
                 /// <summary>
                 /// ran on the Religious Zionist slate in 2022, then split into its own faction. Maoz resigned as deputy
@@ -509,76 +500,14 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
+                [RoughJointListVotePercentage(0.77)]
                 [NumberOfSeats(1)]
                 [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
                 [GovernmentTenure(2022, 12, 29, 2023, 2, 28)]
                 [CoalitionOutsideGovernment(2023, 2, 28, 2023, 5, 25)]
                 [GovernmentTenure(2023, 5, 25, 2025, 3, 24)]
                 Noam,
-
-                /// <summary>
-                /// ran on the Religious Zionist slate in 2022, then split into its own faction. Left the government over
-                /// the January 2025 Gaza ceasefire, and returned when the fighting resumed in March 2025
-                /// </summary>
-                [Zionist]
-                [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
-                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
-                [NumberOfSeats(6)]
-                [SometimesInGovernment]
-                [GovernmentTenure(2022, 12, 29, 2025, 1, 19)]
-                [GovernmentTenure(2025, 3, 19)]
-                [InGovernmentCoalitionAtNextElection]
-                [InGovernmentExecutiveAtNextElection]
-                OtzmaYehudit,
-
-                /// <summary>
-                /// religious Zionist, pro-settlement party
-                /// </summary>
-                [Zionist]
-                [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
-                [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
-                [NumberOfSeats(7)]
-                [Government]
-                [InGovernmentCoalitionAtNextElection]
-                [InGovernmentExecutiveAtNextElection]
-                ReligiousZionistParty,
-
-                /// <summary>
-                /// Sephardi and Mizrahi Haredi party. Its ministers resigned from the government in July 2025 over the
-                /// failure to pass a draft exemption law for yeshiva students, but it stayed in the coalition
-                /// </summary>
-                [Zionist]
-                [ZionistType(ZionistTypes.Formal)]
-                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
-                [VotePercentage(8.25)]
-                [NumberOfSeats(11)]
-                [SometimesInGovernment]
-                [GovernmentTenure(2022, 12, 29, 2025, 7, 17)]
-                [CoalitionOutsideGovernment(2025, 7, 17)]
-                [InGovernmentCoalitionAtNextElection]
-                Shas,
-
-                /// <summary>
-                /// Ra'am
-                /// </summary>
-                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
-                [VotePercentage(4.07)]
-                [NumberOfSeats(5)]
-                [Opposition]
-                UnitedArabList,
-
-                /// <summary>
-                /// joint faction of Agudat Yisrael and Degel HaTorah. Left the government and the coalition in July 2025
-                /// over the failure to pass a draft exemption law for yeshiva students
-                /// </summary>
-                [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
-                [NumberOfSeats(7)]
-                [JointList((int)JointLists.UnitedTorahJudaism)]
-                [SometimesInGovernment]
-                [GovernmentTenure(2022, 12, 29, 2025, 7, 15)]
-                UnitedTorahJudaism,
 
                 /// <summary>
                 /// centrist, largest opposition party
@@ -592,6 +521,20 @@ namespace Existence.Earth.Countries.Israel.Politics
                 YeshAtid,
 
                 /// <summary>
+                /// formerly National Unity, which New Hope split from in 2024. Joined the emergency war government after
+                /// the October 7 attack, and left it in June 2024
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                [JointList((int)JointLists.NationalUnity)]
+                [RoughJointListVotePercentage(5.78)]
+                [NumberOfSeats(8)]
+                [SometimesInGovernment]
+                [GovernmentTenure(2023, 10, 12, 2024, 6, 9)]
+                BlueAndWhiteNationalUnity,
+
+                /// <summary>
                 /// secular right-wing party with a base among Russian-speaking immigrants
                 /// </summary>
                 [Zionist]
@@ -601,6 +544,74 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [NumberOfSeats(6)]
                 [Opposition]
                 YisraelBeiteinu,
+
+                /// <summary>
+                /// ran on the National Unity list with Blue and White in 2022, then split into its own faction in 2024.
+                /// Merger into Likud agreed in 2025, but not approved by the Knesset House Committee. Joined the emergency
+                /// war government as part of National Unity, split from it on 2024-03-13, and left the government on
+                /// 2024-03-25 when Sa'ar was refused a seat in the war cabinet. Rejoined the government on its own
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.SaarGideon)]
+                [JointList((int)JointLists.NationalUnity)]
+                [RoughJointListVotePercentage(3.30)]
+                [NumberOfSeats(4)]
+                [SometimesInGovernment]
+                [GovernmentTenure(2023, 10, 12, 2024, 3, 25)]
+                [GovernmentTenure(2024, 9, 30)]
+                [InGovernmentCoalitionAtNextElection]
+                [InGovernmentExecutiveAtNextElection]
+                NewHope,
+
+                /// <summary>
+                /// approved a merger with Meretz into The Democrats in 2024, but its members still sit as Labor
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                [VotePercentage(3.69)]
+                [NumberOfSeats(4)]
+                [Opposition]
+                Labor,
+
+                /// <summary>
+                /// left-wing Zionist party that merged with Labor into The Democrats in 2024
+                /// </summary>
+                [Zionist]
+                [ZionistType(ZionistTypes.Ideological)]
+                [PoliticalPartyLeader((int)Politicians.GalonZehava)]
+                [VotePercentage(3.16)]
+                [BelowElectoralThreshold]
+                [NumberOfSeats(0)]
+                Meretz,
+
+                /// <summary>
+                /// Ra'am
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                [VotePercentage(4.07)]
+                [NumberOfSeats(5)]
+                [Opposition]
+                UnitedArabList,
+
+                /// <summary>
+                /// joint faction of Hadash and Ta'al
+                /// </summary>
+                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
+                [NumberOfSeats(5)]
+                [JointList((int)JointLists.HadashTaal)]
+                [Opposition]
+                HadashTaal,
+
+                /// <summary>
+                /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
+                /// </summary>
+                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
+                [VotePercentage(2.91)]
+                [BelowElectoralThreshold]
+                [NumberOfSeats(0)]
+                Balad,
             }
 
             /// <summary>
@@ -614,8 +625,10 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
                 [JointList((int)JointLists.UnitedTorahJudaism)]
+                [RoughJointListVotePercentage(3.36)]
                 [NumberOfSeats(4)]
                 [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
                 [GovernmentTenure(2022, 12, 29, 2025, 7, 15)]
                 AgudatYisrael,
 
@@ -624,8 +637,10 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.GafniMoshe)]
                 [JointList((int)JointLists.UnitedTorahJudaism)]
+                [RoughJointListVotePercentage(2.52)]
                 [NumberOfSeats(3)]
                 [SometimesInGovernment]
+                [InGovernmentCoalitionAtStart]
                 [GovernmentTenure(2022, 12, 29, 2025, 7, 14)]
                 DegelHaTorah,
 
@@ -634,6 +649,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.OdehAyman)]
                 [JointList((int)JointLists.HadashTaal)]
+                [RoughJointListVotePercentage(2.81)]
                 [NumberOfSeats(4)]
                 [Opposition]
                 Hadash,
@@ -643,6 +659,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
                 [JointList((int)JointLists.HadashTaal)]
+                [RoughJointListVotePercentage(0.94)]
                 [NumberOfSeats(1)]
                 [Opposition]
                 Taal,
@@ -656,7 +673,9 @@ namespace Existence.Earth.Countries.Israel.Politics
             public enum JointLists
             {
                 /// <summary>
-                /// what remained of the Joint List after Balad and Ra'am ran separately. Still sits as one faction
+                /// what remained of the Joint List after Balad and Ra'am ran separately. Still sits as one faction. Its
+                /// leftover seat, 5th on the list, went to Youssef Atauna of Hadash, who gave it up in June 2025 to Ta'al's
+                /// Samir Bin Said under a rotation agreement
                 /// </summary>
                 [PoliticalParties((int)PoliticalParties.HadashTaal)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taal)]
@@ -666,7 +685,8 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 /// <summary>
                 /// Blue and White and New Hope, joined by Gadi Eisenkot and Yamina MKs Matan Kahana and Shirly Pinto.
-                /// New Hope split into its own faction in 2024
+                /// New Hope split into its own faction in 2024. Its leftover seat, 12th on the list, went to Alon Schuster
+                /// of Blue and White
                 /// </summary>
                 [PoliticalParties((int)PoliticalParties.BlueAndWhiteNationalUnity, (int)PoliticalParties.NewHope)]
                 [JointListVotePercentage(9.08)]

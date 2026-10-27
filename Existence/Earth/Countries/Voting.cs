@@ -90,6 +90,24 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// rough approximation of the percentage of the vote a political party on a joint list got, since votes are cast for
+    /// the joint list as a whole. Calculated as the party's number of seats divided by the joint list's number of seats,
+    /// times the joint list's JointListVotePercentage, rounded to two decimal places. Leftover seats are left out of both
+    /// seat counts, since a leftover seat goes to whichever party is next on the list rather than reflecting the votes
+    /// behind each party. e.g. a party with 3 of a joint list's 4 seats before leftover seats, on a joint list with 3.75%
+    /// of the vote, gets 3 / 4 * 3.75 = 2.81. Not a subclass of VotePercentageAttribute, so that approximations aren't
+    /// mixed in with actual results
+    /// </summary>
+    public class RoughJointListVotePercentageAttribute : Attribute
+    {
+        public decimal Percentage { get; set; }
+        public RoughJointListVotePercentageAttribute(double Percentage)
+        {
+            this.Percentage = (decimal)Percentage;
+        }
+    }
+
+    /// <summary>
     /// number of seats the political party won, either on its own list or as its share of a joint list's seats
     /// </summary>
     public class NumberOfSeatsAttribute : Attribute
@@ -262,6 +280,14 @@ namespace Existence.Earth.Countries
         {
             this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
         }
+    }
+
+    /// <summary>
+    /// the political party was in the governing coalition when the government was formed, but not for the parliament's
+    /// whole term. Parties in it for the whole term are Government instead
+    /// </summary>
+    public class InGovernmentCoalitionAtStartAttribute : Attribute
+    {
     }
 
     /// <summary>
