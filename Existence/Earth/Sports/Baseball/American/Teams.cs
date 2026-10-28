@@ -1093,26 +1093,41 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(108, 54)]
                         public static class BostonRedSox { }
+                        [TeamWinLossRecord(100, 62)]
                         public static class NewYorkYankees { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class TampaBayRays { }
+                        [TeamWinLossRecord(73, 89)]
                         public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(47, 115)]
+                        public static class BaltimoreOrioles { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(91, 71)]
                         public static class ClevelandIndians { }
-                        public static class DetroitTigers { }
-                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(78, 84)]
                         public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(64, 98)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(62, 100)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(58, 104)]
+                        public static class KansasCityRoyals { }
                     }
                     public static class West
                     {
+                        [TeamWinLossRecord(103, 59)]
                         public static class HoustonAstros { }
-                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(97, 65)]
                         public static class OaklandAthletics { }
+                        [TeamWinLossRecord(89, 73)]
                         public static class SeattleMariners { }
+                        [TeamWinLossRecord(80, 82)]
+                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(67, 95)]
                         public static class TexasRangers { }
                     }
                 }
@@ -1124,27 +1139,50 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(90, 72)]
                         public static class AtlantaBraves { }
-                        public static class MiamiMarlins { }
-                        public static class NewYorkMets { }
-                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(82, 80)]
                         public static class WashingtonNationals { }
+                        [TeamWinLossRecord(80, 82)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(63, 98)]
+                        public static class MiamiMarlins { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoCubs { }
-                        public static class CincinnatiReds { }
+                        /// <summary>
+                        /// tied with the Chicago Cubs at 95-67 and beat them 3-1 in the tiebreaker at Wrigley Field on October 1
+                        /// </summary>
+                        [TeamWinLossRecord(96, 67)]
+                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
                         public static class MilwaukeeBrewers { }
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(95, 68)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(88, 74)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(82, 79)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(67, 95)]
+                        public static class CincinnatiReds { }
                     }
                     public static class West
                     {
-                        public static class ArizonaDiamondbacks { }
-                        public static class ColoradoRockies { }
+                        /// <summary>
+                        /// tied with the Colorado Rockies at 91-71 and beat them 5-2 in the tiebreaker at Dodger Stadium on October 1
+                        /// </summary>
+                        [TeamWinLossRecord(92, 71)]
+                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
                         public static class LosAngelesDodgers { }
-                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(91, 72)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(82, 80)]
+                        public static class ArizonaDiamondbacks { }
+                        [TeamWinLossRecord(73, 89)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(66, 96)]
+                        public static class SanDiegoPadres { }
                     }
                 }
             }
