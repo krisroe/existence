@@ -56,7 +56,7 @@ namespace Existence.Tests
             int iDivisions = 0;
             foreach (Type season in GetSeasons())
             {
-                foreach (Type division in GetStandings(season))
+                foreach (Type division in asLeagues.SelectMany(s => GetStandings(season, s)))
                 {
                     List<Type> teams = GetTeams(division);
                     Assert.IsTrue(teams.Count > 0, $"{GetName(division)} has no teams");
@@ -75,9 +75,12 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates that for each season with division standings and a World Series, the World Series teams are the
-        /// only teams with a WorldSeries attribute, one from each league. The winner of a finished series has a Win and
-        /// the loser a Loss, and both have Future while the series is undecided
+        /// validates the WorldSeries attributes of each season with standings whose World Series has been filled in,
+        /// through a WorldSeries class with a BestOf attribute or through WorldSeries attributes on its teams. Exactly one
+        /// team in each league has a WorldSeries attribute, and in a split season each half's standings have it on the
+        /// same team with the same outcome. The two leagues' outcomes are a Win and a Loss once the series is decided or
+        /// Future for both while it's undecided. When the season has a WorldSeries class, the attributes must be on its
+        /// two teams and the Win on the team that won a majority of the games
         /// </summary>
         [TestMethod]
         public void ValidateWorldSeriesAttributes()
@@ -85,48 +88,101 @@ namespace Existence.Tests
             int iSeasons = 0;
             foreach (Type season in GetSeasons())
             {
+                (Type Team, TwoPlayerGameOutcome Outcome)? americanLeagueOutcome = GetWorldSeriesOutcome(season, "AmericanLeague");
+                (Type Team, TwoPlayerGameOutcome Outcome)? nationalLeagueOutcome = GetWorldSeriesOutcome(season, "NationalLeague");
                 Type? worldSeries = season.GetNestedType("WorldSeries");
                 BestOfAttribute? bestOf = worldSeries?.GetCustomAttribute<BestOfAttribute>();
-                if (worldSeries == null || bestOf == null) continue; // no World Series was played
-                List<Type> americanLeagueTeams = GetDivisions(season, "AmericanLeague").SelectMany(GetTeams).ToList();
-                List<Type> nationalLeagueTeams = GetDivisions(season, "NationalLeague").SelectMany(GetTeams).ToList();
-                if (americanLeagueTeams.Count == 0 && nationalLeagueTeams.Count == 0) continue; // no division standings
+                if (bestOf == null && americanLeagueOutcome == null && nationalLeagueOutcome == null) continue; // no World Series was played, or it hasn't been filled in
+                if (!GetStandings(season, "AmericanLeague").Any() && !GetStandings(season, "NationalLeague").Any()) continue; // no standings to put the attributes on
                 iSeasons++;
 
-                (MajorLeagueBaseballTeams Team, TwoPlayerGameOutcome Outcome) americanLeague = GetWorldSeriesOutcome(season, worldSeries, americanLeagueTeams, "AmericanLeagueTeam");
-                (MajorLeagueBaseballTeams Team, TwoPlayerGameOutcome Outcome) nationalLeague = GetWorldSeriesOutcome(season, worldSeries, nationalLeagueTeams, "NationalLeagueTeam");
-                MajorLeagueBaseballTeams? winner = GetWorldSeriesWinner(worldSeries, bestOf);
-                if (winner == null)
+                Assert.IsNotNull(americanLeagueOutcome, $"{season.Name} has no WorldSeries attribute in the American League");
+                Assert.IsNotNull(nationalLeagueOutcome, $"{season.Name} has no WorldSeries attribute in the National League");
+                (Type Team, TwoPlayerGameOutcome Outcome) americanLeague = americanLeagueOutcome.Value;
+                (Type Team, TwoPlayerGameOutcome Outcome) nationalLeague = nationalLeagueOutcome.Value;
+
+                if (worldSeries != null && bestOf != null)
                 {
-                    Assert.AreEqual(TwoPlayerGameOutcome.Future, americanLeague.Outcome, $"{season.Name} World Series is undecided but {americanLeague.Team} has a {americanLeague.Outcome} WorldSeries attribute");
-                    Assert.AreEqual(TwoPlayerGameOutcome.Future, nationalLeague.Outcome, $"{season.Name} World Series is undecided but {nationalLeague.Team} has a {nationalLeague.Outcome} WorldSeries attribute");
+                    AssertWorldSeriesTeam(season, worldSeries, "AmericanLeagueTeam", americanLeague.Team);
+                    AssertWorldSeriesTeam(season, worldSeries, "NationalLeagueTeam", nationalLeague.Team);
+                    MajorLeagueBaseballTeams? winner = GetWorldSeriesWinner(worldSeries, bestOf);
+                    if (winner == null)
+                    {
+                        Assert.AreEqual(TwoPlayerGameOutcome.Future, americanLeague.Outcome, $"{season.Name} World Series is undecided but {americanLeague.Team.Name} has a {americanLeague.Outcome} WorldSeries attribute");
+                        Assert.AreEqual(TwoPlayerGameOutcome.Future, nationalLeague.Outcome, $"{season.Name} World Series is undecided but {nationalLeague.Team.Name} has a {nationalLeague.Outcome} WorldSeries attribute");
+                    }
+                    else
+                    {
+                        Assert.AreEqual(americanLeague.Team.Name == winner.ToString() ? TwoPlayerGameOutcome.Win : TwoPlayerGameOutcome.Loss, americanLeague.Outcome, $"{season.Name} World Series was won by {winner} but {americanLeague.Team.Name} has a {americanLeague.Outcome} WorldSeries attribute");
+                        Assert.AreEqual(nationalLeague.Team.Name == winner.ToString() ? TwoPlayerGameOutcome.Win : TwoPlayerGameOutcome.Loss, nationalLeague.Outcome, $"{season.Name} World Series was won by {winner} but {nationalLeague.Team.Name} has a {nationalLeague.Outcome} WorldSeries attribute");
+                    }
                 }
                 else
                 {
-                    Assert.AreEqual(americanLeague.Team == winner ? TwoPlayerGameOutcome.Win : TwoPlayerGameOutcome.Loss, americanLeague.Outcome, $"{season.Name} World Series was won by {winner} but {americanLeague.Team} has a {americanLeague.Outcome} WorldSeries attribute");
-                    Assert.AreEqual(nationalLeague.Team == winner ? TwoPlayerGameOutcome.Win : TwoPlayerGameOutcome.Loss, nationalLeague.Outcome, $"{season.Name} World Series was won by {winner} but {nationalLeague.Team} has a {nationalLeague.Outcome} WorldSeries attribute");
+                    // without the games, the outcomes can only be checked against each other
+                    bool bDecided = (americanLeague.Outcome, nationalLeague.Outcome) is (TwoPlayerGameOutcome.Win, TwoPlayerGameOutcome.Loss) or (TwoPlayerGameOutcome.Loss, TwoPlayerGameOutcome.Win);
+                    bool bUndecided = (americanLeague.Outcome, nationalLeague.Outcome) is (TwoPlayerGameOutcome.Future, TwoPlayerGameOutcome.Future);
+                    Assert.IsTrue(bDecided || bUndecided, $"{season.Name} World Series teams {americanLeague.Team.Name} and {nationalLeague.Team.Name} have {americanLeague.Outcome} and {nationalLeague.Outcome} WorldSeries attributes instead of a Win and a Loss, or Future for both");
                 }
             }
-            Assert.IsTrue(iSeasons > 0, "no seasons with division standings and a World Series found");
+            Assert.IsTrue(iSeasons > 0, "no seasons with standings and a World Series found");
         }
 
         /// <summary>
-        /// gets the league's World Series team and its outcome, checking that it's the only team in the league's
-        /// divisions with a WorldSeries attribute
+        /// gets the league's team with a WorldSeries attribute and its outcome, or null if no team has one. The league
+        /// must have exactly one such team in its standings, and in a split season each half's standings must have the
+        /// attribute on the same team with the same outcome
         /// </summary>
-        private static (MajorLeagueBaseballTeams Team, TwoPlayerGameOutcome Outcome) GetWorldSeriesOutcome(Type season, Type worldSeries, List<Type> leagueTeams, string sWorldSeriesTeam)
+        private static (Type Team, TwoPlayerGameOutcome Outcome)? GetWorldSeriesOutcome(Type season, string sLeague)
+        {
+            var halves = GetSeasonHalves(season, sLeague)
+                .Select(h => (h.Name, Outcomes: h.Teams.SelectMany(t => t.GetCustomAttributes<WorldSeriesAttribute>().Select(a => (Team: t, a.Outcome))).ToList()))
+                .ToList();
+            if (halves.All(h => h.Outcomes.Count == 0)) return null;
+            foreach (var half in halves)
+            {
+                Assert.AreEqual(1, half.Outcomes.Count, $"{season.Name}.{sLeague}.{half.Name} has {half.Outcomes.Count} WorldSeries attributes instead of 1: {string.Join(", ", half.Outcomes.Select(o => GetName(o.Team)))}");
+            }
+            (Type Team, TwoPlayerGameOutcome Outcome) first = halves[0].Outcomes[0];
+            foreach (var half in halves.Skip(1))
+            {
+                (Type Team, TwoPlayerGameOutcome Outcome) outcome = half.Outcomes[0];
+                Assert.AreEqual(first.Team.Name, outcome.Team.Name, $"{season.Name}.{sLeague}.{half.Name} has its WorldSeries attribute on {outcome.Team.Name} instead of {first.Team.Name} as in {halves[0].Name}");
+                Assert.AreEqual(first.Outcome, outcome.Outcome, $"{season.Name}.{sLeague}.{half.Name} has a {outcome.Outcome} WorldSeries attribute on {outcome.Team.Name} instead of {first.Outcome} as in {halves[0].Name}");
+            }
+            return first;
+        }
+
+        /// <summary>
+        /// gets the league's teams for each part of the season with its own standings: the whole season, or each half of
+        /// a split season, whether or not the league had divisions
+        /// </summary>
+        private static List<(string Name, List<Type> Teams)> GetSeasonHalves(Type season, string sLeague)
+        {
+            var halves = new List<(string Name, List<Type> Teams)>();
+            foreach (string sDivisions in asDivisions)
+            {
+                List<Type> teams = GetDivisions(season, sLeague, sDivisions).SelectMany(GetTeams).ToList();
+                if (teams.Count > 0) halves.Add((sDivisions, teams));
+            }
+            foreach (string sLeagueStandings in asLeagueStandings)
+            {
+                Type? standings = season.GetNestedType(sLeague)?.GetNestedType(sLeagueStandings);
+                if (standings != null) halves.Add((sLeagueStandings, GetTeams(standings)));
+            }
+            return halves;
+        }
+
+        /// <summary>
+        /// checks that the team with the league's WorldSeries attribute is the WorldSeries class's team for the league
+        /// </summary>
+        private static void AssertWorldSeriesTeam(Type season, Type worldSeries, string sWorldSeriesTeam, Type team)
         {
             Type? worldSeriesTeam = worldSeries.GetNestedType(sWorldSeriesTeam);
             Assert.IsNotNull(worldSeriesTeam, $"{season.Name}.WorldSeries has no {sWorldSeriesTeam}");
-            MajorLeagueBaseballTeamAttribute? team = worldSeriesTeam.GetCustomAttribute<MajorLeagueBaseballTeamAttribute>();
-            Assert.IsNotNull(team, $"{season.Name}.WorldSeries.{sWorldSeriesTeam} has no MajorLeagueBaseballTeam attribute");
-
-            var outcomes = leagueTeams
-                .SelectMany(t => t.GetCustomAttributes<WorldSeriesAttribute>().Select(a => (Team: t, a.Outcome)))
-                .ToList();
-            Assert.AreEqual(1, outcomes.Count, $"{season.Name} has {outcomes.Count} WorldSeries attributes for {sWorldSeriesTeam}'s league instead of 1: {string.Join(", ", outcomes.Select(o => GetName(o.Team)))}");
-            Assert.AreEqual(team.Team.ToString(), outcomes[0].Team.Name, $"{season.Name} has a WorldSeries attribute on {outcomes[0].Team.Name} instead of the {sWorldSeriesTeam}, {team.Team}");
-            return (team.Team, outcomes[0].Outcome);
+            MajorLeagueBaseballTeamAttribute? teamAttribute = worldSeriesTeam.GetCustomAttribute<MajorLeagueBaseballTeamAttribute>();
+            Assert.IsNotNull(teamAttribute, $"{season.Name}.WorldSeries.{sWorldSeriesTeam} has no MajorLeagueBaseballTeam attribute");
+            Assert.AreEqual(teamAttribute.Team.ToString(), team.Name, $"{season.Name} has a WorldSeries attribute on {GetName(team)} instead of the {sWorldSeriesTeam}, {teamAttribute.Team}");
         }
 
         /// <summary>
@@ -153,19 +209,16 @@ namespace Existence.Tests
         /// gets every class whose nested classes are the teams of one set of standings: each division, and for a split
         /// season each half's divisions, or each half of the league itself when it had no divisions
         /// </summary>
-        private static IEnumerable<Type> GetStandings(Type season)
+        private static IEnumerable<Type> GetStandings(Type season, string sLeague)
         {
-            foreach (string sLeague in asLeagues)
+            foreach (Type division in asDivisions.SelectMany(s => GetDivisions(season, sLeague, s)))
             {
-                foreach (Type division in asDivisions.SelectMany(s => GetDivisions(season, sLeague, s)))
-                {
-                    yield return division;
-                }
-                foreach (string sLeagueStandings in asLeagueStandings)
-                {
-                    Type? standings = season.GetNestedType(sLeague)?.GetNestedType(sLeagueStandings);
-                    if (standings != null) yield return standings;
-                }
+                yield return division;
+            }
+            foreach (string sLeagueStandings in asLeagueStandings)
+            {
+                Type? standings = season.GetNestedType(sLeague)?.GetNestedType(sLeagueStandings);
+                if (standings != null) yield return standings;
             }
         }
 
