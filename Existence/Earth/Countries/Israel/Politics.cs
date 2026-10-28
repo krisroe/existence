@@ -415,7 +415,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
     /// <summary>
     /// parties that exist as independent things outside of the regular merging and joint listing that takes place
-    /// from one election to the next
+    /// from one election to the next. The franchises can be applied to parties and factions when not ambiguous.
     /// </summary>
     public enum PoliticalPartyFranchises
     {
@@ -464,7 +464,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Likud)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
                 [VotePercentage(23.41)]
                 [NumberOfSeats(32)]
@@ -640,9 +639,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [NumberOfSeats(0)]
                 TheJewishHome,
 
-                /// <summary>
-                /// Ra'am
-                /// </summary>
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [VotePercentage(4.07)]
@@ -662,7 +658,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
                 /// </summary>
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Balad)]
                 [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
                 [VotePercentage(2.91)]
                 [BelowElectoralThreshold]
@@ -703,7 +698,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of Hadash-Ta'al
                 /// </summary>
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Hadash)]
                 [PoliticalPartyLeader((int)Politicians.OdehAyman)]
                 [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(2.81)]
@@ -714,7 +708,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Arab Movement for Renewal, part of Hadash-Ta'al
                 /// </summary>
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Taʼal)]
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
                 [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(0.94)]
@@ -883,7 +876,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Likud)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
                 [NumberOfSeatsIPredicted(31)]
                 Likud,
@@ -939,9 +931,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [NumberOfSeatsIPredicted(11)]
                 Together,
 
-                /// <summary>
-                /// Ra'am
-                /// </summary>
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(0)]
@@ -987,7 +976,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// top candidate
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Balad)]
                 [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
                 Balad,
 
@@ -1009,7 +997,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of the Joint List
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Hadash)]
                 [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
                 Hadash,
 
@@ -1038,7 +1025,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Arab Movement for Renewal, part of the Joint List
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Taʼal)]
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
                 Taʼal,
 

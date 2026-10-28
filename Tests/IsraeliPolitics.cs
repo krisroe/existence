@@ -149,6 +149,33 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that PoliticalPartyFranchise attributes in each Knesset point to a franchise and are only applied
+        /// when the name of the party or faction doesn't match the franchise, since a matching name already implies it
+        /// </summary>
+        [TestMethod]
+        public void ValidatePoliticalPartyFranchisesOnlyWhenNameDiffers()
+        {
+            int iFranchises = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                foreach (Type enumType in knesset.GetNestedTypes().Where(t => t.IsEnum))
+                {
+                    foreach (FieldInfo field in enumType.GetFields(BindingFlags.Public | BindingFlags.Static))
+                    {
+                        PoliticalPartyFranchiseAttribute? franchise = field.GetCustomAttribute<PoliticalPartyFranchiseAttribute>();
+                        if (franchise == null) continue;
+                        iFranchises++;
+                        string sField = $"Knesset.{knesset.Name}.{enumType.Name}.{field.Name}";
+                        string? sFranchise = Enum.GetName(typeof(PoliticalPartyFranchises), franchise.PoliticalPartyFranchise);
+                        Assert.IsNotNull(sFranchise, $"{sField} has PoliticalPartyFranchise {franchise.PoliticalPartyFranchise}, which is not a value of PoliticalPartyFranchises");
+                        Assert.AreNotEqual(sFranchise, field.Name, $"{sField} has a PoliticalPartyFranchise attribute that matches its name");
+                    }
+                }
+            }
+            Assert.IsTrue(iFranchises > 0, "no PoliticalPartyFranchise attributes found");
+        }
+
+        /// <summary>
         /// gets the prime ministerial tenures in numeric order, with each tenure's full PrimeMinister attribute (null when
         /// the tenure only has acting or paper prime ministers) and its acting and paper prime minister attributes
         /// </summary>
