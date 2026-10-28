@@ -1737,27 +1737,46 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class BaltimoreOrioles { }
-                        public static class BostonRedSox { }
-                        public static class NewYorkYankees { }
-                        public static class TampaBayRays { }
+                        /// <summary>
+                        /// tied with the New York Yankees at 94-68 and won the season series against them 8-5
+                        /// </summary>
+                        [TeamWinLossRecord(94, 68)]
+                        [DivisionWinner("Won the head-to-head season series tiebreaker")]
                         public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(94, 68)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(89, 73)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class TampaBayRays { }
+                        [TeamWinLossRecord(75, 87)]
+                        public static class BaltimoreOrioles { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(88, 74)]
                         public static class ClevelandGuardians { }
+                        [TeamWinLossRecord(87, 75)]
                         public static class DetroitTigers { }
+                        [TeamWinLossRecord(82, 80)]
                         public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(70, 92)]
                         public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(60, 102)]
+                        public static class ChicagoWhiteSox { }
                     }
                     public static class West
                     {
-                        public static class Athletics { }
-                        public static class HoustonAstros { }
-                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class SeattleMariners { }
+                        [TeamWinLossRecord(87, 75)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(81, 81)]
                         public static class TexasRangers { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class Athletics { }
+                        [TeamWinLossRecord(72, 90)]
+                        public static class LosAngelesAngels { }
                     }
                 }
             }
@@ -1768,27 +1787,46 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class AtlantaBraves { }
-                        public static class MiamiMarlins { }
-                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(96, 66)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class MiamiMarlins { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(66, 96)]
                         public static class WashingtonNationals { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoCubs { }
-                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(97, 65)]
                         public static class MilwaukeeBrewers { }
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(92, 70)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(78, 84)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(71, 91)]
+                        public static class PittsburghPirates { }
                     }
                     public static class West
                     {
-                        public static class ArizonaDiamondbacks { }
-                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(93, 69)]
                         public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(81, 81)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(80, 82)]
+                        public static class ArizonaDiamondbacks { }
+                        /// <summary>
+                        /// The 2025 Rockies went 43-119, tied with the 2003 Tigers for the third-most losses by any team since
+                        /// 1900, after the 2024 White Sox (121) and the 1962 Mets (120).
+                        /// </summary>
+                        [TeamWinLossRecord(43, 119)]
+                        public static class ColoradoRockies { }
                     }
                 }
             }
