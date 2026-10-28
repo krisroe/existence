@@ -862,6 +862,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
                 [NumberOfSeatsIPredicted(0)]
+                [VotePercentage(1.49)]
                 AmchaYisrael,
 
                 /// <summary>
@@ -870,7 +871,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GantzBenny)]
-                [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeats(0)]
                 BlueAndWhite,
 
                 /// <summary>
@@ -879,6 +880,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [NumberOfSeatsIPredicted(9)]
+                [NumberOfSeats(12)]
+                [VotePercentage(9.28)]
                 JointList,
 
                 /// <summary>
@@ -888,18 +891,26 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
                 [NumberOfSeatsIPredicted(31)]
+                [NumberOfSeats(26)]
+                [VotePercentage(20.93)]
                 Likud,
 
+                /// <summary>
+                /// below Haredi Public and The Color Black
+                /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 [NumberOfSeatsIPredicted(0)]
+                [VotePercentage(0.13)]
                 Noam,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
                 [NumberOfSeatsIPredicted(9)]
+                [NumberOfSeats(7)]
+                [VotePercentage(5.60)]
                 OtzmaYehudit,
 
                 [Zionist]
@@ -907,6 +918,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
                 [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeats(6)]
+                [VotePercentage(4.33)]
                 ReligiousZionistPartyZehut,
 
                 [Zionist]
@@ -914,12 +927,16 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
                 [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeats(0)]
+                [VotePercentage(2.44)]
                 ReservistsNewEconomicParty,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
                 [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
                 [NumberOfSeatsIPredicted(7)]
+                [NumberOfSeats(7)]
+                [VotePercentage(5.36)]
                 Shas,
 
                 /// <summary>
@@ -929,6 +946,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GolanYair)]
                 [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeats(8)]
+                [VotePercentage(6.57)]
                 TheDemocrats,
 
                 /// <summary>
@@ -939,16 +958,22 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
                 [NumberOfSeatsIPredicted(11)]
+                [NumberOfSeats(12)]
+                [VotePercentage(9.08)]
                 Together,
 
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(4)]
+                [NumberOfSeats(7)]
+                [VotePercentage(9.08)]
                 UnitedArabList,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
                 [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeats(7)]
+                [VotePercentage(5.75)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -959,12 +984,16 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
                 [NumberOfSeatsIPredicted(21)]
+                [NumberOfSeats(21)]
+                [VotePercentage(16.34)]
                 Yashar,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
                 [NumberOfSeatsIPredicted(10)]
+                [NumberOfSeats(7)]
+                [VotePercentage(6.01)]
                 YisraelBeiteinu,
             }
 
