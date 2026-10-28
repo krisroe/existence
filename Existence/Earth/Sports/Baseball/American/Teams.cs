@@ -221,6 +221,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
     public static class MajorLeagueBaseball
     {
+        /// <summary>
+        /// DivisionWinner tiebreaker explanations
+        /// </summary>
+        public const string ONE_GAME_TIEBREAKER = "Won a one-game tiebreaker which counted as a regular season game";
+        public const string HEAD_TO_HEAD_SEASON_SERIES_TIEBREAKER = "Won the head-to-head season series tiebreaker";
+
         public static class v1892
         {
             public static class NationalLeague
@@ -793,7 +799,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// tied with the Minnesota Twins at 88-74 and beat them 1-0 in the tiebreaker on September 30
                         /// </summary>
                         [TeamWinLossRecord(89, 74)]
-                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
+                        [DivisionWinner(ONE_GAME_TIEBREAKER)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(88, 75)]
                         public static class MinnesotaTwins { }
@@ -1156,7 +1162,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// tied with the Chicago Cubs at 95-67 and beat them 3-1 in the tiebreaker at Wrigley Field on October 1
                         /// </summary>
                         [TeamWinLossRecord(96, 67)]
-                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
+                        [DivisionWinner(ONE_GAME_TIEBREAKER)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(95, 68)]
                         public static class ChicagoCubs { }
@@ -1173,7 +1179,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// tied with the Colorado Rockies at 91-71 and beat them 5-2 in the tiebreaker at Dodger Stadium on October 1
                         /// </summary>
                         [TeamWinLossRecord(92, 71)]
-                        [DivisionWinner("Won a one-game tiebreaker which counted as a regular season game")]
+                        [DivisionWinner(ONE_GAME_TIEBREAKER)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(91, 72)]
                         public static class ColoradoRockies { }
@@ -1570,7 +1576,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// tied with the Texas Rangers at 90-72 and won the season series against them 9-4
                         /// </summary>
                         [TeamWinLossRecord(90, 72)]
-                        [DivisionWinner("Won the head-to-head season series tiebreaker")]
+                        [DivisionWinner(HEAD_TO_HEAD_SEASON_SERIES_TIEBREAKER)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(90, 72)]
                         public static class TexasRangers { }
@@ -1741,7 +1747,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// tied with the New York Yankees at 94-68 and won the season series against them 8-5
                         /// </summary>
                         [TeamWinLossRecord(94, 68)]
-                        [DivisionWinner("Won the head-to-head season series tiebreaker")]
+                        [DivisionWinner(HEAD_TO_HEAD_SEASON_SERIES_TIEBREAKER)]
                         public static class TorontoBlueJays { }
                         [TeamWinLossRecord(94, 68)]
                         public static class NewYorkYankees { }
