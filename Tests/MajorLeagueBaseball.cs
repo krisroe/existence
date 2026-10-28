@@ -26,6 +26,10 @@ namespace Existence.Tests
         /// </summary>
         private static readonly string[] asLeagueStandings = { "SplitSeason1", "SplitSeason2" };
         private static readonly string[] asLeagues = { "AmericanLeague", "NationalLeague" };
+        /// <summary>
+        /// the latest date the bet with my father's second oldest brother could have been made
+        /// </summary>
+        private static readonly DateTime dtBet = new DateTime(1994, 12, 31);
 
         /// <summary>
         /// validates that every playoff series standing lists first the team with the same or more wins
@@ -175,6 +179,89 @@ namespace Existence.Tests
                 }
             }
             Assert.IsTrue(iSeasons > 0, "no seasons with filled-in records found");
+        }
+
+        /// <summary>
+        /// verifies the bet I made with my father's second oldest brother: that the Milwaukee Brewers would not win their
+        /// division within 15 years and would not get to the World Series within 30 years. The bet was probably made a
+        /// couple of years before 1994, but 1994 is what I remember, so it's taken as made on 1994-12-31, the latest it
+        /// could have been, giving deadlines of 2009-12-31 and 2024-12-31. Each season, postseason included, is over
+        /// before the end of its year, so the windows run through the 2009 and 2024 seasons. They're read as strictly as
+        /// possible by also including the 1994 season, though it ended before the bet.
+        ///
+        /// After 1982, the Brewers next won their division in 2011 and next reached the World Series in 2026, so the bet
+        /// was won, but this only checks the seasons that have been filled in. To prove it, these seasons in the windows
+        /// would also need their standings (or at least their division winners) and their World Series teams filled in:
+        /// - 1994 (only its canceled World Series is filled in) through 2007, and 2009, for the division
+        /// - those, plus 2010, 2012 through 2017, 2019, and 2022, for the World Series
+        /// The test would then also need to check that every season in the windows is filled in
+        /// </summary>
+        [TestMethod]
+        public void VerifyIWonMyBetWithMyFathersSecondOldestBrother()
+        {
+            int iFirstSeason = dtBet.Year;
+            int iDivisionWindowLastSeason = dtBet.AddYears(15).Year;
+            int iWorldSeriesWindowLastSeason = dtBet.AddYears(30).Year;
+            Assert.AreEqual(2009, iDivisionWindowLastSeason);
+            Assert.AreEqual(2024, iWorldSeriesWindowLastSeason);
+            MajorLeagueBaseballTeams brewers = MajorLeagueBaseballTeams.MilwaukeeBrewers;
+
+            // a filled-in season in the division window can only count if all of its division winners are known
+            foreach (Type season in GetSeasons().Where(s => GetSeasonYear(s) >= iFirstSeason && GetSeasonYear(s) <= iDivisionWindowLastSeason))
+            {
+                foreach (Type standings in asLeagues.SelectMany(s => GetStandings(season, s)))
+                {
+                    Assert.IsNotNull(GetTeams(standings).FirstOrDefault()?.GetCustomAttribute<TeamWinLossRecordAttribute>(), $"{GetName(standings)} has no records, so its division winner isn't known");
+                }
+            }
+
+            List<int> divisionWinningSeasons = GetDivisionWinningSeasons(brewers);
+            List<int> worldSeriesSeasons = GetWorldSeriesSeasons(brewers);
+            // makes sure the checks find the Brewers' titles outside the windows, so they can't pass by finding nothing
+            CollectionAssert.Contains(divisionWinningSeasons, 1982, "the Brewers' 1982 division title wasn't found");
+            CollectionAssert.Contains(divisionWinningSeasons, 2011, "the Brewers' 2011 division title wasn't found");
+            CollectionAssert.Contains(worldSeriesSeasons, 1982, "the Brewers' 1982 World Series wasn't found");
+
+            List<int> lostDivisionSeasons = divisionWinningSeasons.Where(y => y >= iFirstSeason && y <= iDivisionWindowLastSeason).ToList();
+            Assert.AreEqual(0, lostDivisionSeasons.Count, $"the Brewers won their division within 15 years of the bet, in {string.Join(", ", lostDivisionSeasons)}");
+            List<int> lostWorldSeriesSeasons = worldSeriesSeasons.Where(y => y >= iFirstSeason && y <= iWorldSeriesWindowLastSeason).ToList();
+            Assert.AreEqual(0, lostWorldSeriesSeasons.Count, $"the Brewers got to the World Series within 30 years of the bet, in {string.Join(", ", lostWorldSeriesSeasons)}");
+        }
+
+        /// <summary>
+        /// gets the seasons in which the team won a division, or a half of a split season, as the first team listed in
+        /// standings with records
+        /// </summary>
+        private static List<int> GetDivisionWinningSeasons(MajorLeagueBaseballTeams team)
+        {
+            return GetSeasons()
+                .Where(season => asLeagues
+                    .SelectMany(s => GetStandings(season, s))
+                    .Select(standings => GetTeams(standings).FirstOrDefault())
+                    .Any(t => t != null && t.Name == team.ToString() && t.GetCustomAttribute<TeamWinLossRecordAttribute>() != null))
+                .Select(GetSeasonYear)
+                .Distinct()
+                .ToList();
+        }
+
+        /// <summary>
+        /// gets the seasons in which the team got to the World Series, whether through a WorldSeries attribute in the
+        /// standings (including a series still to be decided) or as one of the WorldSeries class's teams
+        /// </summary>
+        private static List<int> GetWorldSeriesSeasons(MajorLeagueBaseballTeams team)
+        {
+            return GetSeasons()
+                .Where(season =>
+                    asLeagues.SelectMany(s => GetStandings(season, s)).SelectMany(GetTeams).Any(t => t.Name == team.ToString() && t.GetCustomAttribute<WorldSeriesAttribute>() != null) ||
+                    new[] { "AmericanLeagueTeam", "NationalLeagueTeam" }.Any(s => season.GetNestedType("WorldSeries")?.GetNestedType(s)?.GetCustomAttribute<MajorLeagueBaseballTeamAttribute>()?.Team == team))
+                .Select(GetSeasonYear)
+                .Distinct()
+                .ToList();
+        }
+
+        private static int GetSeasonYear(Type season)
+        {
+            return int.Parse(season.Name.Substring(1));
         }
 
         /// <summary>

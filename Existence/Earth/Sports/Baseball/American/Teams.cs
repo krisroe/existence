@@ -2223,7 +2223,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
                 [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.TampaBayRays, 1, MajorLeagueBaseballTeams.MilwaukeeBrewers, 0, BaseballHalfInningEndingPoint.OneThird)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.TampaBayRays, 2, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2, BaseballHalfInningEndingPoint.Halfway)]
                 public static class Game4 { }
             }
         }
