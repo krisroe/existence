@@ -38,6 +38,19 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the long-lived party a political party or faction in a particular election belongs to, independent of the
+    /// merging and joint listing that takes place from one election to the next
+    /// </summary>
+    public class PoliticalPartyFranchiseAttribute : Attribute
+    {
+        public int PoliticalPartyFranchise { get; set; }
+        public PoliticalPartyFranchiseAttribute(int PoliticalPartyFranchise)
+        {
+            this.PoliticalPartyFranchise = PoliticalPartyFranchise;
+        }
+    }
+
+    /// <summary>
     /// the joint list the political party ran on with other parties
     /// </summary>
     public class JointListAttribute : Attribute
