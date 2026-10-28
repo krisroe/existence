@@ -2223,7 +2223,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
                 [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2, BaseballHalfInningEndingPoint.AfterTwelfthTop)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, "Winning run scored in the bottom of the twelfth inning with no outs")]
                 public static class Game4 { }
             }
         }
