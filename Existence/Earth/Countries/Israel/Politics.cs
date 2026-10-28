@@ -435,7 +435,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         Likud,
 
         /// <summary>
-        /// religious Zionist, socially conservative and focused on opposing LGBT rights
+        /// religious Zionist (Hardal), focused on Jewish identity and the traditional family, and opposed to LGBT rights
         /// </summary>
         Noam,
 
