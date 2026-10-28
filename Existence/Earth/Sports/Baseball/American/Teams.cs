@@ -1445,26 +1445,41 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class BaltimoreOrioles { }
-                        public static class BostonRedSox { }
-                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(100, 62)]
                         public static class TampaBayRays { }
+                        [TeamWinLossRecord(92, 70)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(92, 70)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(91, 71)]
                         public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(52, 110)]
+                        public static class BaltimoreOrioles { }
                     }
                     public static class Central
                     {
+                        [TeamWinLossRecord(93, 69)]
                         public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(80, 82)]
                         public static class ClevelandIndians { }
+                        [TeamWinLossRecord(77, 85)]
                         public static class DetroitTigers { }
+                        [TeamWinLossRecord(74, 88)]
                         public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(73, 89)]
                         public static class MinnesotaTwins { }
                     }
                     public static class West
                     {
+                        [TeamWinLossRecord(95, 67)]
                         public static class HoustonAstros { }
-                        public static class LosAngelesAngels { }
-                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class SeattleMariners { }
+                        [TeamWinLossRecord(86, 76)]
+                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(60, 102)]
                         public static class TexasRangers { }
                     }
                 }
@@ -1476,27 +1491,42 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(88, 73)]
                         public static class AtlantaBraves { }
-                        public static class MiamiMarlins { }
-                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(82, 80)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(67, 95)]
+                        public static class MiamiMarlins { }
+                        [TeamWinLossRecord(65, 97)]
                         public static class WashingtonNationals { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoCubs { }
-                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(95, 67)]
                         public static class MilwaukeeBrewers { }
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(71, 91)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(61, 101)]
+                        public static class PittsburghPirates { }
                     }
                     public static class West
                     {
-                        public static class ArizonaDiamondbacks { }
-                        public static class ColoradoRockies { }
-                        public static class LosAngelesDodgers { }
-                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(107, 55)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(106, 56)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(74, 87)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(52, 110)]
+                        public static class ArizonaDiamondbacks { }
                     }
                 }
             }
