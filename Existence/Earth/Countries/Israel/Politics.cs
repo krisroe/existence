@@ -1024,7 +1024,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
                 [PoliticalParties((int)PoliticalParties.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
-                [JointListNumberOfSeatsIPredicted(4)]
+                [JointListNumberOfSeatsIPredicted(9)]
                 JointList,
 
                 [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
