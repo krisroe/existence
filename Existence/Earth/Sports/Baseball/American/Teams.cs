@@ -1540,27 +1540,46 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(101, 61)]
                         public static class BaltimoreOrioles { }
-                        public static class BostonRedSox { }
-                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(99, 63)]
                         public static class TampaBayRays { }
+                        [TeamWinLossRecord(89, 73)]
                         public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(82, 80)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(78, 84)]
+                        public static class BostonRedSox { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoWhiteSox { }
-                        public static class ClevelandGuardians { }
-                        public static class DetroitTigers { }
-                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(87, 75)]
                         public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(78, 84)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class ClevelandGuardians { }
+                        [TeamWinLossRecord(61, 101)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(56, 106)]
+                        public static class KansasCityRoyals { }
                     }
                     public static class West
                     {
+                        /// <summary>
+                        /// tied with the Texas Rangers at 90-72 and won the season series against them 9-4
+                        /// </summary>
+                        [TeamWinLossRecord(90, 72)]
+                        [DivisionWinner("Won the head-to-head season series tiebreaker")]
                         public static class HoustonAstros { }
-                        public static class LosAngelesAngels { }
-                        public static class OaklandAthletics { }
-                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class TexasRangers { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(73, 89)]
+                        public static class LosAngelesAngels { }
+                        [TeamWinLossRecord(50, 112)]
+                        public static class OaklandAthletics { }
                     }
                 }
             }
@@ -1571,27 +1590,42 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
+                        [TeamWinLossRecord(104, 58)]
                         public static class AtlantaBraves { }
-                        public static class MiamiMarlins { }
-                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(90, 72)]
                         public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(84, 78)]
+                        public static class MiamiMarlins { }
+                        [TeamWinLossRecord(75, 87)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(71, 91)]
                         public static class WashingtonNationals { }
                     }
                     public static class Central
                     {
-                        public static class ChicagoCubs { }
-                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(92, 70)]
                         public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(82, 80)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(76, 86)]
                         public static class PittsburghPirates { }
+                        [TeamWinLossRecord(71, 91)]
                         public static class StLouisCardinals { }
                     }
                     public static class West
                     {
-                        public static class ArizonaDiamondbacks { }
-                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(100, 62)]
                         public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(84, 78)]
+                        public static class ArizonaDiamondbacks { }
+                        [TeamWinLossRecord(82, 80)]
                         public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(79, 83)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(59, 103)]
+                        public static class ColoradoRockies { }
                     }
                 }
             }
