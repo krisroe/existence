@@ -159,18 +159,26 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
 
+    /// <summary>
+    /// the final score of a game; ResultExplanation can describe anything notable about how the result came about
+    /// </summary>
     public class MajorLeagueBaseballGameResultAttribute : Attribute
     {
         public MajorLeagueBaseballTeams WinningTeam { get; set; }
         public int WinningTeamRuns { get; set; }
         public MajorLeagueBaseballTeams LosingTeam { get; set; }
         public int LosingTeamRuns { get; set; }
+        public string? ResultExplanation { get; set; }
         public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns)
         {
             this.WinningTeam = WinningTeam;
             this.WinningTeamRuns = WinningTeamRuns;
             this.LosingTeam = LosingTeam;
             this.LosingTeamRuns = LosingTeamRuns;
+        }
+        public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string ResultExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        {
+            this.ResultExplanation = ResultExplanation;
         }
     }
 
