@@ -129,6 +129,73 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates the WorstRecordInLeague attributes of each season whose records are filled in. The teams with the
+        /// worst full-season winning percentage in all of Major League Baseball, including ties, have MajorLeagueBaseball,
+        /// and otherwise the teams with the worst in their league have that league; no other team has the attribute. In a
+        /// split season the full-season record is the sum of the halves, and each half's entry for a team has the same
+        /// attribute
+        /// </summary>
+        [TestMethod]
+        public void ValidateWorstRecordInLeague()
+        {
+            int iSeasons = 0;
+            foreach (Type season in GetSeasons())
+            {
+                var leagueRecords = new Dictionary<MajorLeagueBaseballLeagues, Dictionary<string, (int Wins, int Losses)>>();
+                bool bComplete = true;
+                foreach (string sLeague in asLeagues)
+                {
+                    var records = new Dictionary<string, (int Wins, int Losses)>();
+                    foreach (Type team in GetSeasonHalves(season, sLeague).SelectMany(h => h.Teams))
+                    {
+                        TeamWinLossRecordAttribute? record = team.GetCustomAttribute<TeamWinLossRecordAttribute>();
+                        if (record == null)
+                        {
+                            bComplete = false;
+                            break;
+                        }
+                        records.TryGetValue(team.Name, out (int Wins, int Losses) total);
+                        records[team.Name] = (total.Wins + record.Wins, total.Losses + record.Losses);
+                    }
+                    if (records.Count > 0) leagueRecords[Enum.Parse<MajorLeagueBaseballLeagues>(sLeague)] = records;
+                }
+                if (!bComplete || leagueRecords.Count == 0) continue; // records haven't been filled in
+                iSeasons++;
+
+                HashSet<string> majorLeagueWorst = GetWorstRecords(leagueRecords.Values.SelectMany(r => r));
+                foreach (var league in leagueRecords)
+                {
+                    HashSet<string> leagueWorst = GetWorstRecords(league.Value);
+                    foreach (Type team in GetSeasonHalves(season, league.Key.ToString()).SelectMany(h => h.Teams))
+                    {
+                        MajorLeagueBaseballLeagues? expected = majorLeagueWorst.Contains(team.Name) ? MajorLeagueBaseballLeagues.MajorLeagueBaseball : leagueWorst.Contains(team.Name) ? league.Key : null;
+                        MajorLeagueBaseballLeagues? actual = team.GetCustomAttribute<WorstRecordInLeagueAttribute>()?.League;
+                        Assert.AreEqual(expected, actual, $"{GetName(team)} has WorstRecordInLeague {actual?.ToString() ?? "(none)"} instead of {expected?.ToString() ?? "(none)"}");
+                    }
+                }
+            }
+            Assert.IsTrue(iSeasons > 0, "no seasons with filled-in records found");
+        }
+
+        /// <summary>
+        /// gets the names of the teams with the worst winning percentage, including ties
+        /// </summary>
+        private static HashSet<string> GetWorstRecords(IEnumerable<KeyValuePair<string, (int Wins, int Losses)>> records)
+        {
+            List<KeyValuePair<string, (int Wins, int Losses)>> list = records.ToList();
+            (int Wins, int Losses) worst = list[0].Value;
+            // compares winning percentages without division
+            foreach (var record in list)
+            {
+                if (record.Value.Wins * (worst.Wins + worst.Losses) < worst.Wins * (record.Value.Wins + record.Value.Losses)) worst = record.Value;
+            }
+            return list
+                .Where(r => r.Value.Wins * (worst.Wins + worst.Losses) == worst.Wins * (r.Value.Wins + r.Value.Losses))
+                .Select(r => r.Key)
+                .ToHashSet();
+        }
+
+        /// <summary>
         /// gets the league's team with a WorldSeries attribute and its outcome, or null if no team has one. The league
         /// must have exactly one such team in its standings, and in a split season each half's standings must have the
         /// attribute on the same team with the same outcome

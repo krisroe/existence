@@ -75,6 +75,30 @@ namespace Existence.Earth.Sports.Baseball.American
         }
     }
 
+    public enum MajorLeagueBaseballLeagues
+    {
+        AmericanLeague,
+        NationalLeague,
+        /// <summary>
+        /// all of the major leagues together
+        /// </summary>
+        MajorLeagueBaseball,
+    }
+
+    /// <summary>
+    /// the team had the worst full-season record in its league, or in all of Major League Baseball, which also covers
+    /// its league. Teams tied for the worst record each get the attribute, and in a split season it goes on the team in
+    /// each half's standings
+    /// </summary>
+    public class WorstRecordInLeagueAttribute : Attribute
+    {
+        public MajorLeagueBaseballLeagues League { get; set; }
+        public WorstRecordInLeagueAttribute(MajorLeagueBaseballLeagues League)
+        {
+            this.League = League;
+        }
+    }
+
     /// <summary>
     /// the manager can come from different enums (e.g. a season's Managers), so it's stored as an int;
     /// a team with more than one manager in a season gets one attribute per manager with the date range of their
@@ -267,6 +291,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [TeamWinLossRecord(30, 47)]
                     public static class LouisvilleColonels { }
                     [TeamWinLossRecord(20, 55)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                     public static class BaltimoreOrioles { }
                 }
 
@@ -294,6 +319,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [TeamWinLossRecord(33, 42)]
                     public static class LouisvilleColonels { }
                     [TeamWinLossRecord(26, 46)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                     public static class BaltimoreOrioles { }
                     [TeamWinLossRecord(25, 52)]
                     public static class StLouisBrowns { }
@@ -358,6 +384,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(26, 24)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(16, 42)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class TorontoBlueJays { }
                     }
                     public static class West
@@ -400,6 +427,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(21, 27)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class TorontoBlueJays { }
                     }
                     public static class West
@@ -446,6 +474,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(17, 34)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(15, 37)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class ChicagoCubs { }
                     }
                     public static class West
@@ -482,6 +511,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(24, 28)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(23, 28)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(21, 33)]
                         public static class PittsburghPirates { }
@@ -580,6 +610,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(64, 98)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(60, 102)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class MinnesotaTwins { }
                     }
                 }
@@ -639,6 +670,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(77, 85)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(61, 101)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class CincinnatiReds { }
                     }
                 }
@@ -831,6 +863,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(75, 86)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(61, 101)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
                         public static class SeattleMariners { }
                     }
                 }
@@ -878,6 +911,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(72, 90)]
                         public static class AtlantaBraves { }
                         [TeamWinLossRecord(59, 102)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class WashingtonNationals { }
                     }
                     public static class Central
@@ -1035,6 +1069,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(71, 91)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(63, 99)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
                         public static class MinnesotaTwins { }
                     }
                     public static class West
@@ -1083,6 +1118,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(71, 91)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(56, 106)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class HoustonAstros { }
                     }
                     public static class West
@@ -1120,6 +1156,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(73, 89)]
                         public static class TorontoBlueJays { }
                         [TeamWinLossRecord(47, 115)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class BaltimoreOrioles { }
                     }
                     public static class Central
@@ -1166,6 +1203,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(77, 85)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(63, 98)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class MiamiMarlins { }
                     }
                     public static class Central
@@ -1279,6 +1317,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(26, 34)]
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(22, 38)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
                         public static class TexasRangers { }
                     }
                 }
@@ -1334,6 +1373,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(29, 31)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(19, 41)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class PittsburghPirates { }
                     }
                     public static class West
@@ -1473,6 +1513,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(91, 71)]
                         public static class TorontoBlueJays { }
                         [TeamWinLossRecord(52, 110)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class BaltimoreOrioles { }
                     }
                     public static class Central
@@ -1547,6 +1588,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(74, 87)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(52, 110)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class ArizonaDiamondbacks { }
                     }
                 }
@@ -1601,6 +1643,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(73, 89)]
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(50, 112)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class OaklandAthletics { }
                     }
                 }
@@ -1648,6 +1691,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(79, 83)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(59, 103)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -1688,6 +1732,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// The 2024 White Sox went 41-121, the most losses by any team since 1900.
                         /// </summary>
                         [TeamWinLossRecord(41, 121)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class ChicagoWhiteSox { }
                     }
                     public static class West
@@ -1748,6 +1793,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(80, 82)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(61, 101)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -1789,6 +1835,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(70, 92)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(60, 102)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
                         public static class ChicagoWhiteSox { }
                     }
                     public static class West
@@ -1853,6 +1900,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// 1900, after the 2024 White Sox (121) and the 1962 Mets (120).
                         /// </summary>
                         [TeamWinLossRecord(43, 119)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -2000,6 +2048,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Manager((int)Managers.KotsayMark)]
                         public static class Athletics { }
                         [TeamWinLossRecord(62, 100)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
                         [Manager((int)Managers.SuzukiKurt)]
                         [FiredManager((int)Managers.SuzukiKurt, 2026, 10, 21)]
                         public static class LosAngelesAngels { }
@@ -2085,6 +2134,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Manager((int)Managers.VitelloTony)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(58, 104)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         [Manager((int)Managers.SchaefferWarren)]
                         public static class ColoradoRockies { }
                     }
