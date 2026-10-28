@@ -12,6 +12,10 @@ namespace Existence.Earth.Sports.Baseball.American
         AfterSecondBottom = 4,
         AfterThirdTop = 5,
         AfterThirdBottom = 6,
+        /// <summary>
+        /// one third of the way through a regular nine inning game (6 of 18 half innings)
+        /// </summary>
+        OneThird = 6,
         AfterFourthTop = 7,
         AfterFourthBottom = 8,
         AfterFifthTop = 9,
