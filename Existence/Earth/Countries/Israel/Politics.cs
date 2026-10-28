@@ -235,7 +235,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         [Gender(Gender.Male)]
         [EthnicGroups((int)JewishEthnicDivisionsLevel1.Ashkenazi)]
         [EthnicGroups((int)JewishEthnicDivisionsLevel2.Bukharan)]
-        SaarGideon,
+        SaʼarGideon,
 
         /// <summary>
         /// father's side Iraqi Jewish, mother's side Ashkenazi with Russian and Romanian roots
@@ -413,6 +413,38 @@ namespace Existence.Earth.Countries.Israel.Politics
         public static class v22 { }
     }
 
+    /// <summary>
+    /// parties that exist as independent things outside of the regular merging and joint listing that takes place
+    /// from one election to the next
+    /// </summary>
+    public enum PoliticalPartyFranchises
+    {
+        /// <summary>
+        /// secular pan-Arab
+        /// </summary>
+        Balad,
+
+        /// <summary>
+        /// socialist and associated with the Israeli Communist Party, but has real Jewish presence
+        /// </summary>
+        Hadash,
+
+        /// <summary>
+        /// the primary Israeli conservative party
+        /// </summary>
+        Likud,
+
+        /// <summary>
+        /// United Arab List. Islamist (religious)
+        /// </summary>
+        Raʼam,
+
+        /// <summary>
+        /// secular Arab nationalist
+        /// </summary>
+        Taʼal,
+    }
+
     public static class Knesset
     {
         [ElectionDate(2022, 11, 1)]
@@ -562,7 +594,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.SaarGideon)]
+                [PoliticalPartyLeader((int)Politicians.SaʼarGideon)]
                 [JointList((int)JointLists.NationalUnity)]
                 [RoughJointListVotePercentage(3.30)]
                 [NumberOfSeats(4)]
@@ -619,11 +651,11 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// joint faction of Hadash and Ta'al
                 /// </summary>
-                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taʼal)]
                 [NumberOfSeats(5)]
-                [JointList((int)JointLists.HadashTaal)]
+                [JointList((int)JointLists.HadashTaʼal)]
                 [Opposition]
-                HadashTaal,
+                HadashTaʼal,
 
                 /// <summary>
                 /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
@@ -669,7 +701,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of Hadash-Ta'al
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.OdehAyman)]
-                [JointList((int)JointLists.HadashTaal)]
+                [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(2.81)]
                 [NumberOfSeats(4)]
                 [Opposition]
@@ -679,11 +711,11 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Arab Movement for Renewal, part of Hadash-Ta'al
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
-                [JointList((int)JointLists.HadashTaal)]
+                [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(0.94)]
                 [NumberOfSeats(1)]
                 [Opposition]
-                Taal,
+                Taʼal,
             }
 
             /// <summary>
@@ -698,11 +730,11 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// leftover seat, 5th on the list, went to Youssef Atauna of Hadash, who gave it up in June 2025 to Ta'al's
                 /// Samir Bin Said under a rotation agreement
                 /// </summary>
-                [PoliticalParties((int)PoliticalParties.HadashTaal)]
-                [Factions((int)Factions.Hadash, (int)Factions.Taal)]
+                [PoliticalParties((int)PoliticalParties.HadashTaʼal)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taʼal)]
                 [JointListVotePercentage(3.75)]
                 [JointListNumberOfSeats(5)]
-                HadashTaal,
+                HadashTaʼal,
 
                 /// <summary>
                 /// Blue and White and New Hope, joined by Gadi Eisenkot and Yamina MKs Matan Kahana and Shirly Pinto.
@@ -799,7 +831,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// no agreement, 178,735 votes. Got one leftover seat (117th): 4 -> 5
                 /// </summary>
-                [PoliticalParties((int)PoliticalParties.HadashTaal)]
+                [PoliticalParties((int)PoliticalParties.HadashTaʼal)]
                 public static class No7 { }
             }
         }
@@ -837,7 +869,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// revived Joint List of Hadash, Ta'al and Balad
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [NumberOfSeatsIPredicted(9)]
                 JointList,
 
@@ -998,7 +1030,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
                 [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
-                Taal,
+                Taʼal,
 
                 /// <summary>
                 /// part of Together
@@ -1023,7 +1055,7 @@ namespace Existence.Earth.Countries.Israel.Politics
             {
                 [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
                 [PoliticalParties((int)PoliticalParties.JointList)]
-                [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [JointListNumberOfSeatsIPredicted(9)]
                 JointList,
 
@@ -1128,11 +1160,11 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// percentages are Ta'al's RoughJointListVotePercentage on Hadash-Ta'al
                 /// </summary>
-                [BeforePoliticalPartiesAndFactions(v25.Factions.Taal)]
+                [BeforePoliticalPartiesAndFactions(v25.Factions.Taʼal)]
                 [BeforePreviousElectionVotePercentage(0.94)]
-                [AfterPoliticalPartiesAndFactions(Factions.Taal)]
+                [AfterPoliticalPartiesAndFactions(Factions.Taʼal)]
                 [AfterPreviousElectionVotePercentage(0.94)]
-                Taal,
+                Taʼal,
 
                 /// <summary>
                 /// ran on its own list in 2022, and on the Joint List in 2026
