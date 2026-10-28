@@ -149,6 +149,69 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that in each Knesset with seat predictions, the seats I predicted for the political parties add up
+        /// to the number of members of the Knesset. Every political party needs a prediction once any of them has one
+        /// </summary>
+        [TestMethod]
+        public void ValidateKnessetPredictedSeatsByPoliticalParty()
+        {
+            int iKnessets = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
+                if (politicalParties == null) continue;
+                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
+                if (!fields.Any(f => f.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>() != null)) continue;
+                iKnessets++;
+                int iSeats = 0;
+                foreach (FieldInfo field in fields)
+                {
+                    NumberOfSeatsIPredictedAttribute? seats = field.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>();
+                    Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has no NumberOfSeatsIPredicted attribute");
+                    iSeats += seats.NumberOfSeats;
+                }
+                Assert.AreEqual(GetKnessetNumberOfMembers(knesset), iSeats, $"predicted seats for Knesset.{knesset.Name} do not add up to its number of members");
+            }
+            Assert.IsTrue(iKnessets > 0, "no NumberOfSeatsIPredicted attributes found");
+        }
+
+        /// <summary>
+        /// validates that in each Knesset with seat predictions, every joint list has a seat prediction matching the
+        /// predicted seats of the political parties it points to
+        /// </summary>
+        [TestMethod]
+        public void ValidateKnessetPredictedSeatsByJointList()
+        {
+            int iJointLists = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
+                Type? jointLists = knesset.GetNestedType("JointLists");
+                if (politicalParties == null || jointLists == null) continue;
+                if (!politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static).Any(f => f.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>() != null)) continue;
+                foreach (FieldInfo jointList in jointLists.GetFields(BindingFlags.Public | BindingFlags.Static))
+                {
+                    iJointLists++;
+                    string sJointList = $"Knesset.{knesset.Name}.JointLists.{jointList.Name}";
+                    JointListNumberOfSeatsIPredictedAttribute? jointListSeats = jointList.GetCustomAttribute<JointListNumberOfSeatsIPredictedAttribute>();
+                    Assert.IsNotNull(jointListSeats, $"{sJointList} has no JointListNumberOfSeatsIPredicted attribute");
+                    List<int> members = jointList.GetCustomAttributes<PoliticalPartiesAttribute>().SelectMany(a => a.PoliticalParties).ToList();
+                    Assert.IsTrue(members.Count > 0, $"{sJointList} has no PoliticalParties attribute");
+                    int iMemberSeats = 0;
+                    foreach (int i in members)
+                    {
+                        FieldInfo politicalParty = GetEnumField(politicalParties, i);
+                        NumberOfSeatsIPredictedAttribute? seats = politicalParty.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>();
+                        Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{politicalParty.Name} has no NumberOfSeatsIPredicted attribute");
+                        iMemberSeats += seats.NumberOfSeats;
+                    }
+                    Assert.AreEqual(jointListSeats.NumberOfSeats, iMemberSeats, $"{sJointList} predicted seats do not match the predicted seats of the political parties it points to");
+                }
+            }
+            Assert.IsTrue(iJointLists > 0, "no joint lists found in a Knesset with seat predictions");
+        }
+
+        /// <summary>
         /// validates that PoliticalPartyFranchise attributes in each Knesset point to a franchise and are only applied
         /// when the name of the party or faction doesn't match the franchise, since a matching name already implies it
         /// </summary>
@@ -223,9 +286,14 @@ namespace Existence.Tests
 
         private static int GetKnessetV25NumberOfMembers()
         {
-            NumberOfMembersAttribute? members = typeof(Knesset.v25).GetCustomAttribute<NumberOfMembersAttribute>();
-            Assert.IsNotNull(members, "Knesset.v25 has no NumberOfMembers attribute");
-            Assert.AreEqual(members.LowEstimate, members.HighEstimate, "Knesset.v25 must have an exact number of members");
+            return GetKnessetNumberOfMembers(typeof(Knesset.v25));
+        }
+
+        private static int GetKnessetNumberOfMembers(Type knesset)
+        {
+            NumberOfMembersAttribute? members = knesset.GetCustomAttribute<NumberOfMembersAttribute>();
+            Assert.IsNotNull(members, $"Knesset.{knesset.Name} has no NumberOfMembers attribute");
+            Assert.AreEqual(members.LowEstimate, members.HighEstimate, $"Knesset.{knesset.Name} must have an exact number of members");
             return (int)members.LowEstimate;
         }
     }

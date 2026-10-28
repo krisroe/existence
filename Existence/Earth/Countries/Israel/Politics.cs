@@ -913,7 +913,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
-                [NumberOfSeatsIPredicted(4)]
+                [NumberOfSeatsIPredicted(0)]
                 ReservistsNewEconomicParty,
 
                 [Zionist]
@@ -943,7 +943,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
-                [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeatsIPredicted(4)]
                 UnitedArabList,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
@@ -1074,7 +1074,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
                 [PoliticalParties((int)PoliticalParties.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
-                [JointListNumberOfSeatsIPredicted(4)]
+                [JointListNumberOfSeatsIPredicted(0)]
                 ReservistsNewEconomicParty,
 
                 [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
