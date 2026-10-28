@@ -435,9 +435,19 @@ namespace Existence.Earth.Countries.Israel.Politics
         Likud,
 
         /// <summary>
+        /// religious Zionist, socially conservative and focused on opposing LGBT rights
+        /// </summary>
+        Noam,
+
+        /// <summary>
         /// United Arab List. Islamist (religious)
         /// </summary>
         Raʼam,
+
+        /// <summary>
+        /// Sephardi and Mizrahi Haredi
+        /// </summary>
+        Shas,
 
         /// <summary>
         /// secular Arab nationalist
