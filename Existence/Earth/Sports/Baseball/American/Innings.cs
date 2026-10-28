@@ -39,13 +39,26 @@ namespace Existence.Earth.Sports.Baseball.American
         AfterEighthTop = 15,
         AfterEighthBottom = 16,
         AfterNinthTop = 17,
+        AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat = 17,
         AfterNinthBottom = 18,
+        /// <summary>
+        /// full 9 inning game (most common length)
+        /// </summary>
+        AfterRegularSizedGameFinal = 18,
+        /// <summary>
+        /// full 9 inning game but it's tied so it goes to extra innings
+        /// </summary>
+        EndOfRegulation = 18,
         AfterTenthTop = 19,
         AfterTenthBottom = 20,
         AfterEleventhTop = 21,
         AfterEleventhBottom = 22,
         AfterTwelfthTop = 23,
         AfterTwelfthBottom = 24,
+        /// <summary>
+        /// extra innings containing an extra one third of a regular game
+        /// </summary>
+        ExtraOneThird = 24,
         AfterThirteenthTop = 25,
         AfterThirteenthBottom = 26,
         AfterFourteenthTop = 27,

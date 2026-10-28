@@ -4,6 +4,14 @@ using System;
 
 namespace Existence.Earth.Sports.Baseball.American
 {
+    public enum MajorLeagueBaseballFranchises
+    {
+        ClevelandIndians,
+        MilwaukeeBrewers,
+        OaklandAthletics,
+        TampaBayDevilRays,
+    }
+
     public enum MajorLeagueBaseballTeams
     {
         ArizonaDiamondbacks,
@@ -2221,6 +2229,10 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, "Brewers pitchers facing the mininum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base")]
                 public static class Game3 { }
 
+                /// <summary>
+                /// interesting moment
+                /// In extra innings, Devil Rays at bat, score 2-2, 2 outs, runner on 2nd, 1-2 count, only needed a ball for 6 significant 2's, but the batter swung so that didn't happen (I don't remember if the pitch was in the strike zone)
+                /// </summary>
                 [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
                 [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, "Winning run scored in the bottom of the twelfth inning with no outs")]
