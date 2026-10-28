@@ -838,7 +838,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
-                [JointListNumberOfSeatsIPredicted(4)]
+                [NumberOfSeatsIPredicted(9)]
                 JointList,
 
                 /// <summary>
@@ -847,7 +847,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
-                [NumberOfSeatsIPredicted(36)]
+                [NumberOfSeatsIPredicted(31)]
                 Likud,
 
                 [Zionist]
@@ -866,14 +866,14 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
-                [JointListNumberOfSeatsIPredicted(6)]
+                [NumberOfSeatsIPredicted(6)]
                 ReligiousZionistPartyZehut,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
-                [JointListNumberOfSeatsIPredicted(4)]
+                [NumberOfSeatsIPredicted(4)]
                 ReservistsNewEconomicParty,
 
                 [Zionist]
@@ -898,7 +898,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
-                [JointListNumberOfSeatsIPredicted(11)]
+                [NumberOfSeatsIPredicted(11)]
                 Together,
 
                 /// <summary>
@@ -910,7 +910,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
-                [JointListNumberOfSeatsIPredicted(6)]
+                [NumberOfSeatsIPredicted(6)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -1024,21 +1024,25 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
                 [PoliticalParties((int)PoliticalParties.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                [JointListNumberOfSeatsIPredicted(4)]
                 JointList,
 
                 [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
                 [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
+                [JointListNumberOfSeatsIPredicted(6)]
                 ReligiousZionistPartyZehut,
 
                 [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
                 [PoliticalParties((int)PoliticalParties.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
+                [JointListNumberOfSeatsIPredicted(4)]
                 ReservistsNewEconomicParty,
 
                 [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
                 [PoliticalParties((int)PoliticalParties.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
+                [JointListNumberOfSeatsIPredicted(11)]
                 Together,
 
                 /// <summary>
@@ -1047,6 +1051,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.AsherYaakov)]
                 [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                [JointListNumberOfSeatsIPredicted(6)]
                 UnitedTorahJudaism,
             }
 
