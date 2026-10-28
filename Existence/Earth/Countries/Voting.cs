@@ -422,6 +422,33 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// number of seats I personally predicted the political party would win. Not a subclass of NumberOfSeatsAttribute,
+    /// so that summing seats of parties doesn't count predictions as results
+    /// </summary>
+    public class NumberOfSeatsIPredictedAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public NumberOfSeatsIPredictedAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
+    /// number of seats I personally predicted a joint list of several political parties would win. Not a subclass of
+    /// NumberOfSeatsIPredictedAttribute, so that summing predicted seats of parties doesn't count the joint list's seats
+    /// again
+    /// </summary>
+    public class JointListNumberOfSeatsIPredictedAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public JointListNumberOfSeatsIPredictedAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
     /// the politician who appears likely to win while the result isn't final yet
     /// </summary>
     public class LikelyElectionWinnerAttribute : Attribute

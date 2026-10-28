@@ -821,6 +821,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
+                [NumberOfSeatsIPredicted(0)]
                 AmchaYisrael,
 
                 /// <summary>
@@ -829,6 +830,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                [NumberOfSeatsIPredicted(0)]
                 BlueAndWhite,
 
                 /// <summary>
@@ -836,6 +838,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taal, (int)Factions.Balad)]
+                [JointListNumberOfSeatsIPredicted(4)]
                 JointList,
 
                 /// <summary>
@@ -844,33 +847,39 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
+                [NumberOfSeatsIPredicted(36)]
                 Likud,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
+                [NumberOfSeatsIPredicted(0)]
                 Noam,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                [NumberOfSeatsIPredicted(9)]
                 OtzmaYehudit,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
+                [JointListNumberOfSeatsIPredicted(6)]
                 ReligiousZionistPartyZehut,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
+                [JointListNumberOfSeatsIPredicted(4)]
                 ReservistsNewEconomicParty,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
                 [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                [NumberOfSeatsIPredicted(7)]
                 Shas,
 
                 /// <summary>
@@ -879,6 +888,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                [NumberOfSeatsIPredicted(6)]
                 TheDemocrats,
 
                 /// <summary>
@@ -888,16 +898,19 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
+                [JointListNumberOfSeatsIPredicted(11)]
                 Together,
 
                 /// <summary>
                 /// Ra'am
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                [NumberOfSeatsIPredicted(0)]
                 UnitedArabList,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
+                [JointListNumberOfSeatsIPredicted(6)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -907,11 +920,13 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
+                [NumberOfSeatsIPredicted(21)]
                 Yashar,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
+                [NumberOfSeatsIPredicted(10)]
                 YisraelBeiteinu,
             }
 
@@ -1035,6 +1050,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 UnitedTorahJudaism,
             }
 
+            //Found predicted number of seats on wikipedia
             /// <summary>
             /// my personal, simplified view of how the 2026 election shakes out: the change coalition, which I guess ends
             /// up winning, the conservative opposition (Likud and its allies, out of power after the election in my view),
