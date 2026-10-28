@@ -330,23 +330,37 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class BaltimoreOrioles { }
-                        public static class BostonRedSox { }
-                        public static class ClevelandIndians { }
-                        public static class DetroitTigers { }
-                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(34, 22)]
                         public static class NewYorkYankees { }
+                        [TeamWinLossRecord(31, 23)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(31, 25)]
+                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(31, 26)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(30, 26)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(26, 24)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(16, 42)]
                         public static class TorontoBlueJays { }
                     }
                     public static class West
                     {
-                        public static class CaliforniaAngels { }
-                        public static class ChicagoWhiteSox { }
-                        public static class KansasCityRoyals { }
-                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(37, 23)]
                         public static class OaklandAthletics { }
-                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(33, 22)]
                         public static class TexasRangers { }
+                        [TeamWinLossRecord(31, 22)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(31, 29)]
+                        public static class CaliforniaAngels { }
+                        [TeamWinLossRecord(20, 30)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(21, 36)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(17, 39)]
+                        public static class MinnesotaTwins { }
                     }
                 }
 
@@ -357,27 +371,45 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class BaltimoreOrioles { }
-                        public static class BostonRedSox { }
-                        public static class ClevelandIndians { }
-                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(31, 22)]
                         public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(29, 23)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(29, 23)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(28, 23)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(26, 27)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(25, 26)]
                         public static class NewYorkYankees { }
+                        [TeamWinLossRecord(21, 27)]
                         public static class TorontoBlueJays { }
                     }
                     public static class West
                     {
-                        public static class CaliforniaAngels { }
-                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(30, 23)]
                         public static class KansasCityRoyals { }
-                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(27, 22)]
                         public static class OaklandAthletics { }
-                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(24, 26)]
                         public static class TexasRangers { }
+                        [TeamWinLossRecord(24, 29)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(23, 29)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(23, 30)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(20, 30)]
+                        public static class CaliforniaAngels { }
                     }
                 }
             }
 
+            /// <summary>
+            /// The Reds had the best full-season record in baseball (66-42) and the Cardinals the best in the NL East
+            /// (59-43). Neither made the playoffs, because neither won a half.
+            /// </summary>
             public static class NationalLeague
             {
                 /// <summary>
@@ -387,21 +419,33 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class ChicagoCubs { }
-                        public static class MontrealExpos { }
-                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(34, 21)]
                         public static class PhiladelphiaPhillies { }
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(30, 20)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(30, 25)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(25, 23)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(17, 34)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(15, 37)]
+                        public static class ChicagoCubs { }
                     }
                     public static class West
                     {
-                        public static class AtlantaBraves { }
-                        public static class CincinnatiReds { }
-                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(36, 21)]
                         public static class LosAngelesDodgers { }
-                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(35, 21)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(28, 29)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(25, 29)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(27, 32)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(23, 33)]
+                        public static class SanDiegoPadres { }
                     }
                 }
 
@@ -412,21 +456,33 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public static class East
                     {
-                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(30, 23)]
                         public static class MontrealExpos { }
-                        public static class NewYorkMets { }
-                        public static class PhiladelphiaPhillies { }
-                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(29, 23)]
                         public static class StLouisCardinals { }
+                        [TeamWinLossRecord(25, 27)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(24, 28)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(23, 28)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(21, 33)]
+                        public static class PittsburghPirates { }
                     }
                     public static class West
                     {
-                        public static class AtlantaBraves { }
-                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(33, 20)]
                         public static class HoustonAstros { }
-                        public static class LosAngelesDodgers { }
-                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(31, 21)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(29, 23)]
                         public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(27, 26)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(25, 27)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(18, 36)]
+                        public static class SanDiegoPadres { }
                     }
                 }
             }
