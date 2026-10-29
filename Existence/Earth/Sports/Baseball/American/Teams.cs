@@ -71,6 +71,10 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         StLouisBrowns,
         StLouisCardinals,
+        /// <summary>
+        /// the 1998 American League expansion team's name through 2007, before it became the Tampa Bay Rays
+        /// </summary>
+        TampaBayDevilRays,
         TampaBayRays,
         TexasRangers,
         TorontoBlueJays,
@@ -1068,6 +1072,114 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(76, 86)]
                         public static class SanDiegoPadres { }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// the Milwaukee Brewers' first season in the National League after moving from the American League Central, and
+        /// the Detroit Tigers moved from the American League East to the Central. The Arizona Diamondbacks and Tampa Bay
+        /// Devil Rays began play as expansion teams
+        /// </summary>
+        public static class v1998
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(114, 48)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(92, 70)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(63, 99)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        public static class TampaBayDevilRays { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(89, 73)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(80, 82)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(72, 89)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(70, 92)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class DetroitTigers { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(88, 74)]
+                        public static class TexasRangers { }
+                        [TeamWinLossRecord(85, 77)]
+                        public static class AnaheimAngels { }
+                        [TeamWinLossRecord(76, 85)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(74, 88)]
+                        public static class OaklandAthletics { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(106, 56)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(75, 87)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(54, 108)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        public static class FloridaMarlins { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(102, 60)]
+                        public static class HoustonAstros { }
+                        /// <summary>
+                        /// won the wild card in a one-game tiebreaker against the San Francisco Giants, which counted as a
+                        /// regular season game
+                        /// </summary>
+                        [TeamWinLossRecord(90, 73)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(74, 88)]
+                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(69, 93)]
+                        public static class PittsburghPirates { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(98, 64)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(89, 74)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class ArizonaDiamondbacks { }
                     }
                 }
             }
