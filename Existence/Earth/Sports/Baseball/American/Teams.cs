@@ -86,6 +86,14 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         MilwaukeeBrewers,
         /// <summary>
+        /// an American League charter member in 1901 as the Washington Senators (officially the Washington Nationals for
+        /// much of that time), then moved to Minnesota and became the Minnesota Twins in 1961, named for the Twin Cities of
+        /// Minneapolis and St. Paul. Played at Metropolitan Stadium in Bloomington from 1961 to 1981, then in Minneapolis
+        /// at the Metrodome from 1982 to 2009 and Target Field from 2010 on. Unrelated to the 1890s National League
+        /// Washington Senators and to the 1961 American League expansion Washington Senators, who became the Texas Rangers
+        /// </summary>
+        MinneapolisTwins,
+        /// <summary>
         /// Philadelphia Athletics from 1901 to 1954, Kansas City Athletics from 1955 to 1967, Oakland Athletics from 1968
         /// to 2024, and Athletics (no city) from 2025 on, playing temporarily in West Sacramento while awaiting a move to
         /// Las Vegas. OaklandAthletics is the franchise's name because Philadelphia was taken by the Phillies
@@ -136,6 +144,20 @@ namespace Existence.Earth.Sports.Baseball.American
         /// a 1977 American League expansion team that has always been the Toronto Blue Jays
         /// </summary>
         TorontoBlueJays,
+    }
+
+    public enum MinorLeagueBaseballFranchises
+    {
+        /// <summary>
+        /// the current St. Paul Saints, founded in 1993 in the independent Northern League. Played at Midway Stadium from
+        /// 1993 to 2014 and CHS Field from 2015 on, moved to the independent American Association in 2006, and became the
+        /// Minnesota Twins' Triple-A affiliate in 2021, in the International League from 2022 on. Earlier St. Paul Saints
+        /// teams were separate franchises: the 1884 Union Association team, a major league team that played all of its
+        /// games on the road; Charles Comiskey's Western League team from 1895 to 1899, which moved to Chicago in 1900
+        /// and became the Chicago White Sox; and the minor league American Association team from 1902 to 1960, which
+        /// left when the Twins arrived in 1961
+        /// </summary>
+        StPaulSaints,
     }
 
     public enum MajorLeagueBaseballTeams
@@ -576,6 +598,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(97, 65)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(88, 74)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -707,6 +730,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(98, 64)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(89, 73)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -850,6 +874,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(90, 72)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(84, 77)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(74, 88)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
@@ -998,6 +1023,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(17, 39)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                     }
                 }
@@ -1043,6 +1069,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(24, 26)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(24, 29)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(23, 29)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -1287,6 +1314,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class TexasRangers { }
                         [TeamWinLossRecord(60, 102)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                     }
                 }
@@ -1521,6 +1549,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class CaliforniaAngels { }
                         [TeamWinLossRecord(71, 91)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(68, 94)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
@@ -1662,6 +1691,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(68, 94)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(67, 94)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -1819,6 +1849,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(70, 92)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(65, 97)]
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
@@ -1999,6 +2030,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [DivisionWinner(ONE_GAME_TIEBREAKER)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(88, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(81, 81)]
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
@@ -2251,6 +2283,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(63, 99)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                     }
                     public static class West
@@ -2400,6 +2433,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(78, 84)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(64, 98)]
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
@@ -2584,6 +2618,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(36, 24)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(35, 25)]
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
@@ -2845,6 +2880,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(73, 89)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                     }
                     public static class West
@@ -2987,6 +3023,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(78, 84)]
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
@@ -3153,6 +3190,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(82, 80)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         /// <summary>
                         /// The 2024 White Sox went 41-121, the most losses by any team since 1900.
@@ -3312,6 +3350,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(70, 92)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(60, 102)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
@@ -3557,6 +3596,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(77, 85)]
                         [Manager((int)Managers.SheltonDerek)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(76, 86)]
                         [Manager((int)Managers.HinchAJ)]
