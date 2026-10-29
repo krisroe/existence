@@ -126,9 +126,22 @@ namespace Existence.Earth.Sports
     }
 
     /// <summary>
-    /// the player won the most valuable player award for the season
+    /// on a player, the player won the most valuable player award for the season. On a series (e.g. a season's
+    /// WorldSeries), the player on the team won the award for the series; the player can come from different enums
+    /// (e.g. a team's Roster), so it's stored as an int. A series with co-MVPs gets one attribute per player
     /// </summary>
-    public class MostValuablePlayerAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class MostValuablePlayerAttribute : Attribute
+    {
+        public int? Player { get; set; }
+        public int? Team { get; set; }
+        public MostValuablePlayerAttribute() { }
+        public MostValuablePlayerAttribute(int Player, int Team)
+        {
+            this.Player = Player;
+            this.Team = Team;
+        }
+    }
 
     /// <summary>
     /// the pitcher won the Cy Young award for the season

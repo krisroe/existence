@@ -2594,6 +2594,7 @@ namespace Existence.Earth.Sports.Baseball.American
             }
 
             [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.ContrerasWilliam, (int)MajorLeagueBaseballTeams.MilwaukeeBrewers)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
@@ -2628,6 +2629,8 @@ namespace Existence.Earth.Sports.Baseball.American
                         GasserRobert,
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MayDustin,
+                        [FielderType(BaseballPositionType.Catcher)]
+                        ContrerasWilliam,
                     }
                 }
 
