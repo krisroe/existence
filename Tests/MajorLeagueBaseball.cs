@@ -192,7 +192,7 @@ namespace Existence.Tests
         /// After 1982, the Brewers next won their division in 2011 and next reached the World Series in 2026, so the bet
         /// was won, but this only checks the seasons that have been filled in. To prove it, these seasons in the windows
         /// would also need their standings (or at least their division winners) and their World Series teams filled in:
-        /// - 1994 (only its canceled World Series is filled in) through 2007, and 2009, for the division
+        /// - 1994 (only its canceled World Series is filled in) through 1996, 1998 through 2007, and 2009, for the division
         /// - those, plus 2010, 2012 through 2017, 2019, and 2022, for the World Series
         /// The test would then also need to check that every season in the windows is filled in
         /// </summary>

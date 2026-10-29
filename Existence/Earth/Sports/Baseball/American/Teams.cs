@@ -14,6 +14,10 @@ namespace Existence.Earth.Sports.Baseball.American
 
     public enum MajorLeagueBaseballTeams
     {
+        /// <summary>
+        /// the Angels' name from 1997 to 2004, between the California Angels and the Los Angeles Angels of Anaheim
+        /// </summary>
+        AnaheimAngels,
         ArizonaDiamondbacks,
         Athletics,
         AtlantaBraves,
@@ -967,6 +971,106 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             [Text("No World Series was played because the players' strike that began on August 12 led to the rest of the season and the postseason being canceled")]
             public static class WorldSeries { }
+        }
+
+        /// <summary>
+        /// the Milwaukee Brewers' last season in the American League before moving to the National League Central in
+        /// 1998. The Florida Marlins won the World Series as the National League wild card
+        /// </summary>
+        public static class v1997
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(98, 64)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(96, 66)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(78, 84)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class TorontoBlueJays { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(86, 75)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(80, 81)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(78, 83)]
+                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(68, 94)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(67, 94)]
+                        public static class KansasCityRoyals { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(90, 72)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(84, 78)]
+                        public static class AnaheimAngels { }
+                        [TeamWinLossRecord(77, 85)]
+                        public static class TexasRangers { }
+                        [TeamWinLossRecord(65, 97)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        public static class OaklandAthletics { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(101, 61)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(92, 70)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        public static class FloridaMarlins { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(78, 84)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(68, 94)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        public static class PhiladelphiaPhillies { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(84, 78)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(73, 89)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(68, 94)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        public static class ChicagoCubs { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(90, 72)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class SanDiegoPadres { }
+                    }
+                }
+            }
         }
 
         public static class v2008
