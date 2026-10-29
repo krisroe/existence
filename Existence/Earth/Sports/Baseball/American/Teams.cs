@@ -62,6 +62,15 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         ClevelandIndians,
         /// <summary>
+        /// a 1961 American League expansion team: Washington Senators from 1961 to 1971, at Griffith Stadium in 1961 and
+        /// D.C. Stadium (renamed RFK Stadium in 1968) from 1962 to 1971, then Texas Rangers from 1972 on in Arlington, at
+        /// Arlington Stadium from 1972 to 1993, The Ballpark in Arlington (later Globe Life Park) from 1994 to 2019, and
+        /// Globe Life Field from 2020 on. Unrelated to the 1890s National League Washington Senators and to the original
+        /// American League Washington Senators, who became the Minnesota Twins. DallasFortWorthRangers is the franchise's
+        /// name because Arlington is in the Dallas-Fort Worth metro area, between the two cities
+        /// </summary>
+        DallasFortWorthRangers,
+        /// <summary>
         /// a 1993 National League expansion team that has always been the Colorado Rockies and has always played in
         /// Denver: at Mile High Stadium in 1993 and 1994, and at Coors Field from 1995 on. DenverRockies is the
         /// franchise's name because it names the team's city rather than its state
@@ -614,6 +623,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class WashingtonSenators { }
                         [TeamWinLossRecord(80, 81)]
                         [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
@@ -756,6 +766,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(70, 92)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class WashingtonSenators { }
                     }
                     public static class West
@@ -904,6 +915,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(94, 68)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(90, 72)]
                         [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
@@ -1047,6 +1059,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(33, 22)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(31, 22)]
                         [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
@@ -1106,6 +1119,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(24, 26)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(24, 29)]
                         [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
@@ -1355,6 +1369,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(64, 98)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(60, 102)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
@@ -1585,6 +1600,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(84, 78)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -1756,6 +1772,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class AnaheimAngels { }
                         [TeamWinLossRecord(77, 85)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(65, 97)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
@@ -1911,6 +1928,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(88, 74)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(85, 77)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
@@ -2104,6 +2122,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class LosAngelesAngelsOfAnaheim { }
                         [TeamWinLossRecord(79, 83)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(75, 86)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -2349,6 +2368,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(96, 66)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(86, 76)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
@@ -2521,6 +2541,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(67, 95)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                     }
                 }
@@ -2713,6 +2734,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(22, 38)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                     }
                 }
@@ -2967,6 +2989,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class LosAngelesAngels { }
                         [TeamWinLossRecord(60, 102)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                     }
                 }
@@ -3119,6 +3142,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(90, 72)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(88, 74)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -3282,6 +3306,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(78, 84)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(69, 93)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -3442,6 +3467,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(81, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(76, 86)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -3696,6 +3722,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(80, 82)]
                         [Manager((int)Managers.SchumakerSkip)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(76, 86)]
                         [Manager((int)Managers.WilsonDan)]
