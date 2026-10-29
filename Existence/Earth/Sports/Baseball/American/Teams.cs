@@ -456,6 +456,90 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        /// <summary>
+        /// the Seattle Pilots moved to Milwaukee and became the Milwaukee Brewers just before the season
+        /// </summary>
+        public static class v1970
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(108, 54)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(93, 69)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(87, 75)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(70, 92)]
+                        public static class WashingtonSenators { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(98, 64)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(89, 73)]
+                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(86, 76)]
+                        public static class CaliforniaAngels { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(65, 97)]
+                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(56, 106)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        public static class ChicagoWhiteSox { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(89, 73)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(84, 78)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(83, 79)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(73, 88)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(73, 89)]
+                        public static class MontrealExpos { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(102, 60)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(87, 74)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(86, 76)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(79, 83)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(76, 86)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(63, 99)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        public static class SanDiegoPadres { }
+                    }
+                }
+            }
+        }
+
         public static class v1981
         {
             public static class AmericanLeague
