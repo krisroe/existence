@@ -492,6 +492,35 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.ClendenonDonn, (int)MajorLeagueBaseballTeams.NewYorkMets)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkMets)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.FirstBase)]
+                        ClendenonDonn,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkMets, 4, MajorLeagueBaseballTeams.BaltimoreOrioles, 1)]
+                public static class Game5 { }
+            }
         }
 
         /// <summary>
@@ -576,6 +605,35 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanDiegoPadres { }
                     }
                 }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)AmericanLeagueTeam.Roster.RobinsonBrooks, (int)MajorLeagueBaseballTeams.BaltimoreOrioles)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.ThirdBase)]
+                        RobinsonBrooks,
+                    }
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+                public static class NationalLeagueTeam { }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.BaltimoreOrioles, 4, MajorLeagueBaseballTeams.CincinnatiReds, 1)]
+                public static class Game5 { }
             }
         }
 
@@ -756,6 +814,46 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            /// <summary>
+            /// the only World Series with more than one MVP; the award was shared by three Dodgers
+            /// </summary>
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.CeyRon, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.GuerreroPedro, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.YeagerSteve, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.ThirdBase)]
+                        CeyRon,
+                        [FielderType(BaseballPositionType.Outfield)]
+                        GuerreroPedro,
+                        [FielderType(BaseballPositionType.Catcher)]
+                        YeagerSteve,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                public static class Game5 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.NewYorkYankees, 2)]
+                public static class Game6 { }
+            }
         }
 
         public static class v1982
@@ -900,6 +998,7 @@ namespace Existence.Earth.Sports.Baseball.American
             }
 
             [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.PorterDarrell, (int)MajorLeagueBaseballTeams.StLouisCardinals)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
@@ -958,6 +1057,8 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         LaPointDave,
+                        [FielderType(BaseballPositionType.Catcher)]
+                        PorterDarrell,
                     }
                 }
 
@@ -1110,6 +1211,39 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.HernandezLivan, (int)MajorLeagueBaseballTeams.FloridaMarlins)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        HernandezLivan,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                public static class Game5 { }
+
+                public static class Game6 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.FloridaMarlins, 4, MajorLeagueBaseballTeams.ClevelandIndians, 3)]
+                public static class Game7 { }
+            }
         }
 
         /// <summary>
@@ -1219,6 +1353,33 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ArizonaDiamondbacks { }
                     }
                 }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)AmericanLeagueTeam.Roster.BrosiusScott, (int)MajorLeagueBaseballTeams.NewYorkYankees)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.ThirdBase)]
+                        BrosiusScott,
+                    }
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanDiegoPadres)]
+                public static class NationalLeagueTeam { }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.SanDiegoPadres, 0)]
+                public static class Game4 { }
             }
         }
 
@@ -1382,6 +1543,7 @@ namespace Existence.Earth.Sports.Baseball.American
             }
 
             [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.HamelsCole, (int)MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
@@ -1574,6 +1736,39 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.FreeseDavid, (int)MajorLeagueBaseballTeams.StLouisCardinals)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TexasRangers)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.ThirdBase)]
+                        FreeseDavid,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                public static class Game5 { }
+
+                public static class Game6 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.TexasRangers, 3)]
+                public static class Game7 { }
+            }
         }
 
         public static class v2018
@@ -1682,6 +1877,35 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanDiegoPadres { }
                     }
                 }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)AmericanLeagueTeam.Roster.PearceSteve, (int)MajorLeagueBaseballTeams.BostonRedSox)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.FirstBase)]
+                        PearceSteve,
+                    }
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                public static class NationalLeagueTeam { }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.BostonRedSox, 4, MajorLeagueBaseballTeams.LosAngelesDodgers, 1)]
+                public static class Game5 { }
             }
         }
 
@@ -1836,6 +2060,7 @@ namespace Existence.Earth.Sports.Baseball.American
             }
 
             [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.SeagerCorey, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
@@ -1897,6 +2122,8 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         UriasJulio,
+                        [FielderType(BaseballPositionType.Shortstop)]
+                        SeagerCorey,
                     }
                 }
 
@@ -2037,6 +2264,37 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.SolerJorge, (int)MajorLeagueBaseballTeams.AtlantaBraves)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.HoustonAstros)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.DesignatedHitter)]
+                        SolerJorge,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                public static class Game5 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.AtlantaBraves, 4, MajorLeagueBaseballTeams.HoustonAstros, 2)]
+                public static class Game6 { }
+            }
         }
 
         public static class v2023
@@ -2142,6 +2400,35 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
             }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)AmericanLeagueTeam.Roster.SeagerCorey, (int)MajorLeagueBaseballTeams.TexasRangers)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TexasRangers)]
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.Shortstop)]
+                        SeagerCorey,
+                    }
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
+                public static class NationalLeagueTeam { }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TexasRangers, 4, MajorLeagueBaseballTeams.ArizonaDiamondbacks, 1)]
+                public static class Game5 { }
+            }
         }
 
         public static class v2024
@@ -2245,6 +2532,35 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ColoradoRockies { }
                     }
                 }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.FreemanFreddie, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.FirstBase)]
+                        FreemanFreddie,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.NewYorkYankees, 1)]
+                public static class Game5 { }
             }
         }
 
@@ -2354,6 +2670,39 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ColoradoRockies { }
                     }
                 }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.YamamotoYoshinobu, (int)MajorLeagueBaseballTeams.LosAngelesDodgers)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        YamamotoYoshinobu,
+                    }
+                }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                public static class Game3 { }
+
+                public static class Game4 { }
+
+                public static class Game5 { }
+
+                public static class Game6 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TorontoBlueJays, 3)]
+                public static class Game7 { }
             }
         }
 
