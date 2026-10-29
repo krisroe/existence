@@ -2670,7 +2670,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterEighthTop)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterEighthBottom)]
                 public static class Game5 { }
             }
         }
