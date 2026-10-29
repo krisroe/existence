@@ -116,6 +116,16 @@ namespace Existence.Beyond.Infrastructure
         }
     }
 
+    internal class ExplanationAttribute : SingularObjectAttribute
+    {
+        internal string Explanation { get; set; }
+        internal ExplanationAttribute(string explanation)
+        {
+            Explanation = explanation;
+        }
+    }
+
+
     internal class BeyondObjectVersionAttribute : Attribute
     {
         internal Version Version { get; set; }

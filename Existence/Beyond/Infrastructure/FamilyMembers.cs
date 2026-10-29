@@ -12,8 +12,17 @@ namespace Existence.Beyond.Infrastructure
         MyMothersMotherDelores,
         MyMothersMothersMotherAda,
         MyFatherJerry,
+        /// <summary>
+        /// died in childhood
+        /// </summary>
+        MyFathersOldestBrotherLarry,
+        MyFathersSecondOldestBrotherBob,
+        MyFathersThirdOldestBrotherMike,
         MyFathersOldestSisterGinny,
         MyFathersOldestSistersSonMatthew,
+        MyFathersSecondOldestSisterHelen,
+        MyFathersThirdOldestSisterMary,
+        MyFathersFourthOldestSisterChristine,
         MyselfChris,
         MySisterSonya,
         MySonAdam,

@@ -46,6 +46,20 @@ namespace Existence.Logic
         }
     }
 
+    public class OwnerAttribute : Attribute
+    {
+        public DateTime? From { get; set; }
+        public DateTime? To { get; set; }
+        public int Owner { get; set; }
+        public OwnerAttribute(int FromYear, int FromMonth, int FromDay, int ToYear, int ToMonth, int ToDay, int Owners)
+        {
+            this.From = new DateTime(FromYear, FromMonth, FromDay);
+            this.To = new DateTime(ToYear, ToMonth, ToDay);
+            this.Owner = Owner;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class OwnersAttribute : Attribute
     {
         public DateTime? From { get; set; }
