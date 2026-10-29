@@ -57,6 +57,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         ClevelandIndians,
         /// <summary>
+        /// a 1993 National League expansion team that has always been the Colorado Rockies and has always played in
+        /// Denver: at Mile High Stadium in 1993 and 1994, and at Coors Field from 1995 on. DenverRockies is the
+        /// franchise's name because it names the team's city rather than its state
+        /// </summary>
+        DenverRockies,
+        /// <summary>
         /// an American League charter member in 1901 that has always been the Detroit Tigers
         /// </summary>
         DetroitTigers,
@@ -85,6 +91,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// through 1889, though also called the Phillies from the start, and Philadelphia Phillies from 1890 on
         /// </summary>
         PhiladelphiaPhillies,
+        /// <summary>
+        /// a 1998 National League expansion team that has always been the Arizona Diamondbacks and has always played in
+        /// Phoenix, at the ballpark that opened as Bank One Ballpark and was renamed Chase Field in 2005.
+        /// PhoenixDiamondbacks is the franchise's name because it names the team's city rather than its state
+        /// </summary>
+        PhoenixDiamondbacks,
         /// <summary>
         /// Pittsburgh Alleghenys in the American Association from 1882 to 1886 and in the National League from 1887 to
         /// 1890, then Pittsburgh Pirates from 1891 on
@@ -1552,6 +1564,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(67, 95)]
+                        [Expansion(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(61, 101)]
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
@@ -1709,6 +1722,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(83, 79)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(76, 86)]
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
@@ -1872,8 +1886,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(77, 85)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(65, 97)]
+                        [Expansion(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                     }
                 }
@@ -2072,8 +2088,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(82, 80)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(74, 88)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(72, 90)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
@@ -2283,6 +2301,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(94, 68)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(86, 76)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
@@ -2291,6 +2310,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(73, 89)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(71, 91)]
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
@@ -2447,8 +2467,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(91, 72)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(82, 80)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(73, 89)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
@@ -2652,8 +2674,10 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(26, 34)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(25, 35)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                     }
                 }
@@ -2876,9 +2900,11 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(74, 87)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                         [TeamWinLossRecord(52, 110)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                     }
                 }
@@ -3025,6 +3051,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(84, 78)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(82, 80)]
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
@@ -3034,6 +3061,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(59, 103)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -3180,12 +3208,14 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(89, 73)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(80, 82)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(61, 101)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -3336,6 +3366,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(80, 82)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         /// <summary>
                         /// The 2025 Rockies went 43-119, tied with the 2003 Tigers for the third-most losses by any team since
@@ -3343,6 +3374,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [TeamWinLossRecord(43, 119)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                     }
                 }
@@ -3624,6 +3656,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(86, 76)]
                         [Manager((int)Managers.LovulloTorey)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
                         public static class ArizonaDiamondbacks { }
                         [TeamWinLossRecord(65, 97)]
                         [Manager((int)Managers.VitelloTony)]
@@ -3632,6 +3665,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(58, 104)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                         [Manager((int)Managers.SchaefferWarren)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
                         public static class ColoradoRockies { }
                     }
                 }
