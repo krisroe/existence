@@ -156,26 +156,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateKnessetSeatsByPoliticalParty()
         {
-            int iKnessets = 0;
-            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
-            {
-                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
-                if (politicalParties == null) continue;
-                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
-                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
-                    .ToList();
-                if (!fields.Any(f => f.GetCustomAttribute<NumberOfSeatsAttribute>() != null)) continue;
-                iKnessets++;
-                int iSeats = 0;
-                foreach (FieldInfo field in fields)
-                {
-                    NumberOfSeatsAttribute? seats = field.GetCustomAttribute<NumberOfSeatsAttribute>();
-                    Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has no NumberOfSeats attribute");
-                    iSeats += seats.NumberOfSeats;
-                }
-                Assert.AreEqual(GetKnessetNumberOfMembers(knesset), iSeats, $"seats for Knesset.{knesset.Name} do not add up to its number of members");
-            }
-            Assert.IsTrue(iKnessets > 0, "no NumberOfSeats attributes found");
+            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsAttribute>(a => a.NumberOfSeats);
         }
 
         /// <summary>
@@ -186,26 +167,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateKnessetPredictedSeatsByPoliticalParty()
         {
-            int iKnessets = 0;
-            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
-            {
-                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
-                if (politicalParties == null) continue;
-                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
-                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
-                    .ToList();
-                if (!fields.Any(f => f.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>() != null)) continue;
-                iKnessets++;
-                int iSeats = 0;
-                foreach (FieldInfo field in fields)
-                {
-                    NumberOfSeatsIPredictedAttribute? seats = field.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>();
-                    Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has no NumberOfSeatsIPredicted attribute");
-                    iSeats += seats.NumberOfSeats;
-                }
-                Assert.AreEqual(GetKnessetNumberOfMembers(knesset), iSeats, $"predicted seats for Knesset.{knesset.Name} do not add up to its number of members");
-            }
-            Assert.IsTrue(iKnessets > 0, "no NumberOfSeatsIPredicted attributes found");
+            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsIPredictedAttribute>(a => a.NumberOfSeats);
         }
 
         /// <summary>
@@ -289,6 +251,36 @@ namespace Existence.Tests
                 tenures.Add((int.Parse(m.Groups[1].Value), t.Name, fullAttributes.FirstOrDefault(), attributes.Where(a => a.GetType() != typeof(PrimeMinisterAttribute)).ToList()));
             }
             return tenures.OrderBy(t => t.Number).Select(t => (t.Tenure, t.PrimeMinister, t.PartialPrimeMinisters)).ToList();
+        }
+
+        /// <summary>
+        /// validates that in each Knesset where any political party has a T attribute, every political party that didn't
+        /// withdraw from the election has one, and that the seats they give add up to the number of members of the
+        /// Knesset. getNumberOfSeats reads the seats from the attribute, since the seat attributes share no base class
+        /// </summary>
+        private static void ValidateSeatsAddUpByPoliticalParty<T>(Func<T, int> getNumberOfSeats) where T : Attribute
+        {
+            string sAttribute = typeof(T).Name.Substring(0, typeof(T).Name.Length - nameof(Attribute).Length);
+            int iKnessets = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
+                if (politicalParties == null) continue;
+                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
+                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
+                    .ToList();
+                if (!fields.Any(f => f.GetCustomAttribute<T>() != null)) continue;
+                iKnessets++;
+                int iSeats = 0;
+                foreach (FieldInfo field in fields)
+                {
+                    T? seats = field.GetCustomAttribute<T>();
+                    Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has no {sAttribute} attribute");
+                    iSeats += getNumberOfSeats(seats);
+                }
+                Assert.AreEqual(GetKnessetNumberOfMembers(knesset), iSeats, $"{sAttribute} seats for Knesset.{knesset.Name} do not add up to its number of members");
+            }
+            Assert.IsTrue(iKnessets > 0, $"no {sAttribute} attributes found");
         }
 
         private static DateTime ToDateTime(YearDateAttribute? date)

@@ -967,7 +967,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// originally United Arab List
                 /// </summary>
-                [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(4)]
                 [NumberOfSeats(7)]
