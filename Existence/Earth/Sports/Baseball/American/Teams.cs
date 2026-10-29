@@ -67,6 +67,11 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         DetroitTigers,
         /// <summary>
+        /// a 1962 National League expansion team that has always played in Houston: Houston Colt .45s from 1962 to 1964,
+        /// and Houston Astros from 1965 on. Moved from the National League to the American League in 2013
+        /// </summary>
+        HoustonAstros,
+        /// <summary>
         /// a 1969 American League expansion team that has always been the Kansas City Royals
         /// </summary>
         KansasCityRoyals,
@@ -630,6 +635,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(81, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(52, 110)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
@@ -757,6 +763,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(79, 83)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(76, 86)]
                         [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
@@ -890,6 +897,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(81, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(75, 87)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
@@ -1089,6 +1097,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(28, 29)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(25, 29)]
                         [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
@@ -1130,6 +1139,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(33, 20)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(31, 21)]
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
@@ -1342,6 +1352,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(77, 85)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(61, 101)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
@@ -1556,6 +1567,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                         [TeamWinLossRecord(85, 77)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(81, 81)]
                         [Franchise(MajorLeagueBaseballFranchises.BrooklynDodgers)]
@@ -1698,6 +1710,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(84, 78)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(79, 83)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
@@ -1852,6 +1865,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(102, 60)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         /// <summary>
                         /// won the wild card in a one-game tiebreaker against the San Francisco Giants, which counted as a
@@ -2071,6 +2085,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(86, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(86, 76)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -2296,6 +2311,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(56, 106)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                     }
                     public static class West
@@ -2397,6 +2413,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(103, 59)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(97, 65)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
@@ -2586,6 +2603,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(29, 31)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(27, 33)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -2833,6 +2851,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(95, 67)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(90, 72)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -2988,6 +3007,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [TeamWinLossRecord(90, 72)]
                         [DivisionWinner(HEAD_TO_HEAD_SEASON_SERIES_TIEBREAKER)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(90, 72)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
@@ -3144,6 +3164,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(88, 73)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(85, 77)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -3302,6 +3323,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(81, 81)]
                         public static class TexasRangers { }
@@ -3550,6 +3572,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(81, 81)]
                         [Manager((int)Managers.EspadaJoe)]
                         [FiredManager((int)Managers.EspadaJoe, 2026, 10, 14, ManagerDismissalType.ContractNotRenewed)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(80, 82)]
                         [Manager((int)Managers.SchumakerSkip)]
