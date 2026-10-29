@@ -1134,6 +1134,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(63, 99)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        [Expansion(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayDevilRays { }
                     }
                     public static class Central
@@ -1258,6 +1259,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(97, 65)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(95, 67)]
                         public static class BostonRedSox { }
@@ -1482,6 +1484,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(97, 65)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(91, 71)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(90, 72)]
                         public static class BostonRedSox { }
@@ -1585,6 +1588,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(100, 62)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(90, 72)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(73, 89)]
                         public static class TorontoBlueJays { }
@@ -1717,6 +1721,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(40, 20)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(33, 27)]
                         public static class NewYorkYankees { }
@@ -1940,6 +1945,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class East
                     {
                         [TeamWinLossRecord(100, 62)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(92, 70)]
                         public static class BostonRedSox { }
@@ -2042,6 +2048,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(101, 61)]
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(99, 63)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(89, 73)]
                         public static class TorontoBlueJays { }
@@ -2151,6 +2158,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(81, 81)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(80, 82)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(74, 88)]
                         public static class TorontoBlueJays { }
@@ -2258,6 +2266,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(89, 73)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(77, 85)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(75, 87)]
                         public static class BaltimoreOrioles { }
@@ -2435,6 +2444,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(98, 64)]
                         [WorldSeries(TwoPlayerGameOutcome.Future)]
                         [Manager((int)Managers.CashKevin)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
                         [TeamWinLossRecord(93, 68)]
                         [Manager((int)Managers.BooneAaron)]
@@ -2660,7 +2670,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterSeventhBottom)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterEighthTop)]
                 public static class Game5 { }
             }
         }
