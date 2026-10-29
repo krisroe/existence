@@ -39,9 +39,21 @@ namespace Existence.Earth.Sports.Baseball.American
         BrooklynDodgers,
         /// <summary>
         /// a National League charter member in 1876: Chicago White Stockings from 1876 to 1889, Chicago Colts from 1890 to
-        /// 1897, Chicago Orphans from 1898 to 1902, and Chicago Cubs from 1903 on
+        /// 1897, Chicago Orphans from 1898 to 1902, and Chicago Cubs from 1903 on. Has always played in Chicago, on the
+        /// North Side at Wrigley Field from 1916 on. ChicagoNorthCubs is the franchise's name because Chicago has two
+        /// franchises, and the side of the city tells them apart
         /// </summary>
-        ChicagoCubs,
+        ChicagoNorthCubs,
+        /// <summary>
+        /// a Western League minor league team that Charles Comiskey bought in Sioux City in 1894 and moved to St. Paul for
+        /// 1895 to 1899, then moved to Chicago's South Side in 1900, the year the Western League renamed itself the
+        /// American League, a major league from 1901. Chicago White Stockings at first, shortened to Chicago White Sox by
+        /// 1904. Played at South Side Park from 1900 to 1910, Comiskey Park from 1910 to 1990, and from 1991 on at the new
+        /// ballpark across the street (later U.S. Cellular Field, Guaranteed Rate Field, and Rate Field), apart from 20 home
+        /// games in Milwaukee in 1968 and 1969. ChicagoSouthWhiteSox is the franchise's name because Chicago has two
+        /// franchises, and the side of the city tells them apart
+        /// </summary>
+        ChicagoSouthWhiteSox,
         /// <summary>
         /// Cincinnati Red Stockings in the American Association from 1882 to 1889, then Cincinnati Reds after joining the
         /// National League in 1890. Officially the Cincinnati Redlegs for most of the 1950s, through 1958
@@ -478,7 +490,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [TeamWinLossRecord(35, 41)]
                     public static class WashingtonSenators { }
                     [TeamWinLossRecord(31, 39)]
-                    [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                     public static class ChicagoColts { }
                     [TeamWinLossRecord(31, 42)]
                     [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -516,7 +528,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                     public static class NewYorkGiants { }
                     [TeamWinLossRecord(39, 37)]
-                    [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                     public static class ChicagoColts { }
                     [TeamWinLossRecord(38, 37)]
                     [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
@@ -610,6 +622,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Expansion(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(68, 94)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(64, 98)]
                         [Expansion(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
@@ -628,7 +641,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(92, 70)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(88, 74)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
@@ -746,6 +759,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(56, 106)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                     }
                 }
@@ -761,7 +775,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(84, 78)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(83, 79)]
                         public static class NewYorkMets { }
@@ -872,6 +886,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(94, 68)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(90, 72)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(84, 77)]
                         [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
@@ -905,7 +920,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
                         public static class StLouisCardinals { }
                         [TeamWinLossRecord(81, 81)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(75, 87)]
                         public static class MontrealExpos { }
@@ -1012,6 +1027,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [TeamWinLossRecord(33, 22)]
                         public static class TexasRangers { }
                         [TeamWinLossRecord(31, 22)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(31, 29)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
@@ -1075,6 +1091,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(23, 30)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(20, 30)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
@@ -1111,7 +1128,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(15, 37)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                     }
                     public static class West
@@ -1157,7 +1174,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(23, 28)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(21, 33)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
@@ -1303,6 +1320,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(76, 86)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
@@ -1360,7 +1378,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(73, 89)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(65, 97)]
                         public static class NewYorkMets { }
@@ -1536,6 +1554,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class West
                     {
                         [TeamWinLossRecord(94, 68)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(86, 76)]
                         public static class TexasRangers { }
@@ -1575,7 +1594,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
                         public static class StLouisCardinals { }
                         [TeamWinLossRecord(84, 78)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(75, 87)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
@@ -1686,6 +1705,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(80, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(78, 83)]
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
@@ -1753,7 +1773,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class StLouisCardinals { }
                         [TeamWinLossRecord(68, 94)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                     }
                     public static class West
@@ -1844,6 +1864,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(80, 82)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(72, 89)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -1903,7 +1924,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// regular season game
                         /// </summary>
                         [TeamWinLossRecord(90, 73)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(83, 79)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -2028,6 +2049,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [TeamWinLossRecord(89, 74)]
                         [DivisionWinner(ONE_GAME_TIEBREAKER)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(88, 75)]
                         [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
@@ -2111,7 +2133,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(97, 64)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(90, 72)]
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
@@ -2277,6 +2299,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(79, 83)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(71, 91)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -2340,7 +2363,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
                         public static class PittsburghPirates { }
                         [TeamWinLossRecord(71, 91)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(56, 106)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
@@ -2439,6 +2462,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(62, 100)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(58, 104)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -2495,7 +2519,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(95, 68)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(88, 74)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -2624,6 +2648,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandIndians { }
                         [TeamWinLossRecord(35, 25)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(26, 34)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -2698,7 +2723,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(34, 26)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(30, 28)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -2869,6 +2894,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(93, 69)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(80, 82)]
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
@@ -2937,7 +2963,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(71, 91)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(61, 101)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
@@ -3032,6 +3058,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndians)]
                         public static class ClevelandGuardians { }
                         [TeamWinLossRecord(61, 101)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(56, 106)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
@@ -3089,7 +3116,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(83, 79)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(82, 80)]
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
@@ -3197,6 +3224,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         /// </summary>
                         [TeamWinLossRecord(41, 121)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                     }
                     public static class West
@@ -3245,7 +3273,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(83, 79)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(83, 79)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -3354,6 +3382,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(60, 102)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                     }
                     public static class West
@@ -3402,7 +3431,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(92, 70)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(83, 79)]
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
@@ -3593,6 +3622,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ClevelandGuardians { }
                         [TeamWinLossRecord(84, 78)]
                         [Manager((int)Managers.VenableWill)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(77, 85)]
                         [Manager((int)Managers.SheltonDerek)]
@@ -3692,7 +3722,7 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(89, 73)]
                         [Manager((int)Managers.CounsellCraig)]
-                        [Franchise(MajorLeagueBaseballFranchises.ChicagoCubs)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(82, 80)]
                         [Manager((int)Managers.KellyDon)]
