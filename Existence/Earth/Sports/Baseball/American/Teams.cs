@@ -2158,24 +2158,12 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public enum Roster
                     {
-                        /// <summary>
-                        /// started game 1
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MartinezNick,
-                        /// <summary>
-                        /// started game 2
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         RasmussenDrew,
-                        /// <summary>
-                        /// started game 3
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         PeraltaFreddy,
-                        /// <summary>
-                        /// expected to start game 4
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         JaxGriffin,
                     }
@@ -2233,10 +2221,15 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// interesting moment
                 /// In extra innings, Devil Rays at bat, score 2-2, 2 outs, runner on 2nd, 1-2 count, only needed a ball for 6 significant 2's, but the batter swung so that didn't happen (I don't remember if the pitch was in the strike zone)
                 /// </summary>
-                [ExpectedStartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
-                [ExpectedStartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, "Winning run scored in the bottom of the twelfth inning with no outs")]
                 public static class Game4 { }
+
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.TampaBayRays, 0, MajorLeagueBaseballTeams.MilwaukeeBrewers, 0, BaseballHalfInningEndingPoint.AfterFirstBottom)]
+                public static class Game5 { }
             }
         }
     }
