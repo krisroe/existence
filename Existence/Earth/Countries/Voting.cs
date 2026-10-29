@@ -165,6 +165,16 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the political party or candidate withdrew from the election on this date, after entering it
+    /// </summary>
+    public class WithdrewAttribute : YearDateAttribute
+    {
+        public WithdrewAttribute(int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+        }
+    }
+
+    /// <summary>
     /// the politician was prime minister over the date range. EndDate is null while still in office
     /// </summary>
     public class PrimeMinisterAttribute : Attribute

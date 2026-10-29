@@ -862,16 +862,17 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
                 [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeats(0)]
                 [VotePercentage(1.49)]
                 AmchaYisrael,
 
                 /// <summary>
-                /// submitted a list, then withdrew from the election on 2026-10-19
+                /// submitted a list, then withdrew from the election
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GantzBenny)]
-                [NumberOfSeats(0)]
+                [Withdrew(2026, 10, 19)]
                 BlueAndWhite,
 
                 /// <summary>
@@ -902,6 +903,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeats(0)]
                 [VotePercentage(0.13)]
                 Noam,
 
@@ -962,12 +964,15 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [VotePercentage(9.08)]
                 Together,
 
+                /// <summary>
+                /// originally United Arab List
+                /// </summary>
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(4)]
                 [NumberOfSeats(7)]
                 [VotePercentage(9.08)]
-                UnitedArabList,
+                Raʼam,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
@@ -1215,7 +1220,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [BeforePoliticalPartiesAndFactions(v25.PoliticalParties.UnitedArabList)]
                 [BeforePreviousElectionVotePercentage(4.07)]
-                [AfterPoliticalPartiesAndFactions(PoliticalParties.UnitedArabList)]
+                [AfterPoliticalPartiesAndFactions(PoliticalParties.Raʼam)]
                 [AfterPreviousElectionVotePercentage(4.07)]
                 UnitedArabList,
             }
@@ -1237,7 +1242,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 public static class No2 { }
 
                 [PoliticalParties((int)PoliticalParties.JointList)]
-                [PoliticalParties((int)PoliticalParties.UnitedArabList)]
+                [PoliticalParties((int)PoliticalParties.Raʼam)]
                 public static class No3 { }
 
                 [PoliticalParties((int)PoliticalParties.Likud)]

@@ -149,8 +149,39 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that in each Knesset with results, the seats the political parties won add up to the number of
+        /// members of the Knesset. Every political party that didn't withdraw from the election needs a NumberOfSeats
+        /// attribute once any of them has one
+        /// </summary>
+        [TestMethod]
+        public void ValidateKnessetSeatsByPoliticalParty()
+        {
+            int iKnessets = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
+                if (politicalParties == null) continue;
+                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
+                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
+                    .ToList();
+                if (!fields.Any(f => f.GetCustomAttribute<NumberOfSeatsAttribute>() != null)) continue;
+                iKnessets++;
+                int iSeats = 0;
+                foreach (FieldInfo field in fields)
+                {
+                    NumberOfSeatsAttribute? seats = field.GetCustomAttribute<NumberOfSeatsAttribute>();
+                    Assert.IsNotNull(seats, $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has no NumberOfSeats attribute");
+                    iSeats += seats.NumberOfSeats;
+                }
+                Assert.AreEqual(GetKnessetNumberOfMembers(knesset), iSeats, $"seats for Knesset.{knesset.Name} do not add up to its number of members");
+            }
+            Assert.IsTrue(iKnessets > 0, "no NumberOfSeats attributes found");
+        }
+
+        /// <summary>
         /// validates that in each Knesset with seat predictions, the seats I predicted for the political parties add up
-        /// to the number of members of the Knesset. Every political party needs a prediction once any of them has one
+        /// to the number of members of the Knesset. Every political party that didn't withdraw from the election needs a
+        /// prediction once any of them has one
         /// </summary>
         [TestMethod]
         public void ValidateKnessetPredictedSeatsByPoliticalParty()
@@ -160,7 +191,9 @@ namespace Existence.Tests
             {
                 Type? politicalParties = knesset.GetNestedType("PoliticalParties");
                 if (politicalParties == null) continue;
-                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static).ToList();
+                List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
+                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
+                    .ToList();
                 if (!fields.Any(f => f.GetCustomAttribute<NumberOfSeatsIPredictedAttribute>() != null)) continue;
                 iKnessets++;
                 int iSeats = 0;
