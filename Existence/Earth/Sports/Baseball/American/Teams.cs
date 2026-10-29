@@ -58,6 +58,10 @@ namespace Existence.Earth.Sports.Baseball.American
         SanFranciscoGiants,
         SeattleMariners,
         /// <summary>
+        /// the 1969 American League expansion team that moved to Milwaukee in 1970 and became the Milwaukee Brewers
+        /// </summary>
+        SeattlePilots,
+        /// <summary>
         /// used by multiple franchises: the National League team that later became the St. Louis Cardinals, and the
         /// American League team (1902-1953) that later became the Baltimore Orioles
         /// </summary>
@@ -365,6 +369,91 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             [BestOf(9)]
             public static class WorldSeries { }
+        }
+
+        /// <summary>
+        /// the first season with divisions, after each league expanded to 12 teams
+        /// </summary>
+        public static class v1969
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(109, 53)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(90, 72)]
+                        public static class DetroitTigers { }
+                        [TeamWinLossRecord(87, 75)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(86, 76)]
+                        public static class WashingtonSenators { }
+                        [TeamWinLossRecord(80, 81)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(62, 99)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        public static class ClevelandIndians { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(97, 65)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(71, 91)]
+                        public static class CaliforniaAngels { }
+                        [TeamWinLossRecord(69, 93)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(68, 94)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(64, 98)]
+                        public static class SeattlePilots { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(100, 62)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(92, 70)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(88, 74)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(87, 75)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(63, 99)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(52, 110)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        public static class MontrealExpos { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(93, 69)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(90, 72)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(89, 73)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(85, 77)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(81, 81)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(52, 110)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        public static class SanDiegoPadres { }
+                    }
+                }
+            }
         }
 
         public static class v1981
