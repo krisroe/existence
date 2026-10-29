@@ -124,8 +124,16 @@ namespace Existence.Beyond.Timeless
             [YearDate(2025, 5, 12)]
             TwoWorkplacesDetails,
 
+            [BeyondObjectVersion(5, 9, 1, 0)]
+            [YearDate(2026, 10, 20)]
+            CapitalizationFixForBirthdatePreciseAttributeNowBirthDatePrecise,
+
+            [BeyondObjectVersion(5, 9, 2, 0)]
+            [YearDate(2026, 10, 22, Hour: 18, Minute: 46)]
+            PoliticalPhilosophiesAttributeAndPoliticalPhilosophiesAndPoliticalPhilosophiesFlagsEnumerationsChangedNamespace,            
+
             [BeyondObjectVersion(6, 0, 0, 0)]
-            [YearDate(2026, 10, 22)]
+            [YearDate(2026, 10, 22, Hour: 19, Minute : 27)]
             FixTestPetHouseUnitTest,
 
             [BeyondObjectVersion(7, 0, 0, 0)]
@@ -135,6 +143,10 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(7, 0, 1, 0)]
             [YearDate(2026, 10, 25)]
             RenameHumanGenderToGender,
+
+            [BeyondObjectVersion(7, 1, 0, 0)]
+            [YearDate(2026, 10, 28)]
+            EnumerateHumanFathersSiblings,
         }
 
         /// <summary>
@@ -197,7 +209,20 @@ namespace Existence.Beyond.Timeless
 
                     [FavoriteColor(KnownColor.Green)]
                     [BirthDate(1952, 7, 4)]
-                    public class Father { }
+                    public class Father
+                    {
+                        public static class SiblingsByAgeDescending
+                        {
+                            public static class Brother1 { }
+                            public static class Father { }
+                            public static class Sister1 { }
+                            public static class Brother2 { }
+                            public static class Sister2 { }
+                            public static class Brother3 { }
+                            public static class Sister3 { }
+                            public static class Sister4 { }
+                        }
+                    }
 
                     [FavoriteColor(KnownColor.Red)]
                     public class Brother { }
