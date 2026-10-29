@@ -229,10 +229,8 @@ namespace Existence.Earth.Sports.Baseball.American
 
     public class AlternateMajorLeagueBaseballGameResultAttribute : MajorLeagueBaseballGameResultAttribute
     {
-        public string AlternateExplanation { get; set; }
-        public AlternateMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string AlternateExplanation) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public AlternateMajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string AlternateExplanation, BaseballHalfInningEndingPoint HalfInningEndingPoint) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, AlternateExplanation, HalfInningEndingPoint)
         {
-            this.AlternateExplanation = AlternateExplanation;
         }
     }
 
@@ -247,6 +245,7 @@ namespace Existence.Earth.Sports.Baseball.American
         public MajorLeagueBaseballTeams LosingTeam { get; set; }
         public int LosingTeamRuns { get; set; }
         public string? ResultExplanation { get; set; }
+        public BaseballHalfInningEndingPoint? HalfInningEndingPoint { get; set; }
         public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns)
         {
             this.WinningTeam = WinningTeam;
@@ -254,9 +253,10 @@ namespace Existence.Earth.Sports.Baseball.American
             this.LosingTeam = LosingTeam;
             this.LosingTeamRuns = LosingTeamRuns;
         }
-        public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string ResultExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public MajorLeagueBaseballGameResultAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string? ResultExplanation = null, object? HalfInningEndingPoint = null) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
         {
             this.ResultExplanation = ResultExplanation;
+            this.HalfInningEndingPoint = HalfInningEndingPoint == null ? null : (BaseballHalfInningEndingPoint)HalfInningEndingPoint;
         }
     }
 
@@ -286,22 +286,17 @@ namespace Existence.Earth.Sports.Baseball.American
     /// </summary>
     public class MajorLeagueBaseballGameResultInProgressAttribute : MajorLeagueBaseballGameResultAttribute
     {
-        public BaseballHalfInningEndingPoint? HalfInningEndingPoint { get; set; }
-        public string? InProgressExplanation { get; set; }
         public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
         {
         }
-        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, null, HalfInningEndingPoint)
         {
-            this.HalfInningEndingPoint = HalfInningEndingPoint;
         }
-        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint, string InProgressExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, HalfInningEndingPoint)
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, BaseballHalfInningEndingPoint HalfInningEndingPoint, string InProgressExplanation) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, InProgressExplanation, HalfInningEndingPoint)
         {
-            this.InProgressExplanation = InProgressExplanation;
         }
-        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string InProgressExplanation) : this(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns)
+        public MajorLeagueBaseballGameResultInProgressAttribute(MajorLeagueBaseballTeams WinningTeam, int WinningTeamRuns, MajorLeagueBaseballTeams LosingTeam, int LosingTeamRuns, string InProgressExplanation) : base(WinningTeam, WinningTeamRuns, LosingTeam, LosingTeamRuns, InProgressExplanation)
         {
-            this.InProgressExplanation = InProgressExplanation;
         }
     }
 
@@ -2449,7 +2444,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class East
                     {
                         [TeamWinLossRecord(98, 64)]
-                        [WorldSeries(TwoPlayerGameOutcome.Future)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
                         [Manager((int)Managers.CashKevin)]
                         [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
                         public static class TampaBayRays { }
@@ -2559,7 +2554,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class Central
                     {
                         [TeamWinLossRecord(103, 59)]
-                        [WorldSeries(TwoPlayerGameOutcome.Future)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
                         [Manager((int)Managers.MurphyPat)]
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
@@ -2625,24 +2620,12 @@ namespace Existence.Earth.Sports.Baseball.American
                 {
                     public enum Roster
                     {
-                        /// <summary>
-                        /// started game 1
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MisiorowskiJacob,
-                        /// <summary>
-                        /// started game 2
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         HendersonLogan,
-                        /// <summary>
-                        /// started game 3
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         GasserRobert,
-                        /// <summary>
-                        /// expected to start game 4, though the Brewers may use an opener in front of him
-                        /// </summary>
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         MayDustin,
                     }
@@ -2650,20 +2633,27 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.MartinezNick)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
-                [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome")]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2,
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [AlternateMajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1, 
+                    "The simulation could have split at the 2nd to last at-bat with the possibility of watching the game from another universe with a different outcome", 
+                    BaseballHalfInningEndingPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
-                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 5, MajorLeagueBaseballTeams.TampaBayRays, 4,
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 2, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game2 { }
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
-                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, "Brewers pitchers facing the mininum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base")]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, 
+                    "Brewers pitchers facing the minimum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game3 { }
 
                 /// <summary>
@@ -2672,12 +2662,20 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// </summary>
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
-                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, "Winning run scored in the bottom of the twelfth inning with no outs")]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, 
+                    "Winning run scored in the bottom of the twelfth inning with no outs",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterTwelfthBottom)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game4 { }
 
+                /// <summary>
+                /// interesting fact: both the series result and the final game score was 4-1
+                /// </summary>
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterNinthTop)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 1, 
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game5 { }
             }
         }
