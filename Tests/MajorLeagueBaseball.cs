@@ -182,6 +182,47 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates the Expansion and Franchise attributes on the teams in each season's standings: no team has both,
+        /// each franchise has at most one expansion season (a split season's halves count as one season), and each
+        /// season a team has a Franchise attribute comes after its franchise's expansion season
+        /// </summary>
+        [TestMethod]
+        public void ValidateExpansionAndFranchiseAttributes()
+        {
+            var expansionSeasons = new Dictionary<MajorLeagueBaseballFranchises, HashSet<int>>();
+            var franchiseSeasons = new List<(MajorLeagueBaseballFranchises Franchise, int Season, Type Team)>();
+            foreach (Type season in GetSeasons())
+            {
+                int iSeason = GetSeasonYear(season);
+                foreach (Type team in asLeagues.SelectMany(s => GetSeasonHalves(season, s)).SelectMany(h => h.Teams))
+                {
+                    ExpansionAttribute? expansion = team.GetCustomAttribute<ExpansionAttribute>();
+                    FranchiseAttribute? franchise = team.GetCustomAttribute<FranchiseAttribute>();
+                    Assert.IsFalse(expansion != null && franchise != null, $"{GetName(team)} has both Expansion and Franchise attributes");
+                    if (expansion != null)
+                    {
+                        if (!expansionSeasons.TryGetValue(expansion.Franchise, out HashSet<int>? seasons)) expansionSeasons[expansion.Franchise] = seasons = new HashSet<int>();
+                        seasons.Add(iSeason);
+                    }
+                    if (franchise != null) franchiseSeasons.Add((franchise.Franchise, iSeason, team));
+                }
+            }
+            Assert.IsTrue(expansionSeasons.Count > 0, "no Expansion attributes found");
+            Assert.IsTrue(franchiseSeasons.Count > 0, "no Franchise attributes found");
+
+            foreach (var expansion in expansionSeasons)
+            {
+                Assert.AreEqual(1, expansion.Value.Count, $"{expansion.Key} has Expansion attributes in more than one season: {string.Join(", ", expansion.Value.OrderBy(y => y))}");
+            }
+            foreach (var franchise in franchiseSeasons)
+            {
+                if (!expansionSeasons.TryGetValue(franchise.Franchise, out HashSet<int>? seasons)) continue; // expansion season not filled in
+                int iExpansionSeason = seasons.Single();
+                Assert.IsTrue(franchise.Season > iExpansionSeason, $"{GetName(franchise.Team)} has a Franchise attribute for {franchise.Franchise} in or before its {iExpansionSeason} expansion season");
+            }
+        }
+
+        /// <summary>
         /// verifies the bet I made with my father's second oldest brother: that the Milwaukee Brewers would not win their
         /// division within 15 years and would not get to the World Series within 30 years. The bet was probably made a
         /// couple of years before 1994, but 1994 is what I remember, so it's taken as made on 1994-12-31, the latest it

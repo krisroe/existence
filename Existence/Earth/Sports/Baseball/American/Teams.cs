@@ -96,7 +96,8 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the team in a season's standings was an expansion team that season, its franchise's first
+    /// the team in a season's standings was an expansion team that season, its franchise's first. Later seasons use
+    /// FranchiseAttribute instead; a team never has both
     /// </summary>
     public class ExpansionAttribute : Attribute
     {
@@ -108,8 +109,9 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the team in a season's standings belonged to the franchise. It goes on every season's entry for the team,
-    /// including the expansion season, since some team names were used by more than one franchise
+    /// the team in a season's standings belonged to the franchise, in a season after the franchise's expansion season,
+    /// which uses ExpansionAttribute instead; a team never has both. Some team names were used by more than one
+    /// franchise, so the team name alone doesn't identify the franchise
     /// </summary>
     public class FranchiseAttribute : Attribute
     {
@@ -444,7 +446,6 @@ namespace Existence.Earth.Sports.Baseball.American
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(64, 98)]
                         [Expansion(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
-                        [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class SeattlePilots { }
                     }
                 }
@@ -2659,7 +2660,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.SeventhInningStretch)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterSeventhBottom)]
                 public static class Game5 { }
             }
         }
