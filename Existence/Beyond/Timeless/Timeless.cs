@@ -145,8 +145,16 @@ namespace Existence.Beyond.Timeless
             RenameHumanGenderToGender,
 
             [BeyondObjectVersion(7, 1, 0, 0)]
-            [YearDate(2026, 10, 28)]
+            [YearDate(2026, 10, 28, Hour: 20, Minute: 20)]
             EnumerateHumanFathersSiblings,
+
+            [Explanation("Backdated explanation for my generic human mother's number range for male and female sibilings")]
+            [Explanation("Add generic human father's number range for male and female siblings (ibid and second brother has timeless-relevant interaction)")]
+            [Explanation("Mother as single parent phase is missing a Me (I don't think I intended a female me to be a possibility)")]
+            [Explanation("Mother was secondary undocumented owner of pet graveyard since added to timeless, now switched to primary owner with me secondary")]
+            [BeyondObjectVersion(7, 2, 0, 0)]
+            [YearDate(2026, 10, 28, Hour: 20, Minute: 53)]
+            AddMaleAndFemaleSiblingCountsForMyGenericHumanSelfsFather,
         }
 
         /// <summary>
@@ -303,7 +311,8 @@ namespace Existence.Beyond.Timeless
 
         [TruthClassification(TruthClassification.Nonfictional)]
         [Description("Pet Graveyard for Pets My Mother Took Care of")]
-        [Owners(2025, 3, 10, int.MaxValue, 0, 0, (int)FamilyMembersGeneric.Myself)]
+        [Owners(2025, 3, 10, 2026, 10, 28, (int)FamilyMembersGeneric.Myself, (int)FamilyMembersGeneric.MyMother)]
+        [Owners(2026, 10, 28, int.MaxValue, 0, 0, (int)FamilyMembersGeneric.MyMother, (int)FamilyMembersGeneric.Myself)]
         [GoalOwner((int)FamilyMembersGeneric.MyMother)]
         public class MyMothersPetGraveyard
         {
@@ -520,11 +529,19 @@ namespace Existence.Beyond.Timeless
                 [Religion((int)WorldReligions.Christianity)]
                 public class example1
                 {
+                    /// <summary>
+                    /// 0 female and 0 male siblings would have led to completely different situation
+                    /// </summary>
                     [FemaleSiblingCount(1, 2)]
                     [MaleSiblingCount(1, 1)]
                     [Sex(Sexes.Female)]
                     public class Parent1 { }
 
+                    /// <summary>
+                    /// male sibling #2 has timeless-relevant interaction
+                    /// </summary>
+                    [FemaleSiblingCount(1, 4)]
+                    [MaleSiblingCount(2, 3)]
                     [Sex(Sexes.Male)]
                     public class Parent2 { }
 
@@ -543,6 +560,7 @@ namespace Existence.Beyond.Timeless
                     [PoliticalPhilosophyFlags(PoliticalPhilosophiesFlags.Liberal | 
                                               PoliticalPhilosophiesFlags.Conservative |
                                               PoliticalPhilosophiesFlags.Libertarian)]
+                    [Me]
                     public class Brother { }
                     public class Sister { }
                 }
