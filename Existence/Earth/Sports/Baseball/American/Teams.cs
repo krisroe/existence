@@ -6,6 +6,13 @@ namespace Existence.Earth.Sports.Baseball.American
 {
     public enum MajorLeagueBaseballFranchises
     {
+        /// <summary>
+        /// names since the American League became a major league in 1901: Cleveland Bluebirds (or Blues) in 1901,
+        /// Cleveland Bronchos in 1902, Cleveland Naps (after Nap Lajoie) from 1903 to 1914, Cleveland Indians from 1915 to
+        /// 2021, and Cleveland Guardians from 2022 on. ClevelandIndians is the franchise's name because it was the name
+        /// for the bulk of the franchise's early history and no team will use the Indians name going forward
+        /// because of the negative connotations associated with it
+        /// </summary>
         ClevelandIndians,
         MilwaukeeBrewers,
         OaklandAthletics,
@@ -2670,7 +2677,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
-                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterEighthBottom)]
+                [MajorLeagueBaseballGameResultInProgress(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 0, BaseballHalfInningEndingPoint.AfterNinthTop)]
                 public static class Game5 { }
             }
         }
