@@ -26,7 +26,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         BaltimoreOriolesAmericanLeague,
         /// <summary>
-        /// an American League charter member in 1901 with <see cref="Managers.McGrawJohn"/> as player-manager. In 1902 he jumped to the
+        /// an American League charter member in 1901 with <see cref="MajorLeagueBaseball.v1901.Managers.McGrawJohn"/> as player-manager. In 1902 he jumped to the
         /// National League's New York Giants, and the Giants and Cincinnati Reds gained control of the club and took its
         /// best players; the American League restocked it with players on loan from its other teams for the rest of the
         /// season. The American League replaced it with a new New York team, which became the Yankees, in 1903, though few
@@ -821,6 +821,14 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1901
         {
+            public enum Managers
+            {
+                /// <summary>
+                /// player-manager of the American League's Baltimore Orioles
+                /// </summary>
+                McGrawJohn,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1712,6 +1720,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 WeaverEarl,
             }
 
+            public enum Umpires
+            {
+                /// <summary>
+                /// joined the American League staff in April, his first season
+                /// </summary>
+                DenkingerDon,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -1865,6 +1881,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 WeaverEarl,
             }
 
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -2006,6 +2027,36 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1971
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the All-Star Game
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1972
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the American League Championship Series
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1973
+        {
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+        }
+
         /// <summary>
         /// the Oakland Athletics' third straight World Series title, over the Los Angeles Dodgers in an all-California
         /// World Series
@@ -2016,6 +2067,14 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 AlstonWalter,
                 DarkAlvin,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the World Series
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -2159,6 +2218,17 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1975
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the American League Championship Series
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
         /// <summary>
         /// the last season before the American League expanded to 14 teams, with 12 teams in each league
         /// </summary>
@@ -2168,6 +2238,14 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 AndersonSparky,
                 MartinBilly,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the All-Star Game
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -2317,6 +2395,15 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 LasordaTommy,
                 MartinBilly,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// became an American League crew chief. Worked 105 games, an unexplained dip from his usual full-time
+                /// workload
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -2469,6 +2556,41 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1978
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// home plate umpire for the American League East tie-breaker game, won by the New York Yankees over
+                /// the Boston Red Sox
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1979
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the American League Championship Series. Worked 107 games, an unexplained dip from
+                /// his usual full-time workload
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1980
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the World Series
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
         public static class v1981
         {
             public enum Managers
@@ -2478,6 +2600,15 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// replaced Gene Michael in early September
                 /// </summary>
                 LemonBob,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// second base umpire for Len Barker's perfect game on May 15, and umpired the American League Division
+                /// Series. Worked 95 games in the strike-shortened season
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -2768,6 +2899,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 KuennHarvey,
             }
 
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the American League Championship Series
+                /// </summary>
+                DenkingerDon,
+            }
+
             public static class AmericanLeague
             {
                 public enum PitchingAllStars
@@ -3039,6 +3178,22 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1983
+        {
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+        }
+
+        public static class v1984
+        {
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+        }
+
         /// <summary>
         /// the I-70 Series between the Kansas City Royals and St. Louis Cardinals, an all-Missouri World Series. The
         /// Royals came back from three games to one down for their first World Series title
@@ -3049,6 +3204,16 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 HerzogWhitey,
                 HowserDick,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the World Series. As the first base umpire in Game 6 he called Jorge Orta safe
+                /// leading off the bottom of the ninth, a missed call that started the Royals' rally; in Game 7, behind
+                /// home plate, he ejected Whitey Herzog and Joaquin Andujar
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -3243,7 +3408,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class Game5 { }
 
                 /// <summary>
-                /// the Royals rallied in the bottom of the ninth after umpire Don Denkinger's missed call at first base
+                /// the Royals rallied in the bottom of the ninth after umpire <see cref="Umpires.DenkingerDon"/>'s missed call at
+                /// first base
                 /// </summary>
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
@@ -3265,6 +3431,25 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1986
+        {
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+        }
+
+        public static class v1987
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the All-Star Game
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
         /// <summary>
         /// the Los Angeles Dodgers beat the Oakland Athletics in an all-California World Series, after Kirk Gibson's
         /// pinch-hit walk-off home run won Game 1
@@ -3275,6 +3460,14 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 LaRussaTony,
                 LasordaTommy,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the American League Championship Series
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -3437,6 +3630,11 @@ namespace Existence.Earth.Sports.Baseball.American
                 LaRussaTony,
             }
 
+            public enum Umpires
+            {
+                DenkingerDon,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3585,6 +3783,28 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        public static class v1990
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// home plate umpire for Nolan Ryan's sixth no-hitter on June 11
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1991
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the World Series, and the home plate umpire for Game 7
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
         /// <summary>
         /// the last season before the National League expanded to 14 teams, with 14 teams in the American League and 12
         /// in the National League
@@ -3595,6 +3815,14 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 CoxBobby,
                 GastonCito,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// crew chief for the American League Championship Series
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -3759,6 +3987,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 GastonCito,
             }
 
+            public enum Umpires
+            {
+                /// <summary>
+                /// his last season as a full-time umpire
+                /// </summary>
+                DenkingerDon,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3917,8 +4153,40 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v1994
         {
+            public enum Umpires
+            {
+                /// <summary>
+                /// first base umpire for Kenny Rogers' perfect game on July 28. Worked part time because of a bad right
+                /// knee, 60 games in the strike-shortened season
+                /// </summary>
+                DenkingerDon,
+            }
+
             [Text("No World Series was played because the players' strike that began on August 12 led to the rest of the season and the postseason being canceled")]
             public static class WorldSeries { }
+        }
+
+        public static class v1995
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// umpired the American League Division Series. Worked part time, 93 games in the strike-shortened
+                /// season
+                /// </summary>
+                DenkingerDon,
+            }
+        }
+
+        public static class v1996
+        {
+            public enum Umpires
+            {
+                /// <summary>
+                /// worked part time, only 16 games, the fewest of his career
+                /// </summary>
+                DenkingerDon,
+            }
         }
 
         /// <summary>
@@ -3931,6 +4199,14 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 HargroveMike,
                 LeylandJim,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// worked part time, 96 games
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
@@ -4110,6 +4386,15 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 BochyBruce,
                 TorreJoe,
+            }
+
+            public enum Umpires
+            {
+                /// <summary>
+                /// worked part time, 52 games; his last game was on June 2, before he retired because of a bad right
+                /// knee
+                /// </summary>
+                DenkingerDon,
             }
 
             public static class AmericanLeague
