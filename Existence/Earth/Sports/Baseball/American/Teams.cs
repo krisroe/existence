@@ -2541,7 +2541,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [Manager((int)Managers.HerzogWhitey)]
-                [HomeFieldAdvantage]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -2748,7 +2748,7 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [Manager((int)Managers.HowserDick)]
-                [HomeFieldAdvantage]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -4333,7 +4333,7 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [Manager((int)Managers.MaddonJoe)]
-                [HomeFieldAdvantage]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -4983,7 +4983,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// </summary>
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 [Manager((int)Managers.RobertsDave)]
-                [HomeFieldAdvantage]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -6020,7 +6020,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [Manager((int)Managers.MurphyPat)]
-                [HomeFieldAdvantage]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster

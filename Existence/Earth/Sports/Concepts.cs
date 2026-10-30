@@ -233,10 +233,38 @@ namespace Existence.Earth.Sports
     }
 
     /// <summary>
+    /// how a team got home field advantage in a series
+    /// </summary>
+    public enum HomeFieldAdvantageReason
+    {
+        /// <summary>
+        /// home field advantage was decided by a coin toss
+        /// </summary>
+        CoinToss,
+        /// <summary>
+        /// the leagues took turns having home field advantage from year to year
+        /// </summary>
+        LeagueAlternation,
+        /// <summary>
+        /// the league that won that season's All-Star Game got home field advantage (World Series from 2003 through 2016)
+        /// </summary>
+        LeagueWonAllStarGame,
+        /// <summary>
+        /// home field advantage was decided by the team with the best regular season record
+        /// </summary>
+        BestRegularSeasonRecord,
+    }
+
+    /// <summary>
     /// whether a team has home field advantage in a series, so it would host the deciding game
     /// </summary>
     public class HomeFieldAdvantageAttribute : Attribute
     {
+        public HomeFieldAdvantageReason Reason { get; set; }
+        public HomeFieldAdvantageAttribute(HomeFieldAdvantageReason Reason)
+        {
+            this.Reason = Reason;
+        }
     }
 
     /// <summary>
