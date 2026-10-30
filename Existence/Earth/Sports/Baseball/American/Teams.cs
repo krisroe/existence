@@ -284,6 +284,10 @@ namespace Existence.Earth.Sports.Baseball.American
         /// the Cleveland Guardians' name in 1901, the American League's first season as a major league
         /// </summary>
         ClevelandBlues,
+        /// <summary>
+        /// the Cleveland Guardians' name in 1902
+        /// </summary>
+        ClevelandBronchos,
         ClevelandGuardians,
         ClevelandIndians,
         ClevelandSpiders,
@@ -840,6 +844,85 @@ namespace Existence.Earth.Sports.Baseball.American
                     [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
                     [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                     public static class CincinnatiReds { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// the American League Baltimore Orioles' last season: John McGraw left for the New York Giants in the middle of
+        /// it, the Giants and Cincinnati Reds took the club's best players, and the American League restocked it with
+        /// players on loan from its other teams. The American League replaced it with a New York team in 1903
+        /// </summary>
+        public static class v1902
+        {
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(83, 53)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(78, 58)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(77, 60)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonAmericans { }
+                    [TeamWinLossRecord(74, 60)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteStockings { }
+                    [TeamWinLossRecord(69, 67)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandBronchos { }
+                    [TeamWinLossRecord(61, 75)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(52, 83)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(50, 88)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeagueOriginal)]
+                    [FranchiseFoldedAfterSeason]
+                    public static class BaltimoreOrioles { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(103, 36)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(75, 63)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynSuperbas { }
+                    [TeamWinLossRecord(73, 64)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(70, 70)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(68, 69)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoOrphans { }
+                    [TeamWinLossRecord(56, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(56, 81)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(48, 88)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
                 }
             }
         }
