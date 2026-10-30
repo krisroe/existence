@@ -238,7 +238,7 @@ namespace Existence.Tests
                 HashSet<MajorLeagueBaseballFranchises> franchises = asLeagues
                     .SelectMany(s => GetSeasonHalves(season, s))
                     .SelectMany(h => h.Teams)
-                    .Select(t => t.GetCustomAttribute<ExpansionAttribute>()?.Franchise ?? t.GetCustomAttribute<FranchiseAttribute>()?.Franchise)
+                    .Select(GetFranchise)
                     .OfType<MajorLeagueBaseballFranchises>()
                     .ToHashSet();
                 if (franchises.Count > 0) seasonFranchises[GetSeasonYear(season)] = franchises;
@@ -247,15 +247,14 @@ namespace Existence.Tests
             var foldedSeasons = new Dictionary<MajorLeagueBaseballFranchises, int>();
             foreach (MajorLeagueBaseballFranchises franchise in Enum.GetValues<MajorLeagueBaseballFranchises>())
             {
-                FranchiseFoldedAfterSeasonAttribute? folded = typeof(MajorLeagueBaseballFranchises).GetField(franchise.ToString())!.GetCustomAttribute<FranchiseFoldedAfterSeasonAttribute>();
-                if (folded == null) continue;
-                foldedSeasons[franchise] = folded.Season;
-                if (seasonFranchises.TryGetValue(folded.Season, out HashSet<MajorLeagueBaseballFranchises>? franchises))
+                if (GetFranchiseFoldedAfterSeason(franchise) is not int iFoldedSeason) continue;
+                foldedSeasons[franchise] = iFoldedSeason;
+                if (seasonFranchises.TryGetValue(iFoldedSeason, out HashSet<MajorLeagueBaseballFranchises>? franchises))
                 {
-                    Assert.IsTrue(franchises.Contains(franchise), $"{franchise} folded after the {folded.Season} season but has no team in it");
+                    Assert.IsTrue(franchises.Contains(franchise), $"{franchise} folded after the {iFoldedSeason} season but has no team in it");
                 }
-                List<int> laterSeasons = seasonFranchises.Where(s => s.Key > folded.Season && s.Value.Contains(franchise)).Select(s => s.Key).OrderBy(y => y).ToList();
-                Assert.AreEqual(0, laterSeasons.Count, $"{franchise} folded after the {folded.Season} season but has teams in {string.Join(", ", laterSeasons)}");
+                List<int> laterSeasons = seasonFranchises.Where(s => s.Key > iFoldedSeason && s.Value.Contains(franchise)).Select(s => s.Key).OrderBy(y => y).ToList();
+                Assert.AreEqual(0, laterSeasons.Count, $"{franchise} folded after the {iFoldedSeason} season but has teams in {string.Join(", ", laterSeasons)}");
             }
             Assert.IsTrue(foldedSeasons.Count > 0, "no FranchiseFoldedAfterSeason attributes found");
 
@@ -267,6 +266,54 @@ namespace Existence.Tests
                     Assert.IsTrue(foldedSeasons.TryGetValue(franchise, out int iFoldedSeason) && iFoldedSeason == season.Key, $"{franchise} has a team in {season.Key} but not in {season.Key + 1}, and no FranchiseFoldedAfterSeason({season.Key}) attribute");
                 }
             }
+        }
+
+        /// <summary>
+        /// validates the FranchiseFoldedAfterSeason attributes on the teams in each season's standings against their
+        /// franchises' attributes: a team has one, without a season since it's the one the team is in, exactly when its
+        /// franchise folded after that season, so every team in a franchise's last season (each half of a split season)
+        /// has one and no other team does
+        /// </summary>
+        [TestMethod]
+        public void ValidateTeamFranchiseFoldedAfterSeasonAttributes()
+        {
+            int iTeams = 0;
+            foreach (Type season in GetSeasons())
+            {
+                int iSeason = GetSeasonYear(season);
+                foreach (Type team in asLeagues.SelectMany(s => GetSeasonHalves(season, s)).SelectMany(h => h.Teams))
+                {
+                    MajorLeagueBaseballFranchises? franchise = GetFranchise(team);
+                    bool bExpected = franchise != null && GetFranchiseFoldedAfterSeason(franchise.Value) == iSeason;
+                    FranchiseFoldedAfterSeasonAttribute? folded = team.GetCustomAttribute<FranchiseFoldedAfterSeasonAttribute>();
+                    Assert.AreEqual(bExpected, folded != null, $"{GetName(team)} {(folded != null ? "has" : "doesn't have")} a FranchiseFoldedAfterSeason attribute, but its franchise {franchise?.ToString() ?? "(none)"} {(bExpected ? "folded" : "didn't fold")} after {iSeason}");
+                    if (folded == null) continue;
+                    Assert.IsNull(folded.Season, $"{GetName(team)} has FranchiseFoldedAfterSeason({folded.Season}), but a team's attribute takes no season since it's the one the team is in");
+                    iTeams++;
+                }
+            }
+            Assert.IsTrue(iTeams > 0, "no teams with FranchiseFoldedAfterSeason attributes found");
+        }
+
+        /// <summary>
+        /// gets the franchise of a team in a season's standings from its Expansion or Franchise attribute, or null if it
+        /// has neither
+        /// </summary>
+        private static MajorLeagueBaseballFranchises? GetFranchise(Type team)
+        {
+            return team.GetCustomAttribute<ExpansionAttribute>()?.Franchise ?? team.GetCustomAttribute<FranchiseAttribute>()?.Franchise;
+        }
+
+        /// <summary>
+        /// gets the season the franchise folded after, or null if it hasn't folded. A franchise's attribute must have the
+        /// season
+        /// </summary>
+        private static int? GetFranchiseFoldedAfterSeason(MajorLeagueBaseballFranchises franchise)
+        {
+            FranchiseFoldedAfterSeasonAttribute? folded = typeof(MajorLeagueBaseballFranchises).GetField(franchise.ToString())!.GetCustomAttribute<FranchiseFoldedAfterSeasonAttribute>();
+            if (folded == null) return null;
+            Assert.IsNotNull(folded.Season, $"{franchise} has a FranchiseFoldedAfterSeason attribute without a season");
+            return folded.Season;
         }
 
         /// <summary>

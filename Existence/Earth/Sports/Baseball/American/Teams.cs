@@ -378,11 +378,16 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the franchise folded after the season, its last; no later season's standings have a team in the franchise
+    /// the franchise folded after the season, its last; no later season's standings have a team in the franchise. Used
+    /// on the franchise with the season, and without one on the franchise's team in that season's standings, where the
+    /// season is the one the team is in
     /// </summary>
     public class FranchiseFoldedAfterSeasonAttribute : Attribute
     {
-        public int Season { get; set; }
+        public int? Season { get; set; }
+        public FranchiseFoldedAfterSeasonAttribute()
+        {
+        }
         public FranchiseFoldedAfterSeasonAttribute(int Season)
         {
             this.Season = Season;
@@ -686,6 +691,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class PhiladelphiaPhillies { }
                     [TeamWinLossRecord(86, 62)]
                     [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesNationalLeague)]
+                    [FranchiseFoldedAfterSeason]
                     public static class BaltimoreOrioles { }
                     [TeamWinLossRecord(84, 67)]
                     [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
@@ -701,16 +707,19 @@ namespace Existence.Earth.Sports.Baseball.American
                     public static class ChicagoOrphans { }
                     [TeamWinLossRecord(75, 77)]
                     [Franchise(MajorLeagueBaseballFranchises.LouisvilleColonels)]
+                    [FranchiseFoldedAfterSeason]
                     public static class LouisvilleColonels { }
                     [TeamWinLossRecord(60, 90)]
                     [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                     public static class NewYorkGiants { }
                     [TeamWinLossRecord(54, 98)]
                     [Franchise(MajorLeagueBaseballFranchises.WashingtonDCSenatorsOriginal)]
+                    [FranchiseFoldedAfterSeason]
                     public static class WashingtonSenators { }
                     [TeamWinLossRecord(20, 134)]
                     [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                     [Franchise(MajorLeagueBaseballFranchises.ClevelandSpidersNationalLeague)]
+                    [FranchiseFoldedAfterSeason]
                     public static class ClevelandSpiders { }
                 }
             }
