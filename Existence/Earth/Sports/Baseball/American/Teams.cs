@@ -1321,6 +1321,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
@@ -1460,6 +1461,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkMets)]
@@ -1612,6 +1614,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
@@ -1755,6 +1758,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
@@ -1890,6 +1894,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -2032,6 +2037,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -2303,6 +2309,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
@@ -2968,6 +2975,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -3115,6 +3123,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -3275,6 +3284,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
@@ -3423,6 +3433,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -3597,6 +3608,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -3772,6 +3784,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -3936,6 +3949,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -4104,6 +4118,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -4563,6 +4578,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -4737,6 +4753,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -5190,6 +5207,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.HoustonAstros)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
@@ -5360,6 +5378,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TexasRangers)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -5529,6 +5548,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -5697,6 +5717,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
