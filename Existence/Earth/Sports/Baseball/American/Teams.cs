@@ -1218,6 +1218,144 @@ namespace Existence.Earth.Sports.Baseball.American
         }
 
         /// <summary>
+        /// the Washington Senators' only World Series title, won when Earl McNeely's grounder took a bad hop over Freddie
+        /// Lindstrom's head in the 12th inning of Game 7. The games followed a 2-3-2 pattern, though the seventh game's site
+        /// was only settled by a coin toss during the series
+        /// </summary>
+        public static class v1924
+        {
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(92, 62)]
+                    [WorldSeries(TwoPlayerGameOutcome.Win)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(89, 63)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                    public static class NewYorkYankees { }
+                    [TeamWinLossRecord(86, 68)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(74, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(71, 81)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(67, 86)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandIndians { }
+                    [TeamWinLossRecord(67, 87)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonRedSox { }
+                    [TeamWinLossRecord(66, 87)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteSox { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(93, 60)]
+                    [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(92, 62)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynRobins { }
+                    [TeamWinLossRecord(90, 63)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(83, 70)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(81, 72)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoCubs { }
+                    [TeamWinLossRecord(65, 89)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(55, 96)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(53, 100)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBraves { }
+                }
+            }
+
+            [BestOf(7)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.CoinToss)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                public static class NationalLeagueTeam { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 4, MajorLeagueBaseballTeams.WashingtonSenators, 3,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterTwelfthBottom)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 1, MajorLeagueBaseballTeams.WashingtonSenators, 0)]
+                public static class Game1 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3,
+                    "Winning run scored in the bottom of the ninth inning with one out on Roger Peckinpaugh's double",
+                    InningEndingPoint: BaseballInningTransitionPoint.WalkoffNinthInningOneOut)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 1, MajorLeagueBaseballTeams.NewYorkGiants, 1)]
+                public static class Game2 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 6, MajorLeagueBaseballTeams.WashingtonSenators, 4,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 2, MajorLeagueBaseballTeams.WashingtonSenators, 1)]
+                public static class Game3 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 7, MajorLeagueBaseballTeams.NewYorkGiants, 4,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 2, MajorLeagueBaseballTeams.NewYorkGiants, 2)]
+                public static class Game4 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 6, MajorLeagueBaseballTeams.WashingtonSenators, 2,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 3, MajorLeagueBaseballTeams.WashingtonSenators, 2)]
+                public static class Game5 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 2, MajorLeagueBaseballTeams.NewYorkGiants, 1,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 3, MajorLeagueBaseballTeams.NewYorkGiants, 3)]
+                public static class Game6 { }
+
+                /// <summary>
+                /// the site was decided by a coin toss before Game 5, which the Giants' John McGraw lost
+                /// </summary>
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3,
+                    "Winning run scored in the bottom of the twelfth inning with one out when Earl McNeely's grounder took a bad hop over third baseman Freddie Lindstrom",
+                    InningEndingPoint: BaseballInningTransitionPoint.WalkoffTwelfthInningOneOut)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3)]
+                public static class Game7 { }
+            }
+        }
+
+        /// <summary>
         /// the first World Series with the 2-3-2 format fixed in advance and home field advantage alternating between the
         /// leagues, going to the National League after the American League team hosted the first game in 1924. The
         /// Pittsburgh Pirates came back from three games to one down to beat the Washington Senators
@@ -1307,24 +1445,46 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.PittsburghPirates, 1,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 1, MajorLeagueBaseballTeams.PittsburghPirates, 0)]
                 public static class Game1 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PittsburghPirates, 3, MajorLeagueBaseballTeams.WashingtonSenators, 2,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PittsburghPirates, 1, MajorLeagueBaseballTeams.WashingtonSenators, 1)]
                 public static class Game2 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.PittsburghPirates, 3,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 2, MajorLeagueBaseballTeams.PittsburghPirates, 1)]
                 public static class Game3 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.PittsburghPirates, 0,
+                    "Walter Johnson pitched a complete game shutout",
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 3, MajorLeagueBaseballTeams.PittsburghPirates, 1)]
                 public static class Game4 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PittsburghPirates, 6, MajorLeagueBaseballTeams.WashingtonSenators, 3,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 3, MajorLeagueBaseballTeams.PittsburghPirates, 2)]
                 public static class Game5 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PittsburghPirates, 3, MajorLeagueBaseballTeams.WashingtonSenators, 2,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PittsburghPirates, 3, MajorLeagueBaseballTeams.WashingtonSenators, 3)]
                 public static class Game6 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PittsburghPirates, 9, MajorLeagueBaseballTeams.WashingtonSenators, 7,
+                    "Played in heavy rain; the Pirates scored three runs in the bottom of the eighth inning to take the lead",
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PittsburghPirates, 4, MajorLeagueBaseballTeams.WashingtonSenators, 3)]
                 public static class Game7 { }
             }
@@ -2952,7 +3112,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 2, MajorLeagueBaseballTeams.StLouisCardinals, 1,
                     "Winning run scored in the bottom of the ninth inning with one out on Dane Iorg's two-run pinch-hit single",
                     InningEndingPoint: BaseballInningTransitionPoint.WalkoffNinthInningOneOut)]
-                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 3)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.KansasCityRoyals, 3, MajorLeagueBaseballTeams.StLouisCardinals, 3)]
                 public static class Game6 { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
