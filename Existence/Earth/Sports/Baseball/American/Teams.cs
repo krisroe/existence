@@ -32,6 +32,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// owners bought into Brooklyn in 1899 and moved Hanlon and the best players there, and the club was dropped after
         /// 1899 when the National League cut from 12 teams to 8
         /// </summary>
+        [FranchiseFoldedAfterSeason(1899)]
         BaltimoreOriolesNationalLeague,
         /// <summary>
         /// an American League charter member in 1901 that has always played in Boston: Boston Americans from 1901 to 1907,
@@ -76,6 +77,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// Spiders went 20-134, the worst record in major league history, and the club was dropped after 1899 when the
         /// National League cut from 12 teams to 8
         /// </summary>
+        [FranchiseFoldedAfterSeason(1899)]
         ClevelandSpidersNationalLeague,
         /// <summary>
         /// a 1961 American League expansion team: Washington Senators from 1961 to 1971, at Griffith Stadium in 1961 and
@@ -112,6 +114,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// players there, and the club was dropped after 1899 when the National League cut from 12 teams to 8. Unrelated
         /// to the Louisville Grays, a National League team in 1876 and 1877
         /// </summary>
+        [FranchiseFoldedAfterSeason(1899)]
         LouisvilleColonels,
         /// <summary>
         /// a 1993 National League expansion team: Florida Marlins from 1993 to 2011, and Miami Marlins from 2012 on
@@ -217,6 +220,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// teams to 8. The Senators name was later used by two unrelated American League franchises, which became the
         /// Minnesota Twins and the Texas Rangers
         /// </summary>
+        [FranchiseFoldedAfterSeason(1899)]
         WashingtonDCSenatorsOriginal,
     }
 
@@ -251,9 +255,11 @@ namespace Existence.Earth.Sports.Baseball.American
         BostonBeaneaters,
         BostonRedSox,
         BrooklynGrooms,
+        BrooklynSuperbas,
         CaliforniaAngels,
         ChicagoColts,
         ChicagoCubs,
+        ChicagoOrphans,
         ChicagoWhiteSox,
         CincinnatiReds,
         ClevelandGuardians,
@@ -293,6 +299,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         StLouisBrowns,
         StLouisCardinals,
+        StLouisPerfectos,
         /// <summary>
         /// the 1998 American League expansion team's name through 2007, before it became the Tampa Bay Rays
         /// </summary>
@@ -341,6 +348,18 @@ namespace Existence.Earth.Sports.Baseball.American
         public FranchiseAttribute(MajorLeagueBaseballFranchises Franchise)
         {
             this.Franchise = Franchise;
+        }
+    }
+
+    /// <summary>
+    /// the franchise folded after the season, its last; no later season's standings have a team in the franchise
+    /// </summary>
+    public class FranchiseFoldedAfterSeasonAttribute : Attribute
+    {
+        public int Season { get; set; }
+        public FranchiseFoldedAfterSeasonAttribute(int Season)
+        {
+            this.Season = Season;
         }
     }
 
@@ -613,6 +632,102 @@ namespace Existence.Earth.Sports.Baseball.American
                     [TeamWinLossRecord(23, 52)]
                     [Franchise(MajorLeagueBaseballFranchises.WashingtonDCSenatorsOriginal)]
                     public static class WashingtonSenators { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// the National League's last season with 12 teams; it dropped Baltimore, Cleveland, Louisville, and Washington
+        /// afterward
+        /// </summary>
+        public static class v1899
+        {
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(101, 47)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynSuperbas { }
+                    [TeamWinLossRecord(95, 57)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(94, 58)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(86, 62)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesNationalLeague)]
+                    public static class BaltimoreOrioles { }
+                    [TeamWinLossRecord(84, 67)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisPerfectos { }
+                    [TeamWinLossRecord(83, 67)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(76, 73)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(75, 73)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoOrphans { }
+                    [TeamWinLossRecord(75, 77)]
+                    [Franchise(MajorLeagueBaseballFranchises.LouisvilleColonels)]
+                    public static class LouisvilleColonels { }
+                    [TeamWinLossRecord(60, 90)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(54, 98)]
+                    [Franchise(MajorLeagueBaseballFranchises.WashingtonDCSenatorsOriginal)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(20, 134)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandSpidersNationalLeague)]
+                    public static class ClevelandSpiders { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// the National League's first season with 8 teams. The American League played as a minor league, before
+        /// becoming a major league in 1901
+        /// </summary>
+        public static class v1900
+        {
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(82, 54)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynSuperbas { }
+                    [TeamWinLossRecord(79, 60)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(75, 63)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(66, 72)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(65, 75)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoOrphans { }
+                    [TeamWinLossRecord(65, 75)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(62, 77)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(60, 78)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
                 }
             }
         }
