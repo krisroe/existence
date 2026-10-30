@@ -371,6 +371,20 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
+    /// the team that bats last in a game; usually the team whose ballpark hosts it, but designated separately when both
+    /// teams share a ballpark (e.g. the 1921 World Series at the Polo Grounds) or the game is at a neutral site (e.g. the
+    /// 2020 World Series at Globe Life Field)
+    /// </summary>
+    public class DesignatedHomeTeamAttribute : SingularObjectAttribute
+    {
+        public MajorLeagueBaseballTeams Team { get; set; }
+        public DesignatedHomeTeamAttribute(MajorLeagueBaseballTeams Team)
+        {
+            this.Team = Team;
+        }
+    }
+
+    /// <summary>
     /// the team in a season's standings was an expansion team that season, its franchise's first. Later seasons use
     /// FranchiseAttribute instead; a team never has both
     /// </summary>
@@ -1044,20 +1058,28 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonAmericans)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonAmericans)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonAmericans)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 public static class Game7 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonAmericans)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.BostonAmericans, 5, MajorLeagueBaseballTeams.PittsburghPirates, 3)]
                 public static class Game8 { }
             }
@@ -1168,20 +1190,28 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
                 public static class Game7 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 5, MajorLeagueBaseballTeams.NewYorkYankees, 3)]
                 public static class Game8 { }
             }
@@ -1293,18 +1323,25 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.DetroitTigers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.DetroitTigers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.DetroitTigers)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.DetroitTigers, 4, MajorLeagueBaseballTeams.StLouisCardinals, 3)]
                 public static class Game7 { }
             }
@@ -1435,14 +1472,19 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkMets, 4, MajorLeagueBaseballTeams.BaltimoreOrioles, 1)]
                 public static class Game5 { }
             }
@@ -1572,14 +1614,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.BaltimoreOrioles, 4, MajorLeagueBaseballTeams.CincinnatiReds, 1)]
                 public static class Game5 { }
             }
@@ -1710,14 +1757,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.OaklandAthletics, 4, MajorLeagueBaseballTeams.LosAngelesDodgers, 1)]
                 public static class Game5 { }
             }
@@ -1847,12 +1899,16 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.CincinnatiReds, 4, MajorLeagueBaseballTeams.NewYorkYankees, 0)]
                 public static class Game4 { }
             }
@@ -1988,16 +2044,22 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.LosAngelesDodgers, 2)]
                 public static class Game6 { }
             }
@@ -2257,16 +2319,22 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.NewYorkYankees, 2)]
                 public static class Game6 { }
             }
@@ -2503,42 +2571,49 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 1, MajorLeagueBaseballTeams.StLouisCardinals, 0)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 5, MajorLeagueBaseballTeams.MilwaukeeBrewers, 4)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 1, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.HaasMoose)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.LaPointDave)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 7, MajorLeagueBaseballTeams.StLouisCardinals, 5)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.MilwaukeeBrewers, 2)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.CaldwellMike)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 6, MajorLeagueBaseballTeams.StLouisCardinals, 4)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.StLouisCardinals, 2)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SuttonDon)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.StuperJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 13, MajorLeagueBaseballTeams.MilwaukeeBrewers, 1)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.VuckovichPete)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 6, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3)]
@@ -2706,6 +2781,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.JacksonDanny)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 1,
@@ -2713,6 +2789,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 1, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.KansasCityRoyals, 2,
@@ -2721,6 +2798,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SaberhagenBret)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 6, MajorLeagueBaseballTeams.StLouisCardinals, 1,
@@ -2728,6 +2806,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 1)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.BlackBud)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 0,
@@ -2736,6 +2815,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 1)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.JacksonDanny)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 6, MajorLeagueBaseballTeams.StLouisCardinals, 1,
@@ -2746,6 +2826,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// <summary>
                 /// the Royals rallied in the bottom of the ninth after umpire Don Denkinger's missed call at first base
                 /// </summary>
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 2, MajorLeagueBaseballTeams.StLouisCardinals, 1,
@@ -2754,6 +2835,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 3)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SaberhagenBret)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 11, MajorLeagueBaseballTeams.StLouisCardinals, 0,
@@ -2895,14 +2977,19 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.OaklandAthletics, 1)]
                 public static class Game5 { }
             }
@@ -3040,16 +3127,20 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
                 public static class Game2 { }
 
                 /// <summary>
                 /// postponed from October 17, when the Loma Prieta earthquake struck about half an hour before the first
                 /// pitch, to October 27
                 /// </summary>
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.OaklandAthletics, 4, MajorLeagueBaseballTeams.SanFranciscoGiants, 0)]
                 public static class Game4 { }
             }
@@ -3186,16 +3277,22 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TorontoBlueJays, 4, MajorLeagueBaseballTeams.AtlantaBraves, 2)]
                 public static class Game6 { }
             }
@@ -3338,16 +3435,22 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TorontoBlueJays, 4, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2)]
                 public static class Game6 { }
             }
@@ -3503,18 +3606,25 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.FloridaMarlins, 4, MajorLeagueBaseballTeams.ClevelandIndians, 3)]
                 public static class Game7 { }
             }
@@ -3674,12 +3784,16 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanDiegoPadres)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanDiegoPadres)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanDiegoPadres)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.SanDiegoPadres, 0)]
                 public static class Game4 { }
             }
@@ -3834,14 +3948,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkMets)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.NewYorkMets, 1)]
                 public static class Game5 { }
             }
@@ -3997,18 +4116,25 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.AnaheimAngels, 4, MajorLeagueBaseballTeams.SanFranciscoGiants, 3)]
                 public static class Game7 { }
             }
@@ -4264,30 +4390,35 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.ShieldsJames)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MyersBrett)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TampaBayRays, 1, MajorLeagueBaseballTeams.PhiladelphiaPhillies, 1)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GarzaMatt)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MoyerJamie)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 5, MajorLeagueBaseballTeams.TampaBayRays, 4)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 2, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SonnanstineAndy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.BlantonJoe)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 10, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.KazmirScott)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HamelsCole)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.PhiladelphiaPhillies, 4, MajorLeagueBaseballTeams.TampaBayRays, 3, "Suspended due to rain in the middle of the 6th inning with the score tied 2-2, and completed two days later")]
@@ -4441,18 +4572,25 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.TexasRangers, 3)]
                 public static class Game7 { }
             }
@@ -4611,14 +4749,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonRedSox)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonRedSox)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.BostonRedSox, 4, MajorLeagueBaseballTeams.LosAngelesDodgers, 1)]
                 public static class Game5 { }
             }
@@ -4870,36 +5013,42 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 8, MajorLeagueBaseballTeams.TampaBayRays, 3)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 6, MajorLeagueBaseballTeams.LosAngelesDodgers, 4)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 1, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.MortonCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.BuehlerWalker)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 6, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 2, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.YarbroughRyan)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.UriasJulio)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 8, MajorLeagueBaseballTeams.LosAngelesDodgers, 7)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 2, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.GlasnowTyler)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.KershawClayton)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SnellBlake)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GonsolinTony)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.LosAngelesDodgers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
@@ -5053,16 +5202,22 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.HoustonAstros)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.HoustonAstros)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.HoustonAstros)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.AtlantaBraves, 4, MajorLeagueBaseballTeams.HoustonAstros, 2)]
                 public static class Game6 { }
             }
@@ -5217,14 +5372,19 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
                 public static class NationalLeagueTeam { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.TexasRangers, 4, MajorLeagueBaseballTeams.ArizonaDiamondbacks, 1)]
                 public static class Game5 { }
             }
@@ -5378,14 +5538,19 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.NewYorkYankees, 1)]
                 public static class Game5 { }
             }
@@ -5544,18 +5709,25 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game3 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game4 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
                 public static class Game5 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 public static class Game6 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.LosAngelesDodgers, 4, MajorLeagueBaseballTeams.TorontoBlueJays, 3)]
                 public static class Game7 { }
             }
@@ -5866,6 +6038,7 @@ namespace Existence.Earth.Sports.Baseball.American
                     }
                 }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.MartinezNick)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 2,
@@ -5876,6 +6049,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 1, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game1 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.MilwaukeeBrewers)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.HendersonLogan)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 5, MajorLeagueBaseballTeams.TampaBayRays, 4,
@@ -5883,6 +6057,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 2, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game2 { }
 
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, 
@@ -5895,6 +6070,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// interesting moment
                 /// In extra innings, Devil Rays at bat, score 2-2, 2 outs, runner on 2nd, 1-2 count, only needed a ball for 6 significant 2's, but the batter swung so that didn't happen (I don't remember if the pitch was in the strike zone)
                 /// </summary>
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, 
@@ -5906,6 +6082,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// <summary>
                 /// interesting fact: both the series result and the final game score was 4-1
                 /// </summary>
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.RasmussenDrew)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MisiorowskiJacob)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 4, MajorLeagueBaseballTeams.TampaBayRays, 1, 
