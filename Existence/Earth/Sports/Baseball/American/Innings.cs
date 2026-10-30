@@ -1,11 +1,11 @@
 namespace Existence.Earth.Sports.Baseball.American
 {
     /// <summary>
-    /// points in a baseball game where a half inning ends; through the top of the ninth the number is how many half
-    /// innings have been completed, and from the ninth inning on it's offset by the walkoff entries (three per inning
-    /// for the ninth through thirty-fourth innings)
+    /// points in a baseball game where a half inning ends or the game ends with a walkoff; through the top of the ninth
+    /// the number is how many half innings have been completed, and from the ninth inning on it's offset by the walkoff
+    /// entries (three per inning for the ninth through thirty-fourth innings)
     /// </summary>
-    public enum BaseballHalfInningEndingPoint
+    public enum BaseballInningTransitionPoint
     {
         Start = 0,
         AfterFirstTop = 1,
