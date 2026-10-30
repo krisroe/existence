@@ -59,6 +59,10 @@ namespace Existence.Earth.Sports.Baseball.American
         /// designated hitter
         /// </summary>
         DesignatedHitter,
+        /// <summary>
+        /// pinch hitter
+        /// </summary>
+        PinchHitter,
     }
 
     public class FielderTypeAttribute : Attribute

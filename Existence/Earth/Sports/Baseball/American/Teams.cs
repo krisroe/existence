@@ -1301,10 +1301,26 @@ namespace Existence.Earth.Sports.Baseball.American
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.CoinToss)]
-                public static class AmericanLeagueTeam { }
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.Shortstop)]
+                        PeckinpaughRoger,
+                        [FielderType(BaseballPositionType.Outfield)]
+                        McNeelyEarl,
+                    }
+                }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
-                public static class NationalLeagueTeam { }
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.ThirdBase)]
+                        LindstromFreddie,
+                    }
+                }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 4, MajorLeagueBaseballTeams.WashingtonSenators, 3,
@@ -1314,7 +1330,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3,
-                    "Winning run scored in the bottom of the ninth inning with one out on Roger Peckinpaugh's double",
+                    $"Winning run scored in the bottom of the ninth inning with one out on {nameof(AmericanLeagueTeam.Roster.PeckinpaughRoger)}'s double",
                     InningEndingPoint: BaseballInningTransitionPoint.WalkoffNinthInningOneOut)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 1, MajorLeagueBaseballTeams.NewYorkGiants, 1)]
                 public static class Game2 { }
@@ -1348,7 +1364,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// </summary>
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3,
-                    "Winning run scored in the bottom of the twelfth inning with one out when Earl McNeely's grounder took a bad hop over third baseman Freddie Lindstrom",
+                    $"Winning run scored in the bottom of the twelfth inning with one out when {nameof(AmericanLeagueTeam.Roster.McNeelyEarl)}'s grounder took a bad hop over third baseman {nameof(NationalLeagueTeam.Roster.LindstromFreddie)}",
                     InningEndingPoint: BaseballInningTransitionPoint.WalkoffTwelfthInningOneOut)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3)]
                 public static class Game7 { }
@@ -1438,7 +1454,14 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
-                public static class AmericanLeagueTeam { }
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        JohnsonWalter,
+                    }
+                }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
@@ -1464,7 +1487,7 @@ namespace Existence.Earth.Sports.Baseball.American
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.PittsburghPirates, 0,
-                    "Walter Johnson pitched a complete game shutout",
+                    $"{nameof(AmericanLeagueTeam.Roster.JohnsonWalter)} pitched a complete game shutout",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.WashingtonSenators, 3, MajorLeagueBaseballTeams.PittsburghPirates, 1)]
                 public static class Game4 { }
@@ -3041,6 +3064,8 @@ namespace Existence.Earth.Sports.Baseball.American
                         SaberhagenBret,
                         [FielderType(BaseballPositionType.PitcherStarting)]
                         BlackBud,
+                        [FielderType(BaseballPositionType.PinchHitter)]
+                        IorgDane,
                     }
                 }
 
@@ -3073,7 +3098,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.KansasCityRoyals, 2,
-                    "The Cardinals scored all four runs in the top of the ninth inning off Charlie Leibrandt, who had taken a 2-0 lead into the inning",
+                    $"The Cardinals scored all four runs in the top of the ninth inning off {nameof(AmericanLeagueTeam.Roster.LeibrandtCharlie)}, who had taken a 2-0 lead into the inning",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game2 { }
@@ -3090,7 +3115,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.BlackBud)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 0,
-                    "John Tudor pitched a complete game shutout",
+                    $"{nameof(NationalLeagueTeam.Roster.TudorJohn)} pitched a complete game shutout",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 1)]
                 public static class Game4 { }
@@ -3110,7 +3135,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 2, MajorLeagueBaseballTeams.StLouisCardinals, 1,
-                    "Winning run scored in the bottom of the ninth inning with one out on Dane Iorg's two-run pinch-hit single",
+                    $"Winning run scored in the bottom of the ninth inning with one out on {nameof(AmericanLeagueTeam.Roster.IorgDane)}'s two-run pinch-hit single",
                     InningEndingPoint: BaseballInningTransitionPoint.WalkoffNinthInningOneOut)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.KansasCityRoyals, 3, MajorLeagueBaseballTeams.StLouisCardinals, 3)]
                 public static class Game6 { }
@@ -3119,7 +3144,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.SaberhagenBret)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 11, MajorLeagueBaseballTeams.StLouisCardinals, 0,
-                    "Bret Saberhagen pitched a complete game shutout",
+                    $"{nameof(AmericanLeagueTeam.Roster.SaberhagenBret)} pitched a complete game shutout",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.KansasCityRoyals, 4, MajorLeagueBaseballTeams.StLouisCardinals, 3)]
                 public static class Game7 { }
