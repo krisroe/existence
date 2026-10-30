@@ -2553,6 +2553,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1985
         {
+            public enum Managers
+            {
+                HerzogWhitey,
+                HowserDick,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -2666,33 +2672,93 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
+                [Manager((int)Managers.HowserDick)]
+                [HomeFieldAdvantage]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
                     {
                         [FielderType(BaseballPositionType.PitcherStarting)]
+                        JacksonDanny,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        LeibrandtCharlie,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
                         SaberhagenBret,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        BlackBud,
                     }
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
-                public static class NationalLeagueTeam { }
+                [Manager((int)Managers.HerzogWhitey)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        TudorJohn,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        CoxDanny,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        AndujarJoaquin,
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        ForschBob,
+                    }
+                }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.JacksonDanny)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 1,
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 1, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game1 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.KansasCityRoyals, 2,
+                    "The Cardinals scored all four runs in the top of the ninth inning off Charlie Leibrandt, who had taken a 2-0 lead into the inning",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game2 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SaberhagenBret)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.AndujarJoaquin)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 6, MajorLeagueBaseballTeams.StLouisCardinals, 1,
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 1)]
                 public static class Game3 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.BlackBud)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 0,
+                    "John Tudor pitched a complete game shutout",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 1)]
                 public static class Game4 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.JacksonDanny)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.ForschBob)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 6, MajorLeagueBaseballTeams.StLouisCardinals, 1,
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 2)]
                 public static class Game5 { }
 
                 /// <summary>
                 /// the Royals rallied in the bottom of the ninth after umpire Don Denkinger's missed call at first base
                 /// </summary>
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 2, MajorLeagueBaseballTeams.StLouisCardinals, 1,
+                    "Winning run scored in the bottom of the ninth inning with one out on Dane Iorg's two-run pinch-hit single",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.WalkoffNinthInningOneOut)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 3, MajorLeagueBaseballTeams.KansasCityRoyals, 3)]
                 public static class Game6 { }
 
+                [StartingPitcher((int)AmericanLeagueTeam.Roster.SaberhagenBret)]
+                [StartingPitcher((int)NationalLeagueTeam.Roster.TudorJohn)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.KansasCityRoyals, 11, MajorLeagueBaseballTeams.StLouisCardinals, 0,
+                    "Bret Saberhagen pitched a complete game shutout",
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.KansasCityRoyals, 4, MajorLeagueBaseballTeams.StLouisCardinals, 3)]
                 public static class Game7 { }
             }
@@ -5833,7 +5899,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)NationalLeagueTeam.Roster.MayDustin)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.TampaBayRays, 4, MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, 
                     "Winning run scored in the bottom of the twelfth inning with no outs",
-                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.AfterTwelfthBottom)]
+                    HalfInningEndingPoint: BaseballHalfInningEndingPoint.WalkoffTwelfthInningZeroOuts)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 1)]
                 public static class Game4 { }
 
