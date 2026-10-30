@@ -368,14 +368,28 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
-    /// the team in a season's standings belonged to the franchise, in a season after the franchise's expansion season,
-    /// which uses ExpansionAttribute instead; a team never has both. Some team names were used by more than one
-    /// franchise, so the team name alone doesn't identify the franchise
+    /// the team in a season's standings belonged to the franchise, in a season after the franchise's first season,
+    /// which uses ExpansionAttribute or LeagueCharterMemberAttribute instead; a team has only one of them. Some team
+    /// names were used by more than one franchise, so the team name alone doesn't identify the franchise
     /// </summary>
     public class FranchiseAttribute : Attribute
     {
         public MajorLeagueBaseballFranchises Franchise { get; set; }
         public FranchiseAttribute(MajorLeagueBaseballFranchises Franchise)
+        {
+            this.Franchise = Franchise;
+        }
+    }
+
+    /// <summary>
+    /// the team in a season's standings was a charter member of its league, in the league's first season as a major
+    /// league (e.g. the American League in 1901), and its franchise's first. Like ExpansionAttribute, later seasons use
+    /// FranchiseAttribute instead; a team never has both
+    /// </summary>
+    public class LeagueCharterMemberAttribute : Attribute
+    {
+        public MajorLeagueBaseballFranchises Franchise { get; set; }
+        public LeagueCharterMemberAttribute(MajorLeagueBaseballFranchises Franchise)
         {
             this.Franchise = Franchise;
         }
@@ -785,29 +799,29 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class Standings
                 {
                     [TeamWinLossRecord(83, 53)]
-                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                     public static class ChicagoWhiteStockings { }
                     [TeamWinLossRecord(79, 57)]
-                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.BostonRedSox)]
                     public static class BostonAmericans { }
                     [TeamWinLossRecord(74, 61)]
-                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.DetroitTigers)]
                     public static class DetroitTigers { }
                     [TeamWinLossRecord(74, 62)]
-                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.OaklandAthletics)]
                     public static class PhiladelphiaAthletics { }
                     [TeamWinLossRecord(68, 65)]
-                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeagueOriginal)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeagueOriginal)]
                     public static class BaltimoreOrioles { }
                     [TeamWinLossRecord(61, 72)]
-                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                     public static class WashingtonSenators { }
                     [TeamWinLossRecord(54, 82)]
-                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
                     public static class ClevelandBlues { }
                     [TeamWinLossRecord(48, 89)]
                     [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
-                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    [LeagueCharterMember(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
                     public static class MilwaukeeBrewers { }
                 }
             }

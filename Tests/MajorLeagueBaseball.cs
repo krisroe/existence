@@ -183,51 +183,56 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates the Expansion and Franchise attributes on the teams in each season's standings: no team has both,
-        /// each franchise has at most one expansion season (a split season's halves count as one season), and each
-        /// season a team has a Franchise attribute comes after its franchise's expansion season
+        /// validates the Expansion, LeagueCharterMember, and Franchise attributes on the teams in each season's
+        /// standings: no team has more than one of them, each franchise has at most one first season with an Expansion or
+        /// LeagueCharterMember attribute (a split season's halves count as one season), and each season a team has a
+        /// Franchise attribute comes after its franchise's first season
         /// </summary>
         [TestMethod]
         public void ValidateExpansionAndFranchiseAttributes()
         {
-            var expansionSeasons = new Dictionary<MajorLeagueBaseballFranchises, HashSet<int>>();
+            var firstSeasons = new Dictionary<MajorLeagueBaseballFranchises, HashSet<int>>();
             var franchiseSeasons = new List<(MajorLeagueBaseballFranchises Franchise, int Season, Type Team)>();
+            bool bExpansion = false, bLeagueCharterMember = false;
             foreach (Type season in GetSeasons())
             {
                 int iSeason = GetSeasonYear(season);
-                foreach (Type team in asLeagues.SelectMany(s => GetSeasonHalves(season, s)).SelectMany(h => h.Teams))
+                foreach (Type team in GetSeasonTeams(season))
                 {
                     ExpansionAttribute? expansion = team.GetCustomAttribute<ExpansionAttribute>();
+                    LeagueCharterMemberAttribute? leagueCharterMember = team.GetCustomAttribute<LeagueCharterMemberAttribute>();
                     FranchiseAttribute? franchise = team.GetCustomAttribute<FranchiseAttribute>();
-                    Assert.IsFalse(expansion != null && franchise != null, $"{GetName(team)} has both Expansion and Franchise attributes");
-                    if (expansion != null)
+                    int iAttributes = new Attribute?[] { expansion, leagueCharterMember, franchise }.Count(a => a != null);
+                    Assert.IsTrue(iAttributes <= 1, $"{GetName(team)} has more than one of the Expansion, LeagueCharterMember, and Franchise attributes");
+                    bExpansion |= expansion != null;
+                    bLeagueCharterMember |= leagueCharterMember != null;
+                    if (GetFirstSeasonFranchise(team) is MajorLeagueBaseballFranchises firstSeasonFranchise)
                     {
-                        if (!expansionSeasons.TryGetValue(expansion.Franchise, out HashSet<int>? seasons)) expansionSeasons[expansion.Franchise] = seasons = new HashSet<int>();
+                        if (!firstSeasons.TryGetValue(firstSeasonFranchise, out HashSet<int>? seasons)) firstSeasons[firstSeasonFranchise] = seasons = new HashSet<int>();
                         seasons.Add(iSeason);
                     }
                     if (franchise != null) franchiseSeasons.Add((franchise.Franchise, iSeason, team));
                 }
             }
-            Assert.IsTrue(expansionSeasons.Count > 0, "no Expansion attributes found");
+            Assert.IsTrue(bExpansion, "no Expansion attributes found");
+            Assert.IsTrue(bLeagueCharterMember, "no LeagueCharterMember attributes found");
             Assert.IsTrue(franchiseSeasons.Count > 0, "no Franchise attributes found");
 
-            foreach (var expansion in expansionSeasons)
+            foreach (var firstSeason in firstSeasons)
             {
-                Assert.AreEqual(1, expansion.Value.Count, $"{expansion.Key} has Expansion attributes in more than one season: {string.Join(", ", expansion.Value.OrderBy(y => y))}");
+                Assert.AreEqual(1, firstSeason.Value.Count, $"{firstSeason.Key} has Expansion or LeagueCharterMember attributes in more than one season: {string.Join(", ", firstSeason.Value.OrderBy(y => y))}");
             }
             foreach (var franchise in franchiseSeasons)
             {
-                if (!expansionSeasons.TryGetValue(franchise.Franchise, out HashSet<int>? seasons)) continue; // expansion season not filled in
-                int iExpansionSeason = seasons.Single();
-                Assert.IsTrue(franchise.Season > iExpansionSeason, $"{GetName(franchise.Team)} has a Franchise attribute for {franchise.Franchise} in or before its {iExpansionSeason} expansion season");
+                if (!firstSeasons.TryGetValue(franchise.Franchise, out HashSet<int>? seasons)) continue; // first season not filled in
+                int iFirstSeason = seasons.Single();
+                Assert.IsTrue(franchise.Season > iFirstSeason, $"{GetName(franchise.Team)} has a Franchise attribute for {franchise.Franchise} in or before its {iFirstSeason} first season");
             }
         }
 
         /// <summary>
         /// validates the FranchiseFoldedAfterSeason attributes on the franchises: a franchise that folded has a team in
-        /// the season it folded after (when that season is filled in) and none in any later season, and when two
-        /// consecutive seasons are filled in, every franchise with a team in the first either has one in the second or
-        /// folded after the first
+        /// the season it folded after (when that season is filled in) and none in any later season
         /// </summary>
         [TestMethod]
         public void ValidateFranchiseFoldedAfterSeasonAttributes()
@@ -235,20 +240,15 @@ namespace Existence.Tests
             var seasonFranchises = new Dictionary<int, HashSet<MajorLeagueBaseballFranchises>>();
             foreach (Type season in GetSeasons())
             {
-                HashSet<MajorLeagueBaseballFranchises> franchises = asLeagues
-                    .SelectMany(s => GetSeasonHalves(season, s))
-                    .SelectMany(h => h.Teams)
-                    .Select(GetFranchise)
-                    .OfType<MajorLeagueBaseballFranchises>()
-                    .ToHashSet();
+                HashSet<MajorLeagueBaseballFranchises> franchises = GetSeasonFranchises(GetSeasonTeams(season));
                 if (franchises.Count > 0) seasonFranchises[GetSeasonYear(season)] = franchises;
             }
 
-            var foldedSeasons = new Dictionary<MajorLeagueBaseballFranchises, int>();
+            int iFolded = 0;
             foreach (MajorLeagueBaseballFranchises franchise in Enum.GetValues<MajorLeagueBaseballFranchises>())
             {
                 if (GetFranchiseFoldedAfterSeason(franchise) is not int iFoldedSeason) continue;
-                foldedSeasons[franchise] = iFoldedSeason;
+                iFolded++;
                 if (seasonFranchises.TryGetValue(iFoldedSeason, out HashSet<MajorLeagueBaseballFranchises>? franchises))
                 {
                     Assert.IsTrue(franchises.Contains(franchise), $"{franchise} folded after the {iFoldedSeason} season but has no team in it");
@@ -256,16 +256,58 @@ namespace Existence.Tests
                 List<int> laterSeasons = seasonFranchises.Where(s => s.Key > iFoldedSeason && s.Value.Contains(franchise)).Select(s => s.Key).OrderBy(y => y).ToList();
                 Assert.AreEqual(0, laterSeasons.Count, $"{franchise} folded after the {iFoldedSeason} season but has teams in {string.Join(", ", laterSeasons)}");
             }
-            Assert.IsTrue(foldedSeasons.Count > 0, "no FranchiseFoldedAfterSeason attributes found");
+            Assert.IsTrue(iFolded > 0, "no FranchiseFoldedAfterSeason attributes found");
+        }
 
-            foreach (var season in seasonFranchises)
+        /// <summary>
+        /// validates that each pair of consecutive seasons whose standings are filled in has the same franchises, except
+        /// for the teams with a FranchiseFoldedAfterSeason attribute in the first season, which aren't in the second, and
+        /// the teams with an Expansion or LeagueCharterMember attribute in the second season, which weren't in the first
+        /// </summary>
+        [TestMethod]
+        public void ValidateConsecutiveSeasonFranchises()
+        {
+            Dictionary<int, List<Type>> seasonTeams = GetSeasons()
+                .Select(s => (Season: GetSeasonYear(s), Teams: GetSeasonTeams(s)))
+                .Where(s => s.Teams.Count > 0)
+                .ToDictionary(s => s.Season, s => s.Teams);
+            int iPairs = 0;
+            foreach (var season in seasonTeams.OrderBy(s => s.Key))
             {
-                if (!seasonFranchises.TryGetValue(season.Key + 1, out HashSet<MajorLeagueBaseballFranchises>? nextSeason)) continue;
-                foreach (MajorLeagueBaseballFranchises franchise in season.Value.Where(f => !nextSeason.Contains(f)))
-                {
-                    Assert.IsTrue(foldedSeasons.TryGetValue(franchise, out int iFoldedSeason) && iFoldedSeason == season.Key, $"{franchise} has a team in {season.Key} but not in {season.Key + 1}, and no FranchiseFoldedAfterSeason({season.Key}) attribute");
-                }
+                int iNextSeason = season.Key + 1;
+                if (!seasonTeams.TryGetValue(iNextSeason, out List<Type>? nextTeams)) continue;
+                iPairs++;
+                HashSet<MajorLeagueBaseballFranchises> franchises = GetSeasonFranchises(season.Value);
+                HashSet<MajorLeagueBaseballFranchises> nextFranchises = GetSeasonFranchises(nextTeams);
+                HashSet<MajorLeagueBaseballFranchises> folded = GetSeasonFranchises(season.Value.Where(t => t.GetCustomAttribute<FranchiseFoldedAfterSeasonAttribute>() != null));
+                HashSet<MajorLeagueBaseballFranchises> firstSeason = nextTeams.Select(GetFirstSeasonFranchise).OfType<MajorLeagueBaseballFranchises>().ToHashSet();
+
+                List<MajorLeagueBaseballFranchises> missing = franchises.Except(folded).Except(nextFranchises).ToList();
+                Assert.AreEqual(0, missing.Count, $"{string.Join(", ", missing)} had a team in {season.Key} but not in {iNextSeason}, without a FranchiseFoldedAfterSeason attribute in {season.Key}");
+                List<MajorLeagueBaseballFranchises> continued = folded.Intersect(nextFranchises).ToList();
+                Assert.AreEqual(0, continued.Count, $"{string.Join(", ", continued)} folded after {season.Key} but had a team in {iNextSeason}");
+                List<MajorLeagueBaseballFranchises> added = nextFranchises.Except(franchises).Except(firstSeason).ToList();
+                Assert.AreEqual(0, added.Count, $"{string.Join(", ", added)} had a team in {iNextSeason} but not in {season.Key}, without an Expansion or LeagueCharterMember attribute in {iNextSeason}");
+                List<MajorLeagueBaseballFranchises> existing = firstSeason.Intersect(franchises).ToList();
+                Assert.AreEqual(0, existing.Count, $"{string.Join(", ", existing)} had an Expansion or LeagueCharterMember attribute in {iNextSeason} but already had a team in {season.Key}");
             }
+            Assert.IsTrue(iPairs > 0, "no consecutive seasons with filled-in standings found");
+        }
+
+        /// <summary>
+        /// gets the teams in all of a season's standings, from both leagues and each half of a split season
+        /// </summary>
+        private static List<Type> GetSeasonTeams(Type season)
+        {
+            return asLeagues.SelectMany(s => GetSeasonHalves(season, s)).SelectMany(h => h.Teams).ToList();
+        }
+
+        /// <summary>
+        /// gets the franchises of the teams that have an Expansion or Franchise attribute
+        /// </summary>
+        private static HashSet<MajorLeagueBaseballFranchises> GetSeasonFranchises(IEnumerable<Type> teams)
+        {
+            return teams.Select(GetFranchise).OfType<MajorLeagueBaseballFranchises>().ToHashSet();
         }
 
         /// <summary>
@@ -296,12 +338,21 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// gets the franchise of a team in a season's standings from its Expansion or Franchise attribute, or null if it
-        /// has neither
+        /// gets the franchise of a team in a season's standings from its Expansion, LeagueCharterMember, or Franchise
+        /// attribute, or null if it has none
         /// </summary>
         private static MajorLeagueBaseballFranchises? GetFranchise(Type team)
         {
-            return team.GetCustomAttribute<ExpansionAttribute>()?.Franchise ?? team.GetCustomAttribute<FranchiseAttribute>()?.Franchise;
+            return GetFirstSeasonFranchise(team) ?? team.GetCustomAttribute<FranchiseAttribute>()?.Franchise;
+        }
+
+        /// <summary>
+        /// gets the franchise of a team in its franchise's first season, from its Expansion or LeagueCharterMember
+        /// attribute, or null if it has neither
+        /// </summary>
+        private static MajorLeagueBaseballFranchises? GetFirstSeasonFranchise(Type team)
+        {
+            return team.GetCustomAttribute<ExpansionAttribute>()?.Franchise ?? team.GetCustomAttribute<LeagueCharterMemberAttribute>()?.Franchise;
         }
 
         /// <summary>
