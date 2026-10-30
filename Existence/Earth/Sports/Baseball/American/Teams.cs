@@ -26,7 +26,7 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         BaltimoreOriolesAmericanLeague,
         /// <summary>
-        /// an American League charter member in 1901 with John McGraw as player-manager. In 1902 McGraw jumped to the
+        /// an American League charter member in 1901 with <see cref="Managers.McGrawJohn"/> as player-manager. In 1902 he jumped to the
         /// National League's New York Giants, and the Giants and Cincinnati Reds gained control of the club and took its
         /// best players; the American League restocked it with players on loan from its other teams for the rest of the
         /// season. The American League replaced it with a new New York team, which became the Yankees, in 1903, though few
@@ -977,6 +977,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1903
         {
+            public enum Managers
+            {
+                ClarkeFred,
+                CollinsJimmy,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1053,9 +1059,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonAmericans)]
+                [Manager((int)Managers.CollinsJimmy)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+
+                [Manager((int)Managers.ClarkeFred)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonAmericans)]
@@ -1093,12 +1102,24 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v1919
         {
+            public enum Managers
+            {
+                GleasonKid,
+                MoranPat,
+            }
+
             [BestOf(9)]
             public static class WorldSeries { }
         }
 
         public static class v1920
         {
+            public enum Managers
+            {
+                RobinsonWilbert,
+                SpeakerTris,
+            }
+
             [BestOf(9)]
             public static class WorldSeries { }
         }
@@ -1109,6 +1130,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1921
         {
+            public enum Managers
+            {
+                HugginsMiller,
+                McGrawJohn,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1185,9 +1212,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.HugginsMiller)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+
+                [Manager((int)Managers.McGrawJohn)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
@@ -1224,6 +1254,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1924
         {
+            public enum Managers
+            {
+                HarrisBucky,
+                McGrawJohn,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1300,6 +1336,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [Manager((int)Managers.HarrisBucky)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.CoinToss)]
                 public static class AmericanLeagueTeam
                 {
@@ -1313,6 +1350,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+
+                [Manager((int)Managers.McGrawJohn)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -1360,7 +1399,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 public static class Game6 { }
 
                 /// <summary>
-                /// the site was decided by a coin toss before Game 5, which the Giants' John McGraw lost
+                /// the site was decided by a coin toss before Game 5, which the Giants' manager <see cref="Managers.McGrawJohn"/> lost
                 /// </summary>
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.WashingtonSenators, 4, MajorLeagueBaseballTeams.NewYorkGiants, 3,
@@ -1378,6 +1417,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1925
         {
+            public enum Managers
+            {
+                HarrisBucky,
+                McKechnieBill,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1454,6 +1499,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                [Manager((int)Managers.HarrisBucky)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -1464,6 +1510,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+
+                [Manager((int)Managers.McKechnieBill)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
@@ -1518,6 +1566,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1968
         {
+            public enum Managers
+            {
+                SchoendienstRed,
+                SmithMayo,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -1607,6 +1661,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.DetroitTigers)]
+                [Manager((int)Managers.SmithMayo)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -1617,6 +1672,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+
+                [Manager((int)Managers.SchoendienstRed)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
@@ -1649,6 +1706,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1969
         {
+            public enum Managers
+            {
+                HodgesGil,
+                WeaverEarl,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -1757,10 +1820,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
+                [Manager((int)Managers.WeaverEarl)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkMets)]
+
+                [Manager((int)Managers.HodgesGil)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -1793,6 +1859,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1970
         {
+            public enum Managers
+            {
+                AndersonSparky,
+                WeaverEarl,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -1900,6 +1972,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BaltimoreOrioles)]
+                [Manager((int)Managers.WeaverEarl)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -1910,6 +1983,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+
+                [Manager((int)Managers.AndersonSparky)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
@@ -1937,6 +2012,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1974
         {
+            public enum Managers
+            {
+                AlstonWalter,
+                DarkAlvin,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -2044,6 +2125,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
+                [Manager((int)Managers.DarkAlvin)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -2054,6 +2136,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.AlstonWalter)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
@@ -2080,6 +2164,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1976
         {
+            public enum Managers
+            {
+                AndersonSparky,
+                MartinBilly,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -2187,9 +2277,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.MartinBilly)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.CincinnatiReds)]
+
+                [Manager((int)Managers.AndersonSparky)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
@@ -2220,6 +2313,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1977
         {
+            public enum Managers
+            {
+                LasordaTommy,
+                MartinBilly,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -2333,6 +2432,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.MartinBilly)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -2344,6 +2444,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.LasordaTommy)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
@@ -2369,6 +2471,15 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v1981
         {
+            public enum Managers
+            {
+                LasordaTommy,
+                /// <summary>
+                /// replaced Gene Michael in early September
+                /// </summary>
+                LemonBob,
+            }
+
             public static class AmericanLeague
             {
                 /// <summary>
@@ -2605,10 +2716,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.LemonBob)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.LasordaTommy)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -3157,6 +3271,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1988
         {
+            public enum Managers
+            {
+                LaRussaTony,
+                LasordaTommy,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3270,9 +3390,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
+                [Manager((int)Managers.LaRussaTony)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.LasordaTommy)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
@@ -3308,6 +3431,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1989
         {
+            public enum Managers
+            {
+                CraigRoger,
+                LaRussaTony,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3421,6 +3550,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
+                [Manager((int)Managers.LaRussaTony)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -3432,6 +3562,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
+
+                [Manager((int)Managers.CraigRoger)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
@@ -3459,6 +3591,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1992
         {
+            public enum Managers
+            {
+                CoxBobby,
+                GastonCito,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3572,6 +3710,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                [Manager((int)Managers.GastonCito)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -3582,6 +3721,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+
+                [Manager((int)Managers.CoxBobby)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam { }
 
@@ -3612,6 +3753,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1993
         {
+            public enum Managers
+            {
+                FregosiJim,
+                GastonCito,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3731,6 +3878,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                [Manager((int)Managers.GastonCito)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -3742,6 +3890,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PhiladelphiaPhillies)]
+
+                [Manager((int)Managers.FregosiJim)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
@@ -3777,6 +3927,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1997
         {
+            public enum Managers
+            {
+                HargroveMike,
+                LeylandJim,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -3903,9 +4059,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
+                [Manager((int)Managers.HargroveMike)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+
+                [Manager((int)Managers.LeylandJim)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class NationalLeagueTeam
                 {
@@ -3947,6 +4106,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v1998
         {
+            public enum Managers
+            {
+                BochyBruce,
+                TorreJoe,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -4082,6 +4247,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.TorreJoe)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -4093,6 +4259,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanDiegoPadres)]
+
+                [Manager((int)Managers.BochyBruce)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
@@ -4115,6 +4283,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v2000
         {
+            public enum Managers
+            {
+                TorreJoe,
+                ValentineBobby,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -4247,6 +4421,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.TorreJoe)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -4258,6 +4433,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkMets)]
+
+                [Manager((int)Managers.ValentineBobby)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
@@ -4284,6 +4461,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v2002
         {
+            public enum Managers
+            {
+                BakerDusty,
+                SciosciaMike,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -4416,6 +4599,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
+                [Manager((int)Managers.SciosciaMike)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
                 public static class AmericanLeagueTeam
                 {
@@ -4427,6 +4611,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
+
+                [Manager((int)Managers.BakerDusty)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.AnaheimAngels)]
@@ -4459,6 +4645,15 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v2003
         {
+            public enum Managers
+            {
+                /// <summary>
+                /// replaced Jeff Torborg in May
+                /// </summary>
+                McKeonJack,
+                TorreJoe,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -4590,10 +4785,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.TorreJoe)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+
+                [Manager((int)Managers.McKeonJack)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -4913,6 +5111,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2011
         {
+            public enum Managers
+            {
+                LaRussaTony,
+                WashingtonRon,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -5044,9 +5248,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TexasRangers)]
+                [Manager((int)Managers.WashingtonRon)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+
+                [Manager((int)Managers.LaRussaTony)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
                 public static class NationalLeagueTeam
                 {
@@ -5086,6 +5293,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v2016
         {
+            public enum Managers
+            {
+                FranconaTerry,
+                MaddonJoe,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -5218,10 +5431,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ClevelandIndians)]
+                [Manager((int)Managers.FranconaTerry)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ChicagoCubs)]
+
+                [Manager((int)Managers.MaddonJoe)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -5260,6 +5476,12 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         public static class v2017
         {
+            public enum Managers
+            {
+                HinchAJ,
+                RobertsDave,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -5391,6 +5613,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.HoustonAstros)]
+                [Manager((int)Managers.HinchAJ)]
                 public static class AmericanLeagueTeam
                 {
                     public enum Roster
@@ -5401,6 +5624,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.RobertsDave)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class NationalLeagueTeam { }
 
@@ -5430,6 +5655,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2018
         {
+            public enum Managers
+            {
+                CoraAlex,
+                RobertsDave,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -5569,6 +5800,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.BostonRedSox)]
+                [Manager((int)Managers.CoraAlex)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam
                 {
@@ -5580,6 +5812,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.RobertsDave)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.BostonRedSox)]
@@ -5892,6 +6126,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2021
         {
+            public enum Managers
+            {
+                BakerDusty,
+                SnitkerBrian,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -6023,10 +6263,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.HoustonAstros)]
+                [Manager((int)Managers.BakerDusty)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.AtlantaBraves)]
+
+                [Manager((int)Managers.SnitkerBrian)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
@@ -6059,6 +6302,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2023
         {
+            public enum Managers
+            {
+                BochyBruce,
+                LovulloTorey,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -6194,6 +6443,7 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TexasRangers)]
+                [Manager((int)Managers.BochyBruce)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam
                 {
@@ -6205,6 +6455,8 @@ namespace Existence.Earth.Sports.Baseball.American
                 }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.ArizonaDiamondbacks)]
+
+                [Manager((int)Managers.LovulloTorey)]
                 public static class NationalLeagueTeam { }
 
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.TexasRangers)]
@@ -6227,6 +6479,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2024
         {
+            public enum Managers
+            {
+                BooneAaron,
+                RobertsDave,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -6361,9 +6619,12 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.BooneAaron)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.RobertsDave)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class NationalLeagueTeam
                 {
@@ -6394,6 +6655,12 @@ namespace Existence.Earth.Sports.Baseball.American
 
         public static class v2025
         {
+            public enum Managers
+            {
+                RobertsDave,
+                SchneiderJohn,
+            }
+
             public static class AmericanLeague
             {
                 public static class Divisions
@@ -6533,10 +6800,13 @@ namespace Existence.Earth.Sports.Baseball.American
             public static class WorldSeries
             {
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.TorontoBlueJays)]
+                [Manager((int)Managers.SchneiderJohn)]
                 [HomeFieldAdvantage(HomeFieldAdvantageReason.BestRegularSeasonRecord)]
                 public static class AmericanLeagueTeam { }
 
                 [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.LosAngelesDodgers)]
+
+                [Manager((int)Managers.RobertsDave)]
                 public static class NationalLeagueTeam
                 {
                     public enum Roster
