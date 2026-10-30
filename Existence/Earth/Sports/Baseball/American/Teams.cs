@@ -2410,6 +2410,153 @@ namespace Existence.Earth.Sports.Baseball.American
         }
 
         /// <summary>
+        /// the Bay Bridge Series between the Oakland Athletics and San Francisco Giants, known as the Earthquake Series:
+        /// the Loma Prieta earthquake struck on October 17 just before Game 3 at Candlestick Park, postponing the series
+        /// for 10 days
+        /// </summary>
+        public static class v1989
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(89, 73)]
+                        [Franchise(MajorLeagueBaseballFranchises.TorontoBlueJays)]
+                        public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(83, 79)]
+                        [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(81, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
+                        public static class MilwaukeeBrewers { }
+                        [TeamWinLossRecord(74, 87)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(73, 89)]
+                        [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(59, 103)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                        public static class DetroitTigers { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(99, 63)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(92, 70)]
+                        [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(91, 71)]
+                        [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
+                        public static class CaliforniaAngels { }
+                        [TeamWinLossRecord(83, 79)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
+                        public static class TexasRangers { }
+                        [TeamWinLossRecord(80, 82)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(73, 89)]
+                        [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(69, 92)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                        public static class ChicagoWhiteSox { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(93, 69)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityQueensMets)]
+                        public static class NewYorkMets { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(81, 81)]
+                        [Franchise(MajorLeagueBaseballFranchises.MontrealExpos)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(74, 88)]
+                        [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(67, 95)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                        public static class PhiladelphiaPhillies { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(92, 70)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(89, 73)]
+                        [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
+                        public static class SanDiegoPadres { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(77, 83)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(75, 87)]
+                        [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(63, 97)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                        public static class AtlantaBraves { }
+                    }
+                }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)AmericanLeagueTeam.Roster.StewartDave, (int)MajorLeagueBaseballTeams.OaklandAthletics)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.OaklandAthletics)]
+                public static class AmericanLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        StewartDave,
+                    }
+                }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.SanFranciscoGiants)]
+                public static class NationalLeagueTeam { }
+
+                public static class Game1 { }
+
+                public static class Game2 { }
+
+                /// <summary>
+                /// postponed from October 17, when the Loma Prieta earthquake struck about half an hour before the first
+                /// pitch, to October 27
+                /// </summary>
+                public static class Game3 { }
+
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.OaklandAthletics, 4, MajorLeagueBaseballTeams.SanFranciscoGiants, 0)]
+                public static class Game4 { }
+            }
+        }
+
+        /// <summary>
         /// the last season before the National League expanded to 14 teams, with 14 teams in the American League and 12
         /// in the National League
         /// </summary>
