@@ -26,6 +26,15 @@ namespace Existence.Earth.Sports.Baseball.American
         /// </summary>
         BaltimoreOriolesAmericanLeague,
         /// <summary>
+        /// an American League charter member in 1901 with John McGraw as player-manager. In 1902 McGraw jumped to the
+        /// National League's New York Giants, and the Giants and Cincinnati Reds gained control of the club and took its
+        /// best players; the American League restocked it with players on loan from its other teams for the rest of the
+        /// season. The American League replaced it with a new New York team, which became the Yankees, in 1903, though few
+        /// players carried over
+        /// </summary>
+        [FranchiseFoldedAfterSeason(1902)]
+        BaltimoreOriolesAmericanLeagueOriginal,
+        /// <summary>
         /// Baltimore Orioles in the American Association from 1882 to 1891, apart from part of 1890 in the minor league
         /// Atlantic Association, then in the National League from 1892 on when the American Association folded. Under
         /// manager Ned Hanlon, won National League pennants from 1894 to 1896 and the Temple Cup in 1896 and 1897. Its
@@ -145,8 +154,8 @@ namespace Existence.Earth.Sports.Baseball.American
         /// New York Highlanders at Hilltop Park in Manhattan from 1903 to 1912, then New York Yankees from 1913 on: at the
         /// Polo Grounds in Manhattan as the Giants' tenants from 1913 to 1922, at Yankee Stadium in the Bronx from 1923 to
         /// 1973, at Shea Stadium in Queens during Yankee Stadium's renovation in 1974 and 1975, back at the renovated Yankee
-        /// Stadium from 1976 to 2008, and at the new Yankee Stadium from 2009 on. Some histories trace the franchise to the
-        /// American League's 1901-1902 Baltimore Orioles, whose players stocked the new New York team, but it's generally
+        /// Stadium from 1976 to 2008, and at the new Yankee Stadium from 2009 on. The team took the place of the American
+        /// League's 1901-1902 Baltimore Orioles, which some histories count as the franchise's start, but it's generally
         /// counted from 1903. The borough tells it apart from New York City's other franchises
         /// </summary>
         NewYorkCityBronxYankees,
@@ -248,10 +257,14 @@ namespace Existence.Earth.Sports.Baseball.American
         Athletics,
         AtlantaBraves,
         /// <summary>
-        /// used by multiple franchises: the National League team that folded after 1899, and the American League team
-        /// that moved from St. Louis in 1954
+        /// used by multiple franchises: the National League team that folded after 1899, the American League team of
+        /// 1901 and 1902, and the American League team that moved from St. Louis in 1954
         /// </summary>
         BaltimoreOrioles,
+        /// <summary>
+        /// the Boston Red Sox's name from 1901 to 1907
+        /// </summary>
+        BostonAmericans,
         BostonBeaneaters,
         BostonRedSox,
         BrooklynGrooms,
@@ -261,7 +274,16 @@ namespace Existence.Earth.Sports.Baseball.American
         ChicagoCubs,
         ChicagoOrphans,
         ChicagoWhiteSox,
+        /// <summary>
+        /// the Chicago White Sox's name when they first played in Chicago, before it was shortened; also the Chicago Cubs'
+        /// name from 1876 to 1889
+        /// </summary>
+        ChicagoWhiteStockings,
         CincinnatiReds,
+        /// <summary>
+        /// the Cleveland Guardians' name in 1901, the American League's first season as a major league
+        /// </summary>
+        ClevelandBlues,
         ClevelandGuardians,
         ClevelandIndians,
         ClevelandSpiders,
@@ -276,6 +298,10 @@ namespace Existence.Earth.Sports.Baseball.American
         LosAngelesDodgers,
         LouisvilleColonels,
         MiamiMarlins,
+        /// <summary>
+        /// used by multiple franchises: the American League team of 1901 that became the Baltimore Orioles, and the team
+        /// that moved from Seattle in 1970
+        /// </summary>
         MilwaukeeBrewers,
         MinnesotaTwins,
         MontrealExpos,
@@ -728,6 +754,83 @@ namespace Existence.Earth.Sports.Baseball.American
                     [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
                     [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                     public static class NewYorkGiants { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// the American League's first season as a major league, alongside the National League; neither league had
+        /// divisions, and the first World Series was in 1903
+        /// </summary>
+        public static class v1901
+        {
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(83, 53)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteStockings { }
+                    [TeamWinLossRecord(79, 57)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonAmericans { }
+                    [TeamWinLossRecord(74, 61)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(74, 62)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(68, 65)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeagueOriginal)]
+                    public static class BaltimoreOrioles { }
+                    [TeamWinLossRecord(61, 72)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(54, 82)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandBlues { }
+                    [TeamWinLossRecord(48, 89)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class MilwaukeeBrewers { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(90, 49)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(83, 57)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(79, 57)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynSuperbas { }
+                    [TeamWinLossRecord(76, 64)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(69, 69)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBeaneaters { }
+                    [TeamWinLossRecord(53, 86)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoOrphans { }
+                    [TeamWinLossRecord(52, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(52, 87)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
                 }
             }
         }
