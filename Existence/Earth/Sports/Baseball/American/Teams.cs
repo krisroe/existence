@@ -4155,6 +4155,177 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        /// <summary>
+        /// the first season where the All-Star Game decided home field advantage in the World Series, instead of the
+        /// leagues alternating
+        /// </summary>
+        public static class v2003
+        {
+            public static class AmericanLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(101, 61)]
+                        [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                        public static class NewYorkYankees { }
+                        [TeamWinLossRecord(95, 67)]
+                        [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                        public static class BostonRedSox { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.TorontoBlueJays)]
+                        public static class TorontoBlueJays { }
+                        [TeamWinLossRecord(71, 91)]
+                        [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                        public static class BaltimoreOrioles { }
+                        [TeamWinLossRecord(63, 99)]
+                        [Franchise(MajorLeagueBaseballFranchises.TampaBayDevilRays)]
+                        public static class TampaBayDevilRays { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(90, 72)]
+                        [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                        public static class MinnesotaTwins { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                        public static class ChicagoWhiteSox { }
+                        [TeamWinLossRecord(83, 79)]
+                        [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
+                        public static class KansasCityRoyals { }
+                        [TeamWinLossRecord(68, 94)]
+                        [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                        public static class ClevelandIndians { }
+                        [TeamWinLossRecord(43, 119)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                        public static class DetroitTigers { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(96, 66)]
+                        [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                        public static class OaklandAthletics { }
+                        [TeamWinLossRecord(93, 69)]
+                        [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
+                        public static class SeattleMariners { }
+                        [TeamWinLossRecord(77, 85)]
+                        [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
+                        public static class AnaheimAngels { }
+                        [TeamWinLossRecord(71, 91)]
+                        [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
+                        public static class TexasRangers { }
+                    }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                public static class Divisions
+                {
+                    public static class East
+                    {
+                        [TeamWinLossRecord(101, 61)]
+                        [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                        public static class AtlantaBraves { }
+                        [TeamWinLossRecord(91, 71)]
+                        [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        [Franchise(MajorLeagueBaseballFranchises.MiamiMarlins)]
+                        public static class FloridaMarlins { }
+                        [TeamWinLossRecord(86, 76)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                        public static class PhiladelphiaPhillies { }
+                        [TeamWinLossRecord(83, 79)]
+                        [Franchise(MajorLeagueBaseballFranchises.MontrealExpos)]
+                        public static class MontrealExpos { }
+                        [TeamWinLossRecord(66, 95)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityQueensMets)]
+                        public static class NewYorkMets { }
+                    }
+                    public static class Central
+                    {
+                        [TeamWinLossRecord(88, 74)]
+                        [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                        public static class ChicagoCubs { }
+                        [TeamWinLossRecord(87, 75)]
+                        [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
+                        public static class HoustonAstros { }
+                        [TeamWinLossRecord(85, 77)]
+                        [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                        public static class StLouisCardinals { }
+                        [TeamWinLossRecord(75, 87)]
+                        [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                        public static class PittsburghPirates { }
+                        [TeamWinLossRecord(69, 93)]
+                        [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                        public static class CincinnatiReds { }
+                        [TeamWinLossRecord(68, 94)]
+                        [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
+                        public static class MilwaukeeBrewers { }
+                    }
+                    public static class West
+                    {
+                        [TeamWinLossRecord(100, 61)]
+                        [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                        public static class SanFranciscoGiants { }
+                        [TeamWinLossRecord(85, 77)]
+                        [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                        public static class LosAngelesDodgers { }
+                        [TeamWinLossRecord(84, 78)]
+                        [Franchise(MajorLeagueBaseballFranchises.PhoenixDiamondbacks)]
+                        public static class ArizonaDiamondbacks { }
+                        [TeamWinLossRecord(74, 88)]
+                        [Franchise(MajorLeagueBaseballFranchises.DenverRockies)]
+                        public static class ColoradoRockies { }
+                        [TeamWinLossRecord(64, 98)]
+                        [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                        [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
+                        public static class SanDiegoPadres { }
+                    }
+                }
+            }
+
+            [BestOf(7)]
+            [MostValuablePlayer((int)NationalLeagueTeam.Roster.BeckettJosh, (int)MajorLeagueBaseballTeams.FloridaMarlins)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueWonAllStarGame)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                public static class NationalLeagueTeam
+                {
+                    public enum Roster
+                    {
+                        [FielderType(BaseballPositionType.PitcherStarting)]
+                        BeckettJosh,
+                    }
+                }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                public static class Game1 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                public static class Game2 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                public static class Game3 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                public static class Game4 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.FloridaMarlins)]
+                public static class Game5 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.FloridaMarlins, 4, MajorLeagueBaseballTeams.NewYorkYankees, 2)]
+                public static class Game6 { }
+            }
+        }
+
         public static class v2008
         {
             public enum Managers
