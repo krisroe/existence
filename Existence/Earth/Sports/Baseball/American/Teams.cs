@@ -1218,6 +1218,119 @@ namespace Existence.Earth.Sports.Baseball.American
         }
 
         /// <summary>
+        /// the first World Series with the 2-3-2 format fixed in advance and home field advantage alternating between the
+        /// leagues, going to the National League after the American League team hosted the first game in 1924. The
+        /// Pittsburgh Pirates came back from three games to one down to beat the Washington Senators
+        /// </summary>
+        public static class v1925
+        {
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(96, 55)]
+                    [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(88, 64)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(82, 71)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(81, 73)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(79, 75)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteSox { }
+                    [TeamWinLossRecord(70, 84)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandIndians { }
+                    [TeamWinLossRecord(69, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                    public static class NewYorkYankees { }
+                    [TeamWinLossRecord(47, 105)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonRedSox { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(95, 58)]
+                    [WorldSeries(TwoPlayerGameOutcome.Win)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(86, 66)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(80, 73)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(77, 76)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(70, 83)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBraves { }
+                    [TeamWinLossRecord(68, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynRobins { }
+                    [TeamWinLossRecord(68, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(68, 86)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.NationalLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoCubs { }
+                }
+            }
+
+            [BestOf(7)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [HomeFieldAdvantage(HomeFieldAdvantageReason.LeagueAlternation)]
+                public static class NationalLeagueTeam { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                public static class Game1 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                public static class Game2 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                public static class Game3 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                public static class Game4 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.WashingtonSenators)]
+                public static class Game5 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                public static class Game6 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.PittsburghPirates)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.PittsburghPirates, 4, MajorLeagueBaseballTeams.WashingtonSenators, 3)]
+                public static class Game7 { }
+            }
+        }
+
+        /// <summary>
         /// the last season before divisions, with 10 teams in each league; known as the "Year of the Pitcher"
         /// </summary>
         public static class v1968
