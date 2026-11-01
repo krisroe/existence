@@ -574,8 +574,45 @@ namespace Existence.Earth.Sports.Baseball.American
     }
 
     /// <summary>
+    /// the final score of a game that ended in a tie (e.g. called because of darkness); the home and away teams must
+    /// have the same number of runs. Explanation describes why the game ended tied
+    /// </summary>
+    public class MajorLeagueBaseballGameResultTieAttribute : Attribute
+    {
+        public MajorLeagueBaseballTeams DesignatedHomeTeam { get; set; }
+        public int DesignatedHomeTeamRuns { get; set; }
+        public MajorLeagueBaseballTeams DesignatedAwayTeam { get; set; }
+        public int DesignatedAwayTeamRuns { get; set; }
+        public BaseballInningTransitionPoint InningEndingPoint { get; set; }
+        public string Explanation { get; set; }
+        public MajorLeagueBaseballGameResultTieAttribute(MajorLeagueBaseballTeams DesignatedHomeTeam, int DesignatedHomeTeamRuns, MajorLeagueBaseballTeams DesignatedAwayTeam, int DesignatedAwayTeamRuns, BaseballInningTransitionPoint InningEndingPoint, string Explanation)
+        {
+            if (DesignatedHomeTeamRuns != DesignatedAwayTeamRuns)
+            {
+                throw new ArgumentException($"a tie needs the same number of runs for both teams, but {DesignatedHomeTeam} had {DesignatedHomeTeamRuns} and {DesignatedAwayTeam} had {DesignatedAwayTeamRuns}");
+            }
+            this.DesignatedHomeTeam = DesignatedHomeTeam;
+            this.DesignatedHomeTeamRuns = DesignatedHomeTeamRuns;
+            this.DesignatedAwayTeam = DesignatedAwayTeam;
+            this.DesignatedAwayTeamRuns = DesignatedAwayTeamRuns;
+            this.InningEndingPoint = InningEndingPoint;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// how many tie games a playoff series has had so far; the values cast to the count
+    /// </summary>
+    public enum NumberOfTies
+    {
+        Zero = 0,
+        One = 1,
+    }
+
+    /// <summary>
     /// the playoff series standing (e.g. 2-1) after the game it is applied to; when the series is tied, the team with
-    /// home field advantage is listed as the leading team
+    /// home field advantage is listed as the leading team. NumberOfTies counts the tie games so far, and only needs to
+    /// be given once a series has had one
     /// </summary>
     public class MajorLeagueBaseballPlayoffSeriesAttribute : Attribute
     {
@@ -583,12 +620,14 @@ namespace Existence.Earth.Sports.Baseball.American
         public int LeadingTeamWins { get; set; }
         public MajorLeagueBaseballTeams TrailingTeam { get; set; }
         public int TrailingTeamWins { get; set; }
-        public MajorLeagueBaseballPlayoffSeriesAttribute(MajorLeagueBaseballTeams LeadingTeam, int LeadingTeamWins, MajorLeagueBaseballTeams TrailingTeam, int TrailingTeamWins)
+        public NumberOfTies NumberOfTies { get; set; }
+        public MajorLeagueBaseballPlayoffSeriesAttribute(MajorLeagueBaseballTeams LeadingTeam, int LeadingTeamWins, MajorLeagueBaseballTeams TrailingTeam, int TrailingTeamWins, NumberOfTies NumberOfTies = NumberOfTies.Zero)
         {
             this.LeadingTeam = LeadingTeam;
             this.LeadingTeamWins = LeadingTeamWins;
             this.TrailingTeam = TrailingTeam;
             this.TrailingTeamWins = TrailingTeamWins;
+            this.NumberOfTies = NumberOfTies;
         }
     }
 
@@ -1252,6 +1291,270 @@ namespace Existence.Earth.Sports.Baseball.American
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 5, MajorLeagueBaseballTeams.NewYorkYankees, 3)]
                 public static class Game8 { }
+            }
+        }
+
+        /// <summary>
+        /// a second straight Subway Series between the New York Giants and the New York Yankees, again with every game at
+        /// the Polo Grounds and the home team alternating. Game 2 was called a tie after ten innings, and the Giants won the
+        /// other four games
+        /// </summary>
+        public static class v1922
+        {
+            public enum Managers
+            {
+                HugginsMiller,
+                McGrawJohn,
+            }
+
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(94, 60)]
+                    [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                    public static class NewYorkYankees { }
+                    [TeamWinLossRecord(93, 61)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(79, 75)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(78, 76)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandIndians { }
+                    [TeamWinLossRecord(77, 77)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteSox { }
+                    [TeamWinLossRecord(69, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(65, 89)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(61, 93)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonRedSox { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(93, 61)]
+                    [WorldSeries(TwoPlayerGameOutcome.Win)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(86, 68)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(85, 69)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(85, 69)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(80, 74)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoCubs { }
+                    [TeamWinLossRecord(76, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynRobins { }
+                    [TeamWinLossRecord(57, 96)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                    [TeamWinLossRecord(53, 100)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBraves { }
+                }
+            }
+
+            [BestOf(7)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.HugginsMiller)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [Manager((int)Managers.McGrawJohn)]
+                public static class NationalLeagueTeam { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 3, MajorLeagueBaseballTeams.NewYorkYankees, 2,
+                    "The Giants scored all three runs in the bottom of the eighth inning",
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 1, MajorLeagueBaseballTeams.NewYorkYankees, 0)]
+                public static class Game1 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballGameResultTie(MajorLeagueBaseballTeams.NewYorkYankees, 3, MajorLeagueBaseballTeams.NewYorkGiants, 3, BaseballInningTransitionPoint.AfterTenthBottom,
+                    $"Called because of darkness {nameof(BaseballInningTransitionPoint.AfterTenthBottom)}, though there still appeared to be enough daylight to keep playing")]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 1, MajorLeagueBaseballTeams.NewYorkYankees, 0, NumberOfTies.One)]
+                public static class Game2 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 3, MajorLeagueBaseballTeams.NewYorkYankees, 0,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 2, MajorLeagueBaseballTeams.NewYorkYankees, 0, NumberOfTies.One)]
+                public static class Game3 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 4, MajorLeagueBaseballTeams.NewYorkYankees, 3,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 3, MajorLeagueBaseballTeams.NewYorkYankees, 0, NumberOfTies.One)]
+                public static class Game4 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 5, MajorLeagueBaseballTeams.NewYorkYankees, 3,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 4, MajorLeagueBaseballTeams.NewYorkYankees, 0, NumberOfTies.One)]
+                public static class Game5 { }
+            }
+        }
+
+        /// <summary>
+        /// the New York Yankees' first World Series title, in Yankee Stadium's first season, over the New York Giants for a
+        /// third straight Subway Series. The home team alternated each game between Yankee Stadium and the Giants' Polo
+        /// Grounds
+        /// </summary>
+        public static class v1923
+        {
+            public enum Managers
+            {
+                HugginsMiller,
+                McGrawJohn,
+            }
+
+            public static class AmericanLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(98, 54)]
+                    [WorldSeries(TwoPlayerGameOutcome.Win)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
+                    public static class NewYorkYankees { }
+                    [TeamWinLossRecord(83, 71)]
+                    [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
+                    public static class DetroitTigers { }
+                    [TeamWinLossRecord(82, 71)]
+                    [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
+                    public static class ClevelandIndians { }
+                    [TeamWinLossRecord(75, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
+                    public static class WashingtonSenators { }
+                    [TeamWinLossRecord(74, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
+                    public static class StLouisBrowns { }
+                    [TeamWinLossRecord(69, 83)]
+                    [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
+                    public static class PhiladelphiaAthletics { }
+                    [TeamWinLossRecord(69, 85)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
+                    public static class ChicagoWhiteSox { }
+                    [TeamWinLossRecord(61, 91)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                    [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
+                    public static class BostonRedSox { }
+                }
+            }
+
+            public static class NationalLeague
+            {
+                /// <summary>
+                /// standings for the whole season; the league had no divisions
+                /// </summary>
+                public static class Standings
+                {
+                    [TeamWinLossRecord(95, 58)]
+                    [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                    [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
+                    public static class NewYorkGiants { }
+                    [TeamWinLossRecord(91, 63)]
+                    [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
+                    public static class CincinnatiReds { }
+                    [TeamWinLossRecord(87, 67)]
+                    [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
+                    public static class PittsburghPirates { }
+                    [TeamWinLossRecord(83, 71)]
+                    [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
+                    public static class ChicagoCubs { }
+                    [TeamWinLossRecord(79, 74)]
+                    [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
+                    public static class StLouisCardinals { }
+                    [TeamWinLossRecord(76, 78)]
+                    [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
+                    public static class BrooklynRobins { }
+                    [TeamWinLossRecord(54, 100)]
+                    [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
+                    public static class BostonBraves { }
+                    [TeamWinLossRecord(50, 104)]
+                    [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                    [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
+                    public static class PhiladelphiaPhillies { }
+                }
+            }
+
+            [BestOf(7)]
+            public static class WorldSeries
+            {
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [Manager((int)Managers.HugginsMiller)]
+                public static class AmericanLeagueTeam { }
+
+                [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [Manager((int)Managers.McGrawJohn)]
+                public static class NationalLeagueTeam { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 5, MajorLeagueBaseballTeams.NewYorkYankees, 4,
+                    "The Giants took the lead on an inside-the-park home run in the top of the ninth inning",
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 1, MajorLeagueBaseballTeams.NewYorkYankees, 0)]
+                public static class Game1 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.NewYorkGiants, 2,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 1, MajorLeagueBaseballTeams.NewYorkGiants, 1)]
+                public static class Game2 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkGiants, 1, MajorLeagueBaseballTeams.NewYorkYankees, 0,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkGiants, 2, MajorLeagueBaseballTeams.NewYorkYankees, 1)]
+                public static class Game3 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkYankees, 8, MajorLeagueBaseballTeams.NewYorkGiants, 4,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 2, MajorLeagueBaseballTeams.NewYorkGiants, 2)]
+                public static class Game4 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkYankees)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkYankees, 8, MajorLeagueBaseballTeams.NewYorkGiants, 1,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterGameFinalBecauseHomeTeamAheadWithNoNeedToBat)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 3, MajorLeagueBaseballTeams.NewYorkGiants, 2)]
+                public static class Game5 { }
+
+                [DesignatedHomeTeam(MajorLeagueBaseballTeams.NewYorkGiants)]
+                [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.NewYorkYankees, 6, MajorLeagueBaseballTeams.NewYorkGiants, 4,
+                    InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
+                [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.NewYorkYankees, 4, MajorLeagueBaseballTeams.NewYorkGiants, 2)]
+                public static class Game6 { }
             }
         }
 

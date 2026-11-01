@@ -51,6 +51,64 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates every tie game result. Reading the attributes runs their constructors, which throw when the home and
+        /// away teams' runs don't match, and a game with a DesignatedHomeTeam attribute must have the same home team
+        /// </summary>
+        [TestMethod]
+        public void ValidateGameResultTies()
+        {
+            int iTies = 0;
+            foreach (Type t in GetNestedTypesRecursive(typeof(MajorLeagueBaseball)))
+            {
+                List<MajorLeagueBaseballGameResultTieAttribute> ties = new List<MajorLeagueBaseballGameResultTieAttribute>();
+                try
+                {
+                    ties = t.GetCustomAttributes<MajorLeagueBaseballGameResultTieAttribute>().ToList();
+                }
+                catch (Exception e)
+                {
+                    Assert.Fail($"{GetName(t)} has an invalid tie game result: {(e.InnerException ?? e).Message}");
+                }
+                DesignatedHomeTeamAttribute? home = t.GetCustomAttribute<DesignatedHomeTeamAttribute>();
+                foreach (MajorLeagueBaseballGameResultTieAttribute tie in ties)
+                {
+                    iTies++;
+                    if (home != null) Assert.AreEqual(home.Team, tie.DesignatedHomeTeam, $"{GetName(t)} has a tie with {tie.DesignatedHomeTeam} as the home team, but its DesignatedHomeTeam is {home.Team}");
+                }
+            }
+            Assert.IsTrue(iTies > 0, "no tie game results found");
+        }
+
+        /// <summary>
+        /// validates that each playoff series standing's NumberOfTies is the number of tie game results in the series
+        /// through that game, going through any class with GameN classes in game order
+        /// </summary>
+        [TestMethod]
+        public void ValidatePlayoffSeriesNumberOfTies()
+        {
+            int iSeriesWithTies = 0;
+            foreach (Type t in GetNestedTypesRecursive(typeof(MajorLeagueBaseball)))
+            {
+                var games = t.GetNestedTypes()
+                    .Select(g => (Match: rGame.Match(g.Name), Game: g))
+                    .Where(g => g.Match.Success)
+                    .OrderBy(g => int.Parse(g.Match.Groups[1].Value))
+                    .Select(g => g.Game)
+                    .ToList();
+                int iTies = 0;
+                foreach (Type game in games)
+                {
+                    iTies += game.GetCustomAttributes<MajorLeagueBaseballGameResultTieAttribute>().Count();
+                    MajorLeagueBaseballPlayoffSeriesAttribute? series = game.GetCustomAttribute<MajorLeagueBaseballPlayoffSeriesAttribute>();
+                    if (series == null) continue;
+                    Assert.AreEqual(iTies, (int)series.NumberOfTies, $"{GetName(game)} has NumberOfTies.{series.NumberOfTies} but the series has had {iTies} tie games through it");
+                }
+                if (iTies > 0) iSeriesWithTies++;
+            }
+            Assert.IsTrue(iSeriesWithTies > 0, "no playoff series with tie games found");
+        }
+
+        /// <summary>
         /// validates that the teams in each division, including each half of a split season with or without divisions,
         /// are listed from the best winning percentage to the worst. A division whose records haven't been filled in
         /// yet, with no TeamWinLossRecord on any team, is skipped
