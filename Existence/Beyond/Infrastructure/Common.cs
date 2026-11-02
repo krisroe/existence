@@ -17,6 +17,10 @@ namespace Existence.Beyond.Infrastructure
         [BeyondObjectVersion(1, 0, 0, 0)]
         [YearDate(2025, 10, 25)]
         FixMissingVersionHistoryAddCorrectnessForThumbOnTheScale,
+
+        [BeyondObjectVersion(1, 1, 0, 0)]
+        [YearDate(2026, 11, 2)]
+        AddNoneAndComplicatedCorrectness,
     }
 
     internal class ZLevelAttribute : Attribute
@@ -775,21 +779,25 @@ namespace Existence.Beyond.Infrastructure
     public enum Correctness
     {
         /// <summary>
+        /// correctness not specified
+        /// </summary>
+        None = 0,
+        /// <summary>
         /// fundamentally correct
         /// </summary>
-        Correct = 0,
+        Correct = 1,
         /// <summary>
         /// fundamentally incorrect
         /// </summary>
-        Incorrect = 1,
+        Incorrect = 2,
         /// <summary>
         /// too early to tell
         /// </summary>
-        Future = 2,
+        Future = 3,
         /// <summary>
         /// neither fundamentally correct nor fundamentally incorrect, requires significant explanation
         /// </summary>
-        Complicated = 3
+        Complicated = 4
     }
 
     internal class ThumbOnTheScaleAttribute : Attribute

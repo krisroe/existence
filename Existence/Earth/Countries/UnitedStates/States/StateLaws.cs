@@ -643,6 +643,9 @@ namespace Existence.Earth.Countries.UnitedStates.States
         [Gender(Gender.Male)]
         ThompsonTommy,
 
+        [Gender(Gender.Male)]
+        TiffanyTom,
+
         [Gender(Gender.Female)]
         UnderlyJill,
 

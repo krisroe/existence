@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Alphabet;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Alphabet;
 using Existence.Time;
 using System;
 
@@ -452,6 +453,18 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician I personally voted for in the election
+    /// </summary>
+    public class IVotedForPoliticianAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public IVotedForPoliticianAttribute(int Politician)
+        {
+            this.Politician = Politician;
+        }
+    }
+
+    /// <summary>
     /// generic rooting for something (rooting is not a meaningless activity)
     /// </summary>
     public class IRootedForThis : Attribute
@@ -464,9 +477,13 @@ namespace Existence.Earth.Countries
     public class IPredictedElectionWinnerAttribute : Attribute
     {
         public int Politician { get; set; }
-        public IPredictedElectionWinnerAttribute(int Politician)
+        public Correctness Correctness { get; set; }
+        public string Explanation { get; set; }
+        public IPredictedElectionWinnerAttribute(int Politician, Correctness Correctness = Correctness.None, string Explanation = null)
         {
             this.Politician = Politician;
+            this.Correctness = Correctness;
+            this.Explanation = Explanation;
         }
     }
 
@@ -572,6 +589,20 @@ namespace Existence.Earth.Countries
             this.Year = Year;
             this.Month = Month;
             this.Day = Day;
+        }
+    }
+
+    /// <summary>
+    /// the two major candidates in an election that hasn't been decided yet. Replace with HeadToHeadElectionResult once it is
+    /// </summary>
+    public class HeadToHeadElectionCandidatesAttribute : Attribute
+    {
+        public int Candidate1 { get; set; }
+        public int Candidate2 { get; set; }
+        public HeadToHeadElectionCandidatesAttribute(int Candidate1, int Candidate2)
+        {
+            this.Candidate1 = Candidate1;
+            this.Candidate2 = Candidate2;
         }
     }
 

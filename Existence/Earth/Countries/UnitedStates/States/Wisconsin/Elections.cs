@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Alphabet;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Alphabet;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
@@ -174,5 +175,27 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         [HeadToHeadElectionResult((int)WisconsinPoliticians.EversTony, 51.15, (int)WisconsinPoliticians.MichelsTim, 47.75)]
         [ElectionNightConcession((int)WisconsinPoliticians.MichelsTim)]
         public static class v2022 { }
+
+        /// <summary>
+        /// open seat, Evers did not seek a third term. Crowley narrowly beat Francesca Hong in the August 11 Democratic
+        /// primary, Tiffany won the Republican primary easily
+        /// </summary>
+        [YearDate(2026, 11, 3)]
+        [HeadToHeadElectionCandidates((int)WisconsinPoliticians.CrowleyDavid, (int)WisconsinPoliticians.TiffanyTom)]
+        [TODO("Update after this election is over.")]
+        public static class v2026
+        {
+            /// <summary>
+            /// <see cref="WisconsinPoliticians.TiffanyTom"/> won the Republican primary easily
+            /// </summary>
+            public static class Primary
+            {
+                [YearDate(2026, 8, 11)]
+                [HeadToHeadElectionResult((int)WisconsinPoliticians.CrowleyDavid, 39.8, (int)WisconsinPoliticians.HongFrancesca, 39.3)]
+                [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid)]
+                [IPredictedElectionWinner((int)WisconsinPoliticians.HongFrancesca, Correctness.Incorrect, "I expected undecided voters to skew toward Crowley, but Hong's lead in the polls seemed insurmountable")]
+                public static class Democratic { }
+            }
+        }
     }
 }
