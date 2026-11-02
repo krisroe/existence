@@ -1,10 +1,8 @@
 ﻿using Existence.Earth.Alphabet;
 using Existence.Time;
 
-namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
+namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
 {
-    internal class Elections
-    {
         /// <summary>
         /// nonpartisan elections for 10 year terms
         /// </summary>
@@ -109,17 +107,72 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
             }
         }
 
-        public static class Governor
-        {
-            /// <summary>
-            /// Michels conceded to supporters around 12:20 a.m. Central on November 9, technically the day after the
-            /// election, but clearly an election night concession.
-            /// </summary>
-            [YearDate(2022, 11, 8)]
-            [Incumbent((int)WisconsinPoliticians.EversTony)]
-            [HeadToHeadElectionResult((int)WisconsinPoliticians.EversTony, 51.15, (int)WisconsinPoliticians.MichelsTim, 47.75)]
-            [ElectionNightConcession((int)WisconsinPoliticians.MichelsTim)]
-            public static class v2022 { }
-        }
+    public static class Governor
+    {
+        [YearDate(1986, 11, 4)]
+        [Incumbent((int)WisconsinPoliticians.EarlTony)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.ThompsonTommy, 52.73, (int)WisconsinPoliticians.EarlTony, 46.21)]
+        public static class v1986 { }
+
+        [YearDate(1990, 11, 6)]
+        [Incumbent((int)WisconsinPoliticians.ThompsonTommy)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.ThompsonTommy, 58.15, (int)WisconsinPoliticians.LoftusTom, 41.77)]
+        public static class v1990 { }
+
+        [YearDate(1994, 11, 8)]
+        [Incumbent((int)WisconsinPoliticians.ThompsonTommy)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.ThompsonTommy, 67.23, (int)WisconsinPoliticians.ChvalaChuck, 30.88)]
+        public static class v1994 { }
+
+        [YearDate(1998, 11, 3)]
+        [Incumbent((int)WisconsinPoliticians.ThompsonTommy)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.ThompsonTommy, 59.66, (int)WisconsinPoliticians.GarveyEd, 38.70)]
+        public static class v1998 { }
+
+        /// <summary>
+        /// McCallum became governor in 2001 when Thompson resigned to become Secretary of Health and Human Services
+        /// </summary>
+        [YearDate(2002, 11, 5)]
+        [Incumbent((int)WisconsinPoliticians.McCallumScott)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.DoyleJim, 45.09, (int)WisconsinPoliticians.McCallumScott, 41.39)]
+        public static class v2002 { }
+
+        [YearDate(2006, 11, 7)]
+        [Incumbent((int)WisconsinPoliticians.DoyleJim)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.DoyleJim, 52.70, (int)WisconsinPoliticians.GreenMark, 45.31)]
+        public static class v2006 { }
+
+        /// <summary>
+        /// open seat, Doyle did not seek a third term
+        /// </summary>
+        [YearDate(2010, 11, 2)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.WalkerScott, 52.25, (int)WisconsinPoliticians.BarrettTom, 46.48)]
+        [ElectionNightConcession((int)WisconsinPoliticians.BarrettTom)]
+        public static class v2010 { }
+
+        [YearDate(2014, 11, 4)]
+        [Incumbent((int)WisconsinPoliticians.WalkerScott)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.WalkerScott, 52.26, (int)WisconsinPoliticians.BurkeMary, 46.59)]
+        [ElectionNightConcession((int)WisconsinPoliticians.BurkeMary)]
+        public static class v2014 { }
+
+        /// <summary>
+        /// Walker conceded in a statement the afternoon after the election, declining to seek a recount
+        /// </summary>
+        [YearDate(2018, 11, 6)]
+        [Incumbent((int)WisconsinPoliticians.WalkerScott)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.EversTony, 49.54, (int)WisconsinPoliticians.WalkerScott, 48.44)]
+        [LaterConcession((int)WisconsinPoliticians.WalkerScott, 2018, 11, 7)]
+        public static class v2018 { }
+
+        /// <summary>
+        /// Michels conceded to supporters around 12:20 a.m. Central on November 9, technically the day after the
+        /// election, but clearly an election night concession.
+        /// </summary>
+        [YearDate(2022, 11, 8)]
+        [Incumbent((int)WisconsinPoliticians.EversTony)]
+        [HeadToHeadElectionResult((int)WisconsinPoliticians.EversTony, 51.15, (int)WisconsinPoliticians.MichelsTim, 47.75)]
+        [ElectionNightConcession((int)WisconsinPoliticians.MichelsTim)]
+        public static class v2022 { }
     }
 }

@@ -215,6 +215,32 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician was governor over the date range. EndDate is null while still in office
+    /// </summary>
+    public class GovernorAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public StartDateAttribute StartDate { get; set; }
+        public EndDateAttribute EndDate { get; set; }
+        public GovernorAttribute(int Politician, int StartYear, int StartMonth, int StartDay)
+        {
+            this.Politician = Politician;
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public GovernorAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(Politician, StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// the politician is the current governor
+    /// </summary>
+    public class CurrentGovernorAttribute : Attribute
+    {
+    }
+
+    /// <summary>
     /// the politician formally held the office of prime minister over the date range, while someone else acted as
     /// prime minister
     /// </summary>

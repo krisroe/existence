@@ -583,6 +583,15 @@ namespace Existence.Earth.Countries.UnitedStates.States
         [Gender(Gender.Female)]
         AgardMelissa,
 
+        [Gender(Gender.Male)]
+        BarrettTom,
+
+        [Gender(Gender.Female)]
+        BurkeMary,
+
+        [Gender(Gender.Male)]
+        ChvalaChuck,
+
         [Gender(Gender.Female)]
         CrawfordSusan,
 
@@ -590,7 +599,19 @@ namespace Existence.Earth.Countries.UnitedStates.States
         CrowleyDavid,
 
         [Gender(Gender.Male)]
+        DoyleJim,
+
+        [Gender(Gender.Male)]
+        EarlTony,
+
+        [Gender(Gender.Male)]
         EversTony,
+
+        [Gender(Gender.Male)]
+        GarveyEd,
+
+        [Gender(Gender.Male)]
+        GreenMark,
 
         [Gender(Gender.Female)]
         HongFrancesca,
@@ -600,6 +621,12 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
         [Gender(Gender.Female)]
         LazarMaria,
+
+        [Gender(Gender.Male)]
+        LoftusTom,
+
+        [Gender(Gender.Male)]
+        McCallumScott,
 
         [Gender(Gender.Male)]
         MichelsTim,
@@ -613,7 +640,13 @@ namespace Existence.Earth.Countries.UnitedStates.States
         [Gender(Gender.Female)]
         TaylorChris,
 
+        [Gender(Gender.Male)]
+        ThompsonTommy,
+
         [Gender(Gender.Female)]
         UnderlyJill,
+
+        [Gender(Gender.Male)]
+        WalkerScott,
     }
 }
