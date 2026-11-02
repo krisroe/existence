@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Human.Politics;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Human.Politics;
 using Existence.Time;
 using System;
 
@@ -72,6 +73,58 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         public BallotMeasurePassFailAttribute(bool Passed)
         {
             this.Passed = Passed;
+        }
+    }
+
+    /// <summary>
+    /// I personally voted yes on the ballot initiative
+    /// </summary>
+    public class IVotedYesBallotInitiativeAttribute : Attribute
+    {
+        public string Explanation { get; set; }
+        public IVotedYesBallotInitiativeAttribute(string Explanation)
+        {
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// I personally voted no on the ballot initiative
+    /// </summary>
+    public class IVotedNoBallotInitiativeAttribute : Attribute
+    {
+        public string Explanation { get; set; }
+        public IVotedNoBallotInitiativeAttribute(string Explanation)
+        {
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// I personally predicted the ballot initiative would pass
+    /// </summary>
+    public class IPredictedYesBallotInitiativeAttribute : Attribute
+    {
+        public Correctness Correctness { get; set; }
+        public string Explanation { get; set; }
+        public IPredictedYesBallotInitiativeAttribute(Correctness Correctness, string Explanation)
+        {
+            this.Correctness = Correctness;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// I personally predicted the ballot initiative would fail
+    /// </summary>
+    public class IPredictedNoBallotInitiativeAttribute : Attribute
+    {
+        public Correctness Correctness { get; set; }
+        public string Explanation { get; set; }
+        public IPredictedNoBallotInitiativeAttribute(Correctness Correctness, string Explanation)
+        {
+            this.Correctness = Correctness;
+            this.Explanation = Explanation;
         }
     }
 

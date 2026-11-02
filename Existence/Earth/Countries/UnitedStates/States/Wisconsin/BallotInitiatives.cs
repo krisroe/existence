@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Alphabet;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates.Politics;
 using Existence.Time;
 
@@ -328,6 +329,8 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [IVotedNoBallotInitiative("Unnecessary as a constitutional amendment given the photo ID law isn't going to be repealed.")]
+                [IPredictedYesBallotInitiative(Correctness.Correct, "Avoids inconsistency between implied constitution and statute")]
                 public static class VoterPhotoIdentificationAmendment { }
             }
         }

@@ -785,7 +785,11 @@ namespace Existence.Beyond.Infrastructure
         /// <summary>
         /// too early to tell
         /// </summary>
-        Future = 2
+        Future = 2,
+        /// <summary>
+        /// neither fundamentally correct nor fundamentally incorrect, requires significant explanation
+        /// </summary>
+        Complicated = 3
     }
 
     internal class ThumbOnTheScaleAttribute : Attribute
