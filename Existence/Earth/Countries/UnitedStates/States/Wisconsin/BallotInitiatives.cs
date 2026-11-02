@@ -20,7 +20,26 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRSS)]
             [YearDate(2000, 11, 7)]
             [BallotMeasurePassFail(true)]
+            [IVotedYesBallotInitiative("Made snap decision in the voting booth (hadn't seen the question earier)")]
+            [IMadeAVotingMistake("Extending the voting franchise seemed reasonable at first blush, but I didn't think it over enough")]
             public static class WisconsinQuestion1 { }
+
+            /// <summary>
+            /// Not a statewide measure: county advisory referendum placed on the ballot by 57 of the 72 county boards,
+            /// covering 86% of the state's population, so it isn't in Ballotpedia's list of statewide measures. Asked
+            /// whether voters supported legislation reforming the state campaign finance system to limit spending, require
+            /// stricter contribution limits, and require full and prompt disclosure of election-related activity.
+            /// Waukesha County separately asked "Do you support public financing of elections of state candidates who
+            /// abide by spending limits?", which got more than 80% yes.
+            /// Result (per the Wisconsin Democracy Campaign, no official statewide compilation exists):
+            /// Yes   ~90%
+            /// La Crosse County: Yes 46,521 92.31%, No 3,877 7.69%
+            /// </summary>
+            [BallotMeasureType(BallotMeasureTypes.AQ)]
+            [YearDate(2000, 11, 7)]
+            [BallotMeasurePassFail(true)]
+            [IVotedNoBallotInitiative("I voted in Marquette County, did not support limits on election-related spending")]
+            public static class CampaignFinanceReformCountyAdvisoryReferendum { }
         }
 
         public static class v2003
@@ -71,6 +90,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [IRootedForNoBallotInitiative("Gay marriage is fine by me (I wasn't voting at all at the time)")]
                 public static class Question1 { }
 
                 /// <summary>
@@ -349,6 +369,8 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [TODO("Update after this election is over.")]
+                [IVotedYesBallotInitiative("Wisconsin's partial veto continues to have room for shenanigans, time to reel this in (again)")]
+                [IPredictedYesBallotInitiative(Correctness.Future, "I don't see how anyone could find the governer's logic defensible.")]
                 public static class ProhibitPartialVetoToIncreaseTaxOrFeeAmendment { }
 
                 /// <summary>
@@ -360,6 +382,8 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [TODO("Update after this election is over.")]
+                [IVotedYesBallotInitiative("The Covid-era church closures bothers me in a way that goes beyond just limiting church access")]
+                [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree the Covid-era church closures went too far.")]
                 public static class ProhibitGovernmentClosureOfPlacesOfWorshipDuringEmergenciesAmendment { }
 
                 /// <summary>
@@ -370,6 +394,8 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [TODO("Update after this election is over.")]
+                [IVotedYesBallotInitiative("Generally speaking I'm against racial preferences")]
+                [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree with me on this one.")]
                 public static class ProhibitDiscriminationOrPreferentialTreatmentAmendment { }
             }
         }

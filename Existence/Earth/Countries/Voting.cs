@@ -471,6 +471,18 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// I personally made a mistake in how I voted, judged by what I should have known at the time
+    /// </summary>
+    public class IMadeAVotingMistakeAttribute : Attribute
+    {
+        public string Explanation { get; set; }
+        public IMadeAVotingMistakeAttribute(string Explanation)
+        {
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
     /// number of seats I personally predicted the political party would win. Not a subclass of NumberOfSeatsAttribute,
     /// so that summing seats of parties doesn't count predictions as results
     /// </summary>

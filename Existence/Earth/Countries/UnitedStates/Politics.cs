@@ -101,6 +101,30 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
     }
 
     /// <summary>
+    /// I personally rooted for the ballot initiative to pass (rooting is not a meaningless activity)
+    /// </summary>
+    public class IRootedForYesBallotInitiativeAttribute : Attribute
+    {
+        public string Explanation { get; set; }
+        public IRootedForYesBallotInitiativeAttribute(string Explanation)
+        {
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// I personally rooted for the ballot initiative to fail (rooting is not a meaningless activity)
+    /// </summary>
+    public class IRootedForNoBallotInitiativeAttribute : Attribute
+    {
+        public string Explanation { get; set; }
+        public IRootedForNoBallotInitiativeAttribute(string Explanation)
+        {
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
     /// I personally predicted the ballot initiative would pass
     /// </summary>
     public class IPredictedYesBallotInitiativeAttribute : Attribute
