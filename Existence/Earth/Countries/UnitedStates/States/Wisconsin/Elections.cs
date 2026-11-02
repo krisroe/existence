@@ -182,6 +182,8 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         /// </summary>
         [YearDate(2026, 11, 3)]
         [HeadToHeadElectionCandidates((int)WisconsinPoliticians.CrowleyDavid, (int)WisconsinPoliticians.TiffanyTom)]
+        [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid, "This is the first time I ever voted for a Democrat in a general election")]
+        [IPredictedElectionWinner((int)WisconsinPoliticians.CrowleyDavid, Correctness.Future, "Trump's impact on the election is more powerful than the usual anti-incumbent bias")]
         [TODO("Update after this election is over.")]
         public static class v2026
         {
@@ -192,7 +194,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             {
                 [YearDate(2026, 8, 11)]
                 [HeadToHeadElectionResult((int)WisconsinPoliticians.CrowleyDavid, 39.8, (int)WisconsinPoliticians.HongFrancesca, 39.3)]
-                [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid)]
+                [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid, "This is the first time I ever voted for a Democrat")]
                 [IPredictedElectionWinner((int)WisconsinPoliticians.HongFrancesca, Correctness.Incorrect, "I expected undecided voters to skew toward Crowley, but Hong's lead in the polls seemed insurmountable")]
                 public static class Democratic { }
             }

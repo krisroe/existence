@@ -458,9 +458,11 @@ namespace Existence.Earth.Countries
     public class IVotedForPoliticianAttribute : Attribute
     {
         public int Politician { get; set; }
-        public IVotedForPoliticianAttribute(int Politician)
+        public string Explanation { get; set; }
+        public IVotedForPoliticianAttribute(int Politician, string Explanation = null)
         {
             this.Politician = Politician;
+            this.Explanation = Explanation;
         }
     }
 
