@@ -52,9 +52,20 @@ namespace Existence.Beyond.ThumbOnTheScale
             [YearDate(2025, 5, 8)]
             RestructureWinners,
 
+            /// <summary>
+            /// I got overzealous here and made some rash changes to versioned files
+            /// </summary>
+            [BeyondObjectVersion(2, 4, 1, 0)]
+            [YearDate(2026, 10, 22)]
+            MoveStateSubsidiariesOutOfTheUnitedStatesSection,
+
             [BeyondObjectVersion(2, 5, 0, 0)]
             [YearDate(2025, 10, 25)]
             UseCorrectDateInFileNameAndFillOutPredictionCorrectness,
+
+            [BeyondObjectVersion(2, 6, 0, 0)]
+            [YearDate(2026, 11, 2)]
+            FillOutThumbOnTheScaleHindsightCorrectness,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -394,7 +405,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                 (int)WisconsinPoliticians.SchimelBrad,
                 (int)WisconsinPoliticians.CrawfordSusan,
                 PredictionCorrectness: Correctness.Incorrect,
-                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Incorrect)] //I overestimated the seriousness of Brad Schimel's candidacy
             public static class StateSupremeCourtJustice
             {
                 /// <summary>
@@ -525,7 +536,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                 (int)WisconsinPoliticians.UnderlyJill,
                 (int)WisconsinPoliticians.UnderlyJill,
                 PredictionCorrectness: Correctness.Correct,
-                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Correct)]
             public static class SuperintendantOfPublicInstruction
             {
                 /// <summary>
@@ -599,7 +610,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                 (int)ReferendumChoice.Yes,
                 (int)ReferendumChoice.Yes,
                 PredictionCorrectness: Correctness.Correct,
-                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Correct)]
             public static class VoterPhotoIdentificationAmendment
             {
                 /// <summary>
@@ -633,7 +644,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                 (int)WisconsinPoliticians.AgardMelissa,
                 (int)WisconsinPoliticians.AgardMelissa,
                 PredictionCorrectness: Correctness.Correct,
-                ThumbOnTheScaleHindsightCorrectness: Correctness.Future)]
+                ThumbOnTheScaleHindsightCorrectness: Correctness.Correct)]
             public static class DaneCountyExecutive
             {
                 [Politician((int)WisconsinPoliticians.RatzlaffStephen)]

@@ -128,10 +128,16 @@ namespace Existence.Beyond.Timeless
             [YearDate(2026, 10, 20)]
             CapitalizationFixForBirthdatePreciseAttributeNowBirthDatePrecise,
 
+            /// <summary>
+            /// I got overzealous here and made some rash changes to versioned files
+            /// </summary>
             [BeyondObjectVersion(5, 9, 2, 0)]
             [YearDate(2026, 10, 22, Hour: 18, Minute: 46)]
-            PoliticalPhilosophiesAttributeAndPoliticalPhilosophiesAndPoliticalPhilosophiesFlagsEnumerationsChangedNamespace,            
+            PoliticalPhilosophiesAttributeAndPoliticalPhilosophiesAndPoliticalPhilosophiesFlagsEnumerationsChangedNamespace,
 
+            /// <summary>
+            /// I got overzealous here and made some rash changes to versioned files
+            /// </summary>
             [BeyondObjectVersion(6, 0, 0, 0)]
             [YearDate(2026, 10, 22, Hour: 19, Minute : 27)]
             FixTestPetHouseUnitTest,

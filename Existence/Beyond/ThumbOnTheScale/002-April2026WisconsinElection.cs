@@ -17,6 +17,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(1, 1, 0, 0)]
             [YearDate(2026, 10, 25)]
             AddPredictionCorrectnessNoChangeAndUseCorrectYearForClassAndFileName,
+
+            [BeyondObjectVersion(1, 2, 0, 0)]
+            [YearDate(2026, 11, 2)]
+            FillOutThumbOnTheScaleHindsightCorrectness,
         }
 
         [VotedAtLocation((int)PersonalChurches.SaintBernardCatholicChurch)]
@@ -35,7 +39,7 @@ namespace Existence.Beyond.ThumbOnTheScale
             (int)WisconsinPoliticians.LazarMaria,
             (int)WisconsinPoliticians.TaylorChris,
             Correctness.Incorrect,
-            Correctness.Future)]
+            Correctness.Correct)] //in a better world, I would have got this right, the loser was the more serious candidate
         public static class StateSupremeCourtJustice
         {
             [Politician((int)WisconsinPoliticians.LazarMaria)]
