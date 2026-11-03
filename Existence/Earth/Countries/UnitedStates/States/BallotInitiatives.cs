@@ -42,8 +42,10 @@ namespace Existence.Earth.Countries.UnitedStates.States
             public static class v2026
             {
                 /// <summary>
-                /// A "yes" vote supports requiring the office of lieutenant governor to be filled by election if a vacancy
-                /// occurs more than 60 days before the next general election.
+                /// A "yes" vote supports providing for the election of a lieutenant governor if the office of lieutenant
+                /// governor becomes vacant during the first two years of a term (Alabama Fair Ballot Commission). Ballotpedia
+                /// instead describes it as requiring an election if a vacancy occurs more than 60 days before the next
+                /// general election.
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
