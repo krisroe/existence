@@ -252,6 +252,14 @@ namespace Existence.Time
         public ElectionDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
     }
 
+    /// <summary>
+    /// the date the officials elected in the election take office
+    /// </summary>
+    public class PostElectionTakeOfficeDateAttribute : YearDateAttribute
+    {
+        public PostElectionTakeOfficeDateAttribute(int Year, int Month, int Day) : base(Year, Month, Day) { }
+    }
+
     public class YearDateAttribute : CalendarDateAttribute
     {
         public int Year { get; set; }

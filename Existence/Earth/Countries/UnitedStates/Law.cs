@@ -88,6 +88,9 @@ namespace Existence.Earth.Countries.UnitedStates
         [Father((int)UnitedStatesPoliticians.BushGeorgeHW)]
         BushGeorgeW,
 
+        [Gender(Gender.Male)]
+        CheneyDick,
+
         [Gender(Gender.Female)]
         ClintonHillary,
 
@@ -126,6 +129,9 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         LiebermanJoe,
+
+        [Gender(Gender.Male)]
+        McCainJohn,
 
         [Gender(Gender.Male)]
         ObamaBarack,

@@ -660,6 +660,18 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the election switched control of the legislative chamber to the party
+    /// </summary>
+    public class LegislativeChamberSwitchedControlAttribute : Attribute
+    {
+        public int Party { get; set; }
+        public LegislativeChamberSwitchedControlAttribute(int Party)
+        {
+            this.Party = Party;
+        }
+    }
+
+    /// <summary>
     /// total number of seats in the legislature
     /// </summary>
     public class TotalLegislatureSeatsAttribute : Attribute

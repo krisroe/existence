@@ -81,6 +81,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
     public static class StateLegislature
     {
         [ElectionDate(2022, 11, 8)]
+        [PostElectionTakeOfficeDate(2023, 1, 3)]
         public static class v2022
         {
             [TwoPartyLegislatureResultAllSeats((int)PoliticalParties.Republican, 64, 3, (int)PoliticalParties.Democratic, 35, -3, "not quite a 2/3 supermajority")]
@@ -96,6 +97,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         /// first election after State Supreme Court ordered maps redrawn for contiguousness
         /// </summary>
         [ElectionDate(2024, 11, 5)]
+        [PostElectionTakeOfficeDate(2025, 1, 6)]
         public static class v2024
         {
             [TwoPartyLegislatureResultAllSeats((int)PoliticalParties.Republican, 54, -10, (int)PoliticalParties.Democratic, 45, 10)]
@@ -108,6 +110,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         }
 
         [ElectionDate(2026, 11, 3)]
+        [PostElectionTakeOfficeDate(2027, 1, 4)]
         public static class v2026
         {
             [IRootedFor((int)PoliticalParties.Democratic)]
