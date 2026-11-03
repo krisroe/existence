@@ -30,6 +30,7 @@ namespace Existence.Earth.Countries.UnitedStates
         LocalGovernmentOrganization,
         StateFlagsSymbolsAndHolidays,
         ReligionInPublicSchools,
+        CampaignFinance,
     }
 
     public class BallotInitiativeSubjectsAttribute : Attribute

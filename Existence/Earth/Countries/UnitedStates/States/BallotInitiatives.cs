@@ -119,6 +119,25 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [Observation("This kept the primary system and ranked choice voting in place")]
                 public static class BallotMeasure2 { }
             }
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports repealing the top-four ranked-choice voting (RCV) system that was adopted in 2020.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RankedChoiceVoting, BallotInitiativeSubjects.PrimaryElections, BallotInitiativeSubjects.CampaignFinance)]
+                public static class BallotMeasure2 { }
+
+                /// <summary>
+                /// A "yes" vote supports amending state law to provide that "Only a person who is a citizen of the United
+                /// States" may vote in any election.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                public static class BallotMeasure3 { }
+            }
         }
 
         public static class Arizona
