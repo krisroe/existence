@@ -229,6 +229,82 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class Proposition140 { }
                 }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports prohibiting the government from imposing taxes or fees based on vehicle miles
+                /// traveled and from enacting rules to monitor or limit vehicle miles traveled without the person's consent.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.VehicleAndDriverRegulations, BallotInitiativeSubjects.TransportationTaxesAndFees)]
+                public static class Proposition141 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting the government from requiring an individual to endorse preferential
+                /// treatment toward or discrimination against an individual on the basis of race or ethnicity.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RaceAndEthnicityIssues, BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.HigherEducationGovernance, BallotInitiativeSubjects.AffirmativeAction, BallotInitiativeSubjects.PublicEducationGovernance)]
+                public static class Proposition142 { }
+
+                /// <summary>
+                /// A "yes" vote supports making a number of changes to the state's election laws, including specifying that
+                /// only citizens may vote in any Arizona election and requiring voters to show a government-issued ID to
+                /// cast a ballot.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting, BallotInitiativeSubjects.EarlyVoting, BallotInitiativeSubjects.CampaignFinance, BallotInitiativeSubjects.PhotoIDForVoting, BallotInitiativeSubjects.ElectionAdministrationAndGovernance, BallotInitiativeSubjects.AbsenteeAndMailVoting)]
+                public static class Proposition144 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting local government from imposing or increasing a tax on the sale of food
+                /// items without voter approval and capping the tax rate at 2%.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BallotInitiatives, BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.FoodAndBeverageTaxes)]
+                public static class Proposition316 { }
+
+                /// <summary>
+                /// A "yes" vote supports declaring drug cartels to be terrorist organizations.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalSentencing, BallotInitiativeSubjects.ImmigrationPolicy)]
+                public static class Proposition317 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting schools and athletic associations from allowing a student, athlete,
+                /// employee, or other individual from using a restroom, locker room, shower room, or other private space that
+                /// is not designated for their sex.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.AthleticsAndSports, BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.SexAndGenderIssues)]
+                public static class Proposition318 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting the government from using traffic photo enforcement systems without
+                /// voter approval.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LawEnforcementOfficersAndDepartments, BallotInitiativeSubjects.VehicleAndDriverRegulations)]
+                public static class Proposition319 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring certain school districts to spend at least 60% of their budget on direct
+                /// instructional expenses.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationFunding, BallotInitiativeSubjects.PublicEducationGovernance)]
+                public static class Proposition320 { }
+            }
         }
 
         public static class Arkansas
