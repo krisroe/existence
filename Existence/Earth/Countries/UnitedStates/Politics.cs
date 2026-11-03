@@ -13,9 +13,19 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         AQ,
 
         /// <summary>
+        /// bond issue
+        /// </summary>
+        BI,
+
+        /// <summary>
         /// citizen initiated constitutional amendment
         /// </summary>
         CICA,
+
+        /// <summary>
+        /// citizen initiated constitutional amendment and state statute (CICA/SS)
+        /// </summary>
+        CICASS,
 
         /// <summary>
         /// citizen initiated state statute
@@ -41,6 +51,11 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         /// initiative to the people
         /// </summary>
         ITP,
+
+        /// <summary>
+        /// Legislatively Referred Advisory Question
+        /// </summary>
+        LRAQ,
 
         /// <summary>
         /// Legislatively Referred Constitutional Amendment

@@ -20,6 +20,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRSS)]
             [YearDate(2000, 11, 7)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.ResidencyVotingRequirements)]
             [IVotedYesBallotInitiative("Made snap decision in the voting booth (hadn't seen the question earier)")]
             [IMadeAVotingMistake("Extending the voting franchise seemed reasonable at first blush, but I didn't think it over enough")]
             public static class WisconsinQuestion1 { }
@@ -38,6 +39,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.AQ)]
             [YearDate(2000, 11, 7)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.CampaignFinance)]
             [IVotedNoBallotInitiative("I voted in Marquette County, did not support limits on election-related spending")]
             public static class CampaignFinanceReformCountyAdvisoryReferendum { }
         }
@@ -54,6 +56,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2003, 4, 1)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.RightToHuntAndFish, BallotInitiativeSubjects.ConstitutionalRights)]
             public static class WisconsinQuestion1 { }
         }
 
@@ -71,6 +74,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2005, 4, 5)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentOfficialsAndElections, BallotInitiativeSubjects.TermLengths)]
             public static class Question1 { }
         }
 
@@ -90,6 +94,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.FamilyRelatedPolicy, BallotInitiativeSubjects.LGBTQIssues)]
                 [IRootedForNoBallotInitiative("Gay marriage is fine by me (I wasn't voting at all at the time)")]
                 public static class Question1 { }
 
@@ -103,6 +108,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.AQ)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.DeathPenalty, BallotInitiativeSubjects.CriminalSentencing)]
                 public static class Question2 { }
             }
         }
@@ -121,6 +127,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2008, 4, 1)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.VetoPowers)]
             public static class Question1 { }
         }
 
@@ -143,6 +150,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2014, 11, 4)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.TransportationTaxesAndFees)]
             public static class Question1 { }
         }
 
@@ -167,6 +175,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2015, 4, 7)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudiciaryStructure)]
             public static class Question1 { }
         }
 
@@ -182,6 +191,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2018, 4, 3)]
             [BallotMeasurePassFail(false)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutiveBranchStructure)]
             public static class Question1 { }
         }
 
@@ -198,6 +208,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2020, 4, 7)]
             [BallotMeasurePassFail(true)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.CrimeVictimsRights, BallotInitiativeSubjects.CriminalTrials)]
             public static class MarsysLawAmendment { }
         }
 
@@ -218,6 +229,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
                 public static class Question1 { }
 
                 /// <summary>
@@ -238,6 +250,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
                 public static class Question2 { }
 
                 /// <summary>
@@ -250,6 +263,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// No      363,941 20.43%
                 [BallotMeasureType(BallotMeasureTypes.AQ)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicAssistancePrograms)]
                 public static class Question3 { }
             }
         }
@@ -270,6 +284,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PrivateElectionFunding, BallotInitiativeSubjects.ElectionAdministrationAndGovernance)]
                 public static class Question1 { }
 
                 /// <summary>
@@ -282,6 +297,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ElectionAdministrationAndGovernance)]
                 public static class Question2 { }
             }
             [YearDate(2024, 8, 13)]
@@ -297,6 +313,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(false)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority)]
                 public static class Question1 { }
 
                 /// <summary>
@@ -309,6 +326,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(false)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.FederalFunds)]
                 public static class Question2 { }
             }
             [YearDate(2024, 11, 5)]
@@ -368,6 +386,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// increase for "2023-24 and 2024-25" into one lasting through 2425.
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.VetoPowers, BallotInitiativeSubjects.TaxAndRevenueAdministration)]
                 [TODO("Update after this election is over.")]
                 [IVotedYesBallotInitiative("Wisconsin's partial veto continues to have room for shenanigans, time to reel this in (again)")]
                 [IPredictedYesBallotInitiative(Correctness.Future, "I don't see how anyone could find the governer's logic defensible.")]
@@ -381,6 +400,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// places of worship in response to a state of emergency.
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ReligionRelatedPolicy, BallotInitiativeSubjects.EmergencyPowers)]
                 [TODO("Update after this election is over.")]
                 [IVotedYesBallotInitiative("The Covid-era church closures bothers me in a way that goes beyond just limiting church access")]
                 [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree the Covid-era church closures went too far.")]
@@ -393,6 +413,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// public administration. A "no" vote opposes amending the state constitution to add this prohibition.
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RaceAndEthnicityIssues, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.AffirmativeAction)]
                 [TODO("Update after this election is over.")]
                 [IVotedYesBallotInitiative("Generally speaking I'm against racial preferences")]
                 [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree with me on this one.")]

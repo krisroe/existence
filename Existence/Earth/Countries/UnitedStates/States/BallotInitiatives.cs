@@ -324,6 +324,47 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Issue2 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports providing that "Only a citizen of the United States ... may vote in an election in
+                /// this state".
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                public static class Issue1 { }
+
+                /// <summary>
+                /// A "yes" vote supports providing that the right to keep and bear arms is "a natural, fundamental, and
+                /// individual right that shall not be infringed".
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.FirearmsPolicy, BallotInitiativeSubjects.ConstitutionalRights)]
+                public static class Issue2 { }
+
+                /// <summary>
+                /// A "yes" vote supports allowing the legislature to create programs, including Economic Development
+                /// Districts, and make loans and grants of public money to develop the state economy.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.LocalGovernmentOrganization, BallotInitiativeSubjects.PublicEconomicInvestmentPolicy)]
+                public static class Issue3 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing the Arkansas Natural Resources Commission to issue up to $500 million
+                /// in general obligation bonds to fund water-related infrastructure projects including water treatment and
+                /// transportation, waste disposal, pollution abatement, drainage, irrigation, flood control, and wetlands
+                /// and aquatic resources infrastructure.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.WaterIrrigationPolicy, BallotInitiativeSubjects.BondIssues, BallotInitiativeSubjects.FloodInfrastructureAndManagement, BallotInitiativeSubjects.SewageAndStormwater, BallotInitiativeSubjects.StormInfrastructure, BallotInitiativeSubjects.PollutionWasteAndRecyclingPolicy)]
+                public static class Issue4 { }
+            }
         }
 
         public static class California
@@ -359,6 +400,140 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
                 [BallotMeasurePassFail(true)]
                 public static class Proposition1 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports issuing $11.25 billion in bonds to fund the Multifamily Housing Program, the CalVet
+                /// Home Loan Program, and youth housing.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HousingAssistancePrograms, BallotInitiativeSubjects.BondIssues)]
+                public static class Proposition1 { }
+
+                /// <summary>
+                /// A "yes" vote supports increasing the Budget Stabilization Account (BSA) cap from 10% of general fund
+                /// revenue to 20% and excluding deposits into the BSA from the Gann Limit.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BudgetStabilizationFunds)]
+                public static class Proposition2 { }
+
+                /// <summary>
+                /// A "yes" vote supports renewing the additional income taxes enacted with the approval of Proposition 30 in
+                /// 2012 that fund education and early childhood programs.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HigherEducationFunding, BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicEducationFunding)]
+                public static class Proposition3 { }
+
+                /// <summary>
+                /// A "yes" vote supports allowing the state and local governments to create programs that provide candidates
+                /// with public funds under spending limits and eligibility rules.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ElectionAdministrationAndGovernance, BallotInitiativeSubjects.CampaignFinance)]
+                public static class Proposition4 { }
+
+                /// <summary>
+                /// A "yes" vote supports eliminating the successor election when a state officer is recalled, thereby
+                /// leaving the office vacant until it is filled according to state law.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutiveBranchStructure, BallotInitiativeSubjects.RecallProcess)]
+                public static class Proposition5 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a second mortgage homebuyer program for qualified homebuyers on
+                /// qualifying homes and issuing $25 billion in bonds to fund the program.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HousingAssistancePrograms)]
+                public static class Proposition37 { }
+
+                /// <summary>
+                /// A "yes" vote supports issuing $8.4 billion in general obligation bonds to fund immunology and
+                /// immunotherapy research.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues, BallotInitiativeSubjects.VaccinationsAndDiseasePolicy, BallotInitiativeSubjects.HealthcareGovernance, BallotInitiativeSubjects.HealthcareFacilityFunding)]
+                public static class Proposition38 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring voters to present government-issued identification when casting ballots
+                /// and requiring election officials to use government data to confirm voter citizenship and report
+                /// verification rates.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ElectionAdministrationAndGovernance, BallotInitiativeSubjects.PhotoIDForVoting)]
+                public static class Proposition39 { }
+
+                /// <summary>
+                /// A "yes" vote supports levying a one-time 5% tax on the accumulated wealth of taxpayers and trusts with
+                /// covered assets valued over $1 billion to fund state health care programs, food assistance programs, and
+                /// public education.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICASS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicHealthInsurance)]
+                public static class Proposition40 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring state laws or ballot initiatives levying a new special tax enacted after
+                /// January 1, 2026 to require the government entities or departments receiving revenue from the new tax to
+                /// eliminate their lowest-performing programs and reinvest those savings in higher-performing programs.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxAndRevenueAdministration, BallotInitiativeSubjects.RevenueAndSpendingLimits)]
+                public static class Proposition41 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting the enactment of new taxes after January 1, 2026 on ownership or
+                /// accumulation of retirement holdings, individually-owned assets, and other forms of personal savings.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                public static class Proposition42 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring a two-thirds vote by the electorate to enact, extend, or increase local
+                /// special tax initiatives and prohibiting local governments and ballot initiatives from enacting ad valorem
+                /// property taxes except those authorized elsewhere in the state constitution.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                public static class Proposition43 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting healthcare clinics, specifically federally-qualified health centers and
+                /// related organizations, from spending less than 90% of their annual revenue on mission-related purposes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HealthcareGovernance, BallotInitiativeSubjects.BusinessRegulations)]
+                public static class Proposition44 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing timelines for local and state agencies to review plans and solicit
+                /// public comment for essential projects, such as housing, improvements to water supply, transportation,
+                /// energy, and facilities for health and public safety.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LandUseAndDevelopmentPolicy, BallotInitiativeSubjects.AdministrativePowersAndRulemaking)]
+                public static class Proposition45 { }
             }
         }
 
@@ -411,6 +586,136 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     [BallotMeasurePassFail(false)]
                     public static class Proposition131 { }
                 }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring law enforcement to notify the U.S. Department of Homeland Security when a
+                /// person is charged with a crime of violence or has a prior felony conviction and the person's immigration
+                /// status cannot be determined.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ImmigrationPolicy, BallotInitiativeSubjects.LawEnforcementOfficersAndDepartments)]
+                public static class Amendment81 { }
+
+                /// <summary>
+                /// A "yes" vote supports providing a constitutional right for consumers to purchase natural gas for cooking
+                /// or heating in homes and businesses and for distributors and utilities to sell natural gas for those
+                /// purposes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BusinessRegulations, BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.FossilFuelEnergy)]
+                public static class Amendment82 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a right to hunt, fish, and take fish and wildlife in the state
+                /// constitution, through traditional methods, and allowing the state legislature and executive agencies to
+                /// regulate it.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RightToHuntAndFish)]
+                public static class Amendment83 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring voters casting ballots by mail to place their signature and some form of
+                /// real ID on their ballot.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.AbsenteeAndMailVoting, BallotInitiativeSubjects.PhotoIDForVoting)]
+                public static class Amendment84 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring ballot questions to be in plain language, at no more than an eighth-grade
+                /// reading level.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotInitiatives)]
+                public static class Amendment85 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring congressional maps drawn in 2028 to be approved by both a nonpolitical
+                /// commission and the state supreme court.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RedistrictingPolicy)]
+                public static class Amendment86 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a graduated income tax within the state.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICASS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.EarlyChildhoodEducation, BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicAssistancePrograms, BallotInitiativeSubjects.PublicEducationFunding)]
+                public static class Amendment87 { }
+
+                /// <summary>
+                /// A "yes" vote supports increasing penalties for fentanyl-related felonies, requiring treatment for certain
+                /// drug offenses, and limiting sentencing exceptions in fentanyl-related crimes that cause another person's
+                /// death.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalSentencing, BallotInitiativeSubjects.DrugCrimePolicy)]
+                public static class Proposition132 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring life in prison without parole or release for persons convicted of human
+                /// trafficking a child for sexual servitude.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalSentencing)]
+                public static class Proposition133 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring all K-12 and collegiate school sports teams to be separated based on
+                /// biological sex, unless the team is co-ed.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.AthleticsAndSports, BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.HigherEducationGovernance)]
+                public static class Proposition134 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting healthcare professionals from providing surgeries to persons under age
+                /// 18 for the purpose of "treatment in response to a minor's perception of sex or gender".
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HealthcareGovernance, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.LGBTQIssues)]
+                public static class Proposition135 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a 4.4% cap on individual and corporate income tax rates.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BusinessTaxes, BallotInitiativeSubjects.IncomeTaxes)]
+                public static class Proposition136 { }
+
+                /// <summary>
+                /// A "yes" vote supports allowing the state to retain and spend sales tax revenue from sporting goods and
+                /// equipment for water, land, forest, wildfire prevention, and outdoor recreation purposes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.WildfireManagement)]
+                public static class Proposition137 { }
+
+                /// <summary>
+                /// A "yes" vote supports increasing the TABOR cap and using surplus funds for K-12 education expenses.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRSS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RevenueAndSpendingLimits, BallotInitiativeSubjects.PublicEducationFunding)]
+                public static class PropositionNN { }
             }
         }
 
@@ -482,6 +787,96 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(false)]
                 public static class Amendment4 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports increasing the amount of funds that may be retained in the budget stabilization
+                /// fund from 10% to 25% of net general revenue, among other changes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BudgetStabilizationFunds)]
+                public static class Amendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports exempting agricultural-related tangible personal property, such as farm equipment
+                /// or tools, from property taxes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.AgriculturePolicy, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                public static class Amendment2 { }
+
+                /// <summary>
+                /// A "yes" vote supports increasing the homestead tax exemption, decreasing the cap on how much the assessed
+                /// value of non-homestead properties can increase, and limiting how municipalities can spend property tax
+                /// revenue.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                public static class Amendment3 { }
+            }
+        }
+
+        public static class Georgia
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports increasing the maximum acreage of agricultural and timber property that can be
+                /// classified as bona fide conservation use property, which is taxed at 40% of the land's value, from 2,000
+                /// acres to 4,000 acres.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ForestryAndTimber, BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.AgriculturePolicy)]
+                public static class Amendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring that probate judges be elected on a nonpartisan basis.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudicialSelection)]
+                public static class Amendment2 { }
+
+                /// <summary>
+                /// A "yes" vote supports allowing the state legislature to create and dedicate revenue to a fund titled the
+                /// Georgia Next Generation 9-1-1 Fund.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RestrictedUseFunds)]
+                public static class Amendment3 { }
+            }
+        }
+
+        public static class Hawaii
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports increasing the timeframe for the Senate to consider and act on appointments of
+                /// judges and justices from 30 days to 60 days for appointments made between April 1 and December 31 when
+                /// the Senate is not in regular session or is soon to adjourn the regular session.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeProcessesAndSessions, BallotInitiativeSubjects.StateJudicialSelection)]
+                public static class Question1 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing the state legislature to empower the counties and municipalities of the
+                /// state to issue housing infrastructure growth bonds for specified public works, public improvements, and
+                /// community development.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.HousingDevelopmentFunding, BallotInitiativeSubjects.BondIssueRequirements, BallotInitiativeSubjects.PublicEconomicInvestmentPolicy, BallotInitiativeSubjects.BondIssues)]
+                public static class Question2 { }
+            }
         }
 
         public static class Idaho
@@ -516,6 +911,74 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class HJR5 { }
                 }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports providing that only the state legislature has the authority to legalize marijuana,
+                /// narcotics, or other psychoactive substances.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.DrugCrimePolicy, BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.MarijuanaLaws, BallotInitiativeSubjects.PsychedelicSubstancesLaws)]
+                public static class HJR4 { }
+
+                /// <summary>
+                /// A "yes" vote supports adding constitutional language designating English as the official language of
+                /// Idaho.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.EnglishLanguagePolicy)]
+                public static class HJR6 { }
+
+                /// <summary>
+                /// Asks voters to choose the official state gun of Idaho. Options:
+                /// 1. Winchester Model 1894 (.30-30)
+                /// 2. Winchester Model 1873 "Gun that Won the West" (.44-40)
+                /// 3. 1873 Colt Single Action Army Revolver "Peacemaker" (.45 Colt)
+                /// 4. M1 Garand rifle (.30-06)
+                /// 5. Colt M1911 .45 automatic Colt pistol (.45 ACP)
+                /// 6. Remington Model 700 bolt-action rifle (.30-06)
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRAQ)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays)]
+                public static class OfficialStateGunQuestion { }
+
+                /// <summary>
+                /// A "yes" vote supports providing, in statute, that people have a right to reproductive freedom and
+                /// privacy, defined as "the right to make and carry out one's own reproductive decisions".
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
+                public static class Proposition1 { }
+            }
+        }
+
+        public static class Indiana
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports providing for the denial of bail when the accused is found to pose a substantial
+                /// risk to another person.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalTrials, BallotInitiativeSubjects.BailPolicy)]
+                public static class PublicQuestion1 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring city and town court judges to reside in either the county where the court
+                /// is located or the bordering county closest to the court.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudicialSelection, BallotInitiativeSubjects.LocalGovernmentOfficialsAndElections)]
+                public static class PublicQuestion2 { }
+            }
         }
 
         public static class Iowa
@@ -534,6 +997,18 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
                 [BallotMeasurePassFail(true)]
+                public static class Amendment1 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring a two-thirds vote of both legislative chambers to pass a bill that would
+                /// increase the individual or corporate income tax rate.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.StateLegislativeVoteRequirements)]
                 public static class Amendment1 { }
             }
         }
@@ -556,6 +1031,37 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(false)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 public static class NoStateConstitutionalRightToAbortionAndLegislativePowerToRegulateAbortionAmendment { }
+            }
+
+            public static class v2026
+            {
+                [YearDate(2026, 8, 4)]
+                public static class August
+                {
+                    /// <summary>
+                    /// A "yes" vote supported making the Kansas Supreme Court an elected office and abolishing the court's
+                    /// nominating commission.
+                    /// Result:
+                    /// No : 382,118 61.36%
+                    /// Yes: 240,603 38.64%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudicialSelection)]
+                    [BallotMeasurePassFail(false)]
+                    public static class ElectionsForSupremeCourtJusticesAmendment { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports amending the state constitution to state that only a citizen of the United States
+                    /// is eligible to vote.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                    public static class CitizenshipVotingRequirementAmendment { }
+                }
             }
         }
 
@@ -1295,6 +1801,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     [BallotMeasureType(BallotMeasureTypes.CICA)]
                     [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
                     [BallotMeasurePassFail(true)]
+                    [RequiresAnotherSuccessfulVote(true)]
                     public static class Question6 { }
 
                     /// <summary>
@@ -1312,6 +1819,28 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     [RequiresAnotherSuccessfulVote(true)]
                     public static class Question7 { }
                 }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports providing for a state constitutional right to abortion before fetal viability.
+                /// This is the second vote, after <see cref="v2024.November.Question6"/> passed in 2024.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights)]
+                public static class Question6 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring voters to present photo identification when voting in person or to
+                /// provide the last four digits of their driver's license or Social Security number when voting by mail.
+                /// This is the second vote, after <see cref="v2024.November.Question7"/> passed in 2024.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                public static class Question7 { }
             }
         }
        
@@ -1367,6 +1896,35 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
                 [BallotMeasurePassFail(true)]
                 public static class CitizenRequirementForVotingAmendment { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring the state legislature to pass laws limiting the amount that property
+                /// taxes may increase.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes)]
+                public static class PropertyTaxLevyLimitAmendment { }
+
+                /// <summary>
+                /// A "yes" vote supports reducing the maximum allowable income tax rate from 7% to 3.5%.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                public static class ReduceIncomeTaxRateCapFrom7To3Point5Amendment { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring photographic identification to vote for all voters, not just those
+                /// voting in person. Extends <see cref="v2018.VoterIDAmendment"/>, which only covered in-person voting.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                public static class RequireVoterIdentificationAmendment { }
             }
         }
 
@@ -1426,6 +1984,17 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Issue1RightToMakeReproductiveDecisionsIncludingAbortionInitiative { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring photo ID to vote.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                public static class Issue3 { }
+            }
         }
 
         public static class Oklahoma
@@ -1460,6 +2029,72 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
                 public static class StateQuestion834 { }
+            }
+
+            public static class v2026
+            {
+                [YearDate(2026, 6, 16)]
+                public static class June
+                {
+                    /// <summary>
+                    /// A "yes" vote supported increasing the minimum wage to $15.00 per hour.
+                    /// Result:
+                    /// No : 349,102 55.37%
+                    /// Yes: 281,386 44.63%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.CISS)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.MinimumWageLaws)]
+                    [BallotMeasurePassFail(false)]
+                    public static class StateQuestion832 { }
+                }
+
+                [YearDate(2026, 8, 25)]
+                public static class August
+                {
+                    /// <summary>
+                    /// A "yes" vote supported requiring the state legislature to establish a methodology for reimbursing
+                    /// schools, local governments, service districts, and other local organizations for revenues lost due
+                    /// to a manufacturing tax exemption.
+                    /// Result:
+                    /// No : 389,886 73.74%
+                    /// Yes: 138,814 26.26%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxAndRevenueAdministration)]
+                    [BallotMeasurePassFail(false)]
+                    public static class StateQuestion844 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring voters to provide proof of identity when voting in any election in
+                    /// the state.
+                    /// Result:
+                    /// Yes: 292,599 54.61%
+                    /// No : 243,159 45.39%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                    [BallotMeasurePassFail(true)]
+                    public static class StateQuestion846 { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports making changes to the judicial nominating commission, including that
+                    /// appointments shall be made according to current congressional districts.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudiciaryOversight)]
+                    public static class StateQuestion845 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports reducing the annual growth limit of the calculated fair cash value of property.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                    public static class StateQuestion847 { }
+                }
             }
         }
 
@@ -1539,6 +2174,42 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class ConstitutionalAmendmentH { }
                 }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports conditioning Medicaid expansion on federal funding remaining at least 90%.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicHealthInsurance, BallotInitiativeSubjects.PublicAssistancePrograms)]
+                public static class ConstitutionalAmendmentI { }
+
+                /// <summary>
+                /// A "yes" vote supports providing that "[an] individual who is not a citizen of the United States is
+                /// disqualified from voting in any election or upon any question submitted to the voters".
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                public static class ConstitutionalAmendmentJ { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing an unclaimed property trust fund.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RestrictedUseFunds)]
+                public static class ConstitutionalAmendmentK { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring a 60% supermajority by voters to approve constitutional amendments.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements, BallotInitiativeSubjects.BallotInitiatives, BallotInitiativeSubjects.InitiativeAndReferendumProcess)]
+                public static class ConstitutionalAmendmentL { }
+            }
         }
 
         public static class Tennessee
@@ -1560,6 +2231,57 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Amendment1 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports removing the right to bail for specified criminal offenses.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
+                public static class Amendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting the legislature from enacting taxes on property.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.PropertyTaxes)]
+                public static class Amendment2 { }
+
+                /// <summary>
+                /// A "yes" vote supports amending the list of crime victims' rights in the constitution.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalTrials, BallotInitiativeSubjects.CrimeVictimsRights)]
+                public static class Amendment3 { }
+            }
+        }
+
+        public static class Utah
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring that constitutional amendments appearing on the ballot be published for
+                /// a period of 60 days.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BallotInitiatives)]
+                public static class ConstitutionalAmendmentA { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring a 60% supermajority of voters for citizen-initiated ballot measures that
+                /// create new taxes, increase existing tax rates, or are for a property tax.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                public static class ConstitutionalAmendmentB { }
+            }
         }
 
         public static class Vermont
@@ -1579,6 +2301,79 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
                 [BallotMeasurePassFail(true)]
                 public static class Proposal5 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports establishing a state constitutional right to organize or join a labor organization
+                /// for the purpose of collective bargaining.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.CollectiveBargaining)]
+                public static class Proposal3 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting the denial of rights to an individual based on their race, ethnicity,
+                /// sex, religion, disability, sexual orientation, gender identity, gender expression, or national origin.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.ReligionRelatedPolicy, BallotInitiativeSubjects.RaceAndEthnicityIssues, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.ConstitutionalRights)]
+                public static class Proposal4 { }
+            }
+        }
+
+        public static class Virginia
+        {
+            public static class v2026
+            {
+                [YearDate(2026, 4, 21)]
+                public static class April
+                {
+                    /// <summary>
+                    /// A "yes" vote supported allowing the state legislature to conduct congressional redistricting between
+                    /// 2025 and 2030.
+                    /// Result:
+                    /// Yes: 1,604,276 51.69%
+                    /// No : 1,499,393 48.31%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.RedistrictingPolicy)]
+                    [BallotMeasurePassFail(true)]
+                    [Observation("Overturned: on 2026-05-08 the Supreme Court of Virginia ruled 4-3 that the legislature skipped the required intervening election between its two votes on the amendment, voiding the result and keeping the existing congressional maps")]
+                    public static class UseOfLegislativeCongressionalRedistrictingMapAmendment { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports providing a state constitutional right to reproductive freedom, defined as "the
+                    /// right to make and effectuate one's own decisions about all matters related to one's pregnancy".
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights)]
+                    public static class Question1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports repealing the provision defining marriage as between one man and one woman and
+                    /// prohibiting the state from denying a marriage license to two adult persons based on sex, gender, or
+                    /// race.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.RaceAndEthnicityIssues, BallotInitiativeSubjects.FamilyRelatedPolicy, BallotInitiativeSubjects.ConstitutionalRights)]
+                    public static class Question2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports providing that persons convicted of felonies have their voting rights restored
+                    /// upon release from incarceration.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.VotingRightsForPersonsWithCriminalConvictions)]
+                    public static class Question3 { }
+                }
             }
         }
 
@@ -1610,6 +2405,37 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.ITP)]
                 [BallotMeasurePassFail(true)]
                 public static class Initiative872 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports re-enacting Initiative to the Legislature 2081 (2024), related to parental rights to
+                /// review educational materials, receive specific notifications, and opt their children out of sexual
+                /// health education.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance)]
+                public static class Initiative1 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring school and voluntary nonprofit athletics to prohibit biologically male
+                /// students from competing with and against biologically female students.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.AthleticsAndSports, BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.LGBTQIssues)]
+                public static class Initiative638 { }
+
+                /// <summary>
+                /// A "yes" vote supports repealing the tax on household income over $1 million and prohibiting state and
+                /// local taxes on individual income.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                public static class Initiative645 { }
             }
         }
 
@@ -1651,6 +2477,32 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
                 [BallotMeasurePassFail(true)]
                 public static class Amendment1 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports amending the constitution to state that only citizens may vote in elections.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.NonCitizenVoting)]
+                public static class CitizenshipVotingRequirementAmendment { }
+            }
+        }
+
+        public static class Wyoming
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports creating a homeowner's property tax exemption that exempts 50% of a primary
+                /// residence's assessed value from property taxation.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions)]
+                public static class Initiative1 { }
             }
         }
     }
