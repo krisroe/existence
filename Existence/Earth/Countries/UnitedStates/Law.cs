@@ -97,6 +97,15 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Male)]
         DukakisMichael,
 
+        [Gender(Gender.Female)]
+        EmersonJoAnn,
+
+        [Gender(Gender.Male)]
+        FrankenAl,
+
+        [Gender(Gender.Male)]
+        GoodeVirgil,
+
         [Gender(Gender.Male)]
         GoreAl,
 
@@ -107,7 +116,16 @@ namespace Existence.Earth.Countries.UnitedStates
         JayJohn,
 
         [Gender(Gender.Male)]
+        JeffordsJim,
+
+        [Gender(Gender.Male)]
         JohnsonGary,
+
+        [Gender(Gender.Male)]
+        KingAngus,
+
+        [Gender(Gender.Male)]
+        LiebermanJoe,
 
         [Gender(Gender.Male)]
         ObamaBarack,
@@ -120,6 +138,15 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         RomneyMitt,
+
+        [Gender(Gender.Male)]
+        SandersBernie,
+
+        [Gender(Gender.Male)]
+        ShelbyRichard,
+
+        [Gender(Gender.Female)]
+        SinemaKyrsten,
 
         [Gender(Gender.Male)]
         TrumpDonald,
