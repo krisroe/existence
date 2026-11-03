@@ -39,6 +39,43 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Amendment2 { }
             }
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring the office of lieutenant governor to be filled by election if a vacancy
+                /// occurs more than 60 days before the next general election.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutiveElections)]
+                public static class Amendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a process for consolidating two or more county school districts.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.LocalGovernmentOrganization)]
+                public static class Amendment2 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring public schools to conduct the pledge of allegiance each day, and allowing
+                /// student-led prayer to be conducted.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays, BallotInitiativeSubjects.ReligionInPublicSchools)]
+                public static class Amendment3 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring all public schools to broadcast or arrange for the performance of the
+                /// first stanza of the Star-Spangled Banner at least once per week.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays)]
+                public static class Amendment4 { }
+            }
         }
 
         public static class Alaska

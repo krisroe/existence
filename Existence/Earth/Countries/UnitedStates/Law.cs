@@ -25,6 +25,11 @@ namespace Existence.Earth.Countries.UnitedStates
         RankedChoiceVoting,
         PhotoIDForVoting,
         NonCitizenVoting,
+        StateExecutiveElections,
+        PublicEducationGovernance,
+        LocalGovernmentOrganization,
+        StateFlagsSymbolsAndHolidays,
+        ReligionInPublicSchools,
     }
 
     public class BallotInitiativeSubjectsAttribute : Attribute

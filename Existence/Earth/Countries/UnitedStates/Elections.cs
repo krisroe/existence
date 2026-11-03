@@ -256,7 +256,7 @@ namespace Existence.Earth.Countries.UnitedStates.Elections
         public static class v2026
         {
             [IRootedFor((int)PoliticalParties.Democratic)]
-            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 240, (int)PoliticalParties.Republican, 195, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place."]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 240, (int)PoliticalParties.Republican, 195, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
             [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 219, (int)PoliticalParties.Democratic, 214, SeatsUp: 435)]
             [TotalLegislatureSeats(435)]
             public static class House { }
