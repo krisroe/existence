@@ -78,6 +78,9 @@ namespace Existence.Earth.Countries.UnitedStates
         BidenJoe,
 
         [Gender(Gender.Male)]
+        BrownSherrod,
+
+        [Gender(Gender.Male)]
         BrowneHarry,
 
         [Gender(Gender.Male)]
@@ -90,6 +93,9 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         CheneyDick,
+
+        [Gender(Gender.Female)]
+        CollinsSusan,
 
         [Gender(Gender.Female)]
         ClintonHillary,
@@ -115,6 +121,12 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Male)]
         GoreAl,
 
+        [Gender(Gender.Male)]
+        GrahamDarline,
+
+        [Gender(Gender.Male)]
+        GrahamLindsey,
+
         [Gender(Gender.Female)]
         HarrisKamala,
 
@@ -123,6 +135,9 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         JeffordsJim,
+
+        [Gender(Gender.Male)]
+        JacksonTroy,
 
         [Gender(Gender.Male)]
         JohnsonGary,
@@ -139,11 +154,23 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Male)]
         ObamaBarack,
 
+        [Gender(Gender.Female)]
+        PeltolaMary,
+
         [Gender(Gender.Male)]
         PaulRon,
 
         [Gender(Gender.Male)]
+        PaxtonKen,
+
+        [Gender(Gender.Male)]
+        PlatnerGraham,
+
+        [Gender(Gender.Male)]
         PowellColin,
+
+        [Gender(Gender.Male)]
+        RogersMike,
 
         [Gender(Gender.Male)]
         RomneyMitt,
@@ -156,6 +183,15 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Female)]
         SinemaKyrsten,
+
+        /// <summary>
+        /// has had to face nonserious doppelganger candidate
+        /// </summary>
+        [Gender(Gender.Male)]
+        SullivanDan,
+
+        [Gender(Gender.Male)]
+        TalaricoJames,
 
         [Gender(Gender.Male)]
         TrumpDonald,

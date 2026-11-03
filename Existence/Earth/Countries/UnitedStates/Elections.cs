@@ -263,11 +263,14 @@ namespace Existence.Earth.Countries.UnitedStates.Elections
 
             /// <summary>
             /// Prediction Details for Senate tossups (9):
-            /// Texas: This is the big switch, Dem
-            /// Michigan: Dem (There's a reason <see cref="UnitedStatesPoliticians.ElSayedAbdul"/> is here)
-            /// Alaska: GOP (I can't endorse the shenanigans with the lookalike candidate)
-            /// Kansas, Maine, Ohio: Dem
-            /// South Carolina, Nebraska: GOP
+            /// Texas: This is the big switch, <see cref="UnitedStatesPoliticians.TalaricoJames"/> asked me for absurdly low amounts of money [I didn't give him any], wins over <see cref="UnitedStatesPoliticians.PaxtonKen"/>)
+            /// Michigan: Dem (There's a reason <see cref="UnitedStatesPoliticians.ElSayedAbdul"/> is here [Muslim+Progressive], wins over <see cref="UnitedStatesPoliticians.RogersMike"/>)
+            /// Alaska: GOP (I can't endorse <see cref="UnitedStatesPoliticians.PeltolaMary"/>'s shenanigans with the lookalike <see cref="UnitedStatesPoliticians.SullivanDan"/> but wins anyway)
+            /// Maine: Dem (<see cref="UnitedStatesPoliticians.CollinsSusan"> doesn't deserve to lose, but lose she will anyway to <see cref="UnitedStatesPoliticians.JacksonTroy"/> who replaced <see cref="UnitedStatesPoliticians.PlatnerGraham"/>)
+            /// Ohio: Dan (<see cref="UnitedStatesPoliticians.BrownSherrod"/> returns to the Senate after a brief absence)
+            /// South Carolina: GOP (<see cref="UnitedStatesPoliticians.GrahamDarline"/> replaced her older brother (both as temporary vacancy and as candidate) <see cref="UnitedStatesPoliticians.GrahamLindsey"/>, who died after winning the primary
+            /// Kansas: Dem (in a generic year it would be surprising this one is in play, but this is no generic year)
+            /// Nebraska: GOP (in a generic year it would be surprising this one is in play, but this is no generic year)
             /// </summary>
             [IRootedFor((int)PoliticalParties.Democratic)]
             [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 53, (int)PoliticalParties.Republican, 47, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
