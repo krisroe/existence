@@ -3,18 +3,20 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates
 {
-    public static class PoliticalParties
+    public enum PoliticalParties
     {
-        public static class FirstPastThePostMeansTwoPartySystem
-        {
-            public static class Republican { }
-            public static class Democratic { }
-        }
-        public static class StableThirdParties
-        {
-            public static class Green { }
-            public static class Libertarian { }
-        }
+        [FirstPastThePostMeansTwoPartySystem]
+        Republican,
+        [FirstPastThePostMeansTwoPartySystem]
+        Democratic,
+        /// <summary>
+        /// minor but stable
+        /// </summary>
+        Libertarian,
+        /// <summary>
+        /// minor but stable
+        /// </summary>
+        Green,
     }
 
     public static class PotentialNewStates

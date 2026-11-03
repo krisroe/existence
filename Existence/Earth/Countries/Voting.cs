@@ -166,6 +166,15 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the political party is one of the two major parties in a country whose first past the post elections
+    /// push it into a two party system, since a vote for a third party tends to help the voter's least favorite
+    /// of the two major parties
+    /// </summary>
+    public class FirstPastThePostMeansTwoPartySystemAttribute : Attribute
+    {
+    }
+
+    /// <summary>
     /// the political party or candidate withdrew from the election on this date, after entering it
     /// </summary>
     public class WithdrewAttribute : YearDateAttribute

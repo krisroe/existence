@@ -90,7 +90,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             }
 
             /// <summary>
-            /// first election after State Supreme Court ordered maps redrawn for continuousness
+            /// first election after State Supreme Court ordered maps redrawn for contiguousness
             /// </summary>
             public static class v2024
             {
