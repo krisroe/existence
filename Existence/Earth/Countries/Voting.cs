@@ -449,16 +449,16 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// the politician I personally rooted for in the election.
+    /// what I personally rooted for in the election, such as a politician, a party, or one of a question's options.
     /// Rooting is not a meaningless activity
     /// </summary>
     public class IRootedForAttribute : Attribute
     {
-        public int Politician { get; set; }
+        public int Target { get; set; }
         public string? Explanation { get; set; }
-        public IRootedForAttribute(int Politician, string? Explanation = null)
+        public IRootedForAttribute(int Target, string? Explanation = null)
         {
-            this.Politician = Politician;
+            this.Target = Target;
             this.Explanation = Explanation;
         }
     }

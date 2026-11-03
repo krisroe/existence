@@ -4,6 +4,42 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States
 {
+    /// <summary>
+    /// the options in Idaho's 2026 Official State Gun Question, in ballot order
+    /// </summary>
+    public enum IdahoPotentialStateGuns
+    {
+        /// <summary>
+        /// Winchester Model 1894 (.30-30)
+        /// </summary>
+        WinchesterModel1894,
+
+        /// <summary>
+        /// Winchester Model 1873 "Gun that Won the West" (.44-40)
+        /// </summary>
+        WinchesterModel1873,
+
+        /// <summary>
+        /// 1873 Colt Single Action Army Revolver "Peacemaker" (.45 Colt)
+        /// </summary>
+        ColtSingleActionArmyRevolver1873,
+
+        /// <summary>
+        /// M1 Garand rifle (.30-06)
+        /// </summary>
+        M1Garand,
+
+        /// <summary>
+        /// Colt M1911 .45 automatic Colt pistol (.45 ACP)
+        /// </summary>
+        ColtM1911,
+
+        /// <summary>
+        /// Remington Model 700 bolt-action rifle (.30-06)
+        /// </summary>
+        RemingtonModel700,
+    }
+
     public static class BallotInitiatives
     {
         public static class Alabama
@@ -963,16 +999,17 @@ namespace Existence.Earth.Countries.UnitedStates.States
 
                 /// <summary>
                 /// Asks voters to choose the official state gun of Idaho. Options:
-                /// 1. Winchester Model 1894 (.30-30)
-                /// 2. Winchester Model 1873 "Gun that Won the West" (.44-40)
-                /// 3. 1873 Colt Single Action Army Revolver "Peacemaker" (.45 Colt)
-                /// 4. M1 Garand rifle (.30-06)
-                /// 5. Colt M1911 .45 automatic Colt pistol (.45 ACP)
-                /// 6. Remington Model 700 bolt-action rifle (.30-06)
+                /// 1. <see cref="IdahoPotentialStateGuns.WinchesterModel1894"/>: Winchester Model 1894 (.30-30)
+                /// 2. <see cref="IdahoPotentialStateGuns.WinchesterModel1873"/>: Winchester Model 1873 "Gun that Won the West" (.44-40)
+                /// 3. <see cref="IdahoPotentialStateGuns.ColtSingleActionArmyRevolver1873"/>: 1873 Colt Single Action Army Revolver "Peacemaker" (.45 Colt)
+                /// 4. <see cref="IdahoPotentialStateGuns.M1Garand"/>: M1 Garand rifle (.30-06)
+                /// 5. <see cref="IdahoPotentialStateGuns.ColtM1911"/>: Colt M1911 .45 automatic Colt pistol (.45 ACP)
+                /// 6. <see cref="IdahoPotentialStateGuns.RemingtonModel700"/>: Remington Model 700 bolt-action rifle (.30-06)
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRAQ)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays)]
+                [IRootedFor((int)IdahoPotentialStateGuns.RemingtonModel700, "More Idahoans actually use this (looking past the company's history)")]
                 public static class OfficialStateGunQuestion { }
 
                 /// <summary>
