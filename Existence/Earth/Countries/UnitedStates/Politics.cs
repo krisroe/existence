@@ -177,6 +177,38 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         }
     }
 
+    /// <summary>
+    /// I personally put my thumb on the scale for the ballot initiative to pass
+    /// </summary>
+    public class IPutThumbOnTheScaleForYesBallotInitiativeAttribute : Attribute
+    {
+        public ThumbOnTheScaleAmount Amount { get; set; }
+        public ThumbOnTheScaleImportance Importance { get; set; }
+        public string Explanation { get; set; }
+        public IPutThumbOnTheScaleForYesBallotInitiativeAttribute(ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, string Explanation)
+        {
+            this.Amount = Amount;
+            this.Importance = Importance;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// I personally put my thumb on the scale for the ballot initiative to fail
+    /// </summary>
+    public class IPutThumbOnTheScaleForNoBallotInitiativeAttribute : Attribute
+    {
+        public ThumbOnTheScaleAmount Amount { get; set; }
+        public ThumbOnTheScaleImportance Importance { get; set; }
+        public string Explanation { get; set; }
+        public IPutThumbOnTheScaleForNoBallotInitiativeAttribute(ThumbOnTheScaleAmount Amount, ThumbOnTheScaleImportance Importance, string Explanation)
+        {
+            this.Amount = Amount;
+            this.Importance = Importance;
+            this.Explanation = Explanation;
+        }
+    }
+
     public class RequiresAnotherSuccessfulVoteAttribute : Attribute
     {
         public bool RequiresAnotherSuccessfulVote { get; set; }

@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Alphabet;
+﻿using Existence.Beyond.Infrastructure;
+using Existence.Earth.Alphabet;
 using Existence.Earth.Countries.UnitedStates.Politics;
 using Existence.Time;
 
@@ -1019,6 +1020,8 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CISS)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion)]
+                [IRootedForYesBallotInitiative("Generally I think abortion should be legal")]
+                [IPredictedNoBallotInitiative(Correctness.Future, "But this is too liberal for Idaho as it stands, even just as a statute, not a constitutional amendment, even in a good Democratic year")]
                 public static class Proposition1 { }
             }
         }
@@ -2072,6 +2075,8 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
                     [BallotInitiativeSubjects(BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.HealthcareGovernance)]
+                    [IPredictedNoBallotInitiative(Correctness.Future, "Adding gender transition procedures is too aggressive, and this is a good Democratic year")]
+                    [IPutThumbOnTheScaleForNoBallotInitiative(ThumbOnTheScaleAmount.Half, ThumbOnTheScaleImportance.High, "Reversing this would be a backslide")]
                     public static class Amendment3 { }
 
                     /// <summary>
@@ -2380,6 +2385,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CICA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights)]
+                [IPredictedYesBallotInitiative(Correctness.Future, "Maintains the status quo (constitutional amendment > statute")]
                 public static class Question6 { }
 
                 /// <summary>
@@ -3101,6 +3107,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
                     [BallotInitiativeSubjects(BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights)]
+                    [IPredictedYesBallotInitiative(Correctness.Future, "This more than maintains the status quo (constitutional amendment > statute")]
                     public static class Question1 { }
 
                     /// <summary>
