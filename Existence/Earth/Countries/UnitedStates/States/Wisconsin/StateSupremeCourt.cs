@@ -71,13 +71,10 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin
                 public static class WisconsinElectionsCommissionvLeMahieu { }
 
                 /// <summary>
-                /// Attorney General Kaul argues that the 1849 statute criminalizing abortion is 
-                /// unenforceable for consensual abortions, especially in light of more recent 
-                /// legislation. The outcome of this case is poised to have significant implications 
-                /// for abortion rights in Wisconsin.
+                /// held that the state’s 1849 criminal abortion law is impliedly repealed by decades of later legislation and does not ban abortion in Wisconsin
                 /// </summary>
-                [TODO("Future Case")]
                 [CourtCaseOralArgument(2024, 11, 11)]
+                [CourtCaseDecided(2025, 7, 2)]
                 public static class KaulvUrmanski { }
             }
         }
