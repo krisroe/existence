@@ -455,9 +455,11 @@ namespace Existence.Earth.Countries
     public class IRootedForAttribute : Attribute
     {
         public int Politician { get; set; }
-        public IRootedForAttribute(int Politician)
+        public string? Explanation { get; set; }
+        public IRootedForAttribute(int Politician, string? Explanation = null)
         {
             this.Politician = Politician;
+            this.Explanation = Explanation;
         }
     }
 
@@ -487,12 +489,34 @@ namespace Existence.Earth.Countries
     /// </summary>
     public class IPredictedElectionWinnerAttribute : Attribute
     {
-        public int Politician { get; set; }
+        public int Winner { get; set; }
+        public Correctness Correctness { get; set; }
+        public string? Explanation { get; set; }
+        public IPredictedElectionWinnerAttribute(int Politician, Correctness Correctness = Correctness.None, string? Explanation = null)
+        {
+            this.Winner = Politician;
+            this.Correctness = Correctness;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// the number of legislature seats I personally predicted each of the two parties would hold after the election
+    /// </summary>
+    public class IPredictedTwoPartyLegislativeElectionAttribute : Attribute
+    {
+        public int Party1 { get; set; }
+        public int Seats1 { get; set; }
+        public int Party2 { get; set; }
+        public int Seats2 { get; set; }
         public Correctness Correctness { get; set; }
         public string Explanation { get; set; }
-        public IPredictedElectionWinnerAttribute(int Politician, Correctness Correctness = Correctness.None, string Explanation = null)
+        public IPredictedTwoPartyLegislativeElectionAttribute(int Party1, int Seats1, int Party2, int Seats2, Correctness Correctness, string Explanation)
         {
-            this.Politician = Politician;
+            this.Party1 = Party1;
+            this.Seats1 = Seats1;
+            this.Party2 = Party2;
+            this.Seats2 = Seats2;
             this.Correctness = Correctness;
             this.Explanation = Explanation;
         }
@@ -632,6 +656,93 @@ namespace Existence.Earth.Countries
             this.WinnerResult = (decimal)WinnerResult;
             this.Loser = Loser;
             this.LoserResult = (decimal)LoserResult;
+        }
+    }
+
+    /// <summary>
+    /// total number of seats in the legislature
+    /// </summary>
+    public class TotalLegislatureSeatsAttribute : Attribute
+    {
+        public int Count { get; set; }
+        public TotalLegislatureSeatsAttribute(int Count)
+        {
+            this.Count = Count;
+        }
+    }
+
+    /// <summary>
+    /// number of legislature seats each of the two parties holds after an election where every seat was up, and the
+    /// change from before it
+    /// </summary>
+    public class TwoPartyLegislatureResultAllSeatsAttribute : Attribute
+    {
+        public int Party1 { get; set; }
+        public int SeatCount1 { get; set; }
+        public int Delta1 { get; set; }
+        public int Party2 { get; set; }
+        public int SeatCount2 { get; set; }
+        public int Delta2 { get; set; }
+        public string? Explanation { get; set; }
+        public TwoPartyLegislatureResultAllSeatsAttribute(int Party1, int SeatCount1, int Delta1, int Party2, int SeatCount2, int Delta2, string? Explanation = null)
+        {
+            this.Party1 = Party1;
+            this.SeatCount1 = SeatCount1;
+            this.Delta1 = Delta1;
+            this.Party2 = Party2;
+            this.SeatCount2 = SeatCount2;
+            this.Delta2 = Delta2;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// number of legislature seats each of the two parties holds after an election where only some of the seats were
+    /// up, and the change from before it. Seat counts are for the whole legislature, SeatsUp is how many were up for
+    /// election. Not a subclass of TwoPartyLegislatureResultAllSeatsAttribute, so that partial elections aren't mixed
+    /// in with elections for every seat
+    /// </summary>
+    public class TwoPartyLegislatureResultPartialSeatsAttribute : Attribute
+    {
+        public int Party1 { get; set; }
+        public int SeatCount1 { get; set; }
+        public int Delta1 { get; set; }
+        public int Party2 { get; set; }
+        public int SeatCount2 { get; set; }
+        public int Delta2 { get; set; }
+        public int SeatsUp { get; set; }
+        public string? Explanation { get; set; }
+        public TwoPartyLegislatureResultPartialSeatsAttribute(int Party1, int SeatCount1, int Delta1, int Party2, int SeatCount2, int Delta2, int SeatsUp, string? Explanation = null)
+        {
+            this.Party1 = Party1;
+            this.SeatCount1 = SeatCount1;
+            this.Delta1 = Delta1;
+            this.Party2 = Party2;
+            this.SeatCount2 = SeatCount2;
+            this.Delta2 = Delta2;
+            this.SeatsUp = SeatsUp;
+            this.Explanation = Explanation;
+        }
+    }
+
+    /// <summary>
+    /// number of legislature seats each of the two parties holds going into an upcoming election, and how many seats
+    /// are up for election
+    /// </summary>
+    public class UpcomingTwoPartyLegislativeElectionAttribute : Attribute
+    {
+        public int Party1 { get; set; }
+        public int CurrentSeats1 { get; set; }
+        public int Party2 { get; set; }
+        public int CurrentSeats2 { get; set; }
+        public int SeatsUp { get; set; }
+        public UpcomingTwoPartyLegislativeElectionAttribute(int Party1, int CurrentSeats1, int Party2, int CurrentSeats2, int SeatsUp)
+        {
+            this.Party1 = Party1;
+            this.CurrentSeats1 = CurrentSeats1;
+            this.Party2 = Party2;
+            this.CurrentSeats2 = CurrentSeats2;
+            this.SeatsUp = SeatsUp;
         }
     }
 

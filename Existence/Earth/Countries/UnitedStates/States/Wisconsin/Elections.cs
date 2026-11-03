@@ -4,109 +4,125 @@ using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
 {
+    public static class Constants
+    {
+        public const string ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN = "It's time for the gerrymander to come down";
+    }
+
+
+    /// <summary>
+    /// nonpartisan elections for 10 year terms
+    /// </summary>
+    public static class StateSupremeCourt
+    {
         /// <summary>
-        /// nonpartisan elections for 10 year terms
+        /// Ann Walsh Bradley (incumbent) 471,866 58.02%
+        /// James P. Daley                340,632 41.89%
+        /// Write-in                          702  0.09%
         /// </summary>
-        public static class StateSupremeCourt
+        [YearDate(2015, 4, 7)]
+        public static class v2015 { }
+
+        /// <summary>
+        /// Rebecca Bradley (incumbent)  1,024,892 52.35%
+        /// JoAnne Kloppenbert             929,377 47.47%
+        /// Write-in                         3,678  0.19%
+        /// </summary>
+        [YearDate(2016, 4, 5)]
+        public static class v2016 { }
+
+        /// <summary>
+        /// Annette Ziegler (incumbent)    492,352 97.20%
+        /// Write-in                        14,165  2.80%
+        /// </summary>
+        [YearDate(2017, 4, 4)]
+        public static class v2017 { }
+
+        /// <summary>
+        /// Rebecca Dallet                 555,848 55.72%
+        /// Michael Screnock               440,808 44.19%
+        /// Write-in                           829  0.08%
+        /// </summary>
+        [YearDate(2018, 4, 3)]
+        public static class v2018 { }
+
+        /// <summary>
+        /// Brian Hagedorn                 606,414 50.22%
+        /// Lisa Neubauer                  600,433 49.72%
+        /// Write-in                           722  0.06%
+        /// </summary>
+        [YearDate(2019, 4, 2)]
+        public static class v2019 { }
+
+        /// <summary>
+        /// Jill Karofsky                  855,573 55.21%
+        /// Daniel Kelly                   693,134 44.73%
+        /// Write-in                           990  0.06%
+        /// </summary>
+        [YearDate(2020, 4, 7)]
+        public static class v2020 { }
+
+        /// <summary>
+        /// Janet Protasiewicz           1,021,822 55.43%
+        /// Daniel Kelly                   818,391 44.39%
+        /// Write-in                         3,267  0.18%
+        /// </summary>
+        [YearDate(2023, 4, 4)]
+        public static class v2023 { }
+
+        /// <summary>
+        /// Susan Crawford                1,301,137 55.02%
+        /// Brad Schimel                  1,062,330 44.92%
+        /// </summary>
+        [YearDate(2025, 4, 1)]
+        public static class v2025 { }
+    }
+
+    public static class StateLegislature
+    {
+        [ElectionDate(2022, 11, 8)]
+        public static class v2022
         {
-            /// <summary>
-            /// Ann Walsh Bradley (incumbent) 471,866 58.02%
-            /// James P. Daley                340,632 41.89%
-            /// Write-in                          702  0.09%
-            /// </summary>
-            [YearDate(2015, 4, 7)]
-            public static class v2015 { }
+            [TwoPartyLegislatureResultAllSeats((int)PoliticalParties.Republican, 64, 3, (int)PoliticalParties.Democratic, 35, -3, "not quite a 2/3 supermajority")]
+            [TotalLegislatureSeats(99)]
+            public static class Assembly { }
 
-            /// <summary>
-            /// Rebecca Bradley (incumbent)  1,024,892 52.35%
-            /// JoAnne Kloppenbert             929,377 47.47%
-            /// Write-in                         3,678  0.19%
-            /// </summary>
-            [YearDate(2016, 4, 5)]
-            public static class v2016 { }
-
-            /// <summary>
-            /// Annette Ziegler (incumbent)    492,352 97.20%
-            /// Write-in                        14,165  2.80%
-            /// </summary>
-            [YearDate(2017, 4, 4)]
-            public static class v2017 { }
-
-            /// <summary>
-            /// Rebecca Dallet                 555,848 55.72%
-            /// Michael Screnock               440,808 44.19%
-            /// Write-in                           829  0.08%
-            /// </summary>
-            [YearDate(2018, 4, 3)]
-            public static class v2018 { }
-
-            /// <summary>
-            /// Brian Hagedorn                 606,414 50.22%
-            /// Lisa Neubauer                  600,433 49.72%
-            /// Write-in                           722  0.06%
-            /// </summary>
-            [YearDate(2019, 4, 2)]
-            public static class v2019 { }
-
-            /// <summary>
-            /// Jill Karofsky                  855,573 55.21%
-            /// Daniel Kelly                   693,134 44.73%
-            /// Write-in                           990  0.06%
-            /// </summary>
-            [YearDate(2020, 4, 7)]
-            public static class v2020 { }
-
-            /// <summary>
-            /// Janet Protasiewicz           1,021,822 55.43%
-            /// Daniel Kelly                   818,391 44.39%
-            /// Write-in                         3,267  0.18%
-            /// </summary>
-            [YearDate(2023, 4, 4)]
-            public static class v2023 { }
-
-            /// <summary>
-            /// Susan Crawford                1,301,137 55.02%
-            /// Brad Schimel                  1,062,330 44.92%
-            /// </summary>
-            [YearDate(2025, 4, 1)]
-            public static class v2025 { }
+            [TwoPartyLegislatureResultPartialSeats((int)PoliticalParties.Republican, 22, 1, (int)PoliticalParties.Democratic, 11, -1, SeatsUp: 17, "2/3 supermajority")]
+            [TotalLegislatureSeats(33)]
+            public static class Senate { }
         }
 
-        public static class StateLegislature
+        /// <summary>
+        /// first election after State Supreme Court ordered maps redrawn for contiguousness
+        /// </summary>
+        [ElectionDate(2024, 11, 5)]
+        public static class v2024
         {
-            public static class v2022
-            {
-                /// <summary>
-                /// Republican: 64 (+3) (not quite a 2/3 supermajority)
-                /// Democratic: 35 (-3)
-                /// </summary>
-                public static class Assembly { }
+            [TwoPartyLegislatureResultAllSeats((int)PoliticalParties.Republican, 54, -10, (int)PoliticalParties.Democratic, 45, 10)]
+            [TotalLegislatureSeats(99)]
+            public static class Assembly { }
 
-                /// <summary>
-                /// Republican: 12 (+1) Total: 22 (2/3 supermajority)
-                /// Democratic:  5 (-1)        11
-                /// </summary>
-                public static class Senate { }
-            }
-
-            /// <summary>
-            /// first election after State Supreme Court ordered maps redrawn for contiguousness
-            /// </summary>
-            public static class v2024
-            {
-                /// <summary>
-                /// Republican: 54 (-10)
-                /// Democratic: 45 (+10)
-                /// </summary>
-                public static class Assembly { }
-
-                /// <summary>
-                /// Republican:  6 (-4) Total: 18 (lost 2/3 supermajority)
-                /// Democratic: 10 (+4)        15
-                /// </summary>
-                public static class Senate { }
-            }
+            [TwoPartyLegislatureResultPartialSeats((int)PoliticalParties.Republican, 18, -4, (int)PoliticalParties.Democratic, 15, 4, SeatsUp: 16, "lost 2/3 supermajority")]
+            [TotalLegislatureSeats(33)]
+            public static class Senate { }
         }
+
+        [ElectionDate(2026, 11, 3)]
+        public static class v2026
+        {
+            [IRootedFor((int)PoliticalParties.Democratic)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 50, (int)PoliticalParties.Republican, 49, Correctness.Future, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN)]
+            [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 54, (int)PoliticalParties.Democratic, 45, SeatsUp: 99)]
+            [TotalLegislatureSeats(99)]
+            public static class Assembly { }
+
+            [IRootedFor((int)PoliticalParties.Democratic)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 18, (int)PoliticalParties.Republican, 15, Correctness.Future, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN)]
+            [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 18, (int)PoliticalParties.Democratic, 15, SeatsUp: 17)]
+            [TotalLegislatureSeats(33)]
+            public static class Senate { }
+        }
+    }
 
     public static class Governor
     {
