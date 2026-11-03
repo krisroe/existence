@@ -255,10 +255,22 @@ namespace Existence.Earth.Countries.UnitedStates.Elections
         [PostElectionTakeOfficeDate(2027, 1, 3)]
         public static class v2026
         {
+            [IRootedFor((int)PoliticalParties.Democratic)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 240, (int)PoliticalParties.Republican, 195, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place."]
             [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 219, (int)PoliticalParties.Democratic, 214, SeatsUp: 435)]
             [TotalLegislatureSeats(435)]
             public static class House { }
 
+            /// <summary>
+            /// Prediction Details for Senate tossups (9):
+            /// Texas: This is the big switch, Dem
+            /// Michigan: Dem (There's a reason <see cref="UnitedStatesPoliticians.ElSayedAbdul"/> is here)
+            /// Alaska: GOP (I can't endorse the shenanigans with the lookalike candidate)
+            /// Kansas, Maine, Ohio: Dem
+            /// South Carolina, Nebraska: GOP
+            /// </summary>
+            [IRootedFor((int)PoliticalParties.Democratic)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 53, (int)PoliticalParties.Republican, 47, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
             [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 53, (int)PoliticalParties.Democratic, 47, SeatsUp: 33)]
             [TotalLegislatureSeats(100)]
             public static class Senate { }

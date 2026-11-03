@@ -100,6 +100,9 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Male)]
         DukakisMichael,
 
+        [Gender(Gender.Male)]
+        ElSayedAbdul,
+
         [Gender(Gender.Female)]
         EmersonJoAnn,
 
