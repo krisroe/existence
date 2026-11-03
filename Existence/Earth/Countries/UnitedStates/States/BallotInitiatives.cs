@@ -41,42 +41,71 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
             public static class v2026
             {
-                /// <summary>
-                /// A "yes" vote supports providing for the election of a lieutenant governor if the office of lieutenant
-                /// governor becomes vacant during the first two years of a term (Alabama Fair Ballot Commission). Ballotpedia
-                /// instead describes it as requiring an election if a vacancy occurs more than 60 days before the next
-                /// general election.
-                /// </summary>
-                [YearDate(2026, 11, 3)]
-                [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutiveElections)]
-                public static class Amendment1 { }
+                [YearDate(2026, 5, 19)]
+                public static class May
+                {
+                    /// <summary>
+                    /// A "yes" vote supported adding discharging a firearm in an occupied dwelling or other occupied space
+                    /// and any solicitation, attempt, or conspiracy to commit murder to the list of crimes for which a judge
+                    /// may deny bail.
+                    /// Result:
+                    /// Yes: 691,002 81.58%
+                    /// No : 155,985 18.42%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalTrials, BallotInitiativeSubjects.BailPolicy)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
 
-                /// <summary>
-                /// A "yes" vote supports establishing a process for consolidating two or more county school districts.
-                /// </summary>
-                [YearDate(2026, 11, 3)]
-                [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.LocalGovernmentOrganization)]
-                public static class Amendment2 { }
+                    /// <summary>
+                    /// A "yes" vote supported prohibiting any reduction in a district attorney's compensation during their
+                    /// term in office.
+                    /// Result:
+                    /// Yes: 474,839 57.75%
+                    /// No : 347,379 42.25%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.SalariesOfGovernmentOfficials)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+                }
 
-                /// <summary>
-                /// A "yes" vote supports requiring public schools to conduct the pledge of allegiance each day, and allowing
-                /// student-led prayer to be conducted.
-                /// </summary>
                 [YearDate(2026, 11, 3)]
-                [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays, BallotInitiativeSubjects.ReligionInPublicSchools)]
-                public static class Amendment3 { }
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports providing for the election of a lieutenant governor if the office of lieutenant
+                    /// governor becomes vacant during the first two years of a term (Alabama Fair Ballot Commission). Ballotpedia
+                    /// instead describes it as requiring an election if a vacancy occurs more than 60 days before the next
+                    /// general election.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutiveElections)]
+                    public static class Amendment1 { }
 
-                /// <summary>
-                /// A "yes" vote supports requiring all public schools to broadcast or arrange for the performance of the
-                /// first stanza of the Star-Spangled Banner at least once per week.
-                /// </summary>
-                [YearDate(2026, 11, 3)]
-                [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays)]
-                public static class Amendment4 { }
+                    /// <summary>
+                    /// A "yes" vote supports establishing a process for consolidating two or more county school districts.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.LocalGovernmentOrganization)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports requiring public schools to conduct the pledge of allegiance each day, and allowing
+                    /// student-led prayer to be conducted.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays, BallotInitiativeSubjects.ReligionInPublicSchools)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports requiring all public schools to broadcast or arrange for the performance of the
+                    /// first stanza of the Star-Spangled Banner at least once per week.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.StateFlagsSymbolsAndHolidays)]
+                    public static class Amendment4 { }
+                }
             }
         }
 
@@ -1098,6 +1127,18 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class ConstitutionalAmendment1 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports prohibiting the governor from issuing a pardon or commuting a sentence 60 days
+                /// prior to the gubernatorial election and until after the fifth Tuesday succeeding the election.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutivePowersAndDuties)]
+                public static class ConstitutionalAmendment1 { }
+            }
         }
 
         public static class Louisiana
@@ -1419,6 +1460,158 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class Amendment4 { }
                 }
             }
+
+            public static class v2026
+            {
+                [YearDate(2026, 5, 16)]
+                public static class May
+                {
+                    /// <summary>
+                    /// A "yes" vote supported allowing the legislature to add officers, positions, and employees to the
+                    /// unclassified civil service.
+                    /// Result:
+                    /// No : 630,337 78.42%
+                    /// Yes: 173,487 21.58%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.CivilService)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported adding the St. George Community School System to the list of school
+                    /// systems that are regarded and treated as parishes for purposes of operating a school system.
+                    /// Result:
+                    /// No : 511,787 64.02%
+                    /// Yes: 287,614 35.98%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentOrganization, BallotInitiativeSubjects.PublicEducationGovernance)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported repealing the three education revenue funds and applying that money to
+                    /// the Teachers' Retirement System.
+                    /// Result:
+                    /// No : 470,837 58.04%
+                    /// Yes: 340,362 41.96%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicSchoolTeachersAndStaff, BallotInitiativeSubjects.PublicEmployeeRetirementFunds, BallotInitiativeSubjects.RestrictedUseFunds)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported allowing parishes to exempt business inventory from property taxes.
+                    /// Result:
+                    /// No : 530,799 66.08%
+                    /// Yes: 272,515 33.92%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment4 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported increasing the judicial retirement age from 70 to 75.
+                    /// Result:
+                    /// No : 618,097 76.61%
+                    /// Yes: 188,765 23.39%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.AgeLimitsForOfficials)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment5 { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports allowing the surviving spouse of a disabled veteran to transfer the
+                    /// homestead property tax exemption one time to a new homestead.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.VeteransPolicy)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports authorizing taxing authorities to levy a millage at a rate above the rate
+                    /// set by the previous year's assessment of the maximum amount of taxable property within each
+                    /// parish, but below the maximum permitted by the state constitution.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.StateLegislativeAuthority)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports prohibiting post-conviction bail for a defendant who is convicted of an
+                    /// aggravated offense against a victim who is a minor.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalSentencing, BallotInitiativeSubjects.BailPolicy)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports changing the gubernatorial term limit from two consecutive terms to a
+                    /// lifetime maximum of two terms.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.ExecutiveOfficialTermLimits)]
+                    public static class Amendment4 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports removing the requirement that a state retirement system receiving
+                    /// nonrecurring state funds apply those funds to its oldest outstanding unfunded accrued liability
+                    /// first.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEmployeeRetirementFunds)]
+                    public static class Amendment5 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports authorizing a property tax exemption of up to $30,000 of assessed property
+                    /// value, increasing with age, for homeowners 65 and older who qualify for the income-based
+                    /// assessment freeze.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                    public static class Amendment6 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports authorizing the use of public funds for the maintenance of drinking water
+                    /// utility service lines affected by hazardous materials on property owned by utility customers.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.DrinkingWaterSystems, BallotInitiativeSubjects.PollutionWasteAndRecyclingPolicy)]
+                    public static class Amendment7 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports prohibiting expropriation of property by foreign adversaries or agents of
+                    /// a foreign adversary, as defined by law.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.EminentDomainPolicy)]
+                    public static class Amendment8 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports raising the income limit to qualify for the property tax special
+                    /// assessment level from $100,000 to $150,000.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.HomesteadTaxExemptions)]
+                    public static class Amendment9 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports authorizing a tax exemption for derelict or blighted property that has
+                    /// been rehabilitated.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.PropertyTaxes)]
+                    public static class Amendment10 { }
+                }
+            }
         }
 
         public static class Maine
@@ -1493,6 +1686,40 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Question1 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports requiring the budget submitted by the governor to provide for expenditures for
+                /// wages, hours, benefits, and other terms and conditions of employment provided by a memorandum of
+                /// understanding that covers state employees, and providing for statutory changes to collective
+                /// bargaining for state employees, including requiring the selection of a neutral arbitrator and
+                /// establishing a process of arbitration.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicWorksLaborAndContracting, BallotInitiativeSubjects.LaborDisputesAndStrikes, BallotInitiativeSubjects.CollectiveBargaining)]
+                public static class Question1 { }
+
+                /// <summary>
+                /// A "yes" vote supports allowing the chair of the Commission on Judicial Disabilities to appoint
+                /// former members to temporarily fill vacancies, or allowing the governor to appoint a substitute
+                /// member or extend the term of an existing member.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudiciaryOversight)]
+                public static class Question2 { }
+
+                /// <summary>
+                /// A "yes" vote supports providing that constitutional requirements for legislative districts apply
+                /// only to state legislative districts and not to congressional districts.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RedistrictingPolicy)]
+                public static class Question3 { }
+            }
         }
 
         public static class Massachusetts
@@ -1512,6 +1739,87 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.RankedChoiceVoting)]
                 [BallotMeasurePassFail(false)]
                 public static class Question2 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports making records held by the state legislature and the governor's office public
+                /// records.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.OpenMeetingsAndPublicInformation)]
+                public static class Question1 { }
+
+                /// <summary>
+                /// A "yes" vote supports permitting employees of the Committee for Public Counsel Services (CPCS) to
+                /// participate in collective bargaining.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CollectiveBargaining)]
+                public static class Question2 { }
+
+                /// <summary>
+                /// A "yes" vote supports eliminating political party primaries for state elections and creating a
+                /// single primary where candidates are listed regardless of their political party.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PrimaryElections)]
+                public static class Question3 { }
+
+                /// <summary>
+                /// A "yes" vote supports providing for same-day voter registration.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.VoterRegistration)]
+                public static class Question4 { }
+
+                /// <summary>
+                /// A "yes" vote supports changing the limit on how much revenue the state can collect in a given year.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RevenueAndSpendingLimits)]
+                public static class Question5 { }
+
+                /// <summary>
+                /// A "yes" vote supports creating a fund for state money, titled the Nature for All Fund, to be used to
+                /// further nature conservation efforts.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.RevenueAllocation, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.RestrictedUseFunds)]
+                public static class Question6 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring cities and towns to allow single-family homes on residentially zoned
+                /// lots of at least 5,000 square feet that meet minimum standards.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.LandUseAndDevelopmentPolicy)]
+                public static class Question7 { }
+
+                /// <summary>
+                /// A "yes" vote supports repealing the laws that permit the sale of recreational marijuana and the
+                /// personal cultivation of cannabis in homes.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.MarijuanaLaws, BallotInitiativeSubjects.DrugCrimePolicy)]
+                public static class Question8 { }
+
+                /// <summary>
+                /// A "yes" vote supports upholding An Act Modernizing Firearm Laws (H. 4885), passed in 2024.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.VR)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.FirearmsPolicy)]
+                public static class Question9 { }
             }
         }
 
@@ -1535,6 +1843,29 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 public static class Proposal3 { }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports holding a state constitutional convention.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.ACCQ)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateConstitutionalConventions)]
+                public static class Proposal1 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting certain regulated electric and gas utilities, government
+                /// contractors with more than $250,000 annually in government contracts, and certain associated
+                /// individuals and organizations from making specified campaign contributions, and expanding campaign
+                /// finance requirements to cover additional public communications about candidates or ballot questions,
+                /// including certain communications that do not expressly advocate voting for or against them.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.CampaignFinance)]
+                public static class Proposal2 { }
+            }
         }
 
         public static class Minnesota
@@ -1553,6 +1884,18 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
                 [BallotMeasurePassFail(false)]
                 public static class Amendment2 { }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports changing the administrative policies for investing and distributing the
+                /// Minnesota Permanent School Fund.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationFunding, BallotInitiativeSubjects.RestrictedUseFunds)]
+                public static class AlterInvestmentAndDistributionPoliciesForPermanentSchoolFundAmendment { }
             }
         }
 
@@ -1627,6 +1970,108 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class Amendment7 { }
                 }
             }
+
+            public static class v2026
+            {
+                [YearDate(2026, 8, 4)]
+                public static class August
+                {
+                    /// <summary>
+                    /// A "yes" vote supported renewing the existing sales and use tax of 0.1% for 10 years to fund
+                    /// state parks and soil and water conservation.
+                    /// Result:
+                    /// Yes: 1,141,865 82.29%
+                    /// No : 245,778 17.71%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.ABR)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring the Jackson County Assessor to be an elected position.
+                    /// Result:
+                    /// Yes: 1,042,413 76.92%
+                    /// No : 312,713 23.08%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentOfficialsAndElections)]
+                    [BallotMeasurePassFail(true)]
+                    public static class Amendment2 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported requiring the majority of voters from each congressional district to
+                    /// approve initiative petitions to amend the constitution, and prohibiting foreign nationals from
+                    /// contributing to ballot measure campaigns, among other provisions.
+                    /// Result:
+                    /// No : 1,122,748 80.32%
+                    /// Yes: 275,040 19.68%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotInitiatives, BallotInitiativeSubjects.CampaignFinance, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment4 { }
+
+                    /// <summary>
+                    /// A "yes" vote supported phasing out the individual income tax based on revenue growth and making
+                    /// other tax-related changes.
+                    /// Result:
+                    /// No : 1,165,085 83.28%
+                    /// Yes: 233,965 16.72%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.SalesTaxes)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Amendment5 { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports prohibiting abortion in most cases, and prohibiting gender transition
+                    /// procedures for minors under eighteen. Would largely reverse <see
+                    /// cref="v2024.November.Amendment3"/>.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.Abortion, BallotInitiativeSubjects.ConstitutionalRights, BallotInitiativeSubjects.LGBTQIssues, BallotInitiativeSubjects.HealthcareGovernance)]
+                    public static class Amendment3 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports prohibiting the legislature from repealing or amending a citizen
+                    /// initiative unless at least 80% of both the House and Senate vote to refer a proposed change to
+                    /// the ballot and voters then approve the change, and prohibiting the legislature from making
+                    /// changes to the citizen initiative and referendum process, among other changes.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.CICA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotInitiatives)]
+                    public static class Amendment6 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports creating a permanent public endowment fund managed by the state to
+                    /// generate revenue, and using the earnings to eliminate state-imposed taxes when sufficient to
+                    /// replace them.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxAndRevenueAdministration, BallotInitiativeSubjects.RestrictedUseFunds)]
+                    public static class Amendment7 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports requiring the election of county sheriffs.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.LocalGovernmentOfficialsAndElections, BallotInitiativeSubjects.LawEnforcementOfficersAndDepartments)]
+                    public static class Amendment8 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports upholding House Bill 1, which provided for new congressional districts (a
+                    /// "no" vote repeals it).
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.VR)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.RedistrictingPolicy)]
+                    public static class PropositionA { }
+                }
+            }
         }
 
         public static class Montana
@@ -1680,6 +2125,36 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class CitizenInitiative128 { }
                 }
             }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports adding a new section to the Montana Constitution to require that all judicial
+                /// elections are nonpartisan.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateJudicialSelection)]
+                public static class CitizenInitiative132 { }
+
+                /// <summary>
+                /// A "yes" vote supports adding the power of initiative and referendum to the state's Declaration of
+                /// Rights.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.ConstitutionalRights)]
+                public static class CitizenInitiative133 { }
+
+                /// <summary>
+                /// A "yes" vote supports prohibiting artificial persons, as defined in the initiative, from
+                /// contributing to campaigns, ballot measure elections, or political parties.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BusinessRegulations, BallotInitiativeSubjects.CampaignFinance)]
+                public static class Initiative194 { }
+            }
         }
 
         public static class Nebraska
@@ -1731,6 +2206,44 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     [BallotMeasurePassFail(false)]
                     public static class Initiative439 { }
                 }
+            }
+
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports changing the legislative term limit from two consecutive four-year terms to
+                /// three.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeTermLimits)]
+                public static class ConstitutionalAmendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing laws to govern sports betting.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.GamblingPolicy)]
+                public static class Initiative440 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing online sports betting in the state and authorizing the state
+                /// gaming commission to adopt rules and regulations governing the gaming operators.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CISS)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.GamblingPolicy)]
+                public static class Initiative441 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring schools to designate sports teams as male, female, or co-ed, and
+                /// prohibiting male participation on female sports teams.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.CICA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.AthleticsAndSports, BallotInitiativeSubjects.LGBTQIssues)]
+                public static class Initiative442 { }
             }
         }
 
@@ -1844,6 +2357,93 @@ namespace Existence.Earth.Countries.UnitedStates.States
             }
         }
        
+        public static class NewHampshire
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports eliminating the office of the register of probate.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.AdministrativeOrganization, BallotInitiativeSubjects.ConstitutionalWordingChanges)]
+                public static class EliminateOfficeOfRegisterOfProbateAmendment { }
+            }
+        }
+
+        public static class NewMexico
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports authorizing $30 million in general obligation bonds for senior citizen
+                /// facility improvement, construction, and equipment acquisition projects, funded by a statewide
+                /// property tax.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues)]
+                public static class BondQuestion1 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing up to $20 million in general obligation bonds for academic, public
+                /// school, tribal, and public library resource acquisitions, funded by a statewide property tax.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues, BallotInitiativeSubjects.PublicEducationFunding)]
+                public static class BondQuestion2 { }
+
+                /// <summary>
+                /// A "yes" vote supports authorizing up to $230 million in general obligation bonds for capital
+                /// improvements and acquisitions at higher education institutions, special schools, and tribal schools,
+                /// funded by a statewide property tax.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HigherEducationFunding, BallotInitiativeSubjects.PublicEducationFunding, BallotInitiativeSubjects.BondIssues)]
+                public static class BondQuestion3 { }
+
+                /// <summary>
+                /// A "yes" vote supports requiring bills to become law if the governor does not sign or veto them
+                /// within the required timeframe, eliminating the governor's pocket veto.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateExecutivePowersAndDuties)]
+                public static class ConstitutionalAmendment1 { }
+
+                /// <summary>
+                /// A "yes" vote supports repealing the constitutional provision requiring that school elections be held
+                /// at different times from partisan elections.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.LocalGovernmentOfficialsAndElections)]
+                public static class ConstitutionalAmendment2 { }
+
+                /// <summary>
+                /// A "yes" vote supports making changes to the Board of Regents, including establishing nominating
+                /// committees to provide lists of candidates, providing that student members are appointed from a list
+                /// provided by the student governing body, and prohibiting non-student members from changing political
+                /// party in the 12 months preceding appointment.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HigherEducationGovernance)]
+                public static class ConstitutionalAmendment3 { }
+
+                /// <summary>
+                /// A "yes" vote supports establishing a salary for state legislators equal to the annual median
+                /// household income of the state.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.SalariesOfGovernmentOfficials)]
+                public static class ConstitutionalAmendment4 { }
+            }
+        }
+
         public static class NewYork
         {
             public static class v2024
@@ -1944,6 +2544,45 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasurePassFail(true)]
                 [BallotMeasureType(BallotMeasureTypes.CICA)]
                 public static class Measure2 { }
+            }
+
+            public static class v2026
+            {
+                [YearDate(2026, 6, 9)]
+                public static class June
+                {
+                    /// <summary>
+                    /// A "yes" vote supported creating a single-subject requirement for initiated constitutional
+                    /// amendments and legislatively referred constitutional amendments in North Dakota.
+                    /// Result:
+                    /// Yes: 77,141 66.42%
+                    /// No : 38,995 33.58%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotInitiatives)]
+                    [BallotMeasurePassFail(true)]
+                    public static class ConstitutionalMeasure1 { }
+                }
+
+                [YearDate(2026, 11, 3)]
+                public static class November
+                {
+                    /// <summary>
+                    /// A "yes" vote supports requiring constitutional amendments to receive a 60% supermajority vote to
+                    /// be adopted.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.LRCA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.InitiativeAndReferendumProcess, BallotInitiativeSubjects.BallotInitiatives, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                    public static class ConstitutionalMeasure1 { }
+
+                    /// <summary>
+                    /// A "yes" vote supports requiring public schools to provide one free breakfast and one free lunch
+                    /// to students.
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.CICA)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PublicEducationFunding)]
+                    public static class ConstitutionalMeasure2 { }
+                }
             }
         }
 
@@ -2114,6 +2753,76 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [BallotMeasureType(BallotMeasureTypes.LRSS)]
                 [BallotMeasurePassFail(false)]
                 public static class Measure117 { }
+            }
+
+            public static class v2026
+            {
+                [YearDate(2026, 5, 19)]
+                public static class May
+                {
+                    /// <summary>
+                    /// A "yes" vote supported upholding the sections of House Bill 3991 (2025) that increased the gas
+                    /// tax from $0.40 to $0.46 per gallon, the transportation payroll tax from 0.1% to 0.2%, and
+                    /// vehicle registration and title fees. A "no" vote repealed those sections.
+                    /// Result:
+                    /// No : 1,012,663 83.02%
+                    /// Yes: 207,066 16.98%
+                    /// </summary>
+                    [BallotMeasureType(BallotMeasureTypes.VR)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TransportationTaxesAndFees, BallotInitiativeSubjects.FuelTaxes, BallotInitiativeSubjects.BusinessTaxes)]
+                    [BallotMeasurePassFail(false)]
+                    public static class Referendum120 { }
+                }
+            }
+        }
+
+        public static class RhodeIsland
+        {
+            public static class v2026
+            {
+                /// <summary>
+                /// A "yes" vote supports issuing $275 million in bonds to fund the construction and improvement of
+                /// higher education facilities.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues, BallotInitiativeSubjects.HigherEducationFunding)]
+                public static class Question1 { }
+
+                /// <summary>
+                /// A "yes" vote supports issuing $120 million in bonds to fund the construction and development of
+                /// affordable housing projects.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HousingDevelopmentFunding, BallotInitiativeSubjects.BondIssues)]
+                public static class Question2 { }
+
+                /// <summary>
+                /// A "yes" vote supports issuing $100 million in bonds to fund infrastructure and economic development
+                /// projects.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues)]
+                public static class Question3 { }
+
+                /// <summary>
+                /// A "yes" vote supports issuing $50 million in bonds to fund cultural and historical projects.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues)]
+                public static class Question4 { }
+
+                /// <summary>
+                /// A "yes" vote supports issuing $55 million in bonds to fund environmental preservation and water
+                /// infrastructure projects.
+                /// </summary>
+                [YearDate(2026, 11, 3)]
+                [BallotMeasureType(BallotMeasureTypes.BI)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.SewageAndStormwater)]
+                public static class Question5 { }
             }
         }
 

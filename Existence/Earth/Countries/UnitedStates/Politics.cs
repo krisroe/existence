@@ -8,6 +8,16 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
     public enum BallotMeasureTypes
     {
         /// <summary>
+        /// automatic ballot referral
+        /// </summary>
+        ABR,
+
+        /// <summary>
+        /// automatic constitutional convention question
+        /// </summary>
+        ACCQ,
+
+        /// <summary>
         /// advisory question
         /// </summary>
         AQ,
