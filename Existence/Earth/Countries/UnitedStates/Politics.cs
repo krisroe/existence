@@ -83,6 +83,22 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         VR,
     }
 
+    /// <summary>
+    /// result of a ballot measure
+    /// </summary>
+    public enum BallotMeasureResult
+    {
+        /// <summary>
+        /// ballot measure passed
+        /// </summary>
+        Yes,
+
+        /// <summary>
+        /// ballot measure failed
+        /// </summary>
+        No,
+    }
+
     public class BallotMeasureTypeAttribute : Attribute
     {
         public BallotMeasureTypes Type { get; set; }
@@ -94,10 +110,10 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
 
     public class BallotMeasurePassFailAttribute : Attribute
     {
-        public bool Passed { get; set; }
-        public BallotMeasurePassFailAttribute(bool Passed)
+        public BallotMeasureResult Result { get; set; }
+        public BallotMeasurePassFailAttribute(BallotMeasureResult Result)
         {
-            this.Passed = Passed;
+            this.Result = Result;
         }
     }
 
