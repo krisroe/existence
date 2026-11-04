@@ -366,7 +366,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(true)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIDForVoting)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PhotoIdentificationNeededForVoting)]
                 [IVotedNoBallotInitiative("Unnecessary as a constitutional amendment given the photo ID law isn't going to be repealed.")]
                 [IPredictedYesBallotInitiative(Correctness.Correct, "Avoids inconsistency between implied constitution and statute")]
                 public static class VoterPhotoIdentificationAmendment { }
@@ -414,9 +414,9 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.RaceAndEthnicityIssues, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.AffirmativeAction)]
-                [TODO("Update after this election is over.")]
+                [BallotMeasurePassFail(true)]
                 [IVotedYesBallotInitiative("Generally speaking I'm against racial preferences")]
-                [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree with me on this one.")]
+                [IPredictedYesBallotInitiative(Correctness.Correct, "I think most people agree with me on this one.")]
                 public static class ProhibitDiscriminationOrPreferentialTreatmentAmendment { }
             }
         }

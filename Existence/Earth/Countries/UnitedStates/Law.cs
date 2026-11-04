@@ -23,7 +23,8 @@ namespace Existence.Earth.Countries.UnitedStates
         BallotInitiatives,
         PrimaryElections,
         RankedChoiceVoting,
-        PhotoIDForVoting,
+        PhotoIdentificationNeededForVoting,
+        IdentificationNeededForVoting,
         NonCitizenVoting,
         StateExecutiveElections,
         PublicEducationGovernance,
@@ -77,8 +78,8 @@ namespace Existence.Earth.Countries.UnitedStates
         RecallProcess,
         FossilFuelEnergy,
         RightToHuntAndFish,
-        InitiativeAndReferendumProcess,
         RedistrictingPolicy,
+        MidCycleRedistricting,
         EarlyChildhoodEducation,
         PublicAssistancePrograms,
         DrugCrimePolicy,
@@ -86,6 +87,7 @@ namespace Existence.Earth.Countries.UnitedStates
         RestrictedUseFunds,
         WildfireManagement,
         AgriculturePolicy,
+        Taxes,
         PropertyTaxes,
         PropertyTaxExemptions,
         HomesteadTaxExemptions,
@@ -138,6 +140,7 @@ namespace Existence.Earth.Countries.UnitedStates
         AdministrativeOrganization,
         ConstitutionalWordingChanges,
         FuelTaxes,
+        PardonsAndCommutations,
     }
 
     public class BallotInitiativeSubjectsAttribute : Attribute

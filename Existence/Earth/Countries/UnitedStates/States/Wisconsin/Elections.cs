@@ -202,8 +202,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         [YearDate(2026, 11, 3)]
         [HeadToHeadElectionCandidates((int)WisconsinPoliticians.CrowleyDavid, (int)WisconsinPoliticians.TiffanyTom)]
         [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid, "This is the first time I ever voted for a Democrat in a general election")]
-        [IPredictedElectionWinner((int)WisconsinPoliticians.CrowleyDavid, Correctness.Future, "Trump's impact on the election is more powerful than the usual anti-incumbent bias")]
-        [TODO("Update after this election is over.")]
+        [IPredictedElectionWinner((int)WisconsinPoliticians.CrowleyDavid, Correctness.Correct, "Trump's impact on the election is more powerful than the usual anti-incumbent (party) bias")]
         public static class v2026
         {
             /// <summary>
