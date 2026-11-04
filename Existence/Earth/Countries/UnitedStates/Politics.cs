@@ -97,6 +97,11 @@ namespace Existence.Earth.Countries.UnitedStates.Politics
         /// ballot measure failed
         /// </summary>
         No,
+
+        /// <summary>
+        /// ballot measure is yet to be decided
+        /// </summary>
+        Future,
     }
 
     public class BallotMeasureTypeAttribute : Attribute
