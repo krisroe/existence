@@ -401,9 +401,9 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.ReligionRelatedPolicy, BallotInitiativeSubjects.EmergencyPowers)]
-                [TODO("Update after this election is over.")]
+                [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [IVotedYesBallotInitiative("The Covid-era church closures bothers me in a way that goes beyond just limiting church access")]
-                [IPredictedYesBallotInitiative(Correctness.Future, "I think most people agree the Covid-era church closures went too far.")]
+                [IPredictedYesBallotInitiative(Correctness.Incorrect, "I think most people agree the Covid-era church closures went too far.")]
                 public static class ProhibitGovernmentClosureOfPlacesOfWorshipDuringEmergenciesAmendment { }
 
                 /// <summary>
