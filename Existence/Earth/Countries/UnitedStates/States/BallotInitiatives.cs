@@ -90,7 +90,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// No : 155,985 18.42%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalTrials, BallotInitiativeSubjects.BailPolicy)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                     [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                     public static class Amendment1 { }
 
@@ -304,7 +304,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.VehicleAndDriverRegulations, BallotInitiativeSubjects.TransportationTaxesAndFees)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.VehicleAndDriverRegulations, BallotInitiativeSubjects.TaxesAndFeesTransportation)]
                 public static class Proposition141 { }
 
                 /// <summary>
@@ -338,7 +338,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRSS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.FoodAndBeverageTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesSales, BallotInitiativeSubjects.TaxesFoodAndBeverage)]
                 public static class Proposition316 { }
 
                 /// <summary>
@@ -502,7 +502,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CICA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.HigherEducationFunding, BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicEducationFunding)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.HigherEducationFunding, BallotInitiativeSubjects.TaxesIncome, BallotInitiativeSubjects.PublicEducationFunding)]
                 public static class Proposition3 { }
 
                 /// <summary>
@@ -558,7 +558,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CICASS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicHealthInsurance)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesIncome, BallotInitiativeSubjects.PublicHealthInsurance)]
                 public static class Proposition40 { }
 
                 /// <summary>
@@ -577,7 +577,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CICA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesIncome)]
                 public static class Proposition42 { }
 
                 /// <summary>
@@ -726,7 +726,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CICASS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.EarlyChildhoodEducation, BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.PublicAssistancePrograms, BallotInitiativeSubjects.PublicEducationFunding)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.EarlyChildhoodEducation, BallotInitiativeSubjects.TaxesIncome, BallotInitiativeSubjects.PublicAssistancePrograms, BallotInitiativeSubjects.PublicEducationFunding)]
                 public static class Amendment87 { }
 
                 /// <summary>
@@ -771,7 +771,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CISS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.BusinessTaxes, BallotInitiativeSubjects.IncomeTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesBusiness, BallotInitiativeSubjects.TaxesIncome)]
                 public static class Proposition136 { }
 
                 /// <summary>
@@ -780,7 +780,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CISS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.WildfireManagement)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesSales, BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.WildfireManagement)]
                 public static class Proposition137 { }
 
                 /// <summary>
@@ -892,7 +892,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(BallotMeasureResult.Yes)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.LocalGovernmentFinanceAndTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
                 public static class Amendment3 { }
             }
         }
@@ -1050,7 +1050,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalTrials, BallotInitiativeSubjects.BailPolicy)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                 public static class PublicQuestion1 { }
 
                 /// <summary>
@@ -1092,7 +1092,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.StateLegislativeVoteRequirements)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesIncome, BallotInitiativeSubjects.StateLegislativeVoteRequirements)]
                 public static class Amendment1 { }
             }
         }
@@ -1123,7 +1123,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 public static class August
                 {
                     /// <summary>
-                    /// A "yes" vote supported making the Kansas Supreme Court an elected office and abolishing the court's
+                    /// A "yes" vote supported making the state Supreme Court an elected office and abolishing the court's
                     /// nominating commission.
                     /// Result:
                     /// No : 382,118 61.36%
@@ -1599,7 +1599,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// parish, but below the maximum permitted by the state constitution.
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.StateLegislativeAuthority)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.StateLegislativeAuthority)]
                     public static class Amendment2 { }
 
                     /// <summary>
@@ -1607,7 +1607,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// aggravated offense against a victim who is a minor.
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.CriminalSentencing, BallotInitiativeSubjects.BailPolicy)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                     public static class Amendment3 { }
 
                     /// <summary>
@@ -1633,7 +1633,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// assessment freeze.
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
                     public static class Amendment6 { }
 
                     /// <summary>
@@ -1665,7 +1665,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// been rehabilitated.
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.PropertyTaxes)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.TaxesProperty)]
                     public static class Amendment10 { }
                 }
             }
@@ -2044,7 +2044,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// No : 245,778 17.71%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.ABR)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.SalesTaxes, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesSales, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation)]
                     [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                     public static class Amendment1 { }
 
@@ -2060,27 +2060,34 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     public static class Amendment2 { }
 
                     /// <summary>
-                    /// A "yes" vote supported requiring the majority of voters from each congressional district to
-                    /// approve initiative petitions to amend the constitution, and prohibiting foreign nationals from
-                    /// contributing to ballot measure campaigns, among other provisions.
+                    /// A "yes" vote supported changing the state constitution to:
+                    /// 1. require the majority of voters from each congressional district to approve initiative petitions to amend the constitution (rather than statewide)
+                    /// 2. prohibiting foreign nationals from contributing to ballot measure campaigns
+                    /// 3. define penalties for ballot initiative signature petition fraud
                     /// Result:
                     /// No : 1,122,748 80.32%
                     /// Yes: 275,040 19.68%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.CampaignFinance, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                    [BallotInitiativeSubject(BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                    [BallotInitiativeSubject(BallotInitiativeSubjects.CampaignFinance)]
+                    [BallotInitiativeSubject(BallotInitiativeSubjects.BallotInitiatives)]
                     [BallotMeasurePassFail(BallotMeasureResult.No)]
                     public static class Amendment4 { }
 
                     /// <summary>
-                    /// A "yes" vote supported phasing out the individual income tax based on revenue growth and making
-                    /// other tax-related changes.
+                    /// Constitutional amendment to change...
+                    /// 1. reduce the state individual income tax, based on revenue growth, until the tax is eliminated
+                    /// 2. reduce personal property and other local taxes when local revenues increase, while prohibiting reductions in funding for public schools
+                    /// 3. prohibit future state individual income taxes once eliminated
+                    /// 4. limit expansions of sales and use taxes, unless they are used to reduce income tax
                     /// Result:
                     /// No : 1,165,085 83.28%
                     /// Yes: 233,965 16.72%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes, BallotInitiativeSubjects.SalesTaxes)]
+                    [BallotInitiativeSubject(BallotInitiativeSubjects.TaxesIncome)]
+                    [BallotInitiativeSubject(BallotInitiativeSubjects.TaxesSales)]
                     [BallotMeasurePassFail(BallotMeasureResult.No)]
                     public static class Amendment5 { }
                 }
@@ -2573,7 +2580,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesProperty)]
                 public static class PropertyTaxLevyLimitAmendment { }
 
                 /// <summary>
@@ -2582,7 +2589,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(BallotMeasureResult.Yes)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesIncome)]
                 public static class ReduceIncomeTaxRateCapFrom7To3Point5Amendment { }
 
                 /// <summary>
@@ -2751,7 +2758,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// Yes: 281,386 44.63%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.CISS)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.MinimumWageLaws)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.MinimumWage)]
                     [BallotMeasurePassFail(BallotMeasureResult.No)]
                     public static class StateQuestion832 { }
                 }
@@ -2800,7 +2807,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// A "yes" vote supports reducing the annual growth limit of the calculated fair cash value of property.
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.HomesteadTaxExemptions, BallotInitiativeSubjects.PropertyTaxExemptions)]
                     public static class StateQuestion847 { }
                 }
             }
@@ -2838,7 +2845,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                     /// Yes: 207,066 16.98%
                     /// </summary>
                     [BallotMeasureType(BallotMeasureTypes.VR)]
-                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TransportationTaxesAndFees, BallotInitiativeSubjects.FuelTaxes, BallotInitiativeSubjects.BusinessTaxes)]
+                    [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesAndFeesTransportation, BallotInitiativeSubjects.TaxesFuel, BallotInitiativeSubjects.TaxesBusiness)]
                     [BallotMeasurePassFail(BallotMeasureResult.No)]
                     public static class Referendum120 { }
                 }
@@ -3017,7 +3024,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                 public static class Amendment1 { }
 
                 /// <summary>
@@ -3025,7 +3032,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.PropertyTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.StateLegislativeAuthority, BallotInitiativeSubjects.TaxesProperty)]
                 public static class Amendment2 { }
 
                 /// <summary>
@@ -3057,7 +3064,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.Taxes, BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.Taxes, BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.BallotMeasureSupermajorityRequirements)]
                 public static class ConstitutionalAmendmentB { }
             }
         }
@@ -3216,7 +3223,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CISS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.IncomeTaxes)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.TaxesIncome)]
                 public static class Initiative645 { }
             }
         }
@@ -3284,7 +3291,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.CISS)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.PropertyTaxes, BallotInitiativeSubjects.HomesteadTaxExemptions)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.PropertyTaxExemptions, BallotInitiativeSubjects.TaxesProperty, BallotInitiativeSubjects.HomesteadTaxExemptions)]
                 public static class Initiative1 { }
             }
         }

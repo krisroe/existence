@@ -150,7 +150,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
             [BallotMeasureType(BallotMeasureTypes.LRCA)]
             [YearDate(2014, 11, 4)]
             [BallotMeasurePassFail(BallotMeasureResult.Yes)]
-            [BallotInitiativeSubjects(BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.TransportationTaxesAndFees)]
+            [BallotInitiativeSubjects(BallotInitiativeSubjects.RestrictedUseFunds, BallotInitiativeSubjects.TaxesAndFeesTransportation)]
             public static class Question1 { }
         }
 
@@ -229,7 +229,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(BallotMeasureResult.Yes)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                 public static class Question1 { }
 
                 /// <summary>
@@ -250,7 +250,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
                 [BallotMeasurePassFail(BallotMeasureResult.Yes)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy, BallotInitiativeSubjects.CriminalTrials)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.BailPolicy)]
                 public static class Question2 { }
 
                 /// <summary>

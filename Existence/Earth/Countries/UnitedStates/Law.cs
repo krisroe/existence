@@ -33,7 +33,6 @@ namespace Existence.Earth.Countries.UnitedStates
         ReligionInPublicSchools,
         CampaignFinance,
         VehicleAndDriverRegulations,
-        TransportationTaxesAndFees,
         RaceAndEthnicityIssues,
         ConstitutionalRights,
         HigherEducationGovernance,
@@ -41,8 +40,6 @@ namespace Existence.Earth.Countries.UnitedStates
         EarlyVoting,
         ElectionAdministrationAndGovernance,
         AbsenteeAndMailVoting,
-        SalesTaxes,
-        FoodAndBeverageTaxes,
         CriminalSentencing,
         ImmigrationPolicy,
         AthleticsAndSports,
@@ -63,7 +60,6 @@ namespace Existence.Earth.Countries.UnitedStates
         HousingAssistancePrograms,
         BudgetStabilizationFunds,
         HigherEducationFunding,
-        IncomeTaxes,
         VaccinationsAndDiseasePolicy,
         HealthcareGovernance,
         HealthcareFacilityFunding,
@@ -83,12 +79,9 @@ namespace Existence.Earth.Countries.UnitedStates
         EarlyChildhoodEducation,
         PublicAssistancePrograms,
         DrugCrimePolicy,
-        BusinessTaxes,
         RestrictedUseFunds,
         WildfireManagement,
         AgriculturePolicy,
-        Taxes,
-        PropertyTaxes,
         PropertyTaxExemptions,
         HomesteadTaxExemptions,
         ForestryAndTimber,
@@ -105,7 +98,7 @@ namespace Existence.Earth.Countries.UnitedStates
         LocalGovernmentOfficialsAndElections,
         StateLegislativeVoteRequirements,
         StateJudiciaryOversight,
-        MinimumWageLaws,
+        MinimumWage,
         CrimeVictimsRights,
         CollectiveBargaining,
         ReligionRelatedPolicy,
@@ -139,8 +132,24 @@ namespace Existence.Earth.Countries.UnitedStates
         GamblingPolicy,
         AdministrativeOrganization,
         ConstitutionalWordingChanges,
-        FuelTaxes,
         PardonsAndCommutations,
+        Taxes,
+        TaxesBusiness,
+        TaxesFoodAndBeverage,
+        TaxesFuel,
+        TaxesIncome,
+        TaxesProperty,
+        TaxesSales,
+        TaxesAndFeesTransportation,
+    }
+
+    public class  BallotInitiativeSubjectAttribute : SingularObjectAttribute
+    {
+        public BallotInitiativeSubjects Subject { get; set; }
+        public BallotInitiativeSubjectAttribute(BallotInitiativeSubjects Subject)
+        {
+            this.Subject = Subject;
+        }
     }
 
     public class BallotInitiativeSubjectsAttribute : Attribute
