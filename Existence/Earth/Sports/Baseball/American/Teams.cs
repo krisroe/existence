@@ -3800,8 +3800,87 @@ namespace Existence.Earth.Sports.Baseball.American
         {
             public enum Managers
             {
+                /// <summary>
+                /// fired on June 13 after a 29-26 start
+                /// </summary>
+                AltobelliJoe,
+                AndersonSparky,
+                BambergerGeorge,
+                /// <summary>
+                /// fired on April 28 after a 6-10 start
+                /// </summary>
+                BerraYogi,
+                CorralesPat,
+                CottierChuck,
+                CoxBobby,
+                /// <summary>
+                /// replaced <see cref="DavenportJim"/> on September 18
+                /// </summary>
+                CraigRoger,
+                /// <summary>
+                /// fired on September 18 after a 56-88 start
+                /// </summary>
+                DavenportJim,
+                FelskeJohn,
+                FreyJim,
+                /// <summary>
+                /// fired on June 21 after a 27-35 start
+                /// </summary>
+                GardnerBilly,
+                /// <summary>
+                /// fired on August 26 after a 50-71 start
+                /// </summary>
+                HaasEddie,
                 HerzogWhitey,
                 HowserDick,
+                JohnsonDavey,
+                LaRussaTony,
+                LasordaTommy,
+                /// <summary>
+                /// fired on October 7 after an 83-79 season
+                /// </summary>
+                LillisBob,
+                /// <summary>
+                /// replaced <see cref="BerraYogi"/> on April 28; fired on October 27 after going 91-54, and returned to
+                /// the team's front office
+                /// </summary>
+                MartinBilly,
+                MauchGene,
+                McNamaraJohn,
+                /// <summary>
+                /// replaced <see cref="GardnerBilly"/> on June 21
+                /// </summary>
+                MillerRay,
+                MooreJackie,
+                /// <summary>
+                /// fired on May 16 after a 9-23 start
+                /// </summary>
+                RaderDoug,
+                /// <summary>
+                /// interim manager for one game on June 13 after <see cref="AltobelliJoe"/> was fired, a 1-0 record
+                /// </summary>
+                RipkenCalSr,
+                RodgersBuck,
+                RosePete,
+                /// <summary>
+                /// let go on October 7 after a 57-104 season, reported at the time as a mutual decision with the team's
+                /// new owners
+                /// </summary>
+                TannerChuck,
+                /// <summary>
+                /// replaced <see cref="RaderDoug"/> on May 16
+                /// </summary>
+                ValentineBobby,
+                /// <summary>
+                /// came out of retirement to replace <see cref="RipkenCalSr"/> on June 14
+                /// </summary>
+                WeaverEarl,
+                WilliamsDick,
+                /// <summary>
+                /// interim manager after <see cref="HaasEddie"/> was fired, through the end of the season; replaced by
+                /// <see cref="TannerChuck"/> on October 10
+                /// </summary>
+                WineBobby,
             }
 
             public enum Umpires
@@ -3809,37 +3888,58 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// <summary>
                 /// crew chief for the World Series. As the first base umpire in Game 6 he called Jorge Orta safe
                 /// leading off the bottom of the ninth, a missed call that started the Royals' rally; in Game 7, behind
-                /// home plate, he ejected Whitey Herzog and Joaquin Andujar
+                /// home plate, he ejected <see cref="Managers.HerzogWhitey"/> and <see cref="NationalLeague.PitchingAllStars.AndujarJoaquin"/>
                 /// </summary>
                 DenkingerDon,
             }
 
             public static class AmericanLeague
             {
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.KansasCityRoyals)]
+                    [FielderType(BaseballPositionType.ThirdBase)]
+                    BrettGeorge,
+                }
+
                 public static class Divisions
                 {
                     public static class East
                     {
                         [TeamWinLossRecord(99, 62)]
+                        [Manager((int)Managers.CoxBobby)]
                         [Franchise(MajorLeagueBaseballFranchises.TorontoBlueJays)]
                         public static class TorontoBlueJays { }
                         [TeamWinLossRecord(97, 64)]
+                        [Manager((int)Managers.BerraYogi, 1983, 12, 16, 1985, 4, 28)]
+                        [FiredManager((int)Managers.BerraYogi, 1985, 4, 28)]
+                        [Manager((int)Managers.MartinBilly, 1985, 4, 28, 1985, 10, 27)]
+                        [FiredManager((int)Managers.MartinBilly, 1985, 10, 27)]
                         [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBronxYankees)]
                         public static class NewYorkYankees { }
                         [TeamWinLossRecord(84, 77)]
+                        [Manager((int)Managers.AndersonSparky)]
                         [Franchise(MajorLeagueBaseballFranchises.DetroitTigers)]
                         public static class DetroitTigers { }
                         [TeamWinLossRecord(83, 78)]
+                        [Manager((int)Managers.AltobelliJoe, 1982, 11, 12, 1985, 6, 13)]
+                        [FiredManager((int)Managers.AltobelliJoe, 1985, 6, 13)]
+                        [Manager((int)Managers.RipkenCalSr, 1985, 6, 13, 1985, 6, 13)]
+                        [InterimManager((int)Managers.RipkenCalSr, 1985, 6, 13, 1985, 6, 13)]
+                        [Manager((int)Managers.WeaverEarl, 1985, 6, 14)]
                         [Franchise(MajorLeagueBaseballFranchises.BaltimoreOriolesAmericanLeague)]
                         public static class BaltimoreOrioles { }
                         [TeamWinLossRecord(81, 81)]
+                        [Manager((int)Managers.McNamaraJohn)]
                         [Franchise(MajorLeagueBaseballFranchises.BostonRedSox)]
                         public static class BostonRedSox { }
                         [TeamWinLossRecord(71, 90)]
+                        [Manager((int)Managers.BambergerGeorge)]
                         [Franchise(MajorLeagueBaseballFranchises.MilwaukeeBrewers)]
                         public static class MilwaukeeBrewers { }
                         [TeamWinLossRecord(60, 102)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.AmericanLeague)]
+                        [Manager((int)Managers.CorralesPat)]
                         [Franchise(MajorLeagueBaseballFranchises.ClevelandIndiansAmericanLeague)]
                         public static class ClevelandIndians { }
                     }
@@ -3847,24 +3947,35 @@ namespace Existence.Earth.Sports.Baseball.American
                     {
                         [TeamWinLossRecord(91, 71)]
                         [WorldSeries(TwoPlayerGameOutcome.Win)]
+                        [Manager((int)Managers.HowserDick)]
                         [Franchise(MajorLeagueBaseballFranchises.KansasCityRoyals)]
                         public static class KansasCityRoyals { }
                         [TeamWinLossRecord(90, 72)]
+                        [Manager((int)Managers.MauchGene)]
                         [Franchise(MajorLeagueBaseballFranchises.AnaheimAngels)]
                         public static class CaliforniaAngels { }
                         [TeamWinLossRecord(85, 77)]
+                        [Manager((int)Managers.LaRussaTony)]
                         [Franchise(MajorLeagueBaseballFranchises.ChicagoSouthWhiteSox)]
                         public static class ChicagoWhiteSox { }
                         [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.GardnerBilly, 1981, 5, 22, 1985, 6, 21)]
+                        [FiredManager((int)Managers.GardnerBilly, 1985, 6, 21)]
+                        [Manager((int)Managers.MillerRay, 1985, 6, 21)]
                         [Franchise(MajorLeagueBaseballFranchises.MinneapolisTwins)]
                         public static class MinnesotaTwins { }
                         [TeamWinLossRecord(77, 85)]
+                        [Manager((int)Managers.MooreJackie)]
                         [Franchise(MajorLeagueBaseballFranchises.OaklandAthletics)]
                         public static class OaklandAthletics { }
                         [TeamWinLossRecord(74, 88)]
+                        [Manager((int)Managers.CottierChuck)]
                         [Franchise(MajorLeagueBaseballFranchises.SeattleMariners)]
                         public static class SeattleMariners { }
                         [TeamWinLossRecord(62, 99)]
+                        [Manager((int)Managers.RaderDoug)]
+                        [FiredManager((int)Managers.RaderDoug, 1985, 5, 16)]
+                        [Manager((int)Managers.ValentineBobby, 1985, 5, 16)]
                         [Franchise(MajorLeagueBaseballFranchises.DallasFortWorthRangers)]
                         public static class TexasRangers { }
                     }
@@ -3873,49 +3984,94 @@ namespace Existence.Earth.Sports.Baseball.American
 
             public static class NationalLeague
             {
+                public enum PitchingAllStars
+                {
+                    /// <summary>
+                    /// selected, but did not attend
+                    /// </summary>
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    AndujarJoaquin,
+                }
+
+                public enum BattingAllStars
+                {
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(BaseballPositionType.FirstBase)]
+                    ClarkJack,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(BaseballPositionType.SecondBase)]
+                    HerrTom,
+                    [MostValuablePlayer]
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(BaseballPositionType.Outfield)]
+                    McGeeWillie,
+                    [MajorLeagueBaseballTeam(MajorLeagueBaseballTeams.StLouisCardinals)]
+                    [FielderType(BaseballPositionType.Shortstop)]
+                    SmithOzzie,
+                }
+
                 public static class Divisions
                 {
                     public static class East
                     {
                         [TeamWinLossRecord(101, 61)]
                         [WorldSeries(TwoPlayerGameOutcome.Loss)]
+                        [Manager((int)Managers.HerzogWhitey)]
                         [Franchise(MajorLeagueBaseballFranchises.StLouisCardinals)]
                         public static class StLouisCardinals { }
                         [TeamWinLossRecord(98, 64)]
+                        [Manager((int)Managers.JohnsonDavey)]
                         [Franchise(MajorLeagueBaseballFranchises.NewYorkCityQueensMets)]
                         public static class NewYorkMets { }
                         [TeamWinLossRecord(84, 77)]
+                        [Manager((int)Managers.RodgersBuck)]
                         [Franchise(MajorLeagueBaseballFranchises.MontrealExpos)]
                         public static class MontrealExpos { }
                         [TeamWinLossRecord(77, 84)]
+                        [Manager((int)Managers.FreyJim)]
                         [Franchise(MajorLeagueBaseballFranchises.ChicagoNorthCubs)]
                         public static class ChicagoCubs { }
                         [TeamWinLossRecord(75, 87)]
+                        [Manager((int)Managers.FelskeJohn)]
                         [Franchise(MajorLeagueBaseballFranchises.PhiladelphiaPhillies)]
                         public static class PhiladelphiaPhillies { }
                         [TeamWinLossRecord(57, 104)]
                         [WorstRecordInLeague(MajorLeagueBaseballLeagues.MajorLeagueBaseball)]
+                        [Manager((int)Managers.TannerChuck)]
+                        [FiredManager((int)Managers.TannerChuck, 1985, 10, 7)]
                         [Franchise(MajorLeagueBaseballFranchises.PittsburghPirates)]
                         public static class PittsburghPirates { }
                     }
                     public static class West
                     {
                         [TeamWinLossRecord(95, 67)]
+                        [Manager((int)Managers.LasordaTommy)]
                         [Franchise(MajorLeagueBaseballFranchises.NewYorkCityBrooklynDodgers)]
                         public static class LosAngelesDodgers { }
                         [TeamWinLossRecord(89, 72)]
+                        [Manager((int)Managers.RosePete)]
                         [Franchise(MajorLeagueBaseballFranchises.CincinnatiReds)]
                         public static class CincinnatiReds { }
                         [TeamWinLossRecord(83, 79)]
+                        [Manager((int)Managers.LillisBob)]
+                        [FiredManager((int)Managers.LillisBob, 1985, 10, 7)]
                         [Franchise(MajorLeagueBaseballFranchises.HoustonAstros)]
                         public static class HoustonAstros { }
                         [TeamWinLossRecord(83, 79)]
+                        [Manager((int)Managers.WilliamsDick)]
                         [Franchise(MajorLeagueBaseballFranchises.SanDiegoPadres)]
                         public static class SanDiegoPadres { }
                         [TeamWinLossRecord(66, 96)]
+                        [Manager((int)Managers.HaasEddie, 1984, 10, 3, 1985, 8, 26)]
+                        [FiredManager((int)Managers.HaasEddie, 1985, 8, 26)]
+                        [Manager((int)Managers.WineBobby, 1985, 8, 26, 1985, 10, 9)]
+                        [InterimManager((int)Managers.WineBobby, 1985, 8, 26, 1985, 10, 9)]
                         [Franchise(MajorLeagueBaseballFranchises.AtlantaBraves)]
                         public static class AtlantaBraves { }
                         [TeamWinLossRecord(62, 100)]
+                        [Manager((int)Managers.DavenportJim, 1984, 10, 30, 1985, 9, 18)]
+                        [FiredManager((int)Managers.DavenportJim, 1985, 9, 18)]
+                        [Manager((int)Managers.CraigRoger, 1985, 9, 18)]
                         [Franchise(MajorLeagueBaseballFranchises.SanFranciscoGiants)]
                         public static class SanFranciscoGiants { }
                     }
@@ -3975,7 +4131,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.LeibrandtCharlie)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.CoxDanny)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.StLouisCardinals, 4, MajorLeagueBaseballTeams.KansasCityRoyals, 2,
-                    $"The Cardinals scored all four runs in the top of the ninth inning off {nameof(AmericanLeagueTeam.Roster.LeibrandtCharlie)}, who had taken a 2-0 lead into the inning",
+                    $"The {nameof(MajorLeagueBaseballTeams.StLouisCardinals)} scored all four runs in the top of the ninth inning off {nameof(AmericanLeagueTeam.Roster.LeibrandtCharlie)}, who had taken a 2-0 lead into the inning",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.StLouisCardinals, 2, MajorLeagueBaseballTeams.KansasCityRoyals, 0)]
                 public static class Game2 { }
@@ -7723,6 +7879,10 @@ namespace Existence.Earth.Sports.Baseball.American
             }
         }
 
+        /// <summary>
+        /// the Milwaukee Brewers beat the Tampa Bay Rays in five games for their first World Series title, in their
+        /// second World Series appearance after losing in 1982
+        /// </summary>
         public static class v2026
         {
             public enum Managers
@@ -7736,10 +7896,13 @@ namespace Existence.Earth.Sports.Baseball.American
                 /// </summary>
                 CoraAlex,
                 CounsellCraig,
+                /// <summary>
+                /// contract reportedly not renewed on October 14 after an 81-81 season
+                /// </summary>
                 EspadaJoe,
                 FranconaTerry,
                 /// <summary>
-                /// interim manager after Carlos Mendoza was fired; named full-time manager on September 22
+                /// interim manager after <see cref="MendozaCarlos"/> was fired; named full-time manager on September 22
                 /// </summary>
                 GreenAndy,
                 HinchAJ,
@@ -7748,7 +7911,7 @@ namespace Existence.Earth.Sports.Baseball.American
                 LovulloTorey,
                 MarmolOliver,
                 /// <summary>
-                /// interim manager after Rob Thomson was fired; named full-time manager on October 14
+                /// interim manager after <see cref="ThomsonRob"/> was fired; named full-time manager on October 14
                 /// </summary>
                 MattinglyDon,
                 McCulloughClayton,
@@ -7764,19 +7927,25 @@ namespace Existence.Earth.Sports.Baseball.American
                 SchumakerSkip,
                 SheltonDerek,
                 StammenCraig,
+                /// <summary>
+                /// fired on October 21 after a 62-100 season
+                /// </summary>
                 SuzukiKurt,
                 /// <summary>
                 /// fired on April 28 after a 9-19 start
                 /// </summary>
                 ThomsonRob,
                 /// <summary>
-                /// interim manager after Alex Cora was fired; named full-time manager on September 22
+                /// interim manager after <see cref="CoraAlex"/> was fired; named full-time manager on September 22
                 /// </summary>
                 TracyChad,
                 VenableWill,
                 VitelloTony,
                 VogtStephen,
                 WeissWalt,
+                /// <summary>
+                /// fired on September 27 after a 76-86 season
+                /// </summary>
                 WilsonDan,
             }
 
@@ -8051,14 +8220,14 @@ namespace Existence.Earth.Sports.Baseball.American
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.PeraltaFreddy)]
                 [StartingPitcher((int)NationalLeagueTeam.Roster.GasserRobert)]
                 [MajorLeagueBaseballGameResult(MajorLeagueBaseballTeams.MilwaukeeBrewers, 10, MajorLeagueBaseballTeams.TampaBayRays, 1, 
-                    "Brewers pitchers facing the minimum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base",
+                    $"{nameof(MajorLeagueBaseballFranchises.MilwaukeeBrewers)} pitchers facing the minimum number of batters (pseudoperfect game) became impossible after a strikeout for the 27th batter with a runner on first base",
                     InningEndingPoint: BaseballInningTransitionPoint.AfterRegularSizedGameFinal)]
                 [MajorLeagueBaseballPlayoffSeries(MajorLeagueBaseballTeams.MilwaukeeBrewers, 3, MajorLeagueBaseballTeams.TampaBayRays, 0)]
                 public static class Game3 { }
 
                 /// <summary>
                 /// interesting moment
-                /// In extra innings, Devil Rays at bat, score 2-2, 2 outs, runner on 2nd, 1-2 count, only needed a ball for 6 significant 2's, but the batter swung so that didn't happen (I don't remember if the pitch was in the strike zone)
+                /// In extra innings, <see cref="MajorLeagueBaseballFranchises.TampaBayDevilRays"/> at bat, score 2-2, 2 outs, runner on 2nd, 1-2 count, only needed a ball for 6 significant 2's, but the batter swung so that didn't happen (I don't remember if the pitch was in the strike zone)
                 /// </summary>
                 [DesignatedHomeTeam(MajorLeagueBaseballTeams.TampaBayRays)]
                 [StartingPitcher((int)AmericanLeagueTeam.Roster.JaxGriffin)]
