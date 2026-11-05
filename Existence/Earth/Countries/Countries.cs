@@ -2116,6 +2116,39 @@ namespace Existence.Earth.Countries
             public static class FaroeIslands { }
         }
 
+        public static class China
+        {
+            /// <summary>
+            /// A British colony from 1842 until July 1, 1997, when it returned to China as a Special
+            /// Administrative Region under "one country, two systems", promised to last until 2047 by
+            /// the 1984 Sino-British Joint Declaration. Hong Kong has its own courts, currency, passports,
+            /// and customs territory, and is separately a member of the WTO and FIFA and competes
+            /// separately at the Olympics. Under its Basic Law, foreign affairs and defense belong to
+            /// Beijing, Beijing appoints the Chief Executive, and China's National People's Congress
+            /// Standing Committee has the final say in interpreting the Basic Law.
+            /// Autonomy has shrunk since the 2019 protests. Beijing imposed the National Security Law in
+            /// 2020 without a vote in Hong Kong's legislature, and the 2021 "patriots only" electoral
+            /// overhaul removed most of the opposition. Advocating independence is effectively illegal.
+            /// </summary>
+            [Capital((int)WorldCities.HongKongHongKong)]
+            [LargestCity((int)WorldCities.HongKongHongKong)]
+            public static class HongKong { }
+
+            /// <summary>
+            /// Under Portuguese administration from the 1550s until December 20, 1999, when it returned
+            /// to China as a Special Administrative Region under "one country, two systems", promised to
+            /// last until 2049 by the 1987 Sino-Portuguese Joint Declaration. Macau has its own courts,
+            /// currency (the pataca), passports, and customs territory, and is separately a member of the
+            /// WTO and FIFA, but unlike Hong Kong it does not compete separately at the Olympics.
+            /// Under its Basic Law, foreign affairs and defense belong to Beijing, and Beijing appoints
+            /// the Chief Executive. Macau has no real independence movement and has always been less
+            /// politically independent of Beijing than Hong Kong. Its economy depends on casinos.
+            /// </summary>
+            [Capital((int)WorldCities.MacauMacau)]
+            [LargestCity((int)WorldCities.MacauMacau)]
+            public static class Macau { }
+        }
+
         public static class Kurdistan
         {
             /// <summary>
