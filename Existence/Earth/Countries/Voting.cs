@@ -566,10 +566,19 @@ namespace Existence.Earth.Countries
     /// </summary>
     public class LikelyElectionWinnerAttribute : Attribute
     {
-        public int Politician { get; set; }
-        public LikelyElectionWinnerAttribute(int Politician)
+        public int Winner { get; set; }
+        public LikelyElectionWinnerAttribute(int Winner)
         {
-            this.Politician = Politician;
+            this.Winner = Winner;
+        }
+    }
+
+    public class ElectionWinnerAttribute : Attribute
+    {
+        public int Winner { get; set; }
+        public ElectionWinnerAttribute(int Winner)
+        {
+            this.Winner = Winner;
         }
     }
 

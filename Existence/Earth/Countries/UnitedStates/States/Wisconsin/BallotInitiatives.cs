@@ -382,14 +382,14 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// A "yes" vote supports amending the state constitution to prohibit the governor, in exercising partial veto
                 /// authority, from creating or increasing, or authorizing the creation or increase of, any tax or fee. A "no"
                 /// vote opposes amending the state constitution to prohibit the governor from using the partial veto to create
-                /// or increase any tax or fee. Prompted by Evers using the partial veto in 2023 to turn a school revenue limit
+                /// or increase any tax or fee. Prompted by the sitting governor using the partial veto in 2023 to turn a school revenue limit
                 /// increase for "2023-24 and 2024-25" into one lasting through 2425.
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.VetoPowers, BallotInitiativeSubjects.TaxAndRevenueAdministration)]
-                [TODO("Update after this election is over.")]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.VetoPowers)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [IVotedYesBallotInitiative("Wisconsin's partial veto continues to have room for shenanigans, time to reel this in (again)")]
-                [IPredictedYesBallotInitiative(Correctness.Future, "I don't see how anyone could find the governer's logic defensible.")]
+                [IPredictedYesBallotInitiative(Correctness.Correct, "I don't see how anyone could find the governer's logic defensible, although this was closer than I thought it would be (big Democratic year)")]
                 public static class ProhibitPartialVetoToIncreaseTaxOrFeeAmendment { }
 
                 /// <summary>
@@ -400,10 +400,10 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
                 /// places of worship in response to a state of emergency.
                 /// </summary>
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.ReligionRelatedPolicy, BallotInitiativeSubjects.EmergencyPowers)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.EmergencyPowers, BallotInitiativeSubjects.ReligionRelatedPolicy)]
                 [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [IVotedYesBallotInitiative("The Covid-era church closures bothers me in a way that goes beyond just limiting church access")]
-                [IPredictedYesBallotInitiative(Correctness.Incorrect, "I think most people agree the Covid-era church closures went too far.")]
+                [IPredictedYesBallotInitiative(Correctness.Incorrect, "I think most people agree the Covid-era church closures went too far (I still think this would have won in a less strong Democratic year")]
                 public static class ProhibitGovernmentClosureOfPlacesOfWorshipDuringEmergenciesAmendment { }
 
                 /// <summary>
