@@ -265,6 +265,9 @@ namespace Existence.Earth.Countries.UnitedStates
         JayJohn,
 
         [Gender(Gender.Male)]
+        JeffersonThomas,
+
+        [Gender(Gender.Male)]
         JeffordsJim,
 
         [Gender(Gender.Male)]
