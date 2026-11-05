@@ -7,7 +7,8 @@ namespace Existence.Earth.Countries.Russia
     /// The federal subjects Russia claims, including those it claims from Ukraine, which are not
     /// internationally recognized as part of Russia (<see cref="Crimea"/>, <see cref="Donetsk"/>,
     /// <see cref="Kherson"/>, <see cref="Luhansk"/>, <see cref="Sevastopol"/>, <see cref="Zaporizhzhia"/>).
-    /// Capital and largest city are only filled out for cities over 500,000 people (2021 census).
+    /// Capital and largest city are only filled out for cities over 500,000 people (2021 census), plus
+    /// the capital and largest city of the smaller contested regions (Crimea, Kherson, Luhansk).
     /// </summary>
     public enum StateSubsidiariesRussia
     {
@@ -78,6 +79,8 @@ namespace Existence.Earth.Countries.Russia
         /// 2014 and under Russian control, but internationally recognized as part of Ukraine.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [DeFactoCapital((int)WorldCities.UkraineSimferopol)]
+        [LargestCity((int)WorldCities.UkraineSimferopol)]
         [Texts("Respublika Krym", "Республика Крым")]
         Crimea,
 
@@ -170,6 +173,8 @@ namespace Existence.Earth.Countries.Russia
         /// Oleshky across the Dnipro River. Internationally recognized as part of Ukraine.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [ClaimedCapital((int)WorldCities.UkraineKherson)]
+        [LargestCity((int)WorldCities.UkraineKherson)]
         [Texts("Khersonskaya Oblast", "Херсонская область")]
         Kherson,
 
@@ -218,6 +223,8 @@ namespace Existence.Earth.Countries.Russia
         /// annexed in 2022 and holds nearly all of it. Internationally recognized as part of Ukraine.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [DeFactoCapital((int)WorldCities.UkraineLuhansk)]
+        [LargestCity((int)WorldCities.UkraineLuhansk)]
         [Texts("Luganskaya Narodnaya Respublika", "Луганская Народная Республика")]
         Luhansk,
 

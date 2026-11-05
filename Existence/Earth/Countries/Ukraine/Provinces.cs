@@ -8,7 +8,8 @@ namespace Existence.Earth.Countries.Ukraine
     /// recognized. Russia also claims <see cref="Crimea"/>, <see cref="Donetsk"/>, <see cref="Kherson"/>,
     /// <see cref="Luhansk"/>, <see cref="Sevastopol"/>, and <see cref="Zaporizhzhia"/>.
     /// Capital and largest city are only filled out for cities over 500,000 people (January 2022
-    /// estimates, from before Russia's full-scale invasion).
+    /// estimates, from before Russia's full-scale invasion), plus the capital and largest city of the smaller
+    /// contested regions (Crimea, Kherson, Luhansk).
     /// </summary>
     public enum StateSubsidiariesUkraine
     {
@@ -29,6 +30,8 @@ namespace Existence.Earth.Countries.Ukraine
         /// and under Russian control, but internationally recognized as part of Ukraine.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [ClaimedCapital((int)WorldCities.UkraineSimferopol)]
+        [LargestCity((int)WorldCities.UkraineSimferopol)]
         [Texts("Avtonomna Respublika Krym", "Автономна Республіка Крим")]
         Crimea,
 
@@ -66,6 +69,8 @@ namespace Existence.Earth.Countries.Ukraine
         /// ceasefire around Oleshky ended on November 1, 2026 without an extension.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [Capital((int)WorldCities.UkraineKherson)]
+        [LargestCity((int)WorldCities.UkraineKherson)]
         [Texts("Khersonska Oblast", "Херсонська область")]
         Kherson,
 
@@ -73,12 +78,18 @@ namespace Existence.Earth.Countries.Ukraine
         [Texts("Khmelnytska Oblast", "Хмельницька область")]
         Khmelnytskyi,
 
+        /// <summary>
+        /// Russian name used in this repository per repository maintainer's preference
+        /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.District)]
         [Capital((int)WorldCities.UkraineKiev)]
         [LargestCity((int)WorldCities.UkraineKiev)]
         [Texts("Kyiv", "Київ")]
         KievCity,
 
+        /// <summary>
+        /// Russian name used in this repository per repository maintainer's preference
+        /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [Capital((int)WorldCities.UkraineKiev)]
         [Texts("Kyivska Oblast", "Київська область")]
@@ -94,6 +105,8 @@ namespace Existence.Earth.Countries.Ukraine
         /// Russia holds nearly all of it.
         /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [ClaimedCapital((int)WorldCities.UkraineLuhansk)]
+        [LargestCity((int)WorldCities.UkraineLuhansk)]
         [Texts("Luhanska Oblast", "Луганська область")]
         Luhansk,
 

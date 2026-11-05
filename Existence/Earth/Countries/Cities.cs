@@ -337,10 +337,18 @@ namespace Existence.Earth.Countries
         UkraineDnipro,
         UkraineDonetsk,
         UkraineKharkiv,
+        UkraineKherson,
+
+        /// <summary>
+        /// Russian name preferred in this repository as repo maintainer's preference
+        /// </summary>
         UkraineKiev,
+        
+        UkraineLuhansk,
         UkraineLviv,
         UkraineOdesa,
         UkraineSevastopol,
+        UkraineSimferopol,
         UkraineZaporizhzhia,
         UnitedArabEmiratesAbuDhabi,
         UnitedArabEmiratesDubai,
