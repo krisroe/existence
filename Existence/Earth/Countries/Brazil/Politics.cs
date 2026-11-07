@@ -162,7 +162,16 @@ namespace Existence.Earth.Countries.Politics
     public static class Elections
     {
         /// <summary>
-        /// first Presidential election in 1894
+        /// Brazil's first republican constitution, adopted in 1891 after the overthrow of the monarchy in 1889, prohibited
+        /// immediate presidential re-election. The first Presidential election was in 1894.
+        ///
+        /// Brazil had experienced several periods of authoritarian government, including the dictatorship of Getúlio Vargas
+        /// (1937-1945) and military rule (1964-1985). Preventing consecutive presidential terms was seen as a safeguard
+        /// against leaders consolidating power.
+        ///
+        /// On June 4, 1997, Brazil adopted Constitutional Amendment No. 16, allowing presidents, governors, and mayors to
+        /// seek one consecutive additional term. The change reflected a different philosophy: voters should be able to
+        /// retain an incumbent they approve of, while a two-consecutive-term limit would still constrain executive power.
         /// </summary>
         public static class Presidential
         {
