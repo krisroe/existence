@@ -458,6 +458,7 @@ namespace Existence.Earth.Countries.Israel.Politics
     public static class Knesset
     {
         [ElectionDate(2022, 11, 1)]
+        [PostElectionTakeOfficeDate(2022, 11, 15)]
         [ParliamentaryElectoralThreshold(3.25)]
         [NumberOfMembers(120)]
         public static class v25
@@ -845,6 +846,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         }
 
         [ElectionDate(2026, 10, 27)]
+        [PostElectionTakeOfficeDate(2026, 11, 10)]
         [ParliamentaryElectoralThreshold(3.25)]
         [NumberOfMembers(120)]
         public static class v26
@@ -862,8 +864,9 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
                 [NumberOfSeatsIPredicted(0)]
+                [BelowElectoralThreshold]
                 [NumberOfSeats(0)]
-                [VotePercentage(1.49)]
+                [VotePercentage(1.68)]
                 AmchaYisrael,
 
                 /// <summary>
@@ -881,8 +884,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [NumberOfSeatsIPredicted(9)]
-                [NumberOfSeats(12)]
-                [VotePercentage(9.28)]
+                [NumberOfSeats(11)]
+                [VotePercentage(8.79)]
                 JointList,
 
                 /// <summary>
@@ -892,8 +895,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
                 [NumberOfSeatsIPredicted(31)]
-                [NumberOfSeats(26)]
-                [VotePercentage(20.93)]
+                [NumberOfSeats(27)]
+                [VotePercentage(20.52)]
                 Likud,
 
                 /// <summary>
@@ -903,8 +906,9 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 [NumberOfSeatsIPredicted(0)]
+                [BelowElectoralThreshold]
                 [NumberOfSeats(0)]
-                [VotePercentage(0.13)]
+                [VotePercentage(0.17)]
                 Noam,
 
                 [Zionist]
@@ -912,7 +916,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
                 [NumberOfSeatsIPredicted(9)]
                 [NumberOfSeats(7)]
-                [VotePercentage(5.60)]
+                [VotePercentage(5.74)]
                 OtzmaYehudit,
 
                 [Zionist]
@@ -921,7 +925,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
                 [NumberOfSeatsIPredicted(6)]
                 [NumberOfSeats(6)]
-                [VotePercentage(4.33)]
+                [VotePercentage(5.10)]
                 ReligiousZionistPartyZehut,
 
                 [Zionist]
@@ -929,16 +933,17 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
                 [NumberOfSeatsIPredicted(0)]
+                [BelowElectoralThreshold]
                 [NumberOfSeats(0)]
-                [VotePercentage(2.44)]
+                [VotePercentage(2.72)]
                 ReservistsNewEconomicParty,
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
                 [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
                 [NumberOfSeatsIPredicted(7)]
-                [NumberOfSeats(7)]
-                [VotePercentage(5.36)]
+                [NumberOfSeats(6)]
+                [VotePercentage(5.26)]
                 Shas,
 
                 /// <summary>
@@ -949,7 +954,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.GolanYair)]
                 [NumberOfSeatsIPredicted(6)]
                 [NumberOfSeats(8)]
-                [VotePercentage(6.57)]
+                [VotePercentage(6.44)]
                 TheDemocrats,
 
                 /// <summary>
@@ -961,7 +966,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
                 [NumberOfSeatsIPredicted(11)]
                 [NumberOfSeats(12)]
-                [VotePercentage(9.08)]
+                [VotePercentage(9.34)]
                 Together,
 
                 /// <summary>
@@ -969,15 +974,15 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(4)]
-                [NumberOfSeats(7)]
-                [VotePercentage(9.08)]
+                [NumberOfSeats(8)]
+                [VotePercentage(5.93)]
                 Raʼam,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
                 [NumberOfSeatsIPredicted(6)]
                 [NumberOfSeats(7)]
-                [VotePercentage(5.75)]
+                [VotePercentage(5.49)]
                 UnitedTorahJudaism,
 
                 /// <summary>
@@ -989,7 +994,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
                 [NumberOfSeatsIPredicted(21)]
                 [NumberOfSeats(21)]
-                [VotePercentage(16.34)]
+                [VotePercentage(16.05)]
                 Yashar,
 
                 [Zionist]
@@ -997,7 +1002,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
                 [NumberOfSeatsIPredicted(10)]
                 [NumberOfSeats(7)]
-                [VotePercentage(6.01)]
+                [VotePercentage(5.93)]
                 YisraelBeiteinu,
             }
 
@@ -1096,24 +1101,32 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalParties((int)PoliticalParties.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [JointListNumberOfSeatsIPredicted(9)]
+                [JointListNumberOfSeats(11)]
+                [JointListVotePercentage(8.79)]
                 JointList,
 
                 [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
                 [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
                 [JointListNumberOfSeatsIPredicted(6)]
+                [JointListNumberOfSeats(6)]
+                [JointListVotePercentage(5.10)]
                 ReligiousZionistPartyZehut,
 
                 [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
                 [PoliticalParties((int)PoliticalParties.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
                 [JointListNumberOfSeatsIPredicted(0)]
+                [JointListNumberOfSeats(0)]
+                [JointListVotePercentage(2.72)]
                 ReservistsNewEconomicParty,
 
                 [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
                 [PoliticalParties((int)PoliticalParties.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
                 [JointListNumberOfSeatsIPredicted(11)]
+                [JointListNumberOfSeats(12)]
+                [JointListVotePercentage(9.34)]
                 Together,
 
                 /// <summary>
@@ -1123,6 +1136,8 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
                 [JointListNumberOfSeatsIPredicted(6)]
+                [JointListNumberOfSeats(7)]
+                [JointListVotePercentage(5.49)]
                 UnitedTorahJudaism,
             }
 
@@ -1225,32 +1240,68 @@ namespace Existence.Earth.Countries.Israel.Politics
             }
 
             /// <summary>
-            /// surplus vote agreements signed by the 2026-10-16 deadline, with one PoliticalParties attribute per side.
-            /// Listed in the order reported before the election; reorder by combined votes once results are in, as in
-            /// v25's LeftoverSeatDistribution. The agreement between two minor lists (Eternal Covenant and Fixing the
-            /// Electoral and Governing System) is left out, since neither is in PoliticalParties
+            /// how the leftover seats were distributed. Surplus vote agreements signed by the 2026-10-16 deadline come
+            /// first, ordered by the combined votes of both sides, with one PoliticalParties attribute per side. Lists
+            /// that passed the threshold without an agreement follow, ordered by votes. The agreement between two minor
+            /// lists (Eternal Covenant and Fixing the Electoral and Governing System) is left out, since neither is in
+            /// PoliticalParties and both fell below the threshold. Under the Bader-Ofer method, the lists that passed the
+            /// threshold had 5,382,786 votes between them, for a quota of about 44,857 votes per seat. Whole quotas filled
+            /// 115 seats, and the 5 leftover seats went one at a time to the list (or pair of lists in an agreement) with
+            /// the highest votes per seat if it got one more, then within a pair to the list with the higher average:
+            /// 116th: UTJ + Shas -> UTJ
+            /// 117th: Together + Yisrael Beiteinu -> Together
+            /// 118th: Likud + Religious Zionist Party-Zehut -> Likud
+            /// 119th: Yashar + The Democrats -> Yashar
+            /// 120th: Joint List + Ra'am -> Ra'am
+            /// Without any agreements, the 120th seat would have gone to Shas instead of Ra'am.
             /// </summary>
-            public static class SurplusVoteAgreements
+            public static class LeftoverSeatDistribution
             {
-                [PoliticalParties((int)PoliticalParties.Together)]
-                [PoliticalParties((int)PoliticalParties.YisraelBeiteinu)]
+                /// <summary>
+                /// surplus vote agreement, 1,457,909 combined votes. One leftover seat (118th) went to Likud: Likud 26 -> 27,
+                /// Religious Zionist Party-Zehut stayed at 6
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.Likud)]
+                [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
                 public static class No1 { }
 
+                /// <summary>
+                /// surplus vote agreement, 1,279,854 combined votes. One leftover seat (119th) went to Yashar: Yashar 20 -> 21,
+                /// The Democrats stayed at 8
+                /// </summary>
                 [PoliticalParties((int)PoliticalParties.Yashar)]
                 [PoliticalParties((int)PoliticalParties.TheDemocrats)]
                 public static class No2 { }
 
-                [PoliticalParties((int)PoliticalParties.JointList)]
-                [PoliticalParties((int)PoliticalParties.Raʼam)]
+                /// <summary>
+                /// surplus vote agreement, 868,889 combined votes. One leftover seat (117th) went to Together: Together
+                /// 11 -> 12, Yisrael Beiteinu stayed at 7
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.Together)]
+                [PoliticalParties((int)PoliticalParties.YisraelBeiteinu)]
                 public static class No3 { }
 
-                [PoliticalParties((int)PoliticalParties.Likud)]
-                [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
+                /// <summary>
+                /// surplus vote agreement, 837,400 combined votes. One leftover seat (120th) went to Ra'am: Ra'am 7 -> 8,
+                /// Joint List stayed at 11
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.JointList)]
+                [PoliticalParties((int)PoliticalParties.Raʼam)]
                 public static class No4 { }
 
+                /// <summary>
+                /// surplus vote agreement, 612,110 combined votes. One leftover seat (116th) went to UTJ: UTJ 6 -> 7, Shas
+                /// stayed at 6
+                /// </summary>
                 [PoliticalParties((int)PoliticalParties.Shas)]
                 [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
                 public static class No5 { }
+
+                /// <summary>
+                /// no agreement, 326,624 votes. Got no leftover seat, staying at 7
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.OtzmaYehudit)]
+                public static class No6 { }
             }
         }
     }
