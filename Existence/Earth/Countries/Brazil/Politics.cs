@@ -21,10 +21,17 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 3, 0, 0)]
         [YearDate(2026, 11, 6)]
         AddPresidentsSince1989Election,
+
+        [BeyondObjectVersion(1, 4, 0, 0)]
+        [YearDate(2026, 11, 6)]
+        AddPresidentialElectionsSince1989,
     }
 
     public enum Politicians
     {
+        [Gender(Gender.Male)]
+        AlckminGeraldo,
+
         [Gender(Gender.Male)]
         [Father((int)Politicians.BolsonaroJair)]
         BolsonaroFlávio,
@@ -32,6 +39,9 @@ namespace Existence.Earth.Countries.Politics
         [Gender(Gender.Male)]
         [Child((int)Politicians.BolsonaroFlávio)]
         BolsonaroJair,
+
+        [Gender(Gender.Male)]
+        BrizolaLeonel,
 
         [Gender(Gender.Male)]
         CardosoFernandoHenrique,
@@ -52,16 +62,31 @@ namespace Existence.Earth.Countries.Politics
         FrancoItamar,
 
         [Gender(Gender.Male)]
+        GarotinhoAnthony,
+
+        [Gender(Gender.Male)]
         GomesCiro,
         
         [Gender(Gender.Male)]
         HaddadFernando,
+
+        [Gender(Gender.Female)]
+        HelenaHeloísa,
+
+        [Gender(Gender.Male)]
+        NevesAécio,
         
         [Gender(Gender.Male)]
         PenaAfonso,
 
         [Gender(Gender.Female)]
         RousseffDilma,
+
+        [Gender(Gender.Male)]
+        SerraJosé,
+
+        [Gender(Gender.Female)]
+        SilvaMarina,
         
         [Gender(Gender.Female)]
         TebetSimoneNassar,
@@ -156,13 +181,81 @@ namespace Existence.Earth.Countries.Politics
             [Omitted]public static class v1974 { }
             [Omitted]public static class v1978 { }
             [Omitted]public static class v1985 { }
-            [Omitted]public static class v1989 { }
-            [Omitted]public static class v1994 { }
-            [Omitted]public static class v1998 { }
-            [Omitted]public static class v2002 { }
-            [Omitted]public static class v2006 { }
-            [Omitted]public static class v2010 { }
-            [Omitted]public static class v2014 { }
+
+            /// <summary>
+            /// first election where <see cref="Politicians.daSilvaLula"/> was a candidate
+            /// </summary>
+            public static class v1989
+            {
+                [YearDate(1989, 11, 15)]
+                [AmbiguousRunoffElectionResult((int)Politicians.CollorFernando, 30.48, (int)Politicians.daSilvaLula, 17.19, (int)Politicians.BrizolaLeonel, 16.51)]
+                public static class FirstRound { }
+
+                [YearDate(1989, 12, 17)]
+                [HeadToHeadElectionResult((int)Politicians.CollorFernando, 53.03, (int)Politicians.daSilvaLula, 46.97)]
+                public static class SecondRound { }
+            }
+
+            /// <summary>
+            /// won a majority in the first round, so no second round was held
+            /// </summary>
+            [YearDate(1994, 10, 3)]
+            [HeadToHeadElectionResult((int)Politicians.CardosoFernandoHenrique, 54.28, (int)Politicians.daSilvaLula, 27.04)]
+            public static class v1994 { }
+
+            /// <summary>
+            /// won a majority in the first round, so no second round was held
+            /// </summary>
+            [Incumbent((int)Politicians.CardosoFernandoHenrique)]
+            [YearDate(1998, 10, 4)]
+            [HeadToHeadElectionResult((int)Politicians.CardosoFernandoHenrique, 53.06, (int)Politicians.daSilvaLula, 31.71)]
+            public static class v1998 { }
+
+            public static class v2002
+            {
+                [YearDate(2002, 10, 6)]
+                [AmbiguousRunoffElectionResult((int)Politicians.daSilvaLula, 46.44, (int)Politicians.SerraJosé, 23.20, (int)Politicians.GarotinhoAnthony, 17.87)]
+                public static class FirstRound { }
+
+                [YearDate(2002, 10, 27)]
+                [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 61.27, (int)Politicians.SerraJosé, 38.73)]
+                public static class SecondRound { }
+            }
+
+            [Incumbent((int)Politicians.daSilvaLula)]
+            public static class v2006
+            {
+                [YearDate(2006, 10, 1)]
+                [AmbiguousRunoffElectionResult((int)Politicians.daSilvaLula, 48.61, (int)Politicians.AlckminGeraldo, 41.64, (int)Politicians.HelenaHeloísa, 6.85)]
+                public static class FirstRound { }
+
+                [YearDate(2006, 10, 29)]
+                [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 60.83, (int)Politicians.AlckminGeraldo, 39.17)]
+                public static class SecondRound { }
+            }
+
+            public static class v2010
+            {
+                [YearDate(2010, 10, 3)]
+                [AmbiguousRunoffElectionResult((int)Politicians.RousseffDilma, 46.91, (int)Politicians.SerraJosé, 32.61, (int)Politicians.SilvaMarina, 19.33)]
+                public static class FirstRound { }
+
+                [YearDate(2010, 10, 31)]
+                [HeadToHeadElectionResult((int)Politicians.RousseffDilma, 56.05, (int)Politicians.SerraJosé, 43.95)]
+                public static class SecondRound { }
+            }
+
+            [Incumbent((int)Politicians.RousseffDilma)]
+            public static class v2014
+            {
+                [YearDate(2014, 10, 5)]
+                [AmbiguousRunoffElectionResult((int)Politicians.RousseffDilma, 41.59, (int)Politicians.NevesAécio, 33.55, (int)Politicians.SilvaMarina, 21.32)]
+                public static class FirstRound { }
+
+                [YearDate(2014, 10, 26)]
+                [HeadToHeadElectionResult((int)Politicians.RousseffDilma, 51.64, (int)Politicians.NevesAécio, 48.36)]
+                public static class SecondRound { }
+            }
 
             public static class v2018
             {
