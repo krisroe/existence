@@ -490,6 +490,38 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// why the politician holding the office didn't run in the election to fill it
+    /// </summary>
+    public enum IncumbentNotRunningReason
+    {
+        /// <summary>
+        /// barred by a legal limit on consecutive terms, including a ban on any immediate reelection, which also covers a
+        /// politician who inherited the office without winning an election for it
+        /// </summary>
+        TermLimited,
+
+        /// <summary>
+        /// no term limit stood in the way, and the politician chose not to run, whether voluntarily or under pressure
+        /// </summary>
+        DeclinedToRun,
+    }
+
+    /// <summary>
+    /// the politician holding the office didn't run in the election. Use instead of IncumbentAttribute, which is for an
+    /// incumbent who ran
+    /// </summary>
+    public class IncumbentNotRunningAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public IncumbentNotRunningReason Reason { get; set; }
+        public IncumbentNotRunningAttribute(int Politician, IncumbentNotRunningReason Reason)
+        {
+            this.Politician = Politician;
+            this.Reason = Reason;
+        }
+    }
+
+    /// <summary>
     /// the politician lost the election and did not publicly concede
     /// </summary>
     public class DidNotConcedeAttribute : Attribute

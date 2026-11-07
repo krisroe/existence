@@ -166,6 +166,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         /// open seat, Doyle did not seek a third term
         /// </summary>
         [YearDate(2010, 11, 2)]
+        [IncumbentNotRunning((int)WisconsinPoliticians.DoyleJim, IncumbentNotRunningReason.DeclinedToRun)]
         [HeadToHeadElectionResult((int)WisconsinPoliticians.WalkerScott, 52.25, (int)WisconsinPoliticians.BarrettTom, 46.48)]
         [ElectionNightConcession((int)WisconsinPoliticians.BarrettTom)]
         public static class v2010 { }
@@ -200,6 +201,7 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         /// primary, Tiffany won the Republican primary easily
         /// </summary>
         [YearDate(2026, 11, 3)]
+        [IncumbentNotRunning((int)WisconsinPoliticians.EversTony, IncumbentNotRunningReason.DeclinedToRun)]
         [HeadToHeadElectionCandidates((int)WisconsinPoliticians.CrowleyDavid, (int)WisconsinPoliticians.TiffanyTom)]
         [IVotedForPolitician((int)WisconsinPoliticians.CrowleyDavid, "This is the first time I ever voted for a Democrat in a general election")]
         [IPredictedElectionWinner((int)WisconsinPoliticians.CrowleyDavid, Correctness.Correct, "Trump's impact on the election is more powerful than the usual anti-incumbent (party) bias")]

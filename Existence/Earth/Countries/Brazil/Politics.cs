@@ -25,6 +25,10 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 4, 0, 0)]
         [YearDate(2026, 11, 6)]
         AddPresidentialElectionsSince1989,
+
+        [BeyondObjectVersion(1, 5, 0, 0)]
+        [YearDate(2026, 11, 6)]
+        AddIncumbentsNotRunning,
     }
 
     public enum Politicians
@@ -75,12 +79,18 @@ namespace Existence.Earth.Countries.Politics
 
         [Gender(Gender.Male)]
         NevesAécio,
+
+        [Gender(Gender.Male)]
+        PeixotoFloriano,
         
         [Gender(Gender.Male)]
         PenaAfonso,
 
         [Gender(Gender.Female)]
         RousseffDilma,
+
+        [Gender(Gender.Male)]
+        SarneyJosé,
 
         [Gender(Gender.Male)]
         SerraJosé,
@@ -156,6 +166,7 @@ namespace Existence.Earth.Countries.Politics
         /// </summary>
         public static class Presidential
         {
+            [IncumbentNotRunning((int)Politicians.PeixotoFloriano, IncumbentNotRunningReason.TermLimited)]
             [YearDate(1894, 3, 1)]
             [HeadToHeadElectionResult((int)Politicians.deMoraisPrudente, 80.15, (int)Politicians.PenaAfonso, 11.10)]
             public static class v1894 { }
@@ -185,6 +196,7 @@ namespace Existence.Earth.Countries.Politics
             /// <summary>
             /// first election where <see cref="Politicians.daSilvaLula"/> was a candidate
             /// </summary>
+            [IncumbentNotRunning((int)Politicians.SarneyJosé, IncumbentNotRunningReason.TermLimited)]
             public static class v1989
             {
                 [YearDate(1989, 11, 15)]
@@ -199,6 +211,7 @@ namespace Existence.Earth.Countries.Politics
             /// <summary>
             /// won a majority in the first round, so no second round was held
             /// </summary>
+            [IncumbentNotRunning((int)Politicians.FrancoItamar, IncumbentNotRunningReason.TermLimited)]
             [YearDate(1994, 10, 3)]
             [HeadToHeadElectionResult((int)Politicians.CardosoFernandoHenrique, 54.28, (int)Politicians.daSilvaLula, 27.04)]
             public static class v1994 { }
@@ -211,6 +224,7 @@ namespace Existence.Earth.Countries.Politics
             [HeadToHeadElectionResult((int)Politicians.CardosoFernandoHenrique, 53.06, (int)Politicians.daSilvaLula, 31.71)]
             public static class v1998 { }
 
+            [IncumbentNotRunning((int)Politicians.CardosoFernandoHenrique, IncumbentNotRunningReason.TermLimited)]
             public static class v2002
             {
                 [YearDate(2002, 10, 6)]
@@ -234,6 +248,7 @@ namespace Existence.Earth.Countries.Politics
                 public static class SecondRound { }
             }
 
+            [IncumbentNotRunning((int)Politicians.daSilvaLula, IncumbentNotRunningReason.TermLimited)]
             public static class v2010
             {
                 [YearDate(2010, 10, 3)]
@@ -257,6 +272,13 @@ namespace Existence.Earth.Countries.Politics
                 public static class SecondRound { }
             }
 
+            /// <summary>
+            /// <see cref="Politicians.TemerMichel"/> gave up his reelection plan on 2018-05-22 with approval around 4%,
+            /// under pressure from his party, and backed Henrique Meirelles. A 2016 regional electoral court conviction
+            /// over campaign donations could have made him ineligible, which would only have been tested if he had
+            /// registered as a candidate
+            /// </summary>
+            [IncumbentNotRunning((int)Politicians.TemerMichel, IncumbentNotRunningReason.DeclinedToRun)]
             public static class v2018
             {
                 [YearDate(2018, 10, 7)]
