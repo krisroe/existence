@@ -29,6 +29,10 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// a leader of the political party. Apply once per leader, for parties with co-leaders
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class PoliticalPartyLeaderAttribute : Attribute
     {
         public int Politician { get; set; }
@@ -128,6 +132,33 @@ namespace Existence.Earth.Countries
     {
         public int NumberOfSeats { get; set; }
         public NumberOfSeatsAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
+    /// number of seats the political party won from its party list, in a mixed-member proportional system. These top up
+    /// its <see cref="NumberOfElectorateSeatsAttribute"/> seats to its proportional share of the vote, so
+    /// <see cref="NumberOfSeatsAttribute"/> is the sum of the two
+    /// </summary>
+    public class NumberOfProportionalSeatsAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public NumberOfProportionalSeatsAttribute(int NumberOfSeats)
+        {
+            this.NumberOfSeats = NumberOfSeats;
+        }
+    }
+
+    /// <summary>
+    /// number of seats the political party won by winning electorates, in a mixed-member proportional system. See
+    /// <see cref="NumberOfProportionalSeatsAttribute"/>
+    /// </summary>
+    public class NumberOfElectorateSeatsAttribute : Attribute
+    {
+        public int NumberOfSeats { get; set; }
+        public NumberOfElectorateSeatsAttribute(int NumberOfSeats)
         {
             this.NumberOfSeats = NumberOfSeats;
         }
