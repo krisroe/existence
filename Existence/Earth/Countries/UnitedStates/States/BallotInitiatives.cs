@@ -2520,7 +2520,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.LRCA)]
-                [BallotMeasurePassFail(BallotMeasureResult.Future)]
+                [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.AdministrativeOrganization)]
                 public static class EliminateOfficeOfRegisterOfProbateAmendment { }
             }
@@ -2981,7 +2981,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.BI)]
-                [BallotMeasurePassFail(BallotMeasureResult.Future)]
+                [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.BondIssues)]
                 public static class Question3 { }
 
@@ -3330,7 +3330,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
-                [BallotMeasurePassFail(BallotMeasureResult.Future)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.AthleticsAndSports, BallotInitiativeSubjects.PublicEducationGovernance, BallotInitiativeSubjects.SexAndGenderIssues, BallotInitiativeSubjects.LGBTQIssues)]
                 public static class Initiative638 { }
 
