@@ -48,7 +48,7 @@
             public static class Entity { }
             public class Equation { }
             public static class Intuition { }
-            public static class Math { }
+            public static class Mathematics { }
         }
     }
     public static class Fact { }
@@ -69,7 +69,7 @@
     public static class Joke { }
     public static class Life { }
     public static class Magic { }
-    public static class Math { }
+    public static class Mathematics { }
     public static class Meta
     {
         public abstract class Physics { }
