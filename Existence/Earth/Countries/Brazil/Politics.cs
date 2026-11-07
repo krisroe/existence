@@ -29,6 +29,10 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 5, 0, 0)]
         [YearDate(2026, 11, 6)]
         AddIncumbentsNotRunning,
+
+        [BeyondObjectVersion(1, 6, 0, 0)]
+        [YearDate(2026, 11, 6)]
+        AddNoteAboutFlávioBolsonaroFleeingCountryAndMyIncorrectPredictionHeWouldWin,
     }
 
     public enum Politicians
@@ -321,8 +325,14 @@ namespace Existence.Earth.Countries.Politics
                 [AmbiguousRunoffElectionResult((int)Politicians.BolsonaroFlávio, 47.03, (int)Politicians.daSilvaLula, 45.16, (int)Politicians.CuryAugustoJorge, 2.89)]
                 public static class FirstRound { }
 
+                /// <summary>
+                /// post-election timeline
+                /// October 26: Supreme Court Justice Alexandre de Moraes ordered the election loser to surrender his passports and prohibited him from leaving Brazil.
+                /// October 27: The election loser failed to surrender his passports. Brazilian authorities canceled them. He crossed into Argentina with his wife and daughters.
+                /// October 28: The election loser arrived in Miami aboard a private aircraft after traveling through Ecuador. Brazilian Federal Police confirmed they were investigating the circumstances of his departure.
+                /// </summary>
                 [IRootedFor((int)Politicians.BolsonaroFlávio)]
-                [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio)]
+                [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio, Correctness.Incorrect, "I believed the candidate would be more reasonable about conceding the election if he lost than his father, but there's no way to test that theory because he fled the country.")]
                 [YearDate(2026, 10, 25)]
                 [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 51.79, (int)Politicians.BolsonaroFlávio, 48.21)]
                 [VoteValidity(validPercent: 96.76, invalidPercent: 2.12, blankPercent: 1.12)]
