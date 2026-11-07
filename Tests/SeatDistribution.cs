@@ -11,6 +11,10 @@ namespace Existence.Tests
     [TestClass]
     public class SeatDistributionTest
     {
+        private const int knessetNumberOfSeats = 120;
+
+        private const decimal knessetV25ElectoralThreshold = 3.25m;
+
         /// <summary>
         /// votes for each list in the 2022 Knesset election. Other lumps together the minor lists, each far below the
         /// electoral threshold
@@ -48,7 +52,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateKnessetV25SeatDistribution()
         {
-            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements);
+            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold);
             Assert.AreEqual(4347342, r.QualifyingVotes);
             CollectionAssert.AreEquivalent(new[] { "Meretz", "Balad", "TheJewishHome", "Other" }, r.PoliticalPartiesBelowElectoralThreshold);
             CollectionAssert.AreEqual(new[] { ("Labor", "Meretz") }, r.AnnulledSurplusVoteAgreements);
@@ -89,7 +93,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateKnessetV25SeatDistributionWithoutSurplusVoteAgreements()
         {
-            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, new List<(string, string)>());
+            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, new List<(string, string)>(), knessetNumberOfSeats, knessetV25ElectoralThreshold);
             Assert.AreEqual(0, r.AnnulledSurplusVoteAgreements.Count);
             Assert.AreEqual("Labor", r.LeftoverSeats.Last().PoliticalParty);
             Assert.AreEqual(31, r.Seats["Likud"]);

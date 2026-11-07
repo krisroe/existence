@@ -110,16 +110,17 @@ namespace Existence.Earth.Human.Politics
         /// party gets a base seat per whole quota of qualifying votes. Leftover seats then go one at a time to the party
         /// or surplus vote agreement with the most votes per seat if it got one more, and within an agreement to the party
         /// with the most votes per seat if it got one more. Ties go to the side with more votes. Surplus vote agreements
-        /// are an addition to plain d'Hondt, so pass none to get plain d'Hondt. The default number of seats and electoral
-        /// threshold are the Knesset's
+        /// are an addition to plain d'Hondt, so pass none to get plain d'Hondt
         /// </summary>
         /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        public static SeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats = 120, decimal ElectoralThreshold = 3.25m)
+        public static SeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
         {
+            if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
+
             SeatDistribution r = new SeatDistribution();
             r.TotalVotes = NumberOfVotes.Values.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));

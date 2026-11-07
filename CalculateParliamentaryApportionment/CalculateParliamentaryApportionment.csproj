@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+  <ImplicitUsings>disable</ImplicitUsings>
+  <LangVersion>latest</LangVersion>
+  <Nullable>enable</Nullable>
+  <OutputType>Exe</OutputType>
+  <TargetFramework>net10.0</TargetFramework>
+ </PropertyGroup>
+ <ItemGroup>
+  <ProjectReference Include="..\Existence\Existence.csproj" />
+ </ItemGroup>
+</Project>
