@@ -159,7 +159,8 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
-    /// the political party's list fell below the electoral threshold and won no seats
+    /// the political party's list fell below the electoral threshold and won no seats, so it has no
+    /// <see cref="NumberOfSeatsAttribute"/>
     /// </summary>
     public class BelowElectoralThresholdAttribute : Attribute
     {

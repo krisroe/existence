@@ -150,13 +150,34 @@ namespace Existence.Tests
 
         /// <summary>
         /// validates that in each Knesset with results, the seats the political parties won add up to the number of
-        /// members of the Knesset. Every political party that didn't withdraw from the election needs a NumberOfSeats
-        /// attribute once any of them has one
+        /// members of the Knesset. Every political party that didn't withdraw from the election or fall below the electoral
+        /// threshold needs a NumberOfSeats attribute once any of them has one
         /// </summary>
         [TestMethod]
         public void ValidateKnessetSeatsByPoliticalParty()
         {
-            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsAttribute>(a => a.NumberOfSeats);
+            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsAttribute>(a => a.NumberOfSeats, f => f.GetCustomAttribute<BelowElectoralThresholdAttribute>() == null);
+        }
+
+        /// <summary>
+        /// validates that no political party below the electoral threshold has a NumberOfSeats attribute, since the
+        /// BelowElectoralThreshold attribute already means it won no seats
+        /// </summary>
+        [TestMethod]
+        public void ValidateBelowElectoralThresholdHasNoNumberOfSeats()
+        {
+            int iBelowElectoralThreshold = 0;
+            foreach (Type knesset in typeof(Knesset).GetNestedTypes())
+            {
+                Type? politicalParties = knesset.GetNestedType("PoliticalParties");
+                if (politicalParties == null) continue;
+                foreach (FieldInfo field in politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static).Where(f => f.GetCustomAttribute<BelowElectoralThresholdAttribute>() != null))
+                {
+                    iBelowElectoralThreshold++;
+                    Assert.IsNull(field.GetCustomAttribute<NumberOfSeatsAttribute>(), $"Knesset.{knesset.Name}.PoliticalParties.{field.Name} has both BelowElectoralThreshold and NumberOfSeats attributes");
+                }
+            }
+            Assert.IsTrue(iBelowElectoralThreshold > 0, "no BelowElectoralThreshold attributes found");
         }
 
         /// <summary>
@@ -167,7 +188,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateKnessetPredictedSeatsByPoliticalParty()
         {
-            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsIPredictedAttribute>(a => a.NumberOfSeats);
+            ValidateSeatsAddUpByPoliticalParty<NumberOfSeatsIPredictedAttribute>(a => a.NumberOfSeats, f => true);
         }
 
         /// <summary>
@@ -255,10 +276,11 @@ namespace Existence.Tests
 
         /// <summary>
         /// validates that in each Knesset where any political party has a T attribute, every political party that didn't
-        /// withdraw from the election has one, and that the seats they give add up to the number of members of the
-        /// Knesset. getNumberOfSeats reads the seats from the attribute, since the seat attributes share no base class
+        /// withdraw from the election and that needsAttribute accepts has one, and that the seats they give add up to the
+        /// number of members of the Knesset. getNumberOfSeats reads the seats from the attribute, since the seat attributes
+        /// share no base class
         /// </summary>
-        private static void ValidateSeatsAddUpByPoliticalParty<T>(Func<T, int> getNumberOfSeats) where T : Attribute
+        private static void ValidateSeatsAddUpByPoliticalParty<T>(Func<T, int> getNumberOfSeats, Func<FieldInfo, bool> needsAttribute) where T : Attribute
         {
             string sAttribute = typeof(T).Name.Substring(0, typeof(T).Name.Length - nameof(Attribute).Length);
             int iKnessets = 0;
@@ -267,7 +289,7 @@ namespace Existence.Tests
                 Type? politicalParties = knesset.GetNestedType("PoliticalParties");
                 if (politicalParties == null) continue;
                 List<FieldInfo> fields = politicalParties.GetFields(BindingFlags.Public | BindingFlags.Static)
-                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null)
+                    .Where(f => f.GetCustomAttribute<WithdrewAttribute>() == null && needsAttribute(f))
                     .ToList();
                 if (!fields.Any(f => f.GetCustomAttribute<T>() != null)) continue;
                 iKnessets++;
@@ -304,6 +326,7 @@ namespace Existence.Tests
 
         private static int GetNumberOfSeats(FieldInfo field)
         {
+            if (field.GetCustomAttribute<BelowElectoralThresholdAttribute>() != null) return 0;
             NumberOfSeatsAttribute? seats = field.GetCustomAttribute<NumberOfSeatsAttribute>();
             Assert.IsNotNull(seats, $"{field.DeclaringType!.Name}.{field.Name} has no NumberOfSeats attribute");
             return seats.NumberOfSeats;

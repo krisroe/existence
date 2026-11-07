@@ -635,7 +635,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.GalonZehava)]
                 [VotePercentage(3.16)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 Meretz,
 
                 /// <summary>
@@ -647,7 +646,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.ShakedAyelet)]
                 [VotePercentage(1.19)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 TheJewishHome,
 
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
@@ -672,7 +670,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
                 [VotePercentage(2.91)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 Balad,
             }
 
@@ -865,7 +862,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
                 [NumberOfSeatsIPredicted(0)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 [VotePercentage(1.68)]
                 AmchaYisrael,
 
@@ -907,7 +903,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
                 [NumberOfSeatsIPredicted(0)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 [VotePercentage(0.17)]
                 Noam,
 
@@ -934,7 +929,6 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
                 [NumberOfSeatsIPredicted(0)]
                 [BelowElectoralThreshold]
-                [NumberOfSeats(0)]
                 [VotePercentage(2.72)]
                 ReservistsNewEconomicParty,
 
