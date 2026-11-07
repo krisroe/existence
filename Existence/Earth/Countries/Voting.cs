@@ -658,9 +658,13 @@ namespace Existence.Earth.Countries
     public class NumberOfSeatsIPredictedAttribute : Attribute
     {
         public int NumberOfSeats { get; set; }
-        public NumberOfSeatsIPredictedAttribute(int NumberOfSeats)
+        public Correctness Correctness { get; set; }
+        public string? Explanation { get; set; }
+        public NumberOfSeatsIPredictedAttribute(int NumberOfSeats, Correctness Correctness, string? Explanation = null)
         {
             this.NumberOfSeats = NumberOfSeats;
+            this.Correctness = Correctness;
+            this.Explanation = Explanation;
         }
     }
 

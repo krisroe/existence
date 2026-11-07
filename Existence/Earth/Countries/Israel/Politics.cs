@@ -1,4 +1,4 @@
-﻿using Existence.Earth.FieldsOfStudy.Mathematics;
+﻿using Existence.Beyond.Infrastructure;
 using Existence.Earth.Human;
 using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.EthnicGroups.Jewish.Level1;
@@ -10,6 +10,12 @@ using System;
 
 namespace Existence.Earth.Countries.Israel.Politics
 {
+    public class Constants
+    {
+        public const string I_SIGNIFICANTLY_UNDERESTIMATED_ARAB_PARTIES_STRENGTH = "I significantly underestimated the strength of the Arab parties";
+        public const string MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE = "My numbers were based on exit polling that was inaccurate";
+    }
+
     public class ZionistAttribute : Attribute
     {
     }
@@ -860,7 +866,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.WinterOfer)]
-                [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeatsIPredicted(0, Correctness.Correct)]
                 [BelowElectoralThreshold]
                 [VotePercentage(1.68)]
                 AmchaYisrael,
@@ -879,7 +885,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
-                [NumberOfSeatsIPredicted(9)]
+                [NumberOfSeatsIPredicted(9, Correctness.Incorrect, Constants.I_SIGNIFICANTLY_UNDERESTIMATED_ARAB_PARTIES_STRENGTH)]
                 [NumberOfSeats(11)]
                 [VotePercentage(8.79)]
                 JointList,
@@ -890,7 +896,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
-                [NumberOfSeatsIPredicted(31)]
+                [NumberOfSeatsIPredicted(31, Correctness.Incorrect, "I significantly underestimated anti-government sentiment (I bumped the exit poll numbers downward but not enough)")]
                 [NumberOfSeats(27)]
                 [VotePercentage(20.52)]
                 Likud,
@@ -901,7 +907,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.MaozAvi)]
-                [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeatsIPredicted(0, Correctness.Correct)]
                 [BelowElectoralThreshold]
                 [VotePercentage(0.17)]
                 Noam,
@@ -909,7 +915,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
-                [NumberOfSeatsIPredicted(9)]
+                [NumberOfSeatsIPredicted(9, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(7)]
                 [VotePercentage(5.74)]
                 OtzmaYehudit,
@@ -918,7 +924,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
-                [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeatsIPredicted(6, Correctness.Correct)]
                 [NumberOfSeats(6)]
                 [VotePercentage(5.10)]
                 ReligiousZionistPartyZehut,
@@ -927,7 +933,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
-                [NumberOfSeatsIPredicted(0)]
+                [NumberOfSeatsIPredicted(0, Correctness.Correct)]
                 [BelowElectoralThreshold]
                 [VotePercentage(2.72)]
                 ReservistsNewEconomicParty,
@@ -935,7 +941,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
                 [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
-                [NumberOfSeatsIPredicted(7)]
+                [NumberOfSeatsIPredicted(7, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(6)]
                 [VotePercentage(5.26)]
                 Shas,
@@ -946,7 +952,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.GolanYair)]
-                [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeatsIPredicted(6, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(8)]
                 [VotePercentage(6.44)]
                 TheDemocrats,
@@ -958,7 +964,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [ZionistType(ZionistTypes.Ideological)]
                 [JointList((int)JointLists.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
-                [NumberOfSeatsIPredicted(11)]
+                [NumberOfSeatsIPredicted(11, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(12)]
                 [VotePercentage(9.34)]
                 Together,
@@ -967,14 +973,14 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// originally United Arab List
                 /// </summary>
                 [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
-                [NumberOfSeatsIPredicted(4)]
+                [NumberOfSeatsIPredicted(4, Correctness.Incorrect, Constants.I_SIGNIFICANTLY_UNDERESTIMATED_ARAB_PARTIES_STRENGTH)]
                 [NumberOfSeats(8)]
                 [VotePercentage(5.93)]
                 Raʼam,
 
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
-                [NumberOfSeatsIPredicted(6)]
+                [NumberOfSeatsIPredicted(6, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(7)]
                 [VotePercentage(5.49)]
                 UnitedTorahJudaism,
@@ -986,7 +992,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
-                [NumberOfSeatsIPredicted(21)]
+                [NumberOfSeatsIPredicted(21, Correctness.Correct)]
                 [NumberOfSeats(21)]
                 [VotePercentage(16.05)]
                 Yashar,
@@ -994,7 +1000,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
                 [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
-                [NumberOfSeatsIPredicted(10)]
+                [NumberOfSeatsIPredicted(10, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(7)]
                 [VotePercentage(5.93)]
                 YisraelBeiteinu,
