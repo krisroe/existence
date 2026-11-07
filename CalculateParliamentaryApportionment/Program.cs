@@ -122,13 +122,19 @@ namespace CalculateParliamentaryApportionment
                     r.AnnulledSurplusVoteAgreements.Select(a => new XElement(SurplusVoteAgreementElement, new XAttribute(Party1Attribute, a.Item1), new XAttribute(Party2Attribute, a.Item2)))),
                 BuildSeatCounts(nameof(SeatDistribution.BaseSeats), PoliticalPartyElement, r.BaseSeats),
                 new XElement(nameof(SeatDistribution.LeftoverSeats),
-                    r.LeftoverSeats.Select(s => new XElement(nameof(LeftoverSeat),
-                        new XAttribute(nameof(LeftoverSeat.SeatNumber), s.SeatNumber),
-                        new XAttribute(nameof(LeftoverSeat.PoliticalParty), s.PoliticalParty),
-                        new XAttribute(nameof(LeftoverSeat.VotesPerSeat), s.VotesPerSeat),
-                        s.Recipients.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p)))))),
+                    r.LeftoverSeats.Select(s => BuildLeftoverSeat(nameof(LeftoverSeat), s))),
                 BuildSeatCounts(nameof(SeatDistribution.LeftoverSeatsByRecipient), RecipientElement, r.LeftoverSeatsByRecipient),
-                BuildSeatCounts(nameof(SeatDistribution.Seats), PoliticalPartyElement, r.Seats));
+                BuildSeatCounts(nameof(SeatDistribution.Seats), PoliticalPartyElement, r.Seats),
+                BuildLeftoverSeat(nameof(SeatDistribution.NextLeftoverSeat), r.NextLeftoverSeat));
+        }
+
+        private static XElement BuildLeftoverSeat(string sElement, LeftoverSeat s)
+        {
+            return new XElement(sElement,
+                new XAttribute(nameof(LeftoverSeat.SeatNumber), s.SeatNumber),
+                new XAttribute(nameof(LeftoverSeat.PoliticalParty), s.PoliticalParty),
+                new XAttribute(nameof(LeftoverSeat.VotesPerSeat), s.VotesPerSeat),
+                s.Recipients.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p))));
         }
 
         private static XElement BuildSeatCounts(string sElement, string sChildElement, Dictionary<string, int> seats)

@@ -100,5 +100,41 @@ namespace Existence.Tests
             Assert.AreEqual(5, r.Seats["Labor"]);
             Assert.AreEqual(120, r.Seats.Values.Sum());
         }
+
+        /// <summary>
+        /// validates that the 2022 Knesset election's next leftover seat would go to United Torah Judaism, through its
+        /// surplus vote agreement with Shas
+        /// </summary>
+        [TestMethod]
+        public void ValidateKnessetV25NextLeftoverSeat()
+        {
+            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold);
+            Assert.AreEqual(121, r.NextLeftoverSeat.SeatNumber);
+            CollectionAssert.AreEqual(new[] { "Shas", "UnitedTorahJudaism" }, r.NextLeftoverSeat.Recipients);
+            Assert.AreEqual("UnitedTorahJudaism", r.NextLeftoverSeat.PoliticalParty);
+            Assert.AreEqual(673158m / 19, r.NextLeftoverSeat.VotesPerSeat);
+            Assert.AreEqual(120, r.Seats.Values.Sum());
+        }
+
+        /// <summary>
+        /// validates that the next leftover seat gives the same result as recalculating with more seats, even though
+        /// more seats lower the quota and change how many of them are base seats
+        /// </summary>
+        [TestMethod]
+        [DataRow(true)]
+        [DataRow(false)]
+        public void ValidateNextLeftoverSeatMatchesRecalculatingWithOneMoreSeat(bool useSurplusVoteAgreements)
+        {
+            List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
+            for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
+            {
+                SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold);
+                SeatDistribution withOneMoreSeat = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats + 1, knessetV25ElectoralThreshold);
+
+                Dictionary<string, int> expectedSeats = new Dictionary<string, int>(r.Seats);
+                expectedSeats[r.NextLeftoverSeat.PoliticalParty]++;
+                CollectionAssert.AreEquivalent(expectedSeats, withOneMoreSeat.Seats, $"going from {iSeats} seats to {iSeats + 1}");
+            }
+        }
     }
 }

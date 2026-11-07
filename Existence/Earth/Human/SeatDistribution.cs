@@ -97,6 +97,13 @@ namespace Existence.Earth.Human.Politics
         /// total seats for each party that passed the electoral threshold
         /// </summary>
         public Dictionary<string, int> Seats { get; set; } = new Dictionary<string, int>();
+
+        /// <summary>
+        /// the leftover seat that would be given out next if the parliament had one more seat, which isn't included in
+        /// <see cref="Seats"/>. The result is the same as recalculating with one more seat: that lowers the quota and can
+        /// turn leftover seats into base seats, but under the d'Hondt method no existing seat changes hands
+        /// </summary>
+        public LeftoverSeat NextLeftoverSeat { get; set; } = null!;
     }
 
     public static class SeatDistributions
@@ -171,20 +178,27 @@ namespace Existence.Earth.Human.Politics
             recipients = recipients.OrderByDescending(a => a.Sum(p => NumberOfVotes[p])).ToList();
             foreach (string[] next in recipients) r.LeftoverSeatsByRecipient[string.Join(" + ", next)] = 0;
 
-            for (int iSeat = iBaseSeats + 1; iSeat <= NumberOfSeats; iSeat++)
+            LeftoverSeat PickLeftoverSeat(int iSeat)
             {
                 //apply the d'Hondt calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
                 string[] winner = PickHighestVotesPerNextSeat(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]));
 
                 //apply the d'Hondt calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
                 string sParty = PickHighestVotesPerNextSeat(winner.OrderByDescending(p => NumberOfVotes[p]), p => NumberOfVotes[p], p => r.Seats[p]);
-                
+
                 long lVotes = winner.Sum(p => NumberOfVotes[p]);
                 int iSeats = winner.Sum(p => r.Seats[p]);
-                r.LeftoverSeats.Add(new LeftoverSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1)));
-                r.LeftoverSeatsByRecipient[string.Join(" + ", winner)]++;
-                r.Seats[sParty]++;
+                return new LeftoverSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
             }
+
+            for (int iSeat = iBaseSeats + 1; iSeat <= NumberOfSeats; iSeat++)
+            {
+                LeftoverSeat seat = PickLeftoverSeat(iSeat);
+                r.LeftoverSeats.Add(seat);
+                r.LeftoverSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
+                r.Seats[seat.PoliticalParty]++;
+            }
+            r.NextLeftoverSeat = PickLeftoverSeat(NumberOfSeats + 1);
             return r;
         }
 
