@@ -17,6 +17,10 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 2, 0, 0)]
         [YearDate(2026, 10, 26)]
         AddLulaBarredIn2018,
+
+        [BeyondObjectVersion(1, 3, 0, 0)]
+        [YearDate(2026, 11, 6)]
+        AddPresidentsSince1989Election,
     }
 
     public enum Politicians
@@ -30,6 +34,12 @@ namespace Existence.Earth.Countries.Politics
         BolsonaroJair,
 
         [Gender(Gender.Male)]
+        CardosoFernandoHenrique,
+
+        [Gender(Gender.Male)]
+        CollorFernando,
+
+        [Gender(Gender.Male)]
         CuryAugustoJorge,
 
         [Gender(Gender.Male)]
@@ -39,6 +49,9 @@ namespace Existence.Earth.Countries.Politics
         deMoraisPrudente,
 
         [Gender(Gender.Male)]
+        FrancoItamar,
+
+        [Gender(Gender.Male)]
         GomesCiro,
         
         [Gender(Gender.Male)]
@@ -46,9 +59,69 @@ namespace Existence.Earth.Countries.Politics
         
         [Gender(Gender.Male)]
         PenaAfonso,
+
+        [Gender(Gender.Female)]
+        RousseffDilma,
         
         [Gender(Gender.Female)]
         TebetSimoneNassar,
+
+        [Gender(Gender.Male)]
+        TemerMichel,
+    }
+
+    /// <summary>
+    /// presidential tenures since the 1989 election, the first where <see cref="Politicians.daSilvaLula"/> was a
+    /// candidate, named by the year the tenure started. Consecutive terms are one tenure, non-consecutive terms are
+    /// separate. Some tenures overlap while a suspended president awaited an impeachment trial
+    /// </summary>
+    public static class Presidents
+    {
+        /// <summary>
+        /// winner of the 1989 election. Suspended on 1992-10-02 when the impeachment process reached the Senate, and
+        /// president only on paper until resigning on the day of the Senate's final judgment, while
+        /// <see cref="Politicians.FrancoItamar"/> was acting president
+        /// </summary>
+        [President((int)Politicians.CollorFernando, 1990, 3, 15, 1992, 12, 29)]
+        [PaperPresident((int)Politicians.CollorFernando, 1992, 10, 2, 1992, 12, 29)]
+        public static class v1990 { }
+
+        /// <summary>
+        /// vice president who acted as president from 1992-10-02 while <see cref="Politicians.CollorFernando"/> was
+        /// suspended, and took over when Collor resigned on 1992-12-29
+        /// </summary>
+        [President((int)Politicians.FrancoItamar, 1992, 10, 2, 1995, 1, 1)]
+        [ActingPresident((int)Politicians.FrancoItamar, 1992, 10, 2, 1992, 12, 29)]
+        public static class v1992 { }
+
+        [President((int)Politicians.CardosoFernandoHenrique, 1995, 1, 1, 2003, 1, 1)]
+        public static class v1995 { }
+
+        [President((int)Politicians.daSilvaLula, 2003, 1, 1, 2011, 1, 1)]
+        public static class v2003 { }
+
+        /// <summary>
+        /// suspended on 2016-05-12 when the Senate accepted the impeachment case, and president only on paper until the
+        /// Senate removed her on 2016-08-31, while <see cref="Politicians.TemerMichel"/> was acting president
+        /// </summary>
+        [President((int)Politicians.RousseffDilma, 2011, 1, 1, 2016, 8, 31)]
+        [PaperPresident((int)Politicians.RousseffDilma, 2016, 5, 12, 2016, 8, 31)]
+        public static class v2011 { }
+
+        /// <summary>
+        /// vice president who acted as president from 2016-05-12 while <see cref="Politicians.RousseffDilma"/> was
+        /// suspended, and took over when she was removed on 2016-08-31
+        /// </summary>
+        [President((int)Politicians.TemerMichel, 2016, 5, 12, 2019, 1, 1)]
+        [ActingPresident((int)Politicians.TemerMichel, 2016, 5, 12, 2016, 8, 31)]
+        public static class v2016 { }
+
+        [President((int)Politicians.BolsonaroJair, 2019, 1, 1, 2023, 1, 1)]
+        public static class v2019 { }
+
+        [President((int)Politicians.daSilvaLula, 2023, 1, 1)]
+        [CurrentPresident]
+        public static class v2023 { }
     }
 
     public static class Elections

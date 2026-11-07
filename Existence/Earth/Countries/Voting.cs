@@ -265,6 +265,59 @@ namespace Existence.Earth.Countries
     }
 
     /// <summary>
+    /// the politician was president over the date range. EndDate is null while still in office
+    /// </summary>
+    public class PresidentAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public StartDateAttribute StartDate { get; set; }
+        public EndDateAttribute EndDate { get; set; }
+        public PresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay)
+        {
+            this.Politician = Politician;
+            this.StartDate = new StartDateAttribute(StartYear, StartMonth, StartDay);
+        }
+        public PresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : this(Politician, StartYear, StartMonth, StartDay)
+        {
+            this.EndDate = new EndDateAttribute(EndYear, EndMonth, EndDay);
+        }
+    }
+
+    /// <summary>
+    /// the politician acted as president over the date range, without formally holding the office for at least part
+    /// of it
+    /// </summary>
+    public class ActingPresidentAttribute : PresidentAttribute
+    {
+        public ActingPresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay) : base(Politician, StartYear, StartMonth, StartDay)
+        {
+        }
+        public ActingPresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Politician, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
+        {
+        }
+    }
+
+    /// <summary>
+    /// the politician formally held the office of president over the date range, while someone else acted as president
+    /// </summary>
+    public class PaperPresidentAttribute : PresidentAttribute
+    {
+        public PaperPresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay) : base(Politician, StartYear, StartMonth, StartDay)
+        {
+        }
+        public PaperPresidentAttribute(int Politician, int StartYear, int StartMonth, int StartDay, int EndYear, int EndMonth, int EndDay) : base(Politician, StartYear, StartMonth, StartDay, EndYear, EndMonth, EndDay)
+        {
+        }
+    }
+
+    /// <summary>
+    /// the politician is the current president
+    /// </summary>
+    public class CurrentPresidentAttribute : Attribute
+    {
+    }
+
+    /// <summary>
     /// the factions a political party is split into
     /// </summary>
     public class FactionsAttribute : Attribute
