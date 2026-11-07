@@ -125,7 +125,8 @@ namespace CalculateParliamentaryApportionment
                     r.LeftoverSeats.Select(s => BuildLeftoverSeat(nameof(LeftoverSeat), s))),
                 BuildSeatCounts(nameof(SeatDistribution.LeftoverSeatsByRecipient), RecipientElement, r.LeftoverSeatsByRecipient),
                 BuildSeatCounts(nameof(SeatDistribution.Seats), PoliticalPartyElement, r.Seats),
-                BuildLeftoverSeat(nameof(SeatDistribution.NextLeftoverSeat), r.NextLeftoverSeat));
+                BuildLeftoverSeat(nameof(SeatDistribution.NextLeftoverSeat), r.NextLeftoverSeat),
+                new XElement(nameof(SeatDistribution.VotesNeededForNextLeftoverSeat), r.VotesNeededForNextLeftoverSeat));
         }
 
         private static XElement BuildLeftoverSeat(string sElement, LeftoverSeat s)

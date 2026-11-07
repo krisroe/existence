@@ -104,6 +104,15 @@ namespace Existence.Earth.Human.Politics
         /// turn leftover seats into base seats, but under the d'Hondt method no existing seat changes hands
         /// </summary>
         public LeftoverSeat NextLeftoverSeat { get; set; } = null!;
+
+        /// <summary>
+        /// the fewest extra votes the recipients of <see cref="NextLeftoverSeat"/> would have needed to win a seat from
+        /// another party or surplus vote agreement, which is the one with the lowest votes per seat. For a surplus vote
+        /// agreement the votes can go to either party, though that can decide which of them gets the seat. Assumes the
+        /// votes come from parties that are below the electoral threshold or from people who didn't vote, and that no
+        /// party crosses the electoral threshold as a result. Null if no other party or surplus vote agreement has seats
+        /// </summary>
+        public long? VotesNeededForNextLeftoverSeat { get; set; }
     }
 
     public static class SeatDistributions
@@ -199,7 +208,30 @@ namespace Existence.Earth.Human.Politics
                 r.Seats[seat.PoliticalParty]++;
             }
             r.NextLeftoverSeat = PickLeftoverSeat(NumberOfSeats + 1);
+
+            long lNextVotes = r.NextLeftoverSeat.Recipients.Sum(p => NumberOfVotes[p]);
+            int iNextSeats = r.NextLeftoverSeat.Recipients.Sum(p => r.Seats[p]);
+            r.VotesNeededForNextLeftoverSeat = recipients
+                .Where(a => a != r.NextLeftoverSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
+                .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p])) - lNextVotes))
+                .Min();
             return r;
+        }
+
+        /// <summary>
+        /// gets the fewest total votes a candidate needs for one more seat to come from another candidate, which takes
+        /// more votes per seat, including that seat, than the other candidate has now:
+        ///   votes needed       other votes
+        ///   ---------------  &gt;  -----------
+        ///   seats + 1          other seats
+        /// A tie is also enough if it leaves the candidate with more votes than the other candidate, since ties go to the
+        /// side with more votes, which is when it would have more seats. This compares exactly with integer math
+        /// </summary>
+        private static long GetVotesToWinSeatFrom(int iSeats, long lOtherVotes, int iOtherSeats)
+        {
+            long lVotesTimesSeats = lOtherVotes * (iSeats + 1L);
+            long lVotesForTie = lVotesTimesSeats / iOtherSeats;
+            return lVotesTimesSeats % iOtherSeats == 0 && iSeats + 1 > iOtherSeats ? lVotesForTie : lVotesForTie + 1;
         }
 
         /// <summary>

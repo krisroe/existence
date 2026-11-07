@@ -136,5 +136,59 @@ namespace Existence.Tests
                 CollectionAssert.AreEquivalent(expectedSeats, withOneMoreSeat.Seats, $"going from {iSeats} seats to {iSeats + 1}");
             }
         }
+
+        /// <summary>
+        /// validates the votes Shas and United Torah Judaism needed for a further seat in the 2022 Knesset election, which
+        /// would have come from Likud and Religious Zionism, the agreement with the lowest votes per seat
+        /// </summary>
+        [TestMethod]
+        public void ValidateKnessetV25VotesNeededForNextLeftoverSeat()
+        {
+            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold);
+            Assert.AreEqual(849, r.VotesNeededForNextLeftoverSeat);
+        }
+
+        /// <summary>
+        /// validates by recalculating that the votes needed for the next leftover seat are enough for its recipients to gain
+        /// a seat, and that one vote fewer isn't
+        /// </summary>
+        [TestMethod]
+        [DataRow(true)]
+        [DataRow(false)]
+        public void ValidateVotesNeededForNextLeftoverSeatByRecalculating(bool useSurplusVoteAgreements)
+        {
+            List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
+            for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
+            {
+                SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold);
+                string[] recipients = r.NextLeftoverSeat.Recipients;
+                int iRecipientSeats = recipients.Sum(p => r.Seats[p]);
+                long lVotesNeeded = r.VotesNeededForNextLeftoverSeat!.Value;
+                Assert.IsTrue(lVotesNeeded > 0, $"at {iSeats} seats");
+
+                Assert.AreEqual(iRecipientSeats + 1, RecipientSeatsWithExtraVotes(lVotesNeeded), $"enough votes at {iSeats} seats");
+                Assert.AreEqual(iRecipientSeats, RecipientSeatsWithExtraVotes(lVotesNeeded - 1), $"one vote fewer at {iSeats} seats");
+
+                int RecipientSeatsWithExtraVotes(long lExtraVotes)
+                {
+                    Dictionary<string, long> votes = new Dictionary<string, long>(knessetV25Votes);
+                    votes[r.NextLeftoverSeat.PoliticalParty] += lExtraVotes;
+                    SeatDistribution changed = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iSeats, knessetV25ElectoralThreshold);
+                    return recipients.Sum(p => changed.Seats[p]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// validates that the votes needed are null when no other party has a seat that could be won
+        /// </summary>
+        [TestMethod]
+        public void ValidateVotesNeededForNextLeftoverSeatWithOnlyOneQualifyingParty()
+        {
+            Dictionary<string, long> votes = new Dictionary<string, long>() { { "Party1", 1000 }, { "Party2", 10 } };
+            SeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), knessetNumberOfSeats, knessetV25ElectoralThreshold);
+            Assert.AreEqual("Party1", r.NextLeftoverSeat.PoliticalParty);
+            Assert.IsNull(r.VotesNeededForNextLeftoverSeat);
+        }
     }
 }
