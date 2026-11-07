@@ -229,9 +229,8 @@ namespace Existence.Earth.Human.Politics
         /// </summary>
         private static long GetVotesToWinSeatFrom(int iSeats, long lOtherVotes, int iOtherSeats)
         {
-            long lVotesTimesSeats = lOtherVotes * (iSeats + 1L);
-            long lVotesForTie = lVotesTimesSeats / iOtherSeats;
-            return lVotesTimesSeats % iOtherSeats == 0 && iSeats + 1 > iOtherSeats ? lVotesForTie : lVotesForTie + 1;
+            long lVotesForTie = Math.DivRem(lOtherVotes * (iSeats + 1L), iOtherSeats, out long lRemainder);
+            return lRemainder == 0 && iSeats + 1 > iOtherSeats ? lVotesForTie : lVotesForTie + 1;
         }
 
         /// <summary>
