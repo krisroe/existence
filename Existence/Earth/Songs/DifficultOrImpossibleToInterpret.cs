@@ -10,6 +10,5 @@ namespace Existence.Earth.Songs
     {
         public static class ScarboroughFairSimonAndGarfunkel { }
         public static class ItsTheEndofTheWorldAsWeKnowItREM { }
-        public static class TwentyTwoTaylorSwift { }
     }
 }
