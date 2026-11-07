@@ -577,7 +577,7 @@ namespace Existence.Earth.Countries
         public int Winner { get; set; }
         public Correctness Correctness { get; set; }
         public string? Explanation { get; set; }
-        public IPredictedElectionWinnerAttribute(int Politician, Correctness Correctness = Correctness.None, string? Explanation = null)
+        public IPredictedElectionWinnerAttribute(int Politician, Correctness Correctness, string? Explanation = null)
         {
             this.Winner = Politician;
             this.Correctness = Correctness;
@@ -718,6 +718,19 @@ namespace Existence.Earth.Countries
             this.Year = Year;
             this.Month = Month;
             this.Day = Day;
+        }
+    }
+
+    /// <summary>
+    /// the losing politician fled the country after the election without conceding. Not a subclass of
+    /// ConcessionAttribute, since it isn't a concession
+    /// </summary>
+    public class LoserFledCountryAttribute : Attribute
+    {
+        public int Politician { get; set; }
+        public LoserFledCountryAttribute(int Politician)
+        {
+            this.Politician = Politician;
         }
     }
 
