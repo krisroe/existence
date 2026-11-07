@@ -33,6 +33,10 @@ namespace Existence.Earth.Countries.Politics
         [BeyondObjectVersion(1, 6, 0, 0)]
         [YearDate(2026, 11, 6)]
         AddNoteAboutFlávioBolsonaroFleeingCountryAndMyIncorrectPredictionHeWouldWin,
+
+        [BeyondObjectVersion(1, 7, 0, 0)]
+        [YearDate(2026, 11, 6)]
+        AddLoserFledCountry,
     }
 
     public enum Politicians
@@ -173,9 +177,10 @@ namespace Existence.Earth.Countries.Politics
         /// (1937-1945) and military rule (1964-1985). Preventing consecutive presidential terms was seen as a safeguard
         /// against leaders consolidating power.
         ///
-        /// On June 4, 1997, Brazil adopted Constitutional Amendment No. 16, allowing presidents, governors, and mayors to
+        /// Brazil adopted Constitutional Amendment No. 16, allowing presidents, governors, and mayors to
         /// seek one consecutive additional term. The change reflected a different philosophy: voters should be able to
         /// retain an incumbent they approve of, while a two-consecutive-term limit would still constrain executive power.
+        /// The amendment was approved by the Senate 1997-06-04 and officially published 1997-06-05.
         /// </summary>
         public static class Presidential
         {
@@ -335,6 +340,7 @@ namespace Existence.Earth.Countries.Politics
                 [IPredictedElectionWinner((int)Politicians.BolsonaroFlávio, Correctness.Incorrect, "I believed the candidate would be more reasonable about conceding the election if he lost than his father, but there's no way to test that theory because he fled the country.")]
                 [YearDate(2026, 10, 25)]
                 [HeadToHeadElectionResult((int)Politicians.daSilvaLula, 51.79, (int)Politicians.BolsonaroFlávio, 48.21)]
+                [LoserFledCountry((int)Politicians.BolsonaroFlávio)]
                 [VoteValidity(validPercent: 96.76, invalidPercent: 2.12, blankPercent: 1.12)]
                 [LikelyElectionWinner((int)Politicians.daSilvaLula)]
                 public static class SecondRound { }
