@@ -10,23 +10,25 @@ namespace CalculateParliamentaryApportionment
 {
     /// <summary>
     /// reads the inputs of <see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/> from
-    /// the Input element of an XML file, and writes the resulting <see cref="SeatDistribution"/> back to the same file as
-    /// the Output element, replacing any existing one. The file looks like this before it is first run, with
-    /// SurplusVoteAgreements being optional:
+    /// the Input element of an XML file, and writes the resulting <see cref="SeatDistribution"/> back to the same file.
+    /// Each Party element gets AboveThreshold, BaseSeats and Seats attributes, and everything else goes in the Output
+    /// element. Those attributes and the Output element are ignored when reading and regenerated on every run, so only
+    /// Name and Votes need to be filled in. The file looks like this before it is first run, with SurplusVoteAgreements
+    /// being optional:
     /// <code>
-    /// &lt;ParliamentaryApportionment&gt;
+    /// &lt;Election&gt;
     ///   &lt;Input&gt;
     ///     &lt;NumberOfSeats&gt;120&lt;/NumberOfSeats&gt;
     ///     &lt;ElectoralThreshold&gt;3.25&lt;/ElectoralThreshold&gt;
-    ///     &lt;NumberOfVotes&gt;
-    ///       &lt;PoliticalParty Name="Party1" Votes="1000" /&gt;
-    ///       &lt;PoliticalParty Name="Party2" Votes="2000" /&gt;
-    ///     &lt;/NumberOfVotes&gt;
+    ///     &lt;Parties&gt;
+    ///       &lt;Party Name="Party1" Votes="1000" /&gt;
+    ///       &lt;Party Name="Party2" Votes="2000" /&gt;
+    ///     &lt;/Parties&gt;
     ///     &lt;SurplusVoteAgreements&gt;
     ///       &lt;SurplusVoteAgreement Party1="Party1" Party2="Party2" /&gt;
     ///     &lt;/SurplusVoteAgreements&gt;
     ///   &lt;/Input&gt;
-    /// &lt;/ParliamentaryApportionment&gt;
+    /// &lt;/Election&gt;
     /// </code>
     /// </summary>
     public class Program
@@ -35,13 +37,14 @@ namespace CalculateParliamentaryApportionment
         private const string OutputElement = "Output";
         private const string NumberOfSeatsElement = "NumberOfSeats";
         private const string ElectoralThresholdElement = "ElectoralThreshold";
-        private const string NumberOfVotesElement = "NumberOfVotes";
+        private const string PartiesElement = "Parties";
         private const string SurplusVoteAgreementsElement = "SurplusVoteAgreements";
-        private const string PoliticalPartyElement = "PoliticalParty";
+        private const string PartyElement = "Party";
         private const string SurplusVoteAgreementElement = "SurplusVoteAgreement";
         private const string RecipientElement = "Recipient";
         private const string NameAttribute = "Name";
         private const string VotesAttribute = "Votes";
+        private const string AboveThresholdAttribute = "AboveThreshold";
         private const string SeatsAttribute = "Seats";
         private const string Party1Attribute = "Party1";
         private const string Party2Attribute = "Party2";
@@ -67,6 +70,7 @@ namespace CalculateParliamentaryApportionment
                         (int)GetRequiredElement(input, NumberOfSeatsElement),
                         (decimal)GetRequiredElement(input, ElectoralThresholdElement));
 
+                    WritePartyResults(input, r);
                     doc.Root!.Element(OutputElement)?.Remove();
                     input.AddAfterSelf(BuildOutput(r));
                     doc.Save(sPath);
@@ -89,13 +93,28 @@ namespace CalculateParliamentaryApportionment
         private static Dictionary<string, long> ReadNumberOfVotes(XElement input)
         {
             Dictionary<string, long> ret = new Dictionary<string, long>();
-            foreach (XElement next in GetRequiredElement(input, NumberOfVotesElement).Elements(PoliticalPartyElement))
+            foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
             {
                 string sParty = (string)GetRequiredAttribute(next, NameAttribute);
                 if (!ret.TryAdd(sParty, (long)GetRequiredAttribute(next, VotesAttribute)))
-                    throw new FormatException($"{sParty} is listed more than once in {NumberOfVotesElement}");
+                    throw new FormatException($"{sParty} is listed more than once in {PartiesElement}");
             }
             return ret;
+        }
+
+        /// <summary>
+        /// sets the result attributes of each party, replacing any existing ones. Parties below the electoral threshold
+        /// get no seats, so they aren't in the seat dictionaries
+        /// </summary>
+        private static void WritePartyResults(XElement input, SeatDistribution r)
+        {
+            foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
+            {
+                string sParty = (string)GetRequiredAttribute(next, NameAttribute);
+                next.SetAttributeValue(AboveThresholdAttribute, r.BaseSeats.ContainsKey(sParty));
+                next.SetAttributeValue(nameof(SeatDistribution.BaseSeats), r.BaseSeats.GetValueOrDefault(sParty));
+                next.SetAttributeValue(SeatsAttribute, r.Seats.GetValueOrDefault(sParty));
+            }
         }
 
         private static List<(string, string)> ReadSurplusVoteAgreements(XElement input)
@@ -116,15 +135,12 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(SeatDistribution.TotalVotes), r.TotalVotes),
                 new XElement(nameof(SeatDistribution.QualifyingVotes), r.QualifyingVotes),
                 new XElement(nameof(SeatDistribution.Quota), r.Quota),
-                new XElement(nameof(SeatDistribution.PoliticalPartiesBelowElectoralThreshold),
-                    r.PoliticalPartiesBelowElectoralThreshold.Select(p => new XElement(PoliticalPartyElement, new XAttribute(NameAttribute, p)))),
                 new XElement(nameof(SeatDistribution.AnnulledSurplusVoteAgreements),
                     r.AnnulledSurplusVoteAgreements.Select(a => new XElement(SurplusVoteAgreementElement, new XAttribute(Party1Attribute, a.Item1), new XAttribute(Party2Attribute, a.Item2)))),
-                BuildSeatCounts(nameof(SeatDistribution.BaseSeats), PoliticalPartyElement, r.BaseSeats),
                 new XElement(nameof(SeatDistribution.LeftoverSeats),
                     r.LeftoverSeats.Select(s => BuildLeftoverSeat(nameof(LeftoverSeat), s))),
-                BuildSeatCounts(nameof(SeatDistribution.LeftoverSeatsByRecipient), RecipientElement, r.LeftoverSeatsByRecipient),
-                BuildSeatCounts(nameof(SeatDistribution.Seats), PoliticalPartyElement, r.Seats),
+                new XElement(nameof(SeatDistribution.LeftoverSeatsByRecipient),
+                    r.LeftoverSeatsByRecipient.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value)))),
                 BuildLeftoverSeat(nameof(SeatDistribution.NextLeftoverSeat), r.NextLeftoverSeat),
                 new XElement(nameof(SeatDistribution.VotesNeededForNextLeftoverSeat), r.VotesNeededForNextLeftoverSeat));
         }
@@ -136,11 +152,6 @@ namespace CalculateParliamentaryApportionment
                 new XAttribute(nameof(LeftoverSeat.PoliticalParty), s.PoliticalParty),
                 new XAttribute(nameof(LeftoverSeat.VotesPerSeat), s.VotesPerSeat),
                 s.Recipients.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p))));
-        }
-
-        private static XElement BuildSeatCounts(string sElement, string sChildElement, Dictionary<string, int> seats)
-        {
-            return new XElement(sElement, seats.Select(p => new XElement(sChildElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value))));
         }
 
         private static XElement GetRequiredElement(XElement parent, string sName)

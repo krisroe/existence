@@ -3,44 +3,44 @@
   <Input>
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>3.25</ElectoralThreshold>
-    <NumberOfVotes>
-      <PoliticalParty Name="Likud" Votes="1167458" />
-      <PoliticalParty Name="Yashar" Votes="913502" />
-      <PoliticalParty Name="Together" Votes="531476" />
-      <PoliticalParty Name="Joint List" Votes="500147" />
-      <PoliticalParty Name="The Democrats" Votes="366352" />
-      <PoliticalParty Name="Yisrael Beiteinu" Votes="337413" />
-      <PoliticalParty Name="Ra'am" Votes="337253" />
-      <PoliticalParty Name="Otzma Yehudit" Votes="326624" />
-      <PoliticalParty Name="United Torah Judaism" Votes="312604" />
-      <PoliticalParty Name="Shas" Votes="299506" />
-      <PoliticalParty Name="Religious Zionism – Zehut" Votes="290451" />
-      <PoliticalParty Name="The Reservists – New Economic" Votes="154995" />
-      <PoliticalParty Name="Amcha Yisrael" Votes="95663" />
-      <PoliticalParty Name="The Color Black" Votes="11274" />
-      <PoliticalParty Name="Haredi Public" Votes="10594" />
-      <PoliticalParty Name="Noam" Votes="9923" />
-      <PoliticalParty Name="Tzomet – Beit Yisrael" Votes="5712" />
-      <PoliticalParty Name="Partnership for Everyone" Votes="4294" />
-      <PoliticalParty Name="Sharshar for Love and Unity of the People" Votes="2084" />
-      <PoliticalParty Name="Together We Will Succeed" Votes="1465" />
-      <PoliticalParty Name="Pirate Party of Israel" Votes="1050" />
-      <PoliticalParty Name="Hakahal Party" Votes="1011" />
-      <PoliticalParty Name="Israel First – Ale Yarok" Votes="955" />
-      <PoliticalParty Name="Fixing the Electoral and Governing System" Votes="929" />
-      <PoliticalParty Name="New Order" Votes="919" />
-      <PoliticalParty Name="Garden of Eden" Votes="902" />
-      <PoliticalParty Name="Ani VeAta" Votes="872" />
-      <PoliticalParty Name="Shema" Votes="787" />
-      <PoliticalParty Name="Just Law" Votes="774" />
-      <PoliticalParty Name="Dawn's Light" Votes="747" />
-      <PoliticalParty Name="Women's Voice" Votes="712" />
-      <PoliticalParty Name="Redemption" Votes="581" />
-      <PoliticalParty Name="Social Security" Votes="508" />
-      <PoliticalParty Name="Personal Security" Votes="481" />
-      <PoliticalParty Name="The Bible Bloc" Votes="412" />
-      <PoliticalParty Name="Eternal Covenant" Votes="255" />
-    </NumberOfVotes>
+    <Parties>
+      <Party Name="Likud" Votes="1167458" AboveThreshold="true" BaseSeats="26" Seats="27" />
+      <Party Name="Yashar" Votes="913502" AboveThreshold="true" BaseSeats="20" Seats="21" />
+      <Party Name="Together" Votes="531476" AboveThreshold="true" BaseSeats="11" Seats="12" />
+      <Party Name="Joint List" Votes="500147" AboveThreshold="true" BaseSeats="11" Seats="11" />
+      <Party Name="The Democrats" Votes="366352" AboveThreshold="true" BaseSeats="8" Seats="8" />
+      <Party Name="Yisrael Beiteinu" Votes="337413" AboveThreshold="true" BaseSeats="7" Seats="7" />
+      <Party Name="Ra'am" Votes="337253" AboveThreshold="true" BaseSeats="7" Seats="8" />
+      <Party Name="Otzma Yehudit" Votes="326624" AboveThreshold="true" BaseSeats="7" Seats="7" />
+      <Party Name="United Torah Judaism" Votes="312604" AboveThreshold="true" BaseSeats="6" Seats="7" />
+      <Party Name="Shas" Votes="299506" AboveThreshold="true" BaseSeats="6" Seats="6" />
+      <Party Name="Religious Zionism – Zehut" Votes="290451" AboveThreshold="true" BaseSeats="6" Seats="6" />
+      <Party Name="The Reservists – New Economic" Votes="154995" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Amcha Yisrael" Votes="95663" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="The Color Black" Votes="11274" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Haredi Public" Votes="10594" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Noam" Votes="9923" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Tzomet – Beit Yisrael" Votes="5712" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Partnership for Everyone" Votes="4294" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Sharshar for Love and Unity of the People" Votes="2084" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Together We Will Succeed" Votes="1465" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Pirate Party of Israel" Votes="1050" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Hakahal Party" Votes="1011" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Israel First – Ale Yarok" Votes="955" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Fixing the Electoral and Governing System" Votes="929" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="New Order" Votes="919" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Garden of Eden" Votes="902" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Ani VeAta" Votes="872" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Shema" Votes="787" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Just Law" Votes="774" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Dawn's Light" Votes="747" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Women's Voice" Votes="712" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Redemption" Votes="581" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Social Security" Votes="508" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Personal Security" Votes="481" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="The Bible Bloc" Votes="412" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Name="Eternal Covenant" Votes="255" AboveThreshold="false" BaseSeats="0" Seats="0" />
+    </Parties>
     <SurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Likud" Party2="Religious Zionism – Zehut" />
       <SurplusVoteAgreement Party1="Yashar" Party2="The Democrats" />
@@ -54,49 +54,9 @@
     <TotalVotes>5690685</TotalVotes>
     <QualifyingVotes>5382786</QualifyingVotes>
     <Quota>44856.55</Quota>
-    <PoliticalPartiesBelowElectoralThreshold>
-      <PoliticalParty Name="The Reservists – New Economic" />
-      <PoliticalParty Name="Amcha Yisrael" />
-      <PoliticalParty Name="The Color Black" />
-      <PoliticalParty Name="Haredi Public" />
-      <PoliticalParty Name="Noam" />
-      <PoliticalParty Name="Tzomet – Beit Yisrael" />
-      <PoliticalParty Name="Partnership for Everyone" />
-      <PoliticalParty Name="Sharshar for Love and Unity of the People" />
-      <PoliticalParty Name="Together We Will Succeed" />
-      <PoliticalParty Name="Pirate Party of Israel" />
-      <PoliticalParty Name="Hakahal Party" />
-      <PoliticalParty Name="Israel First – Ale Yarok" />
-      <PoliticalParty Name="Fixing the Electoral and Governing System" />
-      <PoliticalParty Name="New Order" />
-      <PoliticalParty Name="Garden of Eden" />
-      <PoliticalParty Name="Ani VeAta" />
-      <PoliticalParty Name="Shema" />
-      <PoliticalParty Name="Just Law" />
-      <PoliticalParty Name="Dawn's Light" />
-      <PoliticalParty Name="Women's Voice" />
-      <PoliticalParty Name="Redemption" />
-      <PoliticalParty Name="Social Security" />
-      <PoliticalParty Name="Personal Security" />
-      <PoliticalParty Name="The Bible Bloc" />
-      <PoliticalParty Name="Eternal Covenant" />
-    </PoliticalPartiesBelowElectoralThreshold>
     <AnnulledSurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Eternal Covenant" Party2="Fixing the Electoral and Governing System" />
     </AnnulledSurplusVoteAgreements>
-    <BaseSeats>
-      <PoliticalParty Name="Likud" Seats="26" />
-      <PoliticalParty Name="Yashar" Seats="20" />
-      <PoliticalParty Name="Together" Seats="11" />
-      <PoliticalParty Name="Joint List" Seats="11" />
-      <PoliticalParty Name="The Democrats" Seats="8" />
-      <PoliticalParty Name="Yisrael Beiteinu" Seats="7" />
-      <PoliticalParty Name="Ra'am" Seats="7" />
-      <PoliticalParty Name="Otzma Yehudit" Seats="7" />
-      <PoliticalParty Name="United Torah Judaism" Seats="6" />
-      <PoliticalParty Name="Shas" Seats="6" />
-      <PoliticalParty Name="Religious Zionism – Zehut" Seats="6" />
-    </BaseSeats>
     <LeftoverSeats>
       <LeftoverSeat SeatNumber="116" PoliticalParty="United Torah Judaism" VotesPerSeat="47085.384615384615384615384615">
         <Recipient Name="United Torah Judaism" />
@@ -127,19 +87,6 @@
       <Recipient Name="United Torah Judaism + Shas" Seats="1" />
       <Recipient Name="Otzma Yehudit" Seats="0" />
     </LeftoverSeatsByRecipient>
-    <Seats>
-      <PoliticalParty Name="Likud" Seats="27" />
-      <PoliticalParty Name="Yashar" Seats="21" />
-      <PoliticalParty Name="Together" Seats="12" />
-      <PoliticalParty Name="Joint List" Seats="11" />
-      <PoliticalParty Name="The Democrats" Seats="8" />
-      <PoliticalParty Name="Yisrael Beiteinu" Seats="7" />
-      <PoliticalParty Name="Ra'am" Seats="8" />
-      <PoliticalParty Name="Otzma Yehudit" Seats="7" />
-      <PoliticalParty Name="United Torah Judaism" Seats="7" />
-      <PoliticalParty Name="Shas" Seats="6" />
-      <PoliticalParty Name="Religious Zionism – Zehut" Seats="6" />
-    </Seats>
     <NextLeftoverSeat SeatNumber="121" PoliticalParty="Shas" VotesPerSeat="43722.142857142857142857142857">
       <Recipient Name="United Torah Judaism" />
       <Recipient Name="Shas" />
