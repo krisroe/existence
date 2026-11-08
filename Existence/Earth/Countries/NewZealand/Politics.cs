@@ -276,91 +276,156 @@ namespace Existence.Earth.Countries.NewZealand
         }
 
         /// <summary>
-        /// the election is on 2026-11-07. Official results are due on 2026-11-27 and the writ is due back on 2026-12-03,
-        /// so the vote percentages, seats, number of members and date of taking office aren't known yet
+        /// preliminary results from election night, as of 2026-11-08 1:46 PM NZDT with 85.90% of votes counted and about
+        /// 399,000 special votes still to count. Official results are due on 2026-11-27 and the writ is due back on
+        /// 2026-12-03, so these can change, and the date of taking office and which parties form the government aren't
+        /// known yet. The party vote divided all 120 seats by the Sainte-Laguë method among the parties that qualified,
+        /// and each party's list seats are its share minus the electorates it won. There were 11 overhang seats: 7 for
+        /// National, which won 42 electorates and was entitled to 35 seats, and 4 for Te Pāti Māori, which won 5
+        /// electorates and was entitled to 1. Parties without seats are below the threshold since none won an
+        /// electorate. Vote percentages are out of 2,418,565 valid party votes counted, and are truncated rather than
+        /// rounded
         /// </summary>
         [ElectionDate(2026, 11, 7)]
         [ParliamentaryElectoralThreshold(5)]
+        [NumberOfMembers(131)]
         public static class v55
         {
             /// <summary>
-            /// one class per party list, each pointing to its PoliticalParties entry. Parties from the 54th Parliament come
-            /// first, then the others alphabetically
+            /// one class per party list, each pointing to its PoliticalParties entry. The party with the most votes comes
+            /// first
             /// </summary>
             public static class Parties
             {
-                [PoliticalParties((int)PoliticalParties.National)]
-                [PoliticalPartyLeader((int)Politicians.LuxonChristopher)]
-                public static class National { }
-
                 [PoliticalParties((int)PoliticalParties.Labour)]
                 [PoliticalPartyLeader((int)Politicians.HipkinsChris)]
+                [VotePercentage(29.36)]
+                [NumberOfProportionalSeats(15)]
+                [NumberOfElectorateSeats(21)]
+                [NumberOfSeats(36)]
                 public static class Labour { }
+
+                /// <summary>
+                /// won 7 more electorates than its share of the party vote
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.National)]
+                [PoliticalPartyLeader((int)Politicians.LuxonChristopher)]
+                [VotePercentage(29.21)]
+                [NumberOfProportionalSeats(0)]
+                [NumberOfElectorateSeats(42)]
+                [NumberOfSeats(42)]
+                public static class National { }
 
                 [PoliticalParties((int)PoliticalParties.Green)]
                 [PoliticalPartyLeader((int)Politicians.DavidsonMarama)]
                 [PoliticalPartyLeader((int)Politicians.SwarbrickChlöe)]
+                [VotePercentage(13.30)]
+                [NumberOfProportionalSeats(14)]
+                [NumberOfElectorateSeats(2)]
+                [NumberOfSeats(16)]
                 public static class Green { }
 
                 [PoliticalParties((int)PoliticalParties.ACT)]
                 [PoliticalPartyLeader((int)Politicians.SeymourDavid)]
+                [VotePercentage(10.92)]
+                [NumberOfProportionalSeats(12)]
+                [NumberOfElectorateSeats(1)]
+                [NumberOfSeats(13)]
                 public static class ACT { }
 
                 [PoliticalParties((int)PoliticalParties.NewZealandFirst)]
                 [PoliticalPartyLeader((int)Politicians.PetersWinston)]
+                [VotePercentage(9.78)]
+                [NumberOfProportionalSeats(12)]
+                [NumberOfElectorateSeats(0)]
+                [NumberOfSeats(12)]
                 public static class NewZealandFirst { }
 
+                [PoliticalParties((int)PoliticalParties.Opportunity)]
+                [PoliticalPartyLeader((int)Politicians.WongQiulae)]
+                [VotePercentage(5.96)]
+                [NumberOfProportionalSeats(7)]
+                [NumberOfElectorateSeats(0)]
+                [NumberOfSeats(7)]
+                public static class Opportunity { }
+
+                /// <summary>
+                /// below the threshold, but qualified by winning electorates, 4 more than its share of the party vote
+                /// </summary>
                 [PoliticalParties((int)PoliticalParties.TePātiMāori)]
                 [PoliticalPartyLeader((int)Politicians.NgarewaPackerDebbie)]
                 [PoliticalPartyLeader((int)Politicians.WaititiRawiri)]
+                [VotePercentage(0.57)]
+                [NumberOfProportionalSeats(0)]
+                [NumberOfElectorateSeats(5)]
+                [NumberOfSeats(5)]
                 public static class TePātiMāori { }
-
-                [PoliticalParties((int)PoliticalParties.Alliance)]
-                [PoliticalPartyLeader((int)Politicians.BillotVictor)]
-                public static class Alliance { }
-
-                [PoliticalParties((int)PoliticalParties.AnimalJustice)]
-                [PoliticalPartyLeader((int)Politicians.McNeilRobert)]
-                [PoliticalPartyLeader((int)Politicians.WeretaDannette)]
-                public static class AnimalJustice { }
-
-                [PoliticalParties((int)PoliticalParties.Conservative)]
-                [PoliticalPartyLeader((int)Politicians.HoughtonHelen)]
-                public static class Conservative { }
-
-                [PoliticalParties((int)PoliticalParties.FreePalestine)]
-                [PoliticalPartyLeader((int)Politicians.HopkinsonPaul)]
-                public static class FreePalestine { }
 
                 [PoliticalParties((int)PoliticalParties.LegaliseCannabis)]
                 [PoliticalPartyLeader((int)Politicians.HerbertMaki)]
                 [PoliticalPartyLeader((int)Politicians.ApplebyMichael)]
+                [VotePercentage(0.19)]
+                [BelowElectoralThreshold]
                 public static class LegaliseCannabis { }
-
-                [PoliticalParties((int)PoliticalParties.NewZealandLoyal)]
-                [PoliticalPartyLeader((int)Politicians.AlpKelvyn)]
-                public static class NewZealandLoyal { }
 
                 [PoliticalParties((int)PoliticalParties.NewZealandOutdoorsAndFreedom)]
                 [PoliticalPartyLeader((int)Politicians.GreySue)]
+                [VotePercentage(0.11)]
+                [BelowElectoralThreshold]
                 public static class NewZealandOutdoorsAndFreedom { }
 
-                [PoliticalParties((int)PoliticalParties.Opportunity)]
-                [PoliticalPartyLeader((int)Politicians.WongQiulae)]
-                public static class Opportunity { }
+                [PoliticalParties((int)PoliticalParties.AnimalJustice)]
+                [PoliticalPartyLeader((int)Politicians.McNeilRobert)]
+                [PoliticalPartyLeader((int)Politicians.WeretaDannette)]
+                [VotePercentage(0.10)]
+                [BelowElectoralThreshold]
+                public static class AnimalJustice { }
 
-                [PoliticalParties((int)PoliticalParties.TeTaiTokerau)]
-                [PoliticalPartyLeader((int)Politicians.KapaKingiMariameno)]
-                public static class TeTaiTokerau { }
-
-                [PoliticalParties((int)PoliticalParties.VisionNewZealand)]
-                [PoliticalPartyLeader((int)Politicians.TamakiHannah)]
-                public static class VisionNewZealand { }
+                [PoliticalParties((int)PoliticalParties.Conservative)]
+                [PoliticalPartyLeader((int)Politicians.HoughtonHelen)]
+                [VotePercentage(0.07)]
+                [BelowElectoralThreshold]
+                public static class Conservative { }
 
                 [PoliticalParties((int)PoliticalParties.WomensRights)]
                 [PoliticalPartyLeader((int)Politicians.OvensJill)]
                 [PoliticalPartyLeader((int)Politicians.TrenberthDawn)]
+                [VotePercentage(0.07)]
+                [BelowElectoralThreshold]
                 public static class WomensRights { }
+
+                [PoliticalParties((int)PoliticalParties.NewZealandLoyal)]
+                [PoliticalPartyLeader((int)Politicians.AlpKelvyn)]
+                [VotePercentage(0.07)]
+                [BelowElectoralThreshold]
+                public static class NewZealandLoyal { }
+
+                [PoliticalParties((int)PoliticalParties.VisionNewZealand)]
+                [PoliticalPartyLeader((int)Politicians.TamakiHannah)]
+                [VotePercentage(0.06)]
+                [BelowElectoralThreshold]
+                public static class VisionNewZealand { }
+
+                /// <summary>
+                /// <see cref="Politicians.KapaKingiMariameno"/> didn't hold the Te Tai Tokerau electorate
+                /// </summary>
+                [PoliticalParties((int)PoliticalParties.TeTaiTokerau)]
+                [PoliticalPartyLeader((int)Politicians.KapaKingiMariameno)]
+                [VotePercentage(0.05)]
+                [BelowElectoralThreshold]
+                public static class TeTaiTokerau { }
+
+                [PoliticalParties((int)PoliticalParties.FreePalestine)]
+                [PoliticalPartyLeader((int)Politicians.HopkinsonPaul)]
+                [VotePercentage(0.04)]
+                [BelowElectoralThreshold]
+                public static class FreePalestine { }
+
+                [PoliticalParties((int)PoliticalParties.Alliance)]
+                [PoliticalPartyLeader((int)Politicians.BillotVictor)]
+                [VotePercentage(0.04)]
+                [BelowElectoralThreshold]
+                public static class Alliance { }
             }
         }
     }

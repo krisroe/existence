@@ -17,7 +17,10 @@ namespace CalculateParliamentaryApportionment
     /// and everything else goes in the Output element. Those attributes and the Output element are ignored when reading
     /// and regenerated on every run, so only Name and Votes need to be filled in. The file looks like this before it is
     /// first run, with SurplusVoteAgreements being optional, and FirstDivisor being optional and only for Sainte-Laguë
-    /// (leave it out for plain Sainte-Laguë, or use 7/5 for Norway's modified Sainte-Laguë):
+    /// (leave it out for plain Sainte-Laguë, or use 7/5 for Norway's modified Sainte-Laguë). For mixed-member
+    /// proportional, as in New Zealand, give each party that won electorates an ElectorateSeats attribute, also only for
+    /// Sainte-Laguë; then each party also gets ListSeats, OverhangSeats and TotalSeats attributes, and the Output element
+    /// gets NumberOfMembers:
     /// <code>
     /// &lt;Election&gt;
     ///   &lt;Input&gt;
@@ -26,7 +29,7 @@ namespace CalculateParliamentaryApportionment
     ///     &lt;NumberOfSeats&gt;120&lt;/NumberOfSeats&gt;
     ///     &lt;ElectoralThreshold&gt;3.25&lt;/ElectoralThreshold&gt;
     ///     &lt;Parties&gt;
-    ///       &lt;Party Name="Party1" Votes="1000" /&gt;
+    ///       &lt;Party Name="Party1" Votes="1000" ElectorateSeats="1" /&gt;
     ///       &lt;Party Name="Party2" Votes="2000" /&gt;
     ///     &lt;/Parties&gt;
     ///     &lt;SurplusVoteAgreements&gt;
@@ -57,6 +60,7 @@ namespace CalculateParliamentaryApportionment
         private const string Party2Attribute = "Party2";
         private const string NumeratorAttribute = "Numerator";
         private const string DenominatorAttribute = "Denominator";
+        private const string ElectorateSeatsAttribute = nameof(SainteLagueSeatDistribution.ElectorateSeats);
         private const string DHondtMethod = "D'Hondt";
         private const string SainteLagueMethod = "Sainte-Laguë";
 
@@ -80,11 +84,13 @@ namespace CalculateParliamentaryApportionment
                     int iNumberOfSeats = (int)GetRequiredElement(input, NumberOfSeatsElement);
                     decimal dElectoralThreshold = (decimal)GetRequiredElement(input, ElectoralThresholdElement);
                     XElement? firstDivisor = input.Element(FirstDivisorElement);
+                    Dictionary<string, int>? electorateSeats = ReadElectorateSeats(input);
                     string sMethod = (string)GetRequiredElement(input, MethodElement);
                     SeatDistributionBase r;
                     if (sMethod == DHondtMethod)
                     {
                         if (firstDivisor != null) throw new FormatException($"{FirstDivisorElement} is only for {SainteLagueMethod}");
+                        if (electorateSeats != null) throw new FormatException($"{ElectorateSeatsAttribute} is only for {SainteLagueMethod}");
                         r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, dElectoralThreshold);
                     }
                     else if (sMethod == SainteLagueMethod)
@@ -92,7 +98,7 @@ namespace CalculateParliamentaryApportionment
                         SimpleFraction? fraction = firstDivisor == null ? null : new SimpleFraction(
                             (long)GetRequiredAttribute(firstDivisor, NumeratorAttribute),
                             (long)GetRequiredAttribute(firstDivisor, DenominatorAttribute));
-                        r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, dElectoralThreshold, fraction);
+                        r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, dElectoralThreshold, fraction, electorateSeats);
                     }
                     else
                     {
@@ -132,18 +138,43 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
+        /// reads the ElectorateSeats attribute of each party that has one, which is an input rather than a result
+        /// </summary>
+        /// <returns>the electorates each party won, or null if no party has the attribute</returns>
+        private static Dictionary<string, int>? ReadElectorateSeats(XElement input)
+        {
+            Dictionary<string, int>? ret = null;
+            foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
+            {
+                XAttribute? seats = next.Attribute(ElectorateSeatsAttribute);
+                if (seats != null)
+                {
+                    ret ??= new Dictionary<string, int>();
+                    ret[(string)GetRequiredAttribute(next, NameAttribute)] = (int)seats;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
         /// sets the result attributes of each party, replacing any existing ones. Parties below the electoral threshold
-        /// get no seats, so they aren't in the seat dictionaries. BaseSeats is removed for a method without base seats
+        /// get no seats, so they aren't in the seat dictionaries. BaseSeats is removed for a method without base seats,
+        /// and ListSeats, OverhangSeats and TotalSeats are removed without electorate seats
         /// </summary>
         private static void WritePartyResults(XElement input, SeatDistributionBase r)
         {
             DHondtSeatDistribution? dHondt = r as DHondtSeatDistribution;
+            SainteLagueSeatDistribution? mixedMember = r is SainteLagueSeatDistribution sainteLague && sainteLague.ElectorateSeats.Count > 0 ? sainteLague : null;
             foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
             {
                 string sParty = (string)GetRequiredAttribute(next, NameAttribute);
-                next.SetAttributeValue(AboveThresholdAttribute, r.Seats.ContainsKey(sParty));
+                bool isAboveThreshold = r.Seats.ContainsKey(sParty);
+                next.SetAttributeValue(AboveThresholdAttribute, isAboveThreshold);
                 next.SetAttributeValue(nameof(DHondtSeatDistribution.BaseSeats), dHondt?.BaseSeats.GetValueOrDefault(sParty));
                 next.SetAttributeValue(SeatsAttribute, r.Seats.GetValueOrDefault(sParty));
+                next.SetAttributeValue(nameof(SainteLagueSeatDistribution.ListSeats), mixedMember?.ListSeats.GetValueOrDefault(sParty));
+                next.SetAttributeValue(nameof(SainteLagueSeatDistribution.OverhangSeats), mixedMember?.OverhangSeats.GetValueOrDefault(sParty));
+                next.SetAttributeValue(nameof(SainteLagueSeatDistribution.TotalSeats), mixedMember?.TotalSeats.GetValueOrDefault(sParty));
             }
         }
 
@@ -160,7 +191,7 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// builds the Output element, with Quota only for D'Hondt
+        /// builds the Output element, with Quota only for D'Hondt and NumberOfMembers only with electorate seats
         /// </summary>
         private static XElement BuildOutput(SeatDistributionBase r)
         {
@@ -168,6 +199,7 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(SeatDistributionBase.TotalVotes), r.TotalVotes),
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),
                 r is DHondtSeatDistribution dHondt ? new XElement(nameof(DHondtSeatDistribution.Quota), dHondt.Quota) : null,
+                r is SainteLagueSeatDistribution sainteLague && sainteLague.ElectorateSeats.Count > 0 ? new XElement(nameof(SainteLagueSeatDistribution.NumberOfMembers), sainteLague.NumberOfMembers) : null,
                 new XElement(nameof(SeatDistributionBase.AnnulledSurplusVoteAgreements),
                     r.AnnulledSurplusVoteAgreements.Select(a => new XElement(SurplusVoteAgreementElement, new XAttribute(Party1Attribute, a.Item1), new XAttribute(Party2Attribute, a.Item2)))),
                 new XElement(nameof(SeatDistributionBase.OrderedSeats),

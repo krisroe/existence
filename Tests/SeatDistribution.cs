@@ -193,6 +193,93 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// preliminary party votes for each list in the 2026 New Zealand election, as of 2026-11-08 with 85.90% counted
+        /// </summary>
+        private static readonly Dictionary<string, long> newZealandV55Votes = new Dictionary<string, long>()
+        {
+            { "Labour", 710330 },
+            { "National", 706680 },
+            { "Green", 321902 },
+            { "ACT", 264121 },
+            { "NewZealandFirst", 236630 },
+            { "Opportunity", 144298 },
+            { "TePātiMāori", 13845 },
+            { "LegaliseCannabis", 4829 },
+            { "NewZealandOutdoorsAndFreedom", 2685 },
+            { "AnimalJustice", 2585 },
+            { "Conservative", 1886 },
+            { "WomensRights", 1856 },
+            { "NewZealandLoyal", 1855 },
+            { "VisionNewZealand", 1529 },
+            { "TeTaiTokerau", 1217 },
+            { "FreePalestine", 1168 },
+            { "Alliance", 1149 },
+        };
+
+        /// <summary>
+        /// electorates each party won in the 2026 New Zealand election's preliminary results, 71 in all
+        /// </summary>
+        private static readonly Dictionary<string, int> newZealandV55ElectorateSeats = new Dictionary<string, int>()
+        {
+            { "National", 42 }, { "Labour", 21 }, { "TePātiMāori", 5 }, { "Green", 2 }, { "ACT", 1 },
+        };
+
+        /// <summary>
+        /// validates the 2026 New Zealand election's preliminary result: Te Pāti Māori qualifies with 0.57% of the party
+        /// vote by winning electorates, the 120 seats are divided by the party vote, and the 7 overhang seats for National
+        /// and 4 for Te Pāti Māori make 131 members
+        /// </summary>
+        [TestMethod]
+        public void ValidateNewZealandV55SeatDistribution()
+        {
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m, null, newZealandV55ElectorateSeats);
+            Assert.AreEqual(2418565, r.TotalVotes);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "Labour", 36 }, { "National", 35 }, { "Green", 16 }, { "ACT", 13 }, { "NewZealandFirst", 12 }, { "Opportunity", 7 }, { "TePātiMāori", 1 },
+            }, r.Seats);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "Labour", 15 }, { "National", 0 }, { "Green", 14 }, { "ACT", 12 }, { "NewZealandFirst", 12 }, { "Opportunity", 7 }, { "TePātiMāori", 0 },
+            }, r.ListSeats);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "Labour", 0 }, { "National", 7 }, { "Green", 0 }, { "ACT", 0 }, { "NewZealandFirst", 0 }, { "Opportunity", 0 }, { "TePātiMāori", 4 },
+            }, r.OverhangSeats);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "Labour", 36 }, { "National", 42 }, { "Green", 16 }, { "ACT", 13 }, { "NewZealandFirst", 12 }, { "Opportunity", 7 }, { "TePātiMāori", 5 },
+            }, r.TotalSeats);
+            Assert.AreEqual(131, r.NumberOfMembers);
+            Assert.AreEqual(60, r.ListSeats.Values.Sum());
+        }
+
+        /// <summary>
+        /// validates that without electorate seats, Te Pāti Māori is below the 5% threshold, and the parliament stays at
+        /// its 120 seats
+        /// </summary>
+        [TestMethod]
+        public void ValidateNewZealandV55WithoutElectorateSeats()
+        {
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m);
+            CollectionAssert.Contains(r.PoliticalPartiesBelowElectoralThreshold, "TePātiMāori");
+            Assert.AreEqual(0, r.ElectorateSeats.Count);
+            Assert.AreEqual(120, r.NumberOfMembers);
+        }
+
+        /// <summary>
+        /// validates that electorate seats for a party without party votes, or negative electorate seats, are rejected
+        /// </summary>
+        [TestMethod]
+        [DataRow("Independent", 1)]
+        [DataRow("Labour", -1)]
+        public void ValidateBadElectorateSeatsAreRejected(string sParty, int iElectorateSeats)
+        {
+            Dictionary<string, int> electorateSeats = new Dictionary<string, int>() { { sParty, iElectorateSeats } };
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m, null, electorateSeats));
+        }
+
+        /// <summary>
         /// small example where D'Hondt, Sainte-Laguë and modified Sainte-Laguë all give different results, with the
         /// smallest party getting a seat only under plain Sainte-Laguë
         /// </summary>

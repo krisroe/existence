@@ -88,7 +88,9 @@ namespace Existence.Earth.Human.Politics
         public Dictionary<string, int> OrderedSeatsByRecipient { get; set; } = new Dictionary<string, int>();
 
         /// <summary>
-        /// total seats for each party that passed the electoral threshold
+        /// seats from the vote for each party that passed the electoral threshold. Under mixed-member proportional this
+        /// is the party's proportional share, which can be less than its total seats if it won more electorates; see
+        /// <see cref="SainteLagueSeatDistribution.TotalSeats"/>
         /// </summary>
         public Dictionary<string, int> Seats { get; set; } = new Dictionary<string, int>();
 
@@ -131,6 +133,34 @@ namespace Existence.Earth.Human.Politics
     /// </summary>
     public class SainteLagueSeatDistribution : SeatDistributionBase
     {
+        /// <summary>
+        /// for mixed-member proportional, the electorates each party that passed the electoral threshold won, including
+        /// those that won none. Empty if no electorate seats were given
+        /// </summary>
+        public Dictionary<string, int> ElectorateSeats { get; set; } = new Dictionary<string, int>();
+
+        /// <summary>
+        /// for mixed-member proportional, each party's list seats: its <see cref="SeatDistributionBase.Seats"/> minus
+        /// its electorates, or zero if it won more electorates than that. Empty if no electorate seats were given
+        /// </summary>
+        public Dictionary<string, int> ListSeats { get; set; } = new Dictionary<string, int>();
+
+        /// <summary>
+        /// for mixed-member proportional, the electorates each party won beyond its
+        /// <see cref="SeatDistributionBase.Seats"/>, which it keeps as extra seats. Empty if no electorate seats were given
+        /// </summary>
+        public Dictionary<string, int> OverhangSeats { get; set; } = new Dictionary<string, int>();
+
+        /// <summary>
+        /// for mixed-member proportional, each party's electorates plus list seats, which is its
+        /// <see cref="SeatDistributionBase.Seats"/> plus any overhang. Empty if no electorate seats were given
+        /// </summary>
+        public Dictionary<string, int> TotalSeats { get; set; } = new Dictionary<string, int>();
+
+        /// <summary>
+        /// number of seats in the parliament plus any overhang seats
+        /// </summary>
+        public int NumberOfMembers { get; set; }
     }
 
     public static class SeatDistributions
@@ -154,7 +184,7 @@ namespace Existence.Earth.Human.Politics
         public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
         {
             DHondtSeatDistribution r = new DHondtSeatDistribution();
-            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
+            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, Enumerable.Empty<string>());
             r.Quota = (decimal)r.QualifyingVotes / NumberOfSeats;
 
             foreach (string sParty in qualifying)
@@ -182,7 +212,9 @@ namespace Existence.Earth.Human.Politics
         /// quotas. Surplus vote agreements are an addition to plain Sainte-Laguë, carried over from how Israel adds them
         /// to D'Hondt, so pass none to get plain Sainte-Laguë. The modified Sainte-Laguë method raises the first divisor
         /// so a party's first seat costs more, which Norway does with 1.4 (7/5) and Sweden did with 1.4 before changing
-        /// to 1.2 (6/5) in 2018
+        /// to 1.2 (6/5) in 2018. For mixed-member proportional, as in New Zealand, pass the electorates each party won:
+        /// winning one qualifies a party even below the electoral threshold, the seats are still divided by the party
+        /// vote, and a party that won more electorates than its share keeps them as overhang seats
         /// </summary>
         /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
@@ -191,14 +223,38 @@ namespace Existence.Earth.Human.Politics
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
         /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator, and
         /// no more than 3, the divisor for the second seat. Null for plain Sainte-Laguë, which uses 1/1</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, SimpleFraction? FirstDivisor = null)
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won; parties left out
+        /// won none. Each party has to be in <paramref name="NumberOfVotes"/>, so electorates won by independents aren't
+        /// supported. Null if there are no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
             Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor ?? new SimpleFraction(1, 1));
+            foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
+            {
+                if (!NumberOfVotes.ContainsKey(next.Key)) throw new ArgumentException($"{next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
+                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative electorate seats", nameof(ElectorateSeats));
+            }
+
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
-            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
+            IEnumerable<string> wonElectorates = ElectorateSeats?.Where(p => p.Value > 0).Select(p => p.Key) ?? Enumerable.Empty<string>();
+            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, wonElectorates);
             foreach (string sParty in qualifying) r.Seats[sParty] = 0;
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
             GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+
+            if (ElectorateSeats != null)
+            {
+                foreach (string sParty in qualifying)
+                {
+                    int iElectorateSeats = ElectorateSeats.TryGetValue(sParty, out int iWon) ? iWon : 0;
+                    int iSeats = r.Seats[sParty];
+                    r.ElectorateSeats[sParty] = iElectorateSeats;
+                    r.ListSeats[sParty] = Math.Max(0, iSeats - iElectorateSeats);
+                    r.OverhangSeats[sParty] = Math.Max(0, iElectorateSeats - iSeats);
+                    r.TotalSeats[sParty] = Math.Max(iSeats, iElectorateSeats);
+                }
+            }
+            r.NumberOfMembers = NumberOfSeats + r.OverhangSeats.Values.Sum();
             return r;
         }
 
@@ -276,19 +332,22 @@ namespace Existence.Earth.Human.Politics
         /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.QualifyingVotes"/> and
         /// <see cref="SeatDistributionBase.PoliticalPartiesBelowElectoralThreshold"/>
         /// </summary>
+        /// <param name="exempt">parties that qualify whatever their votes, such as those that won an electorate under
+        /// mixed-member proportional</param>
         /// <returns>the parties that passed the electoral threshold, in the order of <paramref name="NumberOfVotes"/></returns>
-        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, decimal ElectoralThreshold)
+        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, decimal ElectoralThreshold, IEnumerable<string> exempt)
         {
             if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
 
             r.TotalVotes = NumberOfVotes.Values.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
 
+            HashSet<string> exemptSet = new HashSet<string>(exempt);
             List<string> qualifying = new List<string>();
             foreach (KeyValuePair<string, long> next in NumberOfVotes)
             {
                 if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
-                if (next.Value * 100m >= ElectoralThreshold * r.TotalVotes)
+                if (exemptSet.Contains(next.Key) || next.Value * 100m >= ElectoralThreshold * r.TotalVotes)
                     qualifying.Add(next.Key);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
