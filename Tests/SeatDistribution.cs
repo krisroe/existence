@@ -1,4 +1,5 @@
-﻿using Existence.Earth.Human.Politics;
+﻿using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Human.Politics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,6 +190,122 @@ namespace Existence.Tests
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), knessetNumberOfSeats, knessetV25ElectoralThreshold);
             Assert.AreEqual("Party1", r.NextOrderedSeat.PoliticalParty);
             Assert.IsNull(r.VotesNeededForNextOrderedSeat);
+        }
+
+        /// <summary>
+        /// small example where d'Hondt, Sainte-Laguë and modified Sainte-Laguë all give different results, with the
+        /// smallest party getting a seat only under plain Sainte-Laguë
+        /// </summary>
+        private static readonly Dictionary<string, long> smallExampleVotes = new Dictionary<string, long>()
+        {
+            { "A", 53000 }, { "B", 24000 }, { "C", 23000 }, { "D", 9000 },
+        };
+
+        private const int smallExampleNumberOfSeats = 7;
+
+        /// <summary>
+        /// validates plain Sainte-Laguë on the small example, where the quotients for seats 1-7 are 53000 (A),
+        /// 24000 (B), 23000 (C), 53000/3 (A), 53000/5 (A), 9000 (D) and 24000/3 (B), and the next seat goes to C at
+        /// 23000/3, ahead of A at 53000/7. d'Hondt gives A 4 seats, B 2, C 1 and D none
+        /// </summary>
+        [TestMethod]
+        public void ValidateSainteLagueSmallExample()
+        {
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m);
+            CollectionAssert.AreEqual(new[] { "A", "B", "C", "A", "A", "D", "B" }, r.OrderedSeats.Select(s => s.PoliticalParty).ToList());
+            CollectionAssert.AreEqual(Enumerable.Range(1, smallExampleNumberOfSeats).ToList(), r.OrderedSeats.Select(s => s.SeatNumber).ToList());
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 3 }, { "B", 2 }, { "C", 1 }, { "D", 1 } }, r.Seats);
+            Assert.AreEqual("C", r.NextOrderedSeat.PoliticalParty);
+            Assert.AreEqual(8, r.NextOrderedSeat.SeatNumber);
+
+            DHondtSeatDistribution dHondt = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 4 }, { "B", 2 }, { "C", 1 }, { "D", 0 } }, dHondt.Seats);
+        }
+
+        /// <summary>
+        /// validates modified Sainte-Laguë with a first divisor of 7/5 (1.4) on the small example, where D's first seat
+        /// now takes 9000/1.4, about 6429, which is below C's second seat at 23000/3, so D gets nothing and C gets 2
+        /// </summary>
+        [TestMethod]
+        public void ValidateModifiedSainteLagueSmallExample()
+        {
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m, new SimpleFraction(7, 5));
+            CollectionAssert.AreEqual(new[] { "A", "A", "B", "C", "A", "B", "C" }, r.OrderedSeats.Select(s => s.PoliticalParty).ToList());
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 3 }, { "B", 2 }, { "C", 2 }, { "D", 0 } }, r.Seats);
+        }
+
+        /// <summary>
+        /// validates that a first divisor that isn't positive or is more than 3 is rejected
+        /// </summary>
+        [TestMethod]
+        [DataRow(0L, 1L)]
+        [DataRow(-7L, 5L)]
+        [DataRow(7L, -5L)]
+        [DataRow(16L, 5L)]
+        public void ValidateSainteLagueRejectsBadFirstDivisor(long lNumerator, long lDenominator)
+        {
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m, new SimpleFraction(lNumerator, lDenominator)));
+        }
+
+        /// <summary>
+        /// validates that under Sainte-Laguë, plain and modified, the next seat gives the same result as recalculating
+        /// with one more seat
+        /// </summary>
+        [TestMethod]
+        [DataRow(true, 1L, 1L)]
+        [DataRow(false, 1L, 1L)]
+        [DataRow(true, 7L, 5L)]
+        [DataRow(false, 7L, 5L)]
+        [DataRow(false, 6L, 5L)]
+        public void ValidateSainteLagueNextOrderedSeatMatchesRecalculatingWithOneMoreSeat(bool useSurplusVoteAgreements, long lNumerator, long lDenominator)
+        {
+            List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
+            SimpleFraction firstDivisor = new SimpleFraction(lNumerator, lDenominator);
+            for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
+            {
+                SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold, firstDivisor);
+                SainteLagueSeatDistribution withOneMoreSeat = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats + 1, knessetV25ElectoralThreshold, firstDivisor);
+                Assert.AreEqual(iSeats, r.Seats.Values.Sum());
+
+                Dictionary<string, int> expectedSeats = new Dictionary<string, int>(r.Seats);
+                expectedSeats[r.NextOrderedSeat.PoliticalParty]++;
+                CollectionAssert.AreEquivalent(expectedSeats, withOneMoreSeat.Seats, $"going from {iSeats} seats to {iSeats + 1}");
+            }
+        }
+
+        /// <summary>
+        /// validates by recalculating that under Sainte-Laguë, plain and modified, the votes needed for the next seat are
+        /// enough for its recipients to gain a seat, and that one vote fewer isn't
+        /// </summary>
+        [TestMethod]
+        [DataRow(true, 1L, 1L)]
+        [DataRow(false, 1L, 1L)]
+        [DataRow(true, 7L, 5L)]
+        [DataRow(false, 7L, 5L)]
+        [DataRow(false, 6L, 5L)]
+        public void ValidateSainteLagueVotesNeededForNextOrderedSeatByRecalculating(bool useSurplusVoteAgreements, long lNumerator, long lDenominator)
+        {
+            List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
+            SimpleFraction firstDivisor = new SimpleFraction(lNumerator, lDenominator);
+            for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
+            {
+                SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold, firstDivisor);
+                string[] recipients = r.NextOrderedSeat.Recipients;
+                int iRecipientSeats = recipients.Sum(p => r.Seats[p]);
+                long lVotesNeeded = r.VotesNeededForNextOrderedSeat!.Value;
+                Assert.IsTrue(lVotesNeeded > 0, $"at {iSeats} seats");
+
+                Assert.AreEqual(iRecipientSeats + 1, RecipientSeatsWithExtraVotes(lVotesNeeded), $"enough votes at {iSeats} seats");
+                Assert.AreEqual(iRecipientSeats, RecipientSeatsWithExtraVotes(lVotesNeeded - 1), $"one vote fewer at {iSeats} seats");
+
+                int RecipientSeatsWithExtraVotes(long lExtraVotes)
+                {
+                    Dictionary<string, long> votes = new Dictionary<string, long>(knessetV25Votes);
+                    votes[r.NextOrderedSeat.PoliticalParty] += lExtraVotes;
+                    SainteLagueSeatDistribution changed = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iSeats, knessetV25ElectoralThreshold, firstDivisor);
+                    return recipients.Sum(p => changed.Seats[p]);
+                }
+            }
         }
     }
 }

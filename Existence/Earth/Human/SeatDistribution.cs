@@ -157,32 +157,15 @@ namespace Existence.Earth.Human.Politics
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
             r.Quota = (decimal)r.QualifyingVotes / NumberOfSeats;
 
-            int iBaseSeats = 0;
             foreach (string sParty in qualifying)
             {
                 int iSeats = (int)(NumberOfVotes[sParty] * NumberOfSeats / r.QualifyingVotes);
                 r.BaseSeats[sParty] = iSeats;
                 r.Seats[sParty] = iSeats;
-                iBaseSeats += iSeats;
             }
 
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-
-            for (int iSeat = iBaseSeats + 1; iSeat <= NumberOfSeats; iSeat++)
-            {
-                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, DHondtDivisor, iSeat);
-                r.OrderedSeats.Add(seat);
-                r.OrderedSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
-                r.Seats[seat.PoliticalParty]++;
-            }
-            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, DHondtDivisor, NumberOfSeats + 1);
-
-            long lNextVotes = r.NextOrderedSeat.Recipients.Sum(p => NumberOfVotes[p]);
-            int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
-            r.VotesNeededForNextOrderedSeat = recipients
-                .Where(a => a != r.NextOrderedSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
-                .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p])) - lNextVotes))
-                .Min();
+            GiveOutOrderedSeats(r, NumberOfVotes, recipients, DHondtDivisor, NumberOfSeats);
             return r;
         }
 
@@ -206,15 +189,46 @@ namespace Existence.Earth.Human.Politics
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator.
-        /// Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator, and
+        /// no more than 3, the divisor for the second seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, SimpleFraction? FirstDivisor = null)
         {
             Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor ?? new SimpleFraction(1, 1));
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
+            foreach (string sParty in qualifying) r.Seats[sParty] = 0;
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            throw new NotImplementedException();
+            GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            return r;
+        }
+
+        /// <summary>
+        /// gives out the seats not yet in <see cref="SeatDistributionBase.Seats"/> one at a time, filling in
+        /// <see cref="SeatDistributionBase.OrderedSeats"/>, <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>,
+        /// <see cref="SeatDistributionBase.NextOrderedSeat"/> and
+        /// <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>. The seats already there, such as d'Hondt's base
+        /// seats, decide where it starts, so <see cref="SeatDistributionBase.Seats"/> needs an entry for each qualifying
+        /// party first, even if it is zero
+        /// </summary>
+        /// <param name="divisor">whole-number divisor for a party's next seat, given its current number of seats</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        private static void GiveOutOrderedSeats(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, int NumberOfSeats)
+        {
+            for (int iSeat = r.Seats.Values.Sum() + 1; iSeat <= NumberOfSeats; iSeat++)
+            {
+                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, iSeat);
+                r.OrderedSeats.Add(seat);
+                r.OrderedSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
+                r.Seats[seat.PoliticalParty]++;
+            }
+            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats + 1);
+
+            long lNextVotes = r.NextOrderedSeat.Recipients.Sum(p => NumberOfVotes[p]);
+            int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
+            r.VotesNeededForNextOrderedSeat = recipients
+                .Where(a => a != r.NextOrderedSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
+                .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p]), divisor) - lNextVotes))
+                .Min();
         }
 
         /// <summary>
@@ -230,6 +244,8 @@ namespace Existence.Earth.Human.Politics
         private static Func<int, long> GetSainteLagueDivisor(SimpleFraction FirstDivisor)
         {
             if (FirstDivisor.Numerator <= 0 || FirstDivisor.Denominator <= 0) throw new ArgumentException($"the first divisor {FirstDivisor} must have a positive numerator and denominator", nameof(FirstDivisor));
+            //past 3 a party's second seat would cost less than its first, which breaks giving out seats one at a time
+            if (FirstDivisor.Numerator > 3 * FirstDivisor.Denominator) throw new ArgumentException($"the first divisor {FirstDivisor} can't be more than 3", nameof(FirstDivisor));
 
             long lNumerator = FirstDivisor.Numerator;
             long lDenominator = FirstDivisor.Denominator;
@@ -320,18 +336,22 @@ namespace Existence.Earth.Human.Politics
         }
 
         /// <summary>
-        /// gets the fewest total votes a candidate needs for one more seat to come from another candidate, which takes
-        /// more votes per seat, including that seat, than the other candidate has now:
-        ///   votes needed       other votes
-        ///   ---------------  &gt;  -----------
-        ///   seats + 1          other seats
-        /// A tie is also enough if it leaves the candidate with more votes than the other candidate, since ties go to the
-        /// side with more votes, which is when it would have more seats. This compares exactly with integer math
+        /// gets the fewest total votes a candidate needs for one more seat to come from another candidate, which takes a
+        /// higher quotient for the candidate's next seat than the other candidate's last seat was won with:
+        ///   votes needed           other votes
+        ///   ---------------  &gt;  ---------------------
+        ///   divisor(seats)         divisor(other seats - 1)
+        /// Under d'Hondt that is seats + 1 against other seats. A tie is also enough if it leaves the candidate with more
+        /// votes than the other candidate, since ties go to the side with more votes, which is when its divisor is the
+        /// larger one. This compares exactly with integer math
         /// </summary>
-        private static long GetVotesToWinSeatFrom(int iSeats, long lOtherVotes, int iOtherSeats)
+        /// <param name="divisor">whole-number divisor for a party's next seat, given its current number of seats</param>
+        private static long GetVotesToWinSeatFrom(int iSeats, long lOtherVotes, int iOtherSeats, Func<int, long> divisor)
         {
-            long lVotesForTie = Math.DivRem(lOtherVotes * (iSeats + 1L), iOtherSeats, out long lRemainder);
-            return lRemainder == 0 && iSeats + 1 > iOtherSeats ? lVotesForTie : lVotesForTie + 1;
+            long lDivisor = divisor(iSeats);
+            long lOtherDivisor = divisor(iOtherSeats - 1);
+            long lVotesForTie = Math.DivRem(checked(lOtherVotes * lDivisor), lOtherDivisor, out long lRemainder);
+            return lRemainder == 0 && lDivisor > lOtherDivisor ? lVotesForTie : lVotesForTie + 1;
         }
 
         /// <summary>
