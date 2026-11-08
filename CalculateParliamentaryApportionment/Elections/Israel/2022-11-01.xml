@@ -61,35 +61,35 @@
       <SurplusVoteAgreement Party1="Israeli Labor Party" Party2="Meretz" />
       <SurplusVoteAgreement Party1="Pirate Party" Party2="There's a Direction" />
     </AnnulledSurplusVoteAgreements>
-    <LeftoverSeats>
-      <LeftoverSeat SeatNumber="114" PoliticalParty="Shas" VotesPerSeat="37397.666666666666666666666667">
+    <OrderedSeats>
+      <OrderedSeat SeatNumber="114" PoliticalParty="Shas" VotesPerSeat="37397.666666666666666666666667">
         <Recipient Name="Shas" />
         <Recipient Name="United Torah Judaism" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="115" PoliticalParty="National Unity" VotesPerSeat="36569.057142857142857142857143">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="115" PoliticalParty="National Unity" VotesPerSeat="36569.057142857142857142857143">
         <Recipient Name="Yesh Atid" />
         <Recipient Name="National Unity" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="116" PoliticalParty="Likud" VotesPerSeat="36262.355555555555555555555556">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="116" PoliticalParty="Likud" VotesPerSeat="36262.355555555555555555555556">
         <Recipient Name="Likud" />
         <Recipient Name="Religious Zionism-Otzma Yehudit" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="117" PoliticalParty="Hadash–Ta'al" VotesPerSeat="35747">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="117" PoliticalParty="Hadash–Ta'al" VotesPerSeat="35747">
         <Recipient Name="Hadash–Ta'al" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="118" PoliticalParty="Yisrael Beiteinu" VotesPerSeat="35614.5">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="118" PoliticalParty="Yisrael Beiteinu" VotesPerSeat="35614.5">
         <Recipient Name="Yisrael Beiteinu" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="119" PoliticalParty="Yesh Atid" VotesPerSeat="35553.25">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="119" PoliticalParty="Yesh Atid" VotesPerSeat="35553.25">
         <Recipient Name="Yesh Atid" />
         <Recipient Name="National Unity" />
-      </LeftoverSeat>
-      <LeftoverSeat SeatNumber="120" PoliticalParty="Likud" VotesPerSeat="35474.043478260869565217391304">
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="120" PoliticalParty="Likud" VotesPerSeat="35474.043478260869565217391304">
         <Recipient Name="Likud" />
         <Recipient Name="Religious Zionism-Otzma Yehudit" />
-      </LeftoverSeat>
-    </LeftoverSeats>
-    <LeftoverSeatsByRecipient>
+      </OrderedSeat>
+    </OrderedSeats>
+    <OrderedSeatsByRecipient>
       <Recipient Name="Likud + Religious Zionism-Otzma Yehudit" Seats="2" />
       <Recipient Name="Yesh Atid + National Unity" Seats="2" />
       <Recipient Name="Shas + United Torah Judaism" Seats="1" />
@@ -97,11 +97,11 @@
       <Recipient Name="Ra'am" Seats="0" />
       <Recipient Name="Hadash–Ta'al" Seats="1" />
       <Recipient Name="Israeli Labor Party" Seats="0" />
-    </LeftoverSeatsByRecipient>
-    <NextLeftoverSeat SeatNumber="121" PoliticalParty="United Torah Judaism" VotesPerSeat="35429.368421052631578947368421">
+    </OrderedSeatsByRecipient>
+    <NextOrderedSeat SeatNumber="121" PoliticalParty="United Torah Judaism" VotesPerSeat="35429.368421052631578947368421">
       <Recipient Name="Shas" />
       <Recipient Name="United Torah Judaism" />
-    </NextLeftoverSeat>
-    <VotesNeededForNextLeftoverSeat>849</VotesNeededForNextLeftoverSeat>
+    </NextOrderedSeat>
+    <VotesNeededForNextOrderedSeat>849</VotesNeededForNextOrderedSeat>
   </Output>
 </Election>

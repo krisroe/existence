@@ -74,9 +74,9 @@ namespace Existence.Tests
                 (119, "YeshAtid + NationalUnity", "YeshAtid"),
                 (120, "Likud + ReligiousZionism", "Likud"),
             };
-            CollectionAssert.AreEqual(expectedLeftoverSeats, r.LeftoverSeats.Select(s => (s.SeatNumber, string.Join(" + ", s.Recipients), s.PoliticalParty)).ToList());
-            Assert.AreEqual(2, r.LeftoverSeatsByRecipient["Likud + ReligiousZionism"]);
-            Assert.AreEqual(0, r.LeftoverSeatsByRecipient["UnitedArabList"]);
+            CollectionAssert.AreEqual(expectedLeftoverSeats, r.OrderedSeats.Select(s => (s.SeatNumber, string.Join(" + ", s.Recipients), s.PoliticalParty)).ToList());
+            Assert.AreEqual(2, r.OrderedSeatsByRecipient["Likud + ReligiousZionism"]);
+            Assert.AreEqual(0, r.OrderedSeatsByRecipient["UnitedArabList"]);
 
             Dictionary<string, int> expectedSeats = new Dictionary<string, int>()
             {
@@ -95,7 +95,7 @@ namespace Existence.Tests
         {
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, new List<(string, string)>(), knessetNumberOfSeats, knessetV25ElectoralThreshold);
             Assert.AreEqual(0, r.AnnulledSurplusVoteAgreements.Count);
-            Assert.AreEqual("Labor", r.LeftoverSeats.Last().PoliticalParty);
+            Assert.AreEqual("Labor", r.OrderedSeats.Last().PoliticalParty);
             Assert.AreEqual(31, r.Seats["Likud"]);
             Assert.AreEqual(5, r.Seats["Labor"]);
             Assert.AreEqual(120, r.Seats.Values.Sum());
@@ -106,13 +106,13 @@ namespace Existence.Tests
         /// surplus vote agreement with Shas
         /// </summary>
         [TestMethod]
-        public void ValidateKnessetV25NextLeftoverSeat()
+        public void ValidateKnessetV25NextOrderedSeat()
         {
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold);
-            Assert.AreEqual(121, r.NextLeftoverSeat.SeatNumber);
-            CollectionAssert.AreEqual(new[] { "Shas", "UnitedTorahJudaism" }, r.NextLeftoverSeat.Recipients);
-            Assert.AreEqual("UnitedTorahJudaism", r.NextLeftoverSeat.PoliticalParty);
-            Assert.AreEqual(673158m / 19, r.NextLeftoverSeat.VotesPerSeat);
+            Assert.AreEqual(121, r.NextOrderedSeat.SeatNumber);
+            CollectionAssert.AreEqual(new[] { "Shas", "UnitedTorahJudaism" }, r.NextOrderedSeat.Recipients);
+            Assert.AreEqual("UnitedTorahJudaism", r.NextOrderedSeat.PoliticalParty);
+            Assert.AreEqual(673158m / 19, r.NextOrderedSeat.VotesPerSeat);
             Assert.AreEqual(120, r.Seats.Values.Sum());
         }
 
@@ -123,7 +123,7 @@ namespace Existence.Tests
         [TestMethod]
         [DataRow(true)]
         [DataRow(false)]
-        public void ValidateNextLeftoverSeatMatchesRecalculatingWithOneMoreSeat(bool useSurplusVoteAgreements)
+        public void ValidateNextOrderedSeatMatchesRecalculatingWithOneMoreSeat(bool useSurplusVoteAgreements)
         {
             List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
             for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
@@ -132,7 +132,7 @@ namespace Existence.Tests
                 DHondtSeatDistribution withOneMoreSeat = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats + 1, knessetV25ElectoralThreshold);
 
                 Dictionary<string, int> expectedSeats = new Dictionary<string, int>(r.Seats);
-                expectedSeats[r.NextLeftoverSeat.PoliticalParty]++;
+                expectedSeats[r.NextOrderedSeat.PoliticalParty]++;
                 CollectionAssert.AreEquivalent(expectedSeats, withOneMoreSeat.Seats, $"going from {iSeats} seats to {iSeats + 1}");
             }
         }
@@ -142,10 +142,10 @@ namespace Existence.Tests
         /// would have come from Likud and Religious Zionism, the agreement with the lowest votes per seat
         /// </summary>
         [TestMethod]
-        public void ValidateKnessetV25VotesNeededForNextLeftoverSeat()
+        public void ValidateKnessetV25VotesNeededForNextOrderedSeat()
         {
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold);
-            Assert.AreEqual(849, r.VotesNeededForNextLeftoverSeat);
+            Assert.AreEqual(849, r.VotesNeededForNextOrderedSeat);
         }
 
         /// <summary>
@@ -155,15 +155,15 @@ namespace Existence.Tests
         [TestMethod]
         [DataRow(true)]
         [DataRow(false)]
-        public void ValidateVotesNeededForNextLeftoverSeatByRecalculating(bool useSurplusVoteAgreements)
+        public void ValidateVotesNeededForNextOrderedSeatByRecalculating(bool useSurplusVoteAgreements)
         {
             List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
             for (int iSeats = knessetNumberOfSeats; iSeats < knessetNumberOfSeats + 20; iSeats++)
             {
                 DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold);
-                string[] recipients = r.NextLeftoverSeat.Recipients;
+                string[] recipients = r.NextOrderedSeat.Recipients;
                 int iRecipientSeats = recipients.Sum(p => r.Seats[p]);
-                long lVotesNeeded = r.VotesNeededForNextLeftoverSeat!.Value;
+                long lVotesNeeded = r.VotesNeededForNextOrderedSeat!.Value;
                 Assert.IsTrue(lVotesNeeded > 0, $"at {iSeats} seats");
 
                 Assert.AreEqual(iRecipientSeats + 1, RecipientSeatsWithExtraVotes(lVotesNeeded), $"enough votes at {iSeats} seats");
@@ -172,7 +172,7 @@ namespace Existence.Tests
                 int RecipientSeatsWithExtraVotes(long lExtraVotes)
                 {
                     Dictionary<string, long> votes = new Dictionary<string, long>(knessetV25Votes);
-                    votes[r.NextLeftoverSeat.PoliticalParty] += lExtraVotes;
+                    votes[r.NextOrderedSeat.PoliticalParty] += lExtraVotes;
                     DHondtSeatDistribution changed = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iSeats, knessetV25ElectoralThreshold);
                     return recipients.Sum(p => changed.Seats[p]);
                 }
@@ -183,12 +183,12 @@ namespace Existence.Tests
         /// validates that the votes needed are null when no other party has a seat that could be won
         /// </summary>
         [TestMethod]
-        public void ValidateVotesNeededForNextLeftoverSeatWithOnlyOneQualifyingParty()
+        public void ValidateVotesNeededForNextOrderedSeatWithOnlyOneQualifyingParty()
         {
             Dictionary<string, long> votes = new Dictionary<string, long>() { { "Party1", 1000 }, { "Party2", 10 } };
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), knessetNumberOfSeats, knessetV25ElectoralThreshold);
-            Assert.AreEqual("Party1", r.NextLeftoverSeat.PoliticalParty);
-            Assert.IsNull(r.VotesNeededForNextLeftoverSeat);
+            Assert.AreEqual("Party1", r.NextOrderedSeat.PoliticalParty);
+            Assert.IsNull(r.VotesNeededForNextOrderedSeat);
         }
     }
 }

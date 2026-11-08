@@ -6,9 +6,10 @@ using System.Linq;
 namespace Existence.Earth.Human.Politics
 {
     /// <summary>
-    /// a leftover seat, in the order it was given out
+    /// a seat given out one at a time by a divisor method, in the order it was given out. For a method with base seats
+    /// this is a leftover seat
     /// </summary>
-    public class LeftoverSeat
+    public class OrderedSeat
     {
         /// <summary>
         /// overall seat number, counting any base seats first
@@ -35,10 +36,10 @@ namespace Existence.Earth.Human.Politics
         /// constructor
         /// </summary>
         /// <param name="SeatNumber">seat number</param>
-        /// <param name="Recipients">political parties that receive the leftover seats</param>
+        /// <param name="Recipients">political parties that receive the seat</param>
         /// <param name="PoliticalParty"></param>
         /// <param name="VotesPerSeat"></param>
-        public LeftoverSeat(int SeatNumber, string[] Recipients, string PoliticalParty, decimal VotesPerSeat)
+        public OrderedSeat(int SeatNumber, string[] Recipients, string PoliticalParty, decimal VotesPerSeat)
         {
             this.SeatNumber = SeatNumber;
             this.Recipients = Recipients;
@@ -50,7 +51,7 @@ namespace Existence.Earth.Human.Politics
     /// <summary>
     /// result of distributing parliamentary seats, with what all the methods have in common
     /// </summary>
-    public abstract class BaseSeatDistribution
+    public abstract class SeatDistributionBase
     {
         /// <summary>
         /// valid votes for all parties, which the electoral threshold is a percentage of
@@ -76,13 +77,13 @@ namespace Existence.Earth.Human.Politics
         /// seats given out one at a time, in order. For a method with base seats these are the seats left after them;
         /// otherwise they are every seat
         /// </summary>
-        public List<LeftoverSeat> LeftoverSeats { get; set; } = new List<LeftoverSeat>();
+        public List<OrderedSeat> OrderedSeats { get; set; } = new List<OrderedSeat>();
 
         /// <summary>
-        /// number of leftover seats for each party running on its own or surplus vote agreement (keyed as
+        /// number of <see cref="OrderedSeats"/> for each party running on its own or surplus vote agreement (keyed as
         /// "Party1 + Party2"), including those that got none
         /// </summary>
-        public Dictionary<string, int> LeftoverSeatsByRecipient { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, int> OrderedSeatsByRecipient { get; set; } = new Dictionary<string, int>();
 
         /// <summary>
         /// total seats for each party that passed the electoral threshold
@@ -90,27 +91,27 @@ namespace Existence.Earth.Human.Politics
         public Dictionary<string, int> Seats { get; set; } = new Dictionary<string, int>();
 
         /// <summary>
-        /// the leftover seat that would be given out next if the parliament had one more seat, which isn't included in
+        /// the seat that would be given out next if the parliament had one more seat, which isn't included in
         /// <see cref="Seats"/>. The result is the same as recalculating with one more seat, since under a divisor method
         /// adding a seat never takes one away from a party. For a method with base seats, recalculating lowers the quota
         /// and can turn leftover seats into base seats, but the totals are the same
         /// </summary>
-        public LeftoverSeat NextLeftoverSeat { get; set; } = null!;
+        public OrderedSeat NextOrderedSeat { get; set; } = null!;
 
         /// <summary>
-        /// the fewest extra votes the recipients of <see cref="NextLeftoverSeat"/> would have needed to win a seat from
+        /// the fewest extra votes the recipients of <see cref="NextOrderedSeat"/> would have needed to win a seat from
         /// another party or surplus vote agreement, which is the one whose last seat was won with the lowest quotient. For a surplus vote
         /// agreement the votes can go to either party, though that can decide which of them gets the seat. Assumes the
         /// votes come from parties that are below the electoral threshold or from people who didn't vote, and that no
         /// party crosses the electoral threshold as a result. Null if no other party or surplus vote agreement has seats
         /// </summary>
-        public long? VotesNeededForNextLeftoverSeat { get; set; }
+        public long? VotesNeededForNextOrderedSeat { get; set; }
     }
 
     /// <summary>
     /// result of distributing parliamentary seats using the d'Hondt method
     /// </summary>
-    public class DHondtSeatDistribution : BaseSeatDistribution
+    public class DHondtSeatDistribution : SeatDistributionBase
     {
         /// <summary>
         /// qualifying votes per seat
@@ -126,7 +127,7 @@ namespace Existence.Earth.Human.Politics
     /// <summary>
     /// result of distributing parliamentary seats using the Sainte-Laguë method, which has no base seats
     /// </summary>
-    public class SainteLagueSeatDistribution : BaseSeatDistribution
+    public class SainteLagueSeatDistribution : SeatDistributionBase
     {
     }
 
@@ -200,9 +201,9 @@ namespace Existence.Earth.Human.Politics
             }
 
             recipients = recipients.OrderByDescending(a => a.Sum(p => NumberOfVotes[p])).ToList();
-            foreach (string[] next in recipients) r.LeftoverSeatsByRecipient[string.Join(" + ", next)] = 0;
+            foreach (string[] next in recipients) r.OrderedSeatsByRecipient[string.Join(" + ", next)] = 0;
 
-            LeftoverSeat PickLeftoverSeat(int iSeat)
+            OrderedSeat PickOrderedSeat(int iSeat)
             {
                 //apply the d'Hondt calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
                 string[] winner = PickHighestVotesPerNextSeat(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]));
@@ -212,22 +213,22 @@ namespace Existence.Earth.Human.Politics
 
                 long lVotes = winner.Sum(p => NumberOfVotes[p]);
                 int iSeats = winner.Sum(p => r.Seats[p]);
-                return new LeftoverSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
+                return new OrderedSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
             }
 
             for (int iSeat = iBaseSeats + 1; iSeat <= NumberOfSeats; iSeat++)
             {
-                LeftoverSeat seat = PickLeftoverSeat(iSeat);
-                r.LeftoverSeats.Add(seat);
-                r.LeftoverSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
+                OrderedSeat seat = PickOrderedSeat(iSeat);
+                r.OrderedSeats.Add(seat);
+                r.OrderedSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
                 r.Seats[seat.PoliticalParty]++;
             }
-            r.NextLeftoverSeat = PickLeftoverSeat(NumberOfSeats + 1);
+            r.NextOrderedSeat = PickOrderedSeat(NumberOfSeats + 1);
 
-            long lNextVotes = r.NextLeftoverSeat.Recipients.Sum(p => NumberOfVotes[p]);
-            int iNextSeats = r.NextLeftoverSeat.Recipients.Sum(p => r.Seats[p]);
-            r.VotesNeededForNextLeftoverSeat = recipients
-                .Where(a => a != r.NextLeftoverSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
+            long lNextVotes = r.NextOrderedSeat.Recipients.Sum(p => NumberOfVotes[p]);
+            int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
+            r.VotesNeededForNextOrderedSeat = recipients
+                .Where(a => a != r.NextOrderedSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
                 .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p])) - lNextVotes))
                 .Min();
             return r;
@@ -291,7 +292,7 @@ namespace Existence.Earth.Human.Politics
                 }
                 else
                 {
-                    //To determine the candidate party(s) that get the next leftover seat, compare the resultant votes/seat (pick higher value)
+                    //To determine the candidate party(s) that get the next seat, compare the resultant votes/seat (pick higher value)
                     //  candidate votes                 best votes
                     //  -------------------  against    --------------
                     //  candidate seats + 1             best seats + 1

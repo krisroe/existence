@@ -137,20 +137,20 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(DHondtSeatDistribution.Quota), r.Quota),
                 new XElement(nameof(DHondtSeatDistribution.AnnulledSurplusVoteAgreements),
                     r.AnnulledSurplusVoteAgreements.Select(a => new XElement(SurplusVoteAgreementElement, new XAttribute(Party1Attribute, a.Item1), new XAttribute(Party2Attribute, a.Item2)))),
-                new XElement(nameof(DHondtSeatDistribution.LeftoverSeats),
-                    r.LeftoverSeats.Select(s => BuildLeftoverSeat(nameof(LeftoverSeat), s))),
-                new XElement(nameof(DHondtSeatDistribution.LeftoverSeatsByRecipient),
-                    r.LeftoverSeatsByRecipient.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value)))),
-                BuildLeftoverSeat(nameof(DHondtSeatDistribution.NextLeftoverSeat), r.NextLeftoverSeat),
-                new XElement(nameof(DHondtSeatDistribution.VotesNeededForNextLeftoverSeat), r.VotesNeededForNextLeftoverSeat));
+                new XElement(nameof(DHondtSeatDistribution.OrderedSeats),
+                    r.OrderedSeats.Select(s => BuildOrderedSeat(nameof(OrderedSeat), s))),
+                new XElement(nameof(DHondtSeatDistribution.OrderedSeatsByRecipient),
+                    r.OrderedSeatsByRecipient.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value)))),
+                BuildOrderedSeat(nameof(DHondtSeatDistribution.NextOrderedSeat), r.NextOrderedSeat),
+                new XElement(nameof(DHondtSeatDistribution.VotesNeededForNextOrderedSeat), r.VotesNeededForNextOrderedSeat));
         }
 
-        private static XElement BuildLeftoverSeat(string sElement, LeftoverSeat s)
+        private static XElement BuildOrderedSeat(string sElement, OrderedSeat s)
         {
             return new XElement(sElement,
-                new XAttribute(nameof(LeftoverSeat.SeatNumber), s.SeatNumber),
-                new XAttribute(nameof(LeftoverSeat.PoliticalParty), s.PoliticalParty),
-                new XAttribute(nameof(LeftoverSeat.VotesPerSeat), s.VotesPerSeat),
+                new XAttribute(nameof(OrderedSeat.SeatNumber), s.SeatNumber),
+                new XAttribute(nameof(OrderedSeat.PoliticalParty), s.PoliticalParty),
+                new XAttribute(nameof(OrderedSeat.VotesPerSeat), s.VotesPerSeat),
                 s.Recipients.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p))));
         }
 
