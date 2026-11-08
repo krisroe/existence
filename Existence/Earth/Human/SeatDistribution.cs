@@ -227,8 +227,7 @@ namespace Existence.Earth.Human.Politics
             int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
             r.VotesNeededForNextOrderedSeat = recipients
                 .Where(a => a != r.NextOrderedSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
-                .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p]), divisor) - lNextVotes))
-                .Min();
+                .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p]), divisor) - lNextVotes));
         }
 
         /// <summary>
