@@ -188,8 +188,9 @@ namespace Existence.Earth.Human.Politics
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
+        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
         {
             DHondtSeatDistribution r = new DHondtSeatDistribution();
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, Enumerable.Empty<string>());
@@ -228,13 +229,14 @@ namespace Existence.Earth.Human.Politics
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
+        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
         /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator, and
         /// no more than 3, the divisor for the second seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won; parties left out
         /// won none. Each party has to be in <paramref name="NumberOfVotes"/>, so electorates won by independents aren't
         /// supported. Null if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
             Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor ?? new SimpleFraction(1, 1));
             foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
@@ -344,9 +346,10 @@ namespace Existence.Earth.Human.Politics
         /// <param name="exempt">parties that qualify whatever their votes, such as those that won an electorate under
         /// mixed-member proportional</param>
         /// <returns>the parties that passed the electoral threshold, in the order of <paramref name="NumberOfVotes"/></returns>
-        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, decimal ElectoralThreshold, IEnumerable<string> exempt)
+        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<string> exempt)
         {
             if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
+            if (ElectoralThreshold.Numerator < 0 || ElectoralThreshold.Denominator <= 0) throw new ArgumentException($"the electoral threshold {ElectoralThreshold} must have a numerator that isn't negative and a positive denominator", nameof(ElectoralThreshold));
 
             r.TotalVotes = NumberOfVotes.Values.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
@@ -356,7 +359,8 @@ namespace Existence.Earth.Human.Politics
             foreach (KeyValuePair<string, long> next in NumberOfVotes)
             {
                 if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
-                if (exemptSet.Contains(next.Key) || next.Value * 100m >= ElectoralThreshold * r.TotalVotes)
+                //votes / total votes >= numerator / (100 x denominator), multiplied out so it's exact in whole numbers
+                if (exemptSet.Contains(next.Key) || checked(next.Value * 100 * ElectoralThreshold.Denominator >= ElectoralThreshold.Numerator * r.TotalVotes))
                     qualifying.Add(next.Key);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);

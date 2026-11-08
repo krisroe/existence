@@ -82,7 +82,7 @@ namespace CalculateParliamentaryApportionment
                     Dictionary<string, long> votes = ReadNumberOfVotes(input);
                     List<(string, string)> agreements = ReadSurplusVoteAgreements(input);
                     int iNumberOfSeats = (int)GetRequiredElement(input, NumberOfSeatsElement);
-                    decimal dElectoralThreshold = (decimal)GetRequiredElement(input, ElectoralThresholdElement);
+                    SimpleFraction electoralThreshold = SimpleFraction.FromDecimal((decimal)GetRequiredElement(input, ElectoralThresholdElement));
                     XElement? firstDivisor = input.Element(FirstDivisorElement);
                     Dictionary<string, int>? electorateSeats = ReadElectorateSeats(input);
                     string sMethod = (string)GetRequiredElement(input, MethodElement);
@@ -91,14 +91,14 @@ namespace CalculateParliamentaryApportionment
                     {
                         if (firstDivisor != null) throw new FormatException($"{FirstDivisorElement} is only for {SainteLagueMethod}");
                         if (electorateSeats != null) throw new FormatException($"{ElectorateSeatsAttribute} is only for {SainteLagueMethod}");
-                        r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, dElectoralThreshold);
+                        r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, electoralThreshold);
                     }
                     else if (sMethod == SainteLagueMethod)
                     {
                         SimpleFraction? fraction = firstDivisor == null ? null : new SimpleFraction(
                             (long)GetRequiredAttribute(firstDivisor, NumeratorAttribute),
                             (long)GetRequiredAttribute(firstDivisor, DenominatorAttribute));
-                        r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, dElectoralThreshold, fraction, electorateSeats);
+                        r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats);
                     }
                     else
                     {

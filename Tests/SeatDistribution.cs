@@ -14,7 +14,20 @@ namespace Existence.Tests
     {
         private const int knessetNumberOfSeats = 120;
 
-        private const decimal knessetV25ElectoralThreshold = 3.25m;
+        /// <summary>
+        /// 3.25%
+        /// </summary>
+        private static readonly SimpleFraction knessetV25ElectoralThreshold = new SimpleFraction(13, 4);
+
+        /// <summary>
+        /// 5%
+        /// </summary>
+        private static readonly SimpleFraction newZealandElectoralThreshold = new SimpleFraction(5, 1);
+
+        /// <summary>
+        /// no electoral threshold, all parties receiving votes eligible to receive seats
+        /// </summary>
+        private static readonly SimpleFraction noElectoralThreshold = new SimpleFraction(0, 1);
 
         /// <summary>
         /// votes for each list in the 2022 Knesset election. Other lumps together the minor lists, each far below the
@@ -232,7 +245,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateNewZealandV55SeatDistribution()
         {
-            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m, null, newZealandV55ElectorateSeats);
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, newZealandElectoralThreshold, null, newZealandV55ElectorateSeats);
             Assert.AreEqual(2418565, r.TotalVotes);
             CollectionAssert.AreEquivalent(new Dictionary<string, int>()
             {
@@ -256,7 +269,7 @@ namespace Existence.Tests
             //the next seat goes to National, whose total stays at 42 with one less overhang seat
             Assert.AreEqual("National", r.NextOrderedSeat.PoliticalParty);
             Assert.IsTrue(r.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat);
-            SainteLagueSeatDistribution withOneMoreSeat = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 121, 5m, null, newZealandV55ElectorateSeats);
+            SainteLagueSeatDistribution withOneMoreSeat = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 121, newZealandElectoralThreshold, null, newZealandV55ElectorateSeats);
             CollectionAssert.AreEquivalent(r.TotalSeats, withOneMoreSeat.TotalSeats);
             Assert.AreEqual(131, withOneMoreSeat.NumberOfMembers);
         }
@@ -268,7 +281,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateNewZealandV55WithoutElectorateSeats()
         {
-            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m);
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, newZealandElectoralThreshold);
             CollectionAssert.Contains(r.PoliticalPartiesBelowElectoralThreshold, "TePātiMāori");
             Assert.AreEqual(0, r.ElectorateSeats.Count);
             Assert.AreEqual(120, r.NumberOfMembers);
@@ -284,7 +297,7 @@ namespace Existence.Tests
         public void ValidateBadElectorateSeatsAreRejected(string sParty, int iElectorateSeats)
         {
             Dictionary<string, int> electorateSeats = new Dictionary<string, int>() { { sParty, iElectorateSeats } };
-            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, 5m, null, electorateSeats));
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, newZealandElectoralThreshold, null, electorateSeats));
         }
 
         /// <summary>
@@ -299,6 +312,33 @@ namespace Existence.Tests
         private const int smallExampleNumberOfSeats = 7;
 
         /// <summary>
+        /// validates that the electoral threshold is compared exactly: a party with exactly 3.25% of the votes passes,
+        /// and one vote fewer doesn't, whether the threshold is 13/4 or 325/100
+        /// </summary>
+        [TestMethod]
+        [DataRow(13L, 4L)]
+        [DataRow(325L, 100L)]
+        public void ValidateElectoralThresholdIsExact(long lNumerator, long lDenominator)
+        {
+            SimpleFraction threshold = new SimpleFraction(lNumerator, lDenominator);
+            Dictionary<string, long> atThreshold = new Dictionary<string, long>() { { "A", 9675 }, { "B", 325 } };
+            CollectionAssert.Contains(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(atThreshold, new List<(string, string)>(), 10, threshold).Seats.Keys, "B");
+            Dictionary<string, long> belowThreshold = new Dictionary<string, long>() { { "A", 9676 }, { "B", 324 } };
+            CollectionAssert.Contains(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(belowThreshold, new List<(string, string)>(), 10, threshold).PoliticalPartiesBelowElectoralThreshold, "B");
+        }
+
+        /// <summary>
+        /// validates converting decimals to fractions exactly
+        /// </summary>
+        [TestMethod]
+        public void ValidateSimpleFractionFromDecimal()
+        {
+            Assert.AreEqual("325/100", SimpleFraction.FromDecimal(3.25m).ToString());
+            Assert.AreEqual("5/1", SimpleFraction.FromDecimal(5m).ToString());
+            Assert.AreEqual("50/10", SimpleFraction.FromDecimal(5.0m).ToString());
+        }
+
+        /// <summary>
         /// validates plain Sainte-Laguë on the small example, where the quotients for seats 1-7 are 53000 (A),
         /// 24000 (B), 23000 (C), 53000/3 (A), 53000/5 (A), 9000 (D) and 24000/3 (B), and the next seat goes to C at
         /// 23000/3, ahead of A at 53000/7. D'Hondt gives A 4 seats, B 2, C 1 and D none
@@ -306,14 +346,14 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateSainteLagueSmallExample()
         {
-            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m);
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, noElectoralThreshold);
             CollectionAssert.AreEqual(new[] { "A", "B", "C", "A", "A", "D", "B" }, r.OrderedSeats.Select(s => s.PoliticalParty).ToList());
             CollectionAssert.AreEqual(Enumerable.Range(1, smallExampleNumberOfSeats).ToList(), r.OrderedSeats.Select(s => s.SeatNumber).ToList());
             CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 3 }, { "B", 2 }, { "C", 1 }, { "D", 1 } }, r.Seats);
             Assert.AreEqual("C", r.NextOrderedSeat.PoliticalParty);
             Assert.AreEqual(8, r.NextOrderedSeat.SeatNumber);
 
-            DHondtSeatDistribution dHondt = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m);
+            DHondtSeatDistribution dHondt = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, noElectoralThreshold);
             CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 4 }, { "B", 2 }, { "C", 1 }, { "D", 0 } }, dHondt.Seats);
         }
 
@@ -324,7 +364,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateModifiedSainteLagueSmallExample()
         {
-            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m, new SimpleFraction(7, 5));
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, noElectoralThreshold, new SimpleFraction(7, 5));
             CollectionAssert.AreEqual(new[] { "A", "A", "B", "C", "A", "B", "C" }, r.OrderedSeats.Select(s => s.PoliticalParty).ToList());
             CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 3 }, { "B", 2 }, { "C", 2 }, { "D", 0 } }, r.Seats);
         }
@@ -339,7 +379,7 @@ namespace Existence.Tests
         [DataRow(16L, 5L)]
         public void ValidateSainteLagueRejectsBadFirstDivisor(long lNumerator, long lDenominator)
         {
-            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, 0m, new SimpleFraction(lNumerator, lDenominator)));
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, noElectoralThreshold, new SimpleFraction(lNumerator, lDenominator)));
         }
 
         /// <summary>
