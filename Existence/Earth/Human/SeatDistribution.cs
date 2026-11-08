@@ -1,4 +1,5 @@
 ﻿using Existence.Earth.Countries.UnitedStates;
+using Existence.Earth.FieldsOfStudy.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -197,30 +198,24 @@ namespace Existence.Earth.Human.Politics
         /// there are no base seats from whole quotas, since Sainte-Laguë can give a party fewer seats than its whole
         /// quotas. Surplus vote agreements are an addition to plain Sainte-Laguë, carried over from how Israel adds them
         /// to d'Hondt, so pass none to get plain Sainte-Laguë. The modified Sainte-Laguë method raises the first divisor
-        /// so a party's first seat costs more, which Norway does with 1.4 and Sweden did with 1.4 before changing to 1.2
-        /// in 2018
+        /// so a party's first seat costs more, which Norway does with 1.4 (7/5) and Sweden did with 1.4 before changing
+        /// to 1.2 (6/5) in 2018
         /// </summary>
         /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        /// <param name="FirstDivisor">divisor for a party's first seat, which is 1 for plain Sainte-Laguë. It is
-        /// positive with at most <see cref="MaxFirstDivisorDecimalPlaces"/> decimal places</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, decimal FirstDivisor = 1m)
+        /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator.
+        /// Null for plain Sainte-Laguë, which uses 1/1</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, SimpleFraction? FirstDivisor = null)
         {
-            Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor);
+            Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor ?? new SimpleFraction(1, 1));
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
             throw new NotImplementedException();
         }
-
-        /// <summary>
-        /// most decimal places allowed in the first divisor of the modified Sainte-Laguë method, which keeps the scaled
-        /// divisors small enough that multiplying them by votes doesn't overflow
-        /// </summary>
-        private const int MaxFirstDivisorDecimalPlaces = 4;
 
         /// <summary>
         /// divisor for a party's next seat under the d'Hondt method: 1, 2, 3, ...
@@ -229,23 +224,16 @@ namespace Existence.Earth.Human.Politics
 
         /// <summary>
         /// gets the divisor for a party's next seat under the Sainte-Laguë method, 1, 3, 5, ..., with the first one
-        /// replaced by <paramref name="FirstDivisor"/>. The divisors are scaled by a power of ten so they are whole
-        /// numbers; that is fine since only ratios of quotients are compared, so 1.4, 3, 5, ... becomes 14, 30, 50, ...
+        /// replaced by <paramref name="FirstDivisor"/>. The divisors are all multiplied by its denominator so they are
+        /// whole numbers; that is fine since only ratios of quotients are compared, so 7/5, 3, 5, ... becomes 7, 15, 25, ...
         /// </summary>
-        private static Func<int, long> GetSainteLagueDivisor(decimal FirstDivisor)
+        private static Func<int, long> GetSainteLagueDivisor(SimpleFraction FirstDivisor)
         {
-            if (FirstDivisor <= 0) throw new ArgumentException("the first divisor must be positive", nameof(FirstDivisor));
+            if (FirstDivisor.Numerator <= 0 || FirstDivisor.Denominator <= 0) throw new ArgumentException($"the first divisor {FirstDivisor} must have a positive numerator and denominator", nameof(FirstDivisor));
 
-            long lScale = 1;
-            decimal dScaledFirstDivisor = FirstDivisor;
-            for (int iDecimalPlaces = 0; dScaledFirstDivisor != decimal.Truncate(dScaledFirstDivisor); iDecimalPlaces++)
-            {
-                if (iDecimalPlaces == MaxFirstDivisorDecimalPlaces) throw new ArgumentException($"the first divisor can have at most {MaxFirstDivisorDecimalPlaces} decimal places", nameof(FirstDivisor));
-                dScaledFirstDivisor *= 10;
-                lScale *= 10;
-            }
-            long lFirstDivisor = (long)dScaledFirstDivisor;
-            return iSeats => iSeats == 0 ? lFirstDivisor : (2L * iSeats + 1) * lScale;
+            long lNumerator = FirstDivisor.Numerator;
+            long lDenominator = FirstDivisor.Denominator;
+            return iSeats => iSeats == 0 ? lNumerator : checked((2L * iSeats + 1) * lDenominator);
         }
 
         /// <summary>
