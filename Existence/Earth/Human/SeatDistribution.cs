@@ -28,7 +28,8 @@ namespace Existence.Earth.Human.Politics
         public string PoliticalParty { get; set; }
 
         /// <summary>
-        /// the recipients' votes divided by their seats including this one, which won the seat
+        /// the recipients' votes divided by their seats including this one. Under the d'Hondt method this is the quotient
+        /// that won the seat; under other divisor methods it is just for information
         /// </summary>
         public decimal VotesPerSeat { get; set; }
 
@@ -166,27 +167,14 @@ namespace Existence.Earth.Human.Politics
 
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
 
-            OrderedSeat PickOrderedSeat(int iSeat)
-            {
-                //apply the d'Hondt calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
-                string[] winner = PickHighestVotesPerNextSeat(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]));
-
-                //apply the d'Hondt calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
-                string sParty = PickHighestVotesPerNextSeat(winner.OrderByDescending(p => NumberOfVotes[p]), p => NumberOfVotes[p], p => r.Seats[p]);
-
-                long lVotes = winner.Sum(p => NumberOfVotes[p]);
-                int iSeats = winner.Sum(p => r.Seats[p]);
-                return new OrderedSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
-            }
-
             for (int iSeat = iBaseSeats + 1; iSeat <= NumberOfSeats; iSeat++)
             {
-                OrderedSeat seat = PickOrderedSeat(iSeat);
+                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, DHondtDivisor, iSeat);
                 r.OrderedSeats.Add(seat);
                 r.OrderedSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
                 r.Seats[seat.PoliticalParty]++;
             }
-            r.NextOrderedSeat = PickOrderedSeat(NumberOfSeats + 1);
+            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, DHondtDivisor, NumberOfSeats + 1);
 
             long lNextVotes = r.NextOrderedSeat.Recipients.Sum(p => NumberOfVotes[p]);
             int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
@@ -208,19 +196,76 @@ namespace Existence.Earth.Human.Politics
         /// party with the highest votes / (2 × seats + 1). Ties go to the side with more votes. Unlike the d'Hondt method
         /// there are no base seats from whole quotas, since Sainte-Laguë can give a party fewer seats than its whole
         /// quotas. Surplus vote agreements are an addition to plain Sainte-Laguë, carried over from how Israel adds them
-        /// to d'Hondt, so pass none to get plain Sainte-Laguë
+        /// to d'Hondt, so pass none to get plain Sainte-Laguë. The modified Sainte-Laguë method raises the first divisor
+        /// so a party's first seat costs more, which Norway does with 1.4 and Sweden did with 1.4 before changing to 1.2
+        /// in 2018
         /// </summary>
         /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
+        /// <param name="FirstDivisor">divisor for a party's first seat, which is 1 for plain Sainte-Laguë. It is
+        /// positive with at most <see cref="MaxFirstDivisorDecimalPlaces"/> decimal places</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold, decimal FirstDivisor = 1m)
         {
+            Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor);
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// most decimal places allowed in the first divisor of the modified Sainte-Laguë method, which keeps the scaled
+        /// divisors small enough that multiplying them by votes doesn't overflow
+        /// </summary>
+        private const int MaxFirstDivisorDecimalPlaces = 4;
+
+        /// <summary>
+        /// divisor for a party's next seat under the d'Hondt method: 1, 2, 3, ...
+        /// </summary>
+        private static readonly Func<int, long> DHondtDivisor = iSeats => iSeats + 1L;
+
+        /// <summary>
+        /// gets the divisor for a party's next seat under the Sainte-Laguë method, 1, 3, 5, ..., with the first one
+        /// replaced by <paramref name="FirstDivisor"/>. The divisors are scaled by a power of ten so they are whole
+        /// numbers; that is fine since only ratios of quotients are compared, so 1.4, 3, 5, ... becomes 14, 30, 50, ...
+        /// </summary>
+        private static Func<int, long> GetSainteLagueDivisor(decimal FirstDivisor)
+        {
+            if (FirstDivisor <= 0) throw new ArgumentException("the first divisor must be positive", nameof(FirstDivisor));
+
+            long lScale = 1;
+            decimal dScaledFirstDivisor = FirstDivisor;
+            for (int iDecimalPlaces = 0; dScaledFirstDivisor != decimal.Truncate(dScaledFirstDivisor); iDecimalPlaces++)
+            {
+                if (iDecimalPlaces == MaxFirstDivisorDecimalPlaces) throw new ArgumentException($"the first divisor can have at most {MaxFirstDivisorDecimalPlaces} decimal places", nameof(FirstDivisor));
+                dScaledFirstDivisor *= 10;
+                lScale *= 10;
+            }
+            long lFirstDivisor = (long)dScaledFirstDivisor;
+            return iSeats => iSeats == 0 ? lFirstDivisor : (2L * iSeats + 1) * lScale;
+        }
+
+        /// <summary>
+        /// picks who gets the next seat given out one at a time: first the party or surplus vote agreement with the
+        /// highest quotient, then within an agreement the party in it with the highest quotient. A quotient is votes
+        /// divided by the divisor for the next seat
+        /// </summary>
+        /// <param name="divisor">whole-number divisor for the next seat, given the current number of seats</param>
+        /// <param name="iSeat">overall seat number of the seat being picked</param>
+        private static OrderedSeat PickOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, int iSeat)
+        {
+            //apply the divisor calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
+            string[] winner = PickHighestQuotient(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]), divisor);
+
+            //apply the divisor calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
+            string sParty = PickHighestQuotient(winner.OrderByDescending(p => NumberOfVotes[p]), p => NumberOfVotes[p], p => r.Seats[p], divisor);
+
+            long lVotes = winner.Sum(p => NumberOfVotes[p]);
+            int iSeats = winner.Sum(p => r.Seats[p]);
+            return new OrderedSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
         }
 
         /// <summary>
@@ -302,10 +347,10 @@ namespace Existence.Earth.Human.Politics
         }
 
         /// <summary>
-        /// picks the candidate with the most votes per seat if it got one more, comparing exactly with integer math.
-        /// Ties go to the first candidate, so callers order candidates by votes
+        /// picks the candidate with the highest quotient, its votes divided by the divisor for its next seat, comparing
+        /// exactly with integer math. Ties go to the first candidate, so callers order candidates by votes
         /// </summary>
-        private static T PickHighestVotesPerNextSeat<T>(IEnumerable<T> candidates, Func<T, long> votes, Func<T, int> seats)
+        private static T PickHighestQuotient<T>(IEnumerable<T> candidates, Func<T, long> votes, Func<T, int> seats, Func<int, long> divisor)
         {
             T best = default!;
             long lBestVotes = -1;
@@ -321,15 +366,17 @@ namespace Existence.Earth.Human.Politics
                 }
                 else
                 {
-                    //To determine the candidate party(s) that get the next seat, compare the resultant votes/seat (pick higher value)
-                    //  candidate votes                 best votes
-                    //  -------------------  against    --------------
-                    //  candidate seats + 1             best seats + 1
-                    //This maximizes the votes per seat, intending to keep seats from being too cheap in votes.
-                    //This has the side effect of favoring party(s) with more seats, since an extra seat lowers a larger group's votes
-                    //per seat by a smaller share.
-                    //The calculation below is a simple transformation of the main equation to use multiplication instead of division.
-                    isBest = lVotes * (iBestSeats + 1L) > lBestVotes * (iSeats + 1L);
+                    //To determine the candidate party(s) that get the next seat, compare the quotients (pick higher value)
+                    //  candidate votes                        best votes
+                    //  ---------------------------  against   ----------------------
+                    //  divisor(candidate seats)               divisor(best seats)
+                    //Under d'Hondt the divisor is seats + 1, so this maximizes the votes per seat, intending to keep seats from being
+                    //too cheap in votes. That has the side effect of favoring party(s) with more seats, since an extra seat lowers a
+                    //larger group's votes per seat by a smaller share. Sainte-Laguë's divisor of 2 x seats + 1 is roughly neutral
+                    //between larger and smaller party(s).
+                    //The calculation below is a simple transformation of the main equation to use multiplication instead of division,
+                    //checked so a divisor scaled too far throws instead of silently overflowing.
+                    isBest = checked(lVotes * divisor(iBestSeats) > lBestVotes * divisor(iSeats));
                 }
                 if (isBest)
                 {
