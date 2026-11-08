@@ -151,23 +151,8 @@ namespace Existence.Earth.Human.Politics
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
         public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
         {
-            if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
-
             DHondtSeatDistribution r = new DHondtSeatDistribution();
-            r.TotalVotes = NumberOfVotes.Values.Sum();
-            if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
-
-            List<string> qualifying = new List<string>();
-            foreach (KeyValuePair<string, long> next in NumberOfVotes)
-            {
-                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
-                if (next.Value * 100m >= ElectoralThreshold * r.TotalVotes)
-                    qualifying.Add(next.Key);
-                else
-                    r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
-            }
-            if (qualifying.Count == 0) throw new InvalidOperationException("no party passed the electoral threshold");
-            r.QualifyingVotes = qualifying.Sum(p => NumberOfVotes[p]);
+            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
             r.Quota = (decimal)r.QualifyingVotes / NumberOfSeats;
 
             int iBaseSeats = 0;
@@ -179,29 +164,7 @@ namespace Existence.Earth.Human.Politics
                 iBaseSeats += iSeats;
             }
 
-            HashSet<string> inAgreement = new HashSet<string>(); //list of parties in a surplus vote agreement, to validate a party can only be in one
-            List<string[]> recipients = new List<string[]>(); //list of possible recipients of leftover seats, either a single party or a surplus vote agreement
-            foreach ((string sParty1, string sParty2) in SurplusVoteAgreements)
-            {
-                foreach (string sParty in new[] { sParty1, sParty2 })
-                {
-                    if (!NumberOfVotes.ContainsKey(sParty)) throw new ArgumentException($"surplus vote agreement party {sParty} has no votes", nameof(SurplusVoteAgreements));
-                    if (!inAgreement.Add(sParty)) throw new ArgumentException($"{sParty} is in more than one surplus vote agreement, or one with itself", nameof(SurplusVoteAgreements));
-                }
-                if (r.Seats.ContainsKey(sParty1) && r.Seats.ContainsKey(sParty2))
-                    recipients.Add(new[] { sParty1, sParty2 });
-                else
-                    r.AnnulledSurplusVoteAgreements.Add((sParty1, sParty2));
-            }
-
-            //add any qualifying parties not in a surplus vote agreement
-            foreach (string sParty in qualifying)
-            {
-                if (!recipients.Any(a => a.Contains(sParty))) recipients.Add(new[] { sParty });
-            }
-
-            recipients = recipients.OrderByDescending(a => a.Sum(p => NumberOfVotes[p])).ToList();
-            foreach (string[] next in recipients) r.OrderedSeatsByRecipient[string.Join(" + ", next)] = 0;
+            List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
 
             OrderedSeat PickOrderedSeat(int iSeat)
             {
@@ -254,7 +217,73 @@ namespace Existence.Earth.Human.Politics
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
         {
+            SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
+            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold);
+            List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// validates the inputs common to all the methods and applies the electoral threshold, filling in
+        /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.QualifyingVotes"/> and
+        /// <see cref="SeatDistributionBase.PoliticalPartiesBelowElectoralThreshold"/>
+        /// </summary>
+        /// <returns>the parties that passed the electoral threshold, in the order of <paramref name="NumberOfVotes"/></returns>
+        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, decimal ElectoralThreshold)
+        {
+            if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
+
+            r.TotalVotes = NumberOfVotes.Values.Sum();
+            if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
+
+            List<string> qualifying = new List<string>();
+            foreach (KeyValuePair<string, long> next in NumberOfVotes)
+            {
+                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
+                if (next.Value * 100m >= ElectoralThreshold * r.TotalVotes)
+                    qualifying.Add(next.Key);
+                else
+                    r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
+            }
+            if (qualifying.Count == 0) throw new InvalidOperationException("no party passed the electoral threshold");
+            r.QualifyingVotes = qualifying.Sum(p => NumberOfVotes[p]);
+            return qualifying;
+        }
+
+        /// <summary>
+        /// validates the surplus vote agreements and gets the possible recipients of seats given out one at a time: each
+        /// surplus vote agreement whose parties both passed the electoral threshold, and each other qualifying party on
+        /// its own. Fills in <see cref="SeatDistributionBase.AnnulledSurplusVoteAgreements"/>, and
+        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> with zero seats for each recipient
+        /// </summary>
+        /// <returns>the recipients, ordered by votes descending, which is how ties are broken</returns>
+        private static List<string[]> GetRecipients(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, List<string> qualifying)
+        {
+            HashSet<string> qualifyingSet = new HashSet<string>(qualifying);
+            HashSet<string> inAgreement = new HashSet<string>(); //list of parties in a surplus vote agreement, to validate a party can only be in one
+            List<string[]> recipients = new List<string[]>(); //list of possible recipients of seats, either a single party or a surplus vote agreement
+            foreach ((string sParty1, string sParty2) in SurplusVoteAgreements)
+            {
+                foreach (string sParty in new[] { sParty1, sParty2 })
+                {
+                    if (!NumberOfVotes.ContainsKey(sParty)) throw new ArgumentException($"surplus vote agreement party {sParty} has no votes", nameof(SurplusVoteAgreements));
+                    if (!inAgreement.Add(sParty)) throw new ArgumentException($"{sParty} is in more than one surplus vote agreement, or one with itself", nameof(SurplusVoteAgreements));
+                }
+                if (qualifyingSet.Contains(sParty1) && qualifyingSet.Contains(sParty2))
+                    recipients.Add(new[] { sParty1, sParty2 });
+                else
+                    r.AnnulledSurplusVoteAgreements.Add((sParty1, sParty2));
+            }
+
+            //add any qualifying parties not in a surplus vote agreement
+            foreach (string sParty in qualifying)
+            {
+                if (!recipients.Any(a => a.Contains(sParty))) recipients.Add(new[] { sParty });
+            }
+
+            recipients = recipients.OrderByDescending(a => a.Sum(p => NumberOfVotes[p])).ToList();
+            foreach (string[] next in recipients) r.OrderedSeatsByRecipient[string.Join(" + ", next)] = 0;
+            return recipients;
         }
 
         /// <summary>
