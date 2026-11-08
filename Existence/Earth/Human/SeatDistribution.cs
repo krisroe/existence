@@ -161,6 +161,14 @@ namespace Existence.Earth.Human.Politics
         /// number of seats in the parliament plus any overhang seats
         /// </summary>
         public int NumberOfMembers { get; set; }
+
+        /// <summary>
+        /// for mixed-member proportional, whether <see cref="SeatDistributionBase.NextOrderedSeat"/> would go to a party
+        /// with overhang seats. That party already has more electorates than its share, so one more seat in its share
+        /// would only take away an overhang seat, leaving its total seats and the number of members the same. The same
+        /// goes for <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>
+        /// </summary>
+        public bool NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat { get; set; }
     }
 
     public static class SeatDistributions
@@ -255,6 +263,7 @@ namespace Existence.Earth.Human.Politics
                 }
             }
             r.NumberOfMembers = NumberOfSeats + r.OverhangSeats.Values.Sum();
+            r.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat = r.OverhangSeats.GetValueOrDefault(r.NextOrderedSeat.PoliticalParty) > 0;
             return r;
         }
 

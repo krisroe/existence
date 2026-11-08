@@ -252,6 +252,13 @@ namespace Existence.Tests
             }, r.TotalSeats);
             Assert.AreEqual(131, r.NumberOfMembers);
             Assert.AreEqual(60, r.ListSeats.Values.Sum());
+
+            //the next seat goes to National, whose total stays at 42 with one less overhang seat
+            Assert.AreEqual("National", r.NextOrderedSeat.PoliticalParty);
+            Assert.IsTrue(r.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat);
+            SainteLagueSeatDistribution withOneMoreSeat = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 121, 5m, null, newZealandV55ElectorateSeats);
+            CollectionAssert.AreEquivalent(r.TotalSeats, withOneMoreSeat.TotalSeats);
+            Assert.AreEqual(131, withOneMoreSeat.NumberOfMembers);
         }
 
         /// <summary>
@@ -265,6 +272,7 @@ namespace Existence.Tests
             CollectionAssert.Contains(r.PoliticalPartiesBelowElectoralThreshold, "TePātiMāori");
             Assert.AreEqual(0, r.ElectorateSeats.Count);
             Assert.AreEqual(120, r.NumberOfMembers);
+            Assert.IsFalse(r.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat);
         }
 
         /// <summary>

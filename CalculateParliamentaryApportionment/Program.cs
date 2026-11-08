@@ -191,7 +191,9 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// builds the Output element, with Quota only for D'Hondt and NumberOfMembers only with electorate seats
+        /// builds the Output element, with Quota only for D'Hondt and NumberOfMembers only with electorate seats. An empty
+        /// NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat element comes last when the next seat would go to a party
+        /// with overhang seats, which makes both NextOrderedSeat and VotesNeededForNextOrderedSeat irrelevant
         /// </summary>
         private static XElement BuildOutput(SeatDistributionBase r)
         {
@@ -207,7 +209,8 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(SeatDistributionBase.OrderedSeatsByRecipient),
                     r.OrderedSeatsByRecipient.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value)))),
                 BuildOrderedSeat(nameof(SeatDistributionBase.NextOrderedSeat), r.NextOrderedSeat),
-                new XElement(nameof(SeatDistributionBase.VotesNeededForNextOrderedSeat), r.VotesNeededForNextOrderedSeat));
+                new XElement(nameof(SeatDistributionBase.VotesNeededForNextOrderedSeat), r.VotesNeededForNextOrderedSeat),
+                r is SainteLagueSeatDistribution { NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat: true } ? new XElement(nameof(SainteLagueSeatDistribution.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat)) : null);
         }
 
         private static XElement BuildOrderedSeat(string sElement, OrderedSeat s)
