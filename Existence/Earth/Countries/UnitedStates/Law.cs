@@ -338,5 +338,8 @@ namespace Existence.Earth.Countries.UnitedStates
 
         [Gender(Gender.Male)]
         WashingtonGeorge,
+
+        [Gender(Gender.Male)]
+        WebsterDaniel,
     }
 }

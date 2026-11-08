@@ -11,7 +11,7 @@ namespace Existence.Earth.Human.Politics
     public class LeftoverSeat
     {
         /// <summary>
-        /// overall seat number, counting the base seats first
+        /// overall seat number, counting any base seats first
         /// </summary>
         public int SeatNumber { get; set; }
 
@@ -48,9 +48,9 @@ namespace Existence.Earth.Human.Politics
     }
 
     /// <summary>
-    /// result of distributing parliamentary seats
+    /// result of distributing parliamentary seats, with what all the methods have in common
     /// </summary>
-    public class SeatDistribution
+    public abstract class BaseSeatDistribution
     {
         /// <summary>
         /// valid votes for all parties, which the electoral threshold is a percentage of
@@ -63,11 +63,6 @@ namespace Existence.Earth.Human.Politics
         public long QualifyingVotes { get; set; }
 
         /// <summary>
-        /// qualifying votes per seat
-        /// </summary>
-        public decimal Quota { get; set; }
-
-        /// <summary>
         /// political parties that fell below the electoral threshold and thus get no representation
         /// </summary>
         public List<string> PoliticalPartiesBelowElectoralThreshold { get; set; } = new List<string>();
@@ -78,12 +73,8 @@ namespace Existence.Earth.Human.Politics
         public List<(string, string)> AnnulledSurplusVoteAgreements { get; set; } = new List<(string, string)>();
 
         /// <summary>
-        /// seats from whole quotas, for each party that passed the electoral threshold
-        /// </summary>
-        public Dictionary<string, int> BaseSeats { get; set; } = new Dictionary<string, int>();
-
-        /// <summary>
-        /// leftover seats in the order they were given out
+        /// seats given out one at a time, in order. For a method with base seats these are the seats left after them;
+        /// otherwise they are every seat
         /// </summary>
         public List<LeftoverSeat> LeftoverSeats { get; set; } = new List<LeftoverSeat>();
 
@@ -100,19 +91,43 @@ namespace Existence.Earth.Human.Politics
 
         /// <summary>
         /// the leftover seat that would be given out next if the parliament had one more seat, which isn't included in
-        /// <see cref="Seats"/>. The result is the same as recalculating with one more seat: that lowers the quota and can
-        /// turn leftover seats into base seats, but under the d'Hondt method no existing seat changes hands
+        /// <see cref="Seats"/>. The result is the same as recalculating with one more seat, since under a divisor method
+        /// adding a seat never takes one away from a party. For a method with base seats, recalculating lowers the quota
+        /// and can turn leftover seats into base seats, but the totals are the same
         /// </summary>
         public LeftoverSeat NextLeftoverSeat { get; set; } = null!;
 
         /// <summary>
         /// the fewest extra votes the recipients of <see cref="NextLeftoverSeat"/> would have needed to win a seat from
-        /// another party or surplus vote agreement, which is the one with the lowest votes per seat. For a surplus vote
+        /// another party or surplus vote agreement, which is the one whose last seat was won with the lowest quotient. For a surplus vote
         /// agreement the votes can go to either party, though that can decide which of them gets the seat. Assumes the
         /// votes come from parties that are below the electoral threshold or from people who didn't vote, and that no
         /// party crosses the electoral threshold as a result. Null if no other party or surplus vote agreement has seats
         /// </summary>
         public long? VotesNeededForNextLeftoverSeat { get; set; }
+    }
+
+    /// <summary>
+    /// result of distributing parliamentary seats using the d'Hondt method
+    /// </summary>
+    public class DHondtSeatDistribution : BaseSeatDistribution
+    {
+        /// <summary>
+        /// qualifying votes per seat
+        /// </summary>
+        public decimal Quota { get; set; }
+
+        /// <summary>
+        /// seats from whole quotas, for each party that passed the electoral threshold
+        /// </summary>
+        public Dictionary<string, int> BaseSeats { get; set; } = new Dictionary<string, int>();
+    }
+
+    /// <summary>
+    /// result of distributing parliamentary seats using the Sainte-Laguë method, which has no base seats
+    /// </summary>
+    public class SainteLagueSeatDistribution : BaseSeatDistribution
+    {
     }
 
     public static class SeatDistributions
@@ -133,11 +148,11 @@ namespace Existence.Earth.Human.Politics
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
-        public static SeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
         {
             if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
 
-            SeatDistribution r = new SeatDistribution();
+            DHondtSeatDistribution r = new DHondtSeatDistribution();
             r.TotalVotes = NumberOfVotes.Values.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
 
@@ -216,6 +231,29 @@ namespace Existence.Earth.Human.Politics
                 .Select(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p])) - lNextVotes))
                 .Min();
             return r;
+        }
+
+        /// <summary>
+        /// distributes seats in a single district using the Sainte-Laguë method, which André Sainte-Laguë proposed in
+        /// France in 1910. The same method was proposed earlier by <see cref="UnitedStatesPoliticians.WebsterDaniel"/> in
+        /// the United States in 1832 for apportioning the House of Representatives, and was used that way after the 1840,
+        /// 1910 and 1930 censuses. Hans Schepers also developed it in Germany, where it is known as Sainte-Laguë/Schepers.
+        /// Parties below the electoral threshold (a percentage of all valid votes) get nothing, and surplus vote
+        /// agreements with such a party are annulled. Seats then go one at a time to the party or surplus vote agreement
+        /// with the highest votes / (2 × seats + 1), so the divisors are 1, 3, 5, ..., and within an agreement to the
+        /// party with the highest votes / (2 × seats + 1). Ties go to the side with more votes. Unlike the d'Hondt method
+        /// there are no base seats from whole quotas, since Sainte-Laguë can give a party fewer seats than its whole
+        /// quotas. Surplus vote agreements are an addition to plain Sainte-Laguë, carried over from how Israel adds them
+        /// to d'Hondt, so pass none to get plain Sainte-Laguë
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
+        /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
+        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, decimal ElectoralThreshold)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
