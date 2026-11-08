@@ -13,7 +13,7 @@ namespace CalculateParliamentaryApportionment
     /// reads the inputs of <see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/> or
     /// <see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/> from the Input
     /// element of an XML file, and writes the resulting seat distribution back to the same file. Method is exactly
-    /// D'Hondt or Sainte-Laguë. Each Party element gets AboveThreshold and Seats attributes, plus BaseSeats for d'Hondt,
+    /// D'Hondt or Sainte-Laguë. Each Party element gets AboveThreshold and Seats attributes, plus BaseSeats for D'Hondt,
     /// and everything else goes in the Output element. Those attributes and the Output element are ignored when reading
     /// and regenerated on every run, so only Name and Votes need to be filled in. The file looks like this before it is
     /// first run, with SurplusVoteAgreements being optional, and FirstDivisor being optional and only for Sainte-Laguë
@@ -160,7 +160,7 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// builds the Output element, with Quota only for d'Hondt
+        /// builds the Output element, with Quota only for D'Hondt
         /// </summary>
         private static XElement BuildOutput(SeatDistributionBase r)
         {

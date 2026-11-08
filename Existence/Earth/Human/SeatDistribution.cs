@@ -29,7 +29,7 @@ namespace Existence.Earth.Human.Politics
         public string PoliticalParty { get; set; }
 
         /// <summary>
-        /// the recipients' votes divided by their seats including this one. Under the d'Hondt method this is the quotient
+        /// the recipients' votes divided by their seats including this one. Under the D'Hondt method this is the quotient
         /// that won the seat; under other divisor methods it is just for information
         /// </summary>
         public decimal VotesPerSeat { get; set; }
@@ -111,7 +111,7 @@ namespace Existence.Earth.Human.Politics
     }
 
     /// <summary>
-    /// result of distributing parliamentary seats using the d'Hondt method
+    /// result of distributing parliamentary seats using the D'Hondt method
     /// </summary>
     public class DHondtSeatDistribution : SeatDistributionBase
     {
@@ -136,7 +136,7 @@ namespace Existence.Earth.Human.Politics
     public static class SeatDistributions
     {
         /// <summary>
-        /// distributes seats in a single district using the d'Hondt method, which Victor d'Hondt developed in Belgium in
+        /// distributes seats in a single district using the D'Hondt method, which Victor D'Hondt developed in Belgium in
         /// the 1870s and 1880s. The same method was proposed earlier by
         /// <see cref="UnitedStatesPoliticians.JeffersonThomas"/> in the United States in the 1790s, and also developed by
         /// Hagenbach-Bischoff in Switzerland and Bader-Ofer in Israel. Parties below the electoral threshold (a percentage
@@ -144,7 +144,7 @@ namespace Existence.Earth.Human.Politics
         /// party gets a base seat per whole quota of qualifying votes. Leftover seats then go one at a time to the party
         /// or surplus vote agreement with the most votes per seat if it got one more, and within an agreement to the party
         /// with the most votes per seat if it got one more. Ties go to the side with more votes. Surplus vote agreements
-        /// are an addition to plain d'Hondt, so pass none to get plain d'Hondt
+        /// are an addition to plain D'Hondt, so pass none to get plain D'Hondt
         /// </summary>
         /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
         /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
@@ -177,10 +177,10 @@ namespace Existence.Earth.Human.Politics
         /// Parties below the electoral threshold (a percentage of all valid votes) get nothing, and surplus vote
         /// agreements with such a party are annulled. Seats then go one at a time to the party or surplus vote agreement
         /// with the highest votes / (2 × seats + 1), so the divisors are 1, 3, 5, ..., and within an agreement to the
-        /// party with the highest votes / (2 × seats + 1). Ties go to the side with more votes. Unlike the d'Hondt method
+        /// party with the highest votes / (2 × seats + 1). Ties go to the side with more votes. Unlike the D'Hondt method
         /// there are no base seats from whole quotas, since Sainte-Laguë can give a party fewer seats than its whole
         /// quotas. Surplus vote agreements are an addition to plain Sainte-Laguë, carried over from how Israel adds them
-        /// to d'Hondt, so pass none to get plain Sainte-Laguë. The modified Sainte-Laguë method raises the first divisor
+        /// to D'Hondt, so pass none to get plain Sainte-Laguë. The modified Sainte-Laguë method raises the first divisor
         /// so a party's first seat costs more, which Norway does with 1.4 (7/5) and Sweden did with 1.4 before changing
         /// to 1.2 (6/5) in 2018
         /// </summary>
@@ -206,7 +206,7 @@ namespace Existence.Earth.Human.Politics
         /// gives out the seats not yet in <see cref="SeatDistributionBase.Seats"/> one at a time, filling in
         /// <see cref="SeatDistributionBase.OrderedSeats"/>, <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>,
         /// <see cref="SeatDistributionBase.NextOrderedSeat"/> and
-        /// <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>. The seats already there, such as d'Hondt's base
+        /// <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>. The seats already there, such as D'Hondt's base
         /// seats, decide where it starts, so <see cref="SeatDistributionBase.Seats"/> needs an entry for each qualifying
         /// party first, even if it is zero
         /// </summary>
@@ -231,7 +231,7 @@ namespace Existence.Earth.Human.Politics
         }
 
         /// <summary>
-        /// divisor for a party's next seat under the d'Hondt method: 1, 2, 3, ...
+        /// divisor for a party's next seat under the D'Hondt method: 1, 2, 3, ...
         /// </summary>
         private static readonly Func<int, long> DHondtDivisor = iSeats => iSeats + 1L;
 
@@ -340,7 +340,7 @@ namespace Existence.Earth.Human.Politics
         ///   votes needed           other votes
         ///   ---------------  &gt;  ---------------------
         ///   divisor(seats)         divisor(other seats - 1)
-        /// Under d'Hondt that is seats + 1 against other seats. A tie is also enough if it leaves the candidate with more
+        /// Under D'Hondt that is seats + 1 against other seats. A tie is also enough if it leaves the candidate with more
         /// votes than the other candidate, since ties go to the side with more votes, which is when its divisor is the
         /// larger one. This compares exactly with integer math
         /// </summary>
@@ -377,7 +377,7 @@ namespace Existence.Earth.Human.Politics
                     //  candidate votes                        best votes
                     //  ---------------------------  against   ----------------------
                     //  divisor(candidate seats)               divisor(best seats)
-                    //Under d'Hondt the divisor is seats + 1, so this maximizes the votes per seat, intending to keep seats from being
+                    //Under D'Hondt the divisor is seats + 1, so this maximizes the votes per seat, intending to keep seats from being
                     //too cheap in votes. That has the side effect of favoring party(s) with more seats, since an extra seat lowers a
                     //larger group's votes per seat by a smaller share. Sainte-Laguë's divisor of 2 x seats + 1 is roughly neutral
                     //between larger and smaller party(s).
