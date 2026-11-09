@@ -58,6 +58,14 @@
     <AnnulledSurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Eternal Covenant" Party2="Fixing the Electoral and Governing System" />
     </AnnulledSurplusVoteAgreements>
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Likud + Religious Zionism – Zehut" Seats="1" />
+      <Recipient Name="Yashar + The Democrats" Seats="1" />
+      <Recipient Name="Together + Yisrael Beiteinu" Seats="1" />
+      <Recipient Name="Joint List + Ra'am" Seats="1" />
+      <Recipient Name="United Torah Judaism + Shas" Seats="1" />
+      <Recipient Name="Otzma Yehudit" Seats="0" />
+    </OrderedSeatsByRecipient>
     <OrderedSeats>
       <OrderedSeat SeatNumber="116" PoliticalParty="United Torah Judaism" DivisorCalculation="1*(6+6) + 1" Divisor="13" Quotient="47085.384615384615384615384615">
         <Recipient Name="United Torah Judaism" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="44657.714285714285714285714286" />
@@ -80,14 +88,6 @@
         <Recipient Name="Joint List" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="41678.916666666666666666666667" />
       </OrderedSeat>
     </OrderedSeats>
-    <OrderedSeatsByRecipient>
-      <Recipient Name="Likud + Religious Zionism – Zehut" Seats="1" />
-      <Recipient Name="Yashar + The Democrats" Seats="1" />
-      <Recipient Name="Together + Yisrael Beiteinu" Seats="1" />
-      <Recipient Name="Joint List + Ra'am" Seats="1" />
-      <Recipient Name="United Torah Judaism + Shas" Seats="1" />
-      <Recipient Name="Otzma Yehudit" Seats="0" />
-    </OrderedSeatsByRecipient>
     <NextOrderedSeat SeatNumber="121" PoliticalParty="Shas" DivisorCalculation="1*(6+7) + 1" Divisor="14" Quotient="43722.142857142857142857142857">
       <Recipient Name="Shas" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="42786.571428571428571428571429" />
       <Recipient Name="United Torah Judaism" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="39075.5" />

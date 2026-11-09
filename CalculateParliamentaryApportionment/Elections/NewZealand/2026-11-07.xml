@@ -29,6 +29,15 @@
     <QualifyingVotes>2397806</QualifyingVotes>
     <NumberOfMembers>131</NumberOfMembers>
     <AnnulledSurplusVoteAgreements />
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Labour" Seats="36" />
+      <Recipient Name="National" Seats="35" />
+      <Recipient Name="Green" Seats="16" />
+      <Recipient Name="ACT" Seats="13" />
+      <Recipient Name="NZ First" Seats="12" />
+      <Recipient Name="Opportunity" Seats="7" />
+      <Recipient Name="Te Pāti Māori" Seats="1" />
+    </OrderedSeatsByRecipient>
     <OrderedSeats>
       <OrderedSeat SeatNumber="1" PoliticalParty="Labour" DivisorCalculation="2*0 + 1" Divisor="1" Quotient="710330">
         <Recipient Name="Labour" />
@@ -391,15 +400,6 @@
         <Recipient Name="Labour" />
       </OrderedSeat>
     </OrderedSeats>
-    <OrderedSeatsByRecipient>
-      <Recipient Name="Labour" Seats="36" />
-      <Recipient Name="National" Seats="35" />
-      <Recipient Name="Green" Seats="16" />
-      <Recipient Name="ACT" Seats="13" />
-      <Recipient Name="NZ First" Seats="12" />
-      <Recipient Name="Opportunity" Seats="7" />
-      <Recipient Name="Te Pāti Māori" Seats="1" />
-    </OrderedSeatsByRecipient>
     <NextOrderedSeat SeatNumber="121" PoliticalParty="National" DivisorCalculation="2*35 + 1" Divisor="71" Quotient="9953.23943661971830985915493">
       <Recipient Name="National" />
     </NextOrderedSeat>

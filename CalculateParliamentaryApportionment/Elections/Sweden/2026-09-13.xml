@@ -31,6 +31,16 @@
     <TotalVotes>6767429</TotalVotes>
     <QualifyingVotes>6660230</QualifyingVotes>
     <AnnulledSurplusVoteAgreements />
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Social Democrats" Seats="99" />
+      <Recipient Name="Moderate Party" Seats="70" />
+      <Recipient Name="Sweden Democrats" Seats="62" />
+      <Recipient Name="Left Party" Seats="30" />
+      <Recipient Name="Centre Party" Seats="25" />
+      <Recipient Name="Christian Democrats" Seats="22" />
+      <Recipient Name="Green Party" Seats="22" />
+      <Recipient Name="Liberals" Seats="19" />
+    </OrderedSeatsByRecipient>
     <OrderedSeats>
       <OrderedSeat SeatNumber="1" PoliticalParty="Social Democrats" DivisorCalculation="6/5" Divisor="6/5" Quotient="1579990.8333333333333333333333">
         <Recipient Name="Social Democrats" />
@@ -1080,16 +1090,6 @@
         <Recipient Name="Sweden Democrats" />
       </OrderedSeat>
     </OrderedSeats>
-    <OrderedSeatsByRecipient>
-      <Recipient Name="Social Democrats" Seats="99" />
-      <Recipient Name="Moderate Party" Seats="70" />
-      <Recipient Name="Sweden Democrats" Seats="62" />
-      <Recipient Name="Left Party" Seats="30" />
-      <Recipient Name="Centre Party" Seats="25" />
-      <Recipient Name="Christian Democrats" Seats="22" />
-      <Recipient Name="Green Party" Seats="22" />
-      <Recipient Name="Liberals" Seats="19" />
-    </OrderedSeatsByRecipient>
     <NextOrderedSeat SeatNumber="350" PoliticalParty="Moderate Party" DivisorCalculation="2*70 + 1" Divisor="141" Quotient="9528">
       <Recipient Name="Moderate Party" />
     </NextOrderedSeat>
