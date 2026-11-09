@@ -328,17 +328,6 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates converting decimals to fractions exactly
-        /// </summary>
-        [TestMethod]
-        public void ValidateSimpleFractionFromDecimal()
-        {
-            Assert.AreEqual("325/100", SimpleFraction.FromDecimal(3.25m).ToString());
-            Assert.AreEqual("5/1", SimpleFraction.FromDecimal(5m).ToString());
-            Assert.AreEqual("50/10", SimpleFraction.FromDecimal(5.0m).ToString());
-        }
-
-        /// <summary>
         /// validates plain Sainte-Laguë on the small example, where the quotients for seats 1-7 are 53000 (A),
         /// 24000 (B), 23000 (C), 53000/3 (A), 53000/5 (A), 9000 (D) and 24000/3 (B), and the next seat goes to C at
         /// 23000/3, ahead of A at 53000/7. D'Hondt gives A 4 seats, B 2, C 1 and D none

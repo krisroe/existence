@@ -359,8 +359,8 @@ namespace Existence.Earth.Human.Politics
             foreach (KeyValuePair<string, long> next in NumberOfVotes)
             {
                 if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
-                //votes / total votes >= numerator / (100 x denominator), multiplied out so it's exact in whole numbers
-                if (exemptSet.Contains(next.Key) || checked(next.Value * 100 * ElectoralThreshold.Denominator >= ElectoralThreshold.Numerator * r.TotalVotes))
+                //the party's percentage of the vote, as a fraction so the comparison is exact
+                if (exemptSet.Contains(next.Key) || new SimpleFraction(checked(next.Value * 100), r.TotalVotes) >= ElectoralThreshold)
                     qualifying.Add(next.Key);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
