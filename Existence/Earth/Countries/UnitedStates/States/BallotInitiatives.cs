@@ -1877,6 +1877,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.OpenMeetingsAndPublicInformation)]
                 public static class Question1 { }
 
@@ -1886,6 +1887,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.CollectiveBargaining)]
                 public static class Question2 { }
 
@@ -1904,14 +1906,19 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.VoterRegistration)]
                 public static class Question4 { }
 
                 /// <summary>
-                /// A "yes" vote supports changing the limit on how much revenue the state can collect in a given year.
+                /// A "yes" vote supports changing the method of calculating the state's tax revenue limit so that it is equal to the sum of the net amount of 
+                /// state revenue from the year prior and the average growth of wages and salaries in Massachusetts over the past three years, 
+                /// and adding income tax revenue collected under Section 2BBBBBB of Chapter 29 of Massachusetts law to the state's 
+                /// definition of state tax revenue.
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.RevenueAndSpendingLimits)]
                 public static class Question5 { }
 
@@ -1921,6 +1928,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.RevenueAllocation, BallotInitiativeSubjects.ParksLandAndNaturalAreaConservation, BallotInitiativeSubjects.RestrictedUseFunds)]
                 public static class Question6 { }
 
@@ -1930,6 +1938,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
+                [BallotMeasurePassFail(BallotMeasureResult.No)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.LandUseAndDevelopmentPolicy)]
                 public static class Question7 { }
 
@@ -1940,7 +1949,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.IndISS)]
                 [BallotMeasurePassFail(BallotMeasureResult.No)]
-                [BallotInitiativeSubjects(BallotInitiativeSubjects.MarijuanaLaws, BallotInitiativeSubjects.DrugCrimePolicy)]
+                [BallotInitiativeSubjects(BallotInitiativeSubjects.MarijuanaRecreational, BallotInitiativeSubjects.MarijuanaPersonalCultivation)]
                 public static class Question8 { }
 
                 /// <summary>
@@ -1948,6 +1957,7 @@ namespace Existence.Earth.Countries.UnitedStates.States
                 /// </summary>
                 [YearDate(2026, 11, 3)]
                 [BallotMeasureType(BallotMeasureTypes.VR)]
+                [BallotMeasurePassFail(BallotMeasureResult.Yes)]
                 [BallotInitiativeSubjects(BallotInitiativeSubjects.FirearmsPolicy)]
                 public static class Question9 { }
             }
