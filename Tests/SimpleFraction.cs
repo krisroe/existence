@@ -22,6 +22,19 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates reducing fractions to lowest terms with a positive denominator
+        /// </summary>
+        [TestMethod]
+        public void ValidateSimpleFractionReduce()
+        {
+            Assert.AreEqual("3/1", new SimpleFraction(15, 5).Reduce().ToString());
+            Assert.AreEqual("7/5", new SimpleFraction(7, 5).Reduce().ToString());
+            Assert.AreEqual("-1/2", new SimpleFraction(2, -4).Reduce().ToString());
+            Assert.AreEqual("1/2", new SimpleFraction(-2, -4).Reduce().ToString());
+            Assert.AreEqual("0/1", new SimpleFraction(0, -7).Reduce().ToString());
+        }
+
+        /// <summary>
         /// validates comparing fractions by value, including unreduced and negative denominators
         /// </summary>
         [TestMethod]

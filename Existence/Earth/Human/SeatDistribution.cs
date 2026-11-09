@@ -18,35 +18,89 @@ namespace Existence.Earth.Human.Politics
         public int SeatNumber { get; set; }
 
         /// <summary>
-        /// the party that won the seat on its own, or both parties of the surplus vote agreement that won it
+        /// the party that won the seat on its own, or both parties of the surplus vote agreement that won it, with the
+        /// party that got the seat first and then the others by votes descending
         /// </summary>
-        public string[] Recipients { get; set; }
+        public List<OrderedSeatRecipient> Recipients { get; set; }
 
         /// <summary>
-        /// the party that got the seat. For a surplus vote agreement, the party in it with the higher votes per seat
-        /// if it got one more
+        /// the party that got the seat. For a surplus vote agreement, the party in it with the highest
+        /// <see cref="OrderedSeatRecipient.Quotient"/>
         /// </summary>
         public string PoliticalParty { get; set; }
 
         /// <summary>
-        /// the recipients' votes divided by their seats including this one. Under the D'Hondt method this is the quotient
-        /// that won the seat; under other divisor methods it is just for information
+        /// what the recipients' combined votes were divided by: slope x their combined seats before this one + 1, or
+        /// the first divisor if they had none. In lowest terms, so it's a whole number except for a modified first
+        /// divisor such as 7/5
         /// </summary>
-        public decimal VotesPerSeat { get; set; }
+        public SimpleFraction Divisor { get; set; }
+
+        /// <summary>
+        /// the recipients' combined votes divided by <see cref="Divisor"/>, the quotient that won the seat (for
+        /// information, since the comparison itself is done exactly with whole numbers)
+        /// </summary>
+        public decimal Quotient { get; set; }
+
+        /// <summary>
+        /// the recipients in the order the method uses for them, which matches the keys of
+        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>
+        /// </summary>
+        internal string[] RecipientGroup { get; set; }
 
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="SeatNumber">seat number</param>
-        /// <param name="Recipients">political parties that receive the seat</param>
-        /// <param name="PoliticalParty"></param>
-        /// <param name="VotesPerSeat"></param>
-        public OrderedSeat(int SeatNumber, string[] Recipients, string PoliticalParty, decimal VotesPerSeat)
+        /// <param name="RecipientGroup">political parties that receive the seat, in the order the method uses for them</param>
+        /// <param name="Recipients">each recipient's own divisor and quotient, with the one that got the seat first</param>
+        /// <param name="Divisor">what the recipients' combined votes were divided by</param>
+        /// <param name="Quotient">the recipients' combined votes divided by <paramref name="Divisor"/></param>
+        internal OrderedSeat(int SeatNumber, string[] RecipientGroup, List<OrderedSeatRecipient> Recipients, SimpleFraction Divisor, decimal Quotient)
         {
             this.SeatNumber = SeatNumber;
+            this.RecipientGroup = RecipientGroup;
             this.Recipients = Recipients;
+            this.PoliticalParty = Recipients[0].PoliticalParty;
+            this.Divisor = Divisor;
+            this.Quotient = Quotient;
+        }
+    }
+
+    /// <summary>
+    /// one party among the recipients of an <see cref="OrderedSeat"/>, with the calculation that decides which party in
+    /// a surplus vote agreement gets the seat. For a party on its own this is the same as the seat's
+    /// </summary>
+    public class OrderedSeatRecipient
+    {
+        /// <summary>
+        /// the party
+        /// </summary>
+        public string PoliticalParty { get; set; }
+
+        /// <summary>
+        /// what the party's own votes were divided by: slope x its seats before this one + 1, or the first divisor if it
+        /// had none, in lowest terms
+        /// </summary>
+        public SimpleFraction Divisor { get; set; }
+
+        /// <summary>
+        /// the party's own votes divided by <see cref="Divisor"/> (for information, since the comparison itself is done
+        /// exactly with whole numbers)
+        /// </summary>
+        public decimal Quotient { get; set; }
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="PoliticalParty">the party</param>
+        /// <param name="Divisor">what the party's own votes were divided by</param>
+        /// <param name="Quotient">the party's own votes divided by <paramref name="Divisor"/></param>
+        public OrderedSeatRecipient(string PoliticalParty, SimpleFraction Divisor, decimal Quotient)
+        {
             this.PoliticalParty = PoliticalParty;
-            this.VotesPerSeat = VotesPerSeat;
+            this.Divisor = Divisor;
+            this.Quotient = Quotient;
         }
     }
 
@@ -204,7 +258,8 @@ namespace Existence.Earth.Human.Politics
             }
 
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            GiveOutOrderedSeats(r, NumberOfVotes, recipients, GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1)), NumberOfSeats);
+            (Func<int, long> divisor, long lDivisorScale) = GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1));
+            GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, lDivisorScale, NumberOfSeats);
             return r;
         }
 
@@ -238,7 +293,7 @@ namespace Existence.Earth.Human.Politics
         /// supported. Null if there are no electorates</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
-            Func<int, long> divisor = GetLinearDivisor(SainteLagueSlope, FirstDivisor);
+            (Func<int, long> divisor, long lDivisorScale) = GetLinearDivisor(SainteLagueSlope, FirstDivisor ?? new SimpleFraction(1, 1));
             foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
             {
                 if (!NumberOfVotes.ContainsKey(next.Key)) throw new ArgumentException($"{next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
@@ -250,7 +305,7 @@ namespace Existence.Earth.Human.Politics
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, wonElectorates);
             foreach (string sParty in qualifying) r.Seats[sParty] = 0;
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, lDivisorScale, NumberOfSeats);
 
             if (ElectorateSeats != null)
             {
@@ -278,22 +333,24 @@ namespace Existence.Earth.Human.Politics
         /// party first, even if it is zero
         /// </summary>
         /// <param name="divisor">whole-number divisor for a party's next seat, given its current number of seats</param>
+        /// <param name="lDivisorScale">what <paramref name="divisor"/> multiplied the actual divisors by to make them whole
+        /// numbers</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        private static void GiveOutOrderedSeats(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, int NumberOfSeats)
+        private static void GiveOutOrderedSeats(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, long lDivisorScale, int NumberOfSeats)
         {
             for (int iSeat = r.Seats.Values.Sum() + 1; iSeat <= NumberOfSeats; iSeat++)
             {
-                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, iSeat);
+                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, lDivisorScale, iSeat);
                 r.OrderedSeats.Add(seat);
-                r.OrderedSeatsByRecipient[string.Join(" + ", seat.Recipients)]++;
+                r.OrderedSeatsByRecipient[string.Join(" + ", seat.RecipientGroup)]++;
                 r.Seats[seat.PoliticalParty]++;
             }
-            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats + 1);
+            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, lDivisorScale, NumberOfSeats + 1);
 
-            long lNextVotes = r.NextOrderedSeat.Recipients.Sum(p => NumberOfVotes[p]);
-            int iNextSeats = r.NextOrderedSeat.Recipients.Sum(p => r.Seats[p]);
+            long lNextVotes = r.NextOrderedSeat.RecipientGroup.Sum(p => NumberOfVotes[p]);
+            int iNextSeats = r.NextOrderedSeat.RecipientGroup.Sum(p => r.Seats[p]);
             r.VotesNeededForNextOrderedSeat = recipients
-                .Where(a => a != r.NextOrderedSeat.Recipients && a.Sum(p => r.Seats[p]) > 0)
+                .Where(a => a != r.NextOrderedSeat.RecipientGroup && a.Sum(p => r.Seats[p]) > 0)
                 .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p]), divisor) - lNextVotes));
         }
 
@@ -319,7 +376,9 @@ namespace Existence.Earth.Human.Politics
         /// <param name="Slope">how much the divisor goes up with each seat, with a positive numerator and denominator</param>
         /// <param name="FirstDivisor">divisor for a party's first seat instead of 1, with a positive numerator and
         /// denominator, and no more than the second divisor (<paramref name="Slope"/> + 1)</param>
-        private static Func<int, long> GetLinearDivisor(SimpleFraction Slope, SimpleFraction FirstDivisor)
+        /// <returns>the whole-number divisor for a party's next seat given its current number of seats, and what it
+        /// multiplied the actual divisors by, so the actual divisor is the whole number divided by the scale</returns>
+        private static (Func<int, long> Divisor, long Scale) GetLinearDivisor(SimpleFraction Slope, SimpleFraction FirstDivisor)
         {
             if (Slope.Numerator <= 0 || Slope.Denominator <= 0) throw new ArgumentException($"the slope {Slope} must have a positive numerator and denominator", nameof(Slope));
             if (FirstDivisor.Numerator <= 0 || FirstDivisor.Denominator <= 0) throw new ArgumentException($"the first divisor {FirstDivisor} must have a positive numerator and denominator", nameof(FirstDivisor));
@@ -334,7 +393,7 @@ namespace Existence.Earth.Human.Politics
             //past the second divisor a party's second seat would cost less than its first, which breaks giving out seats
             //one at a time
             if (divisor(0) > divisor(1)) throw new ArgumentException($"the first divisor {FirstDivisor} can't be more than the second divisor {checked(slopeNumerator + slopeDenominator)}/{slopeDenominator}", nameof(FirstDivisor));
-            return divisor;
+            return (divisor, checked(slopeDenominator * firstDenominator));
         }
 
         /// <summary>
@@ -343,18 +402,28 @@ namespace Existence.Earth.Human.Politics
         /// divided by the divisor for the next seat
         /// </summary>
         /// <param name="divisor">whole-number divisor for the next seat, given the current number of seats</param>
+        /// <param name="lDivisorScale">what <paramref name="divisor"/> multiplied the actual divisors by to make them whole
+        /// numbers</param>
         /// <param name="iSeat">overall seat number of the seat being picked</param>
-        private static OrderedSeat PickOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, int iSeat)
+        private static OrderedSeat PickOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, Func<int, long> divisor, long lDivisorScale, int iSeat)
         {
             //apply the divisor calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
             string[] winner = PickHighestQuotient(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]), divisor);
 
             //apply the divisor calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
-            string sParty = PickHighestQuotient(winner.OrderByDescending(p => NumberOfVotes[p]), p => NumberOfVotes[p], p => r.Seats[p], divisor);
+            List<string> byVotes = winner.OrderByDescending(p => NumberOfVotes[p]).ToList();
+            string sParty = PickHighestQuotient(byVotes, p => NumberOfVotes[p], p => r.Seats[p], divisor);
 
+            List<OrderedSeatRecipient> recipientDetails = byVotes
+                .OrderBy(p => p == sParty ? 0 : 1) //stable, so the others stay by votes descending
+                .Select(p => new OrderedSeatRecipient(p, GetActualDivisor(r.Seats[p]), GetQuotient(NumberOfVotes[p], r.Seats[p])))
+                .ToList();
             long lVotes = winner.Sum(p => NumberOfVotes[p]);
             int iSeats = winner.Sum(p => r.Seats[p]);
-            return new OrderedSeat(iSeat, winner, sParty, (decimal)lVotes / (iSeats + 1));
+            return new OrderedSeat(iSeat, winner, recipientDetails, GetActualDivisor(iSeats), GetQuotient(lVotes, iSeats));
+
+            SimpleFraction GetActualDivisor(int iCurrentSeats) => new SimpleFraction(divisor(iCurrentSeats), lDivisorScale).Reduce();
+            decimal GetQuotient(long lCurrentVotes, int iCurrentSeats) => (decimal)lCurrentVotes * lDivisorScale / divisor(iCurrentSeats);
         }
 
         /// <summary>

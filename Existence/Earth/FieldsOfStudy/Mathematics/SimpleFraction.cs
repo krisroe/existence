@@ -44,6 +44,18 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
 
         /// <summary>
+        /// gets the same value in lowest terms with a positive denominator, so 15/5 becomes 3/1 and 2/-4 becomes -1/2
+        /// </summary>
+        public SimpleFraction Reduce()
+        {
+            long lA = Math.Abs(Numerator);
+            long lB = Math.Abs(Denominator);
+            while (lB != 0) (lA, lB) = (lB, lA % lB);
+            long lSign = Denominator < 0 ? -1 : 1;
+            return new SimpleFraction(lSign * Numerator / lA, lSign * Denominator / lA);
+        }
+
+        /// <summary>
         /// compares by value, exactly in whole numbers, so 14/10 and 7/5 are the same. Throws an
         /// <see cref="OverflowException"/> if multiplying out the fractions doesn't fit in a long
         /// </summary>

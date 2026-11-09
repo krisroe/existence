@@ -30,364 +30,364 @@
     <NumberOfMembers>131</NumberOfMembers>
     <AnnulledSurplusVoteAgreements />
     <OrderedSeats>
-      <OrderedSeat SeatNumber="1" PoliticalParty="Labour" VotesPerSeat="710330">
+      <OrderedSeat SeatNumber="1" PoliticalParty="Labour" Divisor="1" Quotient="710330">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="2" PoliticalParty="National" VotesPerSeat="706680">
+      <OrderedSeat SeatNumber="2" PoliticalParty="National" Divisor="1" Quotient="706680">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="3" PoliticalParty="Green" VotesPerSeat="321902">
+      <OrderedSeat SeatNumber="3" PoliticalParty="Green" Divisor="1" Quotient="321902">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="4" PoliticalParty="ACT" VotesPerSeat="264121">
+      <OrderedSeat SeatNumber="4" PoliticalParty="ACT" Divisor="1" Quotient="264121">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="5" PoliticalParty="Labour" VotesPerSeat="355165">
+      <OrderedSeat SeatNumber="5" PoliticalParty="Labour" Divisor="3" Quotient="236776.66666666666666666666667">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="6" PoliticalParty="NZ First" VotesPerSeat="236630">
+      <OrderedSeat SeatNumber="6" PoliticalParty="NZ First" Divisor="1" Quotient="236630">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="7" PoliticalParty="National" VotesPerSeat="353340">
+      <OrderedSeat SeatNumber="7" PoliticalParty="National" Divisor="3" Quotient="235560">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="8" PoliticalParty="Opportunity" VotesPerSeat="144298">
+      <OrderedSeat SeatNumber="8" PoliticalParty="Opportunity" Divisor="1" Quotient="144298">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="9" PoliticalParty="Labour" VotesPerSeat="236776.66666666666666666666667">
+      <OrderedSeat SeatNumber="9" PoliticalParty="Labour" Divisor="5" Quotient="142066">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="10" PoliticalParty="National" VotesPerSeat="235560">
+      <OrderedSeat SeatNumber="10" PoliticalParty="National" Divisor="5" Quotient="141336">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="11" PoliticalParty="Green" VotesPerSeat="160951">
+      <OrderedSeat SeatNumber="11" PoliticalParty="Green" Divisor="3" Quotient="107300.66666666666666666666667">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="12" PoliticalParty="Labour" VotesPerSeat="177582.5">
+      <OrderedSeat SeatNumber="12" PoliticalParty="Labour" Divisor="7" Quotient="101475.71428571428571428571429">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="13" PoliticalParty="National" VotesPerSeat="176670">
+      <OrderedSeat SeatNumber="13" PoliticalParty="National" Divisor="7" Quotient="100954.28571428571428571428571">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="14" PoliticalParty="ACT" VotesPerSeat="132060.5">
+      <OrderedSeat SeatNumber="14" PoliticalParty="ACT" Divisor="3" Quotient="88040.33333333333333333333333">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="15" PoliticalParty="Labour" VotesPerSeat="142066">
+      <OrderedSeat SeatNumber="15" PoliticalParty="Labour" Divisor="9" Quotient="78925.555555555555555555555556">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="16" PoliticalParty="NZ First" VotesPerSeat="118315">
+      <OrderedSeat SeatNumber="16" PoliticalParty="NZ First" Divisor="3" Quotient="78876.666666666666666666666667">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="17" PoliticalParty="National" VotesPerSeat="141336">
+      <OrderedSeat SeatNumber="17" PoliticalParty="National" Divisor="9" Quotient="78520">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="18" PoliticalParty="Labour" VotesPerSeat="118388.33333333333333333333333">
+      <OrderedSeat SeatNumber="18" PoliticalParty="Labour" Divisor="11" Quotient="64575.454545454545454545454545">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="19" PoliticalParty="Green" VotesPerSeat="107300.66666666666666666666667">
+      <OrderedSeat SeatNumber="19" PoliticalParty="Green" Divisor="5" Quotient="64380.4">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="20" PoliticalParty="National" VotesPerSeat="117780">
+      <OrderedSeat SeatNumber="20" PoliticalParty="National" Divisor="11" Quotient="64243.636363636363636363636364">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="21" PoliticalParty="Labour" VotesPerSeat="101475.71428571428571428571429">
+      <OrderedSeat SeatNumber="21" PoliticalParty="Labour" Divisor="13" Quotient="54640.769230769230769230769231">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="22" PoliticalParty="National" VotesPerSeat="100954.28571428571428571428571">
+      <OrderedSeat SeatNumber="22" PoliticalParty="National" Divisor="13" Quotient="54360">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="23" PoliticalParty="ACT" VotesPerSeat="88040.33333333333333333333333">
+      <OrderedSeat SeatNumber="23" PoliticalParty="ACT" Divisor="5" Quotient="52824.2">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="24" PoliticalParty="Opportunity" VotesPerSeat="72149">
+      <OrderedSeat SeatNumber="24" PoliticalParty="Opportunity" Divisor="3" Quotient="48099.333333333333333333333333">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="25" PoliticalParty="Labour" VotesPerSeat="88791.25">
+      <OrderedSeat SeatNumber="25" PoliticalParty="Labour" Divisor="15" Quotient="47355.333333333333333333333333">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="26" PoliticalParty="NZ First" VotesPerSeat="78876.666666666666666666666667">
+      <OrderedSeat SeatNumber="26" PoliticalParty="NZ First" Divisor="5" Quotient="47326">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="27" PoliticalParty="National" VotesPerSeat="88335">
+      <OrderedSeat SeatNumber="27" PoliticalParty="National" Divisor="15" Quotient="47112">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="28" PoliticalParty="Green" VotesPerSeat="80475.5">
+      <OrderedSeat SeatNumber="28" PoliticalParty="Green" Divisor="7" Quotient="45986">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="29" PoliticalParty="Labour" VotesPerSeat="78925.555555555555555555555556">
+      <OrderedSeat SeatNumber="29" PoliticalParty="Labour" Divisor="17" Quotient="41784.117647058823529411764706">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="30" PoliticalParty="National" VotesPerSeat="78520">
+      <OrderedSeat SeatNumber="30" PoliticalParty="National" Divisor="17" Quotient="41569.411764705882352941176471">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="31" PoliticalParty="ACT" VotesPerSeat="66030.25">
+      <OrderedSeat SeatNumber="31" PoliticalParty="ACT" Divisor="7" Quotient="37731.571428571428571428571429">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="32" PoliticalParty="Labour" VotesPerSeat="71033">
+      <OrderedSeat SeatNumber="32" PoliticalParty="Labour" Divisor="19" Quotient="37385.789473684210526315789474">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="33" PoliticalParty="National" VotesPerSeat="70668">
+      <OrderedSeat SeatNumber="33" PoliticalParty="National" Divisor="19" Quotient="37193.684210526315789473684211">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="34" PoliticalParty="Green" VotesPerSeat="64380.4">
+      <OrderedSeat SeatNumber="34" PoliticalParty="Green" Divisor="9" Quotient="35766.888888888888888888888889">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="35" PoliticalParty="Labour" VotesPerSeat="64575.454545454545454545454545">
+      <OrderedSeat SeatNumber="35" PoliticalParty="Labour" Divisor="21" Quotient="33825.238095238095238095238095">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="36" PoliticalParty="NZ First" VotesPerSeat="59157.5">
+      <OrderedSeat SeatNumber="36" PoliticalParty="NZ First" Divisor="7" Quotient="33804.285714285714285714285714">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="37" PoliticalParty="National" VotesPerSeat="64243.636363636363636363636364">
+      <OrderedSeat SeatNumber="37" PoliticalParty="National" Divisor="21" Quotient="33651.428571428571428571428571">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="38" PoliticalParty="Labour" VotesPerSeat="59194.166666666666666666666667">
+      <OrderedSeat SeatNumber="38" PoliticalParty="Labour" Divisor="23" Quotient="30883.913043478260869565217391">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="39" PoliticalParty="National" VotesPerSeat="58890">
+      <OrderedSeat SeatNumber="39" PoliticalParty="National" Divisor="23" Quotient="30725.217391304347826086956522">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="40" PoliticalParty="ACT" VotesPerSeat="52824.2">
+      <OrderedSeat SeatNumber="40" PoliticalParty="ACT" Divisor="9" Quotient="29346.777777777777777777777778">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="41" PoliticalParty="Green" VotesPerSeat="53650.333333333333333333333333">
+      <OrderedSeat SeatNumber="41" PoliticalParty="Green" Divisor="11" Quotient="29263.818181818181818181818182">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="42" PoliticalParty="Opportunity" VotesPerSeat="48099.333333333333333333333333">
+      <OrderedSeat SeatNumber="42" PoliticalParty="Opportunity" Divisor="5" Quotient="28859.6">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="43" PoliticalParty="Labour" VotesPerSeat="54640.769230769230769230769231">
+      <OrderedSeat SeatNumber="43" PoliticalParty="Labour" Divisor="25" Quotient="28413.2">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="44" PoliticalParty="National" VotesPerSeat="54360">
+      <OrderedSeat SeatNumber="44" PoliticalParty="National" Divisor="25" Quotient="28267.2">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="45" PoliticalParty="Labour" VotesPerSeat="50737.857142857142857142857143">
+      <OrderedSeat SeatNumber="45" PoliticalParty="Labour" Divisor="27" Quotient="26308.518518518518518518518519">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="46" PoliticalParty="NZ First" VotesPerSeat="47326">
+      <OrderedSeat SeatNumber="46" PoliticalParty="NZ First" Divisor="9" Quotient="26292.222222222222222222222222">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="47" PoliticalParty="National" VotesPerSeat="50477.142857142857142857142857">
+      <OrderedSeat SeatNumber="47" PoliticalParty="National" Divisor="27" Quotient="26173.333333333333333333333333">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="48" PoliticalParty="Green" VotesPerSeat="45986">
+      <OrderedSeat SeatNumber="48" PoliticalParty="Green" Divisor="13" Quotient="24761.692307692307692307692308">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="49" PoliticalParty="Labour" VotesPerSeat="47355.333333333333333333333333">
+      <OrderedSeat SeatNumber="49" PoliticalParty="Labour" Divisor="29" Quotient="24494.137931034482758620689655">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="50" PoliticalParty="National" VotesPerSeat="47112">
+      <OrderedSeat SeatNumber="50" PoliticalParty="National" Divisor="29" Quotient="24368.27586206896551724137931">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="51" PoliticalParty="ACT" VotesPerSeat="44020.166666666666666666666667">
+      <OrderedSeat SeatNumber="51" PoliticalParty="ACT" Divisor="11" Quotient="24011">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="52" PoliticalParty="Labour" VotesPerSeat="44395.625">
+      <OrderedSeat SeatNumber="52" PoliticalParty="Labour" Divisor="31" Quotient="22913.870967741935483870967742">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="53" PoliticalParty="National" VotesPerSeat="44167.5">
+      <OrderedSeat SeatNumber="53" PoliticalParty="National" Divisor="31" Quotient="22796.129032258064516129032258">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="54" PoliticalParty="Labour" VotesPerSeat="41784.117647058823529411764706">
+      <OrderedSeat SeatNumber="54" PoliticalParty="Labour" Divisor="33" Quotient="21525.151515151515151515151515">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="55" PoliticalParty="NZ First" VotesPerSeat="39438.333333333333333333333333">
+      <OrderedSeat SeatNumber="55" PoliticalParty="NZ First" Divisor="11" Quotient="21511.818181818181818181818182">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="56" PoliticalParty="Green" VotesPerSeat="40237.75">
+      <OrderedSeat SeatNumber="56" PoliticalParty="Green" Divisor="15" Quotient="21460.133333333333333333333333">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="57" PoliticalParty="National" VotesPerSeat="41569.411764705882352941176471">
+      <OrderedSeat SeatNumber="57" PoliticalParty="National" Divisor="33" Quotient="21414.545454545454545454545455">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="58" PoliticalParty="Opportunity" VotesPerSeat="36074.5">
+      <OrderedSeat SeatNumber="58" PoliticalParty="Opportunity" Divisor="7" Quotient="20614">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="59" PoliticalParty="ACT" VotesPerSeat="37731.571428571428571428571429">
+      <OrderedSeat SeatNumber="59" PoliticalParty="ACT" Divisor="13" Quotient="20317">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="60" PoliticalParty="Labour" VotesPerSeat="39462.777777777777777777777778">
+      <OrderedSeat SeatNumber="60" PoliticalParty="Labour" Divisor="35" Quotient="20295.142857142857142857142857">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="61" PoliticalParty="National" VotesPerSeat="39260">
+      <OrderedSeat SeatNumber="61" PoliticalParty="National" Divisor="35" Quotient="20190.857142857142857142857143">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="62" PoliticalParty="Labour" VotesPerSeat="37385.789473684210526315789474">
+      <OrderedSeat SeatNumber="62" PoliticalParty="Labour" Divisor="37" Quotient="19198.108108108108108108108108">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="63" PoliticalParty="National" VotesPerSeat="37193.684210526315789473684211">
+      <OrderedSeat SeatNumber="63" PoliticalParty="National" Divisor="37" Quotient="19099.459459459459459459459459">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="64" PoliticalParty="Green" VotesPerSeat="35766.888888888888888888888889">
+      <OrderedSeat SeatNumber="64" PoliticalParty="Green" Divisor="17" Quotient="18935.411764705882352941176471">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="65" PoliticalParty="Labour" VotesPerSeat="35516.5">
+      <OrderedSeat SeatNumber="65" PoliticalParty="Labour" Divisor="39" Quotient="18213.589743589743589743589744">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="66" PoliticalParty="NZ First" VotesPerSeat="33804.285714285714285714285714">
+      <OrderedSeat SeatNumber="66" PoliticalParty="NZ First" Divisor="13" Quotient="18202.307692307692307692307692">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="67" PoliticalParty="National" VotesPerSeat="35334">
+      <OrderedSeat SeatNumber="67" PoliticalParty="National" Divisor="39" Quotient="18120">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="68" PoliticalParty="ACT" VotesPerSeat="33015.125">
+      <OrderedSeat SeatNumber="68" PoliticalParty="ACT" Divisor="15" Quotient="17608.066666666666666666666667">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="69" PoliticalParty="Labour" VotesPerSeat="33825.238095238095238095238095">
+      <OrderedSeat SeatNumber="69" PoliticalParty="Labour" Divisor="41" Quotient="17325.12195121951219512195122">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="70" PoliticalParty="National" VotesPerSeat="33651.428571428571428571428571">
+      <OrderedSeat SeatNumber="70" PoliticalParty="National" Divisor="41" Quotient="17236.097560975609756097560976">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="71" PoliticalParty="Green" VotesPerSeat="32190.2">
+      <OrderedSeat SeatNumber="71" PoliticalParty="Green" Divisor="19" Quotient="16942.210526315789473684210526">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="72" PoliticalParty="Labour" VotesPerSeat="32287.727272727272727272727273">
+      <OrderedSeat SeatNumber="72" PoliticalParty="Labour" Divisor="43" Quotient="16519.302325581395348837209302">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="73" PoliticalParty="National" VotesPerSeat="32121.818181818181818181818182">
+      <OrderedSeat SeatNumber="73" PoliticalParty="National" Divisor="43" Quotient="16434.418604651162790697674419">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="74" PoliticalParty="Opportunity" VotesPerSeat="28859.6">
+      <OrderedSeat SeatNumber="74" PoliticalParty="Opportunity" Divisor="9" Quotient="16033.111111111111111111111111">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="75" PoliticalParty="Labour" VotesPerSeat="30883.913043478260869565217391">
+      <OrderedSeat SeatNumber="75" PoliticalParty="Labour" Divisor="45" Quotient="15785.111111111111111111111111">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="76" PoliticalParty="NZ First" VotesPerSeat="29578.75">
+      <OrderedSeat SeatNumber="76" PoliticalParty="NZ First" Divisor="15" Quotient="15775.333333333333333333333333">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="77" PoliticalParty="National" VotesPerSeat="30725.217391304347826086956522">
+      <OrderedSeat SeatNumber="77" PoliticalParty="National" Divisor="45" Quotient="15704">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="78" PoliticalParty="ACT" VotesPerSeat="29346.777777777777777777777778">
+      <OrderedSeat SeatNumber="78" PoliticalParty="ACT" Divisor="17" Quotient="15536.529411764705882352941176">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="79" PoliticalParty="Green" VotesPerSeat="29263.818181818181818181818182">
+      <OrderedSeat SeatNumber="79" PoliticalParty="Green" Divisor="21" Quotient="15328.666666666666666666666667">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="80" PoliticalParty="Labour" VotesPerSeat="29597.083333333333333333333333">
+      <OrderedSeat SeatNumber="80" PoliticalParty="Labour" Divisor="47" Quotient="15113.404255319148936170212766">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="81" PoliticalParty="National" VotesPerSeat="29445">
+      <OrderedSeat SeatNumber="81" PoliticalParty="National" Divisor="47" Quotient="15035.744680851063829787234043">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="82" PoliticalParty="Labour" VotesPerSeat="28413.2">
+      <OrderedSeat SeatNumber="82" PoliticalParty="Labour" Divisor="49" Quotient="14496.530612244897959183673469">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="83" PoliticalParty="National" VotesPerSeat="28267.2">
+      <OrderedSeat SeatNumber="83" PoliticalParty="National" Divisor="49" Quotient="14422.040816326530612244897959">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="84" PoliticalParty="Green" VotesPerSeat="26825.166666666666666666666667">
+      <OrderedSeat SeatNumber="84" PoliticalParty="Green" Divisor="23" Quotient="13995.739130434782608695652174">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="85" PoliticalParty="Labour" VotesPerSeat="27320.384615384615384615384615">
+      <OrderedSeat SeatNumber="85" PoliticalParty="Labour" Divisor="51" Quotient="13928.039215686274509803921569">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="86" PoliticalParty="NZ First" VotesPerSeat="26292.222222222222222222222222">
+      <OrderedSeat SeatNumber="86" PoliticalParty="NZ First" Divisor="17" Quotient="13919.411764705882352941176471">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="87" PoliticalParty="ACT" VotesPerSeat="26412.1">
+      <OrderedSeat SeatNumber="87" PoliticalParty="ACT" Divisor="19" Quotient="13901.105263157894736842105263">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="88" PoliticalParty="National" VotesPerSeat="27180">
+      <OrderedSeat SeatNumber="88" PoliticalParty="National" Divisor="51" Quotient="13856.470588235294117647058824">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="89" PoliticalParty="Te Pāti Māori" VotesPerSeat="13845">
+      <OrderedSeat SeatNumber="89" PoliticalParty="Te Pāti Māori" Divisor="1" Quotient="13845">
         <Recipient Name="Te Pāti Māori" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="90" PoliticalParty="Labour" VotesPerSeat="26308.518518518518518518518519">
+      <OrderedSeat SeatNumber="90" PoliticalParty="Labour" Divisor="53" Quotient="13402.452830188679245283018868">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="91" PoliticalParty="National" VotesPerSeat="26173.333333333333333333333333">
+      <OrderedSeat SeatNumber="91" PoliticalParty="National" Divisor="53" Quotient="13333.584905660377358490566038">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="92" PoliticalParty="Opportunity" VotesPerSeat="24049.666666666666666666666667">
+      <OrderedSeat SeatNumber="92" PoliticalParty="Opportunity" Divisor="11" Quotient="13118">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="93" PoliticalParty="Labour" VotesPerSeat="25368.928571428571428571428571">
+      <OrderedSeat SeatNumber="93" PoliticalParty="Labour" Divisor="55" Quotient="12915.090909090909090909090909">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="94" PoliticalParty="Green" VotesPerSeat="24761.692307692307692307692308">
+      <OrderedSeat SeatNumber="94" PoliticalParty="Green" Divisor="25" Quotient="12876.08">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="95" PoliticalParty="National" VotesPerSeat="25238.571428571428571428571429">
+      <OrderedSeat SeatNumber="95" PoliticalParty="National" Divisor="55" Quotient="12848.727272727272727272727273">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="96" PoliticalParty="ACT" VotesPerSeat="24011">
+      <OrderedSeat SeatNumber="96" PoliticalParty="ACT" Divisor="21" Quotient="12577.190476190476190476190476">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="97" PoliticalParty="Labour" VotesPerSeat="24494.137931034482758620689655">
+      <OrderedSeat SeatNumber="97" PoliticalParty="Labour" Divisor="57" Quotient="12461.929824561403508771929825">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="98" PoliticalParty="NZ First" VotesPerSeat="23663">
+      <OrderedSeat SeatNumber="98" PoliticalParty="NZ First" Divisor="19" Quotient="12454.210526315789473684210526">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="99" PoliticalParty="National" VotesPerSeat="24368.27586206896551724137931">
+      <OrderedSeat SeatNumber="99" PoliticalParty="National" Divisor="57" Quotient="12397.894736842105263157894737">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="100" PoliticalParty="Labour" VotesPerSeat="23677.666666666666666666666667">
+      <OrderedSeat SeatNumber="100" PoliticalParty="Labour" Divisor="59" Quotient="12039.491525423728813559322034">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="101" PoliticalParty="National" VotesPerSeat="23556">
+      <OrderedSeat SeatNumber="101" PoliticalParty="National" Divisor="59" Quotient="11977.627118644067796610169492">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="102" PoliticalParty="Green" VotesPerSeat="22993">
+      <OrderedSeat SeatNumber="102" PoliticalParty="Green" Divisor="27" Quotient="11922.296296296296296296296296">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="103" PoliticalParty="Labour" VotesPerSeat="22913.870967741935483870967742">
+      <OrderedSeat SeatNumber="103" PoliticalParty="Labour" Divisor="61" Quotient="11644.754098360655737704918033">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="104" PoliticalParty="National" VotesPerSeat="22796.129032258064516129032258">
+      <OrderedSeat SeatNumber="104" PoliticalParty="National" Divisor="61" Quotient="11584.918032786885245901639344">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="105" PoliticalParty="ACT" VotesPerSeat="22010.083333333333333333333333">
+      <OrderedSeat SeatNumber="105" PoliticalParty="ACT" Divisor="23" Quotient="11483.521739130434782608695652">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="106" PoliticalParty="Labour" VotesPerSeat="22197.8125">
+      <OrderedSeat SeatNumber="106" PoliticalParty="Labour" Divisor="63" Quotient="11275.079365079365079365079365">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="107" PoliticalParty="NZ First" VotesPerSeat="21511.818181818181818181818182">
+      <OrderedSeat SeatNumber="107" PoliticalParty="NZ First" Divisor="21" Quotient="11268.095238095238095238095238">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="108" PoliticalParty="National" VotesPerSeat="22083.75">
+      <OrderedSeat SeatNumber="108" PoliticalParty="National" Divisor="63" Quotient="11217.142857142857142857142857">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="109" PoliticalParty="Green" VotesPerSeat="21460.133333333333333333333333">
+      <OrderedSeat SeatNumber="109" PoliticalParty="Green" Divisor="29" Quotient="11100.068965517241379310344828">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="110" PoliticalParty="Opportunity" VotesPerSeat="20614">
+      <OrderedSeat SeatNumber="110" PoliticalParty="Opportunity" Divisor="13" Quotient="11099.846153846153846153846154">
         <Recipient Name="Opportunity" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="111" PoliticalParty="Labour" VotesPerSeat="21525.151515151515151515151515">
+      <OrderedSeat SeatNumber="111" PoliticalParty="Labour" Divisor="65" Quotient="10928.153846153846153846153846">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="112" PoliticalParty="National" VotesPerSeat="21414.545454545454545454545455">
+      <OrderedSeat SeatNumber="112" PoliticalParty="National" Divisor="65" Quotient="10872">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="113" PoliticalParty="Labour" VotesPerSeat="20892.058823529411764705882353">
+      <OrderedSeat SeatNumber="113" PoliticalParty="Labour" Divisor="67" Quotient="10601.940298507462686567164179">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="114" PoliticalParty="ACT" VotesPerSeat="20317">
+      <OrderedSeat SeatNumber="114" PoliticalParty="ACT" Divisor="25" Quotient="10564.84">
         <Recipient Name="ACT" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="115" PoliticalParty="National" VotesPerSeat="20784.705882352941176470588235">
+      <OrderedSeat SeatNumber="115" PoliticalParty="National" Divisor="67" Quotient="10547.462686567164179104477612">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="116" PoliticalParty="Green" VotesPerSeat="20118.875">
+      <OrderedSeat SeatNumber="116" PoliticalParty="Green" Divisor="31" Quotient="10383.935483870967741935483871">
         <Recipient Name="Green" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="117" PoliticalParty="Labour" VotesPerSeat="20295.142857142857142857142857">
+      <OrderedSeat SeatNumber="117" PoliticalParty="Labour" Divisor="69" Quotient="10294.637681159420289855072464">
         <Recipient Name="Labour" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="118" PoliticalParty="NZ First" VotesPerSeat="19719.166666666666666666666667">
+      <OrderedSeat SeatNumber="118" PoliticalParty="NZ First" Divisor="23" Quotient="10288.260869565217391304347826">
         <Recipient Name="NZ First" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="119" PoliticalParty="National" VotesPerSeat="20190.857142857142857142857143">
+      <OrderedSeat SeatNumber="119" PoliticalParty="National" Divisor="69" Quotient="10241.739130434782608695652174">
         <Recipient Name="National" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="120" PoliticalParty="Labour" VotesPerSeat="19731.388888888888888888888889">
+      <OrderedSeat SeatNumber="120" PoliticalParty="Labour" Divisor="71" Quotient="10004.647887323943661971830986">
         <Recipient Name="Labour" />
       </OrderedSeat>
     </OrderedSeats>
@@ -400,7 +400,7 @@
       <Recipient Name="Opportunity" Seats="7" />
       <Recipient Name="Te Pāti Māori" Seats="1" />
     </OrderedSeatsByRecipient>
-    <NextOrderedSeat SeatNumber="121" PoliticalParty="National" VotesPerSeat="19630">
+    <NextOrderedSeat SeatNumber="121" PoliticalParty="National" Divisor="71" Quotient="9953.23943661971830985915493">
       <Recipient Name="National" />
     </NextOrderedSeat>
     <VotesNeededForNextOrderedSeat>3651</VotesNeededForNextOrderedSeat>
