@@ -204,7 +204,7 @@ namespace Existence.Earth.Human.Politics
             }
 
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            GiveOutOrderedSeats(r, NumberOfVotes, recipients, DHondtDivisor, NumberOfSeats);
+            GiveOutOrderedSeats(r, NumberOfVotes, recipients, GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1)), NumberOfSeats);
             return r;
         }
 
@@ -238,7 +238,7 @@ namespace Existence.Earth.Human.Politics
         /// supported. Null if there are no electorates</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
-            Func<int, long> divisor = GetSainteLagueDivisor(FirstDivisor ?? new SimpleFraction(1, 1));
+            Func<int, long> divisor = GetLinearDivisor(SainteLagueSlope, FirstDivisor);
             foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
             {
                 if (!NumberOfVotes.ContainsKey(next.Key)) throw new ArgumentException($"{next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
@@ -298,24 +298,43 @@ namespace Existence.Earth.Human.Politics
         }
 
         /// <summary>
-        /// divisor for a party's next seat under the D'Hondt method: 1, 2, 3, ...
+        /// slope of the D'Hondt divisor: 1, 2, 3, ... for a party's 1st, 2nd, 3rd, ... seat
         /// </summary>
-        private static readonly Func<int, long> DHondtDivisor = iSeats => iSeats + 1L;
+        private static readonly SimpleFraction DHondtSlope = new SimpleFraction(1, 1);
 
         /// <summary>
-        /// gets the divisor for a party's next seat under the Sainte-Laguë method, 1, 3, 5, ..., with the first one
-        /// replaced by <paramref name="FirstDivisor"/>. The divisors are all multiplied by its denominator so they are
-        /// whole numbers; that is fine since only ratios of quotients are compared, so 7/5, 3, 5, ... becomes 7, 15, 25, ...
+        /// slope of the Sainte-Laguë divisor: 1, 3, 5, ... for a party's 1st, 2nd, 3rd, ... seat
         /// </summary>
-        private static Func<int, long> GetSainteLagueDivisor(SimpleFraction FirstDivisor)
-        {
-            if (FirstDivisor.Numerator <= 0 || FirstDivisor.Denominator <= 0) throw new ArgumentException($"the first divisor {FirstDivisor} must have a positive numerator and denominator", nameof(FirstDivisor));
-            //past 3 a party's second seat would cost less than its first, which breaks giving out seats one at a time
-            if (FirstDivisor.Numerator > 3 * FirstDivisor.Denominator) throw new ArgumentException($"the first divisor {FirstDivisor} can't be more than 3", nameof(FirstDivisor));
+        private static readonly SimpleFraction SainteLagueSlope = new SimpleFraction(2, 1);
 
-            long lNumerator = FirstDivisor.Numerator;
-            long lDenominator = FirstDivisor.Denominator;
-            return iSeats => iSeats == 0 ? lNumerator : checked((2L * iSeats + 1) * lDenominator);
+        /// <summary>
+        /// gets the divisor for a party's next seat under a linear divisor method, <paramref name="Slope"/> x seats + 1,
+        /// with the first one optionally replaced by <paramref name="FirstDivisor"/>. Any divisor of the form a x seats + b
+        /// can be written this way with a slope of a/b, since multiplying every divisor by the same number doesn't change
+        /// who wins: 1/1 is D'Hondt (1, 2, 3, ...), 2/1 is Sainte-Laguë (1, 3, 5, ...), 3/1 is the Danish method
+        /// (1, 4, 7, ...) and 1/2 is Imperiali (2, 3, 4, ... as 1, 3/2, 2, ...). The divisors are all multiplied by both
+        /// denominators so they are whole numbers; that is fine since only ratios of quotients are compared, so
+        /// Sainte-Laguë with a first divisor of 7/5 goes from 7/5, 3, 5, ... to 7, 15, 25, ...
+        /// </summary>
+        /// <param name="Slope">how much the divisor goes up with each seat, with a positive numerator and denominator</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat instead of 1, with a positive numerator and
+        /// denominator, and no more than the second divisor (<paramref name="Slope"/> + 1)</param>
+        private static Func<int, long> GetLinearDivisor(SimpleFraction Slope, SimpleFraction FirstDivisor)
+        {
+            if (Slope.Numerator <= 0 || Slope.Denominator <= 0) throw new ArgumentException($"the slope {Slope} must have a positive numerator and denominator", nameof(Slope));
+            if (FirstDivisor.Numerator <= 0 || FirstDivisor.Denominator <= 0) throw new ArgumentException($"the first divisor {FirstDivisor} must have a positive numerator and denominator", nameof(FirstDivisor));
+
+            //with a slope of p/q and a first divisor of m/n, multiplying by q x n gives m x q, then (p x seats + q) x n
+            long slopeNumerator = Slope.Numerator;
+            long slopeDenominator = Slope.Denominator;
+            long first = checked(FirstDivisor.Numerator * slopeDenominator);
+            long firstDenominator = FirstDivisor.Denominator;
+            Func<int, long> divisor = iSeats => iSeats == 0 ? first : checked((slopeNumerator * iSeats + slopeDenominator) * firstDenominator);
+
+            //past the second divisor a party's second seat would cost less than its first, which breaks giving out seats
+            //one at a time
+            if (divisor(0) > divisor(1)) throw new ArgumentException($"the first divisor {FirstDivisor} can't be more than the second divisor {checked(slopeNumerator + slopeDenominator)}/{slopeDenominator}", nameof(FirstDivisor));
+            return divisor;
         }
 
         /// <summary>
@@ -354,7 +373,7 @@ namespace Existence.Earth.Human.Politics
             r.TotalVotes = NumberOfVotes.Values.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
 
-            HashSet<string> exemptSet = new HashSet<string>(exempt);
+            HashSet<string> exemptSet = [.. exempt];
             List<string> qualifying = new List<string>();
             foreach (KeyValuePair<string, long> next in NumberOfVotes)
             {
