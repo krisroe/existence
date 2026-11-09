@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Election>
+  <Input>
+    <Method>Sainte-Laguë</Method>
+    <FirstDivisor Numerator="6" Denominator="5" />
+    <NumberOfSeats>349</NumberOfSeats>
+    <ElectoralThreshold>4</ElectoralThreshold>
+    <Parties>
+      <Party Name="Social Democrats" Votes="1895989" AboveThreshold="true" Seats="99" />
+      <Party Name="Moderate Party" Votes="1343448" AboveThreshold="true" Seats="70" />
+      <Party Name="Sweden Democrats" Votes="1183248" AboveThreshold="true" Seats="62" />
+      <Party Name="Left Party" Votes="568781" AboveThreshold="true" Seats="30" />
+      <Party Name="Centre Party" Votes="475780" AboveThreshold="true" Seats="25" />
+      <Party Name="Christian Democrats" Votes="417490" AboveThreshold="true" Seats="22" />
+      <Party Name="Green Party" Votes="414307" AboveThreshold="true" Seats="22" />
+      <Party Name="Liberals" Votes="361187" AboveThreshold="true" Seats="19" />
+      <Party Name="Örebro Party" Votes="39644" AboveThreshold="false" Seats="0" />
+      <Party Name="Alternative for Sweden" Votes="26729" AboveThreshold="false" Seats="0" />
+      <Party Name="Christian Values Party" Votes="9017" AboveThreshold="false" Seats="0" />
+      <Party Name="Ambition Sweden" Votes="7679" AboveThreshold="false" Seats="0" />
+      <Party Name="Pirate Party" Votes="7464" AboveThreshold="false" Seats="0" />
+      <Party Name="Citizens' Coalition" Votes="4118" AboveThreshold="false" Seats="0" />
+      <Party Name="Human Rights and Democracy" Votes="3556" AboveThreshold="false" Seats="0" />
+      <Party Name="Communist Party of Sweden" Votes="2167" AboveThreshold="false" Seats="0" />
+      <Party Name="Enad Röst" Votes="1286" AboveThreshold="false" Seats="0" />
+      <Party Name="Nuance Party" Votes="1069" AboveThreshold="false" Seats="0" />
+      <Party Name="Other parties" Votes="4470" AboveThreshold="false" Seats="0" />
+    </Parties>
+  </Input>
+  <Output>
+    <TotalVotes>6767429</TotalVotes>
+    <QualifyingVotes>6660230</QualifyingVotes>
+    <AnnulledSurplusVoteAgreements />
+    <OrderedSeats>
+      <OrderedSeat SeatNumber="1" PoliticalParty="Social Democrats" DivisorCalculation="6/5" Divisor="6/5" Quotient="1579990.8333333333333333333333">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="2" PoliticalParty="Moderate Party" DivisorCalculation="6/5" Divisor="6/5" Quotient="1119540">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="3" PoliticalParty="Sweden Democrats" DivisorCalculation="6/5" Divisor="6/5" Quotient="986040">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="4" PoliticalParty="Social Democrats" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="631996.33333333333333333333333">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="5" PoliticalParty="Left Party" DivisorCalculation="6/5" Divisor="6/5" Quotient="473984.16666666666666666666667">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="6" PoliticalParty="Moderate Party" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="447816">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="7" PoliticalParty="Centre Party" DivisorCalculation="6/5" Divisor="6/5" Quotient="396483.33333333333333333333333">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="8" PoliticalParty="Sweden Democrats" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="394416">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="9" PoliticalParty="Social Democrats" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="379197.8">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="10" PoliticalParty="Christian Democrats" DivisorCalculation="6/5" Divisor="6/5" Quotient="347908.33333333333333333333333">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="11" PoliticalParty="Green Party" DivisorCalculation="6/5" Divisor="6/5" Quotient="345255.83333333333333333333333">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="12" PoliticalParty="Liberals" DivisorCalculation="6/5" Divisor="6/5" Quotient="300989.16666666666666666666667">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="13" PoliticalParty="Social Democrats" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="270855.57142857142857142857143">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="14" PoliticalParty="Moderate Party" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="268689.6">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="15" PoliticalParty="Sweden Democrats" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="236649.6">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="16" PoliticalParty="Social Democrats" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="210665.44444444444444444444444">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="17" PoliticalParty="Moderate Party" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="191921.14285714285714285714286">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="18" PoliticalParty="Left Party" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="189593.66666666666666666666667">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="19" PoliticalParty="Social Democrats" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="172362.63636363636363636363636">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="20" PoliticalParty="Sweden Democrats" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="169035.42857142857142857142857">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="21" PoliticalParty="Centre Party" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="158593.33333333333333333333333">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="22" PoliticalParty="Moderate Party" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="149272">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="23" PoliticalParty="Social Democrats" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="145845.30769230769230769230769">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="24" PoliticalParty="Christian Democrats" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="139163.33333333333333333333333">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="25" PoliticalParty="Green Party" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="138102.33333333333333333333333">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="26" PoliticalParty="Sweden Democrats" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="131472">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="27" PoliticalParty="Social Democrats" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="126399.26666666666666666666667">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="28" PoliticalParty="Moderate Party" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="122131.63636363636363636363636">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="29" PoliticalParty="Liberals" DivisorCalculation="2*1 + 1" Divisor="3" Quotient="120395.66666666666666666666667">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="30" PoliticalParty="Left Party" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="113756.2">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="31" PoliticalParty="Social Democrats" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="111528.76470588235294117647059">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="32" PoliticalParty="Sweden Democrats" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="107568">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="33" PoliticalParty="Moderate Party" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="103342.15384615384615384615385">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="34" PoliticalParty="Social Democrats" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="99788.89473684210526315789474">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="35" PoliticalParty="Centre Party" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="95156">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="36" PoliticalParty="Sweden Democrats" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="91019.07692307692307692307692">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="37" PoliticalParty="Social Democrats" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="90285.19047619047619047619048">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="38" PoliticalParty="Moderate Party" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="89563.2">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="39" PoliticalParty="Christian Democrats" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="83498">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="40" PoliticalParty="Green Party" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="82861.4">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="41" PoliticalParty="Social Democrats" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="82434.30434782608695652173913">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="42" PoliticalParty="Left Party" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="81254.42857142857142857142857">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="43" PoliticalParty="Moderate Party" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="79026.352941176470588235294118">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="44" PoliticalParty="Sweden Democrats" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="78883.2">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="45" PoliticalParty="Social Democrats" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="75839.56">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="46" PoliticalParty="Liberals" DivisorCalculation="2*2 + 1" Divisor="5" Quotient="72237.4">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="47" PoliticalParty="Moderate Party" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="70707.789473684210526315789474">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="48" PoliticalParty="Social Democrats" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="70221.814814814814814814814815">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="49" PoliticalParty="Sweden Democrats" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="69602.823529411764705882352941">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="50" PoliticalParty="Centre Party" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="67968.571428571428571428571429">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="51" PoliticalParty="Social Democrats" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="65378.931034482758620689655172">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="52" PoliticalParty="Moderate Party" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="63973.714285714285714285714286">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="53" PoliticalParty="Left Party" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="63197.888888888888888888888889">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="54" PoliticalParty="Sweden Democrats" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="62276.210526315789473684210526">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="55" PoliticalParty="Social Democrats" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="61160.935483870967741935483871">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="56" PoliticalParty="Christian Democrats" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="59641.428571428571428571428571">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="57" PoliticalParty="Green Party" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="59186.714285714285714285714286">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="58" PoliticalParty="Moderate Party" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="58410.782608695652173913043478">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="59" PoliticalParty="Social Democrats" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="57454.212121212121212121212121">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="60" PoliticalParty="Sweden Democrats" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="56345.142857142857142857142857">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="61" PoliticalParty="Social Democrats" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="54171.114285714285714285714286">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="62" PoliticalParty="Moderate Party" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="53737.92">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="63" PoliticalParty="Centre Party" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="52864.444444444444444444444444">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="64" PoliticalParty="Left Party" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="51707.363636363636363636363636">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="65" PoliticalParty="Liberals" DivisorCalculation="2*3 + 1" Divisor="7" Quotient="51598.142857142857142857142857">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="66" PoliticalParty="Sweden Democrats" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="51445.565217391304347826086957">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="67" PoliticalParty="Social Democrats" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="51242.945945945945945945945946">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="68" PoliticalParty="Moderate Party" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="49757.333333333333333333333333">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="69" PoliticalParty="Social Democrats" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="48615.102564102564102564102564">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="70" PoliticalParty="Sweden Democrats" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="47329.92">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="71" PoliticalParty="Christian Democrats" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="46387.777777777777777777777778">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="72" PoliticalParty="Moderate Party" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="46325.793103448275862068965517">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="73" PoliticalParty="Social Democrats" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="46243.634146341463414634146341">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="74" PoliticalParty="Green Party" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="46034.111111111111111111111111">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="75" PoliticalParty="Social Democrats" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="44092.767441860465116279069767">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="76" PoliticalParty="Sweden Democrats" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="43824">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="77" PoliticalParty="Left Party" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="43752.384615384615384615384615">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="78" PoliticalParty="Moderate Party" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="43337.032258064516129032258065">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="79" PoliticalParty="Centre Party" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="43252.727272727272727272727273">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="80" PoliticalParty="Social Democrats" DivisorCalculation="2*22 + 1" Divisor="45" Quotient="42133.088888888888888888888889">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="81" PoliticalParty="Sweden Democrats" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="40801.655172413793103448275862">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="82" PoliticalParty="Moderate Party" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="40710.545454545454545454545455">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="83" PoliticalParty="Social Democrats" DivisorCalculation="2*23 + 1" Divisor="47" Quotient="40340.191489361702127659574468">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="84" PoliticalParty="Liberals" DivisorCalculation="2*4 + 1" Divisor="9" Quotient="40131.888888888888888888888889">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="85" PoliticalParty="Social Democrats" DivisorCalculation="2*24 + 1" Divisor="49" Quotient="38693.653061224489795918367347">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="86" PoliticalParty="Moderate Party" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="38384.228571428571428571428571">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="87" PoliticalParty="Sweden Democrats" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="38169.290322580645161290322581">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="88" PoliticalParty="Christian Democrats" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="37953.636363636363636363636364">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="89" PoliticalParty="Left Party" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="37918.733333333333333333333333">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="90" PoliticalParty="Green Party" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="37664.272727272727272727272727">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="91" PoliticalParty="Social Democrats" DivisorCalculation="2*25 + 1" Divisor="51" Quotient="37176.254901960784313725490196">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="92" PoliticalParty="Centre Party" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="36598.461538461538461538461538">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="93" PoliticalParty="Moderate Party" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="36309.405405405405405405405405">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="94" PoliticalParty="Sweden Democrats" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="35856">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="95" PoliticalParty="Social Democrats" DivisorCalculation="2*26 + 1" Divisor="53" Quotient="35773.377358490566037735849057">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="96" PoliticalParty="Social Democrats" DivisorCalculation="2*27 + 1" Divisor="55" Quotient="34472.527272727272727272727273">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="97" PoliticalParty="Moderate Party" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="34447.384615384615384615384615">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="98" PoliticalParty="Sweden Democrats" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="33807.085714285714285714285714">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="99" PoliticalParty="Left Party" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="33457.705882352941176470588235">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="100" PoliticalParty="Social Democrats" DivisorCalculation="2*28 + 1" Divisor="57" Quotient="33262.964912280701754385964912">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="101" PoliticalParty="Liberals" DivisorCalculation="2*5 + 1" Divisor="11" Quotient="32835.181818181818181818181818">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="102" PoliticalParty="Moderate Party" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="32767.024390243902439024390244">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="103" PoliticalParty="Social Democrats" DivisorCalculation="2*29 + 1" Divisor="59" Quotient="32135.406779661016949152542373">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="104" PoliticalParty="Christian Democrats" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="32114.615384615384615384615385">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="105" PoliticalParty="Sweden Democrats" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="31979.675675675675675675675676">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="106" PoliticalParty="Green Party" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="31869.769230769230769230769231">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="107" PoliticalParty="Centre Party" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="31718.666666666666666666666667">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="108" PoliticalParty="Moderate Party" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="31242.976744186046511627906977">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="109" PoliticalParty="Social Democrats" DivisorCalculation="2*30 + 1" Divisor="61" Quotient="31081.786885245901639344262295">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="110" PoliticalParty="Sweden Democrats" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="30339.692307692307692307692308">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="111" PoliticalParty="Social Democrats" DivisorCalculation="2*31 + 1" Divisor="63" Quotient="30095.063492063492063492063492">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="112" PoliticalParty="Left Party" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="29935.842105263157894736842105">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="113" PoliticalParty="Moderate Party" DivisorCalculation="2*22 + 1" Divisor="45" Quotient="29854.4">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="114" PoliticalParty="Social Democrats" DivisorCalculation="2*32 + 1" Divisor="65" Quotient="29169.061538461538461538461538">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="115" PoliticalParty="Sweden Democrats" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="28859.707317073170731707317073">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="116" PoliticalParty="Moderate Party" DivisorCalculation="2*23 + 1" Divisor="47" Quotient="28584">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="117" PoliticalParty="Social Democrats" DivisorCalculation="2*33 + 1" Divisor="67" Quotient="28298.34328358208955223880597">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="118" PoliticalParty="Centre Party" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="27987.058823529411764705882353">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="119" PoliticalParty="Christian Democrats" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="27832.666666666666666666666667">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="120" PoliticalParty="Liberals" DivisorCalculation="2*6 + 1" Divisor="13" Quotient="27783.615384615384615384615385">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="121" PoliticalParty="Green Party" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="27620.466666666666666666666667">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="122" PoliticalParty="Sweden Democrats" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="27517.395348837209302325581395">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="123" PoliticalParty="Social Democrats" DivisorCalculation="2*34 + 1" Divisor="69" Quotient="27478.10144927536231884057971">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="124" PoliticalParty="Moderate Party" DivisorCalculation="2*24 + 1" Divisor="49" Quotient="27417.306122448979591836734694">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="125" PoliticalParty="Left Party" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="27084.809523809523809523809524">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="126" PoliticalParty="Social Democrats" DivisorCalculation="2*35 + 1" Divisor="71" Quotient="26704.070422535211267605633803">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="127" PoliticalParty="Moderate Party" DivisorCalculation="2*25 + 1" Divisor="51" Quotient="26342.117647058823529411764706">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="128" PoliticalParty="Sweden Democrats" DivisorCalculation="2*22 + 1" Divisor="45" Quotient="26294.4">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="129" PoliticalParty="Social Democrats" DivisorCalculation="2*36 + 1" Divisor="73" Quotient="25972.452054794520547945205479">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="130" PoliticalParty="Moderate Party" DivisorCalculation="2*26 + 1" Divisor="53" Quotient="25348.075471698113207547169811">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="131" PoliticalParty="Social Democrats" DivisorCalculation="2*37 + 1" Divisor="75" Quotient="25279.853333333333333333333333">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="132" PoliticalParty="Sweden Democrats" DivisorCalculation="2*23 + 1" Divisor="47" Quotient="25175.489361702127659574468085">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="133" PoliticalParty="Centre Party" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="25041.052631578947368421052632">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="134" PoliticalParty="Left Party" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="24729.608695652173913043478261">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="135" PoliticalParty="Social Democrats" DivisorCalculation="2*38 + 1" Divisor="77" Quotient="24623.233766233766233766233766">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="136" PoliticalParty="Christian Democrats" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="24558.235294117647058823529412">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="137" PoliticalParty="Moderate Party" DivisorCalculation="2*27 + 1" Divisor="55" Quotient="24426.327272727272727272727273">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="138" PoliticalParty="Green Party" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="24371">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="139" PoliticalParty="Sweden Democrats" DivisorCalculation="2*24 + 1" Divisor="49" Quotient="24147.918367346938775510204082">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="140" PoliticalParty="Liberals" DivisorCalculation="2*7 + 1" Divisor="15" Quotient="24079.133333333333333333333333">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="141" PoliticalParty="Social Democrats" DivisorCalculation="2*39 + 1" Divisor="79" Quotient="23999.860759493670886075949367">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="142" PoliticalParty="Moderate Party" DivisorCalculation="2*28 + 1" Divisor="57" Quotient="23569.263157894736842105263158">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="143" PoliticalParty="Social Democrats" DivisorCalculation="2*40 + 1" Divisor="81" Quotient="23407.271604938271604938271605">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="144" PoliticalParty="Sweden Democrats" DivisorCalculation="2*25 + 1" Divisor="51" Quotient="23200.941176470588235294117647">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="145" PoliticalParty="Social Democrats" DivisorCalculation="2*41 + 1" Divisor="83" Quotient="22843.240963855421686746987952">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="146" PoliticalParty="Moderate Party" DivisorCalculation="2*29 + 1" Divisor="59" Quotient="22770.30508474576271186440678">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="147" PoliticalParty="Left Party" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="22751.24">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="148" PoliticalParty="Centre Party" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="22656.190476190476190476190476">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="149" PoliticalParty="Sweden Democrats" DivisorCalculation="2*26 + 1" Divisor="53" Quotient="22325.433962264150943396226415">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="150" PoliticalParty="Social Democrats" DivisorCalculation="2*42 + 1" Divisor="85" Quotient="22305.752941176470588235294118">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="151" PoliticalParty="Moderate Party" DivisorCalculation="2*30 + 1" Divisor="61" Quotient="22023.737704918032786885245902">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="152" PoliticalParty="Christian Democrats" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="21973.157894736842105263157895">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="153" PoliticalParty="Green Party" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="21805.631578947368421052631579">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="154" PoliticalParty="Social Democrats" DivisorCalculation="2*43 + 1" Divisor="87" Quotient="21792.977011494252873563218391">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="155" PoliticalParty="Sweden Democrats" DivisorCalculation="2*27 + 1" Divisor="55" Quotient="21513.6">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="156" PoliticalParty="Moderate Party" DivisorCalculation="2*31 + 1" Divisor="63" Quotient="21324.571428571428571428571429">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="157" PoliticalParty="Social Democrats" DivisorCalculation="2*44 + 1" Divisor="89" Quotient="21303.247191011235955056179775">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="158" PoliticalParty="Liberals" DivisorCalculation="2*8 + 1" Divisor="17" Quotient="21246.294117647058823529411765">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="159" PoliticalParty="Left Party" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="21065.962962962962962962962963">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="160" PoliticalParty="Social Democrats" DivisorCalculation="2*45 + 1" Divisor="91" Quotient="20835.043956043956043956043956">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="161" PoliticalParty="Sweden Democrats" DivisorCalculation="2*28 + 1" Divisor="57" Quotient="20758.736842105263157894736842">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="162" PoliticalParty="Centre Party" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="20686.086956521739130434782609">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="163" PoliticalParty="Moderate Party" DivisorCalculation="2*32 + 1" Divisor="65" Quotient="20668.430769230769230769230769">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="164" PoliticalParty="Social Democrats" DivisorCalculation="2*46 + 1" Divisor="93" Quotient="20386.978494623655913978494624">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="165" PoliticalParty="Sweden Democrats" DivisorCalculation="2*29 + 1" Divisor="59" Quotient="20055.050847457627118644067797">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="166" PoliticalParty="Moderate Party" DivisorCalculation="2*33 + 1" Divisor="67" Quotient="20051.462686567164179104477612">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="167" PoliticalParty="Social Democrats" DivisorCalculation="2*47 + 1" Divisor="95" Quotient="19957.778947368421052631578947">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="168" PoliticalParty="Christian Democrats" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="19880.47619047619047619047619">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="169" PoliticalParty="Green Party" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="19728.904761904761904761904762">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="170" PoliticalParty="Left Party" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="19613.137931034482758620689655">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="171" PoliticalParty="Social Democrats" DivisorCalculation="2*48 + 1" Divisor="97" Quotient="19546.278350515463917525773196">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="172" PoliticalParty="Moderate Party" DivisorCalculation="2*34 + 1" Divisor="69" Quotient="19470.260869565217391304347826">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="173" PoliticalParty="Sweden Democrats" DivisorCalculation="2*30 + 1" Divisor="61" Quotient="19397.508196721311475409836066">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="174" PoliticalParty="Social Democrats" DivisorCalculation="2*49 + 1" Divisor="99" Quotient="19151.40404040404040404040404">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="175" PoliticalParty="Centre Party" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="19031.2">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="176" PoliticalParty="Liberals" DivisorCalculation="2*9 + 1" Divisor="19" Quotient="19009.842105263157894736842105">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="177" PoliticalParty="Moderate Party" DivisorCalculation="2*35 + 1" Divisor="71" Quotient="18921.802816901408450704225352">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="178" PoliticalParty="Sweden Democrats" DivisorCalculation="2*31 + 1" Divisor="63" Quotient="18781.714285714285714285714286">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="179" PoliticalParty="Social Democrats" DivisorCalculation="2*50 + 1" Divisor="101" Quotient="18772.168316831683168316831683">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="180" PoliticalParty="Social Democrats" DivisorCalculation="2*51 + 1" Divisor="103" Quotient="18407.660194174757281553398058">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="181" PoliticalParty="Moderate Party" DivisorCalculation="2*36 + 1" Divisor="73" Quotient="18403.397260273972602739726027">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="182" PoliticalParty="Left Party" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="18347.774193548387096774193548">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="183" PoliticalParty="Sweden Democrats" DivisorCalculation="2*32 + 1" Divisor="65" Quotient="18203.815384615384615384615385">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="184" PoliticalParty="Christian Democrats" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="18151.739130434782608695652174">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="185" PoliticalParty="Social Democrats" DivisorCalculation="2*52 + 1" Divisor="105" Quotient="18057.038095238095238095238095">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="186" PoliticalParty="Green Party" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="18013.347826086956521739130435">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="187" PoliticalParty="Moderate Party" DivisorCalculation="2*37 + 1" Divisor="75" Quotient="17912.64">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="188" PoliticalParty="Social Democrats" DivisorCalculation="2*53 + 1" Divisor="107" Quotient="17719.523364485981308411214953">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="189" PoliticalParty="Sweden Democrats" DivisorCalculation="2*33 + 1" Divisor="67" Quotient="17660.417910447761194029850746">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="190" PoliticalParty="Centre Party" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="17621.481481481481481481481481">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="191" PoliticalParty="Moderate Party" DivisorCalculation="2*38 + 1" Divisor="77" Quotient="17447.376623376623376623376623">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="192" PoliticalParty="Social Democrats" DivisorCalculation="2*54 + 1" Divisor="109" Quotient="17394.394495412844036697247706">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="193" PoliticalParty="Left Party" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="17235.787878787878787878787879">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="194" PoliticalParty="Liberals" DivisorCalculation="2*10 + 1" Divisor="21" Quotient="17199.380952380952380952380952">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="195" PoliticalParty="Sweden Democrats" DivisorCalculation="2*34 + 1" Divisor="69" Quotient="17148.521739130434782608695652">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="196" PoliticalParty="Social Democrats" DivisorCalculation="2*55 + 1" Divisor="111" Quotient="17080.981981981981981981981982">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="197" PoliticalParty="Moderate Party" DivisorCalculation="2*39 + 1" Divisor="79" Quotient="17005.670886075949367088607595">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="198" PoliticalParty="Social Democrats" DivisorCalculation="2*56 + 1" Divisor="113" Quotient="16778.66371681415929203539823">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="199" PoliticalParty="Christian Democrats" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="16699.6">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="200" PoliticalParty="Sweden Democrats" DivisorCalculation="2*35 + 1" Divisor="71" Quotient="16665.464788732394366197183099">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="201" PoliticalParty="Moderate Party" DivisorCalculation="2*40 + 1" Divisor="81" Quotient="16585.777777777777777777777778">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="202" PoliticalParty="Green Party" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="16572.28">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="203" PoliticalParty="Social Democrats" DivisorCalculation="2*57 + 1" Divisor="115" Quotient="16486.860869565217391304347826">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="204" PoliticalParty="Centre Party" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="16406.206896551724137931034483">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="205" PoliticalParty="Left Party" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="16250.885714285714285714285714">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="206" PoliticalParty="Sweden Democrats" DivisorCalculation="2*36 + 1" Divisor="73" Quotient="16208.876712328767123287671233">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="207" PoliticalParty="Social Democrats" DivisorCalculation="2*58 + 1" Divisor="117" Quotient="16205.034188034188034188034188">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="208" PoliticalParty="Moderate Party" DivisorCalculation="2*41 + 1" Divisor="83" Quotient="16186.120481927710843373493976">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="209" PoliticalParty="Social Democrats" DivisorCalculation="2*59 + 1" Divisor="119" Quotient="15932.680672268907563025210084">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="210" PoliticalParty="Moderate Party" DivisorCalculation="2*42 + 1" Divisor="85" Quotient="15805.270588235294117647058824">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="211" PoliticalParty="Sweden Democrats" DivisorCalculation="2*37 + 1" Divisor="75" Quotient="15776.64">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="212" PoliticalParty="Liberals" DivisorCalculation="2*11 + 1" Divisor="23" Quotient="15703.782608695652173913043478">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="213" PoliticalParty="Social Democrats" DivisorCalculation="2*60 + 1" Divisor="121" Quotient="15669.330578512396694214876033">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="214" PoliticalParty="Christian Democrats" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="15462.592592592592592592592593">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="215" PoliticalParty="Moderate Party" DivisorCalculation="2*43 + 1" Divisor="87" Quotient="15441.931034482758620689655172">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="216" PoliticalParty="Social Democrats" DivisorCalculation="2*61 + 1" Divisor="123" Quotient="15414.544715447154471544715447">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="217" PoliticalParty="Left Party" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="15372.459459459459459459459459">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="218" PoliticalParty="Sweden Democrats" DivisorCalculation="2*38 + 1" Divisor="77" Quotient="15366.857142857142857142857143">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="219" PoliticalParty="Centre Party" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="15347.741935483870967741935484">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="220" PoliticalParty="Green Party" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="15344.703703703703703703703704">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="221" PoliticalParty="Social Democrats" DivisorCalculation="2*62 + 1" Divisor="125" Quotient="15167.912">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="222" PoliticalParty="Moderate Party" DivisorCalculation="2*44 + 1" Divisor="89" Quotient="15094.921348314606741573033708">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="223" PoliticalParty="Sweden Democrats" DivisorCalculation="2*39 + 1" Divisor="79" Quotient="14977.822784810126582278481013">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="224" PoliticalParty="Social Democrats" DivisorCalculation="2*63 + 1" Divisor="127" Quotient="14929.047244094488188976377953">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="225" PoliticalParty="Moderate Party" DivisorCalculation="2*45 + 1" Divisor="91" Quotient="14763.164835164835164835164835">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="226" PoliticalParty="Social Democrats" DivisorCalculation="2*64 + 1" Divisor="129" Quotient="14697.589147286821705426356589">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="227" PoliticalParty="Sweden Democrats" DivisorCalculation="2*40 + 1" Divisor="81" Quotient="14608">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="228" PoliticalParty="Left Party" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="14584.128205128205128205128205">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="229" PoliticalParty="Social Democrats" DivisorCalculation="2*65 + 1" Divisor="131" Quotient="14473.198473282442748091603053">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="230" PoliticalParty="Liberals" DivisorCalculation="2*12 + 1" Divisor="25" Quotient="14447.48">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="231" PoliticalParty="Moderate Party" DivisorCalculation="2*46 + 1" Divisor="93" Quotient="14445.677419354838709677419355">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="232" PoliticalParty="Centre Party" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="14417.575757575757575757575758">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="233" PoliticalParty="Christian Democrats" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="14396.206896551724137931034483">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="234" PoliticalParty="Green Party" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="14286.448275862068965517241379">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="235" PoliticalParty="Sweden Democrats" DivisorCalculation="2*41 + 1" Divisor="83" Quotient="14256">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="236" PoliticalParty="Social Democrats" DivisorCalculation="2*66 + 1" Divisor="133" Quotient="14255.556390977443609022556391">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="237" PoliticalParty="Moderate Party" DivisorCalculation="2*47 + 1" Divisor="95" Quotient="14141.557894736842105263157895">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="238" PoliticalParty="Social Democrats" DivisorCalculation="2*67 + 1" Divisor="135" Quotient="14044.362962962962962962962963">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="239" PoliticalParty="Sweden Democrats" DivisorCalculation="2*42 + 1" Divisor="85" Quotient="13920.564705882352941176470588">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="240" PoliticalParty="Left Party" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="13872.707317073170731707317073">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="241" PoliticalParty="Moderate Party" DivisorCalculation="2*48 + 1" Divisor="97" Quotient="13849.979381443298969072164948">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="242" PoliticalParty="Social Democrats" DivisorCalculation="2*68 + 1" Divisor="137" Quotient="13839.335766423357664233576642">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="243" PoliticalParty="Social Democrats" DivisorCalculation="2*69 + 1" Divisor="139" Quotient="13640.208633093525179856115108">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="244" PoliticalParty="Sweden Democrats" DivisorCalculation="2*43 + 1" Divisor="87" Quotient="13600.551724137931034482758621">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="245" PoliticalParty="Centre Party" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="13593.714285714285714285714286">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="246" PoliticalParty="Moderate Party" DivisorCalculation="2*49 + 1" Divisor="99" Quotient="13570.181818181818181818181818">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="247" PoliticalParty="Christian Democrats" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="13467.419354838709677419354839">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="248" PoliticalParty="Social Democrats" DivisorCalculation="2*70 + 1" Divisor="141" Quotient="13446.730496453900709219858156">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="249" PoliticalParty="Liberals" DivisorCalculation="2*13 + 1" Divisor="27" Quotient="13377.296296296296296296296296">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="250" PoliticalParty="Green Party" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="13364.741935483870967741935484">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="251" PoliticalParty="Moderate Party" DivisorCalculation="2*50 + 1" Divisor="101" Quotient="13301.465346534653465346534653">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="252" PoliticalParty="Sweden Democrats" DivisorCalculation="2*44 + 1" Divisor="89" Quotient="13294.921348314606741573033708">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="253" PoliticalParty="Social Democrats" DivisorCalculation="2*71 + 1" Divisor="143" Quotient="13258.664335664335664335664336">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="254" PoliticalParty="Left Party" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="13227.465116279069767441860465">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="255" PoliticalParty="Social Democrats" DivisorCalculation="2*72 + 1" Divisor="145" Quotient="13075.786206896551724137931034">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="256" PoliticalParty="Moderate Party" DivisorCalculation="2*51 + 1" Divisor="103" Quotient="13043.18446601941747572815534">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="257" PoliticalParty="Sweden Democrats" DivisorCalculation="2*45 + 1" Divisor="91" Quotient="13002.725274725274725274725275">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="258" PoliticalParty="Social Democrats" DivisorCalculation="2*73 + 1" Divisor="147" Quotient="12897.884353741496598639455782">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="259" PoliticalParty="Centre Party" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="12858.918918918918918918918919">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="260" PoliticalParty="Moderate Party" DivisorCalculation="2*52 + 1" Divisor="105" Quotient="12794.742857142857142857142857">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="261" PoliticalParty="Social Democrats" DivisorCalculation="2*74 + 1" Divisor="149" Quotient="12724.75838926174496644295302">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="262" PoliticalParty="Sweden Democrats" DivisorCalculation="2*46 + 1" Divisor="93" Quotient="12723.096774193548387096774194">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="263" PoliticalParty="Christian Democrats" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="12651.212121212121212121212121">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="264" PoliticalParty="Left Party" DivisorCalculation="2*22 + 1" Divisor="45" Quotient="12639.577777777777777777777778">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="265" PoliticalParty="Social Democrats" DivisorCalculation="2*75 + 1" Divisor="151" Quotient="12556.218543046357615894039735">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="266" PoliticalParty="Moderate Party" DivisorCalculation="2*53 + 1" Divisor="107" Quotient="12555.588785046728971962616822">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="267" PoliticalParty="Green Party" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="12554.757575757575757575757576">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="268" PoliticalParty="Sweden Democrats" DivisorCalculation="2*47 + 1" Divisor="95" Quotient="12455.242105263157894736842105">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="269" PoliticalParty="Liberals" DivisorCalculation="2*14 + 1" Divisor="29" Quotient="12454.72413793103448275862069">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="270" PoliticalParty="Social Democrats" DivisorCalculation="2*76 + 1" Divisor="153" Quotient="12392.084967320261437908496732">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="271" PoliticalParty="Moderate Party" DivisorCalculation="2*54 + 1" Divisor="109" Quotient="12325.211009174311926605504587">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="272" PoliticalParty="Social Democrats" DivisorCalculation="2*77 + 1" Divisor="155" Quotient="12232.187096774193548387096774">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="273" PoliticalParty="Centre Party" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="12199.487179487179487179487179">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="274" PoliticalParty="Sweden Democrats" DivisorCalculation="2*48 + 1" Divisor="97" Quotient="12198.432989690721649484536082">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="275" PoliticalParty="Moderate Party" DivisorCalculation="2*55 + 1" Divisor="111" Quotient="12103.135135135135135135135135">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="276" PoliticalParty="Left Party" DivisorCalculation="2*23 + 1" Divisor="47" Quotient="12101.723404255319148936170213">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="277" PoliticalParty="Social Democrats" DivisorCalculation="2*78 + 1" Divisor="157" Quotient="12076.363057324840764331210191">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="278" PoliticalParty="Sweden Democrats" DivisorCalculation="2*49 + 1" Divisor="99" Quotient="11952">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="279" PoliticalParty="Christian Democrats" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="11928.285714285714285714285714">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="280" PoliticalParty="Social Democrats" DivisorCalculation="2*79 + 1" Divisor="159" Quotient="11924.459119496855345911949686">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="281" PoliticalParty="Moderate Party" DivisorCalculation="2*56 + 1" Divisor="113" Quotient="11888.920353982300884955752212">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="282" PoliticalParty="Green Party" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="11837.342857142857142857142857">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="283" PoliticalParty="Social Democrats" DivisorCalculation="2*80 + 1" Divisor="161" Quotient="11776.329192546583850931677019">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="284" PoliticalParty="Sweden Democrats" DivisorCalculation="2*50 + 1" Divisor="101" Quotient="11715.326732673267326732673267">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="285" PoliticalParty="Moderate Party" DivisorCalculation="2*57 + 1" Divisor="115" Quotient="11682.156521739130434782608696">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="286" PoliticalParty="Liberals" DivisorCalculation="2*15 + 1" Divisor="31" Quotient="11651.193548387096774193548387">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="287" PoliticalParty="Social Democrats" DivisorCalculation="2*81 + 1" Divisor="163" Quotient="11631.834355828220858895705521">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="288" PoliticalParty="Left Party" DivisorCalculation="2*24 + 1" Divisor="49" Quotient="11607.775510204081632653061224">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="289" PoliticalParty="Centre Party" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="11604.390243902439024390243902">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="290" PoliticalParty="Social Democrats" DivisorCalculation="2*82 + 1" Divisor="165" Quotient="11490.842424242424242424242424">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="291" PoliticalParty="Sweden Democrats" DivisorCalculation="2*51 + 1" Divisor="103" Quotient="11487.844660194174757281553398">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="292" PoliticalParty="Moderate Party" DivisorCalculation="2*58 + 1" Divisor="117" Quotient="11482.461538461538461538461538">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="293" PoliticalParty="Social Democrats" DivisorCalculation="2*83 + 1" Divisor="167" Quotient="11353.227544910179640718562874">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="294" PoliticalParty="Moderate Party" DivisorCalculation="2*59 + 1" Divisor="119" Quotient="11289.478991596638655462184874">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="295" PoliticalParty="Christian Democrats" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="11283.513513513513513513513514">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="296" PoliticalParty="Sweden Democrats" DivisorCalculation="2*52 + 1" Divisor="105" Quotient="11269.028571428571428571428571">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="297" PoliticalParty="Social Democrats" DivisorCalculation="2*84 + 1" Divisor="169" Quotient="11218.869822485207100591715976">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="298" PoliticalParty="Green Party" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="11197.486486486486486486486486">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="299" PoliticalParty="Left Party" DivisorCalculation="2*25 + 1" Divisor="51" Quotient="11152.568627450980392156862745">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="300" PoliticalParty="Moderate Party" DivisorCalculation="2*60 + 1" Divisor="121" Quotient="11102.876033057851239669421488">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="301" PoliticalParty="Social Democrats" DivisorCalculation="2*85 + 1" Divisor="171" Quotient="11087.654970760233918128654971">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="302" PoliticalParty="Centre Party" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="11064.651162790697674418604651">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="303" PoliticalParty="Sweden Democrats" DivisorCalculation="2*53 + 1" Divisor="107" Quotient="11058.392523364485981308411215">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="304" PoliticalParty="Social Democrats" DivisorCalculation="2*86 + 1" Divisor="173" Quotient="10959.47398843930635838150289">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="305" PoliticalParty="Liberals" DivisorCalculation="2*16 + 1" Divisor="33" Quotient="10945.060606060606060606060606">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="306" PoliticalParty="Moderate Party" DivisorCalculation="2*61 + 1" Divisor="123" Quotient="10922.341463414634146341463415">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="307" PoliticalParty="Sweden Democrats" DivisorCalculation="2*54 + 1" Divisor="109" Quotient="10855.486238532110091743119266">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="308" PoliticalParty="Social Democrats" DivisorCalculation="2*87 + 1" Divisor="175" Quotient="10834.222857142857142857142857">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="309" PoliticalParty="Moderate Party" DivisorCalculation="2*62 + 1" Divisor="125" Quotient="10747.584">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="310" PoliticalParty="Left Party" DivisorCalculation="2*26 + 1" Divisor="53" Quotient="10731.716981132075471698113208">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="311" PoliticalParty="Social Democrats" DivisorCalculation="2*88 + 1" Divisor="177" Quotient="10711.802259887005649717514124">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="312" PoliticalParty="Christian Democrats" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="10704.871794871794871794871795">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="313" PoliticalParty="Sweden Democrats" DivisorCalculation="2*55 + 1" Divisor="111" Quotient="10659.891891891891891891891892">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="314" PoliticalParty="Green Party" DivisorCalculation="2*19 + 1" Divisor="39" Quotient="10623.25641025641025641025641">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="315" PoliticalParty="Social Democrats" DivisorCalculation="2*89 + 1" Divisor="179" Quotient="10592.117318435754189944134078">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="316" PoliticalParty="Moderate Party" DivisorCalculation="2*63 + 1" Divisor="127" Quotient="10578.330708661417322834645669">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="317" PoliticalParty="Centre Party" DivisorCalculation="2*22 + 1" Divisor="45" Quotient="10572.888888888888888888888889">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="318" PoliticalParty="Social Democrats" DivisorCalculation="2*90 + 1" Divisor="181" Quotient="10475.077348066298342541436464">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="319" PoliticalParty="Sweden Democrats" DivisorCalculation="2*56 + 1" Divisor="113" Quotient="10471.221238938053097345132743">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="320" PoliticalParty="Moderate Party" DivisorCalculation="2*64 + 1" Divisor="129" Quotient="10414.325581395348837209302326">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="321" PoliticalParty="Social Democrats" DivisorCalculation="2*91 + 1" Divisor="183" Quotient="10360.595628415300546448087432">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="322" PoliticalParty="Left Party" DivisorCalculation="2*27 + 1" Divisor="55" Quotient="10341.472727272727272727272727">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="323" PoliticalParty="Liberals" DivisorCalculation="2*17 + 1" Divisor="35" Quotient="10319.628571428571428571428571">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="324" PoliticalParty="Sweden Democrats" DivisorCalculation="2*57 + 1" Divisor="115" Quotient="10289.113043478260869565217391">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="325" PoliticalParty="Moderate Party" DivisorCalculation="2*65 + 1" Divisor="131" Quotient="10255.328244274809160305343511">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="326" PoliticalParty="Social Democrats" DivisorCalculation="2*92 + 1" Divisor="185" Quotient="10248.589189189189189189189189">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="327" PoliticalParty="Christian Democrats" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="10182.682926829268292682926829">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="328" PoliticalParty="Social Democrats" DivisorCalculation="2*93 + 1" Divisor="187" Quotient="10138.978609625668449197860963">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="329" PoliticalParty="Centre Party" DivisorCalculation="2*23 + 1" Divisor="47" Quotient="10122.97872340425531914893617">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="330" PoliticalParty="Sweden Democrats" DivisorCalculation="2*58 + 1" Divisor="117" Quotient="10113.230769230769230769230769">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="331" PoliticalParty="Green Party" DivisorCalculation="2*20 + 1" Divisor="41" Quotient="10105.048780487804878048780488">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="332" PoliticalParty="Moderate Party" DivisorCalculation="2*66 + 1" Divisor="133" Quotient="10101.112781954887218045112782">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="333" PoliticalParty="Social Democrats" DivisorCalculation="2*94 + 1" Divisor="189" Quotient="10031.687830687830687830687831">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="334" PoliticalParty="Left Party" DivisorCalculation="2*28 + 1" Divisor="57" Quotient="9978.614035087719298245614035">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="335" PoliticalParty="Moderate Party" DivisorCalculation="2*67 + 1" Divisor="135" Quotient="9951.466666666666666666666667">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="336" PoliticalParty="Sweden Democrats" DivisorCalculation="2*59 + 1" Divisor="119" Quotient="9943.260504201680672268907563">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="337" PoliticalParty="Social Democrats" DivisorCalculation="2*95 + 1" Divisor="191" Quotient="9926.643979057591623036649215">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="338" PoliticalParty="Social Democrats" DivisorCalculation="2*96 + 1" Divisor="193" Quotient="9823.777202072538860103626943">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="339" PoliticalParty="Moderate Party" DivisorCalculation="2*68 + 1" Divisor="137" Quotient="9806.189781021897810218978102">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="340" PoliticalParty="Sweden Democrats" DivisorCalculation="2*60 + 1" Divisor="121" Quotient="9778.909090909090909090909091">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="341" PoliticalParty="Liberals" DivisorCalculation="2*18 + 1" Divisor="37" Quotient="9761.810810810810810810810811">
+        <Recipient Name="Liberals" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="342" PoliticalParty="Social Democrats" DivisorCalculation="2*97 + 1" Divisor="195" Quotient="9723.020512820512820512820513">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="343" PoliticalParty="Centre Party" DivisorCalculation="2*24 + 1" Divisor="49" Quotient="9709.795918367346938775510204">
+        <Recipient Name="Centre Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="344" PoliticalParty="Christian Democrats" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="9709.06976744186046511627907">
+        <Recipient Name="Christian Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="345" PoliticalParty="Moderate Party" DivisorCalculation="2*69 + 1" Divisor="139" Quotient="9665.093525179856115107913669">
+        <Recipient Name="Moderate Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="346" PoliticalParty="Left Party" DivisorCalculation="2*29 + 1" Divisor="59" Quotient="9640.355932203389830508474576">
+        <Recipient Name="Left Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="347" PoliticalParty="Green Party" DivisorCalculation="2*21 + 1" Divisor="43" Quotient="9635.046511627906976744186047">
+        <Recipient Name="Green Party" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="348" PoliticalParty="Social Democrats" DivisorCalculation="2*98 + 1" Divisor="197" Quotient="9624.309644670050761421319797">
+        <Recipient Name="Social Democrats" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="349" PoliticalParty="Sweden Democrats" DivisorCalculation="2*61 + 1" Divisor="123" Quotient="9619.902439024390243902439024">
+        <Recipient Name="Sweden Democrats" />
+      </OrderedSeat>
+    </OrderedSeats>
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Social Democrats" Seats="99" />
+      <Recipient Name="Moderate Party" Seats="70" />
+      <Recipient Name="Sweden Democrats" Seats="62" />
+      <Recipient Name="Left Party" Seats="30" />
+      <Recipient Name="Centre Party" Seats="25" />
+      <Recipient Name="Christian Democrats" Seats="22" />
+      <Recipient Name="Green Party" Seats="22" />
+      <Recipient Name="Liberals" Seats="19" />
+    </OrderedSeatsByRecipient>
+    <NextOrderedSeat SeatNumber="350" PoliticalParty="Moderate Party" DivisorCalculation="2*70 + 1" Divisor="141" Quotient="9528">
+      <Recipient Name="Moderate Party" />
+    </NextOrderedSeat>
+    <VotesNeededForNextOrderedSeat>12959</VotesNeededForNextOrderedSeat>
+  </Output>
+</Election>

@@ -131,6 +131,8 @@ namespace Existence.Tests
             Assert.AreEqual(673158m / 19, r.NextOrderedSeat.Quotient);
             CollectionAssert.AreEqual(new[] { "UnitedTorahJudaism", "Shas" }, r.NextOrderedSeat.Recipients.Select(p => p.PoliticalParty).ToList());
             CollectionAssert.AreEqual(new[] { "8/1", "12/1" }, r.NextOrderedSeat.Recipients.Select(p => p.Divisor.ToString()).ToList());
+            Assert.AreEqual("1*(7+11) + 1", r.NextOrderedSeat.DivisorCalculation);
+            CollectionAssert.AreEqual(new[] { "1*7 + 1", "1*11 + 1" }, r.NextOrderedSeat.Recipients.Select(p => p.DivisorCalculation).ToList());
             Assert.IsTrue(r.NextOrderedSeat.Recipients[0].Quotient > r.NextOrderedSeat.Recipients[1].Quotient);
             Assert.AreEqual(120, r.Seats.Values.Sum());
         }
@@ -348,6 +350,7 @@ namespace Existence.Tests
             Assert.AreEqual(8, r.NextOrderedSeat.SeatNumber);
             CollectionAssert.AreEqual(new[] { "1/1", "1/1", "1/1", "3/1", "5/1", "1/1", "3/1" }, r.OrderedSeats.Select(s => s.Divisor.ToString()).ToList());
             Assert.AreEqual("3/1", r.NextOrderedSeat.Divisor.ToString());
+            CollectionAssert.AreEqual(new[] { "2*0 + 1", "2*0 + 1", "2*0 + 1", "2*1 + 1", "2*2 + 1", "2*0 + 1", "2*1 + 1" }, r.OrderedSeats.Select(s => s.DivisorCalculation).ToList());
             Assert.AreEqual(23000m / 3, r.NextOrderedSeat.Quotient);
 
             DHondtSeatDistribution dHondt = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(smallExampleVotes, new List<(string, string)>(), smallExampleNumberOfSeats, noElectoralThreshold);
@@ -365,6 +368,7 @@ namespace Existence.Tests
             CollectionAssert.AreEqual(new[] { "A", "A", "B", "C", "A", "B", "C" }, r.OrderedSeats.Select(s => s.PoliticalParty).ToList());
             CollectionAssert.AreEquivalent(new Dictionary<string, int>() { { "A", 3 }, { "B", 2 }, { "C", 2 }, { "D", 0 } }, r.Seats);
             CollectionAssert.AreEqual(new[] { "7/5", "3/1", "7/5", "7/5", "5/1", "3/1", "3/1" }, r.OrderedSeats.Select(s => s.Divisor.ToString()).ToList());
+            CollectionAssert.AreEqual(new[] { "7/5", "2*1 + 1", "7/5", "7/5", "2*2 + 1", "2*1 + 1", "2*1 + 1" }, r.OrderedSeats.Select(s => s.DivisorCalculation).ToList());
             Assert.AreEqual(53000m * 5 / 7, r.OrderedSeats[0].Quotient);
         }
 

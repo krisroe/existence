@@ -218,11 +218,13 @@ namespace CalculateParliamentaryApportionment
             return new XElement(sElement,
                 new XAttribute(nameof(OrderedSeat.SeatNumber), s.SeatNumber),
                 new XAttribute(nameof(OrderedSeat.PoliticalParty), s.PoliticalParty),
+                new XAttribute(nameof(OrderedSeat.DivisorCalculation), s.DivisorCalculation),
                 new XAttribute(nameof(OrderedSeat.Divisor), FormatDivisor(s.Divisor)),
                 new XAttribute(nameof(OrderedSeat.Quotient), s.Quotient),
                 s.Recipients.Select(p => new XElement(RecipientElement,
                     new XAttribute(NameAttribute, p.PoliticalParty),
                     //a party on its own has the same votes and seats as the seat, so its numbers would only repeat the seat's
+                    s.Recipients.Count > 1 ? new XAttribute(nameof(OrderedSeatRecipient.DivisorCalculation), p.DivisorCalculation) : null,
                     s.Recipients.Count > 1 ? new XAttribute(nameof(OrderedSeatRecipient.Divisor), FormatDivisor(p.Divisor)) : null,
                     s.Recipients.Count > 1 ? new XAttribute(nameof(OrderedSeatRecipient.Quotient), p.Quotient) : null)));
         }

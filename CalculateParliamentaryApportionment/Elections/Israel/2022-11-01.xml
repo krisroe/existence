@@ -63,31 +63,31 @@
       <SurplusVoteAgreement Party1="Pirate Party" Party2="There's a Direction" />
     </AnnulledSurplusVoteAgreements>
     <OrderedSeats>
-      <OrderedSeat SeatNumber="114" PoliticalParty="Shas" Divisor="18" Quotient="37397.666666666666666666666667">
-        <Recipient Name="Shas" Divisor="11" Quotient="35724" />
-        <Recipient Name="United Torah Judaism" Divisor="8" Quotient="35024.25" />
+      <OrderedSeat SeatNumber="114" PoliticalParty="Shas" DivisorCalculation="1*(10+7) + 1" Divisor="18" Quotient="37397.666666666666666666666667">
+        <Recipient Name="Shas" DivisorCalculation="1*10 + 1" Divisor="11" Quotient="35724" />
+        <Recipient Name="United Torah Judaism" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="35024.25" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="115" PoliticalParty="National Unity" Divisor="35" Quotient="36569.057142857142857142857143">
-        <Recipient Name="National Unity" Divisor="12" Quotient="36040.166666666666666666666667" />
-        <Recipient Name="Yesh Atid" Divisor="24" Quotient="35309.791666666666666666666667" />
+      <OrderedSeat SeatNumber="115" PoliticalParty="National Unity" DivisorCalculation="1*(11+23) + 1" Divisor="35" Quotient="36569.057142857142857142857143">
+        <Recipient Name="National Unity" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="36040.166666666666666666666667" />
+        <Recipient Name="Yesh Atid" DivisorCalculation="1*23 + 1" Divisor="24" Quotient="35309.791666666666666666666667" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="116" PoliticalParty="Likud" Divisor="45" Quotient="36262.355555555555555555555556">
-        <Recipient Name="Likud" Divisor="31" Quotient="35978.580645161290322580645161" />
-        <Recipient Name="Religious Zionism-Otzma Yehudit" Divisor="15" Quotient="34431.333333333333333333333333" />
+      <OrderedSeat SeatNumber="116" PoliticalParty="Likud" DivisorCalculation="1*(30+14) + 1" Divisor="45" Quotient="36262.355555555555555555555556">
+        <Recipient Name="Likud" DivisorCalculation="1*30 + 1" Divisor="31" Quotient="35978.580645161290322580645161" />
+        <Recipient Name="Religious Zionism-Otzma Yehudit" DivisorCalculation="1*14 + 1" Divisor="15" Quotient="34431.333333333333333333333333" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="117" PoliticalParty="Hadash–Ta'al" Divisor="5" Quotient="35747">
+      <OrderedSeat SeatNumber="117" PoliticalParty="Hadash–Ta'al" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="35747">
         <Recipient Name="Hadash–Ta'al" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="118" PoliticalParty="Yisrael Beiteinu" Divisor="6" Quotient="35614.5">
+      <OrderedSeat SeatNumber="118" PoliticalParty="Yisrael Beiteinu" DivisorCalculation="1*5 + 1" Divisor="6" Quotient="35614.5">
         <Recipient Name="Yisrael Beiteinu" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="119" PoliticalParty="Yesh Atid" Divisor="36" Quotient="35553.25">
-        <Recipient Name="Yesh Atid" Divisor="24" Quotient="35309.791666666666666666666667" />
-        <Recipient Name="National Unity" Divisor="13" Quotient="33267.846153846153846153846154" />
+      <OrderedSeat SeatNumber="119" PoliticalParty="Yesh Atid" DivisorCalculation="1*(23+12) + 1" Divisor="36" Quotient="35553.25">
+        <Recipient Name="Yesh Atid" DivisorCalculation="1*23 + 1" Divisor="24" Quotient="35309.791666666666666666666667" />
+        <Recipient Name="National Unity" DivisorCalculation="1*12 + 1" Divisor="13" Quotient="33267.846153846153846153846154" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="120" PoliticalParty="Likud" Divisor="46" Quotient="35474.043478260869565217391304">
-        <Recipient Name="Likud" Divisor="32" Quotient="34854.25" />
-        <Recipient Name="Religious Zionism-Otzma Yehudit" Divisor="15" Quotient="34431.333333333333333333333333" />
+      <OrderedSeat SeatNumber="120" PoliticalParty="Likud" DivisorCalculation="1*(31+14) + 1" Divisor="46" Quotient="35474.043478260869565217391304">
+        <Recipient Name="Likud" DivisorCalculation="1*31 + 1" Divisor="32" Quotient="34854.25" />
+        <Recipient Name="Religious Zionism-Otzma Yehudit" DivisorCalculation="1*14 + 1" Divisor="15" Quotient="34431.333333333333333333333333" />
       </OrderedSeat>
     </OrderedSeats>
     <OrderedSeatsByRecipient>
@@ -99,9 +99,9 @@
       <Recipient Name="Hadash–Ta'al" Seats="1" />
       <Recipient Name="Israeli Labor Party" Seats="0" />
     </OrderedSeatsByRecipient>
-    <NextOrderedSeat SeatNumber="121" PoliticalParty="United Torah Judaism" Divisor="19" Quotient="35429.368421052631578947368421">
-      <Recipient Name="United Torah Judaism" Divisor="8" Quotient="35024.25" />
-      <Recipient Name="Shas" Divisor="12" Quotient="32747" />
+    <NextOrderedSeat SeatNumber="121" PoliticalParty="United Torah Judaism" DivisorCalculation="1*(7+11) + 1" Divisor="19" Quotient="35429.368421052631578947368421">
+      <Recipient Name="United Torah Judaism" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="35024.25" />
+      <Recipient Name="Shas" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="32747" />
     </NextOrderedSeat>
     <VotesNeededForNextOrderedSeat>849</VotesNeededForNextOrderedSeat>
   </Output>
