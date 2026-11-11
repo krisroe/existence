@@ -44,6 +44,13 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
         }
 
         /// <summary>
+        /// treats this fraction as a percentage and gets the same value as a plain fraction, so 13/4 (3.25%) becomes
+        /// 13/400. Multiplies the denominator by 100 rather than reducing, and throws an
+        /// <see cref="OverflowException"/> if that doesn't fit in a long
+        /// </summary>
+        public SimpleFraction FromPercentage() => new SimpleFraction(Numerator, checked(Denominator * 100));
+
+        /// <summary>
         /// gets the same value in lowest terms with a positive denominator, so 15/5 becomes 3/1 and 2/-4 becomes -1/2
         /// </summary>
         public SimpleFraction Reduce()

@@ -476,9 +476,8 @@ namespace Existence.Earth.Human.Politics
 
             table.Sort((x, y) =>
             {
-                //x's quotient is higher when x votes / divisor(x seats) > y votes / divisor(y seats), which is transformed
-                //to use multiplication instead of division
-                int iCompare = checked(y.Votes * divisor(x.Seats)).CompareTo(checked(x.Votes * divisor(y.Seats)));
+                //highest quotient first, so y's quotient is compared to x's
+                int iCompare = new SimpleFraction(y.Votes, divisor(y.Seats)).CompareTo(new SimpleFraction(x.Votes, divisor(x.Seats)));
                 if (iCompare != 0) return iCompare;
                 if (x.Candidate != y.Candidate) return x.Candidate.CompareTo(y.Candidate);
                 return x.Seats.CompareTo(y.Seats);
@@ -553,7 +552,7 @@ namespace Existence.Earth.Human.Politics
                 {
                     //compare the quotients the candidates' last seats were won with, where ties go against the later
                     //candidate, the one with fewer votes
-                    if (iLowest < 0 || checked(candidateVotes[i] * divisor.Scaled(seats[iLowest] - 1) <= candidateVotes[iLowest] * divisor.Scaled(seats[i] - 1)))
+                    if (iLowest < 0 || new SimpleFraction(candidateVotes[i], divisor.Scaled(seats[i] - 1)) <= new SimpleFraction(candidateVotes[iLowest], divisor.Scaled(seats[iLowest] - 1)))
                         iLowest = i;
                 }
                 seats[iLowest]--;
@@ -715,12 +714,13 @@ namespace Existence.Earth.Human.Politics
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
 
             HashSet<string> exemptSet = [.. exempt];
+            SimpleFraction threshold = ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
             List<string> qualifying = new List<string>();
             foreach (KeyValuePair<string, long> next in NumberOfVotes)
             {
                 if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
-                //the party's percentage of the vote, as a fraction so the comparison is exact
-                if (exemptSet.Contains(next.Key) || new SimpleFraction(checked(next.Value * 100), r.TotalVotes) >= ElectoralThreshold)
+                //the party's share of the vote, as a fraction so the comparison is exact
+                if (exemptSet.Contains(next.Key) || new SimpleFraction(next.Value, r.TotalVotes) >= threshold)
                     qualifying.Add(next.Key);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
@@ -792,36 +792,23 @@ namespace Existence.Earth.Human.Politics
         private static T PickHighestQuotient<T>(IEnumerable<T> candidates, Func<T, long> votes, Func<T, int> seats, Func<int, long> divisor)
         {
             T best = default!;
-            long lBestVotes = -1;
-            int iBestSeats = 0;
+            SimpleFraction? bestQuotient = null;
             foreach (T next in candidates)
             {
-                long lVotes = votes(next); //number of votes for the candidate party(s)
-                int iSeats = seats(next); //current number of seats for the candidate party(s)
-                bool isBest;
-                if (lBestVotes < 0) //first candidate
-                {
-                    isBest = true;
-                }
-                else
-                {
-                    //To determine the candidate party(s) that get the next seat, compare the quotients (pick higher value)
-                    //  candidate votes                        best votes
-                    //  ---------------------------  against   ----------------------
-                    //  divisor(candidate seats)               divisor(best seats)
-                    //Under D'Hondt the divisor is seats + 1, so this maximizes the votes per seat, intending to keep seats from being
-                    //too cheap in votes. That has the side effect of favoring party(s) with more seats, since an extra seat lowers a
-                    //larger group's votes per seat by a smaller share. Sainte-Laguë's divisor of 2 x seats + 1 is roughly neutral
-                    //between larger and smaller party(s).
-                    //The calculation below is a simple transformation of the main equation to use multiplication instead of division,
-                    //checked so a divisor scaled too far throws instead of silently overflowing.
-                    isBest = checked(lVotes * divisor(iBestSeats) > lBestVotes * divisor(iSeats));
-                }
-                if (isBest)
+                //To determine the candidate party(s) that get the next seat, compare the quotients (pick higher value)
+                //  candidate votes                        best votes
+                //  ---------------------------  against   ----------------------
+                //  divisor(candidate seats)               divisor(best seats)
+                //Under D'Hondt the divisor is seats + 1, so this maximizes the votes per seat, intending to keep seats from being
+                //too cheap in votes. That has the side effect of favoring party(s) with more seats, since an extra seat lowers a
+                //larger group's votes per seat by a smaller share. Sainte-Laguë's divisor of 2 x seats + 1 is roughly neutral
+                //between larger and smaller party(s).
+                //Any quotient is greater than null, so the first candidate is always best so far.
+                SimpleFraction quotient = new SimpleFraction(votes(next), divisor(seats(next)));
+                if (quotient > bestQuotient)
                 {
                     best = next;
-                    lBestVotes = lVotes;
-                    iBestSeats = iSeats;
+                    bestQuotient = quotient;
                 }
             }
             return best;

@@ -22,6 +22,17 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates converting a percentage to a plain fraction
+        /// </summary>
+        [TestMethod]
+        public void ValidateSimpleFractionFromPercentage()
+        {
+            Assert.AreEqual("13/400", new SimpleFraction(13, 4).FromPercentage().ToString());
+            Assert.AreEqual("5/100", new SimpleFraction(5, 1).FromPercentage().ToString());
+            Assert.ThrowsException<OverflowException>(() => new SimpleFraction(1, long.MaxValue).FromPercentage());
+        }
+
+        /// <summary>
         /// validates reducing fractions to lowest terms with a positive denominator
         /// </summary>
         [TestMethod]
