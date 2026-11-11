@@ -30,14 +30,17 @@ namespace CalculateParliamentaryApportionment
     /// for Sainte-Laguë. They run in the order listed, and with more than one they have to give the same results, except
     /// that DivisorRounding doesn't give out seats in order, so OrderedSeats is only compared between the others. The
     /// results written are from the first algorithm listed that gives out seats in order, or the first one if none does.
-    /// The optional IncludePerformance element (false if left out) adds a Performance element to the Output element with
-    /// how long each algorithm took in milliseconds. Each algorithm is run once untimed first, so the timing doesn't
-    /// include the one-time cost of compiling the code:
+    /// The optional IncludePerformance element adds a Performance element to the Output element with how long each
+    /// algorithm took in milliseconds. It's left out by default, and can be turned off without removing it by giving it
+    /// a value of false. Its UntimedRuns attribute (0 or more) is how many times all the algorithms run first without
+    /// being timed, so the timing doesn't include the one-time cost of compiling the code, and its TimedRuns attribute
+    /// (1 or more) is how many times each is then timed, taking turns. The time written is each algorithm's median,
+    /// which for an even number of timed runs is the average of the two middle times:
     /// <code>
     /// &lt;Election&gt;
     ///   &lt;Input&gt;
     ///     &lt;Method Algorithms="OrderedSeats,QuotientTable,DivisorRounding"&gt;Sainte-Laguë&lt;/Method&gt;
-    ///     &lt;IncludePerformance&gt;true&lt;/IncludePerformance&gt;
+    ///     &lt;IncludePerformance UntimedRuns="1" TimedRuns="5" /&gt;
     ///     &lt;FirstDivisor Numerator="7" Denominator="5" /&gt;
     ///     &lt;NumberOfSeats&gt;120&lt;/NumberOfSeats&gt;
     ///     &lt;ElectoralThreshold&gt;3.25&lt;/ElectoralThreshold&gt;
@@ -80,11 +83,18 @@ namespace CalculateParliamentaryApportionment
         private const string IncludePerformanceElement = "IncludePerformance";
         private const string PerformanceElement = "Performance";
         private const string AlgorithmElement = "Algorithm";
-        private const string MillisecondsAttribute = "Milliseconds";
+        private const string MillisecondsAttribute = "MedianMilliseconds";
         private const string BaseAlgorithm = "Base";
         private const string OrderedSeatsAlgorithm = "OrderedSeats";
         private const string QuotientTableAlgorithm = "QuotientTable";
         private const string DivisorRoundingAlgorithm = "DivisorRounding";
+
+        /// <summary>
+        /// how many times to run the algorithms when including performance
+        /// </summary>
+        /// <param name="UntimedRuns">how many times to run all the algorithms before timing them, 0 or more</param>
+        /// <param name="TimedRuns">how many times to time each algorithm, 1 or more</param>
+        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns);
 
         /// <summary>
         /// algorithms that don't give out seats in order, so they leave <see cref="SeatDistributionBase.OrderedSeats"/>
@@ -97,7 +107,7 @@ namespace CalculateParliamentaryApportionment
         /// </summary>
         /// <param name="Name">the algorithm</param>
         /// <param name="Result">the seat distribution it worked out</param>
-        /// <param name="Elapsed">how long it took, or null if performance isn't included</param>
+        /// <param name="Elapsed">the median of its timed runs, or null if performance isn't included</param>
         private sealed record AlgorithmResult(string Name, SeatDistributionBase Result, TimeSpan? Elapsed);
 
         /// <summary>
@@ -123,7 +133,7 @@ namespace CalculateParliamentaryApportionment
                     Dictionary<string, int>? electorateSeats = ReadElectorateSeats(input);
                     XElement method = GetRequiredElement(input, MethodElement);
                     string sMethod = (string)method;
-                    bool includePerformance = (bool?)input.Element(IncludePerformanceElement) ?? false;
+                    PerformanceRuns? performance = ReadPerformanceRuns(input);
                     Dictionary<string, Func<SeatDistributionBase>> available;
                     if (sMethod == DHondtMethod)
                     {
@@ -151,11 +161,11 @@ namespace CalculateParliamentaryApportionment
                         throw new FormatException($"{MethodElement} must be {DHondtMethod} or {SainteLagueMethod}, not {sMethod}");
                     }
 
-                    List<AlgorithmResult> results = RunAlgorithms(ReadAlgorithms(method, sMethod, available), available, includePerformance);
+                    List<AlgorithmResult> results = RunAlgorithms(ReadAlgorithms(method, sMethod, available), available, performance);
                     SeatDistributionBase r = GetVerifiedResult(input, results);
                     WritePartyResults(input, r);
                     doc.Root!.Element(OutputElement)?.Remove();
-                    input.AddAfterSelf(BuildOutput(r, includePerformance ? results : null));
+                    input.AddAfterSelf(BuildOutput(r, performance, results));
                     doc.Save(sPath);
                     rc = 0;
                 }
@@ -191,35 +201,65 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// runs each algorithm in order. When timing them, each is run once untimed first so the time doesn't include
-        /// compiling the code the first time it runs
+        /// reads the optional IncludePerformance element. It's included when the element is there and either empty or
+        /// true, in which case it needs UntimedRuns (0 or more) and TimedRuns (1 or more) attributes
+        /// </summary>
+        /// <returns>how many times to run the algorithms, or null if performance isn't included</returns>
+        private static PerformanceRuns? ReadPerformanceRuns(XElement input)
+        {
+            PerformanceRuns? ret = null;
+            XElement? element = input.Element(IncludePerformanceElement);
+            if (element != null && (string.IsNullOrWhiteSpace(element.Value) || (bool)element))
+            {
+                int iUntimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.UntimedRuns));
+                int iTimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.TimedRuns));
+                if (iUntimedRuns < 0) throw new FormatException($"{nameof(PerformanceRuns.UntimedRuns)} must be 0 or more, not {iUntimedRuns}");
+                if (iTimedRuns < 1) throw new FormatException($"{nameof(PerformanceRuns.TimedRuns)} must be 1 or more, not {iTimedRuns}");
+                ret = new PerformanceRuns(iUntimedRuns, iTimedRuns);
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// runs the algorithms in rounds, each round running all of them in order. Without performance there is just
+        /// one round. With performance there are <see cref="PerformanceRuns.UntimedRuns"/> untimed rounds first, so the
+        /// timed runs don't include compiling code the first time it runs, including code the algorithms share, and
+        /// then <see cref="PerformanceRuns.TimedRuns"/> timed rounds. Taking turns this way spreads a slow moment across
+        /// the algorithms. Each algorithm's result comes from its first run, timed or not, and its time is the median
+        /// of its timed runs
         /// </summary>
         /// <param name="algorithms">the algorithms to run, in order</param>
         /// <param name="available">how to run each algorithm</param>
-        /// <param name="includePerformance">whether to time the algorithms</param>
-        private static List<AlgorithmResult> RunAlgorithms(List<string> algorithms, Dictionary<string, Func<SeatDistributionBase>> available, bool includePerformance)
+        /// <param name="performance">how many times to run the algorithms, or null if performance isn't included</param>
+        private static List<AlgorithmResult> RunAlgorithms(List<string> algorithms, Dictionary<string, Func<SeatDistributionBase>> available, PerformanceRuns? performance)
         {
-            List<AlgorithmResult> ret = new List<AlgorithmResult>();
-            foreach (string algorithm in algorithms)
+            int iUntimedRuns = performance?.UntimedRuns ?? 1;
+            int iTimedRuns = performance?.TimedRuns ?? 0;
+            SeatDistributionBase?[] results = new SeatDistributionBase?[algorithms.Count];
+            List<TimeSpan>[] elapsed = algorithms.Select(a => new List<TimeSpan>()).ToArray();
+            for (int iRun = 0; iRun < iUntimedRuns + iTimedRuns; iRun++)
             {
-                Func<SeatDistributionBase> calculate = available[algorithm];
-                SeatDistributionBase result;
-                TimeSpan? elapsed = null;
-                if (includePerformance)
+                for (int i = 0; i < algorithms.Count; i++)
                 {
-                    calculate();
                     Stopwatch stopwatch = Stopwatch.StartNew();
-                    result = calculate();
+                    SeatDistributionBase result = available[algorithms[i]]();
                     stopwatch.Stop();
-                    elapsed = stopwatch.Elapsed;
+                    results[i] ??= result;
+                    if (iRun >= iUntimedRuns) elapsed[i].Add(stopwatch.Elapsed);
                 }
-                else
-                {
-                    result = calculate();
-                }
-                ret.Add(new AlgorithmResult(algorithm, result, elapsed));
             }
-            return ret;
+            return algorithms.Select((a, i) => new AlgorithmResult(a, results[i]!, performance == null ? null : GetMedian(elapsed[i]))).ToList();
+        }
+
+        /// <summary>
+        /// gets the median time: the middle one for an odd number of times, or the average of the two middle ones for
+        /// an even number
+        /// </summary>
+        private static TimeSpan GetMedian(List<TimeSpan> times)
+        {
+            List<TimeSpan> sorted = times.Order().ToList();
+            int iMiddle = sorted.Count / 2;
+            return sorted.Count % 2 == 1 ? sorted[iMiddle] : (sorted[iMiddle - 1] + sorted[iMiddle]) / 2;
         }
 
         /// <summary>
@@ -256,8 +296,8 @@ namespace CalculateParliamentaryApportionment
                 if (!XNode.DeepEquals(nextExpected, nextActual)) return $"results for {(string?)nextExpected.Attribute(NameAttribute)}";
             }
 
-            XElement expectedOutput = BuildOutput(expected, null);
-            XElement actualOutput = BuildOutput(actual, null);
+            XElement expectedOutput = BuildOutput(expected, null, []);
+            XElement actualOutput = BuildOutput(actual, null, []);
             if (!compareOrderedSeats)
             {
                 expectedOutput.Element(nameof(SeatDistributionBase.OrderedSeats))?.Remove();
@@ -341,8 +381,9 @@ namespace CalculateParliamentaryApportionment
         /// with overhang seats, which makes both NextOrderedSeat and VotesNeededForNextOrderedSeat irrelevant. A
         /// Performance element with each algorithm's time comes after that when timing them
         /// </summary>
-        /// <param name="performance">the algorithms with how long each took, or null if performance isn't included</param>
-        private static XElement BuildOutput(SeatDistributionBase r, List<AlgorithmResult>? performance)
+        /// <param name="performance">how many times the algorithms ran, or null if performance isn't included</param>
+        /// <param name="results">the algorithms with how long each took</param>
+        private static XElement BuildOutput(SeatDistributionBase r, PerformanceRuns? performance, List<AlgorithmResult> results)
         {
             return new XElement(OutputElement,
                 new XElement(nameof(SeatDistributionBase.TotalVotes), r.TotalVotes),
@@ -359,7 +400,9 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(SeatDistributionBase.VotesNeededForNextOrderedSeat), r.VotesNeededForNextOrderedSeat),
                 r is SainteLagueSeatDistribution { NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat: true } ? new XElement(nameof(SainteLagueSeatDistribution.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat)) : null,
                 performance == null ? null : new XElement(PerformanceElement,
-                    performance.Select(a => new XElement(AlgorithmElement, new XAttribute(NameAttribute, a.Name), new XAttribute(MillisecondsAttribute, a.Elapsed!.Value.TotalMilliseconds)))));
+                    new XAttribute(nameof(PerformanceRuns.UntimedRuns), performance.UntimedRuns),
+                    new XAttribute(nameof(PerformanceRuns.TimedRuns), performance.TimedRuns),
+                    results.Select(a => new XElement(AlgorithmElement, new XAttribute(NameAttribute, a.Name), new XAttribute(MillisecondsAttribute, a.Elapsed!.Value.TotalMilliseconds)))));
         }
 
         private static XElement BuildOrderedSeat(string sElement, OrderedSeat s)
