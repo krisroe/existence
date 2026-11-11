@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Election>
   <Input>
-    <Method>Sainte-Laguë</Method>
+    <Method Algorithms="OrderedSeats,QuotientTable,DivisorRounding">Sainte-Laguë</Method>
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>5</ElectoralThreshold>
     <Parties>
