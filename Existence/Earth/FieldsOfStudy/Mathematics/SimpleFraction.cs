@@ -78,7 +78,7 @@ namespace Existence.Earth.FieldsOfStudy.Mathematics
             }
             else //a/b vs c/d is a x d vs c x b, flipped if exactly one denominator is negative
             {
-                int iResult = checked(Numerator * other.Denominator).CompareTo(checked(other.Numerator * Denominator));
+                int iResult = checked((Numerator * other.Denominator).CompareTo(other.Numerator * Denominator));
                 ret = (Denominator < 0) != (other.Denominator < 0) ? -iResult : iResult;
             }
             return ret;

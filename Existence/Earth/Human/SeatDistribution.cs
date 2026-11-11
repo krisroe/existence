@@ -507,22 +507,22 @@ namespace Existence.Earth.Human.Politics
 
         /// <summary>
         /// divides every candidate's votes by a common number of votes per seat and rounds to get its seats, adjusting
-        /// the votes per seat until the seats add up to <paramref name="iSeatsToGive"/>. A candidate gets one more seat
+        /// the votes per seat until the seats add up to <paramref name="seatsToGive"/>. A candidate gets one more seat
         /// when its votes divided by the votes per seat reach the divisor for that seat divided by the slope, which for
         /// Sainte-Laguë's 1, 3, 5, ... and slope of 2 is 0.5, 1.5, 2.5, ..., the same as rounding to the nearest whole
         /// number. The first try is the votes per seat if the seats were shared out exactly, all the votes divided by
-        /// <paramref name="iSeatsToGive"/>. Someone doing this by hand then tries other values until the seats add up.
+        /// <paramref name="seatsToGive"/>. Someone doing this by hand then tries other values until the seats add up.
         /// Here the votes per seat are instead moved just far enough for one seat to change at a time: down to the
         /// highest quotient that didn't get a seat when there are too few, and up past the lowest quotient that got one
         /// when there are too many. Compares exactly with integer math. Ties go to the earlier candidate, so callers
         /// order candidates by votes
         /// </summary>
         /// <returns>seats for each candidate, in the order of <paramref name="candidates"/></returns>
-        private static int[] RoundWithCommonDivisor<T>(IReadOnlyList<T> candidates, Func<T, long> votes, LinearDivisor divisor, int iSeatsToGive)
+        private static int[] RoundWithCommonDivisor<T>(IReadOnlyList<T> candidates, Func<T, long> votes, LinearDivisor divisor, int seatsToGive)
         {
             long[] candidateVotes = candidates.Select(votes).ToArray();
             int[] seats = new int[candidates.Count];
-            long lTotalVotes = candidateVotes.Sum();
+            long totalVotes = candidateVotes.Sum();
 
             //first try, with total votes / seats to give as the votes per seat. A candidate has another seat coming when
             //  votes                    divisor(seats)
@@ -530,22 +530,27 @@ namespace Existence.Earth.Human.Politics
             //  votes per seat           slope
             //which is transformed to use multiplication instead of division. The divisor is scaled to a whole number, so
             //the scale goes on the other side
-            if (iSeatsToGive > 0 && lTotalVotes > 0)
+            if (seatsToGive > 0 && totalVotes > 0)
             {
-                for (int i = 0; i < seats.Length; i++)
+                checked
                 {
-                    long lShare = checked(candidateVotes[i] * iSeatsToGive * divisor.Slope.Numerator * divisor.Scale);
-                    while (lShare >= checked(lTotalVotes * divisor.Slope.Denominator * divisor.Scaled(seats[i]))) seats[i]++;
+                    long shareMultiplier = seatsToGive * divisor.Slope.Numerator * divisor.Scale;
+                    long totalVotesMultiplier = totalVotes * divisor.Slope.Denominator;
+                    for (int i = 0; i < seats.Length; i++)
+                    {
+                        long lShare = candidateVotes[i] * shareMultiplier;
+                        while (lShare >= totalVotesMultiplier * divisor.Scaled(seats[i])) seats[i]++;
+                    }
                 }
             }
 
             //too few seats, so lower the votes per seat until the next highest quotient gets a seat
             IEnumerable<int> indexes = Enumerable.Range(0, seats.Length);
-            while (seats.Sum() < iSeatsToGive)
+            while (seats.Sum() < seatsToGive)
                 seats[PickHighestQuotient(indexes, i => candidateVotes[i], i => seats[i], divisor.Scaled)]++;
 
             //too many seats, so raise the votes per seat until the lowest quotient that got a seat loses it
-            while (seats.Sum() > iSeatsToGive)
+            while (seats.Sum() > seatsToGive)
             {
                 int iLowest = -1;
                 foreach (int i in indexes.Where(i => seats[i] > 0))
@@ -632,27 +637,27 @@ namespace Existence.Earth.Human.Politics
             /// <summary>
             /// gets the actual divisor in lowest terms
             /// </summary>
-            /// <param name="iSeats">current number of seats</param>
-            public SimpleFraction GetActual(int iSeats) => new SimpleFraction(Scaled(iSeats), Scale).Reduce();
+            /// <param name="seats">current number of seats</param>
+            public SimpleFraction GetActual(int seats) => new SimpleFraction(Scaled(seats), Scale).Reduce();
 
             /// <summary>
             /// gets the votes divided by the actual divisor, for information
             /// </summary>
-            /// <param name="iSeats">current number of seats</param>
-            public decimal GetQuotient(long lVotes, int iSeats) => (decimal)lVotes * Scale / Scaled(iSeats);
+            /// <param name="seats">current number of seats</param>
+            public decimal GetQuotient(long votes, int seats) => (decimal)votes * Scale / Scaled(seats);
 
             /// <summary>
             /// describes how the divisor is worked out, such as "2*3 + 1", or "1*(10+7) + 1" for a surplus vote agreement
             /// whose parties have 10 and 7 seats. A modified first divisor (one that isn't slope x 0 + 1 = 1) is shown on
             /// its own, such as "6/5"
             /// </summary>
-            /// <param name="seats">current number of seats for each party the divisor applies to</param>
-            public string Describe(IReadOnlyList<int> seats)
+            /// <param name="seatList">current number of seats for each party the divisor applies to</param>
+            public string Describe(IReadOnlyList<int> seatList)
             {
-                if (seats.Sum() == 0 && FirstDivisor.CompareTo(new SimpleFraction(1, 1)) != 0) return Format(FirstDivisor);
-                string sSlope = Slope.Denominator == 1 ? Slope.Numerator.ToString() : $"({Slope})";
-                string sSeats = seats.Count == 1 ? seats[0].ToString() : $"({string.Join("+", seats)})";
-                return $"{sSlope}*{sSeats} + 1";
+                if (seatList.Sum() == 0 && FirstDivisor.CompareTo(new SimpleFraction(1, 1)) != 0) return Format(FirstDivisor);
+                string slope = Slope.Denominator == 1 ? Slope.Numerator.ToString() : $"({Slope})";
+                string seats = seatList.Count == 1 ? seatList[0].ToString() : $"({string.Join("+", seatList)})";
+                return $"{slope}*{seats} + 1";
             }
 
             private static string Format(SimpleFraction Value) => Value.Denominator == 1 ? Value.Numerator.ToString() : Value.ToString();
@@ -776,13 +781,13 @@ namespace Existence.Earth.Human.Politics
         /// votes than the other candidate, since ties go to the side with more votes, which is when its divisor is the
         /// larger one. This compares exactly with integer math
         /// </summary>
-        /// <param name="divisor">whole-number divisor for a party's next seat, given its current number of seats</param>
-        private static long GetVotesToWinSeatFrom(int iSeats, long lOtherVotes, int iOtherSeats, Func<int, long> divisor)
+        /// <param name="divisorFxn">whole-number divisor for a party's next seat, given its current number of seats</param>
+        private static long GetVotesToWinSeatFrom(int seats, long otherVotes, int otherSeats, Func<int, long> divisorFxn)
         {
-            long lDivisor = divisor(iSeats);
-            long lOtherDivisor = divisor(iOtherSeats - 1);
-            long lVotesForTie = Math.DivRem(checked(lOtherVotes * lDivisor), lOtherDivisor, out long lRemainder);
-            return lRemainder == 0 && lDivisor > lOtherDivisor ? lVotesForTie : lVotesForTie + 1;
+            long divisor = divisorFxn(seats);
+            long otherDivisor = divisorFxn(otherSeats - 1);
+            long votesForTie = Math.DivRem(checked(otherVotes * divisor), otherDivisor, out long remainder);
+            return remainder == 0 && divisor > otherDivisor ? votesForTie : votesForTie + 1;
         }
 
         /// <summary>
