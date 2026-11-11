@@ -412,6 +412,144 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that going seat by seat, the quotient table and rounding with a common divisor all give the same
+        /// result, including the order of the seats for the quotient table
+        /// </summary>
+        private static void AssertSainteLagueWaysMatch(IDictionary<string, long> votes, List<(string, string)> agreements, int iSeats, SimpleFraction threshold, SimpleFraction? firstDivisor, IDictionary<string, int>? electorateSeats, string sMessage)
+        {
+            SainteLagueSeatDistribution seatBySeat = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iSeats, threshold, firstDivisor, electorateSeats);
+            SainteLagueSeatDistribution quotientTable = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(votes, agreements, iSeats, threshold, firstDivisor, electorateSeats);
+            SainteLagueSeatDistribution divisorRounding = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(votes, agreements, iSeats, threshold, firstDivisor, electorateSeats);
+            Assert.AreEqual(iSeats, seatBySeat.Seats.Values.Sum(), sMessage);
+
+            foreach (SainteLagueSeatDistribution next in new[] { quotientTable, divisorRounding })
+            {
+                CollectionAssert.AreEquivalent(seatBySeat.Seats, next.Seats, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.OrderedSeatsByRecipient, next.OrderedSeatsByRecipient, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.PoliticalPartiesBelowElectoralThreshold, next.PoliticalPartiesBelowElectoralThreshold, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.AnnulledSurplusVoteAgreements, next.AnnulledSurplusVoteAgreements, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.ElectorateSeats, next.ElectorateSeats, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.ListSeats, next.ListSeats, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.OverhangSeats, next.OverhangSeats, sMessage);
+                CollectionAssert.AreEquivalent(seatBySeat.TotalSeats, next.TotalSeats, sMessage);
+                Assert.AreEqual(seatBySeat.NumberOfMembers, next.NumberOfMembers, sMessage);
+                Assert.AreEqual(Describe(seatBySeat.NextOrderedSeat), Describe(next.NextOrderedSeat), sMessage);
+                Assert.AreEqual(seatBySeat.VotesNeededForNextOrderedSeat, next.VotesNeededForNextOrderedSeat, sMessage);
+                Assert.AreEqual(seatBySeat.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat, next.NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat, sMessage);
+            }
+            CollectionAssert.AreEqual(seatBySeat.OrderedSeats.Select(Describe).ToList(), quotientTable.OrderedSeats.Select(Describe).ToList(), sMessage);
+            Assert.AreEqual(0, divisorRounding.OrderedSeats.Count, sMessage);
+
+            static string Describe(OrderedSeat seat) => $"{seat.SeatNumber} {seat.PoliticalParty} {seat.Divisor} {seat.DivisorCalculation} {seat.Quotient} "
+                + string.Join(", ", seat.Recipients.Select(p => $"{p.PoliticalParty} {p.Divisor} {p.DivisorCalculation} {p.Quotient}"));
+        }
+
+        /// <summary>
+        /// validates that the three ways of working out Sainte-Laguë, plain and modified, match on the 2022 Knesset
+        /// election's votes for every number of seats from 1 to 150, which includes surplus vote agreements whose
+        /// parties get no seats yet
+        /// </summary>
+        [TestMethod]
+        [DataRow(true, 1L, 1L)]
+        [DataRow(false, 1L, 1L)]
+        [DataRow(true, 7L, 5L)]
+        [DataRow(false, 7L, 5L)]
+        [DataRow(true, 6L, 5L)]
+        [DataRow(false, 6L, 5L)]
+        [DataRow(true, 3L, 1L)]
+        public void ValidateSainteLagueWaysMatchOnKnessetV25Votes(bool useSurplusVoteAgreements, long lNumerator, long lDenominator)
+        {
+            List<(string, string)> agreements = useSurplusVoteAgreements ? knessetV25SurplusVoteAgreements : new List<(string, string)>();
+            SimpleFraction firstDivisor = new SimpleFraction(lNumerator, lDenominator);
+            for (int iSeats = 1; iSeats <= 150; iSeats++)
+            {
+                AssertSainteLagueWaysMatch(knessetV25Votes, agreements, iSeats, knessetV25ElectoralThreshold, firstDivisor, null, $"{iSeats} seats");
+                AssertSainteLagueWaysMatch(knessetV25Votes, agreements, iSeats, noElectoralThreshold, firstDivisor, null, $"{iSeats} seats without a threshold");
+            }
+        }
+
+        /// <summary>
+        /// validates that the three ways of working out Sainte-Laguë match on the 2026 New Zealand election's
+        /// preliminary result, with and without its electorates
+        /// </summary>
+        [TestMethod]
+        public void ValidateSainteLagueWaysMatchOnNewZealandV55Votes()
+        {
+            for (int iSeats = 1; iSeats <= 150; iSeats++)
+            {
+                AssertSainteLagueWaysMatch(newZealandV55Votes, new List<(string, string)>(), iSeats, newZealandElectoralThreshold, null, newZealandV55ElectorateSeats, $"{iSeats} seats with electorates");
+                AssertSainteLagueWaysMatch(newZealandV55Votes, new List<(string, string)>(), iSeats, newZealandElectoralThreshold, null, null, $"{iSeats} seats");
+            }
+        }
+
+        /// <summary>
+        /// validates that the three ways of working out Sainte-Laguë match on the small example, plain and modified
+        /// </summary>
+        [TestMethod]
+        [DataRow(1L, 1L)]
+        [DataRow(7L, 5L)]
+        [DataRow(6L, 5L)]
+        public void ValidateSainteLagueWaysMatchOnSmallExample(long lNumerator, long lDenominator)
+        {
+            for (int iSeats = 1; iSeats <= 30; iSeats++)
+                AssertSainteLagueWaysMatch(smallExampleVotes, new List<(string, string)>(), iSeats, noElectoralThreshold, new SimpleFraction(lNumerator, lDenominator), null, $"{iSeats} seats");
+        }
+
+        /// <summary>
+        /// validates that the three ways of working out Sainte-Laguë break ties the same way, with parties that have
+        /// the same votes, quotients that are the same (3000/3 and 1000/1), parties in a surplus vote agreement with the
+        /// same votes, and a party with no votes
+        /// </summary>
+        [TestMethod]
+        [DataRow(1L, 1L)]
+        [DataRow(7L, 5L)]
+        [DataRow(3L, 1L)]
+        public void ValidateSainteLagueWaysMatchOnTies(long lNumerator, long lDenominator)
+        {
+            Dictionary<string, long> votes = new Dictionary<string, long>()
+            {
+                { "A", 3000 }, { "B", 1000 }, { "C", 1000 }, { "D", 5000 }, { "E", 600 }, { "F", 600 }, { "G", 200 }, { "H", 0 },
+            };
+            List<(string, string)> agreements = new List<(string, string)>() { ("B", "C"), ("E", "F"), ("G", "H") };
+            for (int iSeats = 1; iSeats <= 40; iSeats++)
+            {
+                AssertSainteLagueWaysMatch(votes, agreements, iSeats, noElectoralThreshold, new SimpleFraction(lNumerator, lDenominator), null, $"{iSeats} seats");
+                AssertSainteLagueWaysMatch(votes, new List<(string, string)>(), iSeats, noElectoralThreshold, new SimpleFraction(lNumerator, lDenominator), null, $"{iSeats} seats without agreements");
+            }
+        }
+
+        /// <summary>
+        /// validates that the three ways of working out Sainte-Laguë match on made-up elections, with small vote counts
+        /// so that ties are common. The seed is fixed so the elections are the same every run
+        /// </summary>
+        [TestMethod]
+        public void ValidateSainteLagueWaysMatchOnMadeUpElections()
+        {
+            System.Random random = new System.Random(1910);
+            SimpleFraction[] firstDivisors = { new SimpleFraction(1, 1), new SimpleFraction(7, 5), new SimpleFraction(6, 5) };
+            for (int iElection = 0; iElection < 500; iElection++)
+            {
+                int iParties = random.Next(1, 9);
+                long lMostVotes = iElection % 2 == 0 ? 20 : 100000;
+                Dictionary<string, long> votes = Enumerable.Range(1, iParties).ToDictionary(i => $"Party{i}", i => random.NextInt64(0, lMostVotes + 1));
+                votes["Party1"]++; //so there is at least one vote
+
+                List<(string, string)> agreements = new List<(string, string)>();
+                for (int i = 1; i + 1 <= iParties; i += 2)
+                {
+                    if (random.Next(2) == 0) agreements.Add(($"Party{i}", $"Party{i + 1}"));
+                }
+
+                Dictionary<string, int>? electorateSeats = random.Next(3) == 0 ? votes.Keys.ToDictionary(p => p, p => random.Next(0, 4)) : null;
+                SimpleFraction threshold = random.Next(2) == 0 ? noElectoralThreshold : newZealandElectoralThreshold;
+                //a party below the threshold with no electorate can leave no party qualifying, so the largest always does
+                if (votes.Values.Max() * 100 < votes.Values.Sum() * 5) threshold = noElectoralThreshold;
+
+                AssertSainteLagueWaysMatch(votes, agreements, random.Next(1, 60), threshold, firstDivisors[random.Next(firstDivisors.Length)], electorateSeats, $"election {iElection}");
+            }
+        }
+
+        /// <summary>
         /// validates by recalculating that under Sainte-Laguë, plain and modified, the votes needed for the next seat are
         /// enough for its recipients to gain a seat, and that one vote fewer isn't
         /// </summary>

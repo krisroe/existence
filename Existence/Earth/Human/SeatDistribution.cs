@@ -308,6 +308,69 @@ namespace Existence.Earth.Human.Politics
         /// supported. Null if there are no electorates</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
+            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutOrderedSeats);
+        }
+
+        /// <summary>
+        /// same as <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/> with the same result, but
+        /// worked out with a quotient table, the way New Zealand's Electoral Commission does it. Instead of going seat by
+        /// seat and recalculating each party's quotient as it wins seats, every party's votes are divided by all the
+        /// divisors up front (1, 3, 5, ...), all the quotients go in one table, and the highest ones, as many as there are
+        /// seats, each win a seat. A surplus vote agreement goes in the table with its combined votes, and its seats are
+        /// then shared out with a second table that has just its own parties. Ties go to the side with more votes
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party, as in <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/></param>
+        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won. Null if there are
+        /// no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        {
+            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingQuotientTable);
+        }
+
+        /// <summary>
+        /// same as <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/> with the same seats, but
+        /// worked out by rounding with a common divisor, the way Germany does it (Sainte-Laguë/Schepers) and the United
+        /// States did it for the House of Representatives (<see cref="UnitedStatesPoliticians.WebsterDaniel"/>'s method).
+        /// Every party's votes are divided by the same number of votes per seat and the result is rounded to the nearest
+        /// whole number, which is the party's seats: 3.4 gives 3 seats and 3.5 gives 4. Under modified Sainte-Laguë only
+        /// the first seat is different, taking half the first divisor instead of 0.5, such as 0.7 for a first divisor of
+        /// 7/5. The first try at the votes per seat is the qualifying votes divided by the number of seats. If the seats
+        /// then add up to too few, the votes per seat are lowered, and if too many, raised, until they add up. A surplus
+        /// vote agreement is rounded with its combined votes, and its seats are then shared out by rounding again with
+        /// just its own parties. Ties go to the side with more votes. Since no seat is given out before another this way,
+        /// <see cref="SeatDistributionBase.OrderedSeats"/> is left empty, though
+        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> still has each recipient's seats
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party, as in <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/></param>
+        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won. Null if there are
+        /// no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        {
+            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingDivisorRounding);
+        }
+
+        /// <summary>
+        /// a way of giving out the seats among the recipients, which fills in <see cref="SeatDistributionBase.Seats"/>,
+        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>, <see cref="SeatDistributionBase.NextOrderedSeat"/>
+        /// and <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>
+        /// </summary>
+        private delegate void SeatGiver(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats);
+
+        /// <summary>
+        /// distributes seats using the Sainte-Laguë method, with everything the ways of working it out have in common:
+        /// the electoral threshold, the surplus vote agreements and the electorates
+        /// </summary>
+        /// <param name="giveOutSeats">how the seats are given out among the recipients</param>
+        private static SainteLagueSeatDistribution CalculateSainteLague(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor, IDictionary<string, int>? ElectorateSeats, SeatGiver giveOutSeats)
+        {
             LinearDivisor divisor = GetLinearDivisor(SainteLagueSlope, FirstDivisor ?? new SimpleFraction(1, 1));
             foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
             {
@@ -320,7 +383,7 @@ namespace Existence.Earth.Human.Politics
             List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, wonElectorates);
             foreach (string sParty in qualifying) r.Seats[sParty] = 0;
             List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            GiveOutOrderedSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            giveOutSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
 
             if (ElectorateSeats != null)
             {
@@ -358,6 +421,155 @@ namespace Existence.Earth.Human.Politics
                 r.OrderedSeatsByRecipient[string.Join(" + ", seat.RecipientGroup)]++;
                 r.Seats[seat.PoliticalParty]++;
             }
+            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+        }
+
+        /// <summary>
+        /// gives out all the seats using a quotient table: each recipient's votes divided by each divisor it could need,
+        /// with the highest quotients winning the seats. Reading the table from the highest quotient down gives the
+        /// seats in the same order as giving them out one at a time, so this fills in
+        /// <see cref="SeatDistributionBase.OrderedSeats"/> too. <see cref="SeatDistributionBase.Seats"/> needs a zero
+        /// entry for each qualifying party first
+        /// </summary>
+        /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        private static void GiveOutSeatsUsingQuotientTable(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        {
+            //one table for the parties and surplus vote agreements, with a row for each seat won
+            List<string[]> winners = GetHighestQuotients(recipients, a => a.Sum(p => NumberOfVotes[p]), divisor.Scaled, NumberOfSeats);
+
+            //a table for each surplus vote agreement with just its own parties, which decides the party for each of the
+            //agreement's seats. For a party on its own it is simply that party every time
+            Dictionary<string[], Queue<string>> partiesByRecipient = new Dictionary<string[], Queue<string>>();
+            foreach (string[] next in recipients)
+            {
+                List<string> byVotes = next.OrderByDescending(p => NumberOfVotes[p]).ToList();
+                partiesByRecipient[next] = new Queue<string>(GetHighestQuotients(byVotes, p => NumberOfVotes[p], divisor.Scaled, winners.Count(w => w == next)));
+            }
+
+            for (int i = 0; i < winners.Count; i++)
+            {
+                OrderedSeat seat = BuildOrderedSeat(r, NumberOfVotes, winners[i], partiesByRecipient[winners[i]].Dequeue(), divisor, i + 1);
+                r.OrderedSeats.Add(seat);
+                r.OrderedSeatsByRecipient[string.Join(" + ", seat.RecipientGroup)]++;
+                r.Seats[seat.PoliticalParty]++;
+            }
+            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+        }
+
+        /// <summary>
+        /// builds a quotient table with each candidate's votes divided by the divisors for its first
+        /// <paramref name="iCount"/> seats, which is as many as it could win, and gets the candidates with the
+        /// <paramref name="iCount"/> highest quotients from the highest down. A candidate is there once for each of its
+        /// quotients that made it. Compares exactly with integer math. Ties go to the earlier candidate, so callers order
+        /// candidates by votes
+        /// </summary>
+        /// <param name="divisor">whole-number divisor for a party's next seat, given its current number of seats</param>
+        private static List<T> GetHighestQuotients<T>(IReadOnlyList<T> candidates, Func<T, long> votes, Func<int, long> divisor, int iCount)
+        {
+            List<(int Candidate, int Seats, long Votes)> table = new List<(int Candidate, int Seats, long Votes)>();
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                long lVotes = votes(candidates[i]);
+                for (int iSeats = 0; iSeats < iCount; iSeats++) table.Add((i, iSeats, lVotes));
+            }
+
+            table.Sort((x, y) =>
+            {
+                //x's quotient is higher when x votes / divisor(x seats) > y votes / divisor(y seats), which is transformed
+                //to use multiplication instead of division
+                int iCompare = checked(y.Votes * divisor(x.Seats)).CompareTo(checked(x.Votes * divisor(y.Seats)));
+                if (iCompare != 0) return iCompare;
+                if (x.Candidate != y.Candidate) return x.Candidate.CompareTo(y.Candidate);
+                return x.Seats.CompareTo(y.Seats);
+            });
+            return table.Take(iCount).Select(t => candidates[t.Candidate]).ToList();
+        }
+
+        /// <summary>
+        /// gives out all the seats by rounding with a common divisor, first among the parties and surplus vote
+        /// agreements, and then within each agreement among its parties. There is no order to the seats this way, so
+        /// <see cref="SeatDistributionBase.OrderedSeats"/> stays empty
+        /// </summary>
+        /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        private static void GiveOutSeatsUsingDivisorRounding(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        {
+            int[] recipientSeats = RoundWithCommonDivisor(recipients, a => a.Sum(p => NumberOfVotes[p]), divisor, NumberOfSeats);
+            for (int i = 0; i < recipients.Count; i++)
+            {
+                r.OrderedSeatsByRecipient[string.Join(" + ", recipients[i])] = recipientSeats[i];
+                List<string> byVotes = recipients[i].OrderByDescending(p => NumberOfVotes[p]).ToList();
+                int[] partySeats = RoundWithCommonDivisor(byVotes, p => NumberOfVotes[p], divisor, recipientSeats[i]);
+                for (int j = 0; j < byVotes.Count; j++) r.Seats[byVotes[j]] = partySeats[j];
+            }
+            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+        }
+
+        /// <summary>
+        /// divides every candidate's votes by a common number of votes per seat and rounds to get its seats, adjusting
+        /// the votes per seat until the seats add up to <paramref name="iSeatsToGive"/>. A candidate gets one more seat
+        /// when its votes divided by the votes per seat reach the divisor for that seat divided by the slope, which for
+        /// Sainte-Laguë's 1, 3, 5, ... and slope of 2 is 0.5, 1.5, 2.5, ..., the same as rounding to the nearest whole
+        /// number. The first try is the votes per seat if the seats were shared out exactly, all the votes divided by
+        /// <paramref name="iSeatsToGive"/>. Someone doing this by hand then tries other values until the seats add up.
+        /// Here the votes per seat are instead moved just far enough for one seat to change at a time: down to the
+        /// highest quotient that didn't get a seat when there are too few, and up past the lowest quotient that got one
+        /// when there are too many. Compares exactly with integer math. Ties go to the earlier candidate, so callers
+        /// order candidates by votes
+        /// </summary>
+        /// <returns>seats for each candidate, in the order of <paramref name="candidates"/></returns>
+        private static int[] RoundWithCommonDivisor<T>(IReadOnlyList<T> candidates, Func<T, long> votes, LinearDivisor divisor, int iSeatsToGive)
+        {
+            long[] candidateVotes = candidates.Select(votes).ToArray();
+            int[] seats = new int[candidates.Count];
+            long lTotalVotes = candidateVotes.Sum();
+
+            //first try, with total votes / seats to give as the votes per seat. A candidate has another seat coming when
+            //  votes                    divisor(seats)
+            //  ---------------  >=  ----------------
+            //  votes per seat           slope
+            //which is transformed to use multiplication instead of division. The divisor is scaled to a whole number, so
+            //the scale goes on the other side
+            if (iSeatsToGive > 0 && lTotalVotes > 0)
+            {
+                for (int i = 0; i < seats.Length; i++)
+                {
+                    long lShare = checked(candidateVotes[i] * iSeatsToGive * divisor.Slope.Numerator * divisor.Scale);
+                    while (lShare >= checked(lTotalVotes * divisor.Slope.Denominator * divisor.Scaled(seats[i]))) seats[i]++;
+                }
+            }
+
+            //too few seats, so lower the votes per seat until the next highest quotient gets a seat
+            IEnumerable<int> indexes = Enumerable.Range(0, seats.Length);
+            while (seats.Sum() < iSeatsToGive)
+                seats[PickHighestQuotient(indexes, i => candidateVotes[i], i => seats[i], divisor.Scaled)]++;
+
+            //too many seats, so raise the votes per seat until the lowest quotient that got a seat loses it
+            while (seats.Sum() > iSeatsToGive)
+            {
+                int iLowest = -1;
+                foreach (int i in indexes.Where(i => seats[i] > 0))
+                {
+                    //compare the quotients the candidates' last seats were won with, where ties go against the later
+                    //candidate, the one with fewer votes
+                    if (iLowest < 0 || checked(candidateVotes[i] * divisor.Scaled(seats[iLowest] - 1) <= candidateVotes[iLowest] * divisor.Scaled(seats[i] - 1)))
+                        iLowest = i;
+                }
+                seats[iLowest]--;
+            }
+            return seats;
+        }
+
+        /// <summary>
+        /// fills in <see cref="SeatDistributionBase.NextOrderedSeat"/> and
+        /// <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/> once all the seats are given out, however that
+        /// was done
+        /// </summary>
+        /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        private static void FillNextOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        {
             r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats + 1);
 
             long lNextVotes = r.NextOrderedSeat.RecipientGroup.Sum(p => NumberOfVotes[p]);
@@ -463,6 +675,20 @@ namespace Existence.Earth.Human.Politics
             List<string> byVotes = winner.OrderByDescending(p => NumberOfVotes[p]).ToList();
             string sParty = PickHighestQuotient(byVotes, p => NumberOfVotes[p], p => r.Seats[p], divisor.Scaled);
 
+            return BuildOrderedSeat(r, NumberOfVotes, winner, sParty, divisor, iSeat);
+        }
+
+        /// <summary>
+        /// builds the <see cref="OrderedSeat"/> for a seat going to a party, with the divisors and quotients from the
+        /// seats held before it
+        /// </summary>
+        /// <param name="winner">the party on its own, or the parties of the surplus vote agreement that won the seat</param>
+        /// <param name="sParty">the party in <paramref name="winner"/> that gets the seat</param>
+        /// <param name="divisor">divisor for the next seat, given the current number of seats</param>
+        /// <param name="iSeat">overall seat number of the seat</param>
+        private static OrderedSeat BuildOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, string[] winner, string sParty, LinearDivisor divisor, int iSeat)
+        {
+            List<string> byVotes = winner.OrderByDescending(p => NumberOfVotes[p]).ToList();
             List<string> winnerFirst = byVotes.OrderBy(p => p == sParty ? 0 : 1).ToList(); //stable, so the others stay by votes descending
             List<OrderedSeatRecipient> recipientDetails = winnerFirst
                 .Select(p => new OrderedSeatRecipient(p, divisor.GetActual(r.Seats[p]), divisor.Describe(new[] { r.Seats[p] }), divisor.GetQuotient(NumberOfVotes[p], r.Seats[p])))
