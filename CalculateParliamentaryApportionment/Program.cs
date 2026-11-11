@@ -200,23 +200,24 @@ namespace CalculateParliamentaryApportionment
         private static List<AlgorithmResult> RunAlgorithms(List<string> algorithms, Dictionary<string, Func<SeatDistributionBase>> available, bool includePerformance)
         {
             List<AlgorithmResult> ret = new List<AlgorithmResult>();
-            foreach (string sAlgorithm in algorithms)
+            foreach (string algorithm in algorithms)
             {
-                Func<SeatDistributionBase> calculate = available[sAlgorithm];
+                Func<SeatDistributionBase> calculate = available[algorithm];
+                SeatDistributionBase result;
                 TimeSpan? elapsed = null;
                 if (includePerformance)
                 {
                     calculate();
                     Stopwatch stopwatch = Stopwatch.StartNew();
-                    SeatDistributionBase timed = calculate();
+                    result = calculate();
                     stopwatch.Stop();
                     elapsed = stopwatch.Elapsed;
-                    ret.Add(new AlgorithmResult(sAlgorithm, timed, elapsed));
                 }
                 else
                 {
-                    ret.Add(new AlgorithmResult(sAlgorithm, calculate(), elapsed));
+                    result = calculate();
                 }
+                ret.Add(new AlgorithmResult(algorithm, result, elapsed));
             }
             return ret;
         }
