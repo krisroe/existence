@@ -31,8 +31,7 @@ namespace CalculateParliamentaryApportionment
     /// that DivisorRounding doesn't give out seats in order, so OrderedSeats is only compared between the others. The
     /// results written are from the first algorithm listed that gives out seats in order, or the first one if none does.
     /// The optional IncludePerformance element adds a Performance element to the Output element with how long each
-    /// algorithm took in milliseconds. It's left out by default, and can be turned off without removing it by giving it
-    /// a value of false. Its UntimedRuns attribute (0 or more) is how many times all the algorithms run first without
+    /// algorithm took in milliseconds whenever the element is there; its inner text is ignored. Its UntimedRuns attribute (0 or more) is how many times all the algorithms run first without
     /// being timed, so the timing doesn't include the one-time cost of compiling the code, and its TimedRuns attribute
     /// (1 or more) is how many times each is then timed, taking turns. The time written is each algorithm's median,
     /// which for an even number of timed runs is the average of the two middle times:
@@ -201,15 +200,15 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// reads the optional IncludePerformance element. It's included when the element is there and either empty or
-        /// true, in which case it needs UntimedRuns (0 or more) and TimedRuns (1 or more) attributes
+        /// reads the optional IncludePerformance element. Performance is included whenever the element is there, whatever
+        /// its inner text, and then it needs UntimedRuns (0 or more) and TimedRuns (1 or more) attributes
         /// </summary>
         /// <returns>how many times to run the algorithms, or null if performance isn't included</returns>
         private static PerformanceRuns? ReadPerformanceRuns(XElement input)
         {
             PerformanceRuns? ret = null;
             XElement? element = input.Element(IncludePerformanceElement);
-            if (element != null && (string.IsNullOrWhiteSpace(element.Value) || (bool)element))
+            if (element != null)
             {
                 int iUntimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.UntimedRuns));
                 int iTimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.TimedRuns));
