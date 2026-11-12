@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -31,15 +32,19 @@ namespace CalculateParliamentaryApportionment
     /// that DivisorRounding doesn't give out seats in order, so OrderedSeats is only compared between the others. The
     /// results written are from the first algorithm listed that gives out seats in order, or the first one if none does.
     /// The optional IncludePerformance element adds a Performance element to the Output element with how long each
-    /// algorithm took in milliseconds whenever the element is there; its inner text is ignored. Its UntimedRuns attribute (0 or more) is how many times all the algorithms run first without
-    /// being timed, so the timing doesn't include the one-time cost of compiling the code, and its TimedRuns attribute
-    /// (1 or more) is how many times each is then timed, taking turns. The time written is each algorithm's median,
-    /// which for an even number of timed runs is the average of the two middle times:
+    /// algorithm took in milliseconds whenever the element is there; its inner text is ignored. Its UntimedRuns attribute
+    /// (0 or more) is how many times all the algorithms run first without being timed, so the timing doesn't include the
+    /// one-time cost of compiling the code. Its StartupQuietPeriodTicks attribute (0 or more) is how long to wait before
+    /// those runs, and its PostUntimedRunsTicks attribute (0 or more) is how long to wait after them, both in ticks of
+    /// 100 nanoseconds (10,000 to a millisecond); see <see cref="PerformanceRuns"/> for why neither matches what .NET
+    /// waits for. Its TimedRuns attribute (1 or more) is how many times each is then timed, taking turns. The time
+    /// written is each algorithm's median, which for an even number of timed runs is the average of the two middle
+    /// times:
     /// <code>
     /// &lt;Election&gt;
     ///   &lt;Input&gt;
     ///     &lt;Method Algorithms="OrderedSeats,QuotientTable,DivisorRounding"&gt;Sainte-Laguë&lt;/Method&gt;
-    ///     &lt;IncludePerformance UntimedRuns="1" TimedRuns="5" /&gt;
+    ///     &lt;IncludePerformance StartupQuietPeriodTicks="0" UntimedRuns="300" PostUntimedRunsTicks="0" TimedRuns="21" /&gt;
     ///     &lt;FirstDivisor Numerator="7" Denominator="5" /&gt;
     ///     &lt;NumberOfSeats&gt;120&lt;/NumberOfSeats&gt;
     ///     &lt;ElectoralThreshold&gt;3.25&lt;/ElectoralThreshold&gt;
@@ -89,11 +94,29 @@ namespace CalculateParliamentaryApportionment
         private const string DivisorRoundingAlgorithm = "DivisorRounding";
 
         /// <summary>
-        /// how many times to run the algorithms when including performance
+        /// how many times to run the algorithms when including performance, and how long to wait along the way. The
+        /// waits are in ticks of 100 nanoseconds, so 10,000 ticks is a millisecond. Neither wait lines up with what .NET
+        /// actually waits for before switching to optimized code (tiered compilation, with the default settings):
+        /// - StartupQuietPeriodTicks: .NET only starts counting calls once about 100 milliseconds have passed without
+        ///   any method being compiled for the first time, and that clock restarts every time one is. Waiting before
+        ///   the first run happens before most of the algorithms' code has been compiled at all, so the first untimed
+        ///   run compiles it and restarts .NET's clock after this wait is already over. Calls made before .NET starts
+        ///   counting don't count, so what really gets past its quiet period is enough untimed runs.
+        /// - PostUntimedRunsTicks: once counting starts, a method is queued to be compiled with optimizations after
+        ///   about 30 calls, which happens on a background thread. With Dynamic PGO, on by default, it goes through
+        ///   that twice, first to an instrumented version that records how it's used and then to the final one. This
+        ///   wait only gives compiles that are already queued time to finish. It can't get a method there that hasn't
+        ///   been called enough, such as the top-level method of each algorithm, which is called just once a run. Those
+        ///   only get there with more untimed runs. A long wait can also make the timed runs slower, since the CPU
+        ///   may slow down and its caches go cold while idle, which is why the waits keep the CPU busy instead
+        /// The thresholds can be changed with the DOTNET_TC_CallCountingDelayMs and DOTNET_TC_CallCountThreshold
+        /// environment variables
         /// </summary>
         /// <param name="UntimedRuns">how many times to run all the algorithms before timing them, 0 or more</param>
         /// <param name="TimedRuns">how many times to time each algorithm, 1 or more</param>
-        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns);
+        /// <param name="StartupQuietPeriodTicks">ticks to wait before the first run, 0 or more</param>
+        /// <param name="PostUntimedRunsTicks">ticks to wait between the untimed and timed runs, 0 or more</param>
+        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns, long StartupQuietPeriodTicks, long PostUntimedRunsTicks);
 
         /// <summary>
         /// algorithms that don't give out seats in order, so they leave <see cref="SeatDistributionBase.OrderedSeats"/>
@@ -201,7 +224,8 @@ namespace CalculateParliamentaryApportionment
 
         /// <summary>
         /// reads the optional IncludePerformance element. Performance is included whenever the element is there, whatever
-        /// its inner text, and then it needs UntimedRuns (0 or more) and TimedRuns (1 or more) attributes
+        /// its inner text, and then it needs UntimedRuns (0 or more), TimedRuns (1 or more), StartupQuietPeriodTicks (0
+        /// or more) and PostUntimedRunsTicks (0 or more) attributes
         /// </summary>
         /// <returns>how many times to run the algorithms, or null if performance isn't included</returns>
         private static PerformanceRuns? ReadPerformanceRuns(XElement input)
@@ -210,20 +234,42 @@ namespace CalculateParliamentaryApportionment
             XElement? element = input.Element(IncludePerformanceElement);
             if (element != null)
             {
-                int iUntimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.UntimedRuns));
-                int iTimedRuns = (int)GetRequiredAttribute(element, nameof(PerformanceRuns.TimedRuns));
-                if (iUntimedRuns < 0) throw new FormatException($"{nameof(PerformanceRuns.UntimedRuns)} must be 0 or more, not {iUntimedRuns}");
-                if (iTimedRuns < 1) throw new FormatException($"{nameof(PerformanceRuns.TimedRuns)} must be 1 or more, not {iTimedRuns}");
-                ret = new PerformanceRuns(iUntimedRuns, iTimedRuns);
+                ret = new PerformanceRuns(
+                    checked((int)ReadAtLeast(element, nameof(PerformanceRuns.UntimedRuns), 0)),
+                    checked((int)ReadAtLeast(element, nameof(PerformanceRuns.TimedRuns), 1)),
+                    ReadAtLeast(element, nameof(PerformanceRuns.StartupQuietPeriodTicks), 0),
+                    ReadAtLeast(element, nameof(PerformanceRuns.PostUntimedRunsTicks), 0));
             }
             return ret;
         }
 
         /// <summary>
+        /// reads a required whole-number attribute that has to be at least <paramref name="lMinimum"/>
+        /// </summary>
+        private static long ReadAtLeast(XElement element, string sName, long lMinimum)
+        {
+            long ret = (long)GetRequiredAttribute(element, sName);
+            if (ret < lMinimum) throw new FormatException($"{sName} must be {lMinimum} or more, not {ret}");
+            return ret;
+        }
+
+        /// <summary>
+        /// waits by keeping the CPU busy rather than sleeping, which is accurate to well under a millisecond, where a
+        /// sleep can run over by as much as 15 milliseconds on Windows, and keeps the CPU from slowing down
+        /// </summary>
+        /// <param name="lTicks">how long to wait, in ticks of 100 nanoseconds</param>
+        private static void Wait(long lTicks)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            while (stopwatch.Elapsed.Ticks < lTicks) Thread.SpinWait(10);
+        }
+
+        /// <summary>
         /// runs the algorithms in rounds, each round running all of them in order. Without performance there is just
-        /// one round. With performance there are <see cref="PerformanceRuns.UntimedRuns"/> untimed rounds first, so the
-        /// timed runs don't include compiling code the first time it runs, including code the algorithms share, and
-        /// then <see cref="PerformanceRuns.TimedRuns"/> timed rounds. Taking turns this way spreads a slow moment across
+        /// one round. With performance there is a wait of <see cref="PerformanceRuns.StartupQuietPeriodTicks"/> first,
+        /// then <see cref="PerformanceRuns.UntimedRuns"/> untimed rounds, so the timed runs don't include compiling code
+        /// the first time it runs, including code the algorithms share, then a wait of
+        /// <see cref="PerformanceRuns.PostUntimedRunsTicks"/>, and then <see cref="PerformanceRuns.TimedRuns"/> timed rounds. Taking turns this way spreads a slow moment across
         /// the algorithms. Each algorithm's result comes from its first run, timed or not, and its time is the median
         /// of its timed runs
         /// </summary>
@@ -236,8 +282,10 @@ namespace CalculateParliamentaryApportionment
             int iTimedRuns = performance?.TimedRuns ?? 0;
             SeatDistributionBase?[] results = new SeatDistributionBase?[algorithms.Count];
             List<TimeSpan>[] elapsed = algorithms.Select(a => new List<TimeSpan>()).ToArray();
+            if (performance != null) Wait(performance.StartupQuietPeriodTicks);
             for (int iRun = 0; iRun < iUntimedRuns + iTimedRuns; iRun++)
             {
+                if (performance != null && iRun == iUntimedRuns) Wait(performance.PostUntimedRunsTicks);
                 for (int i = 0; i < algorithms.Count; i++)
                 {
                     Stopwatch stopwatch = Stopwatch.StartNew();
@@ -401,6 +449,8 @@ namespace CalculateParliamentaryApportionment
                 performance == null ? null : new XElement(PerformanceElement,
                     new XAttribute(nameof(PerformanceRuns.UntimedRuns), performance.UntimedRuns),
                     new XAttribute(nameof(PerformanceRuns.TimedRuns), performance.TimedRuns),
+                    new XAttribute(nameof(PerformanceRuns.StartupQuietPeriodTicks), performance.StartupQuietPeriodTicks),
+                    new XAttribute(nameof(PerformanceRuns.PostUntimedRunsTicks), performance.PostUntimedRunsTicks),
                     results.Select(a => new XElement(AlgorithmElement, new XAttribute(NameAttribute, a.Name), new XAttribute(MillisecondsAttribute, a.Elapsed!.Value.TotalMilliseconds)))));
         }
 
