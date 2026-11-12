@@ -2,7 +2,9 @@ using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.Politics;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -37,7 +39,10 @@ namespace CalculateParliamentaryApportionment
     /// one-time cost of compiling the code. Its StartupQuietPeriodTicks attribute (0 or more) is how long to wait before
     /// those runs, and its PostUntimedRunsTicks attribute (0 or more) is how long to wait after them, both in ticks of
     /// 100 nanoseconds (10,000 to a millisecond); see <see cref="PerformanceRuns"/> for why neither matches what .NET
-    /// waits for. Its TimedRuns attribute (1 or more) is how many times each is then timed, taking turns. The time
+    /// waits for. Its TimedRuns attribute (1 or more) is how many times each is then timed, taking turns. The optional
+    /// CallCountingDelayMs (0 or more) and CallCountThreshold (1 or more) attributes change .NET's tiered compilation
+    /// settings of the same names; since .NET only reads those when it starts, the program runs a copy of itself with
+    /// them to do the work. The time
     /// written is each algorithm's median, which for an even number of timed runs is the average of the two middle
     /// times:
     /// <code>
@@ -109,14 +114,29 @@ namespace CalculateParliamentaryApportionment
         ///   been called enough, such as the top-level method of each algorithm, which is called just once a run. Those
         ///   only get there with more untimed runs. A long wait can also make the timed runs slower, since the CPU
         ///   may slow down and its caches go cold while idle, which is why the waits keep the CPU busy instead
-        /// The thresholds can be changed with the DOTNET_TC_CallCountingDelayMs and DOTNET_TC_CallCountThreshold
-        /// environment variables
+        /// The 100 milliseconds and 30 calls are what <see cref="CallCountingDelayMs"/> and <see cref="CallCountThreshold"/>
+        /// change, through the DOTNET_TC_CallCountingDelayMs and DOTNET_TC_CallCountThreshold environment variables
         /// </summary>
         /// <param name="UntimedRuns">how many times to run all the algorithms before timing them, 0 or more</param>
         /// <param name="TimedRuns">how many times to time each algorithm, 1 or more</param>
         /// <param name="StartupQuietPeriodTicks">ticks to wait before the first run, 0 or more</param>
         /// <param name="PostUntimedRunsTicks">ticks to wait between the untimed and timed runs, 0 or more</param>
-        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns, long StartupQuietPeriodTicks, long PostUntimedRunsTicks);
+        /// <param name="CallCountingDelayMs">milliseconds .NET waits without new methods being compiled before it starts
+        /// counting calls, 0 or more, or null to leave it as it is</param>
+        /// <param name="CallCountThreshold">calls before .NET queues a method to be compiled with optimizations, 1 or
+        /// more, or null to leave it as it is</param>
+        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns, long StartupQuietPeriodTicks, long PostUntimedRunsTicks, int? CallCountingDelayMs, int? CallCountThreshold);
+
+        /// <summary>
+        /// prefix of the environment variables for .NET's tiered compilation settings, which go after it by name
+        /// </summary>
+        private const string TieredCompilationEnvironmentVariablePrefix = "DOTNET_TC_";
+
+        /// <summary>
+        /// set in the environment of a copy of this program started to apply tiered compilation settings, so a copy
+        /// that still doesn't have them fails rather than starting another copy
+        /// </summary>
+        private const string RelaunchedEnvironmentVariable = "CalculateParliamentaryApportionment_Relaunched";
 
         /// <summary>
         /// algorithms that don't give out seats in order, so they leave <see cref="SeatDistributionBase.OrderedSeats"/>
@@ -183,15 +203,27 @@ namespace CalculateParliamentaryApportionment
                         throw new FormatException($"{MethodElement} must be {DHondtMethod} or {SainteLagueMethod}, not {sMethod}");
                     }
 
-                    List<AlgorithmResult> results = RunAlgorithms(ReadAlgorithms(method, sMethod, available), available, performance);
-                    SeatDistributionBase r = GetVerifiedResult(input, results);
-                    WritePartyResults(input, r);
-                    doc.Root!.Element(OutputElement)?.Remove();
-                    input.AddAfterSelf(BuildOutput(r, performance, results));
-                    doc.Save(sPath);
-                    rc = 0;
+                    List<string> algorithms = ReadAlgorithms(method, sMethod, available);
+
+                    //the input has been checked by now, so a copy started for the tiered compilation settings only fails
+                    //on something that happens while calculating
+                    int? iCopyExitCode = RelaunchIfNeeded(sPath, performance);
+                    if (iCopyExitCode == null)
+                    {
+                        List<AlgorithmResult> results = RunAlgorithms(algorithms, available, performance);
+                        SeatDistributionBase r = GetVerifiedResult(input, results);
+                        WritePartyResults(input, r);
+                        doc.Root!.Element(OutputElement)?.Remove();
+                        input.AddAfterSelf(BuildOutput(r, performance, results));
+                        doc.Save(sPath);
+                        rc = 0;
+                    }
+                    else //the copy did the work and wrote any error itself
+                    {
+                        rc = iCopyExitCode.Value;
+                    }
                 }
-                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or XmlException or ArgumentException or InvalidOperationException or FormatException or OverflowException)
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or XmlException or ArgumentException or InvalidOperationException or FormatException or OverflowException or Win32Exception)
                 {
                     Console.Error.WriteLine($"{sPath}: {ex.Message}");
                     rc = 1;
@@ -225,7 +257,8 @@ namespace CalculateParliamentaryApportionment
         /// <summary>
         /// reads the optional IncludePerformance element. Performance is included whenever the element is there, whatever
         /// its inner text, and then it needs UntimedRuns (0 or more), TimedRuns (1 or more), StartupQuietPeriodTicks (0
-        /// or more) and PostUntimedRunsTicks (0 or more) attributes
+        /// or more) and PostUntimedRunsTicks (0 or more) attributes. CallCountingDelayMs (0 or more) and
+        /// CallCountThreshold (1 or more) are optional
         /// </summary>
         /// <returns>how many times to run the algorithms, or null if performance isn't included</returns>
         private static PerformanceRuns? ReadPerformanceRuns(XElement input)
@@ -238,7 +271,9 @@ namespace CalculateParliamentaryApportionment
                     checked((int)ReadAtLeast(element, nameof(PerformanceRuns.UntimedRuns), 0)),
                     checked((int)ReadAtLeast(element, nameof(PerformanceRuns.TimedRuns), 1)),
                     ReadAtLeast(element, nameof(PerformanceRuns.StartupQuietPeriodTicks), 0),
-                    ReadAtLeast(element, nameof(PerformanceRuns.PostUntimedRunsTicks), 0));
+                    ReadAtLeast(element, nameof(PerformanceRuns.PostUntimedRunsTicks), 0),
+                    ReadOptionalAtLeast(element, nameof(PerformanceRuns.CallCountingDelayMs), 0),
+                    ReadOptionalAtLeast(element, nameof(PerformanceRuns.CallCountThreshold), 1));
             }
             return ret;
         }
@@ -250,6 +285,62 @@ namespace CalculateParliamentaryApportionment
         {
             long ret = (long)GetRequiredAttribute(element, sName);
             if (ret < lMinimum) throw new FormatException($"{sName} must be {lMinimum} or more, not {ret}");
+            return ret;
+        }
+
+        /// <summary>
+        /// reads an optional whole-number attribute that has to be at least <paramref name="iMinimum"/> if it's there
+        /// </summary>
+        /// <returns>the value, or null if the attribute isn't there</returns>
+        private static int? ReadOptionalAtLeast(XElement element, string sName, int iMinimum)
+        {
+            int? ret = element.Attribute(sName) == null ? null : checked((int)ReadAtLeast(element, sName, iMinimum));
+            return ret;
+        }
+
+        /// <summary>
+        /// .NET reads its tiered compilation settings from the environment once, when it starts, so changing them for
+        /// this process is too late. When the settings asked for aren't the ones this process started with, this starts a
+        /// copy of the program with them in its environment, on the same file, and waits for it. The copy does all the
+        /// work, so this process mustn't have changed the file. .NET reads these environment variables as hexadecimal,
+        /// so 30 is written as 1E
+        /// </summary>
+        /// <returns>the copy's exit code, or null if this process already has the settings and should go on</returns>
+        private static int? RelaunchIfNeeded(string sPath, PerformanceRuns? performance)
+        {
+            int? ret = null;
+            Dictionary<string, int> wanted = new Dictionary<string, int>();
+            if (performance?.CallCountingDelayMs is int iDelay) wanted[TieredCompilationEnvironmentVariablePrefix + nameof(PerformanceRuns.CallCountingDelayMs)] = iDelay;
+            if (performance?.CallCountThreshold is int iThreshold) wanted[TieredCompilationEnvironmentVariablePrefix + nameof(PerformanceRuns.CallCountThreshold)] = iThreshold;
+            if (wanted.Any(p => ParseHex(Environment.GetEnvironmentVariable(p.Key)) != p.Value))
+            {
+                if (Environment.GetEnvironmentVariable(RelaunchedEnvironmentVariable) != null)
+                    throw new InvalidOperationException("the copy of the program started with the tiered compilation settings didn't get them");
+
+                //when run with "dotnet program.dll" the process is dotnet, so the program has to be passed to it
+                string sProcessPath = Environment.ProcessPath ?? throw new InvalidOperationException("can't find this program to start a copy of it");
+                ProcessStartInfo start = new ProcessStartInfo(sProcessPath) { UseShellExecute = false };
+                if (Path.GetFileNameWithoutExtension(sProcessPath).Equals("dotnet", StringComparison.OrdinalIgnoreCase)) start.ArgumentList.Add(typeof(Program).Assembly.Location);
+                start.ArgumentList.Add(sPath);
+                foreach (KeyValuePair<string, int> next in wanted) start.Environment[next.Key] = next.Value.ToString("X");
+                start.Environment[RelaunchedEnvironmentVariable] = "1";
+                using Process copy = Process.Start(start) ?? throw new InvalidOperationException("couldn't start a copy of the program");
+                copy.WaitForExit();
+                ret = copy.ExitCode;
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// reads a whole number written in hexadecimal, with or without 0x in front, the way .NET reads its settings
+        /// from the environment
+        /// </summary>
+        /// <returns>the number, or null if there isn't one</returns>
+        private static int? ParseHex(string? sValue)
+        {
+            string? sDigits = sValue?.Trim();
+            if (sDigits != null && sDigits.StartsWith("0x", StringComparison.OrdinalIgnoreCase)) sDigits = sDigits[2..];
+            int? ret = int.TryParse(sDigits, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out int iValue) ? iValue : null;
             return ret;
         }
 
@@ -451,6 +542,8 @@ namespace CalculateParliamentaryApportionment
                     new XAttribute(nameof(PerformanceRuns.TimedRuns), performance.TimedRuns),
                     new XAttribute(nameof(PerformanceRuns.StartupQuietPeriodTicks), performance.StartupQuietPeriodTicks),
                     new XAttribute(nameof(PerformanceRuns.PostUntimedRunsTicks), performance.PostUntimedRunsTicks),
+                    performance.CallCountingDelayMs == null ? null : new XAttribute(nameof(PerformanceRuns.CallCountingDelayMs), performance.CallCountingDelayMs),
+                    performance.CallCountThreshold == null ? null : new XAttribute(nameof(PerformanceRuns.CallCountThreshold), performance.CallCountThreshold),
                     results.Select(a => new XElement(AlgorithmElement, new XAttribute(NameAttribute, a.Name), new XAttribute(MillisecondsAttribute, a.Elapsed!.Value.TotalMilliseconds)))));
         }
 
