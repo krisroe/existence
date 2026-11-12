@@ -41,10 +41,10 @@ namespace CalculateParliamentaryApportionment
     /// 100 nanoseconds (10,000 to a millisecond); see <see cref="PerformanceRuns"/> for why neither matches what .NET
     /// waits for. Its TimedRuns attribute (1 or more) is how many times each is then timed, taking turns. The optional
     /// CallCountingDelayMs (0 or more) and CallCountThreshold (1 or more) attributes change .NET's tiered compilation
-    /// settings of the same names; since .NET only reads those when it starts, the program runs a copy of itself with
-    /// them to do the work. The time
-    /// written is each algorithm's median, which for an even number of timed runs is the average of the two middle
-    /// times:
+    /// settings of the same names, and the optional TieredCompilation, TieredPGO and ReadyToRun attributes (true or
+    /// false) turn those .NET features on or off; since .NET only reads these when it starts, the program runs a copy of
+    /// itself with them to do the work. The time written is each algorithm's median, which for an even number of timed
+    /// runs is the average of the two middle times:
     /// <code>
     /// &lt;Election&gt;
     ///   &lt;Input&gt;
@@ -115,7 +115,12 @@ namespace CalculateParliamentaryApportionment
         ///   only get there with more untimed runs. A long wait can also make the timed runs slower, since the CPU
         ///   may slow down and its caches go cold while idle, which is why the waits keep the CPU busy instead
         /// The 100 milliseconds and 30 calls are what <see cref="CallCountingDelayMs"/> and <see cref="CallCountThreshold"/>
-        /// change, through the DOTNET_TC_CallCountingDelayMs and DOTNET_TC_CallCountThreshold environment variables
+        /// change, through the DOTNET_TC_CallCountingDelayMs and DOTNET_TC_CallCountThreshold environment variables. Two
+        /// other things often matter more: Dynamic PGO (<see cref="TieredPGO"/>) adds its instrumented stage, and the
+        /// .NET libraries themselves (List, Dictionary, LINQ, decimal and so on) come precompiled as ReadyToRun code
+        /// (<see cref="ReadyToRun"/>), which isn't fully optimized and is only replaced through tiered compilation.
+        /// Turning off <see cref="TieredCompilation"/> and <see cref="ReadyToRun"/> together compiles everything fully
+        /// optimized the first time it runs, so hardly any untimed runs are needed
         /// </summary>
         /// <param name="UntimedRuns">how many times to run all the algorithms before timing them, 0 or more</param>
         /// <param name="TimedRuns">how many times to time each algorithm, 1 or more</param>
@@ -125,12 +130,23 @@ namespace CalculateParliamentaryApportionment
         /// counting calls, 0 or more, or null to leave it as it is</param>
         /// <param name="CallCountThreshold">calls before .NET queues a method to be compiled with optimizations, 1 or
         /// more, or null to leave it as it is</param>
-        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns, long StartupQuietPeriodTicks, long PostUntimedRunsTicks, int? CallCountingDelayMs, int? CallCountThreshold);
+        /// <param name="TieredCompilation">whether .NET first compiles methods quickly and later again with
+        /// optimizations, or null to leave it as it is. When off, methods are compiled with optimizations the first time</param>
+        /// <param name="TieredPGO">whether .NET records how methods are used before compiling them with optimizations
+        /// (Dynamic PGO), or null to leave it as it is</param>
+        /// <param name="ReadyToRun">whether .NET uses the precompiled code that comes with assemblies such as its own
+        /// libraries, or null to leave it as it is. When off, that code is compiled when it runs, like the program's</param>
+        private sealed record PerformanceRuns(int UntimedRuns, int TimedRuns, long StartupQuietPeriodTicks, long PostUntimedRunsTicks, int? CallCountingDelayMs, int? CallCountThreshold, bool? TieredCompilation, bool? TieredPGO, bool? ReadyToRun);
 
         /// <summary>
-        /// prefix of the environment variables for .NET's tiered compilation settings, which go after it by name
+        /// prefix of the environment variables for .NET's settings, which go after it by name
         /// </summary>
-        private const string TieredCompilationEnvironmentVariablePrefix = "DOTNET_TC_";
+        private const string RuntimeEnvironmentVariablePrefix = "DOTNET_";
+
+        /// <summary>
+        /// prefix of the names of .NET's tiered compilation thresholds, after <see cref="RuntimeEnvironmentVariablePrefix"/>
+        /// </summary>
+        private const string TieredCompilationSettingPrefix = "TC_";
 
         /// <summary>
         /// set in the environment of a copy of this program started to apply tiered compilation settings, so a copy
@@ -257,8 +273,8 @@ namespace CalculateParliamentaryApportionment
         /// <summary>
         /// reads the optional IncludePerformance element. Performance is included whenever the element is there, whatever
         /// its inner text, and then it needs UntimedRuns (0 or more), TimedRuns (1 or more), StartupQuietPeriodTicks (0
-        /// or more) and PostUntimedRunsTicks (0 or more) attributes. CallCountingDelayMs (0 or more) and
-        /// CallCountThreshold (1 or more) are optional
+        /// or more) and PostUntimedRunsTicks (0 or more) attributes. CallCountingDelayMs (0 or more),
+        /// CallCountThreshold (1 or more), TieredCompilation, TieredPGO and ReadyToRun (true or false) are optional
         /// </summary>
         /// <returns>how many times to run the algorithms, or null if performance isn't included</returns>
         private static PerformanceRuns? ReadPerformanceRuns(XElement input)
@@ -273,7 +289,10 @@ namespace CalculateParliamentaryApportionment
                     ReadAtLeast(element, nameof(PerformanceRuns.StartupQuietPeriodTicks), 0),
                     ReadAtLeast(element, nameof(PerformanceRuns.PostUntimedRunsTicks), 0),
                     ReadOptionalAtLeast(element, nameof(PerformanceRuns.CallCountingDelayMs), 0),
-                    ReadOptionalAtLeast(element, nameof(PerformanceRuns.CallCountThreshold), 1));
+                    ReadOptionalAtLeast(element, nameof(PerformanceRuns.CallCountThreshold), 1),
+                    (bool?)element.Attribute(nameof(PerformanceRuns.TieredCompilation)),
+                    (bool?)element.Attribute(nameof(PerformanceRuns.TieredPGO)),
+                    (bool?)element.Attribute(nameof(PerformanceRuns.ReadyToRun)));
             }
             return ret;
         }
@@ -299,23 +318,26 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// .NET reads its tiered compilation settings from the environment once, when it starts, so changing them for
-        /// this process is too late. When the settings asked for aren't the ones this process started with, this starts a
+        /// .NET reads its compilation settings from the environment once, when it starts, so changing them for this
+        /// process is too late. When the settings asked for aren't the ones this process started with, this starts a
         /// copy of the program with them in its environment, on the same file, and waits for it. The copy does all the
         /// work, so this process mustn't have changed the file. .NET reads these environment variables as hexadecimal,
-        /// so 30 is written as 1E
+        /// so 30 is written as 1E, and on and off as 1 and 0
         /// </summary>
         /// <returns>the copy's exit code, or null if this process already has the settings and should go on</returns>
         private static int? RelaunchIfNeeded(string sPath, PerformanceRuns? performance)
         {
             int? ret = null;
             Dictionary<string, int> wanted = new Dictionary<string, int>();
-            if (performance?.CallCountingDelayMs is int iDelay) wanted[TieredCompilationEnvironmentVariablePrefix + nameof(PerformanceRuns.CallCountingDelayMs)] = iDelay;
-            if (performance?.CallCountThreshold is int iThreshold) wanted[TieredCompilationEnvironmentVariablePrefix + nameof(PerformanceRuns.CallCountThreshold)] = iThreshold;
+            if (performance?.CallCountingDelayMs is int iDelay) wanted[RuntimeEnvironmentVariablePrefix + TieredCompilationSettingPrefix + nameof(PerformanceRuns.CallCountingDelayMs)] = iDelay;
+            if (performance?.CallCountThreshold is int iThreshold) wanted[RuntimeEnvironmentVariablePrefix + TieredCompilationSettingPrefix + nameof(PerformanceRuns.CallCountThreshold)] = iThreshold;
+            if (performance?.TieredCompilation is bool isTiered) wanted[RuntimeEnvironmentVariablePrefix + nameof(PerformanceRuns.TieredCompilation)] = isTiered ? 1 : 0;
+            if (performance?.TieredPGO is bool isPgo) wanted[RuntimeEnvironmentVariablePrefix + nameof(PerformanceRuns.TieredPGO)] = isPgo ? 1 : 0;
+            if (performance?.ReadyToRun is bool isReadyToRun) wanted[RuntimeEnvironmentVariablePrefix + nameof(PerformanceRuns.ReadyToRun)] = isReadyToRun ? 1 : 0;
             if (wanted.Any(p => ParseHex(Environment.GetEnvironmentVariable(p.Key)) != p.Value))
             {
                 if (Environment.GetEnvironmentVariable(RelaunchedEnvironmentVariable) != null)
-                    throw new InvalidOperationException("the copy of the program started with the tiered compilation settings didn't get them");
+                    throw new InvalidOperationException("the copy of the program started with the compilation settings didn't get them");
 
                 //when run with "dotnet program.dll" the process is dotnet, so the program has to be passed to it
                 string sProcessPath = Environment.ProcessPath ?? throw new InvalidOperationException("can't find this program to start a copy of it");
@@ -544,6 +566,9 @@ namespace CalculateParliamentaryApportionment
                     new XAttribute(nameof(PerformanceRuns.PostUntimedRunsTicks), performance.PostUntimedRunsTicks),
                     performance.CallCountingDelayMs == null ? null : new XAttribute(nameof(PerformanceRuns.CallCountingDelayMs), performance.CallCountingDelayMs),
                     performance.CallCountThreshold == null ? null : new XAttribute(nameof(PerformanceRuns.CallCountThreshold), performance.CallCountThreshold),
+                    performance.TieredCompilation == null ? null : new XAttribute(nameof(PerformanceRuns.TieredCompilation), performance.TieredCompilation),
+                    performance.TieredPGO == null ? null : new XAttribute(nameof(PerformanceRuns.TieredPGO), performance.TieredPGO),
+                    performance.ReadyToRun == null ? null : new XAttribute(nameof(PerformanceRuns.ReadyToRun), performance.ReadyToRun),
                     results.Select(a => new XElement(AlgorithmElement, new XAttribute(NameAttribute, a.Name), new XAttribute(MillisecondsAttribute, a.Elapsed!.Value.TotalMilliseconds)))));
         }
 
