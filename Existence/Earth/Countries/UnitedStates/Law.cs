@@ -233,6 +233,9 @@ namespace Existence.Earth.Countries.UnitedStates
         ClintonHillary,
 
         [Gender(Gender.Male)]
+        CornynJohn,
+
+        [Gender(Gender.Male)]
         DoleBob,
 
         [Gender(Gender.Male)]

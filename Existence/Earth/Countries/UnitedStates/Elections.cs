@@ -1,3 +1,4 @@
+using Existence.Beyond.Infrastructure;
 using Existence.Time;
 
 namespace Existence.Earth.Countries.UnitedStates.Elections
@@ -255,25 +256,33 @@ namespace Existence.Earth.Countries.UnitedStates.Elections
         [PostElectionTakeOfficeDate(2027, 1, 3)]
         public static class v2026
         {
+            /// <summary>
+            /// 2026-11-11: currently sitting at 255 Dem - 168 GOP (12 uncalled per Associated Press)
+            /// </summary>
             [IRootedFor((int)PoliticalParties.Democratic)]
-            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 240, (int)PoliticalParties.Republican, 195, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 240, (int)PoliticalParties.Republican, 195, Correctness.Incorrect, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
             [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 219, (int)PoliticalParties.Democratic, 214, SeatsUp: 435)]
             [TotalLegislatureSeats(435)]
             public static class House { }
 
             /// <summary>
             /// Prediction Details for Senate tossups (9):
-            /// Texas: This is the big switch, <see cref="UnitedStatesPoliticians.TalaricoJames"/> asked me for absurdly low amounts of money [I didn't give him any], wins over <see cref="UnitedStatesPoliticians.PaxtonKen"/>)
-            /// Michigan: Dem (There's a reason <see cref="UnitedStatesPoliticians.ElSayedAbdul"/> is here [Muslim+Progressive], wins over <see cref="UnitedStatesPoliticians.RogersMike"/>)
-            /// Alaska: GOP (I can't endorse <see cref="UnitedStatesPoliticians.PeltolaMary"/>'s shenanigans with the lookalike <see cref="UnitedStatesPoliticians.SullivanDan"/> but wins anyway)
-            /// Maine: Dem (<see cref="UnitedStatesPoliticians.CollinsSusan"> doesn't deserve to lose, but lose she will anyway to <see cref="UnitedStatesPoliticians.JacksonTroy"/> who replaced <see cref="UnitedStatesPoliticians.PlatnerGraham"/>)
-            /// Ohio: Dan (<see cref="UnitedStatesPoliticians.BrownSherrod"/> returns to the Senate after a brief absence)
-            /// South Carolina: GOP (<see cref="UnitedStatesPoliticians.GrahamDarline"/> replaced her older brother (both as temporary vacancy and as candidate) <see cref="UnitedStatesPoliticians.GrahamLindsey"/>, who died after winning the primary
-            /// Kansas: Dem (in a generic year it would be surprising this one is in play, but this is no generic year)
-            /// Nebraska: GOP (in a generic year it would be surprising this one is in play, but this is no generic year)
+            /// Texas (correct): This is the big switch, <see cref="UnitedStatesPoliticians.TalaricoJames"/> asked me for absurdly low amounts of money [I didn't give him any], wins over <see cref="UnitedStatesPoliticians.PaxtonKen"/> who beat <see cref="UnitedStatesPoliticians.CornynJohn"/> in the primary)
+            /// Michigan (correct): Dem (There's a reason <see cref="UnitedStatesPoliticians.ElSayedAbdul"/> is here [Muslim+Progressive], wins over <see cref="UnitedStatesPoliticians.RogersMike"/>)
+            /// Alaska (pending): GOP (I can't endorse <see cref="UnitedStatesPoliticians.PeltolaMary"/>'s shenanigans with the lookalike <see cref="UnitedStatesPoliticians.SullivanDan"/> but wins anyway)
+            /// Maine (correct): Dem (<see cref="UnitedStatesPoliticians.CollinsSusan"> doesn't deserve to lose, but lose she will anyway to <see cref="UnitedStatesPoliticians.JacksonTroy"/> who replaced <see cref="UnitedStatesPoliticians.PlatnerGraham"/>)
+            /// Ohio (correct): Dan (<see cref="UnitedStatesPoliticians.BrownSherrod"/> returns to the Senate after a brief absence)
+            /// South Carolina (incorrect): GOP (<see cref="UnitedStatesPoliticians.GrahamDarline"/> replaced her older brother (both as temporary vacancy and as candidate) <see cref="UnitedStatesPoliticians.GrahamLindsey"/>, who died after winning the primary
+            /// Kansas (correct): Dem (in a generic year it would be surprising this one is in play, but this is no generic year)
+            /// Nebraska (correct): GOP (in a generic year it would be surprising this one is in play, but this is no generic year)
+            /// I also made mistakes by not making a prediction for other seat that flipped (I only predicted RCP tossup seats which wasn't good enough this year).
+            /// Iowa (not clear what I would have predicted): GOP->Dem
+            /// North Carolina (would have predicted Dem): GOP->Dem
+            /// 
+            /// As it stands, the Democrats have 54 seats with a 55th coming if they win Alaska (Democrat is currently ahead)
             /// </summary>
             [IRootedFor((int)PoliticalParties.Democratic)]
-            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 53, (int)PoliticalParties.Republican, 47, Beyond.Infrastructure.Correctness.Future, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 53, (int)PoliticalParties.Republican, 47, Correctness.Incorrect, $"{nameof(UnitedStatesPoliticians.TrumpDonald)} needs to be put in his place.")]
             [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 53, (int)PoliticalParties.Democratic, 47, SeatsUp: 33)]
             [TotalLegislatureSeats(100)]
             public static class Senate { }

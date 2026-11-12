@@ -114,14 +114,14 @@ namespace Existence.Earth.Countries.UnitedStates.States.Wisconsin.Elections
         public static class v2026
         {
             [IRootedFor((int)PoliticalParties.Democratic)]
-            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 50, (int)PoliticalParties.Republican, 49, Correctness.Future, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN)]
-            [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 54, (int)PoliticalParties.Democratic, 45, SeatsUp: 99)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 50, (int)PoliticalParties.Republican, 49, Correctness.Incorrect, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN + ": I was correct the chamber would switch hands but the magnitude of the Democratic victory was higher than my prediction.")]
+            [TwoPartyLegislatureResultAllSeats((int)PoliticalParties.Democratic, 53, +8, (int)PoliticalParties.Republican, 46, -8)]
             [TotalLegislatureSeats(99)]
             public static class Assembly { }
 
             [IRootedFor((int)PoliticalParties.Democratic)]
-            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 18, (int)PoliticalParties.Republican, 15, Correctness.Future, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN)]
-            [UpcomingTwoPartyLegislativeElection((int)PoliticalParties.Republican, 18, (int)PoliticalParties.Democratic, 15, SeatsUp: 17)]
+            [IPredictedTwoPartyLegislativeElection((int)PoliticalParties.Democratic, 18, (int)PoliticalParties.Republican, 15, Correctness.Correct, Constants.ITS_TIME_FOR_THE_GERRYMANDER_TO_COME_DOWN)]
+            [TwoPartyLegislatureResultPartialSeats((int)PoliticalParties.Democratic, 18, +3, (int)PoliticalParties.Republican, 15, -3, SeatsUp: 17)]
             [TotalLegislatureSeats(33)]
             public static class Senate { }
         }
