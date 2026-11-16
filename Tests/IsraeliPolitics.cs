@@ -47,11 +47,11 @@ namespace Existence.Tests
             var last = tenures[tenures.Count - 1];
             Assert.IsNull(last.PrimeMinister.EndDate, $"the last tenure, {last.Tenure}, has an end date");
 
-            List<FieldInfo> currentPrimeMinisters = typeof(Politicians).GetFields(BindingFlags.Public | BindingFlags.Static)
+            List<FieldInfo> currentPrimeMinisters = typeof(IsraeliPoliticians).GetFields(BindingFlags.Public | BindingFlags.Static)
                 .Where(f => f.GetCustomAttribute<CurrentPrimeMinisterAttribute>() != null)
                 .ToList();
             Assert.AreEqual(1, currentPrimeMinisters.Count, "exactly one politician must be marked as the current prime minister");
-            Assert.AreEqual(currentPrimeMinisters[0].Name, Enum.GetName(typeof(Politicians), last.PrimeMinister.Politician), $"the last tenure, {last.Tenure}, is not held by the current prime minister");
+            Assert.AreEqual(currentPrimeMinisters[0].Name, Enum.GetName(typeof(IsraeliPoliticians), last.PrimeMinister.Politician), $"the last tenure, {last.Tenure}, is not held by the current prime minister");
         }
 
         /// <summary>

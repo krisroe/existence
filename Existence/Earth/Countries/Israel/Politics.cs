@@ -43,7 +43,7 @@ namespace Existence.Earth.Countries.Israel.Politics
         }
     }
 
-    public enum Politicians
+    public enum IsraeliPoliticians
     {
         [Gender(Gender.Male)]
         [EthnicGroups((int)WorldEthnicGroups.Arab)]
@@ -306,115 +306,115 @@ namespace Existence.Earth.Countries.Israel.Politics
         /// <summary>
         /// provisional government, from independence until the 1st government took office after the 1949 election
         /// </summary>
-        [PrimeMinister((int)Politicians.BenGurionDavid, 1948, 5, 14, 1949, 3, 10)]
+        [PrimeMinister((int)IsraeliPoliticians.BenGurionDavid, 1948, 5, 14, 1949, 3, 10)]
         public static class v0 { }
 
         /// <summary>
         /// 1st-4th governments
         /// </summary>
-        [PrimeMinister((int)Politicians.BenGurionDavid, 1949, 3, 10, 1953, 12, 7)]
+        [PrimeMinister((int)IsraeliPoliticians.BenGurionDavid, 1949, 3, 10, 1953, 12, 7)]
         public static class v1 { }
 
         /// <summary>
         /// took over when Ben-Gurion stepped down on 1953-12-07, formed his own government on 1954-01-26
         /// </summary>
-        [PrimeMinister((int)Politicians.SharettMoshe, 1953, 12, 7, 1955, 11, 3)]
+        [PrimeMinister((int)IsraeliPoliticians.SharettMoshe, 1953, 12, 7, 1955, 11, 3)]
         public static class v2 { }
 
-        [PrimeMinister((int)Politicians.BenGurionDavid, 1955, 11, 3, 1963, 6, 26)]
+        [PrimeMinister((int)IsraeliPoliticians.BenGurionDavid, 1955, 11, 3, 1963, 6, 26)]
         public static class v3 { }
 
         /// <summary>
         /// died in office
         /// </summary>
-        [PrimeMinister((int)Politicians.EshkolLevi, 1963, 6, 26, 1969, 2, 26)]
+        [PrimeMinister((int)IsraeliPoliticians.EshkolLevi, 1963, 6, 26, 1969, 2, 26)]
         public static class v4 { }
 
         /// <summary>
         /// interim prime minister after Eshkol's death
         /// </summary>
-        [PrimeMinister((int)Politicians.AllonYigal, 1969, 2, 26, 1969, 3, 17)]
+        [PrimeMinister((int)IsraeliPoliticians.AllonYigal, 1969, 2, 26, 1969, 3, 17)]
         public static class v5 { }
 
-        [PrimeMinister((int)Politicians.MeirGolda, 1969, 3, 17, 1974, 6, 3)]
+        [PrimeMinister((int)IsraeliPoliticians.MeirGolda, 1969, 3, 17, 1974, 6, 3)]
         public static class v6 { }
 
         /// <summary>
         /// prime minister only on paper from 1977-04-22, after stepping aside over his wife's US bank account, while Peres
         /// was unofficially acting prime minister
         /// </summary>
-        [PrimeMinister((int)Politicians.RabinYitzhak, 1974, 6, 3, 1977, 6, 21)]
-        [PaperPrimeMinister((int)Politicians.RabinYitzhak, 1977, 4, 22, 1977, 6, 21)]
+        [PrimeMinister((int)IsraeliPoliticians.RabinYitzhak, 1974, 6, 3, 1977, 6, 21)]
+        [PaperPrimeMinister((int)IsraeliPoliticians.RabinYitzhak, 1977, 4, 22, 1977, 6, 21)]
         public static class v7 { }
 
         /// <summary>
         /// unofficially acting prime minister after Rabin stepped aside, while Rabin remained prime minister on paper
         /// </summary>
-        [ActingPrimeMinister((int)Politicians.PeresShimon, 1977, 4, 22, 1977, 6, 21)]
+        [ActingPrimeMinister((int)IsraeliPoliticians.PeresShimon, 1977, 4, 22, 1977, 6, 21)]
         public static class v8 { }
 
-        [PrimeMinister((int)Politicians.BeginMenachem, 1977, 6, 21, 1983, 10, 10)]
+        [PrimeMinister((int)IsraeliPoliticians.BeginMenachem, 1977, 6, 21, 1983, 10, 10)]
         public static class v9 { }
 
-        [PrimeMinister((int)Politicians.ShamirYitzhak, 1983, 10, 10, 1984, 9, 13)]
+        [PrimeMinister((int)IsraeliPoliticians.ShamirYitzhak, 1983, 10, 10, 1984, 9, 13)]
         public static class v10 { }
 
         /// <summary>
         /// rotation agreement with Shamir in a national unity government
         /// </summary>
-        [PrimeMinister((int)Politicians.PeresShimon, 1984, 9, 13, 1986, 10, 20)]
+        [PrimeMinister((int)IsraeliPoliticians.PeresShimon, 1984, 9, 13, 1986, 10, 20)]
         public static class v11 { }
 
-        [PrimeMinister((int)Politicians.ShamirYitzhak, 1986, 10, 20, 1992, 7, 13)]
+        [PrimeMinister((int)IsraeliPoliticians.ShamirYitzhak, 1986, 10, 20, 1992, 7, 13)]
         public static class v12 { }
 
         /// <summary>
         /// assassinated in office
         /// </summary>
-        [PrimeMinister((int)Politicians.RabinYitzhak, 1992, 7, 13, 1995, 11, 4)]
+        [PrimeMinister((int)IsraeliPoliticians.RabinYitzhak, 1992, 7, 13, 1995, 11, 4)]
         public static class v13 { }
 
         /// <summary>
         /// interim prime minister after Rabin's assassination. The Knesset approved his government on 1995-11-22
         /// </summary>
-        [PrimeMinister((int)Politicians.PeresShimon, 1995, 11, 4, 1996, 6, 18)]
+        [PrimeMinister((int)IsraeliPoliticians.PeresShimon, 1995, 11, 4, 1996, 6, 18)]
         public static class v14 { }
 
-        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 1996, 6, 18, 1999, 7, 6)]
+        [PrimeMinister((int)IsraeliPoliticians.NetanyahuBenjamin, 1996, 6, 18, 1999, 7, 6)]
         public static class v15 { }
 
-        [PrimeMinister((int)Politicians.BarakEhud, 1999, 7, 6, 2001, 3, 7)]
+        [PrimeMinister((int)IsraeliPoliticians.BarakEhud, 1999, 7, 6, 2001, 3, 7)]
         public static class v16 { }
 
         /// <summary>
         /// incapacitated by a stroke on 2006-01-04 and prime minister only on paper until declared permanently
         /// incapacitated on 2006-04-14, while Olmert was acting prime minister
         /// </summary>
-        [PrimeMinister((int)Politicians.SharonAriel, 2001, 3, 7, 2006, 4, 14)]
-        [PaperPrimeMinister((int)Politicians.SharonAriel, 2006, 1, 4, 2006, 4, 14)]
+        [PrimeMinister((int)IsraeliPoliticians.SharonAriel, 2001, 3, 7, 2006, 4, 14)]
+        [PaperPrimeMinister((int)IsraeliPoliticians.SharonAriel, 2006, 1, 4, 2006, 4, 14)]
         public static class v17 { }
 
         /// <summary>
         /// acting prime minister from 2006-01-04 while Sharon was incapacitated, interim from 2006-04-14 once Sharon was
         /// declared permanently incapacitated, prime minister from 2006-05-04
         /// </summary>
-        [PrimeMinister((int)Politicians.OlmertEhud, 2006, 1, 4, 2009, 3, 31)]
-        [ActingPrimeMinister((int)Politicians.OlmertEhud, 2006, 1, 4, 2006, 4, 14)]
+        [PrimeMinister((int)IsraeliPoliticians.OlmertEhud, 2006, 1, 4, 2009, 3, 31)]
+        [ActingPrimeMinister((int)IsraeliPoliticians.OlmertEhud, 2006, 1, 4, 2006, 4, 14)]
         public static class v18 { }
 
-        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 2009, 3, 31, 2021, 6, 13)]
+        [PrimeMinister((int)IsraeliPoliticians.NetanyahuBenjamin, 2009, 3, 31, 2021, 6, 13)]
         public static class v19 { }
 
         /// <summary>
         /// rotation agreement with Lapid
         /// </summary>
-        [PrimeMinister((int)Politicians.BennettNaftali, 2021, 6, 13, 2022, 6, 30)]
+        [PrimeMinister((int)IsraeliPoliticians.BennettNaftali, 2021, 6, 13, 2022, 6, 30)]
         public static class v20 { }
 
-        [PrimeMinister((int)Politicians.LapidYair, 2022, 7, 1, 2022, 12, 29)]
+        [PrimeMinister((int)IsraeliPoliticians.LapidYair, 2022, 7, 1, 2022, 12, 29)]
         public static class v21 { }
 
-        [PrimeMinister((int)Politicians.NetanyahuBenjamin, 2022, 12, 29)]
+        [PrimeMinister((int)IsraeliPoliticians.NetanyahuBenjamin, 2022, 12, 29)]
         [CurrentPrimeMinister]
         public static class v22 { }
     }
@@ -481,7 +481,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.NetanyahuBenjamin)]
                 [VotePercentage(23.41)]
                 [NumberOfSeats(32)]
                 [Government]
@@ -495,7 +495,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
-                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.DeriAryeh)]
                 [VotePercentage(8.25)]
                 [NumberOfSeats(11)]
                 [SometimesInGovernment]
@@ -522,7 +522,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.SmotrichBezalel)]
                 [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
                 [RoughJointListVotePercentage(5.42)]
                 [NumberOfSeats(7)]
@@ -537,7 +537,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.BenGvirItamar)]
                 [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
                 [RoughJointListVotePercentage(4.65)]
                 [NumberOfSeats(6)]
@@ -556,7 +556,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.MaozAvi)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.MaozAvi)]
                 [JointList((int)JointLists.ReligiousZionismOtzmaYehudit)]
                 [RoughJointListVotePercentage(0.77)]
                 [NumberOfSeats(1)]
@@ -572,7 +572,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.LapidYair)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.LapidYair)]
                 [VotePercentage(17.79)]
                 [NumberOfSeats(24)]
                 [Opposition]
@@ -584,7 +584,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GantzBenny)]
                 [JointList((int)JointLists.NationalUnity)]
                 [RoughJointListVotePercentage(5.78)]
                 [NumberOfSeats(8)]
@@ -597,7 +597,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.LiebermanAvigdor)]
                 [VotePercentage(4.48)]
                 [NumberOfSeats(6)]
                 [Opposition]
@@ -611,7 +611,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.SaʼarGideon)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.SaʼarGideon)]
                 [JointList((int)JointLists.NationalUnity)]
                 [RoughJointListVotePercentage(3.30)]
                 [NumberOfSeats(4)]
@@ -627,7 +627,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GolanYair)]
                 [VotePercentage(3.69)]
                 [NumberOfSeats(4)]
                 [Opposition]
@@ -638,7 +638,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GalonZehava)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GalonZehava)]
                 [VotePercentage(3.16)]
                 [BelowElectoralThreshold]
                 Meretz,
@@ -649,13 +649,13 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.ShakedAyelet)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.ShakedAyelet)]
                 [VotePercentage(1.19)]
                 [BelowElectoralThreshold]
                 TheJewishHome,
 
                 [PoliticalPartyFranchise((int)PoliticalPartyFranchises.Raʼam)]
-                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AbbasMansour)]
                 [VotePercentage(4.07)]
                 [NumberOfSeats(5)]
                 [Opposition]
@@ -673,7 +673,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Arab nationalist party that ran separately after the Joint List dissolved shortly before the 2022 election
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AbuShehadehSami)]
                 [VotePercentage(2.91)]
                 [BelowElectoralThreshold]
                 Balad,
@@ -688,7 +688,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Hasidic Haredi party, part of United Torah Judaism. Goldknopf resigned from the cabinet on 2025-06-12,
                 /// and the party left the government the day after Degel HaTorah
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GoldknopfYitzhak)]
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [RoughJointListVotePercentage(3.36)]
                 [NumberOfSeats(4)]
@@ -700,7 +700,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Lithuanian (non-Hasidic) Haredi party, part of United Torah Judaism
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.GafniMoshe)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GafniMoshe)]
                 [JointList((int)JointLists.UnitedTorahJudaism)]
                 [RoughJointListVotePercentage(2.52)]
                 [NumberOfSeats(3)]
@@ -712,7 +712,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of Hadash-Ta'al
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.OdehAyman)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.OdehAyman)]
                 [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(2.81)]
                 [NumberOfSeats(4)]
@@ -722,7 +722,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Arab Movement for Renewal, part of Hadash-Ta'al
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.TibiAhmad)]
                 [JointList((int)JointLists.HadashTaʼal)]
                 [RoughJointListVotePercentage(0.94)]
                 [NumberOfSeats(1)]
@@ -865,7 +865,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.WinterOfer)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.WinterOfer)]
                 [NumberOfSeatsIPredicted(0, Correctness.Correct)]
                 [BelowElectoralThreshold]
                 [VotePercentage(1.68)]
@@ -876,7 +876,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GantzBenny)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GantzBenny)]
                 [Withdrew(2026, 10, 19)]
                 BlueAndWhite,
 
@@ -895,7 +895,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.NetanyahuBenjamin)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.NetanyahuBenjamin)]
                 [NumberOfSeatsIPredicted(31, Correctness.Incorrect, "I significantly underestimated anti-government sentiment (I bumped the exit poll numbers downward but not enough)")]
                 [NumberOfSeats(27)]
                 [VotePercentage(20.51)]
@@ -906,7 +906,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.MaozAvi)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.MaozAvi)]
                 [NumberOfSeatsIPredicted(0, Correctness.Correct)]
                 [BelowElectoralThreshold]
                 [VotePercentage(0.17)]
@@ -914,7 +914,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.BenGvirItamar)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.BenGvirItamar)]
                 [NumberOfSeatsIPredicted(9, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(7)]
                 [VotePercentage(5.74)]
@@ -940,7 +940,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Formal)]
-                [PoliticalPartyLeader((int)Politicians.DeriAryeh)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.DeriAryeh)]
                 [NumberOfSeatsIPredicted(7, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(6)]
                 [VotePercentage(5.26)]
@@ -951,7 +951,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.GolanYair)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GolanYair)]
                 [NumberOfSeatsIPredicted(6, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(8)]
                 [VotePercentage(6.44)]
@@ -972,7 +972,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// originally United Arab List
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.AbbasMansour)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AbbasMansour)]
                 [NumberOfSeatsIPredicted(4, Correctness.Incorrect, Constants.I_SIGNIFICANTLY_UNDERESTIMATED_ARAB_PARTIES_STRENGTH)]
                 [NumberOfSeats(8)]
                 [VotePercentage(5.93)]
@@ -991,7 +991,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// </summary>
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.EisenkotGadi)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.EisenkotGadi)]
                 [NumberOfSeatsIPredicted(21, Correctness.Correct)]
                 [NumberOfSeats(21)]
                 [VotePercentage(16.05)]
@@ -999,7 +999,7 @@ namespace Existence.Earth.Countries.Israel.Politics
 
                 [Zionist]
                 [ZionistType(ZionistTypes.Ideological)]
-                [PoliticalPartyLeader((int)Politicians.LiebermanAvigdor)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.LiebermanAvigdor)]
                 [NumberOfSeatsIPredicted(10, Correctness.Incorrect, Constants.MY_NUMBERS_WERE_BASED_ON_EXIT_POLLING_THAT_WAS_INACCURATE)]
                 [NumberOfSeats(7)]
                 [VotePercentage(5.93)]
@@ -1015,7 +1015,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// Hasidic Haredi party, part of United Torah Judaism
                 /// </summary>
                 [JointList((int)JointLists.UnitedTorahJudaism)]
-                [PoliticalPartyLeader((int)Politicians.GoldknopfYitzhak)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.GoldknopfYitzhak)]
                 AgudatYisrael,
 
                 /// <summary>
@@ -1024,70 +1024,70 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// top candidate
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyLeader((int)Politicians.AbuShehadehSami)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AbuShehadehSami)]
                 Balad,
 
                 /// <summary>
                 /// Naftali Bennett's party, part of Together
                 /// </summary>
                 [JointList((int)JointLists.Together)]
-                [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.BennettNaftali)]
                 Bennett2026,
 
                 /// <summary>
                 /// Lithuanian (non-Hasidic) Haredi party, part of United Torah Judaism
                 /// </summary>
                 [JointList((int)JointLists.UnitedTorahJudaism)]
-                [PoliticalPartyLeader((int)Politicians.AsherYaakov)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AsherYaakov)]
                 DegelHaTorah,
 
                 /// <summary>
                 /// Jewish-Arab socialist front led by the Israeli Communist Party, part of the Joint List
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.JabareenYousef)]
                 Hadash,
 
                 /// <summary>
                 /// part of Reservists-New Economic Party
                 /// </summary>
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
-                [PoliticalPartyLeader((int)Politicians.ZelekhaYaron)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.ZelekhaYaron)]
                 NewEconomicParty,
 
                 /// <summary>
                 /// part of Religious Zionist Party-Zehut
                 /// </summary>
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
-                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.SmotrichBezalel)]
                 ReligiousZionistParty,
 
                 /// <summary>
                 /// part of Reservists-New Economic Party
                 /// </summary>
                 [JointList((int)JointLists.ReservistsNewEconomicParty)]
-                [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.HendelYoaz)]
                 Reservists,
 
                 /// <summary>
                 /// Arab Movement for Renewal, part of the Joint List
                 /// </summary>
                 [JointList((int)JointLists.JointList)]
-                [PoliticalPartyLeader((int)Politicians.TibiAhmad)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.TibiAhmad)]
                 Taʼal,
 
                 /// <summary>
                 /// part of Together
                 /// </summary>
                 [JointList((int)JointLists.Together)]
-                [PoliticalPartyLeader((int)Politicians.LapidYair)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.LapidYair)]
                 YeshAtid,
 
                 /// <summary>
                 /// part of Religious Zionist Party-Zehut
                 /// </summary>
                 [JointList((int)JointLists.ReligiousZionistPartyZehut)]
-                [PoliticalPartyLeader((int)Politicians.FeiglinMoshe)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.FeiglinMoshe)]
                 Zehut,
             }
 
@@ -1097,7 +1097,7 @@ namespace Existence.Earth.Countries.Israel.Politics
             /// </summary>
             public enum JointLists
             {
-                [PoliticalPartyLeader((int)Politicians.JabareenYousef)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.JabareenYousef)]
                 [PoliticalParties((int)PoliticalParties.JointList)]
                 [Factions((int)Factions.Hadash, (int)Factions.Taʼal, (int)Factions.Balad)]
                 [JointListNumberOfSeatsIPredicted(9)]
@@ -1105,7 +1105,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointListVotePercentage(8.80)]
                 JointList,
 
-                [PoliticalPartyLeader((int)Politicians.SmotrichBezalel)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.SmotrichBezalel)]
                 [PoliticalParties((int)PoliticalParties.ReligiousZionistPartyZehut)]
                 [Factions((int)Factions.ReligiousZionistParty, (int)Factions.Zehut)]
                 [JointListNumberOfSeatsIPredicted(6)]
@@ -1113,7 +1113,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointListVotePercentage(5.11)]
                 ReligiousZionistPartyZehut,
 
-                [PoliticalPartyLeader((int)Politicians.HendelYoaz)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.HendelYoaz)]
                 [PoliticalParties((int)PoliticalParties.ReservistsNewEconomicParty)]
                 [Factions((int)Factions.Reservists, (int)Factions.NewEconomicParty)]
                 [JointListNumberOfSeatsIPredicted(0)]
@@ -1121,7 +1121,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 [JointListVotePercentage(2.73)]
                 ReservistsNewEconomicParty,
 
-                [PoliticalPartyLeader((int)Politicians.BennettNaftali)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.BennettNaftali)]
                 [PoliticalParties((int)PoliticalParties.Together)]
                 [Factions((int)Factions.Bennett2026, (int)Factions.YeshAtid)]
                 [JointListNumberOfSeatsIPredicted(11)]
@@ -1132,7 +1132,7 @@ namespace Existence.Earth.Countries.Israel.Politics
                 /// <summary>
                 /// Degel HaTorah's turn to head the list
                 /// </summary>
-                [PoliticalPartyLeader((int)Politicians.AsherYaakov)]
+                [PoliticalPartyLeader((int)IsraeliPoliticians.AsherYaakov)]
                 [PoliticalParties((int)PoliticalParties.UnitedTorahJudaism)]
                 [Factions((int)Factions.AgudatYisrael, (int)Factions.DegelHaTorah)]
                 [JointListNumberOfSeatsIPredicted(6)]

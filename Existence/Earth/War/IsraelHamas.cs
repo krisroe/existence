@@ -1,6 +1,8 @@
 ﻿
 using Existence.Earth.Alphabet;
 using Existence.Earth.Countries;
+using Existence.Earth.Countries.Israel.Politics;
+using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.People;
@@ -3539,10 +3541,10 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Former Hamas Political Bureau chairman. Reported (unconfirmed) target of the Doha strike.
-    /// 1997: Mossad agents, acting on the orders of <see cref="Existence.Earth.Countries.Israel.Politics.Politicians.NetanyahuBenjamin"/>
+    /// 1997: Mossad agents, acting on the orders of <see cref="IsraeliPoliticians.NetanyahuBenjamin"/>
     /// and travelling on fake Canadian passports, poisoned him outside
     /// the Hamas office in Amman. Two agents were captured and he fell into a coma; he survived after King Hussein of Jordan,
-    /// backed by <see cref="Existence.Earth.Countries.UnitedStates.UnitedStatesPoliticians.ClintonBill"/>, forced Israel to hand over the antidote. Israel also released <see cref="YassinAhmed"/> to get the
+    /// backed by <see cref="UnitedStatesPoliticians.ClintonBill"/>, forced Israel to hand over the antidote. Israel also released <see cref="YassinAhmed"/> to get the
     /// rest of the team back.
     /// </summary>
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
