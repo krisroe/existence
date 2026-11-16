@@ -3095,14 +3095,14 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 /// not the number of targets: a target can have more than one.
 /// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/> is not counted
 /// </remarks>
-[Total(104)]
+[Total(105)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
     /// Killed in an Israeli airstrike in Tehran on the first day of the Twelve-Day War, in the opening wave of strikes on
     /// Iran's nuclear scientists and military commanders. Head of the Atomic Energy Organization of Iran from 2011 to 2013.
     /// 2010: wounded in Tehran when a man on a motorbike attached a bomb to his car as he drove to work; a similar attack
-    /// the same day killed fellow scientist Majid Shahriari.
+    /// the same day killed fellow scientist <see cref="ShahriariMajid"/>.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
@@ -3515,7 +3515,7 @@ internal enum IsraeliAssassinationTarget
     /// on his movements. Israeli jets hit his Tehran compound in daylight with about thirty precision munitions, timed to a
     /// meeting of senior officials that drew him above ground from his deep bunker. His daughter, granddaughter, son-in-law
     /// and daughter-in-law were also killed. Iran confirmed his death the next day, after first denying it.
-    /// An Israeli plan to kill him during the Twelve-Day War in June 2025 was reportedly vetoed by Donald Trump.
+    /// An Israeli plan to kill him during the Twelve-Day War in June 2025 was reportedly vetoed by <see cref="UnitedStatesPoliticians.TrumpDonald"/>.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [EthnicGroups((int)WorldEthnicGroups.Azerbaijani, (int)WorldEthnicGroups.Persian)]
@@ -3818,6 +3818,17 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonSidon)]
     [DeathDate(2025, 2, 18)]
     ShaheenMuhammad,
+
+    /// <summary>
+    /// Nuclear engineer at Shahid Beheshti University. Killed in Tehran when men on a motorbike attached a bomb to his car
+    /// as he drove to work, the same day as the failed attempt on <see cref="AbbasiFereydoon"/>. Widely attributed to Israel,
+    /// which never claimed it.
+    /// </summary>
+    [Country(CountryLikeThings.Iran)]
+    [HumanOccupation(HumanOccupation.ScientistNuclear)]
+    [AssassinatedPriorToOctober7(CountryLikeThings.Iran, WorldCities.IranTehran)]
+    [DeathDate(2010, 11, 29)]
+    ShahriariMajid,
 
     /// <summary>
     /// Senior IRGC official (Unit 190)
