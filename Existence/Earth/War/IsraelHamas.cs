@@ -3071,7 +3071,8 @@ internal class AssassinatedPriorToOctober7Attribute : AssassinatedAttribute
 /// (e.g. killed in a chance encounter rather than a planned strike)
 /// </summary>
 /// <remarks>
-/// deliberately does not inherit from <see cref="AssassinatedAttribute"/> so that it is not counted as an assassination
+/// deliberately does not inherit from <see cref="AssassinatedAttribute"/> so that it is not treated as an assassination,
+/// but it is counted in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
 /// </remarks>
 internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 {
@@ -3098,17 +3099,31 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 }
 
 /// <summary>
+/// number of Israeli assassinations, survived assassination attempts and other killings of assassination targets
+/// made after the 2023-10-07 attacks
+/// </summary>
+/// <remarks>
+/// counts <see cref="AssassinatedAttribute"/>, <see cref="AssassinationAttemptAttribute"/> and
+/// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/>, not targets: a target can have more than one.
+/// Not counted: earlier assassinations and attempts that are only on the list because they are adjacent to it
+/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>)
+/// </remarks>
+internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute : TotalAttribute
+{
+    public TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute(int Total) : base(Total)
+    {
+    }
+}
+
+/// <summary>
 /// targets of Israeli assassinations and assassination attempts since the 2023-10-07 attacks
 /// </summary>
 /// <remarks>
-/// earlier assassinations and attempts are only included where they are tied to someone on the list
-/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>).
-/// the <see cref="TotalAttribute"/> is the number of assassinations and survived assassination attempts
-/// (<see cref="AssassinatedAttribute"/> and <see cref="AssassinationAttemptAttribute"/>, including derived attributes),
-/// not the number of targets: a target can have more than one.
-/// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/> is not counted
+/// earlier assassinations and attempts are only included where they are relevant to someone on the list
+/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
+/// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
 /// </remarks>
-[Total(105)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(100)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
