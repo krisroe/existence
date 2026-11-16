@@ -5,42 +5,42 @@
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>3.25</ElectoralThreshold>
     <Parties>
-      <Party Id="1" Name="Likud" Votes="1167458" AboveThreshold="true" BaseSeats="26" Seats="27" />
-      <Party Id="2" Name="Yashar" Votes="913502" AboveThreshold="true" BaseSeats="20" Seats="21" />
-      <Party Id="3" Name="Together" Votes="531476" AboveThreshold="true" BaseSeats="11" Seats="12" />
-      <Party Id="4" Name="Joint List" Votes="500147" AboveThreshold="true" BaseSeats="11" Seats="11" />
-      <Party Id="5" Name="The Democrats" Votes="366352" AboveThreshold="true" BaseSeats="8" Seats="8" />
-      <Party Id="6" Name="Yisrael Beiteinu" Votes="337413" AboveThreshold="true" BaseSeats="7" Seats="7" />
-      <Party Id="7" Name="Ra'am" Votes="337253" AboveThreshold="true" BaseSeats="7" Seats="8" />
-      <Party Id="8" Name="Otzma Yehudit" Votes="326624" AboveThreshold="true" BaseSeats="7" Seats="7" />
-      <Party Id="9" Name="United Torah Judaism" Votes="312604" AboveThreshold="true" BaseSeats="6" Seats="7" />
-      <Party Id="10" Name="Shas" Votes="299506" AboveThreshold="true" BaseSeats="6" Seats="6" />
-      <Party Id="11" Name="Religious Zionism – Zehut" Votes="290451" AboveThreshold="true" BaseSeats="6" Seats="6" />
-      <Party Id="12" Name="The Reservists – New Economic" Votes="154995" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="13" Name="Amcha Yisrael" Votes="95663" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="14" Name="The Color Black" Votes="11274" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="15" Name="Haredi Public" Votes="10594" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="16" Name="Noam" Votes="9923" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="17" Name="Tzomet – Beit Yisrael" Votes="5712" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="18" Name="Partnership for Everyone" Votes="4294" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="19" Name="Sharshar for Love and Unity of the People" Votes="2084" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="20" Name="Together We Will Succeed" Votes="1465" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="21" Name="Pirate Party of Israel" Votes="1050" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="22" Name="Hakahal Party" Votes="1011" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="23" Name="Israel First – Ale Yarok" Votes="955" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="24" Name="Fixing the Electoral and Governing System" Votes="929" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="25" Name="New Order" Votes="919" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="26" Name="Garden of Eden" Votes="902" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="27" Name="Ani VeAta" Votes="872" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="28" Name="Shema" Votes="787" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="29" Name="Just Law" Votes="774" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="30" Name="Dawn's Light" Votes="747" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="31" Name="Women's Voice" Votes="712" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="32" Name="Redemption" Votes="581" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="33" Name="Social Security" Votes="508" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="34" Name="Personal Security" Votes="481" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="35" Name="The Bible Bloc" Votes="412" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Id="36" Name="Eternal Covenant" Votes="255" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="1" Name="Likud" Votes="1167591" AboveThreshold="true" BaseSeats="26" Seats="27" />
+      <Party Id="2" Name="Yashar" Votes="913629" AboveThreshold="true" BaseSeats="20" Seats="21" />
+      <Party Id="3" Name="Together" Votes="532018" AboveThreshold="true" BaseSeats="11" Seats="12" />
+      <Party Id="4" Name="Joint List" Votes="500755" AboveThreshold="true" BaseSeats="11" Seats="11" />
+      <Party Id="5" Name="The Democrats" Votes="366278" AboveThreshold="true" BaseSeats="8" Seats="8" />
+      <Party Id="6" Name="Ra'am" Votes="337720" AboveThreshold="true" BaseSeats="7" Seats="8" />
+      <Party Id="7" Name="Yisrael Beiteinu" Votes="337450" AboveThreshold="true" BaseSeats="7" Seats="7" />
+      <Party Id="8" Name="Otzma Yehudit" Votes="326793" AboveThreshold="true" BaseSeats="7" Seats="7" />
+      <Party Id="9" Name="United Torah Judaism" Votes="312632" AboveThreshold="true" BaseSeats="6" Seats="7" />
+      <Party Id="10" Name="Shas" Votes="299533" AboveThreshold="true" BaseSeats="6" Seats="6" />
+      <Party Id="11" Name="Religious Zionism – Zehut" Votes="290549" AboveThreshold="true" BaseSeats="6" Seats="6" />
+      <Party Id="12" Name="The Reservists – New Economic" Votes="155199" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="13" Name="Amcha Yisrael" Votes="95764" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="14" Name="The Color Black" Votes="11271" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="15" Name="Haredi Public" Votes="10604" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="16" Name="Noam" Votes="9928" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="17" Name="Tzomet – Beit Yisrael" Votes="5713" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="18" Name="Partnership for Everyone" Votes="4077" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="19" Name="Sharshar for Love and Unity of the People" Votes="2086" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="20" Name="Together We Will Succeed" Votes="1438" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="21" Name="Pirate Party of Israel" Votes="1049" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="22" Name="Israel First – Ale Yarok" Votes="933" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="23" Name="New Order" Votes="918" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="24" Name="Hakahal Party" Votes="871" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="25" Name="Just Law" Votes="778" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="26" Name="Fixing the Electoral and Governing System" Votes="761" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="27" Name="Dawn's Light" Votes="747" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="28" Name="Women's Voice" Votes="712" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="29" Name="Garden of Eden" Votes="580" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="30" Name="Ani VeAta" Votes="569" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="31" Name="Redemption" Votes="524" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="32" Name="Social Security" Votes="501" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="33" Name="Personal Security" Votes="482" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="34" Name="The Bible Bloc" Votes="399" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="35" Name="Shema" Votes="322" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="36" Name="Eternal Covenant" Votes="252" AboveThreshold="false" BaseSeats="0" Seats="0" />
     </Parties>
     <SurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Likud" Party2="Religious Zionism – Zehut" />
@@ -52,9 +52,9 @@
     </SurplusVoteAgreements>
   </Input>
   <Output>
-    <TotalVotes>5690685</TotalVotes>
-    <QualifyingVotes>5382786</QualifyingVotes>
-    <Quota>44856.55</Quota>
+    <TotalVotes>5691426</TotalVotes>
+    <QualifyingVotes>5384948</QualifyingVotes>
+    <Quota>44874.566666666666666666666667</Quota>
     <AnnulledSurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Eternal Covenant" Party2="Fixing the Electoral and Governing System" />
     </AnnulledSurplusVoteAgreements>
@@ -67,31 +67,31 @@
       <Recipient Name="Otzma Yehudit" Seats="0" />
     </OrderedSeatsByRecipient>
     <OrderedSeats>
-      <OrderedSeat SeatNumber="116" PoliticalParty="United Torah Judaism" DivisorCalculation="1*(6+6) + 1" Divisor="13" Quotient="47085.384615384615384615384615">
-        <Recipient Name="United Torah Judaism" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="44657.714285714285714285714286" />
-        <Recipient Name="Shas" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="42786.571428571428571428571429" />
+      <OrderedSeat SeatNumber="116" PoliticalParty="United Torah Judaism" DivisorCalculation="1*(6+6) + 1" Divisor="13" Quotient="47089.615384615384615384615385">
+        <Recipient Name="United Torah Judaism" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="44661.714285714285714285714286" />
+        <Recipient Name="Shas" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="42790.428571428571428571428571" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="117" PoliticalParty="Together" DivisorCalculation="1*(11+7) + 1" Divisor="19" Quotient="45731">
-        <Recipient Name="Together" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="44289.666666666666666666666667" />
-        <Recipient Name="Yisrael Beiteinu" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="42176.625" />
+      <OrderedSeat SeatNumber="117" PoliticalParty="Together" DivisorCalculation="1*(11+7) + 1" Divisor="19" Quotient="45761.473684210526315789473684">
+        <Recipient Name="Together" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="44334.833333333333333333333333" />
+        <Recipient Name="Yisrael Beiteinu" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="42181.25" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="118" PoliticalParty="Likud" DivisorCalculation="1*(26+6) + 1" Divisor="33" Quotient="44179.060606060606060606060606">
-        <Recipient Name="Likud" DivisorCalculation="1*26 + 1" Divisor="27" Quotient="43239.185185185185185185185185" />
-        <Recipient Name="Religious Zionism – Zehut" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="41493" />
+      <OrderedSeat SeatNumber="118" PoliticalParty="Likud" DivisorCalculation="1*(26+6) + 1" Divisor="33" Quotient="44186.060606060606060606060606">
+        <Recipient Name="Likud" DivisorCalculation="1*26 + 1" Divisor="27" Quotient="43244.111111111111111111111111" />
+        <Recipient Name="Religious Zionism – Zehut" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="41507" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="119" PoliticalParty="Yashar" DivisorCalculation="1*(20+8) + 1" Divisor="29" Quotient="44132.896551724137931034482759">
-        <Recipient Name="Yashar" DivisorCalculation="1*20 + 1" Divisor="21" Quotient="43500.095238095238095238095238" />
-        <Recipient Name="The Democrats" DivisorCalculation="1*8 + 1" Divisor="9" Quotient="40705.777777777777777777777778" />
+      <OrderedSeat SeatNumber="119" PoliticalParty="Yashar" DivisorCalculation="1*(20+8) + 1" Divisor="29" Quotient="44134.72413793103448275862069">
+        <Recipient Name="Yashar" DivisorCalculation="1*20 + 1" Divisor="21" Quotient="43506.142857142857142857142857" />
+        <Recipient Name="The Democrats" DivisorCalculation="1*8 + 1" Divisor="9" Quotient="40697.555555555555555555555556" />
       </OrderedSeat>
-      <OrderedSeat SeatNumber="120" PoliticalParty="Ra'am" DivisorCalculation="1*(7+11) + 1" Divisor="19" Quotient="44073.684210526315789473684211">
-        <Recipient Name="Ra'am" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="42156.625" />
-        <Recipient Name="Joint List" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="41678.916666666666666666666667" />
+      <OrderedSeat SeatNumber="120" PoliticalParty="Ra'am" DivisorCalculation="1*(7+11) + 1" Divisor="19" Quotient="44130.263157894736842105263158">
+        <Recipient Name="Ra'am" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="42215" />
+        <Recipient Name="Joint List" DivisorCalculation="1*11 + 1" Divisor="12" Quotient="41729.583333333333333333333333" />
       </OrderedSeat>
     </OrderedSeats>
-    <NextOrderedSeat SeatNumber="121" PoliticalParty="Shas" DivisorCalculation="1*(6+7) + 1" Divisor="14" Quotient="43722.142857142857142857142857">
-      <Recipient Name="Shas" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="42786.571428571428571428571429" />
-      <Recipient Name="United Torah Judaism" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="39075.5" />
+    <NextOrderedSeat SeatNumber="121" PoliticalParty="Shas" DivisorCalculation="1*(6+7) + 1" Divisor="14" Quotient="43726.071428571428571428571429">
+      <Recipient Name="Shas" DivisorCalculation="1*6 + 1" Divisor="7" Quotient="42790.428571428571428571428571" />
+      <Recipient Name="United Torah Judaism" DivisorCalculation="1*7 + 1" Divisor="8" Quotient="39079" />
     </NextOrderedSeat>
-    <VotesNeededForNextOrderedSeat>4922</VotesNeededForNextOrderedSeat>
+    <VotesNeededForNextOrderedSeat>5659</VotesNeededForNextOrderedSeat>
   </Output>
 </Election>
