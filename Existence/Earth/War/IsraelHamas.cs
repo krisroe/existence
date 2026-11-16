@@ -2961,6 +2961,7 @@ internal class ExecutedByPalestinianMilitantGroup : ExecutedAttribute
 internal enum PalestinianMilitantGroups
 {
     Hamas,
+    MujahideenBrigades,
     PalestinianIslamicJihad,
     Other,
 }
@@ -3012,6 +3013,18 @@ internal enum IsraeliKibbutz
     NirOz,
     NirYitzhak,
     Nirim,
+}
+
+/// <summary>
+/// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
+/// </summary>
+internal class PalestinianMilitantGroupAttribute : Attribute
+{
+    public PalestinianMilitantGroups Group { get; set; }
+    public PalestinianMilitantGroupAttribute(PalestinianMilitantGroups Group)
+    {
+        this.Group = Group;
+    }
 }
 
 /// <summary>
@@ -3134,6 +3147,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.PalestinianIslamicJihad)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AbuHamza,
@@ -3143,6 +3157,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AbuMuradMurad,
@@ -3152,6 +3167,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 8, 30)]
     AbuObeida,
@@ -3161,6 +3177,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.MujahideenBrigades)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 6, 7)]
     AbuShariaAsad,
@@ -3170,6 +3187,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     AbuTamaaGhazi,
@@ -3196,6 +3214,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 1, 2)]
     AlArouriSaleh,
@@ -3205,6 +3224,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 23)]
     AlBardawilSalah,
@@ -3214,6 +3234,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AlDaalisIssam,
@@ -3232,6 +3253,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 15)]
     AlHaddadIzzAlDin,
@@ -3244,6 +3266,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AttemptedAssassinationPriorToOctober7(2007, 5, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     AlHayyaKhalil,
@@ -3253,6 +3276,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 6, 27)]
     AlIssaHakhamMuhammadIssa,
@@ -3262,6 +3286,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 15)]
     AlKedraBillal,
@@ -3289,6 +3314,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.PalestinianIslamicJihad)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2026, 3, 3)]
     AlOthmanAdhamAdnan,
@@ -3298,6 +3324,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AlQadiAli,
@@ -3377,6 +3404,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
     [DeathDate(2023, 10, 31)]
     BiariIbrahim,
@@ -3396,6 +3424,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     DarwishMuhammadIsmail,
 
@@ -3404,6 +3433,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
     DeifMohammed,
@@ -3413,6 +3443,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     GhandourAhmed,
@@ -3430,6 +3461,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     HalifaFarsan,
@@ -3439,6 +3471,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2024, 7, 31)]
     HaniyehIsmail,
@@ -3457,12 +3490,15 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     IssaMarwan,
 
     /// <summary>
-    /// Head of the Quds Force's Palestine branch
+    /// Iranian officer who headed the Palestine branch of the Quds Force, the foreign operations arm of the IRGC.
+    /// Not a member of Hamas: he was Iran's liaison to it and to other Palestinian militant groups, responsible for
+    /// Iranian funding and arming of them. Israel described him as one of the planners of the 2023-10-07 attacks.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranQom)]
@@ -3482,6 +3518,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     JabarinZaher,
 
@@ -3559,6 +3596,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AttemptedAssassinationPriorToOctober7(1997, 9, 25, CountryLikeThings.Jordan, WorldCities.JordanAmman)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     MashalKhaled,
@@ -3659,6 +3697,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
     NofalAyman,
@@ -3668,6 +3707,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
     OdehMohammed,
@@ -3702,6 +3742,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     QuaraMahdi,
@@ -3728,6 +3769,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     RajebWael,
@@ -3753,6 +3795,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 12, 13)]
     SaadRaad,
@@ -3771,6 +3814,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
     SalamaRafa,
@@ -3789,6 +3833,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     SalmanRafet,
@@ -3798,6 +3843,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     ShabanaMuhammad,
@@ -3815,6 +3861,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonSidon)]
     [DeathDate(2025, 2, 18)]
     ShaheenMuhammad,
@@ -3853,6 +3900,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 29)]
     SharifFatah,
@@ -3879,6 +3927,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     SiamAyman,
@@ -3888,6 +3937,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     SinwarMohammed,
@@ -3897,6 +3947,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinatedButNotActuallyAssassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
     [DeathDate(2024, 10, 16)]
     SinwarYahya,
@@ -3910,7 +3961,7 @@ internal enum IsraeliAssassinationTarget
     SoleimaniGholamreza,
 
     /// <summary>
-    /// Hamas financier.
+    /// Hamas financier. Not a member of Hamas: a Lebanese money changer who moved funds to Hamas.
     /// </summary>
     [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3981,6 +4032,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AttemptedAssassinationPriorToOctober7(2003, 9, 6, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinatedPriorToOctober7(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2004, 3, 22)]
