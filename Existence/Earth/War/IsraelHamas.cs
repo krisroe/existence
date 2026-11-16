@@ -3095,14 +3095,19 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 /// not the number of targets: a target can have more than one.
 /// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/> is not counted
 /// </remarks>
-[Total(103)]
+[Total(104)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
-    /// Nuclear scientist
+    /// Killed in an Israeli airstrike in Tehran on the first day of the Twelve-Day War, in the opening wave of strikes on
+    /// Iran's nuclear scientists and military commanders. Head of the Atomic Energy Organization of Iran from 2011 to 2013.
+    /// 2010: wounded in Tehran when a man on a motorbike attached a bomb to his car as he drove to work; a similar attack
+    /// the same day killed fellow scientist Majid Shahriari.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
+    [HumanOccupation(HumanOccupation.ScientistNuclear)]
+    [AttemptedAssassinationPriorToOctober7(2010, 11, 29, CountryLikeThings.Iran, WorldCities.IranTehran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     AbbasiFereydoon,
@@ -3506,10 +3511,15 @@ internal enum IsraeliAssassinationTarget
     KhademiMajid,
 
     /// <summary>
-    /// Supreme Leader of Iran
+    /// Killed on the first day of the 2026 Iran war, in a joint Israeli and United States operation that used CIA intelligence
+    /// on his movements. Israeli jets hit his Tehran compound in daylight with about thirty precision munitions, timed to a
+    /// meeting of senior officials that drew him above ground from his deep bunker. His daughter, granddaughter, son-in-law
+    /// and daughter-in-law were also killed. Iran confirmed his death the next day, after first denying it.
+    /// An Israeli plan to kill him during the Twelve-Day War in June 2025 was reportedly vetoed by Donald Trump.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [EthnicGroups((int)WorldEthnicGroups.Azerbaijani, (int)WorldEthnicGroups.Persian)]
+    [HumanOccupation(HumanOccupation.LeaderOfCountrySupreme)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     KhameneiAli,
@@ -3925,9 +3935,11 @@ internal enum IsraeliAssassinationTarget
     TangsiriAlireza,
 
     /// <summary>
-    /// Nuclear scientist
+    /// Killed in the Israeli strikes on Iran's nuclear program on the first day of the Twelve-Day War, in the same opening wave
+    /// as <see cref="AbbasiFereydoon"/>. Theoretical physicist and president of the Islamic Azad University.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
+    [HumanOccupation(HumanOccupation.ScientistNuclear)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     TehranchiMohammadMehdi,

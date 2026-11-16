@@ -56,6 +56,34 @@ namespace Existence.Earth.Human.People
         Nonbinary,
     }
 
+    /// <summary>
+    /// occupation held by a human
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class HumanOccupationAttribute : Attribute
+    {
+        public HumanOccupation Occupation { get; set; }
+        public HumanOccupationAttribute(HumanOccupation Occupation)
+        {
+            this.Occupation = Occupation;
+        }
+    }
+
+    /// <summary>
+    /// occupations that can be held by humans
+    /// </summary>
+    /// <remarks>named general to specific (e.g. ScientistNuclear) so related occupations sort together</remarks>
+    public enum HumanOccupation
+    {
+        /// <summary>
+        /// head of a country who holds authority above the head of government and the elected head of state
+        /// (e.g. the Supreme Leader of Iran)
+        /// </summary>
+        LeaderOfCountrySupreme,
+
+        ScientistNuclear,
+    }
+
     public enum Level
     {
         None,
