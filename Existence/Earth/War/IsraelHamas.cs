@@ -3012,6 +3012,68 @@ internal enum IsraeliKibbutz
     Nirim,
 }
 
+/// <summary>
+/// an Israeli assassination attempt the target survived that took place before the 2023-10-07 attacks
+/// </summary>
+/// <remarks>
+/// not an exhaustive record: only applied where the earlier attempt is significant, i.e. the target is still alive
+/// </remarks>
+internal class AttemptedAssassinationPriorToOctober7Attribute : AssassinationAttemptAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Year">year of the attempt</param>
+    /// <param name="Month">month of the attempt</param>
+    /// <param name="Day">day of the attempt</param>
+    /// <param name="Country">country where the assassination attempt took place</param>
+    /// <param name="City">city where the assassination attempt took place</param>
+    public AttemptedAssassinationPriorToOctober7Attribute(int Year, int Month, int Day, CountryLikeThings Country, WorldCities City) : base(Year, Month, Day, Country, City)
+    {
+    }
+}
+
+/// <summary>
+/// a target who was killed by the party trying to assassinate them, but not in an assassination
+/// (e.g. killed in a chance encounter rather than a planned strike)
+/// </summary>
+/// <remarks>
+/// deliberately does not inherit from <see cref="AssassinatedAttribute"/> so that it is not counted as an assassination
+/// </remarks>
+internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
+{
+    /// <summary>
+    /// country where the death took place
+    /// </summary>
+    public CountryLikeThings Country { get; set; }
+
+    /// <summary>
+    /// city where the death took place
+    /// </summary>
+    public WorldCities City { get; set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Country">country where the death took place</param>
+    /// <param name="City">city where the death took place</param>
+    public AssassinatedButNotActuallyAssassinatedAttribute(CountryLikeThings Country, WorldCities City)
+    {
+        this.Country = Country;
+        this.City = City;
+    }
+}
+
+/// <summary>
+/// targets of Israeli assassinations and assassination attempts since the 2023-10-07 attacks
+/// </summary>
+/// <remarks>
+/// the <see cref="TotalAttribute"/> is the number of assassinations and survived assassination attempts
+/// (<see cref="AssassinatedAttribute"/> and <see cref="AssassinationAttemptAttribute"/>, including derived attributes),
+/// not the number of targets: a target can have more than one.
+/// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/> is not counted
+/// </remarks>
+[Total(101)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3148,10 +3210,14 @@ internal enum IsraeliAssassinationTarget
     AlHaddadIzzAlDin,
 
     /// <summary>
-    /// Hamas chief negotiator
+    /// Hamas chief negotiator.
+    /// 2007: an Israeli strike on his home in Gaza City killed seven or eight of his relatives; he survived.
+    /// 2025: survived the strike on the Hamas compound in Doha, which killed his son Himam and his office director.
+    /// Other sons were killed by Israeli strikes in 2008, 2014 and 2026.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AttemptedAssassinationPriorToOctober7(2007, 5, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     AlHayyaKhalil,
 
@@ -3453,9 +3519,14 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Former Hamas Political Bureau chairman. Reported (unconfirmed) target of the Doha strike.
+    /// 1997: Mossad agents, acting on Netanyahu's orders and travelling on fake Canadian passports, poisoned him outside
+    /// the Hamas office in Amman. Two agents were captured and he fell into a coma; he survived after King Hussein of Jordan,
+    /// backed by Bill Clinton, forced Israel to hand over the antidote. Israel also released Ahmed Yassin to get the
+    /// rest of the team back.
     /// </summary>
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AttemptedAssassinationPriorToOctober7(1997, 9, 25, CountryLikeThings.Jordan, WorldCities.JordanAmman)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     MashalKhaled,
 
@@ -3778,10 +3849,12 @@ internal enum IsraeliAssassinationTarget
     SinwarMohammed,
 
     /// <summary>
-    /// Hamas leader and Israel's most-wanted target. Killed 2024-10-16, Rafah, in a chance encounter with IDF troops rather than a planned strike.
+    /// Hamas leader and Israel's most-wanted target. Killed in a chance encounter with IDF troops rather than a planned strike.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinatedButNotActuallyAssassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
+    [DeathDate(2024, 10, 16)]
     SinwarYahya,
 
     /// <summary>
