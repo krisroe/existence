@@ -19,33 +19,44 @@ namespace CalculateParliamentaryApportionment
     /// element of an XML file, and writes the resulting seat distribution back to the same file. Method is exactly
     /// D'Hondt or Sainte-Laguë. Each Party element gets AboveThreshold and Seats attributes, plus BaseSeats for D'Hondt,
     /// and everything else goes in the Output element. Those attributes and the Output element are ignored when reading
-    /// and regenerated on every run, so only Name and Votes need to be filled in. The file looks like this before it is
+    /// and regenerated on every run, so only Id, Name and Votes need to be filled in. Id is the party's number: 1 for
+    /// the party with the most votes, then 2, 3 and so on as the votes go down, each used once, so a party with more
+    /// votes always has a lower ID. Parties with the same votes can be in either order, and the lower ID wins a tie
+    /// between them. The seats are worked out by ID. The file looks like this before it is
     /// first run, with SurplusVoteAgreements being optional, and FirstDivisor being optional and only for Sainte-Laguë
     /// (leave it out for plain Sainte-Laguë, or use 7/5 for Norway's modified Sainte-Laguë). For mixed-member
     /// proportional, as in New Zealand, give each party that won electorates an ElectorateSeats attribute, also only for
     /// Sainte-Laguë; then each party also gets ListSeats, OverhangSeats and TotalSeats attributes, and the Output element
     /// gets NumberOfMembers.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
-    /// Base for D'Hondt (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>), and
-    /// any of OrderedSeats (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/>),
-    /// QuotientTable (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable"/>)
-    /// and DivisorRounding (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding"/>)
-    /// for Sainte-Laguë. They run in the order listed, and with more than one they have to give the same results, except
+    /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
+    /// Sainte-Laguë:
+    ///  OrderedSeats (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/>),
+    ///  QuotientTable (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable"/>)
+    ///  DivisorRounding (<see cref="SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding"/>)
+    /// Algorithms run in the order listed, and with more than one they have to give the same results, except
     /// that DivisorRounding doesn't give out seats in order, so OrderedSeats is only compared between the others. The
     /// results written are from the first algorithm listed that gives out seats in order, or the first one if none does.
-    /// The optional IncludePerformance element adds a Performance element to the Output element with how long each
-    /// algorithm took in milliseconds whenever the element is there; its inner text is ignored. Its UntimedRuns attribute
+    /// 
+    /// IncludePerformance element (optional)
+    /// 
+    /// When specified, adds a Performance element to the Output element with how long each
+    /// algorithm took in milliseconds whenever the element is there. Its UntimedRuns attribute
     /// (0 or more) is how many times all the algorithms run first without being timed, so the timing doesn't include the
     /// one-time cost of compiling the code. Its StartupQuietPeriodTicks attribute (0 or more) is how long to wait before
-    /// those runs, and its PostUntimedRunsTicks attribute (0 or more) is how long to wait after them, both in ticks of
-    /// 100 nanoseconds (10,000 to a millisecond); see <see cref="PerformanceRuns"/> for why neither matches what .NET
+    /// those runs, and its PostUntimedRunsTicks attribute (0 or more) is how long to wait after them, both in ticks (100 ns).
+    /// See <see cref="PerformanceRuns"/> for why neither matches what .NET
     /// waits for. Its TimedRuns attribute (1 or more) is how many times each is then timed, taking turns. The time
     /// written is each algorithm's median, which for an even number of timed runs is the average of the two middle times.
-    /// IncludePerformance can have an EnvironmentVariables element with .NET settings to run with, each attribute named
-    /// after its environment variable: DOTNET_TieredCompilation, DOTNET_TieredPGO and DOTNET_ReadyToRun (true or false)
-    /// turn those .NET features on or off, and DOTNET_TC_CallCountingDelayMs (0 or more) and
-    /// DOTNET_TC_CallCountThreshold (1 or more) are ordinary whole numbers, converted to the hexadecimal .NET reads.
-    /// Since .NET only reads these when it starts, the program runs a copy of itself with them to do the work:
+    /// 
+    /// IncludePerformance supports an EnvironmentVariables element with .NET settings to run with. When environment variables
+    /// are specified, the program runs a copy of itself to do the work, passing in the environment variables.
+    ///  DOTNET_TieredCompilation (true/false)
+    ///  DOTNET_TieredPGO (true/false)
+    ///  DOTNET_ReadyToRun (true/false)
+    ///  DOTNET_TC_CallCountingDelayMs (0 or more, converted to hex)
+    ///  DOTNET_TC_CallCountThreshold (1 or more, converted to hex)
+    /// 
     /// <code>
     /// &lt;Election&gt;
     ///   &lt;Input&gt;
@@ -57,8 +68,8 @@ namespace CalculateParliamentaryApportionment
     ///     &lt;NumberOfSeats&gt;120&lt;/NumberOfSeats&gt;
     ///     &lt;ElectoralThreshold&gt;3.25&lt;/ElectoralThreshold&gt;
     ///     &lt;Parties&gt;
-    ///       &lt;Party Name="Party1" Votes="1000" ElectorateSeats="1" /&gt;
-    ///       &lt;Party Name="Party2" Votes="2000" /&gt;
+    ///       &lt;Party Id="2" Name="Party1" Votes="1000" ElectorateSeats="1" /&gt;
+    ///       &lt;Party Id="1" Name="Party2" Votes="2000" /&gt;
     ///     &lt;/Parties&gt;
     ///     &lt;SurplusVoteAgreements&gt;
     ///       &lt;SurplusVoteAgreement Party1="Party1" Party2="Party2" /&gt;
@@ -80,6 +91,7 @@ namespace CalculateParliamentaryApportionment
         private const string PartyElement = "Party";
         private const string SurplusVoteAgreementElement = "SurplusVoteAgreement";
         private const string RecipientElement = "Recipient";
+        private const string IdAttribute = nameof(PoliticalPartyVotes.Id);
         private const string NameAttribute = "Name";
         private const string VotesAttribute = "Votes";
         private const string AboveThresholdAttribute = "AboveThreshold";
@@ -210,12 +222,12 @@ namespace CalculateParliamentaryApportionment
                 {
                     XDocument doc = XDocument.Load(sPath);
                     XElement input = GetRequiredElement(doc.Root!, InputElement);
-                    Dictionary<string, long> votes = ReadNumberOfVotes(input);
-                    List<(string, string)> agreements = ReadSurplusVoteAgreements(input);
+                    List<PoliticalPartyVotes> parties = ReadParties(input);
+                    List<(int, int)> agreements = ReadSurplusVoteAgreements(input, parties);
                     int iNumberOfSeats = (int)GetRequiredElement(input, NumberOfSeatsElement);
                     SimpleFraction electoralThreshold = SimpleFraction.FromDecimal((decimal)GetRequiredElement(input, ElectoralThresholdElement));
                     XElement? firstDivisor = input.Element(FirstDivisorElement);
-                    Dictionary<string, int>? electorateSeats = ReadElectorateSeats(input);
+                    Dictionary<int, int>? electorateSeats = ReadElectorateSeats(input, parties);
                     XElement method = GetRequiredElement(input, MethodElement);
                     string sMethod = (string)method;
                     PerformanceRuns? performance = ReadPerformanceRuns(input);
@@ -226,7 +238,7 @@ namespace CalculateParliamentaryApportionment
                         if (electorateSeats != null) throw new FormatException($"{ElectorateSeatsAttribute} is only for {SainteLagueMethod}");
                         available = new Dictionary<string, Func<SeatDistributionBase>>
                         {
-                            [BaseAlgorithm] = () => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, electoralThreshold),
+                            [BaseAlgorithm] = () => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold),
                         };
                     }
                     else if (sMethod == SainteLagueMethod)
@@ -236,9 +248,9 @@ namespace CalculateParliamentaryApportionment
                             (long)GetRequiredAttribute(firstDivisor, DenominatorAttribute));
                         available = new Dictionary<string, Func<SeatDistributionBase>>
                         {
-                            [OrderedSeatsAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
-                            [QuotientTableAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(votes, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
-                            [DivisorRoundingAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(votes, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
+                            [OrderedSeatsAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
+                            [QuotientTableAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
+                            [DivisorRoundingAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats),
                         };
                     }
                     else
@@ -498,14 +510,20 @@ namespace CalculateParliamentaryApportionment
             return null;
         }
 
-        private static Dictionary<string, long> ReadNumberOfVotes(XElement input)
+        /// <summary>
+        /// reads each party's Id, Name and Votes. The IDs themselves are checked when the seats are worked out: they have
+        /// to go from 1 up to the number of parties, each used once, with a party with more votes having a lower ID
+        /// </summary>
+        /// <returns>the parties in the order they're listed</returns>
+        private static List<PoliticalPartyVotes> ReadParties(XElement input)
         {
-            Dictionary<string, long> ret = new Dictionary<string, long>();
+            List<PoliticalPartyVotes> ret = new List<PoliticalPartyVotes>();
+            HashSet<string> names = new HashSet<string>();
             foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
             {
                 string sParty = (string)GetRequiredAttribute(next, NameAttribute);
-                if (!ret.TryAdd(sParty, (long)GetRequiredAttribute(next, VotesAttribute)))
-                    throw new FormatException($"{sParty} is listed more than once in {PartiesElement}");
+                if (!names.Add(sParty)) throw new FormatException($"{sParty} is listed more than once in {PartiesElement}");
+                ret.Add(new PoliticalPartyVotes((int)GetRequiredAttribute(next, IdAttribute), sParty, (long)GetRequiredAttribute(next, VotesAttribute)));
             }
             return ret;
         }
@@ -513,17 +531,19 @@ namespace CalculateParliamentaryApportionment
         /// <summary>
         /// reads the ElectorateSeats attribute of each party that has one, which is an input rather than a result
         /// </summary>
-        /// <returns>the electorates each party won, or null if no party has the attribute</returns>
-        private static Dictionary<string, int>? ReadElectorateSeats(XElement input)
+        /// <param name="parties">the parties from <see cref="ReadParties"/></param>
+        /// <returns>the electorates each party won, by party ID, or null if no party has the attribute</returns>
+        private static Dictionary<int, int>? ReadElectorateSeats(XElement input, List<PoliticalPartyVotes> parties)
         {
-            Dictionary<string, int>? ret = null;
+            Dictionary<int, int>? ret = null;
+            Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
             foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
             {
                 XAttribute? seats = next.Attribute(ElectorateSeatsAttribute);
                 if (seats != null)
                 {
-                    ret ??= new Dictionary<string, int>();
-                    ret[(string)GetRequiredAttribute(next, NameAttribute)] = (int)seats;
+                    ret ??= new Dictionary<int, int>();
+                    ret[ids[(string)GetRequiredAttribute(next, NameAttribute)]] = (int)seats;
                 }
             }
             return ret;
@@ -551,14 +571,25 @@ namespace CalculateParliamentaryApportionment
             }
         }
 
-        private static List<(string, string)> ReadSurplusVoteAgreements(XElement input)
+        /// <summary>
+        /// reads the surplus vote agreements, which name their parties, and gets them by party ID
+        /// </summary>
+        /// <param name="parties">the parties from <see cref="ReadParties"/></param>
+        private static List<(int, int)> ReadSurplusVoteAgreements(XElement input, List<PoliticalPartyVotes> parties)
         {
-            List<(string, string)> ret = new List<(string, string)>();
+            List<(int, int)> ret = new List<(int, int)>();
+            Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+            int GetId(XElement agreement, string sAttribute)
+            {
+                string sParty = (string)GetRequiredAttribute(agreement, sAttribute);
+                return ids.TryGetValue(sParty, out int iId) ? iId : throw new FormatException($"surplus vote agreement party {sParty} isn't in {PartiesElement}");
+            }
+
             XElement? agreements = input.Element(SurplusVoteAgreementsElement);
             if (agreements != null)
             {
                 foreach (XElement next in agreements.Elements(SurplusVoteAgreementElement))
-                    ret.Add(((string)GetRequiredAttribute(next, Party1Attribute), (string)GetRequiredAttribute(next, Party2Attribute)));
+                    ret.Add((GetId(next, Party1Attribute), GetId(next, Party2Attribute)));
             }
             return ret;
         }

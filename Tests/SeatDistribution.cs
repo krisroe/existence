@@ -583,5 +583,94 @@ namespace Existence.Tests
                 }
             }
         }
+
+        /// <summary>
+        /// the 2022 Knesset election's votes with party IDs, from 1 for the most votes, in the same order as
+        /// <see cref="knessetV25Votes"/>, so Other (more votes than TheJewishHome) is listed last with ID 13
+        /// </summary>
+        private static List<PoliticalPartyVotes> GetKnessetV25Parties()
+        {
+            Dictionary<string, int> ids = knessetV25Votes.OrderByDescending(p => p.Value).Select((p, i) => (p.Key, Id: i + 1)).ToDictionary(p => p.Key, p => p.Id);
+            return knessetV25Votes.Select(p => new PoliticalPartyVotes(ids[p.Key], p.Key, p.Value)).ToList();
+        }
+
+        /// <summary>
+        /// validates that working out the seats by party ID gives the same results as by party name, for D'Hondt and
+        /// the three ways of working out Sainte-Laguë
+        /// </summary>
+        [TestMethod]
+        public void ValidatePartyIdsGiveTheSameResultsAsNames()
+        {
+            List<PoliticalPartyVotes> parties = GetKnessetV25Parties();
+            Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+            List<(int, int)> agreements = knessetV25SurplusVoteAgreements.Select(a => (ids[a.Item1], ids[a.Item2])).ToList();
+            Assert.AreEqual(13, ids["Other"]);
+            Assert.AreEqual(14, ids["TheJewishHome"]);
+
+            AssertSame(SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold),
+                SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, knessetNumberOfSeats, knessetV25ElectoralThreshold));
+            AssertSame(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold),
+                SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, agreements, knessetNumberOfSeats, knessetV25ElectoralThreshold));
+            AssertSame(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold),
+                SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(parties, agreements, knessetNumberOfSeats, knessetV25ElectoralThreshold));
+            AssertSame(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(knessetV25Votes, knessetV25SurplusVoteAgreements, knessetNumberOfSeats, knessetV25ElectoralThreshold),
+                SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(parties, agreements, knessetNumberOfSeats, knessetV25ElectoralThreshold));
+
+            static void AssertSame(SeatDistributionBase byName, SeatDistributionBase byId)
+            {
+                CollectionAssert.AreEqual(byName.Seats.ToList(), byId.Seats.ToList());
+                CollectionAssert.AreEqual(byName.OrderedSeatsByRecipient.ToList(), byId.OrderedSeatsByRecipient.ToList());
+                CollectionAssert.AreEqual(byName.PoliticalPartiesBelowElectoralThreshold, byId.PoliticalPartiesBelowElectoralThreshold);
+                CollectionAssert.AreEqual(byName.AnnulledSurplusVoteAgreements, byId.AnnulledSurplusVoteAgreements);
+                CollectionAssert.AreEqual(byName.OrderedSeats.Select(s => $"{s.SeatNumber} {s.PoliticalParty} {s.Quotient}").ToList(), byId.OrderedSeats.Select(s => $"{s.SeatNumber} {s.PoliticalParty} {s.Quotient}").ToList());
+                Assert.AreEqual(byName.NextOrderedSeat.PoliticalParty, byId.NextOrderedSeat.PoliticalParty);
+                Assert.AreEqual(byName.VotesNeededForNextOrderedSeat, byId.VotesNeededForNextOrderedSeat);
+            }
+        }
+
+        /// <summary>
+        /// validates that party IDs that aren't 1 up to the number of parties, are used twice, or don't go down with the
+        /// votes are rejected, while parties with the same votes can have their IDs either way
+        /// </summary>
+        [TestMethod]
+        [DataRow(0, 2, 3, 300L, 200L, 100L, false)]
+        [DataRow(1, 2, 4, 300L, 200L, 100L, false)]
+        [DataRow(1, 1, 3, 300L, 200L, 100L, false)]
+        [DataRow(2, 1, 3, 300L, 200L, 100L, false)]
+        [DataRow(1, 3, 2, 300L, 200L, 100L, false)]
+        [DataRow(1, 2, 3, 300L, 200L, 100L, true)]
+        [DataRow(3, 1, 2, 100L, 300L, 200L, true)]
+        [DataRow(1, 3, 2, 300L, 200L, 200L, true)]
+        [DataRow(1, 2, 3, 300L, 200L, 200L, true)]
+        public void ValidatePartyIdsAreChecked(int iIdA, int iIdB, int iIdC, long lVotesA, long lVotesB, long lVotesC, bool isValid)
+        {
+            List<PoliticalPartyVotes> parties = new List<PoliticalPartyVotes>()
+            {
+                new PoliticalPartyVotes(iIdA, "A", lVotesA), new PoliticalPartyVotes(iIdB, "B", lVotesB), new PoliticalPartyVotes(iIdC, "C", lVotesC),
+            };
+            void Calculate() => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, new List<(int, int)>(), 10, noElectoralThreshold);
+            if (isValid)
+                Calculate();
+            else
+                Assert.ThrowsExactly<System.ArgumentException>(Calculate);
+        }
+
+        /// <summary>
+        /// validates that within a surplus vote agreement whose parties have the same votes, the tie goes to the party
+        /// with the lower ID, whichever order the agreement lists them in
+        /// </summary>
+        [TestMethod]
+        [DataRow(1, 2)]
+        [DataRow(2, 1)]
+        public void ValidateLowerPartyIdWinsTiesInSurplusVoteAgreement(int iParty1, int iParty2)
+        {
+            List<PoliticalPartyVotes> parties = new List<PoliticalPartyVotes>()
+            {
+                new PoliticalPartyVotes(1, "A", 500), new PoliticalPartyVotes(2, "B", 500), new PoliticalPartyVotes(3, "C", 100),
+            };
+            SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, new List<(int, int)>() { (iParty1, iParty2) }, 1, noElectoralThreshold);
+            Assert.AreEqual("A", r.OrderedSeats[0].PoliticalParty);
+            Assert.AreEqual("B", r.NextOrderedSeat.PoliticalParty);
+        }
     }
 }

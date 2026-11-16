@@ -5,23 +5,23 @@
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>5</ElectoralThreshold>
     <Parties>
-      <Party Name="Labour" Votes="710330" ElectorateSeats="21" AboveThreshold="true" Seats="36" ListSeats="15" OverhangSeats="0" TotalSeats="36" />
-      <Party Name="National" Votes="706680" ElectorateSeats="42" AboveThreshold="true" Seats="35" ListSeats="0" OverhangSeats="7" TotalSeats="42" />
-      <Party Name="Green" Votes="321902" ElectorateSeats="2" AboveThreshold="true" Seats="16" ListSeats="14" OverhangSeats="0" TotalSeats="16" />
-      <Party Name="ACT" Votes="264121" ElectorateSeats="1" AboveThreshold="true" Seats="13" ListSeats="12" OverhangSeats="0" TotalSeats="13" />
-      <Party Name="NZ First" Votes="236630" AboveThreshold="true" Seats="12" ListSeats="12" OverhangSeats="0" TotalSeats="12" />
-      <Party Name="Opportunity" Votes="144298" AboveThreshold="true" Seats="7" ListSeats="7" OverhangSeats="0" TotalSeats="7" />
-      <Party Name="Te Pāti Māori" Votes="13845" ElectorateSeats="5" AboveThreshold="true" Seats="1" ListSeats="0" OverhangSeats="4" TotalSeats="5" />
-      <Party Name="Legalise Cannabis" Votes="4829" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="NZ Outdoors &amp; Freedom" Votes="2685" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Animal Justice" Votes="2585" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Conservative" Votes="1886" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Women's Rights" Votes="1856" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="NZ Loyal" Votes="1855" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Vision New Zealand" Votes="1529" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Te Tai Tokerau" Votes="1217" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Free Palestine" Votes="1168" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
-      <Party Name="Alliance" Votes="1149" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="1" Name="Labour" Votes="710330" ElectorateSeats="21" AboveThreshold="true" Seats="36" ListSeats="15" OverhangSeats="0" TotalSeats="36" />
+      <Party Id="2" Name="National" Votes="706680" ElectorateSeats="42" AboveThreshold="true" Seats="35" ListSeats="0" OverhangSeats="7" TotalSeats="42" />
+      <Party Id="3" Name="Green" Votes="321902" ElectorateSeats="2" AboveThreshold="true" Seats="16" ListSeats="14" OverhangSeats="0" TotalSeats="16" />
+      <Party Id="4" Name="ACT" Votes="264121" ElectorateSeats="1" AboveThreshold="true" Seats="13" ListSeats="12" OverhangSeats="0" TotalSeats="13" />
+      <Party Id="5" Name="NZ First" Votes="236630" AboveThreshold="true" Seats="12" ListSeats="12" OverhangSeats="0" TotalSeats="12" />
+      <Party Id="6" Name="Opportunity" Votes="144298" AboveThreshold="true" Seats="7" ListSeats="7" OverhangSeats="0" TotalSeats="7" />
+      <Party Id="7" Name="Te Pāti Māori" Votes="13845" ElectorateSeats="5" AboveThreshold="true" Seats="1" ListSeats="0" OverhangSeats="4" TotalSeats="5" />
+      <Party Id="8" Name="Legalise Cannabis" Votes="4829" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="9" Name="NZ Outdoors &amp; Freedom" Votes="2685" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="10" Name="Animal Justice" Votes="2585" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="11" Name="Conservative" Votes="1886" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="12" Name="Women's Rights" Votes="1856" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="13" Name="NZ Loyal" Votes="1855" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="14" Name="Vision New Zealand" Votes="1529" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="15" Name="Te Tai Tokerau" Votes="1217" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="16" Name="Free Palestine" Votes="1168" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
+      <Party Id="17" Name="Alliance" Votes="1149" AboveThreshold="false" Seats="0" ListSeats="0" OverhangSeats="0" TotalSeats="0" />
     </Parties>
   </Input>
   <Output>

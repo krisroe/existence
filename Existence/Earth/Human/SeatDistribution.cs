@@ -50,24 +50,33 @@ namespace Existence.Earth.Human.Politics
         public decimal Quotient { get; set; }
 
         /// <summary>
-        /// the recipients in the order the method uses for them, which matches the keys of
+        /// IDs of the recipients in the order the method uses for them, whose names joined with " + " are the keys of
         /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>
         /// </summary>
-        internal string[] RecipientGroup { get; set; }
+        internal int[] RecipientGroup { get; set; }
+
+        /// <summary>
+        /// ID of <see cref="PoliticalParty"/>
+        /// </summary>
+        internal int PoliticalPartyId { get; set; }
 
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="SeatNumber">seat number</param>
-        /// <param name="RecipientGroup">political parties that receive the seat, in the order the method uses for them</param>
+        /// <param name="RecipientGroup">IDs of the political parties that receive the seat, in the order the method uses
+        /// for them</param>
+        /// <param name="PoliticalPartyId">ID of the party that got the seat, which is the first of
+        /// <paramref name="Recipients"/></param>
         /// <param name="Recipients">each recipient's own divisor and quotient, with the one that got the seat first</param>
         /// <param name="Divisor">what the recipients' combined votes were divided by</param>
         /// <param name="DivisorCalculation">how <paramref name="Divisor"/> was worked out</param>
         /// <param name="Quotient">the recipients' combined votes divided by <paramref name="Divisor"/></param>
-        internal OrderedSeat(int SeatNumber, string[] RecipientGroup, List<OrderedSeatRecipient> Recipients, SimpleFraction Divisor, string DivisorCalculation, decimal Quotient)
+        internal OrderedSeat(int SeatNumber, int[] RecipientGroup, int PoliticalPartyId, List<OrderedSeatRecipient> Recipients, SimpleFraction Divisor, string DivisorCalculation, decimal Quotient)
         {
             this.SeatNumber = SeatNumber;
             this.RecipientGroup = RecipientGroup;
+            this.PoliticalPartyId = PoliticalPartyId;
             this.Recipients = Recipients;
             this.PoliticalParty = Recipients[0].PoliticalParty;
             this.Divisor = Divisor;
@@ -241,8 +250,80 @@ namespace Existence.Earth.Human.Politics
         public bool NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat { get; set; }
     }
 
+    /// <summary>
+    /// a party's votes, for working out a seat distribution by party ID
+    /// </summary>
+    /// <param name="Id">the party's number: 1 for the party with the most votes, then 2, 3 and so on up to the number of
+    /// parties as the votes go down, so a party with more votes always has a lower ID. Parties with the same votes can
+    /// be in either order, and the one with the lower ID wins a tie between them</param>
+    /// <param name="Name">the party's name, which the results use</param>
+    /// <param name="Votes">votes for the party, not negative</param>
+    public sealed record PoliticalPartyVotes(int Id, string Name, long Votes);
+
     public static class SeatDistributions
     {
+        /// <summary>
+        /// gets the parties with IDs from 1 for the most votes, with ties in the order given, for working out a seat
+        /// distribution given votes by party name. Negative votes are rejected here, as they would be by party ID
+        /// </summary>
+        /// <returns>the parties in the order given</returns>
+        private static List<PoliticalPartyVotes> AssignIds(IDictionary<string, long> NumberOfVotes)
+        {
+            foreach (KeyValuePair<string, long> next in NumberOfVotes)
+            {
+                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
+            }
+            Dictionary<string, int> ids = NumberOfVotes.OrderByDescending(p => p.Value).Select((p, i) => (p.Key, Id: i + 1)).ToDictionary(p => p.Key, p => p.Id);
+            return NumberOfVotes.Select(p => new PoliticalPartyVotes(ids[p.Key], p.Key, p.Value)).ToList();
+        }
+
+        /// <summary>
+        /// gets the surplus vote agreements by party ID, given them by party name
+        /// </summary>
+        private static List<(int, int)> GetSurplusVoteAgreementIds(List<PoliticalPartyVotes> parties, IEnumerable<(string, string)> SurplusVoteAgreements)
+        {
+            Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+            int GetId(string sParty) => ids.TryGetValue(sParty, out int ret) ? ret : throw new ArgumentException($"surplus vote agreement party {sParty} has no votes", nameof(SurplusVoteAgreements));
+            return SurplusVoteAgreements.Select(a => (GetId(a.Item1), GetId(a.Item2))).ToList();
+        }
+
+        /// <summary>
+        /// gets the electorates each party won by party ID, given them by party name
+        /// </summary>
+        /// <returns>null if <paramref name="ElectorateSeats"/> is</returns>
+        private static Dictionary<int, int>? GetElectorateSeatIds(List<PoliticalPartyVotes> parties, IDictionary<string, int>? ElectorateSeats)
+        {
+            Dictionary<int, int>? ret = null;
+            if (ElectorateSeats != null)
+            {
+                Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+                ret = new Dictionary<int, int>();
+                foreach (KeyValuePair<string, int> next in ElectorateSeats)
+                {
+                    if (!ids.TryGetValue(next.Key, out int iId)) throw new ArgumentException($"{next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
+                    ret[iId] = next.Value;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// same as <see cref="CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList{PoliticalPartyVotes}, IEnumerable{ValueTuple{int, int}}, int, SimpleFraction)"/>,
+        /// with the parties given by name and their IDs worked out from their votes
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
+        /// percentage of all of them; minor parties far below the threshold can be lumped into one entry. Parties with
+        /// the same votes are taken to be in the order given</param>
+        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
+        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
+        {
+            List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
+            return CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold);
+        }
+
         /// <summary>
         /// distributes seats in a single district using the D'Hondt method, which Victor D'Hondt developed in Belgium in
         /// the 1870s and 1880s. The same method was proposed earlier by
@@ -252,29 +333,33 @@ namespace Existence.Earth.Human.Politics
         /// party gets a base seat per whole quota of qualifying votes. Leftover seats then go one at a time to the party
         /// or surplus vote agreement with the most votes per seat if it got one more, and within an agreement to the party
         /// with the most votes per seat if it got one more. Ties go to the side with more votes. Surplus vote agreements
-        /// are an addition to plain D'Hondt, so pass none to get plain D'Hondt
+        /// are an addition to plain D'Hondt, so pass none to get plain D'Hondt. The calculation works with party IDs, and
+        /// the results give the parties by name
         /// </summary>
-        /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
-        /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
-        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="Parties">votes for each party, with IDs from 1 for the most votes. Include every party, since the
+        /// electoral threshold is a percentage of all of them; minor parties far below the threshold can be lumped into
+        /// one entry. The results list parties in this order</param>
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
         /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
         {
+            Election e = new Election(Parties);
             DHondtSeatDistribution r = new DHondtSeatDistribution();
-            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, Enumerable.Empty<string>());
+            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, new HashSet<int>());
             r.Quota = (decimal)r.QualifyingVotes / NumberOfSeats;
 
-            foreach (string sParty in qualifying)
+            foreach (int iParty in qualifying)
             {
-                int iSeats = (int)(NumberOfVotes[sParty] * NumberOfSeats / r.QualifyingVotes);
-                r.BaseSeats[sParty] = iSeats;
-                r.Seats[sParty] = iSeats;
+                int iSeats = (int)(e.Votes[iParty] * NumberOfSeats / r.QualifyingVotes);
+                r.BaseSeats[e.Names[iParty]] = iSeats;
+                e.Seats[iParty] = iSeats;
             }
 
-            List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            GiveOutOrderedSeats(r, NumberOfVotes, recipients, GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1)), NumberOfSeats);
+            List<int[]> recipients = GetRecipients(r, e, SurplusVoteAgreements, qualifying);
+            GiveOutOrderedSeats(r, e, recipients, GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1)), NumberOfSeats);
+            CopySeats(r, e, qualifying);
             return r;
         }
 
@@ -293,33 +378,98 @@ namespace Existence.Earth.Human.Politics
         /// so a party's first seat costs more, which Norway does with 1.4 (7/5) and Sweden did with 1.4 before changing
         /// to 1.2 (6/5) in 2018. For mixed-member proportional, as in New Zealand, pass the electorates each party won:
         /// winning one qualifies a party even below the electoral threshold, the seats are still divided by the party
-        /// vote, and a party that won more electorates than its share keeps them as overhang seats
+        /// vote, and a party that won more electorates than its share keeps them as overhang seats. The calculation works
+        /// with party IDs, and the results give the parties by name
         /// </summary>
-        /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
-        /// percentage of all of them; minor parties far below the threshold can be lumped into one entry</param>
-        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="Parties">votes for each party, with IDs from 1 for the most votes. Include every party, since the
+        /// electoral threshold is a percentage of all of them; minor parties far below the threshold can be lumped into
+        /// one entry. The results list parties in this order</param>
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
         /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
         /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator, and
         /// no more than 3, the divisor for the second seat. Null for plain Sainte-Laguë, which uses 1/1</param>
-        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won; parties left out
-        /// won none. Each party has to be in <paramref name="NumberOfVotes"/>, so electorates won by independents aren't
-        /// supported. Null if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID;
+        /// parties left out won none. Each party has to be in <paramref name="Parties"/>, so electorates won by
+        /// independents aren't supported. Null if there are no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
         {
-            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutOrderedSeats);
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutOrderedSeats);
         }
 
         /// <summary>
-        /// same as <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/> with the same result, but
-        /// worked out with a quotient table, the way New Zealand's Electoral Commission does it. Instead of going seat by
-        /// seat and recalculating each party's quotient as it wins seats, every party's votes are divided by all the
-        /// divisors up front (1, 3, 5, ...), all the quotients go in one table, and the highest ones, as many as there are
-        /// seats, each win a seat. A surplus vote agreement goes in the table with its combined votes, and its seats are
-        /// then shared out with a second table that has just its own parties. Ties go to the side with more votes
+        /// same as the Sainte-Laguë method by party ID with the same result, but worked out with a quotient table, the way
+        /// New Zealand's Electoral Commission does it. Instead of going seat by seat and recalculating each party's
+        /// quotient as it wins seats, every party's votes are divided by all the divisors up front (1, 3, 5, ...), all the
+        /// quotients go in one table, and the highest ones, as many as there are seats, each win a seat. A surplus vote
+        /// agreement goes in the table with its combined votes, and its seats are then shared out with a second table
+        /// that has just its own parties. Ties go to the side with more votes
         /// </summary>
-        /// <param name="NumberOfVotes">votes for each party, as in <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/></param>
+        /// <param name="Parties">votes for each party, with IDs from 1 for the most votes</param>
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID. Null
+        /// if there are no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
+        {
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingQuotientTable);
+        }
+
+        /// <summary>
+        /// same as the Sainte-Laguë method by party ID with the same seats, but worked out by rounding with a common
+        /// divisor, the way Germany does it (Sainte-Laguë/Schepers) and the United States did it for the House of
+        /// Representatives (<see cref="UnitedStatesPoliticians.WebsterDaniel"/>'s method). Every party's votes are divided
+        /// by the same number of votes per seat and the result is rounded to the nearest whole number, which is the
+        /// party's seats: 3.4 gives 3 seats and 3.5 gives 4. Under modified Sainte-Laguë only the first seat is different,
+        /// taking half the first divisor instead of 0.5, such as 0.7 for a first divisor of 7/5. The first try at the
+        /// votes per seat is the qualifying votes divided by the number of seats. If the seats then add up to too few, the
+        /// votes per seat are lowered, and if too many, raised, until they add up. A surplus vote agreement is rounded
+        /// with its combined votes, and its seats are then shared out by rounding again with just its own parties. Ties
+        /// go to the side with more votes. Since no seat is given out before another this way,
+        /// <see cref="SeatDistributionBase.OrderedSeats"/> is left empty, though
+        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> still has each recipient's seats
+        /// </summary>
+        /// <param name="Parties">votes for each party, with IDs from 1 for the most votes</param>
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID. Null
+        /// if there are no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
+        {
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingDivisorRounding);
+        }
+
+        /// <summary>
+        /// same as the Sainte-Laguë method by party ID, with the parties given by name and their IDs worked out from
+        /// their votes
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party. Include every party, since the electoral threshold is a
+        /// percentage of all of them; minor parties far below the threshold can be lumped into one entry. Parties with
+        /// the same votes are taken to be in the order given</param>
+        /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
+        /// <param name="NumberOfSeats">number of seats in the parliament</param>
+        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
+        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
+        /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won; parties left out
+        /// won none. Each party has to be in <paramref name="NumberOfVotes"/>. Null if there are no electorates</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        {
+            List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutOrderedSeats);
+        }
+
+        /// <summary>
+        /// same as the Sainte-Laguë method using a quotient table by party ID, with the parties given by name and their
+        /// IDs worked out from their votes
+        /// </summary>
+        /// <param name="NumberOfVotes">votes for each party, with parties with the same votes taken to be in the order
+        /// given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
@@ -328,24 +478,16 @@ namespace Existence.Earth.Human.Politics
         /// no electorates</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
-            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingQuotientTable);
+            List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutSeatsUsingQuotientTable);
         }
 
         /// <summary>
-        /// same as <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/> with the same seats, but
-        /// worked out by rounding with a common divisor, the way Germany does it (Sainte-Laguë/Schepers) and the United
-        /// States did it for the House of Representatives (<see cref="UnitedStatesPoliticians.WebsterDaniel"/>'s method).
-        /// Every party's votes are divided by the same number of votes per seat and the result is rounded to the nearest
-        /// whole number, which is the party's seats: 3.4 gives 3 seats and 3.5 gives 4. Under modified Sainte-Laguë only
-        /// the first seat is different, taking half the first divisor instead of 0.5, such as 0.7 for a first divisor of
-        /// 7/5. The first try at the votes per seat is the qualifying votes divided by the number of seats. If the seats
-        /// then add up to too few, the votes per seat are lowered, and if too many, raised, until they add up. A surplus
-        /// vote agreement is rounded with its combined votes, and its seats are then shared out by rounding again with
-        /// just its own parties. Ties go to the side with more votes. Since no seat is given out before another this way,
-        /// <see cref="SeatDistributionBase.OrderedSeats"/> is left empty, though
-        /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> still has each recipient's seats
+        /// same as the Sainte-Laguë method using divisor rounding by party ID, with the parties given by name and their
+        /// IDs worked out from their votes
         /// </summary>
-        /// <param name="NumberOfVotes">votes for each party, as in <see cref="CalculateSainteLagueParliamentarySeatDistributionSingleDistrict"/></param>
+        /// <param name="NumberOfVotes">votes for each party, with parties with the same votes taken to be in the order
+        /// given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
@@ -354,43 +496,150 @@ namespace Existence.Earth.Human.Politics
         /// no electorates</param>
         public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
         {
-            return CalculateSainteLague(NumberOfVotes, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingDivisorRounding);
+            List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutSeatsUsingDivisorRounding);
         }
 
         /// <summary>
-        /// a way of giving out the seats among the recipients, which fills in <see cref="SeatDistributionBase.Seats"/>,
+        /// the parties being worked out, by ID, which is what the calculation uses. Their names are only used to fill in
+        /// the results
+        /// </summary>
+        private sealed class Election
+        {
+            /// <summary>
+            /// each party's name, by ID. ID 0 isn't a party
+            /// </summary>
+            public string[] Names { get; }
+
+            /// <summary>
+            /// each party's votes, by ID
+            /// </summary>
+            public long[] Votes { get; }
+
+            /// <summary>
+            /// each party's seats so far, by ID
+            /// </summary>
+            public int[] Seats { get; }
+
+            /// <summary>
+            /// the party IDs in the order the parties were given, which is the order the results list them in
+            /// </summary>
+            public int[] Order { get; }
+
+            /// <summary>
+            /// checks the party IDs and sets up the parties. The IDs have to be 1 up to the number of parties, each used
+            /// once, and a party with more votes has to have a lower ID
+            /// </summary>
+            /// <param name="Parties">the parties, in the order to list them in the results</param>
+            public Election(IReadOnlyList<PoliticalPartyVotes> Parties)
+            {
+                int iCount = Parties.Count;
+                Names = new string[iCount + 1];
+                Votes = new long[iCount + 1];
+                Seats = new int[iCount + 1];
+                Order = new int[iCount];
+                HashSet<string> names = new HashSet<string>();
+                for (int i = 0; i < iCount; i++)
+                {
+                    PoliticalPartyVotes next = Parties[i];
+                    if (next.Id < 1 || next.Id > iCount) throw new ArgumentException($"{next.Name} has ID {next.Id}, but the IDs have to go from 1 to {iCount}, one for each party", nameof(Parties));
+                    if (Names[next.Id] != null) throw new ArgumentException($"{Names[next.Id]} and {next.Name} both have ID {next.Id}", nameof(Parties));
+                    if (!names.Add(next.Name)) throw new ArgumentException($"{next.Name} is listed more than once", nameof(Parties));
+                    if (next.Votes < 0) throw new ArgumentException($"{next.Name} has negative votes", nameof(Parties));
+                    Names[next.Id] = next.Name;
+                    Votes[next.Id] = next.Votes;
+                    Order[i] = next.Id;
+                }
+
+                //with each ID used once, checking each party against the one before it by ID is enough
+                for (int iId = 2; iId <= iCount; iId++)
+                {
+                    if (Votes[iId] > Votes[iId - 1]) throw new ArgumentException($"{Names[iId]} (ID {iId}) has more votes than {Names[iId - 1]} (ID {iId - 1}), but a party with more votes needs a lower ID", nameof(Parties));
+                }
+            }
+
+            /// <summary>
+            /// gets the combined votes of a party on its own or the parties of a surplus vote agreement
+            /// </summary>
+            public long VotesOf(int[] group)
+            {
+                long ret = 0;
+                foreach (int iParty in group) ret += Votes[iParty];
+                return ret;
+            }
+
+            /// <summary>
+            /// gets the combined seats so far of a party on its own or the parties of a surplus vote agreement
+            /// </summary>
+            public int SeatsOf(int[] group)
+            {
+                int ret = 0;
+                foreach (int iParty in group) ret += Seats[iParty];
+                return ret;
+            }
+
+            /// <summary>
+            /// gets the total seats so far
+            /// </summary>
+            public int TotalSeats() => Seats.Sum();
+
+            /// <summary>
+            /// gets the name of a party on its own or a surplus vote agreement, such as "Party1 + Party2", which is how
+            /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> is keyed
+            /// </summary>
+            public string GetName(int[] group) => group.Length == 1 ? Names[group[0]] : string.Join(" + ", group.Select(p => Names[p]));
+
+            /// <summary>
+            /// gets the parties of a party on its own or a surplus vote agreement by votes descending, which is by ID
+            /// </summary>
+            public static int[] ByVotes(int[] group) => group.Length == 1 ? group : group.Order().ToArray();
+        }
+
+        /// <summary>
+        /// fills in <see cref="SeatDistributionBase.Seats"/> with the seats worked out by ID, for each party that passed
+        /// the electoral threshold
+        /// </summary>
+        private static void CopySeats(SeatDistributionBase r, Election e, List<int> qualifying)
+        {
+            foreach (int iParty in qualifying) r.Seats[e.Names[iParty]] = e.Seats[iParty];
+        }
+
+        /// <summary>
+        /// a way of giving out the seats among the recipients, which fills in <see cref="Election.Seats"/>,
         /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>, <see cref="SeatDistributionBase.NextOrderedSeat"/>
         /// and <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>
         /// </summary>
-        private delegate void SeatGiver(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats);
+        private delegate void SeatGiver(SeatDistributionBase r, Election e, List<int[]> recipients, LinearDivisor divisor, int NumberOfSeats);
 
         /// <summary>
         /// distributes seats using the Sainte-Laguë method, with everything the ways of working it out have in common:
         /// the electoral threshold, the surplus vote agreements and the electorates
         /// </summary>
         /// <param name="giveOutSeats">how the seats are given out among the recipients</param>
-        private static SainteLagueSeatDistribution CalculateSainteLague(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor, IDictionary<string, int>? ElectorateSeats, SeatGiver giveOutSeats)
+        private static SainteLagueSeatDistribution CalculateSainteLague(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor, IDictionary<int, int>? ElectorateSeats, SeatGiver giveOutSeats)
         {
             LinearDivisor divisor = GetLinearDivisor(SainteLagueSlope, FirstDivisor ?? new SimpleFraction(1, 1));
-            foreach (KeyValuePair<string, int> next in ElectorateSeats ?? new Dictionary<string, int>())
+            Election e = new Election(Parties);
+            foreach (KeyValuePair<int, int> next in ElectorateSeats ?? new Dictionary<int, int>())
             {
-                if (!NumberOfVotes.ContainsKey(next.Key)) throw new ArgumentException($"{next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
-                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative electorate seats", nameof(ElectorateSeats));
+                if (next.Key < 1 || next.Key >= e.Names.Length) throw new ArgumentException($"party ID {next.Key} won electorates but has no party votes", nameof(ElectorateSeats));
+                if (next.Value < 0) throw new ArgumentException($"{e.Names[next.Key]} has negative electorate seats", nameof(ElectorateSeats));
             }
 
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
-            IEnumerable<string> wonElectorates = ElectorateSeats?.Where(p => p.Value > 0).Select(p => p.Key) ?? Enumerable.Empty<string>();
-            List<string> qualifying = ApplyElectoralThreshold(r, NumberOfVotes, NumberOfSeats, ElectoralThreshold, wonElectorates);
-            foreach (string sParty in qualifying) r.Seats[sParty] = 0;
-            List<string[]> recipients = GetRecipients(r, NumberOfVotes, SurplusVoteAgreements, qualifying);
-            giveOutSeats(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            HashSet<int> wonElectorates = ElectorateSeats?.Where(p => p.Value > 0).Select(p => p.Key).ToHashSet() ?? new HashSet<int>();
+            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, wonElectorates);
+            List<int[]> recipients = GetRecipients(r, e, SurplusVoteAgreements, qualifying);
+            giveOutSeats(r, e, recipients, divisor, NumberOfSeats);
+            CopySeats(r, e, qualifying);
 
             if (ElectorateSeats != null)
             {
-                foreach (string sParty in qualifying)
+                foreach (int iParty in qualifying)
                 {
-                    int iElectorateSeats = ElectorateSeats.TryGetValue(sParty, out int iWon) ? iWon : 0;
-                    int iSeats = r.Seats[sParty];
+                    string sParty = e.Names[iParty];
+                    int iElectorateSeats = ElectorateSeats.TryGetValue(iParty, out int iWon) ? iWon : 0;
+                    int iSeats = e.Seats[iParty];
                     r.ElectorateSeats[sParty] = iElectorateSeats;
                     r.ListSeats[sParty] = Math.Max(0, iSeats - iElectorateSeats);
                     r.OverhangSeats[sParty] = Math.Max(0, iElectorateSeats - iSeats);
@@ -403,58 +652,56 @@ namespace Existence.Earth.Human.Politics
         }
 
         /// <summary>
-        /// gives out the seats not yet in <see cref="SeatDistributionBase.Seats"/> one at a time, filling in
+        /// gives out the seats not yet in <see cref="Election.Seats"/> one at a time, filling in
         /// <see cref="SeatDistributionBase.OrderedSeats"/>, <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/>,
         /// <see cref="SeatDistributionBase.NextOrderedSeat"/> and
         /// <see cref="SeatDistributionBase.VotesNeededForNextOrderedSeat"/>. The seats already there, such as D'Hondt's base
-        /// seats, decide where it starts, so <see cref="SeatDistributionBase.Seats"/> needs an entry for each qualifying
-        /// party first, even if it is zero
+        /// seats, decide where it starts
         /// </summary>
         /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        private static void GiveOutOrderedSeats(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        private static void GiveOutOrderedSeats(SeatDistributionBase r, Election e, List<int[]> recipients, LinearDivisor divisor, int NumberOfSeats)
         {
-            for (int iSeat = r.Seats.Values.Sum() + 1; iSeat <= NumberOfSeats; iSeat++)
+            for (int iSeat = e.TotalSeats() + 1; iSeat <= NumberOfSeats; iSeat++)
             {
-                OrderedSeat seat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, iSeat);
+                OrderedSeat seat = PickOrderedSeat(e, recipients, divisor, iSeat);
                 r.OrderedSeats.Add(seat);
-                r.OrderedSeatsByRecipient[string.Join(" + ", seat.RecipientGroup)]++;
-                r.Seats[seat.PoliticalParty]++;
+                r.OrderedSeatsByRecipient[e.GetName(seat.RecipientGroup)]++;
+                e.Seats[seat.PoliticalPartyId]++;
             }
-            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            FillNextOrderedSeat(r, e, recipients, divisor, NumberOfSeats);
         }
 
         /// <summary>
         /// gives out all the seats using a quotient table: each recipient's votes divided by each divisor it could need,
         /// with the highest quotients winning the seats. Reading the table from the highest quotient down gives the
         /// seats in the same order as giving them out one at a time, so this fills in
-        /// <see cref="SeatDistributionBase.OrderedSeats"/> too. <see cref="SeatDistributionBase.Seats"/> needs a zero
-        /// entry for each qualifying party first
+        /// <see cref="SeatDistributionBase.OrderedSeats"/> too
         /// </summary>
         /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        private static void GiveOutSeatsUsingQuotientTable(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        private static void GiveOutSeatsUsingQuotientTable(SeatDistributionBase r, Election e, List<int[]> recipients, LinearDivisor divisor, int NumberOfSeats)
         {
             //one table for the parties and surplus vote agreements, with a row for each seat won
-            List<string[]> winners = GetHighestQuotients(recipients, a => a.Sum(p => NumberOfVotes[p]), divisor.Scaled, NumberOfSeats);
+            List<int[]> winners = GetHighestQuotients(recipients, e.VotesOf, divisor.Scaled, NumberOfSeats);
 
             //a table for each surplus vote agreement with just its own parties, which decides the party for each of the
             //agreement's seats. For a party on its own it is simply that party every time
-            Dictionary<string[], Queue<string>> partiesByRecipient = new Dictionary<string[], Queue<string>>();
-            foreach (string[] next in recipients)
+            Dictionary<int[], Queue<int>> partiesByRecipient = new Dictionary<int[], Queue<int>>();
+            foreach (int[] next in recipients)
             {
-                List<string> byVotes = next.OrderByDescending(p => NumberOfVotes[p]).ToList();
-                partiesByRecipient[next] = new Queue<string>(GetHighestQuotients(byVotes, p => NumberOfVotes[p], divisor.Scaled, winners.Count(w => w == next)));
+                int[] byVotes = Election.ByVotes(next);
+                partiesByRecipient[next] = new Queue<int>(GetHighestQuotients(byVotes, p => e.Votes[p], divisor.Scaled, winners.Count(w => w == next)));
             }
 
             for (int i = 0; i < winners.Count; i++)
             {
-                OrderedSeat seat = BuildOrderedSeat(r, NumberOfVotes, winners[i], partiesByRecipient[winners[i]].Dequeue(), divisor, i + 1);
+                OrderedSeat seat = BuildOrderedSeat(e, winners[i], partiesByRecipient[winners[i]].Dequeue(), divisor, i + 1);
                 r.OrderedSeats.Add(seat);
-                r.OrderedSeatsByRecipient[string.Join(" + ", seat.RecipientGroup)]++;
-                r.Seats[seat.PoliticalParty]++;
+                r.OrderedSeatsByRecipient[e.GetName(seat.RecipientGroup)]++;
+                e.Seats[seat.PoliticalPartyId]++;
             }
-            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            FillNextOrderedSeat(r, e, recipients, divisor, NumberOfSeats);
         }
 
         /// <summary>
@@ -492,17 +739,17 @@ namespace Existence.Earth.Human.Politics
         /// </summary>
         /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        private static void GiveOutSeatsUsingDivisorRounding(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        private static void GiveOutSeatsUsingDivisorRounding(SeatDistributionBase r, Election e, List<int[]> recipients, LinearDivisor divisor, int NumberOfSeats)
         {
-            int[] recipientSeats = RoundWithCommonDivisor(recipients, a => a.Sum(p => NumberOfVotes[p]), divisor, NumberOfSeats);
+            int[] recipientSeats = RoundWithCommonDivisor(recipients, e.VotesOf, divisor, NumberOfSeats);
             for (int i = 0; i < recipients.Count; i++)
             {
-                r.OrderedSeatsByRecipient[string.Join(" + ", recipients[i])] = recipientSeats[i];
-                List<string> byVotes = recipients[i].OrderByDescending(p => NumberOfVotes[p]).ToList();
-                int[] partySeats = RoundWithCommonDivisor(byVotes, p => NumberOfVotes[p], divisor, recipientSeats[i]);
-                for (int j = 0; j < byVotes.Count; j++) r.Seats[byVotes[j]] = partySeats[j];
+                r.OrderedSeatsByRecipient[e.GetName(recipients[i])] = recipientSeats[i];
+                int[] byVotes = Election.ByVotes(recipients[i]);
+                int[] partySeats = RoundWithCommonDivisor(byVotes, p => e.Votes[p], divisor, recipientSeats[i]);
+                for (int j = 0; j < byVotes.Length; j++) e.Seats[byVotes[j]] = partySeats[j];
             }
-            FillNextOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats);
+            FillNextOrderedSeat(r, e, recipients, divisor, NumberOfSeats);
         }
 
         /// <summary>
@@ -572,15 +819,16 @@ namespace Existence.Earth.Human.Politics
         /// </summary>
         /// <param name="divisor">divisor for a party's next seat, given its current number of seats</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        private static void FillNextOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int NumberOfSeats)
+        private static void FillNextOrderedSeat(SeatDistributionBase r, Election e, List<int[]> recipients, LinearDivisor divisor, int NumberOfSeats)
         {
-            r.NextOrderedSeat = PickOrderedSeat(r, NumberOfVotes, recipients, divisor, NumberOfSeats + 1);
+            r.NextOrderedSeat = PickOrderedSeat(e, recipients, divisor, NumberOfSeats + 1);
 
-            long lNextVotes = r.NextOrderedSeat.RecipientGroup.Sum(p => NumberOfVotes[p]);
-            int iNextSeats = r.NextOrderedSeat.RecipientGroup.Sum(p => r.Seats[p]);
+            int[] next = r.NextOrderedSeat.RecipientGroup;
+            long lNextVotes = e.VotesOf(next);
+            int iNextSeats = e.SeatsOf(next);
             r.VotesNeededForNextOrderedSeat = recipients
-                .Where(a => a != r.NextOrderedSeat.RecipientGroup && a.Sum(p => r.Seats[p]) > 0)
-                .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, a.Sum(p => NumberOfVotes[p]), a.Sum(p => r.Seats[p]), divisor.Scaled) - lNextVotes));
+                .Where(a => a != next && e.SeatsOf(a) > 0)
+                .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, e.VotesOf(a), e.SeatsOf(a), divisor.Scaled) - lNextVotes));
         }
 
         /// <summary>
@@ -670,16 +918,15 @@ namespace Existence.Earth.Human.Politics
         /// </summary>
         /// <param name="divisor">divisor for the next seat, given the current number of seats</param>
         /// <param name="iSeat">overall seat number of the seat being picked</param>
-        private static OrderedSeat PickOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, List<string[]> recipients, LinearDivisor divisor, int iSeat)
+        private static OrderedSeat PickOrderedSeat(Election e, List<int[]> recipients, LinearDivisor divisor, int iSeat)
         {
             //apply the divisor calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
-            string[] winner = PickHighestQuotient(recipients, a => a.Sum(p => NumberOfVotes[p]), a => a.Sum(p => r.Seats[p]), divisor.Scaled);
+            int[] winner = PickHighestQuotient(recipients, e.VotesOf, e.SeatsOf, divisor.Scaled);
 
             //apply the divisor calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
-            List<string> byVotes = winner.OrderByDescending(p => NumberOfVotes[p]).ToList();
-            string sParty = PickHighestQuotient(byVotes, p => NumberOfVotes[p], p => r.Seats[p], divisor.Scaled);
+            int iParty = PickHighestQuotient(Election.ByVotes(winner), p => e.Votes[p], p => e.Seats[p], divisor.Scaled);
 
-            return BuildOrderedSeat(r, NumberOfVotes, winner, sParty, divisor, iSeat);
+            return BuildOrderedSeat(e, winner, iParty, divisor, iSeat);
         }
 
         /// <summary>
@@ -687,19 +934,18 @@ namespace Existence.Earth.Human.Politics
         /// seats held before it
         /// </summary>
         /// <param name="winner">the party on its own, or the parties of the surplus vote agreement that won the seat</param>
-        /// <param name="sParty">the party in <paramref name="winner"/> that gets the seat</param>
+        /// <param name="iParty">the party in <paramref name="winner"/> that gets the seat</param>
         /// <param name="divisor">divisor for the next seat, given the current number of seats</param>
         /// <param name="iSeat">overall seat number of the seat</param>
-        private static OrderedSeat BuildOrderedSeat(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, string[] winner, string sParty, LinearDivisor divisor, int iSeat)
+        private static OrderedSeat BuildOrderedSeat(Election e, int[] winner, int iParty, LinearDivisor divisor, int iSeat)
         {
-            List<string> byVotes = winner.OrderByDescending(p => NumberOfVotes[p]).ToList();
-            List<string> winnerFirst = byVotes.OrderBy(p => p == sParty ? 0 : 1).ToList(); //stable, so the others stay by votes descending
+            List<int> winnerFirst = Election.ByVotes(winner).OrderBy(p => p == iParty ? 0 : 1).ToList(); //stable, so the others stay by votes descending
             List<OrderedSeatRecipient> recipientDetails = winnerFirst
-                .Select(p => new OrderedSeatRecipient(p, divisor.GetActual(r.Seats[p]), divisor.Describe(new[] { r.Seats[p] }), divisor.GetQuotient(NumberOfVotes[p], r.Seats[p])))
+                .Select(p => new OrderedSeatRecipient(e.Names[p], divisor.GetActual(e.Seats[p]), divisor.Describe(new[] { e.Seats[p] }), divisor.GetQuotient(e.Votes[p], e.Seats[p])))
                 .ToList();
-            long lVotes = winner.Sum(p => NumberOfVotes[p]);
-            int iSeats = winner.Sum(p => r.Seats[p]);
-            return new OrderedSeat(iSeat, winner, recipientDetails, divisor.GetActual(iSeats), divisor.Describe(winnerFirst.Select(p => r.Seats[p]).ToList()), divisor.GetQuotient(lVotes, iSeats));
+            long lVotes = e.VotesOf(winner);
+            int iSeats = e.SeatsOf(winner);
+            return new OrderedSeat(iSeat, winner, iParty, recipientDetails, divisor.GetActual(iSeats), divisor.Describe(winnerFirst.Select(p => e.Seats[p]).ToList()), divisor.GetQuotient(lVotes, iSeats));
         }
 
         /// <summary>
@@ -707,31 +953,29 @@ namespace Existence.Earth.Human.Politics
         /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.QualifyingVotes"/> and
         /// <see cref="SeatDistributionBase.PoliticalPartiesBelowElectoralThreshold"/>
         /// </summary>
-        /// <param name="exempt">parties that qualify whatever their votes, such as those that won an electorate under
-        /// mixed-member proportional</param>
-        /// <returns>the parties that passed the electoral threshold, in the order of <paramref name="NumberOfVotes"/></returns>
-        private static List<string> ApplyElectoralThreshold(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<string> exempt)
+        /// <param name="exempt">IDs of parties that qualify whatever their votes, such as those that won an electorate
+        /// under mixed-member proportional</param>
+        /// <returns>the IDs of the parties that passed the electoral threshold, in the order the parties were given</returns>
+        private static List<int> ApplyElectoralThreshold(SeatDistributionBase r, Election e, int NumberOfSeats, SimpleFraction ElectoralThreshold, HashSet<int> exempt)
         {
             if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
             if (ElectoralThreshold.Numerator < 0 || ElectoralThreshold.Denominator <= 0) throw new ArgumentException($"the electoral threshold {ElectoralThreshold} must have a numerator that isn't negative and a positive denominator", nameof(ElectoralThreshold));
 
-            r.TotalVotes = NumberOfVotes.Values.Sum();
-            if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(NumberOfVotes));
+            r.TotalVotes = e.Votes.Sum();
+            if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(PoliticalPartyVotes.Votes));
 
-            HashSet<string> exemptSet = [.. exempt];
             SimpleFraction threshold = ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
-            List<string> qualifying = new List<string>();
-            foreach (KeyValuePair<string, long> next in NumberOfVotes)
+            List<int> qualifying = new List<int>();
+            foreach (int iParty in e.Order)
             {
-                if (next.Value < 0) throw new ArgumentException($"{next.Key} has negative votes", nameof(NumberOfVotes));
                 //the party's share of the vote, as a fraction so the comparison is exact
-                if (exemptSet.Contains(next.Key) || new SimpleFraction(next.Value, r.TotalVotes) >= threshold)
-                    qualifying.Add(next.Key);
+                if (exempt.Contains(iParty) || new SimpleFraction(e.Votes[iParty], r.TotalVotes) >= threshold)
+                    qualifying.Add(iParty);
                 else
-                    r.PoliticalPartiesBelowElectoralThreshold.Add(next.Key);
+                    r.PoliticalPartiesBelowElectoralThreshold.Add(e.Names[iParty]);
             }
             if (qualifying.Count == 0) throw new InvalidOperationException("no party passed the electoral threshold");
-            r.QualifyingVotes = qualifying.Sum(p => NumberOfVotes[p]);
+            r.QualifyingVotes = qualifying.Sum(p => e.Votes[p]);
             return qualifying;
         }
 
@@ -741,33 +985,43 @@ namespace Existence.Earth.Human.Politics
         /// its own. Fills in <see cref="SeatDistributionBase.AnnulledSurplusVoteAgreements"/>, and
         /// <see cref="SeatDistributionBase.OrderedSeatsByRecipient"/> with zero seats for each recipient
         /// </summary>
-        /// <returns>the recipients, ordered by votes descending, which is how ties are broken</returns>
-        private static List<string[]> GetRecipients(SeatDistributionBase r, IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, List<string> qualifying)
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
+        /// <param name="qualifying">IDs of the parties that passed the electoral threshold</param>
+        /// <returns>the recipients as party IDs, with an agreement's parties in the order given, ordered by votes
+        /// descending, which is how ties are broken</returns>
+        private static List<int[]> GetRecipients(SeatDistributionBase r, Election e, IEnumerable<(int, int)> SurplusVoteAgreements, List<int> qualifying)
         {
-            HashSet<string> qualifyingSet = new HashSet<string>(qualifying);
-            HashSet<string> inAgreement = new HashSet<string>(); //list of parties in a surplus vote agreement, to validate a party can only be in one
-            List<string[]> recipients = new List<string[]>(); //list of possible recipients of seats, either a single party or a surplus vote agreement
-            foreach ((string sParty1, string sParty2) in SurplusVoteAgreements)
+            HashSet<int> qualifyingSet = new HashSet<int>(qualifying);
+            HashSet<int> inAgreement = new HashSet<int>(); //parties in a surplus vote agreement, to validate a party can only be in one
+            HashSet<int> inRecipient = new HashSet<int>(); //parties in a surplus vote agreement that wasn't annulled
+            List<int[]> recipients = new List<int[]>(); //possible recipients of seats, either a single party or a surplus vote agreement
+            foreach ((int iParty1, int iParty2) in SurplusVoteAgreements)
             {
-                foreach (string sParty in new[] { sParty1, sParty2 })
+                foreach (int iParty in new[] { iParty1, iParty2 })
                 {
-                    if (!NumberOfVotes.ContainsKey(sParty)) throw new ArgumentException($"surplus vote agreement party {sParty} has no votes", nameof(SurplusVoteAgreements));
-                    if (!inAgreement.Add(sParty)) throw new ArgumentException($"{sParty} is in more than one surplus vote agreement, or one with itself", nameof(SurplusVoteAgreements));
+                    if (iParty < 1 || iParty >= e.Names.Length) throw new ArgumentException($"surplus vote agreement party ID {iParty} has no votes", nameof(SurplusVoteAgreements));
+                    if (!inAgreement.Add(iParty)) throw new ArgumentException($"{e.Names[iParty]} is in more than one surplus vote agreement, or one with itself", nameof(SurplusVoteAgreements));
                 }
-                if (qualifyingSet.Contains(sParty1) && qualifyingSet.Contains(sParty2))
-                    recipients.Add(new[] { sParty1, sParty2 });
+                if (qualifyingSet.Contains(iParty1) && qualifyingSet.Contains(iParty2))
+                {
+                    recipients.Add(new[] { iParty1, iParty2 });
+                    inRecipient.Add(iParty1);
+                    inRecipient.Add(iParty2);
+                }
                 else
-                    r.AnnulledSurplusVoteAgreements.Add((sParty1, sParty2));
+                {
+                    r.AnnulledSurplusVoteAgreements.Add((e.Names[iParty1], e.Names[iParty2]));
+                }
             }
 
             //add any qualifying parties not in a surplus vote agreement
-            foreach (string sParty in qualifying)
+            foreach (int iParty in qualifying)
             {
-                if (!recipients.Any(a => a.Contains(sParty))) recipients.Add(new[] { sParty });
+                if (!inRecipient.Contains(iParty)) recipients.Add(new[] { iParty });
             }
 
-            recipients = recipients.OrderByDescending(a => a.Sum(p => NumberOfVotes[p])).ToList();
-            foreach (string[] next in recipients) r.OrderedSeatsByRecipient[string.Join(" + ", next)] = 0;
+            recipients = recipients.OrderByDescending(e.VotesOf).ToList();
+            foreach (int[] next in recipients) r.OrderedSeatsByRecipient[e.GetName(next)] = 0;
             return recipients;
         }
 

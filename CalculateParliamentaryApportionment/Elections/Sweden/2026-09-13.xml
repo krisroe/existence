@@ -6,25 +6,25 @@
     <NumberOfSeats>349</NumberOfSeats>
     <ElectoralThreshold>4</ElectoralThreshold>
     <Parties>
-      <Party Name="Social Democrats" Votes="1895989" AboveThreshold="true" Seats="99" />
-      <Party Name="Moderate Party" Votes="1343448" AboveThreshold="true" Seats="70" />
-      <Party Name="Sweden Democrats" Votes="1183248" AboveThreshold="true" Seats="62" />
-      <Party Name="Left Party" Votes="568781" AboveThreshold="true" Seats="30" />
-      <Party Name="Centre Party" Votes="475780" AboveThreshold="true" Seats="25" />
-      <Party Name="Christian Democrats" Votes="417490" AboveThreshold="true" Seats="22" />
-      <Party Name="Green Party" Votes="414307" AboveThreshold="true" Seats="22" />
-      <Party Name="Liberals" Votes="361187" AboveThreshold="true" Seats="19" />
-      <Party Name="Örebro Party" Votes="39644" AboveThreshold="false" Seats="0" />
-      <Party Name="Alternative for Sweden" Votes="26729" AboveThreshold="false" Seats="0" />
-      <Party Name="Christian Values Party" Votes="9017" AboveThreshold="false" Seats="0" />
-      <Party Name="Ambition Sweden" Votes="7679" AboveThreshold="false" Seats="0" />
-      <Party Name="Pirate Party" Votes="7464" AboveThreshold="false" Seats="0" />
-      <Party Name="Citizens' Coalition" Votes="4118" AboveThreshold="false" Seats="0" />
-      <Party Name="Human Rights and Democracy" Votes="3556" AboveThreshold="false" Seats="0" />
-      <Party Name="Communist Party of Sweden" Votes="2167" AboveThreshold="false" Seats="0" />
-      <Party Name="Enad Röst" Votes="1286" AboveThreshold="false" Seats="0" />
-      <Party Name="Nuance Party" Votes="1069" AboveThreshold="false" Seats="0" />
-      <Party Name="Other parties" Votes="4470" AboveThreshold="false" Seats="0" />
+      <Party Id="1" Name="Social Democrats" Votes="1895989" AboveThreshold="true" Seats="99" />
+      <Party Id="2" Name="Moderate Party" Votes="1343448" AboveThreshold="true" Seats="70" />
+      <Party Id="3" Name="Sweden Democrats" Votes="1183248" AboveThreshold="true" Seats="62" />
+      <Party Id="4" Name="Left Party" Votes="568781" AboveThreshold="true" Seats="30" />
+      <Party Id="5" Name="Centre Party" Votes="475780" AboveThreshold="true" Seats="25" />
+      <Party Id="6" Name="Christian Democrats" Votes="417490" AboveThreshold="true" Seats="22" />
+      <Party Id="7" Name="Green Party" Votes="414307" AboveThreshold="true" Seats="22" />
+      <Party Id="8" Name="Liberals" Votes="361187" AboveThreshold="true" Seats="19" />
+      <Party Id="9" Name="Örebro Party" Votes="39644" AboveThreshold="false" Seats="0" />
+      <Party Id="10" Name="Alternative for Sweden" Votes="26729" AboveThreshold="false" Seats="0" />
+      <Party Id="11" Name="Christian Values Party" Votes="9017" AboveThreshold="false" Seats="0" />
+      <Party Id="12" Name="Ambition Sweden" Votes="7679" AboveThreshold="false" Seats="0" />
+      <Party Id="13" Name="Pirate Party" Votes="7464" AboveThreshold="false" Seats="0" />
+      <Party Id="15" Name="Citizens' Coalition" Votes="4118" AboveThreshold="false" Seats="0" />
+      <Party Id="16" Name="Human Rights and Democracy" Votes="3556" AboveThreshold="false" Seats="0" />
+      <Party Id="17" Name="Communist Party of Sweden" Votes="2167" AboveThreshold="false" Seats="0" />
+      <Party Id="18" Name="Enad Röst" Votes="1286" AboveThreshold="false" Seats="0" />
+      <Party Id="19" Name="Nuance Party" Votes="1069" AboveThreshold="false" Seats="0" />
+      <Party Id="14" Name="Other parties" Votes="4470" AboveThreshold="false" Seats="0" />
     </Parties>
   </Input>
   <Output>

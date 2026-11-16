@@ -5,46 +5,46 @@
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>3.25</ElectoralThreshold>
     <Parties>
-      <Party Name="Likud" Votes="1115336" AboveThreshold="true" BaseSeats="30" Seats="32" />
-      <Party Name="Yesh Atid" Votes="847435" AboveThreshold="true" BaseSeats="23" Seats="24" />
-      <Party Name="Religious Zionism-Otzma Yehudit" Votes="516470" AboveThreshold="true" BaseSeats="14" Seats="14" />
-      <Party Name="National Unity" Votes="432482" AboveThreshold="true" BaseSeats="11" Seats="12" />
-      <Party Name="Shas" Votes="392964" AboveThreshold="true" BaseSeats="10" Seats="11" />
-      <Party Name="United Torah Judaism" Votes="280194" AboveThreshold="true" BaseSeats="7" Seats="7" />
-      <Party Name="Yisrael Beiteinu" Votes="213687" AboveThreshold="true" BaseSeats="5" Seats="6" />
-      <Party Name="Ra'am" Votes="194047" AboveThreshold="true" BaseSeats="5" Seats="5" />
-      <Party Name="Hadash–Ta'al" Votes="178735" AboveThreshold="true" BaseSeats="4" Seats="5" />
-      <Party Name="Israeli Labor Party" Votes="175992" AboveThreshold="true" BaseSeats="4" Seats="4" />
-      <Party Name="Meretz" Votes="150793" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Balad" Votes="138617" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="The Jewish Home" Votes="56775" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Economic Freedom" Votes="15801" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="With Courage for You" Votes="14694" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="New Economic Party" Votes="13920" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Fiery Youth" Votes="8800" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Pirate Party" Votes="1728" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Voice of the Environment and the Living" Votes="1618" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Ale Yarok–Islamic Family" Votes="1524" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Nativ" Votes="1354" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Every Vote Counts" Votes="1292" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="There's a Direction" Votes="1215" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Free Democratic Israel" Votes="1157" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="New Order" Votes="1078" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="The New Independents" Votes="1020" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Social Leadership" Votes="988" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="30/40" Votes="939" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Me and You" Votes="746" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Dawn Social Power" Votes="430" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Jewish Heart" Votes="415" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Bible Bloc" Votes="411" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Respect for Humanity" Votes="350" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Us" Votes="334" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Tzomet" Votes="292" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Order of the Hour" Votes="262" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Shama" Votes="255" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Common Alliance" Votes="234" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Kama" Votes="205" AboveThreshold="false" BaseSeats="0" Seats="0" />
-      <Party Name="Koah Lehashpi'a" Votes="153" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="1" Name="Likud" Votes="1115336" AboveThreshold="true" BaseSeats="30" Seats="32" />
+      <Party Id="2" Name="Yesh Atid" Votes="847435" AboveThreshold="true" BaseSeats="23" Seats="24" />
+      <Party Id="3" Name="Religious Zionism-Otzma Yehudit" Votes="516470" AboveThreshold="true" BaseSeats="14" Seats="14" />
+      <Party Id="4" Name="National Unity" Votes="432482" AboveThreshold="true" BaseSeats="11" Seats="12" />
+      <Party Id="5" Name="Shas" Votes="392964" AboveThreshold="true" BaseSeats="10" Seats="11" />
+      <Party Id="6" Name="United Torah Judaism" Votes="280194" AboveThreshold="true" BaseSeats="7" Seats="7" />
+      <Party Id="7" Name="Yisrael Beiteinu" Votes="213687" AboveThreshold="true" BaseSeats="5" Seats="6" />
+      <Party Id="8" Name="Ra'am" Votes="194047" AboveThreshold="true" BaseSeats="5" Seats="5" />
+      <Party Id="9" Name="Hadash–Ta'al" Votes="178735" AboveThreshold="true" BaseSeats="4" Seats="5" />
+      <Party Id="10" Name="Israeli Labor Party" Votes="175992" AboveThreshold="true" BaseSeats="4" Seats="4" />
+      <Party Id="11" Name="Meretz" Votes="150793" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="12" Name="Balad" Votes="138617" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="13" Name="The Jewish Home" Votes="56775" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="14" Name="Economic Freedom" Votes="15801" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="15" Name="With Courage for You" Votes="14694" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="16" Name="New Economic Party" Votes="13920" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="17" Name="Fiery Youth" Votes="8800" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="18" Name="Pirate Party" Votes="1728" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="19" Name="Voice of the Environment and the Living" Votes="1618" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="20" Name="Ale Yarok–Islamic Family" Votes="1524" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="21" Name="Nativ" Votes="1354" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="22" Name="Every Vote Counts" Votes="1292" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="23" Name="There's a Direction" Votes="1215" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="24" Name="Free Democratic Israel" Votes="1157" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="25" Name="New Order" Votes="1078" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="26" Name="The New Independents" Votes="1020" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="27" Name="Social Leadership" Votes="988" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="28" Name="30/40" Votes="939" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="29" Name="Me and You" Votes="746" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="30" Name="Dawn Social Power" Votes="430" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="31" Name="Jewish Heart" Votes="415" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="32" Name="Bible Bloc" Votes="411" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="33" Name="Respect for Humanity" Votes="350" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="34" Name="Us" Votes="334" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="35" Name="Tzomet" Votes="292" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="36" Name="Order of the Hour" Votes="262" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="37" Name="Shama" Votes="255" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="38" Name="Common Alliance" Votes="234" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="39" Name="Kama" Votes="205" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="40" Name="Koah Lehashpi'a" Votes="153" AboveThreshold="false" BaseSeats="0" Seats="0" />
     </Parties>
     <SurplusVoteAgreements>
       <SurplusVoteAgreement Party1="Likud" Party2="Religious Zionism-Otzma Yehudit" />
