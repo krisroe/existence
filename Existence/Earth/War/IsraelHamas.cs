@@ -3015,8 +3015,9 @@ internal enum IsraeliKibbutz
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
-    /// Iranian nuclear scientist
+    /// Nuclear scientist
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
@@ -3025,6 +3026,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's Nasr unit
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 6, 11)]
@@ -3033,6 +3035,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// IRGC commander
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 6, 3)]
     AbiyarSaeed,
@@ -3040,6 +3043,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Al-Quds Brigades (Palestinian Islamic Jihad) spokesperson
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
@@ -3048,6 +3052,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's aerial array
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
@@ -3056,6 +3061,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Qassam Brigades (Hamas) spokesperson
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 8, 30)]
@@ -3064,6 +3070,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Secretary-General of the Mujahideen Brigades
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 6, 7)]
@@ -3072,6 +3079,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's administrative and combat support staff
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
@@ -3080,6 +3088,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hezbollah's media relations
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 11, 17)]
@@ -3088,6 +3097,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Basij intelligence
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 17)]
     AhmadiEsmail,
@@ -3095,6 +3105,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy chairman of the Hamas Political Bureau
     /// </summary>
+    [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 1, 2)]
@@ -3103,6 +3114,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas Political Bureau member
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 23)]
@@ -3111,6 +3123,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's Government Administrative Committee in Gaza
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
@@ -3119,6 +3132,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Houthi chief of staff
     /// </summary>
+    [Country(CountryLikeThings.Yemen)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Yemen, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
@@ -3127,20 +3141,24 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 15)]
     AlHaddadIzzAlDin,
 
     /// <summary>
-    /// Hamas chief negotiator. Targeted 2025-09-09 in Doha; survived.
+    /// Hamas chief negotiator
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     AlHayyaKhalil,
 
     /// <summary>
     /// Head of Hamas's combat support and administrative headquarters
     /// </summary>
+    [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 6, 27)]
@@ -3149,6 +3167,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas commander of the Kfar Aza massacre
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 15)]
@@ -3157,6 +3176,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Hezbollah commander
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBaalbek)]
     [DeathDate(2026, 2, 20)]
@@ -3165,6 +3185,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Hezbollah commander
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBaalbek)]
     [DeathDate(2026, 2, 20)]
@@ -3173,6 +3194,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Palestinian Islamic Jihad commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2026, 3, 3)]
@@ -3181,6 +3203,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas Nukhba company commander on 2023-10-07
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
@@ -3189,6 +3212,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Houthi prime minister
     /// </summary>
+    [Country(CountryLikeThings.Yemen)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Yemen, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
@@ -3197,6 +3221,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Hezbollah Radwan Force commander
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 8)]
@@ -3205,14 +3230,16 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hezbollah's Radwan Force
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 20)]
     AqilIbrahim,
 
     /// <summary>
-    /// Iranian intelligence head
+    /// Intelligence head
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     AsadiSaleh,
@@ -3220,6 +3247,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hezbollah Nasr unit rocket and missile commander
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 6, 17)]
@@ -3228,6 +3256,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior member of Hezbollah's Unit 151. Killed in Al-Qusayr, Syria.
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Syria)]
     [DeathDate(2024, 11, 9)]
@@ -3236,6 +3265,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     BagheriMohammad,
@@ -3243,6 +3273,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's aerial forces
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 9)]
@@ -3251,28 +3282,34 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas commander of Central Jabaliya
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
     [DeathDate(2023, 10, 31)]
     BiariIbrahim,
 
     /// <summary>
-    /// Senior Hezbollah commander. Targeted 2024-11-09 in Syria; killed in southern Lebanon.
+    /// Senior Hezbollah commander. Killed in southern Lebanon.
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2024, 11, 9, CountryLikeThings.Syria)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2026, 6, 12)]
     DaqduqAliMusa,
 
     /// <summary>
-    /// Head of Hamas's Shura Council. Reported target 2025-09-09 in Doha; survived.
+    /// Head of Hamas's Shura Council. Reported (unconfirmed) target of the Doha strike.
     /// </summary>
+    [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     DarwishMuhammadIsmail,
 
     /// <summary>
     /// Commander of the Qassam Brigades (Hamas)
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
@@ -3281,6 +3318,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hamas's Northern Gaza Brigade
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3289,6 +3327,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the IRGC Aerospace Force
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     HajizadehAmirAli,
@@ -3296,6 +3335,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3304,6 +3344,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Chairman of the Hamas Political Bureau
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2024, 7, 31)]
@@ -3312,6 +3353,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's intelligence headquarters
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 10, 3)]
@@ -3320,6 +3362,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy commander of the Qassam Brigades (Hamas)
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
@@ -3328,6 +3371,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of the Quds Force's Palestine branch
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranQom)]
     [DeathDate(2025, 6, 21)]
     IzadiSaeed,
@@ -3335,19 +3379,23 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Chairman of SPND (defensive innovation and research)
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     JabalAmelianHossein,
 
     /// <summary>
-    /// Hamas leader. Reported target 2025-09-09 in Doha; survived.
+    /// Hamas leader. Reported (unconfirmed) target of the Doha strike.
     /// </summary>
+    [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     JabarinZaher,
 
     /// <summary>
     /// Commander of Hezbollah's Southern Front
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 27)]
@@ -3356,6 +3404,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of the IRGC Intelligence Organization
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 15)]
     KazemiMohammad,
@@ -3363,6 +3412,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of IRGC intelligence
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 4, 6)]
     KhademiMajid,
@@ -3370,6 +3420,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Supreme Leader of Iran
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroups((int)WorldEthnicGroups.Azerbaijani, (int)WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
@@ -3378,13 +3429,15 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Iran's Strategic Council on Foreign Relations
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 4, 1)]
     KharaziKamal,
 
     /// <summary>
-    /// Iranian Minister of Intelligence
+    /// Minister of Intelligence
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 18)]
@@ -3393,19 +3446,23 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Secretary of Iran's Supreme National Security Council
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 17)]
     LarijaniAli,
 
     /// <summary>
-    /// Former Hamas Political Bureau chairman. Reported target 2025-09-09 in Doha; survived.
+    /// Former Hamas Political Bureau chairman. Reported (unconfirmed) target of the Doha strike.
     /// </summary>
+    [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     MashalKhaled,
 
     /// <summary>
     /// Deputy head of intelligence, Armed Forces General Staff
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     MehrabiGholamreza,
@@ -3413,6 +3470,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the Quds Force's Unit 840
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 4, 6)]
     MirYazdan,
@@ -3420,6 +3478,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy head of the IRGC Intelligence Organization
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 15)]
     MohagheghHassan,
@@ -3427,6 +3486,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Chief of Staff of Iran's Armed Forces (succeeded Bagheri)
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     MousaviAbdolrahim,
@@ -3434,6 +3494,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// IRGC Quds Force commander
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaDamascus)]
     [DeathDate(2023, 12, 25)]
     MousaviRazi,
@@ -3441,6 +3502,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Former chairman of SPND
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     MozaffariNiaReza,
@@ -3448,13 +3510,15 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// IRGC spokesperson
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 20)]
     NainiAliMohammad,
 
     /// <summary>
-    /// Iranian Minister of Defense
+    /// Minister of Defense
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     NasirzadehAziz,
@@ -3462,6 +3526,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Secretary-General of Hezbollah
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 27)]
@@ -3470,6 +3535,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's Aziz unit
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 7, 3)]
@@ -3478,6 +3544,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Quds Force commander in Lebanon
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 27)]
@@ -3486,6 +3553,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hamas's Central Gaza Brigade
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
@@ -3494,6 +3562,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
@@ -3502,6 +3571,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Quds Force intelligence in Syria
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaDamascus)]
     [DeathDate(2024, 1, 20)]
     OmidzadehSadegh,
@@ -3509,6 +3579,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander-in-Chief of the IRGC
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     PakpourMohammad,
@@ -3516,6 +3587,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy head of Hezbollah's Executive Council
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 28)]
@@ -3524,6 +3596,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hamas's South Khan Younis Battalion
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -3532,6 +3605,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's missile and rocket unit
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 24)]
@@ -3540,6 +3614,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy head of operations, Armed Forces General Staff
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     RabbaniMehdi,
@@ -3547,6 +3622,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Deputy commander of Hamas's Northern Gaza Brigade
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3555,6 +3631,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     RashidGholamAli,
@@ -3562,6 +3639,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of IRGC Navy intelligence
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranBandarAbbas)]
     [DeathDate(2026, 3, 26)]
     RezaeiBehnam,
@@ -3569,6 +3647,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of the Qassam Brigades' production headquarters (Hamas)
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 12, 13)]
@@ -3577,6 +3656,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hezbollah's Executive Council
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 10, 3)]
@@ -3585,6 +3665,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hamas's Khan Yunis Brigade
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
@@ -3593,6 +3674,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander-in-Chief of the IRGC
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
@@ -3601,6 +3683,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3609,6 +3692,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hamas's Rafah Brigade
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -3617,6 +3701,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Khatam al-Anbiya Central Headquarters
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 17)]
     ShadmaniAli,
@@ -3624,6 +3709,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas head of operations in Lebanon
     /// </summary>
+    [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonSidon)]
     [DeathDate(2025, 2, 18)]
@@ -3632,14 +3718,17 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior IRGC official (Unit 190)
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranQom)]
     [DeathDate(2025, 6, 21)]
     ShahriyariBehnam,
 
     /// <summary>
-    /// Adviser to Khamenei and Secretary of the Defense Council. Targeted 2025-06-13 and survived; killed in Tehran.
+    /// Adviser to Khamenei and Secretary of the Defense Council
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 6, 13, CountryLikeThings.Iran, WorldCities.IranTehran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     ShamkhaniAli,
@@ -3647,6 +3736,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas commander in Lebanon
     /// </summary>
+    [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 29)]
@@ -3655,6 +3745,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Chief of Khamenei's military bureau
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     ShiraziMohammad,
@@ -3662,6 +3753,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hezbollah's Strategic Unit
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 7, 30)]
@@ -3670,6 +3762,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hamas's rocket array
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3678,6 +3771,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas leader in Gaza and Qassam Brigades commander
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -3686,12 +3780,14 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas leader and Israel's most-wanted target. Killed 2024-10-16, Rafah, in a chance encounter with IDF troops rather than a planned strike.
     /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     SinwarYahya,
 
     /// <summary>
     /// Commander of the Basij
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 17)]
     SoleimaniGholamreza,
@@ -3699,6 +3795,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Hamas financier.
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 4, 9)]
@@ -3707,6 +3804,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of Hezbollah's drone unit
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 26)]
@@ -3715,6 +3813,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Hezbollah commander and chief of staff to Naim Qassem
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2025, 11, 23)]
@@ -3723,14 +3822,16 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Commander of the IRGC Navy
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranBandarAbbas)]
     [DeathDate(2026, 3, 26)]
     TangsiriAlireza,
 
     /// <summary>
-    /// Iranian nuclear scientist
+    /// Nuclear scientist
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2025, 6, 13)]
     TehranchiMohammadMehdi,
@@ -3738,6 +3839,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Head of Hezbollah Radwan Force training
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 9, 20)]
@@ -3746,6 +3848,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Senior Hezbollah commander
     /// </summary>
+    [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBaalbek)]
     [DeathDate(2026, 2, 20)]
@@ -3754,6 +3857,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Quds Force commander in Lebanon and Syria
     /// </summary>
+    [Country(CountryLikeThings.Iran)]
     [EthnicGroup(WorldEthnicGroups.Persian)]
     [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaDamascus)]
     [DeathDate(2024, 4, 1)]

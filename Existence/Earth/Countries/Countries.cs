@@ -1364,7 +1364,21 @@ namespace Existence.Earth.Countries
         PalestineGaza,
 
         /// <summary>
-        /// west bank area of palestine (~3.19 million Palestinians, 670000 Israeli settlers)
+        /// <see cref="PalestineGaza"/> and <see cref="PalestineWestBank"/> taken together
+        /// </summary>
+        /// <remarks>
+        /// not really a coherent entity: the two territories are not contiguous and have been governed separately since 2007.
+        /// Exists for cases where a distinction between the two can't be made or doesn't apply (e.g. nationality of diaspora Palestinians).
+        /// Population excludes Israeli settlers (~2.1 million in Gaza, ~2.75 million Palestinians in the West Bank), unlike
+        /// <see cref="PalestineWestBank"/> where settlers are included
+        /// </remarks>
+        [Countries(PalestineGaza, PalestineWestBank)]
+        [NumberOfMembers(4800000)] //4.8 million
+        PalestineUnited,
+
+        /// <summary>
+        /// west bank area of palestine (~2.75 million Palestinians, 670000 Israeli settlers of which ~220000 live in East Jerusalem)
+        /// population includes Israeli settlers; see <see cref="PalestineUnited"/> for a population that excludes them
         /// </summary>
         [UnitedNationsMembership(1974, 11, 22)]
         [DeFactoCapital((int)WorldCities.WestBankRamallah)]
