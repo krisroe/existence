@@ -32,12 +32,18 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [ClaimedCapital((int)WorldCities.UkraineSimferopol)]
         [LargestCity((int)WorldCities.UkraineSimferopol)]
+        [ActualControl(0, 2026, 11, 15)]
         [Texts("Avtonomna Respublika Krym", "Автономна Республіка Крим")]
         Crimea,
 
+        /// <summary>
+        /// Russia pushed into the eastern edge of the oblast in 2025. Ukraine retook most of it by March
+        /// 2026, and as of August 2026 Russia fully controls only one settlement, Dachne.
+        /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [Capital((int)WorldCities.UkraineDnipro)]
         [LargestCity((int)WorldCities.UkraineDnipro)]
+        [ActualControl(99.9, 2026, 8, 12)]
         [Texts("Dnipropetrovska Oblast", "Дніпропетровська область")]
         Dnipropetrovsk,
 
@@ -49,6 +55,7 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [ClaimedCapital((int)WorldCities.UkraineDonetsk)]
         [LargestCity((int)WorldCities.UkraineDonetsk)]
+        [ActualControl(20.3, 2026, 10, 30)]
         [Texts("Donetska Oblast", "Донецька область")]
         Donetsk,
 
@@ -56,9 +63,14 @@ namespace Existence.Earth.Countries.Ukraine
         [Texts("Ivano-Frankivska Oblast", "Івано-Франківська область")]
         IvanoFrankivsk,
 
+        /// <summary>
+        /// Russia holds a strip along the border and east of the Oskil River. The control percentage is
+        /// DeepState's year-end 2025 figure, and fighting continues.
+        /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [Capital((int)WorldCities.UkraineKharkiv)]
         [LargestCity((int)WorldCities.UkraineKharkiv)]
+        [ActualControl(95.3, 2025, 12, 31)]
         [Texts("Kharkivska Oblast", "Харківська область")]
         Kharkiv,
 
@@ -71,6 +83,7 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [Capital((int)WorldCities.UkraineKherson)]
         [LargestCity((int)WorldCities.UkraineKherson)]
+        [ActualControl(27.9, 2026, 10, 30)]
         [Texts("Khersonska Oblast", "Херсонська область")]
         Kherson,
 
@@ -107,6 +120,7 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [ClaimedCapital((int)WorldCities.UkraineLuhansk)]
         [LargestCity((int)WorldCities.UkraineLuhansk)]
+        [ActualControl(0.4, 2025, 12, 31)]
         [Texts("Luhanska Oblast", "Луганська область")]
         Luhansk,
 
@@ -143,10 +157,16 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.District)]
         [ClaimedCapital((int)WorldCities.UkraineSevastopol)]
         [LargestCity((int)WorldCities.UkraineSevastopol)]
+        [ActualControl(0, 2026, 11, 15)]
         [Texts("Sevastopol", "Севастополь")]
         Sevastopol,
 
+        /// <summary>
+        /// Russia holds a small strip along the border. The control percentage is DeepState's year-end 2025
+        /// figure, and fighting continues.
+        /// </summary>
         [StateSubsidiaryType(StateSubsidaryType.Province)]
+        [ActualControl(99.0, 2025, 12, 31)]
         [Texts("Sumska Oblast", "Сумська область")]
         Sumy,
 
@@ -174,6 +194,7 @@ namespace Existence.Earth.Countries.Ukraine
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [Capital((int)WorldCities.UkraineZaporizhzhia)]
         [LargestCity((int)WorldCities.UkraineZaporizhzhia)]
+        [ActualControl(24.2, 2026, 10, 30)]
         [Texts("Zaporizka Oblast", "Запорізька область")]
         Zaporizhzhia,
 

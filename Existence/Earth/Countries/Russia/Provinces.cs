@@ -81,6 +81,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [DeFactoCapital((int)WorldCities.UkraineSimferopol)]
         [LargestCity((int)WorldCities.UkraineSimferopol)]
+        [ActualControl(100, 2026, 11, 15)]
         [Texts("Respublika Krym", "Республика Крым")]
         Crimea,
 
@@ -98,6 +99,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [DeFactoCapital((int)WorldCities.UkraineDonetsk)]
         [LargestCity((int)WorldCities.UkraineDonetsk)]
+        [ActualControl(79.7, 2026, 10, 30)]
         [Texts("Donetskaya Narodnaya Respublika", "Донецкая Народная Республика")]
         Donetsk,
 
@@ -175,6 +177,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [ClaimedCapital((int)WorldCities.UkraineKherson)]
         [LargestCity((int)WorldCities.UkraineKherson)]
+        [ActualControl(72.1, 2026, 10, 30)]
         [Texts("Khersonskaya Oblast", "Херсонская область")]
         Kherson,
 
@@ -225,6 +228,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [DeFactoCapital((int)WorldCities.UkraineLuhansk)]
         [LargestCity((int)WorldCities.UkraineLuhansk)]
+        [ActualControl(99.6, 2025, 12, 31)]
         [Texts("Luganskaya Narodnaya Respublika", "Луганская Народная Республика")]
         Luhansk,
 
@@ -364,6 +368,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.District)]
         [DeFactoCapital((int)WorldCities.UkraineSevastopol)]
         [LargestCity((int)WorldCities.UkraineSevastopol)]
+        [ActualControl(100, 2026, 11, 15)]
         [Texts("Sevastopol", "Севастополь")]
         Sevastopol,
 
@@ -471,6 +476,7 @@ namespace Existence.Earth.Countries.Russia
         [StateSubsidiaryType(StateSubsidaryType.Province)]
         [ClaimedCapital((int)WorldCities.UkraineZaporizhzhia)]
         [LargestCity((int)WorldCities.UkraineZaporizhzhia)]
+        [ActualControl(75.8, 2026, 10, 30)]
         [Texts("Zaporozhskaya Oblast", "Запорожская область")]
         Zaporizhzhia,
     }

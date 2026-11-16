@@ -79,6 +79,26 @@ namespace Existence.Earth.Countries
         }
     }
 
+    /// <summary>
+    /// the approximate percentage of a contested province's territory that the country whose enum lists
+    /// the province actually controls, as of the given date. A province claimed by two countries carries
+    /// one of these in each country's enum, e.g. <see cref="Russia.StateSubsidiariesRussia.Donetsk"/> and
+    /// <see cref="Ukraine.StateSubsidiariesUkraine.Donetsk"/>, and the two percentages add up to 100.
+    /// </summary>
+    public class ActualControlAttribute : YearDateAttribute
+    {
+        public double Percentage { get; set; }
+
+        /// <param name="Percentage">percentage of the province's territory under the country's control (0-100)</param>
+        /// <param name="Year">year of the estimate</param>
+        /// <param name="Month">month of the estimate</param>
+        /// <param name="Day">day of the estimate</param>
+        public ActualControlAttribute(double Percentage, int Year, int Month, int Day) : base(Year, Month, Day)
+        {
+            this.Percentage = Percentage;
+        }
+    }
+
     public class UnitedNationsMembershipAttribute : YearDateAttribute
     {
         public UnitedNationsMembershipAttribute(int year, int month, int day) : base(year, month, day)
