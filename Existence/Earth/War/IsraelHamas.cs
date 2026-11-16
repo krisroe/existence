@@ -3016,7 +3016,7 @@ internal enum IsraeliKibbutz
 /// an Israeli assassination attempt the target survived that took place before the 2023-10-07 attacks
 /// </summary>
 /// <remarks>
-/// not an exhaustive record: only applied where the earlier attempt is significant, i.e. the target is still alive
+/// not an exhaustive record: only applied where the earlier attempt is relevant to the list, e.g. the target is still alive
 /// </remarks>
 internal class AttemptedAssassinationPriorToOctober7Attribute : AssassinationAttemptAttribute
 {
@@ -3029,6 +3029,24 @@ internal class AttemptedAssassinationPriorToOctober7Attribute : AssassinationAtt
     /// <param name="Country">country where the assassination attempt took place</param>
     /// <param name="City">city where the assassination attempt took place</param>
     public AttemptedAssassinationPriorToOctober7Attribute(int Year, int Month, int Day, CountryLikeThings Country, WorldCities City) : base(Year, Month, Day, Country, City)
+    {
+    }
+}
+
+/// <summary>
+/// an Israeli assassination that took place before the 2023-10-07 attacks
+/// </summary>
+/// <remarks>
+/// not an exhaustive record: only applied where the earlier assassination is relevant to the list
+/// </remarks>
+internal class AssassinatedPriorToOctober7Attribute : AssassinatedAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Country">country where the assassination took place</param>
+    /// <param name="City">city where the assassination took place</param>
+    public AssassinatedPriorToOctober7Attribute(CountryLikeThings Country, WorldCities City) : base(Country, City)
     {
     }
 }
@@ -3068,12 +3086,14 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 /// targets of Israeli assassinations and assassination attempts since the 2023-10-07 attacks
 /// </summary>
 /// <remarks>
+/// earlier assassinations and attempts are only included where they are tied to someone on the list
+/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>).
 /// the <see cref="TotalAttribute"/> is the number of assassinations and survived assassination attempts
 /// (<see cref="AssassinatedAttribute"/> and <see cref="AssassinationAttemptAttribute"/>, including derived attributes),
 /// not the number of targets: a target can have more than one.
 /// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/> is not counted
 /// </remarks>
-[Total(101)]
+[Total(103)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3519,9 +3539,10 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Former Hamas Political Bureau chairman. Reported (unconfirmed) target of the Doha strike.
-    /// 1997: Mossad agents, acting on Netanyahu's orders and travelling on fake Canadian passports, poisoned him outside
+    /// 1997: Mossad agents, acting on the orders of <see cref="Existence.Earth.Countries.Israel.Politics.Politicians.NetanyahuBenjamin"/>
+    /// and travelling on fake Canadian passports, poisoned him outside
     /// the Hamas office in Amman. Two agents were captured and he fell into a coma; he survived after King Hussein of Jordan,
-    /// backed by Bill Clinton, forced Israel to hand over the antidote. Israel also released Ahmed Yassin to get the
+    /// backed by <see cref="Existence.Earth.Countries.UnitedStates.UnitedStatesPoliticians.ClintonBill"/>, forced Israel to hand over the antidote. Israel also released <see cref="YassinAhmed"/> to get the
     /// rest of the team back.
     /// </summary>
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
@@ -3926,6 +3947,19 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBaalbek)]
     [DeathDate(2026, 2, 20)]
     YaghiHussein,
+
+    /// <summary>
+    /// Founder and spiritual leader of Hamas; quadriplegic and nearly blind. Assassinated before the 2023-10-07 attacks:
+    /// killed by an Israeli helicopter missile strike while leaving dawn prayers. Released from Israeli prison in 1997
+    /// as part of the fallout from the attempt on <see cref="MashalKhaled"/>.
+    /// 2003: lightly wounded when an Israeli F-16 bombed a building in Gaza City where Hamas leaders were meeting.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AttemptedAssassinationPriorToOctober7(2003, 9, 6, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [AssassinatedPriorToOctober7(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [DeathDate(2004, 3, 22)]
+    YassinAhmed,
 
     /// <summary>
     /// Quds Force commander in Lebanon and Syria

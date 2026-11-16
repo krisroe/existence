@@ -229,6 +229,9 @@ namespace Existence.Earth.Countries.UnitedStates
         [Gender(Gender.Female)]
         CollinsSusan,
 
+        [Gender(Gender.Male)]
+        ClintonBill,
+
         [Gender(Gender.Female)]
         ClintonHillary,
 
