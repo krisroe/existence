@@ -3123,7 +3123,7 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
 /// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(100)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(103)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3168,6 +3168,17 @@ internal enum IsraeliAssassinationTarget
     AbuHamza,
 
     /// <summary>
+    /// Commander of Hamas's Khan Yunis Brigade. Targeted in an overnight strike on Nasser Hospital in Khan Yunis that killed
+    /// at least six people. Survived with a severe head injury and an amputated leg according to Israeli sources;
+    /// neither the IDF nor Hamas has confirmed his condition.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [AssassinationAttempt(2026, 11, 12, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
+    AbuIsmailMuhammad,
+
+    /// <summary>
     /// Head of Hamas's aerial array
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -3188,6 +3199,17 @@ internal enum IsraeliAssassinationTarget
     AbuObeida,
 
     /// <summary>
+    /// Commander of Hamas's Rafah Brigade, succeeding <see cref="ShabanaMuhammad"/>. Killed by an IDF and Shin Bet drone strike
+    /// in southern Gaza. Succeeded by <see cref="AbuYounisSamir"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2026, 9, 15)]
+    AbuObeidNael,
+
+    /// <summary>
     /// Secretary-General of the Mujahideen Brigades
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -3206,6 +3228,17 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     AbuTamaaGhazi,
+
+    /// <summary>
+    /// Commander of Hamas's Rafah Brigade for about two months, succeeding <see cref="AbuObeidNael"/>. Killed by an IDF and
+    /// Shin Bet drone strike in southern Gaza; Hamas confirmed his death.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2026, 11, 14)]
+    AbuYounisSamir,
 
     /// <summary>
     /// Head of Hezbollah's media relations
