@@ -16,12 +16,30 @@ namespace Existence.Earth.War
         public WorldCities? City { get; set; }
 
         /// <summary>
+        /// year of the attack, only set when it differs from the date of death (e.g. the target died of their wounds later)
+        /// </summary>
+        public int? Year { get; set; }
+
+        /// <summary>
+        /// month of the attack, only set when it differs from the date of death
+        /// </summary>
+        public int? Month { get; set; }
+
+        /// <summary>
+        /// day of the attack, only set when it differs from the date of death
+        /// </summary>
+        public int? Day { get; set; }
+
+        /// <summary>
         /// constructor for when the country is unknown
         /// </summary>
         public AssassinatedAttribute()
         {
             this.City = null;
             this.Country = null;
+            this.Year = null;
+            this.Month = null;
+            this.Day = null;
         }
 
         /// <summary>
@@ -42,6 +60,35 @@ namespace Existence.Earth.War
         {
             this.Country = Country;
             this.City = City;
+        }
+
+        /// <summary>
+        /// constructor for when the country is known but the city is unclear, and the attack happened on a different date than the death
+        /// </summary>
+        /// <param name="Country">country where the assassination took place</param>
+        /// <param name="Year">year of the attack</param>
+        /// <param name="Month">month of the attack</param>
+        /// <param name="Day">day of the attack</param>
+        public AssassinatedAttribute(CountryLikeThings Country, int Year, int Month, int Day) : this(Country)
+        {
+            this.Year = Year;
+            this.Month = Month;
+            this.Day = Day;
+        }
+
+        /// <summary>
+        /// constructor for when the country and city are clear, and the attack happened on a different date than the death
+        /// </summary>
+        /// <param name="Country">country where the assassination took place</param>
+        /// <param name="City">city where the assassination took place</param>
+        /// <param name="Year">year of the attack</param>
+        /// <param name="Month">month of the attack</param>
+        /// <param name="Day">day of the attack</param>
+        public AssassinatedAttribute(CountryLikeThings Country, WorldCities City, int Year, int Month, int Day) : this(Country, City)
+        {
+            this.Year = Year;
+            this.Month = Month;
+            this.Day = Day;
         }
     }
 

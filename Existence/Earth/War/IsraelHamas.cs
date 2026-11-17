@@ -3169,7 +3169,7 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
 /// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(103)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(104)]
 [SurvivorCountRange(4, 5)]
 internal enum IsraeliAssassinationTarget
 {
@@ -3336,10 +3336,14 @@ internal enum IsraeliAssassinationTarget
     AlDaalisIssam,
 
     /// <summary>
-    /// Houthi chief of staff
+    /// Houthi chief of staff. Killed alongside several associates and his 13-year-old son; the Houthis did not confirm his
+    /// death until 2025-10-16, when the IDF confirmed he was killed in the 2025-08-28 strike.
+    /// 2025-06-14: targeted by the IDF on the second day of the Twelve-Day War. An Israeli official said he was wounded;
+    /// the Houthis denied that anything happened to him.
     /// </summary>
     [Country(CountryLikeThings.Yemen)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [AssassinationAttempt(2025, 6, 14, CountryLikeThings.Yemen)]
     [Assassinated(CountryLikeThings.Yemen, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
     AlGhamariMuhammadAbdAlKarim,
@@ -3661,11 +3665,13 @@ internal enum IsraeliAssassinationTarget
     KhameneiAli,
 
     /// <summary>
-    /// Head of Iran's Strategic Council on Foreign Relations
+    /// Head of Iran's Strategic Council on Foreign Relations and former foreign minister. Seriously wounded when a targeted
+    /// United States and Israeli airstrike hit his home in Tehran, which killed his wife; died of his wounds several days later.
+    /// The attack date is the date the strike was first reported.
     /// </summary>
     [Country(CountryLikeThings.Iran)]
-    [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
-    [DeathDate(2026, 4, 1)]
+    [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran, 2026, 4, 1)]
+    [DeathDate(2026, 4, 9)]
     KharaziKamal,
 
     /// <summary>
