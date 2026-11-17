@@ -32,6 +32,22 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates that the survivor count range on the IsraeliAssassinationTarget enum matches the number of targets
+        /// marked as having survived (low) plus those where it is unclear if they are still alive (high)
+        /// </summary>
+        [TestMethod]
+        public void ValidateSurvivorCountRange()
+        {
+            FieldInfo[] fields = typeof(IsraeliAssassinationTarget).GetFields(BindingFlags.Public | BindingFlags.Static);
+            int iSurvivorCount = fields.Count(f => f.IsDefined(typeof(SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute)));
+            int iUnclearCount = fields.Count(f => f.IsDefined(typeof(UnclearIfStillAliveAttribute)));
+            SurvivorCountRangeAttribute? rangeAttribute = typeof(IsraeliAssassinationTarget).GetCustomAttribute<SurvivorCountRangeAttribute>();
+            Assert.IsNotNull(rangeAttribute, $"{nameof(IsraeliAssassinationTarget)} has no {nameof(SurvivorCountRangeAttribute)}");
+            Assert.AreEqual(rangeAttribute.Low, iSurvivorCount, $"{nameof(SurvivorCountRangeAttribute.Low)} on {nameof(IsraeliAssassinationTarget)} does not match the number of {nameof(SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute)} attributes on its values");
+            Assert.AreEqual(rangeAttribute.High, iSurvivorCount + iUnclearCount, $"{nameof(SurvivorCountRangeAttribute.High)} on {nameof(IsraeliAssassinationTarget)} does not match the number of {nameof(SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute)} and {nameof(UnclearIfStillAliveAttribute)} attributes on its values");
+        }
+
+        /// <summary>
         /// determines whether an assassination or assassination attempt attribute is one of the
         /// attributes marking events prior to the 2023-10-07 attacks
         /// </summary>

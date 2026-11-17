@@ -3099,6 +3099,50 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 }
 
 /// <summary>
+/// a target who was still alive when the term of <see cref="IsraeliPoliticians.NetanyahuBenjamin"/> as prime minister of Israel ended,
+/// which is the end date of the <see cref="IsraeliAssassinationTarget"/> list
+/// </summary>
+/// <remarks>
+/// applied provisionally to the targets who are currently alive: the term has not ended yet
+/// </remarks>
+internal class SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute : Attribute
+{
+}
+
+/// <summary>
+/// a target where it has not been confirmed whether they are still alive
+/// </summary>
+internal class UnclearIfStillAliveAttribute : Attribute
+{
+}
+
+/// <summary>
+/// range of how many targets on a list could have survived
+/// </summary>
+/// <remarks>
+/// the low end is the number of targets marked <see cref="SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute"/>;
+/// the high end adds the targets marked <see cref="UnclearIfStillAliveAttribute"/>
+/// </remarks>
+internal class SurvivorCountRangeAttribute : Attribute
+{
+    /// <summary>
+    /// number of targets known to have survived
+    /// </summary>
+    public int Low { get; set; }
+
+    /// <summary>
+    /// number of targets who could have survived, counting those whose fate is unconfirmed
+    /// </summary>
+    public int High { get; set; }
+
+    public SurvivorCountRangeAttribute(int Low, int High)
+    {
+        this.Low = Low;
+        this.High = High;
+    }
+}
+
+/// <summary>
 /// number of Israeli assassinations, survived assassination attempts and other killings of assassination targets
 /// made after the 2023-10-07 attacks
 /// </summary>
@@ -3119,11 +3163,14 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// targets of Israeli assassinations and assassination attempts since the 2023-10-07 attacks
 /// </summary>
 /// <remarks>
+/// the list ends when <see cref="IsraeliPoliticians.NetanyahuBenjamin"/> leaves power in Israel; targets still alive at that point are
+/// marked with <see cref="SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute"/>, and those whose fate is unconfirmed with <see cref="UnclearIfStillAliveAttribute"/>.
 /// earlier assassinations and attempts are only included where they are relevant to someone on the list
 /// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
 /// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
 /// </remarks>
 [TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(103)]
+[SurvivorCountRange(4, 5)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3176,6 +3223,7 @@ internal enum IsraeliAssassinationTarget
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinationAttempt(2026, 11, 12, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
+    [UnclearIfStillAlive]
     AbuIsmailMuhammad,
 
     /// <summary>
@@ -3317,6 +3365,7 @@ internal enum IsraeliAssassinationTarget
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AttemptedAssassinationPriorToOctober7(2007, 5, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     AlHayyaKhalil,
 
     /// <summary>
@@ -3474,6 +3523,7 @@ internal enum IsraeliAssassinationTarget
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     DarwishMuhammadIsmail,
 
     /// <summary>
@@ -3568,6 +3618,7 @@ internal enum IsraeliAssassinationTarget
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     JabarinZaher,
 
     /// <summary>
@@ -3647,6 +3698,7 @@ internal enum IsraeliAssassinationTarget
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [AttemptedAssassinationPriorToOctober7(1997, 9, 25, CountryLikeThings.Jordan, WorldCities.JordanAmman)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     MashalKhaled,
 
     /// <summary>
