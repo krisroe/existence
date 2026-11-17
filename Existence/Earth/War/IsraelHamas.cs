@@ -3158,7 +3158,7 @@ internal enum IsraeliAssassinationTarget
     AbiyarSaeed,
 
     /// <summary>
-    /// Al-Quds Brigades (Palestinian Islamic Jihad) spokesperson
+    /// Al-Quds Brigades spokesperson
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3178,7 +3178,7 @@ internal enum IsraeliAssassinationTarget
     AbuMuradMurad,
 
     /// <summary>
-    /// Qassam Brigades (Hamas) spokesperson
+    /// Al-Qassam Brigades spokesperson
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3335,7 +3335,7 @@ internal enum IsraeliAssassinationTarget
     AlOthmanAdhamAdnan,
 
     /// <summary>
-    /// Hamas Nukhba company commander on 2023-10-07
+    /// Hamas Nukhba company commander
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3389,11 +3389,11 @@ internal enum IsraeliAssassinationTarget
     AyoubMuhammadMustafa,
 
     /// <summary>
-    /// Senior member of Hezbollah's Unit 151. Killed in Al-Qusayr, Syria.
+    /// Senior member of Hezbollah's Unit 151
     /// </summary>
     [Country(CountryLikeThings.Lebanon)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [Assassinated(CountryLikeThings.Syria)]
+    [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaAlQusayr)]
     [DeathDate(2024, 11, 9)]
     AyyashSalim,
 
@@ -3444,7 +3444,7 @@ internal enum IsraeliAssassinationTarget
     DarwishMuhammadIsmail,
 
     /// <summary>
-    /// Commander of the Qassam Brigades (Hamas)
+    /// Commander of the Al-Qassam Brigades
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3501,7 +3501,7 @@ internal enum IsraeliAssassinationTarget
     HazimaAliHussein,
 
     /// <summary>
-    /// Deputy commander of the Qassam Brigades (Hamas)
+    /// Deputy commander of the Al-Qassam Brigades
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3718,7 +3718,7 @@ internal enum IsraeliAssassinationTarget
     NofalAyman,
 
     /// <summary>
-    /// Hamas leader in Gaza and Qassam Brigades commander
+    /// Hamas leader in Gaza and Al-Qassam Brigades commander
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3806,7 +3806,7 @@ internal enum IsraeliAssassinationTarget
     RezaeiBehnam,
 
     /// <summary>
-    /// Head of the Qassam Brigades' production headquarters (Hamas)
+    /// Head of the Al-Qassam Brigades' production headquarters
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]

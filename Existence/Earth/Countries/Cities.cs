@@ -312,6 +312,7 @@ namespace Existence.Earth.Countries
         SwazilandMbabane,
         SwitzerlandBern,
         SwitzerlandZurich,
+        SyriaAlQusayr,
         SyriaDamascus,
         SyriaQamishli,
         TaiwanTaipei,
