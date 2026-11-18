@@ -1837,7 +1837,8 @@ namespace Existence.Earth.Countries
         Vietnam,
 
         /// <summary>
-        /// de facto capital is Aden since the Houthi's control Sana'a
+        /// de facto capital is Aden since the Houthi's control Sana'a. Population is the full population
+        /// of internationally recognized Yemen.
         /// </summary>
         [UnitedNationsMembership(1947, 9, 30)]
         [Capital((int)WorldCities.YemenSanaa)]
@@ -1846,6 +1847,21 @@ namespace Existence.Earth.Countries
         [NumberOfMembers(41800000)] //41.8 million
         [ExecutivePowerType(ExecutivePowerTypes.Directorial)]
         Yemen,
+
+        /// <summary>
+        /// territory controlled by the Houthi (Ansar Allah) government in Sana'a, as opposed to the internationally recognized
+        /// government of <see cref="Yemen"/>. Not internationally recognized as a country. Formally governed by the Supreme
+        /// Political Council, but power rests with the movement's religious leader Abdul-Malik al-Houthi.
+        /// </summary>
+        /// <remarks>
+        /// population is a rough estimate (about two thirds of Yemen's population lives in Houthi-controlled territory);
+        /// the <see cref="Yemen"/> population covers the whole country
+        /// </remarks>
+        [Capital((int)WorldCities.YemenSanaa)]
+        [LargestCity((int)WorldCities.YemenSanaa)]
+        [NumberOfMembers(28000000)] //28 million
+        [ExecutivePowerType(ExecutivePowerTypes.Theocratic)]
+        YemenHouthi,
 
         [FullName("Democratic Republic of the Congo")]
         [Abbreviation("DRC")]

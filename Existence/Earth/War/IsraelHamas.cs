@@ -3457,10 +3457,10 @@ internal enum IsraeliAssassinationTarget
     /// 2025-06-14: targeted by the IDF on the second day of the Twelve-Day War. An Israeli official said he was wounded;
     /// the Houthis denied that anything happened to him.
     /// </summary>
-    [Country(CountryLikeThings.Yemen)]
+    [Country(CountryLikeThings.YemenHouthi)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [AssassinationAttempt(2025, 6, 14, CountryLikeThings.Yemen)]
-    [Assassinated(CountryLikeThings.Yemen, WorldCities.YemenSanaa)]
+    [AssassinationAttempt(2025, 6, 14, CountryLikeThings.YemenHouthi)]
+    [Assassinated(CountryLikeThings.YemenHouthi, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
     AlGhamariMuhammadAbdAlKarim,
 
@@ -3551,9 +3551,9 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Houthi prime minister
     /// </summary>
-    [Country(CountryLikeThings.Yemen)]
+    [Country(CountryLikeThings.YemenHouthi)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [Assassinated(CountryLikeThings.Yemen, WorldCities.YemenSanaa)]
+    [Assassinated(CountryLikeThings.YemenHouthi, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
     AlRahawiAhmed,
 
