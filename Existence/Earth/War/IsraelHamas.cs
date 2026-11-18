@@ -3032,15 +3032,76 @@ internal enum IsraeliMusicFestivals
     Psyduck,
 }
 
+/// <summary>
+/// kibbutzim attacked on 2023-10-07
+/// </summary>
+/// <remarks>casualty and hostage figures are from the Wikipedia article on each attack</remarks>
 internal enum IsraeliKibbutz
 {
+    /// <summary>
+    /// 101 civilians and 31 security personnel killed, 32 hostages taken
+    /// </summary>
+    [Text("Be'eri")]
     Beeri,
+
+    /// <summary>
+    /// attack directed by <see cref="IsraeliAssassinationTarget.AbuAjinaNasim"/>, according to the IDF; an IDF investigation said the
+    /// army failed in its mission to protect the kibbutz. Casualty and hostage figures not confirmed
+    /// </summary>
+    [Text("Erez")]
+    Erez,
+
+    /// <summary>
+    /// at least 62 residents killed, 19 hostages taken
+    /// </summary>
+    [Text("Kfar Aza")]
     KfarAza,
+
+    /// <summary>
+    /// at least 22 people killed (4 kibbutz security team members, 4 other residents, 6 Thai laborers and 8 soldiers),
+    /// at least 4 hostages taken
+    /// </summary>
+    [Text("Kissufim")]
     Kissufim,
+
+    /// <summary>
+    /// 15 civilians killed, plus more than 60 soldiers at the adjacent military base; 8 civilians and some soldiers taken hostage
+    /// </summary>
+    [Text("Nahal Oz")]
     NahalOz,
+
+    /// <summary>
+    /// 47 people killed, 76 hostages taken
+    /// </summary>
+    [Text("Nir Oz")]
     NirOz,
+
+    /// <summary>
+    /// 6 members of the kibbutz security team and 1 soldier killed, 7 residents taken hostage
+    /// (2 were freed before reaching Gaza). Attacked by the Hamas Nuseirat Battalion
+    /// </summary>
+    [Text("Nir Yitzhak")]
     NirYitzhak,
+
+    /// <summary>
+    /// 5 residents killed, 5 hostages taken
+    /// </summary>
+    [Text("Nirim")]
     Nirim,
+}
+
+/// <summary>
+/// moshavim (cooperative farming villages, as distinct from a <see cref="IsraeliKibbutz"/>) attacked on 2023-10-07
+/// </summary>
+internal enum IsraeliMoshav
+{
+    /// <summary>
+    /// at least 17 people killed by three Hamas militants who arrived on paragliders, no hostages reported; attack directed by
+    /// <see cref="IsraeliAssassinationTarget.AbuAjinaNasim"/>, according to the IDF. An IDF investigation found that the 37 soldiers
+    /// and security officers present failed to stop the attack despite outnumbering the militants
+    /// </summary>
+    [Text("Netiv HaAsara")]
+    NetivHaAsara,
 }
 
 /// <summary>
@@ -3707,8 +3768,9 @@ internal enum IsraeliAssassinationTarget
     AbiyarSaeed,
 
     /// <summary>
-    /// Killed in an Israeli strike reported by the IDF on 2023-10-31. The IDF said he directed the October 7 attacks on
-    /// Kibbutz Erez and Moshav Netiv HaAsara.
+    /// Killed in an IDF airstrike based on Shin Bet and military intelligence (reported 2023-10-31). The IDF said he commanded
+    /// the October 7 attacks on <see cref="IsraeliKibbutz.Erez"/> and <see cref="IsraeliMoshav.NetivHaAsara"/>. Previously commanded
+    /// Hamas's aerial forces, working on its drones and paragliders.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4824,7 +4886,7 @@ internal enum IsraeliAssassinationTarget
     SinwarYahya,
 
     /// <summary>
-    /// Killed with his deputy in an IDF strike (reported 2024-01-06). The IDF said his battalion led the October 7 attack on Kibbutz Be'eri.
+    /// Killed with his deputy in an IDF strike (reported 2024-01-06). The IDF said his battalion led the October 7 attack on <see cref="IsraeliKibbutz.Beeri"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
