@@ -3839,7 +3839,7 @@ internal enum IsraeliAssassinationTarget
     AbuHamza,
 
     /// <summary>
-    /// Commander of Hamas's Khan Yunis Brigade. Targeted in an overnight strike on Nasser Hospital in Khan Yunis that killed
+    /// Targeted in an overnight strike on Nasser Hospital in Khan Yunis that killed
     /// at least six people. Survived with a severe head injury and an amputated leg according to Israeli sources;
     /// neither the IDF nor Hamas has confirmed his condition.
     /// </summary>
@@ -3889,7 +3889,7 @@ internal enum IsraeliAssassinationTarget
     AbuObeida,
 
     /// <summary>
-    /// Commander of Hamas's Rafah Brigade, succeeding <see cref="ShabanaMuhammad"/>. Killed by an IDF and Shin Bet drone strike
+    /// Succeeded <see cref="ShabanaMuhammad"/> as brigade commander. Killed by an IDF and Shin Bet drone strike
     /// in southern Gaza. Succeeded by <see cref="AbuYounisSamir"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
