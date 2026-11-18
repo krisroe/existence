@@ -2205,6 +2205,33 @@ namespace Existence.Earth.War
     }
 
     /// <summary>
+    /// people taken hostage by Palestinian militant groups before the 2023-10-07 attacks
+    /// </summary>
+    /// <remarks>
+    /// not exhaustive: only includes people referenced elsewhere. Hostages taken earlier but still held on 2023-10-07
+    /// (e.g. <see cref="HostageList.GoldinHadar"/>) are in <see cref="HostageList"/> instead
+    /// </remarks>
+    public enum PriorTo2023October7thHostageList
+    {
+        /// <summary>
+        /// Captured on 2006-06-25 near the Kerem Shalom crossing by Palestinian militants who crossed into Israel through a tunnel
+        /// from Gaza and attacked his tank crew. Held by Hamas at an undisclosed location in Gaza for over five years; Hamas refused
+        /// Red Cross visits, and his only contact with the outside world was three letters, an audio tape and a video.
+        /// Released alive on 2011-10-18 in exchange for 1,027 Palestinian prisoners, among them <see cref="IsraeliAssassinationTarget.SinwarYahya"/>.
+        /// The raid was led in part by <see cref="IsraeliAssassinationTarget.GhandourAhmed"/>; early messages to his family went through
+        /// <see cref="IsraeliHamasMostWantedTargets.HamadGhazi"/>. Promoted in captivity; his rank here is the rank at capture.
+        /// </summary>
+        [Countries(CountryLikeThings.Israel, CountryLikeThings.France)]
+        [IsraelDefenceForcesSoldier(IsraelDefenceForcesRank.Corporal)]
+        [KidnappedFrom(KidnappedFrom.ArmoredVehicle)]
+        [Gender(Gender.Male)]
+        [Age(19, TimePeriods.Years)]
+        [StartDate(2006, 6, 25)]
+        [EndDate(2011, 10, 18)]
+        ShalitGilad,
+    }
+
+    /// <summary>
     /// see https://www.cnn.com/interactive/2023/12/world/hostage-israel-hamas-deal-dg/
     /// </summary>
     public class IsraelHamasHostages
@@ -4087,7 +4114,7 @@ internal enum IsraeliAssassinationTarget
     /// Killed in an IDF airstrike together with his deputy <see cref="RajebWael"/>. Three Israeli hostages were also killed in the attack:
     /// <see cref="HostageList.ToledanoElia"/>, <see cref="HostageList.BeizerNik"/> and <see cref="HostageList.ShermanRon"/>.
     /// A close confidant of <see cref="DeifMohammed"/>; survived earlier Israeli assassination attempts in 2002 and 2012, and helped lead
-    /// the 2006 raid in which Israeli soldier Gilad Shalit was abducted.
+    /// the 2006 raid in which Israeli soldier <see cref="PriorTo2023October7thHostageList.ShalitGilad"/> was abducted.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
