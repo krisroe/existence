@@ -1,4 +1,5 @@
 ﻿using System;
+using Existence.Earth.Countries;
 
 namespace Existence.Earth.Human.People
 {
@@ -62,10 +63,35 @@ namespace Existence.Earth.Human.People
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class HumanOccupationAttribute : Attribute
     {
+        /// <summary>
+        /// the occupation
+        /// </summary>
         public HumanOccupation Occupation { get; set; }
+
+        /// <summary>
+        /// country the occupation is held for, where it applies to a country (e.g. a prime minister)
+        /// </summary>
+        public CountryLikeThings? Country { get; set; }
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="Occupation">the occupation</param>
         public HumanOccupationAttribute(HumanOccupation Occupation)
         {
             this.Occupation = Occupation;
+            this.Country = null;
+        }
+
+        /// <summary>
+        /// constructor for an occupation held for a country
+        /// </summary>
+        /// <param name="Occupation">the occupation</param>
+        /// <param name="Country">country the occupation is held for</param>
+        public HumanOccupationAttribute(HumanOccupation Occupation, CountryLikeThings Country)
+        {
+            this.Occupation = Occupation;
+            this.Country = Country;
         }
     }
 
@@ -80,6 +106,11 @@ namespace Existence.Earth.Human.People
         /// (e.g. the Supreme Leader of Iran)
         /// </summary>
         LeaderOfCountrySupreme,
+
+        /// <summary>
+        /// head of government of a country
+        /// </summary>
+        MinisterPrimeOfCountry,
 
         ScientistNuclear,
     }

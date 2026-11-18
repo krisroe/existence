@@ -3549,10 +3549,14 @@ internal enum IsraeliAssassinationTarget
     AlQadiAli,
 
     /// <summary>
-    /// Houthi prime minister
+    /// Killed with several companions in an Israeli airstrike on an apartment building in Sana'a, the same day as the strike
+    /// that killed <see cref="AlGhamariMuhammadAbdAlKarim"/>; the Houthis confirmed his death two days later. Prime minister
+    /// of the Houthi government from 2024-08-10, and a member of the General People's Congress party rather than a Houthi.
+    /// Earlier survived several non-Israeli assassination attempts, and al-Qaeda blew up his house in 2015.
     /// </summary>
     [Country(CountryLikeThings.YemenHouthi)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
+    [HumanOccupation(HumanOccupation.MinisterPrimeOfCountry, CountryLikeThings.YemenHouthi)]
     [Assassinated(CountryLikeThings.YemenHouthi, WorldCities.YemenSanaa)]
     [DeathDate(2025, 8, 28)]
     AlRahawiAhmed,
@@ -3882,7 +3886,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.Iran)]
     [EthnicGroups((int)WorldEthnicGroups.Azerbaijani, (int)WorldEthnicGroups.Persian)]
-    [HumanOccupation(HumanOccupation.LeaderOfCountrySupreme)]
+    [HumanOccupation(HumanOccupation.LeaderOfCountrySupreme, CountryLikeThings.Iran)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     KhameneiAli,
