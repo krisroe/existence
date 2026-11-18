@@ -3055,6 +3055,274 @@ internal class HamasMostWantedAttribute : Attribute
 }
 
 /// <summary>
+/// regional brigades of the Qassam Brigades, Hamas's military wing, in the Gaza Strip from the 2023-10-07 attacks on,
+/// plus <see cref="AlQassam"/> for the Qassam Brigades as a whole
+/// </summary>
+/// <remarks>
+/// source: the Institute for the Study of War order of battle, as summarized at https://en.wikipedia.org/wiki/Al-Qassam_Brigades
+/// </remarks>
+internal enum HamasMilitaryBrigade
+{
+    /// <summary>
+    /// the Qassam Brigades as a whole, i.e. the entire military structure rather than one regional brigade.
+    /// No <see cref="HamasMilitaryBattalion"/> belongs directly to it
+    /// </summary>
+    AlQassam = 0,
+
+    /// <summary>
+    /// Northern Gaza Brigade (North Gaza Governorate)
+    /// </summary>
+    NorthernGaza = 1,
+
+    /// <summary>
+    /// Gaza City Brigade (Gaza Governorate)
+    /// </summary>
+    GazaCity = 2,
+
+    /// <summary>
+    /// Central Camps Brigade (Deir al-Balah Governorate)
+    /// </summary>
+    CentralCamps = 3,
+
+    /// <summary>
+    /// Khan Yunis Brigade (Khan Yunis Governorate)
+    /// </summary>
+    KhanYunis = 4,
+
+    /// <summary>
+    /// Rafah Brigade (Rafah Governorate)
+    /// </summary>
+    Rafah,
+}
+
+/// <summary>
+/// brigade a <see cref="HamasMilitaryBattalion"/> belongs to
+/// </summary>
+internal class HamasMilitaryBrigadeAttribute : Attribute
+{
+    public HamasMilitaryBrigade Brigade { get; set; }
+    public HamasMilitaryBrigadeAttribute(HamasMilitaryBrigade Brigade)
+    {
+        this.Brigade = Brigade;
+    }
+}
+
+/// <summary>
+/// battalions of the Qassam Brigades, Hamas's military wing, in the Gaza Strip from the 2023-10-07 attacks on
+/// </summary>
+/// <remarks>
+/// source: the Institute for the Study of War order of battle, as summarized at https://en.wikipedia.org/wiki/Al-Qassam_Brigades.
+/// Each battalion is associated with a major settlement, but battalions may be relocated during the war.
+/// Not included: unconfirmed elite battalions in the Gaza City and Central Camps brigades, and a possible fourth Rafah battalion whose name is unknown
+/// </remarks>
+internal enum HamasMilitaryBattalion
+{
+    /// <summary>
+    /// Beit Lahia Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    BeitLahia = 101,
+
+    /// <summary>
+    /// Beit Hanoun Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    BeitHanoun = 102,
+
+    /// <summary>
+    /// al-Khalifa al-Rashidun Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    AlKhalifaAlRashidun = 103,
+
+    /// <summary>
+    /// Martyr Suhail Ziadeh Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    SuhailZiadeh = 104,
+
+    /// <summary>
+    /// Jabalia al-Balad (Abdul Raouf Nabhan) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    JabaliaAlBalad = 105,
+
+    /// <summary>
+    /// Imad Aql (Western) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    ImadAql = 106,
+
+    /// <summary>
+    /// Elite Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
+    NorthernGazaElite = 107,
+
+    /// <summary>
+    /// Sabra-Tal al-Islam Battalion (also romanized "Zabara")
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    SabraTalAlIslam = 201,
+
+    /// <summary>
+    /// Daraj wal-Tuffah Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    DarajWalTuffah = 202,
+
+    /// <summary>
+    /// Radwan (al-Furqan) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    Radwan = 203,
+
+    /// <summary>
+    /// Shuja'iyya Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    Shujaiyya = 204,
+
+    /// <summary>
+    /// Zaytoun Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    Zaytoun = 205,
+
+    /// <summary>
+    /// Shati Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
+    Shati = 206,
+
+    /// <summary>
+    /// Deir al-Balah Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
+    DeirAlBalah = 301,
+
+    /// <summary>
+    /// al-Bureij Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
+    Bureij = 302,
+
+    /// <summary>
+    /// al-Maghazi Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
+    Maghazi = 303,
+
+    /// <summary>
+    /// Nuseirat Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
+    Nuseirat = 304,
+
+    /// <summary>
+    /// Camp (West Khan Yunis) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    KhanYunisWest = 401,
+
+    /// <summary>
+    /// North Khan Yunis Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    KhanYunisNorth = 402,
+
+    /// <summary>
+    /// South Khan Yunis Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    KhanYunisSouth = 403,
+
+    /// <summary>
+    /// Eastern (Khan Yunis) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    KhanYunisEast = 404,
+
+    /// <summary>
+    /// Qarara Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    Qarara = 405,
+
+    /// <summary>
+    /// Elite Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
+    KhanYunisElite = 406,
+
+    /// <summary>
+    /// Eastern Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
+    RafahEast = 501,
+
+    /// <summary>
+    /// Khalid bin al-Walid (Yibna Camp) Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
+    KhalidBinAlWalid = 502,
+
+    /// <summary>
+    /// Shaboura Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
+    Shaboura = 503,
+
+    /// <summary>
+    /// Elite Battalion
+    /// </summary>
+    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
+    RafahElite,
+}
+
+/// <summary>
+/// Qassam Brigades unit a person commanded at the time of their assassination, assassination attempt or death:
+/// the entire military structure (<see cref="HamasMilitaryBrigade.AlQassam"/>), a whole <see cref="HamasMilitaryBrigade"/>,
+/// or a <see cref="HamasMilitaryBattalion"/> within a brigade
+/// </summary>
+/// <remarks>
+/// deputy commanders and heads of functional headquarters (e.g. the rocket array) are not included
+/// </remarks>
+internal class HamasMilitaryCommanderAttribute : Attribute
+{
+    /// <summary>
+    /// brigade commanded, or the brigade the commanded battalion belongs to
+    /// </summary>
+    public HamasMilitaryBrigade Brigade { get; set; }
+
+    /// <summary>
+    /// battalion commanded, or null for a commander of the entire brigade
+    /// </summary>
+    public HamasMilitaryBattalion? Battalion { get; set; }
+
+    /// <summary>
+    /// constructor for a commander of an entire brigade
+    /// </summary>
+    /// <param name="Brigade">brigade commanded</param>
+    public HamasMilitaryCommanderAttribute(HamasMilitaryBrigade Brigade)
+    {
+        this.Brigade = Brigade;
+        this.Battalion = null;
+    }
+
+    /// <summary>
+    /// constructor for a commander of a battalion
+    /// </summary>
+    /// <param name="Brigade">brigade the battalion belongs to</param>
+    /// <param name="Battalion">battalion commanded</param>
+    public HamasMilitaryCommanderAttribute(HamasMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion)
+    {
+        this.Brigade = Brigade;
+        this.Battalion = Battalion;
+    }
+}
+
+/// <summary>
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
 internal class PalestinianMilitantGroupAttribute : Attribute
@@ -3248,7 +3516,7 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
 /// if they are confirmed as assassinations
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(104)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(106)]
 [SurvivorCountRange(4, 5)]
 internal enum IsraeliAssassinationTarget
 {
@@ -3284,11 +3552,13 @@ internal enum IsraeliAssassinationTarget
     AbiyarSaeed,
 
     /// <summary>
-    /// Commander of the Beit Lahiya Brigade
+    /// Killed in an Israeli strike reported by the IDF on 2023-10-31. The IDF said he directed the October 7 attacks on
+    /// Kibbutz Erez and Moshav Netiv HaAsara.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.NorthernGaza, HamasMilitaryBattalion.BeitLahia)]
     [HamasMostWanted(StandardPlayingCard.SpadesFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -3312,6 +3582,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis)]
     [AssassinationAttempt(2026, 11, 12, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [UnclearIfStillAlive]
     AbuIsmailMuhammad,
@@ -3355,6 +3626,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 9, 15)]
     AbuObeidNael,
@@ -3398,6 +3670,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 11, 14)]
     AbuYounisSamir,
@@ -3470,6 +3743,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.ClubsQueen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 15)]
@@ -3661,11 +3935,12 @@ internal enum IsraeliAssassinationTarget
     AyyashSalim,
 
     /// <summary>
-    /// Commander of the Al-Furqan Battalion
+    /// Killed by the IDF while hiding in a school in Gaza, according to the IDF (reported 2024-08-05).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Radwan)]
     [HamasMostWanted(StandardPlayingCard.DiamondsFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 8)]
@@ -3711,11 +3986,12 @@ internal enum IsraeliAssassinationTarget
     BiariIbrahim,
 
     /// <summary>
-    /// Commander of the Zabara Battalion
+    /// Killed in IDF airstrikes on Gaza (reported 2023-11-03).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.SabraTalAlIslam)]
     [HamasMostWanted(StandardPlayingCard.ClubsFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
@@ -3742,33 +4018,44 @@ internal enum IsraeliAssassinationTarget
     DarwishMuhammadIsmail,
 
     /// <summary>
-    /// Commander of the Al-Qassam Brigades
+    /// Killed in an airstrike on the family home of <see cref="SalamaRafa"/> in al-Mawasi, a camp for displaced people near Khan Yunis,
+    /// which also killed Salama and at least 90 others. Hamas denied his death for over six months before confirming it on 2025-01-30.
+    /// One of the planners of the October 7 attacks. Survived at least seven earlier Israeli assassination attempts since 2001;
+    /// his wife, infant son and three-year-old daughter were killed in an Israeli airstrike in 2014.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.Joker1)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
     DeifMohammed,
 
     /// <summary>
-    /// Commander of the Shuja'iyya Battalion
+    /// Killed in an IDF airstrike. The IDF said his battalion led the October 7 attack on Nahal Oz, and blamed him for a 2014
+    /// incident in Shuja'iyya in which seven IDF soldiers were killed, including Oron Shaul. Son of Umm Nidal; three of his brothers
+    /// were also killed for their Hamas activities.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Shujaiyya)]
     [HamasMostWanted(StandardPlayingCard.ClubsSix)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 12)]
+    [DeathDate(2023, 12, 2)]
     FarhatWissam,
 
     /// <summary>
-    /// Commander of Hamas's Northern Gaza Brigade
+    /// Killed in an IDF airstrike together with his deputy <see cref="RajebWael"/>. Three Israeli hostages were also killed in the attack:
+    /// <see cref="HostageList.ToledanoElia"/>, <see cref="HostageList.BeizerNik"/> and <see cref="HostageList.ShermanRon"/>.
+    /// A close confidant of <see cref="DeifMohammed"/>; survived earlier Israeli assassination attempts in 2002 and 2012, and helped lead
+    /// the 2006 raid in which Israeli soldier Gilad Shalit was abducted.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.NorthernGaza)]
     [HamasMostWanted(StandardPlayingCard.HeartsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -3919,22 +4206,24 @@ internal enum IsraeliAssassinationTarget
     LarijaniAli,
 
     /// <summary>
-    /// Commander of the West Khan Yunis Battalion
+    /// Killed in an overnight IDF strike (reported 2023-10-27).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisWest)]
     [HamasMostWanted(StandardPlayingCard.SpadesTwo)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
     MabasherMadhat,
 
     /// <summary>
-    /// Commander of the Northern Khan Yunis Brigade
+    /// Killed in an IDF airstrike (reported 2023-10-25). Previously commanded Hamas's naval force.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisNorth)]
     [HamasMostWanted(StandardPlayingCard.SpadesFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -4060,11 +4349,14 @@ internal enum IsraeliAssassinationTarget
     NilforoushanAbbas,
 
     /// <summary>
-    /// Commander of Hamas's Central Gaza Brigade
+    /// Killed in an airstrike that destroyed four multi-story apartment buildings; Hamas confirmed his death the same day. An unnamed
+    /// Israeli military source said the military knowingly authorized a strike it expected to kill about 300 other people.
+    /// Also head of air operations and a member of the Qassam Brigades' General Military Council.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.CentralCamps)]
     [HamasMostWanted(StandardPlayingCard.ClubsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
@@ -4076,6 +4368,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.HeartsTen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
@@ -4107,11 +4400,13 @@ internal enum IsraeliAssassinationTarget
     QaoukNabil,
 
     /// <summary>
-    /// Commander of Hamas's South Khan Younis Battalion
+    /// Killed in the strike on the tunnel complex under the European Hospital in Khan Yunis that also killed
+    /// <see cref="SinwarMohammed"/> and <see cref="ShabanaMuhammad"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisSouth)]
     [HamasMostWanted(StandardPlayingCard.ClubsTwo)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -4182,11 +4477,13 @@ internal enum IsraeliAssassinationTarget
     SafieddineHashem,
 
     /// <summary>
-    /// Commander of Hamas's Khan Yunis Brigade
+    /// Killed when Israel bombed his family home in al-Mawasi, a camp for displaced people near Khan Yunis, in the strike that also
+    /// killed <see cref="DeifMohammed"/> and at least 90 others. Hamas called the claims that its leaders were targeted false allegations.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis)]
     [HamasMostWanted(StandardPlayingCard.DiamondsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
@@ -4212,12 +4509,20 @@ internal enum IsraeliAssassinationTarget
     SalmanRafet,
 
     /// <summary>
-    /// Commander of Hamas's Rafah Brigade
+    /// Killed with <see cref="SinwarMohammed"/> and <see cref="QuaraMahdi"/> in the strike on a tunnel under the European Hospital
+    /// in Khan Yunis, which killed 26 people according to the Gaza Health Ministry; his body was reportedly recovered from the tunnel
+    /// with Sinwar's. The IDF confirmed his death on 2025-05-31 and Hamas on 2025-12-29.
+    /// According to Palestinian reports he survived two earlier attempts: a strike on his family home in eastern Rafah on 2023-12-20,
+    /// and a strike on a tunnel complex where he was believed to be hiding on 2024-05-24. Two of his sons were killed in the first days
+    /// of the war and a third in fighting in Rafah in 2024.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
     [HamasMostWanted(StandardPlayingCard.HeartsSix)]
+    [AssassinationAttempt(2023, 12, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
+    [AssassinationAttempt(2024, 5, 24, CountryLikeThings.PalestineGaza)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     ShabanaMuhammad,
@@ -4335,6 +4640,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.SpadesJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -4352,11 +4658,12 @@ internal enum IsraeliAssassinationTarget
     SinwarYahya,
 
     /// <summary>
-    /// Commander of the Nuseirat Battalion
+    /// Killed with his deputy in an IDF strike (reported 2024-01-06). The IDF said his battalion led the October 7 attack on Kibbutz Be'eri.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommander(HamasMilitaryBrigade.CentralCamps, HamasMilitaryBattalion.Nuseirat)]
     [HamasMostWanted(StandardPlayingCard.DiamondsThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 1)]
