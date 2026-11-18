@@ -4,6 +4,7 @@ using Existence.Earth.Countries;
 using Existence.Earth.Countries.Israel.Politics;
 using Existence.Earth.Countries.UnitedStates;
 using Existence.Earth.FieldsOfStudy.Mathematics;
+using Existence.Earth.Gambling;
 using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.People;
 using Existence.Earth.Time;
@@ -3016,6 +3017,44 @@ internal enum IsraeliKibbutz
 }
 
 /// <summary>
+/// card a person appears on in the unofficial IDF "most wanted" Hamas playing card deck
+/// </summary>
+/// <remarks>source: https://en.wikipedia.org/wiki/Hamas_most_wanted_playing_cards</remarks>
+internal class HamasMostWantedAttribute : Attribute
+{
+    /// <summary>
+    /// card the person appears on
+    /// </summary>
+    public StandardPlayingCard Card { get; set; }
+
+    /// <summary>
+    /// optional explanation of how the person is depicted
+    /// </summary>
+    public string? Explanation { get; set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Card">card the person appears on</param>
+    public HamasMostWantedAttribute(StandardPlayingCard Card)
+    {
+        this.Card = Card;
+        this.Explanation = null;
+    }
+
+    /// <summary>
+    /// constructor with an explanation
+    /// </summary>
+    /// <param name="Card">card the person appears on</param>
+    /// <param name="Explanation">explanation of how the person is depicted</param>
+    public HamasMostWantedAttribute(StandardPlayingCard Card, string Explanation)
+    {
+        this.Card = Card;
+        this.Explanation = Explanation;
+    }
+}
+
+/// <summary>
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
 internal class PalestinianMilitantGroupAttribute : Attribute
@@ -3063,6 +3102,39 @@ internal class AssassinatedPriorToOctober7Attribute : AssassinatedAttribute
     /// <param name="City">city where the assassination took place</param>
     public AssassinatedPriorToOctober7Attribute(CountryLikeThings Country, WorldCities City) : base(Country, City)
     {
+    }
+}
+
+/// <summary>
+/// a target who was killed during the war, where it is not known whether they were the target of an assassination
+/// or a casualty of the wider fighting
+/// </summary>
+/// <remarks>
+/// deliberately does not inherit from <see cref="AssassinatedAttribute"/>, and is not counted in the
+/// <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
+/// </remarks>
+internal class KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute : Attribute
+{
+    /// <summary>
+    /// country where the death took place
+    /// </summary>
+    public CountryLikeThings? Country { get; set; }
+
+    /// <summary>
+    /// constructor for when the country is unknown
+    /// </summary>
+    public KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute()
+    {
+        this.Country = null;
+    }
+
+    /// <summary>
+    /// constructor for when the country is known
+    /// </summary>
+    /// <param name="Country">country where the death took place</param>
+    public KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute(CountryLikeThings Country)
+    {
+        this.Country = Country;
     }
 }
 
@@ -3150,7 +3222,9 @@ internal class SurvivorCountRangeAttribute : Attribute
 /// counts <see cref="AssassinatedAttribute"/>, <see cref="AssassinationAttemptAttribute"/> and
 /// <see cref="AssassinatedButNotActuallyAssassinatedAttribute"/>, not targets: a target can have more than one.
 /// Not counted: earlier assassinations and attempts that are only on the list because they are adjacent to it
-/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>)
+/// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
+/// and deaths that may have been war casualties rather than assassinations
+/// (<see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>), which are not currently included
 /// </remarks>
 internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute : TotalAttribute
 {
@@ -3167,7 +3241,12 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// marked with <see cref="SurvivedTheEndOfNetanyahusPostOctober7AttacksTermAttribute"/>, and those whose fate is unconfirmed with <see cref="UnclearIfStillAliveAttribute"/>.
 /// earlier assassinations and attempts are only included where they are relevant to someone on the list
 /// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
-/// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
+/// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>.
+/// Members of the Hamas "most wanted" playing card deck (<see cref="HamasMostWantedAttribute"/>) who were killed during the war
+/// are included even when it is not known whether they were assassinated, marked with
+/// <see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>. Those deaths (currently 19) are not currently included
+/// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
+/// if they are confirmed as assassinations
 /// </remarks>
 [TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(104)]
 [SurvivorCountRange(4, 5)]
@@ -3205,6 +3284,17 @@ internal enum IsraeliAssassinationTarget
     AbiyarSaeed,
 
     /// <summary>
+    /// Commander of the Beit Lahiya Brigade
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesFive)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    AbuAjinaNasim,
+
+    /// <summary>
     /// Al-Quds Brigades spokesperson
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -3227,6 +3317,17 @@ internal enum IsraeliAssassinationTarget
     AbuIsmailMuhammad,
 
     /// <summary>
+    /// Senior member of Hamas's Political Bureau
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsNine)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    AbuMaamarZakaria,
+
+    /// <summary>
     /// Head of Hamas's aerial array
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -3242,6 +3343,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesAce)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 8, 30)]
     AbuObeida,
@@ -3256,6 +3358,17 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 9, 15)]
     AbuObeidNael,
+
+    /// <summary>
+    /// Head of the air wing
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsKing)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    AbuRakabaAsem,
 
     /// <summary>
     /// Secretary-General of the Mujahideen Brigades
@@ -3273,6 +3386,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsEight)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     AbuTamaaGhazi,
@@ -3311,6 +3425,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.Joker2)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 1, 2)]
     AlArouriSaleh,
@@ -3331,6 +3446,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesKing)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AlDaalisIssam,
@@ -3349,11 +3465,12 @@ internal enum IsraeliAssassinationTarget
     AlGhamariMuhammadAbdAlKarim,
 
     /// <summary>
-    /// Hamas leader in Gaza and Qassam Brigades commander
+    /// Hamas leader in Gaza and Al-Qassam Brigades commander
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsQueen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 15)]
     AlHaddadIzzAlDin,
@@ -3367,6 +3484,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsKing)]
     [AttemptedAssassinationPriorToOctober7(2007, 5, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
@@ -3440,6 +3558,28 @@ internal enum IsraeliAssassinationTarget
     AlRahawiAhmed,
 
     /// <summary>
+    /// Commander of explosive devices in the northern Gaza Strip
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsFive)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    AlSaharIbrahim,
+
+    /// <summary>
+    /// Member of Hamas's Political Bureau
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesQueen)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 7)]
+    AlSarrajSameh,
+
+    /// <summary>
     /// Senior Hezbollah Radwan Force commander
     /// </summary>
     [Country(CountryLikeThings.Lebanon)]
@@ -3447,6 +3587,17 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Lebanon)]
     [DeathDate(2024, 1, 8)]
     AlTawilWissam,
+
+    /// <summary>
+    /// Commander of the Gaza City Brigade's anti-tank system (Al-Qassam Brigades)
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsTwo)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    AlwadiaMohammed,
 
     /// <summary>
     /// Head of Hezbollah's Radwan Force
@@ -3464,6 +3615,28 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 2, 28)]
     AsadiSaleh,
+
+    /// <summary>
+    /// Commander of the anti-tank system in Khan Yunis
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesThree)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 11)]
+    AshurYakub,
+
+    /// <summary>
+    /// Head of the anti-tank forces in Gaza
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsNine)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 11)]
+    AtzarMuhammad,
 
     /// <summary>
     /// Hezbollah Nasr unit rocket and missile commander
@@ -3484,6 +3657,17 @@ internal enum IsraeliAssassinationTarget
     AyyashSalim,
 
     /// <summary>
+    /// Commander of the Al-Furqan Battalion
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsFive)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 8)]
+    AzizJaber,
+
+    /// <summary>
     /// Chief of Staff of Iran's Armed Forces
     /// </summary>
     [Country(CountryLikeThings.Iran)]
@@ -3501,14 +3685,37 @@ internal enum IsraeliAssassinationTarget
     BarjiAliHussein,
 
     /// <summary>
+    /// Deputy head of intelligence
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsEight)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    BaroudShadi,
+
+    /// <summary>
     /// Hamas commander of Central Jabaliya
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesSix)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
     [DeathDate(2023, 10, 31)]
     BiariIbrahim,
+
+    /// <summary>
+    /// Commander of the Zabara Battalion
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsFour)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 11)]
+    DalulMustafa,
 
     /// <summary>
     /// Senior Hezbollah commander. Killed in southern Lebanon.
@@ -3536,9 +3743,21 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.Joker1)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
     DeifMohammed,
+
+    /// <summary>
+    /// Commander of the Shuja'iyya Battalion
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsSix)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 12)]
+    FarhatWissam,
 
     /// <summary>
     /// Commander of Hamas's Northern Gaza Brigade
@@ -3546,6 +3765,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     GhandourAhmed,
@@ -3574,6 +3794,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsAce)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2024, 7, 31)]
     HaniyehIsmail,
@@ -3593,6 +3814,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsAce)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     IssaMarwan,
@@ -3621,6 +3843,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsSeven)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     JabarinZaher,
@@ -3692,6 +3915,28 @@ internal enum IsraeliAssassinationTarget
     LarijaniAli,
 
     /// <summary>
+    /// Commander of the West Khan Yunis Battalion
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesTwo)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    MabasherMadhat,
+
+    /// <summary>
+    /// Commander of the Northern Khan Yunis Brigade
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesFour)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    MabasherTaysir,
+
+    /// <summary>
     /// Former Hamas Political Bureau chairman. Reported (unconfirmed) target of the Doha strike.
     /// 1997: Mossad agents, acting on the orders of <see cref="IsraeliPoliticians.NetanyahuBenjamin"/>
     /// and travelling on fake Canadian passports, poisoned him outside
@@ -3702,6 +3947,7 @@ internal enum IsraeliAssassinationTarget
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsAce)]
     [AttemptedAssassinationPriorToOctober7(1997, 9, 25, CountryLikeThings.Jordan, WorldCities.JordanAmman)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
@@ -3756,6 +4002,17 @@ internal enum IsraeliAssassinationTarget
     MozaffariNiaReza,
 
     /// <summary>
+    /// Chairman of the economic committee
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsKing)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 7)]
+    MushtahaRawhi,
+
+    /// <summary>
     /// IRGC spokesperson
     /// </summary>
     [Country(CountryLikeThings.Iran)]
@@ -3804,6 +4061,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
     NofalAyman,
@@ -3814,6 +4072,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsTen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
     OdehMohammed,
@@ -3849,6 +4108,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsTwo)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     QuaraMahdi,
@@ -3876,6 +4136,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsSix)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     RajebWael,
@@ -3902,6 +4163,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsFour)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 12, 13)]
     SaadRaad,
@@ -3921,6 +4183,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
     SalamaRafa,
@@ -3950,6 +4213,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsSix)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     ShabanaMuhammad,
@@ -3992,6 +4256,17 @@ internal enum IsraeliAssassinationTarget
     ShahriyariBehnam,
 
     /// <summary>
+    /// Deputy commander of the Gaza City Brigade
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesEight)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2025, 3)]
+    ShamaliAhmed,
+
+    /// <summary>
     /// Adviser to Khamenei and Secretary of the Defense Council
     /// </summary>
     [Country(CountryLikeThings.Iran)]
@@ -4029,21 +4304,34 @@ internal enum IsraeliAssassinationTarget
     ShukrFuad,
 
     /// <summary>
+    /// Commander in the Al-Qassam Brigades
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsSeven)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 8)]
+    SiamAbdAlHadi,
+
+    /// <summary>
     /// Head of Hamas's rocket array
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsQueen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
     SiamAyman,
 
     /// <summary>
-    /// Hamas leader in Gaza and Qassam Brigades commander
+    /// Hamas leader in Gaza and Al-Qassam Brigades commander
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
     SinwarMohammed,
@@ -4054,9 +4342,21 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsQueen)]
     [AssassinatedButNotActuallyAssassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
     [DeathDate(2024, 10, 16)]
     SinwarYahya,
+
+    /// <summary>
+    /// Commander of the Nuseirat Battalion
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsThree)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 1)]
+    SirajIsmail,
 
     /// <summary>
     /// Commander of the Basij
@@ -4113,6 +4413,17 @@ internal enum IsraeliAssassinationTarget
     TehranchiMohammadMehdi,
 
     /// <summary>
+    /// Member of Hamas's Political Bureau
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsThree)]
+    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 3)]
+    ThabatRaad,
+
+    /// <summary>
     /// Head of Hezbollah Radwan Force training
     /// </summary>
     [Country(CountryLikeThings.Lebanon)]
@@ -4152,4 +4463,102 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Syria, WorldCities.SyriaDamascus)]
     [DeathDate(2024, 4, 1)]
     ZahediMohammadReza,
+}
+
+/// <summary>
+/// Hamas members on the unofficial IDF "most wanted" playing card deck who are not on the <see cref="IsraeliAssassinationTarget"/> list:
+/// those who are alive or whose fate is unconfirmed
+/// </summary>
+/// <remarks>
+/// source: https://en.wikipedia.org/wiki/Hamas_most_wanted_playing_cards (card list and status as of November 2026).
+/// Members of the deck who were killed during the war are on the <see cref="IsraeliAssassinationTarget"/> list, marked with
+/// <see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/> where it is not known whether the death was an assassination.
+/// </remarks>
+internal enum IsraeliHamasMostWantedTargets
+{
+    /// <summary>
+    /// Deputy health minister
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesTen)]
+    AbuAlRishYoussef,
+
+    /// <summary>
+    /// Head of the international relations office
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsEight)]
+    AbuMarzookMousa,
+
+    /// <summary>
+    /// Head of the media department
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesNine)]
+    AlAmoudiAli,
+
+    /// <summary>
+    /// Member of the Hamas Political Bureau
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsNine)]
+    AlZaharMahmoud,
+
+    /// <summary>
+    /// Head of the rear headquarters
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesSeven)]
+    AqelImad,
+
+    /// <summary>
+    /// Senior member of the Hamas Political Bureau
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsTwo)]
+    AwadallahNizar,
+
+    /// <summary>
+    /// Member of the Executive Committee (spelled "Hassam" on the card list)
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsFive)]
+    BadranHossam,
+
+    /// <summary>
+    /// Commander in the Al-Qassam Brigades
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsTen)]
+    BaroudFaez,
+
+    /// <summary>
+    /// Head of office in the Executive Committee
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsFour)]
+    HamadFathi,
+
+    /// <summary>
+    /// Member of Hamas's Political Bureau
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.ClubsThree)]
+    HamadGhazi,
+
+    /// <summary>
+    /// Foreign relations officer
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.DiamondsTen)]
+    HamdanOsama,
+
+    /// <summary>
+    /// Commander of the Shati Battalion (Al-Qassam Brigades).
+    /// The IDF claimed it killed him in December 2023 but retracted the claim in February 2025.
+    /// </summary>
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.HeartsSeven)]
+    [UnclearIfStillAlive]
+    KhuwajariHaitham,
 }
