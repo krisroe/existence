@@ -19,32 +19,44 @@ namespace Existence.Tests
         {
             foreach (HamasMilitaryBattalion battalion in Enum.GetValues<HamasMilitaryBattalion>())
             {
-                HamasMilitaryBrigade? brigade = GetBrigade(battalion);
-                Assert.IsNotNull(brigade, $"{battalion} has no {nameof(HamasMilitaryBrigadeAttribute)}");
-                Assert.AreNotEqual(HamasMilitaryBrigade.AlQassam, brigade, $"{battalion} belongs to {nameof(HamasMilitaryBrigade.AlQassam)} rather than a regional brigade");
+                PalestinianGazaMilitaryBrigade? brigade = GetBrigade(battalion);
+                Assert.IsNotNull(brigade, $"{battalion} has no {nameof(PalestinianGazaMilitaryBrigadeAttribute)}");
+                Assert.IsFalse(IsWholeMilitaryWing(brigade.Value), $"{battalion} belongs to {brigade.Value} rather than a regional brigade");
             }
         }
 
         /// <summary>
-        /// validates that every battalion commander and deputy commander attribute on the assassination targets names the brigade
-        /// the battalion belongs to, and that nobody is marked as both a commander and a deputy commander
+        /// validates the militant role attributes (commanders, deputy commanders and spokespeople) on the assassination targets:
+        /// a whole military wing matches its faction, a battalion is a Hamas battalion in the brigade named with it,
+        /// and nobody is marked as both a commander and a deputy commander
         /// </summary>
         [TestMethod]
-        public void ValidateCommanderUnits()
+        public void ValidateMilitantRoles()
         {
             foreach (FieldInfo field in typeof(IsraeliAssassinationTarget).GetFields(BindingFlags.Public | BindingFlags.Static))
             {
                 bool isCommander = false;
                 bool isDeputy = false;
-                foreach (HamasMilitaryCommanderAttribute commander in field.GetCustomAttributes<HamasMilitaryCommanderAttribute>())
+                foreach (PalestinianMilitantAttribute role in field.GetCustomAttributes<PalestinianMilitantAttribute>())
                 {
-                    string role = commander.IsDeputy ? "is deputy commander of" : "commands";
-                    if (commander.Battalion.HasValue)
+                    if (role.Brigade == PalestinianGazaMilitaryBrigade.AlQassam)
                     {
-                        Assert.AreEqual(GetBrigade(commander.Battalion.Value), commander.Brigade, $"{field.Name} {role} {commander.Battalion.Value}, which is not in the {commander.Brigade} brigade");
+                        Assert.AreEqual(PalestinianMilitantGroups.Hamas, role.Faction, $"{field.Name} has {nameof(PalestinianGazaMilitaryBrigade.AlQassam)} with faction {role.Faction}");
                     }
-                    isCommander |= !commander.IsDeputy;
-                    isDeputy |= commander.IsDeputy;
+                    if (role.Brigade == PalestinianGazaMilitaryBrigade.AlQuds)
+                    {
+                        Assert.AreEqual(PalestinianMilitantGroups.PalestinianIslamicJihad, role.Faction, $"{field.Name} has {nameof(PalestinianGazaMilitaryBrigade.AlQuds)} with faction {role.Faction}");
+                    }
+                    if (role.Battalion.HasValue)
+                    {
+                        Assert.AreEqual(PalestinianMilitantGroups.Hamas, role.Faction, $"{field.Name} has a {nameof(HamasMilitaryBattalion)} with faction {role.Faction}");
+                        Assert.AreEqual(GetBrigade(role.Battalion.Value), role.Brigade, $"{field.Name} has {role.Battalion.Value}, which is not in the {role.Brigade} brigade");
+                    }
+                    if (role is PalestinianMilitantCommanderAttribute commander)
+                    {
+                        isCommander |= !commander.IsDeputy;
+                        isDeputy |= commander.IsDeputy;
+                    }
                 }
                 Assert.IsFalse(isCommander && isDeputy, $"{field.Name} is marked as both a commander and a deputy commander");
             }
@@ -55,9 +67,19 @@ namespace Existence.Tests
         /// </summary>
         /// <param name="battalion">the battalion</param>
         /// <returns>the brigade, or null if the battalion has no brigade attribute</returns>
-        private static HamasMilitaryBrigade? GetBrigade(HamasMilitaryBattalion battalion)
+        private static PalestinianGazaMilitaryBrigade? GetBrigade(HamasMilitaryBattalion battalion)
         {
-            return typeof(HamasMilitaryBattalion).GetField(battalion.ToString())!.GetCustomAttribute<HamasMilitaryBrigadeAttribute>()?.Brigade;
+            return typeof(HamasMilitaryBattalion).GetField(battalion.ToString())!.GetCustomAttribute<PalestinianGazaMilitaryBrigadeAttribute>()?.Brigade;
+        }
+
+        /// <summary>
+        /// determines whether a brigade value stands for a whole military wing rather than a regional brigade
+        /// </summary>
+        /// <param name="brigade">the brigade</param>
+        /// <returns>true for a whole military wing</returns>
+        private static bool IsWholeMilitaryWing(PalestinianGazaMilitaryBrigade brigade)
+        {
+            return brigade == PalestinianGazaMilitaryBrigade.AlQassam || brigade == PalestinianGazaMilitaryBrigade.AlQuds;
         }
     }
 }

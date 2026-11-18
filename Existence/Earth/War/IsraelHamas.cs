@@ -3082,13 +3082,16 @@ internal class HamasMostWantedAttribute : Attribute
 }
 
 /// <summary>
-/// regional brigades of the Qassam Brigades, Hamas's military wing, in the Gaza Strip from the 2023-10-07 attacks on,
-/// plus <see cref="AlQassam"/> for the Qassam Brigades as a whole
+/// brigades of Palestinian militant factions' military wings in the Gaza Strip from the 2023-10-07 attacks on: each faction's
+/// military wing as a whole (<see cref="AlQassam"/> for Hamas, <see cref="AlQuds"/> for Palestinian Islamic Jihad), and the
+/// regional brigades. Both factions organize their Gaza forces by the same regions, so the regional brigades are combined with
+/// a faction (e.g. in <see cref="PalestinianMilitantAttribute"/>) to identify a particular faction's brigade
 /// </summary>
 /// <remarks>
-/// source: the Institute for the Study of War order of battle, as summarized at https://en.wikipedia.org/wiki/Al-Qassam_Brigades
+/// regional brigades follow the Institute for the Study of War order of battle for the Qassam Brigades, as summarized at
+/// https://en.wikipedia.org/wiki/Al-Qassam_Brigades; less is public about the al-Quds Brigades' regional structure
 /// </remarks>
-internal enum HamasMilitaryBrigade
+internal enum PalestinianGazaMilitaryBrigade
 {
     /// <summary>
     /// the Qassam Brigades as a whole, i.e. the entire military structure rather than one regional brigade.
@@ -3097,24 +3100,30 @@ internal enum HamasMilitaryBrigade
     AlQassam = 0,
 
     /// <summary>
+    /// the al-Quds Brigades, Palestinian Islamic Jihad's military wing, as a whole rather than one regional brigade.
+    /// No <see cref="HamasMilitaryBattalion"/> belongs to it
+    /// </summary>
+    AlQuds,
+
+    /// <summary>
     /// Northern Gaza Brigade (North Gaza Governorate)
     /// </summary>
-    NorthernGaza = 1,
+    NorthernGaza,
 
     /// <summary>
     /// Gaza City Brigade (Gaza Governorate)
     /// </summary>
-    GazaCity = 2,
+    GazaCity,
 
     /// <summary>
     /// Central Camps Brigade (Deir al-Balah Governorate)
     /// </summary>
-    CentralCamps = 3,
+    CentralCamps,
 
     /// <summary>
     /// Khan Yunis Brigade (Khan Yunis Governorate)
     /// </summary>
-    KhanYunis = 4,
+    KhanYunis,
 
     /// <summary>
     /// Rafah Brigade (Rafah Governorate)
@@ -3125,10 +3134,10 @@ internal enum HamasMilitaryBrigade
 /// <summary>
 /// brigade a <see cref="HamasMilitaryBattalion"/> belongs to
 /// </summary>
-internal class HamasMilitaryBrigadeAttribute : Attribute
+internal class PalestinianGazaMilitaryBrigadeAttribute : Attribute
 {
-    public HamasMilitaryBrigade Brigade { get; set; }
-    public HamasMilitaryBrigadeAttribute(HamasMilitaryBrigade Brigade)
+    public PalestinianGazaMilitaryBrigade Brigade { get; set; }
+    public PalestinianGazaMilitaryBrigadeAttribute(PalestinianGazaMilitaryBrigade Brigade)
     {
         this.Brigade = Brigade;
     }
@@ -3147,230 +3156,271 @@ internal enum HamasMilitaryBattalion
     /// <summary>
     /// Beit Lahia Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    BeitLahia = 101,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    BeitLahia,
 
     /// <summary>
     /// Beit Hanoun Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    BeitHanoun = 102,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    BeitHanoun,
 
     /// <summary>
     /// al-Khalifa al-Rashidun Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    AlKhalifaAlRashidun = 103,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    AlKhalifaAlRashidun,
 
     /// <summary>
     /// Martyr Suhail Ziadeh Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    SuhailZiadeh = 104,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    SuhailZiadeh,
 
     /// <summary>
     /// Jabalia al-Balad (Abdul Raouf Nabhan) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    JabaliaAlBalad = 105,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    JabaliaAlBalad,
 
     /// <summary>
     /// Imad Aql (Western) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    ImadAql = 106,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    ImadAql,
 
     /// <summary>
     /// Elite Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.NorthernGaza)]
-    NorthernGazaElite = 107,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.NorthernGaza)]
+    NorthernGazaElite,
 
     /// <summary>
     /// Sabra-Tal al-Islam Battalion (also romanized "Zabara")
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    SabraTalAlIslam = 201,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    SabraTalAlIslam,
 
     /// <summary>
     /// Daraj wal-Tuffah Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    DarajWalTuffah = 202,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    DarajWalTuffah,
 
     /// <summary>
     /// Radwan (al-Furqan) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    Radwan = 203,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    Radwan,
 
     /// <summary>
     /// Shuja'iyya Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    Shujaiyya = 204,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    Shujaiyya,
 
     /// <summary>
     /// Zaytoun Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    Zaytoun = 205,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    Zaytoun,
 
     /// <summary>
     /// Shati Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.GazaCity)]
-    Shati = 206,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.GazaCity)]
+    Shati,
 
     /// <summary>
     /// Deir al-Balah Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
-    DeirAlBalah = 301,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.CentralCamps)]
+    DeirAlBalah,
 
     /// <summary>
     /// al-Bureij Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
-    Bureij = 302,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.CentralCamps)]
+    Bureij,
 
     /// <summary>
     /// al-Maghazi Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
-    Maghazi = 303,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.CentralCamps)]
+    Maghazi,
 
     /// <summary>
     /// Nuseirat Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.CentralCamps)]
-    Nuseirat = 304,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.CentralCamps)]
+    Nuseirat,
 
     /// <summary>
     /// Camp (West Khan Yunis) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    KhanYunisWest = 401,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    KhanYunisWest,
 
     /// <summary>
     /// North Khan Yunis Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    KhanYunisNorth = 402,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    KhanYunisNorth,
 
     /// <summary>
     /// South Khan Yunis Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    KhanYunisSouth = 403,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    KhanYunisSouth,
 
     /// <summary>
     /// Eastern (Khan Yunis) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    KhanYunisEast = 404,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    KhanYunisEast,
 
     /// <summary>
     /// Qarara Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    Qarara = 405,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    Qarara,
 
     /// <summary>
     /// Elite Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.KhanYunis)]
-    KhanYunisElite = 406,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.KhanYunis)]
+    KhanYunisElite,
 
     /// <summary>
     /// Eastern Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
-    RafahEast = 501,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.Rafah)]
+    RafahEast,
 
     /// <summary>
     /// Khalid bin al-Walid (Yibna Camp) Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
-    KhalidBinAlWalid = 502,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.Rafah)]
+    KhalidBinAlWalid,
 
     /// <summary>
     /// Shaboura Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
-    Shaboura = 503,
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.Rafah)]
+    Shaboura,
 
     /// <summary>
     /// Elite Battalion
     /// </summary>
-    [HamasMilitaryBrigade(HamasMilitaryBrigade.Rafah)]
+    [PalestinianGazaMilitaryBrigade(PalestinianGazaMilitaryBrigade.Rafah)]
     RafahElite,
 }
 
 /// <summary>
-/// Qassam Brigades unit a person commanded, or was deputy commander of, at the time of their assassination, assassination attempt or death:
-/// the entire military structure (<see cref="HamasMilitaryBrigade.AlQassam"/>), a whole <see cref="HamasMilitaryBrigade"/>,
-/// or a <see cref="HamasMilitaryBattalion"/> within a brigade
+/// role a person held in a Palestinian militant faction's military wing at the time of their assassination, assassination
+/// attempt or death: the faction, plus the whole military wing (<see cref="PalestinianGazaMilitaryBrigade.AlQassam"/> or
+/// <see cref="PalestinianGazaMilitaryBrigade.AlQuds"/>), a regional <see cref="PalestinianGazaMilitaryBrigade"/>, or a
+/// <see cref="HamasMilitaryBattalion"/> within a brigade
 /// </summary>
 /// <remarks>
-/// deputy commanders use the derived <see cref="HamasMilitaryCommanderDeputyAttribute"/>, which sets <see cref="IsDeputy"/>;
-/// a lookup of this attribute also returns deputies, so check <see cref="IsDeputy"/> to tell them apart.
-/// Heads of functional headquarters (e.g. the rocket array) are not included
+/// base for <see cref="PalestinianMilitantCommanderAttribute"/>, <see cref="PalestinianMilitantCommanderDeputyAttribute"/> and
+/// <see cref="PalestinianMilitantSpokespersonAttribute"/>; a lookup of this attribute returns all of them.
+/// Battalions are only modelled for Hamas
 /// </remarks>
-internal class HamasMilitaryCommanderAttribute : Attribute
+internal class PalestinianMilitantAttribute : Attribute
 {
     /// <summary>
-    /// brigade commanded, or the brigade the commanded battalion belongs to
+    /// faction whose military wing the unit belongs to
     /// </summary>
-    public HamasMilitaryBrigade Brigade { get; set; }
+    public PalestinianMilitantGroups Faction { get; set; }
 
     /// <summary>
-    /// battalion commanded, or null for a commander of the entire brigade
+    /// the whole military wing, a regional brigade, or the brigade the battalion belongs to
+    /// </summary>
+    public PalestinianGazaMilitaryBrigade Brigade { get; set; }
+
+    /// <summary>
+    /// battalion, or null when the role covers a whole brigade or military wing
     /// </summary>
     public HamasMilitaryBattalion? Battalion { get; set; }
 
+    /// <summary>
+    /// constructor for a role covering a whole brigade or military wing
+    /// </summary>
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
+    /// <param name="Brigade">the whole military wing or a regional brigade</param>
+    public PalestinianMilitantAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade)
+    {
+        this.Faction = Faction;
+        this.Brigade = Brigade;
+        this.Battalion = null;
+    }
+
+    /// <summary>
+    /// constructor for a role in a battalion
+    /// </summary>
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
+    /// <param name="Brigade">brigade the battalion belongs to</param>
+    /// <param name="Battalion">the battalion</param>
+    public PalestinianMilitantAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion)
+    {
+        this.Faction = Faction;
+        this.Brigade = Brigade;
+        this.Battalion = Battalion;
+    }
+}
+
+/// <summary>
+/// unit a person commanded, or was deputy commander of, at the time of their assassination, assassination attempt or death
+/// </summary>
+/// <remarks>
+/// deputy commanders use the derived <see cref="PalestinianMilitantCommanderDeputyAttribute"/>, which sets <see cref="IsDeputy"/>;
+/// a lookup of this attribute also returns deputies, so check <see cref="IsDeputy"/> to tell them apart.
+/// Heads of functional headquarters (e.g. the rocket array) are not included
+/// </remarks>
+internal class PalestinianMilitantCommanderAttribute : PalestinianMilitantAttribute
+{
     /// <summary>
     /// true for a deputy commander rather than the commander
     /// </summary>
     public bool IsDeputy { get; protected set; }
 
     /// <summary>
-    /// constructor for a commander of an entire brigade
+    /// constructor for a commander of a whole brigade or military wing
     /// </summary>
-    /// <param name="Brigade">brigade commanded</param>
-    public HamasMilitaryCommanderAttribute(HamasMilitaryBrigade Brigade)
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
+    /// <param name="Brigade">the whole military wing or a regional brigade</param>
+    public PalestinianMilitantCommanderAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade) : base(Faction, Brigade)
     {
-        this.Brigade = Brigade;
-        this.Battalion = null;
         this.IsDeputy = false;
     }
 
     /// <summary>
     /// constructor for a commander of a battalion
     /// </summary>
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
     /// <param name="Brigade">brigade the battalion belongs to</param>
     /// <param name="Battalion">battalion commanded</param>
-    public HamasMilitaryCommanderAttribute(HamasMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion)
+    public PalestinianMilitantCommanderAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion) : base(Faction, Brigade, Battalion)
     {
-        this.Brigade = Brigade;
-        this.Battalion = Battalion;
         this.IsDeputy = false;
     }
 }
 
 /// <summary>
-/// Qassam Brigades unit a person was deputy commander of at the time of their assassination, assassination attempt or death
+/// unit a person was deputy commander of at the time of their assassination, assassination attempt or death
 /// </summary>
 /// <remarks>
-/// a <see cref="HamasMilitaryCommanderAttribute"/> with <see cref="HamasMilitaryCommanderAttribute.IsDeputy"/> set
+/// a <see cref="PalestinianMilitantCommanderAttribute"/> with <see cref="PalestinianMilitantCommanderAttribute.IsDeputy"/> set
 /// </remarks>
-internal class HamasMilitaryCommanderDeputyAttribute : HamasMilitaryCommanderAttribute
+internal class PalestinianMilitantCommanderDeputyAttribute : PalestinianMilitantCommanderAttribute
 {
     /// <summary>
-    /// constructor for a deputy commander of an entire brigade
+    /// constructor for a deputy commander of a whole brigade or military wing
     /// </summary>
-    /// <param name="Brigade">brigade the person was deputy commander of</param>
-    public HamasMilitaryCommanderDeputyAttribute(HamasMilitaryBrigade Brigade) : base(Brigade)
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
+    /// <param name="Brigade">the whole military wing or a regional brigade</param>
+    public PalestinianMilitantCommanderDeputyAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade) : base(Faction, Brigade)
     {
         this.IsDeputy = true;
     }
@@ -3378,17 +3428,37 @@ internal class HamasMilitaryCommanderDeputyAttribute : HamasMilitaryCommanderAtt
     /// <summary>
     /// constructor for a deputy commander of a battalion
     /// </summary>
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
     /// <param name="Brigade">brigade the battalion belongs to</param>
     /// <param name="Battalion">battalion the person was deputy commander of</param>
-    public HamasMilitaryCommanderDeputyAttribute(HamasMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion) : base(Brigade, Battalion)
+    public PalestinianMilitantCommanderDeputyAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion) : base(Faction, Brigade, Battalion)
     {
         this.IsDeputy = true;
     }
 }
 
 /// <summary>
+/// unit a person was the public spokesperson of at the time of their assassination, assassination attempt or death
+/// </summary>
+internal class PalestinianMilitantSpokespersonAttribute : PalestinianMilitantAttribute
+{
+    /// <summary>
+    /// constructor for a spokesperson of a whole brigade or military wing
+    /// </summary>
+    /// <param name="Faction">faction whose military wing the unit belongs to</param>
+    /// <param name="Brigade">the whole military wing or a regional brigade</param>
+    public PalestinianMilitantSpokespersonAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade) : base(Faction, Brigade)
+    {
+    }
+}
+
+/// <summary>
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
+/// <remarks>
+/// not used on people who have a <see cref="PalestinianMilitantAttribute"/> role (commander, deputy commander or spokesperson),
+/// whose <see cref="PalestinianMilitantAttribute.Faction"/> already names the group
+/// </remarks>
 internal class PalestinianMilitantGroupAttribute : Attribute
 {
     public PalestinianMilitantGroups Group { get; set; }
@@ -3621,19 +3691,19 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.NorthernGaza, HamasMilitaryBattalion.BeitLahia)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.NorthernGaza, HamasMilitaryBattalion.BeitLahia)]
     [HamasMostWanted(StandardPlayingCard.SpadesFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
     AbuAjinaNasim,
 
     /// <summary>
-    /// Al-Quds Brigades spokesperson
+    /// Killed with his wife in an Israeli night air raid in central Gaza on the day Israel resumed fighting and ended the
+    /// January 2025 ceasefire.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.PalestinianIslamicJihad)]
+    [PalestinianMilitantSpokesperson(PalestinianMilitantGroups.PalestinianIslamicJihad, PalestinianGazaMilitaryBrigade.AlQuds)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 18)]
     AbuHamza,
@@ -3645,8 +3715,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis)]
     [AssassinationAttempt(2026, 11, 12, CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [UnclearIfStillAlive]
     AbuIsmailMuhammad,
@@ -3673,11 +3742,15 @@ internal enum IsraeliAssassinationTarget
     AbuMuradMurad,
 
     /// <summary>
-    /// Al-Qassam Brigades spokesperson
+    /// Killed in an Israeli airstrike on his home in an apartment building in the Rimal neighborhood of Gaza City, which killed at least
+    /// 11 people including children. Israel confirmed his death the next day; Hamas confirmed it on 2025-12-29, together with the deaths
+    /// of <see cref="SinwarMohammed"/>, <see cref="ShabanaMuhammad"/>, <see cref="SaadRaad"/> and <see cref="AlIssaHakhamMuhammadIssa"/>,
+    /// and gave his nom de guerre to a new spokesperson. Spokesperson from 2007; first appeared in 2006 announcing the capture of
+    /// <see cref="PriorTo2023October7thHostageList.ShalitGilad"/>, and in 2014 announced the capture of <see cref="HostageList.ShaulOron"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpokesperson(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.SpadesAce)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 8, 30)]
@@ -3689,8 +3762,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.Rafah)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 9, 15)]
     AbuObeidNael,
@@ -3733,8 +3805,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.Rafah)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 11, 14)]
     AbuYounisSamir,
@@ -3806,8 +3877,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.ClubsQueen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 15)]
@@ -4003,8 +4073,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Radwan)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Radwan)]
     [HamasMostWanted(StandardPlayingCard.DiamondsFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 8)]
@@ -4054,8 +4123,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.SabraTalAlIslam)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity, HamasMilitaryBattalion.SabraTalAlIslam)]
     [HamasMostWanted(StandardPlayingCard.ClubsFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
@@ -4089,8 +4157,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.Joker1)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
@@ -4103,8 +4170,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Shujaiyya)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity, HamasMilitaryBattalion.Shujaiyya)]
     [HamasMostWanted(StandardPlayingCard.ClubsSix)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 12, 2)]
@@ -4118,8 +4184,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.NorthernGaza)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.NorthernGaza)]
     [HamasMostWanted(StandardPlayingCard.HeartsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -4172,8 +4237,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.AlQassam)]
+    [PalestinianMilitantCommanderDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.ClubsAce)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
@@ -4279,8 +4343,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisWest)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisWest)]
     [HamasMostWanted(StandardPlayingCard.SpadesTwo)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -4291,8 +4354,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisNorth)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisNorth)]
     [HamasMostWanted(StandardPlayingCard.SpadesFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -4424,8 +4486,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.CentralCamps)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.CentralCamps)]
     [HamasMostWanted(StandardPlayingCard.ClubsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
@@ -4436,8 +4497,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.HeartsTen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
@@ -4474,8 +4534,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisSouth)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisSouth)]
     [HamasMostWanted(StandardPlayingCard.ClubsTwo)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -4504,8 +4563,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.NorthernGaza)]
+    [PalestinianMilitantCommanderDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.NorthernGaza)]
     [HamasMostWanted(StandardPlayingCard.DiamondsSix)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -4553,8 +4611,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.KhanYunis)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis)]
     [HamasMostWanted(StandardPlayingCard.DiamondsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2024, 7, 13)]
@@ -4589,8 +4646,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.Rafah)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.Rafah)]
     [HamasMostWanted(StandardPlayingCard.HeartsSix)]
     [AssassinationAttempt(2023, 12, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
     [AssassinationAttempt(2024, 5, 24, CountryLikeThings.PalestineGaza)]
@@ -4641,8 +4697,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.GazaCity)]
+    [PalestinianMilitantCommanderDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity)]
     [HamasMostWanted(StandardPlayingCard.SpadesEight)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3)]
@@ -4712,8 +4767,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.AlQassam)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.SpadesJack)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
     [DeathDate(2025, 5, 13)]
@@ -4735,8 +4789,7 @@ internal enum IsraeliAssassinationTarget
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMilitaryCommander(HamasMilitaryBrigade.CentralCamps, HamasMilitaryBattalion.Nuseirat)]
+    [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.CentralCamps, HamasMilitaryBattalion.Nuseirat)]
     [HamasMostWanted(StandardPlayingCard.DiamondsThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 1)]
