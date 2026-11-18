@@ -3453,6 +3453,27 @@ internal class PalestinianMilitantSpokespersonAttribute : PalestinianMilitantAtt
 }
 
 /// <summary>
+/// position a person held on the Hamas Political Bureau, the movement's top political leadership body,
+/// at the time of their assassination, assassination attempt or death
+/// </summary>
+internal class HamasPoliticalBureauAttribute : Attribute
+{
+    /// <summary>
+    /// position held, e.g. "Chairman", "Deputy Chairman" or "Member"
+    /// </summary>
+    public string Title { get; set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Title">position held</param>
+    public HamasPoliticalBureauAttribute(string Title)
+    {
+        this.Title = Title;
+    }
+}
+
+/// <summary>
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
 /// <remarks>
@@ -3721,11 +3742,13 @@ internal enum IsraeliAssassinationTarget
     AbuIsmailMuhammad,
 
     /// <summary>
-    /// Senior member of Hamas's Political Bureau
+    /// Killed in an Israeli air strike in the first days of the war that killed two members of Hamas's political office,
+    /// according to a Hamas official (reported 2023-10-10).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Senior Member")]
     [HamasMostWanted(StandardPlayingCard.DiamondsNine)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -3828,22 +3851,27 @@ internal enum IsraeliAssassinationTarget
     AhmadiEsmail,
 
     /// <summary>
-    /// Deputy chairman of the Hamas Political Bureau
+    /// Killed in an Israeli strike on a Hamas office in the Dahieh suburbs of Beirut that also killed six others, including
+    /// senior Hamas militants. One of the architects of the October 7 attacks, and responsible for expanding Hamas's activities in the
+    /// West Bank, where <see cref="JabarinZaher"/> succeeded him. Israel did not confirm its involvement until May 2025.
     /// </summary>
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Deputy Chairman")]
     [HamasMostWanted(StandardPlayingCard.Joker2)]
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 1, 2)]
     AlArouriSaleh,
 
     /// <summary>
-    /// Hamas Political Bureau member
+    /// Killed with his wife in an Israeli drone strike on his tent west of Khan Yunis, days after Israel ended the
+    /// January 2025 ceasefire. Also a Hamas spokesperson, and a member of the Palestinian Legislative Council for Khan Yunis from 2006.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3, 23)]
     AlBardawilSalah,
@@ -3892,6 +3920,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Deputy Chairman")]
     [HamasMostWanted(StandardPlayingCard.DiamondsKing)]
     [AttemptedAssassinationPriorToOctober7(2007, 5, 20, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
@@ -3981,11 +4010,14 @@ internal enum IsraeliAssassinationTarget
     AlSaharIbrahim,
 
     /// <summary>
-    /// Member of Hamas's Political Bureau
+    /// Killed in an IDF strike in July 2024 that the IDF only announced on 2024-10-03, three months later, together with the death
+    /// of <see cref="MushtahaRawhi"/>. Arab media had reported in August 2024 that the strike hit a tunnel under Gaza City and killed
+    /// five Hamas leaders.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.SpadesQueen)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 7)]
@@ -4209,11 +4241,15 @@ internal enum IsraeliAssassinationTarget
     HalifaFarsan,
 
     /// <summary>
-    /// Chairman of the Hamas Political Bureau
+    /// Killed with his bodyguard in his room at an IRGC-run guesthouse in Tehran, after attending the inauguration of Iranian
+    /// president Masoud Pezeshkian. Accounts differ on whether a missile or an explosive device hidden in the room killed him; Iran's
+    /// investigation led to more than two dozen arrests. The highest-ranking Hamas political leader killed in the war; formerly prime
+    /// minister of the Palestinian Authority and Hamas chief in Gaza.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Chairman")]
     [HamasMostWanted(StandardPlayingCard.DiamondsAce)]
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2024, 7, 31)]
@@ -4267,6 +4303,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineWestBank)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.ClubsSeven)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
@@ -4371,6 +4408,7 @@ internal enum IsraeliAssassinationTarget
     [Countries(CountryLikeThings.PalestineWestBank, CountryLikeThings.Jordan)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Former Chairman")]
     [HamasMostWanted(StandardPlayingCard.HeartsAce)]
     [AttemptedAssassinationPriorToOctober7(1997, 9, 25, CountryLikeThings.Jordan, WorldCities.JordanAmman)]
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
@@ -4779,6 +4817,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Chairman")]
     [HamasMostWanted(StandardPlayingCard.HeartsQueen)]
     [AssassinatedButNotActuallyAssassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaRafah)]
     [DeathDate(2024, 10, 16)]
@@ -4850,11 +4889,12 @@ internal enum IsraeliAssassinationTarget
     TehranchiMohammadMehdi,
 
     /// <summary>
-    /// Member of Hamas's Political Bureau
+    /// Killed during the IDF raid on Al-Shifa Hospital in Gaza City, according to the IDF (reported 2024-03-28).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.HeartsThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3)]
@@ -4924,6 +4964,7 @@ internal enum IsraeliHamasMostWantedTargets
     /// Head of the international relations office
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.DiamondsEight)]
     AbuMarzookMousa,
 
@@ -4938,6 +4979,7 @@ internal enum IsraeliHamasMostWantedTargets
     /// Member of the Hamas Political Bureau
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.HeartsNine)]
     AlZaharMahmoud,
 
@@ -4952,6 +4994,7 @@ internal enum IsraeliHamasMostWantedTargets
     /// Senior member of the Hamas Political Bureau
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Senior Member")]
     [HamasMostWanted(StandardPlayingCard.HeartsTwo)]
     AwadallahNizar,
 
@@ -4980,6 +5023,7 @@ internal enum IsraeliHamasMostWantedTargets
     /// Member of Hamas's Political Bureau
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasPoliticalBureau("Member")]
     [HamasMostWanted(StandardPlayingCard.ClubsThree)]
     HamadGhazi,
 
