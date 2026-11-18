@@ -101,6 +101,14 @@ namespace Existence.Earth.Human.People
     /// <remarks>named general to specific (e.g. ScientistNuclear) so related occupations sort together</remarks>
     public enum HumanOccupation
     {
+        Accountant,
+
+        Agronomist,
+
+        EngineerSoftware,
+
+        GuardSecurity,
+
         /// <summary>
         /// head of a country who holds authority above the head of government and the elected head of state
         /// (e.g. the Supreme Leader of Iran)
@@ -112,7 +120,61 @@ namespace Existence.Earth.Human.People
         /// </summary>
         MinisterPrimeOfCountry,
 
+        NurseVeterinary,
+
         ScientistNuclear,
+
+        WorkerAgricultural,
+
+        WorkerSocial,
+    }
+
+    /// <summary>
+    /// a person who was retired, optionally with the occupation they retired from
+    /// </summary>
+    /// <remarks>
+    /// used instead of <see cref="HumanOccupationAttribute"/>, which is for an occupation the person currently holds
+    /// </remarks>
+    public class RetiredAttribute : Attribute
+    {
+        /// <summary>
+        /// occupation the person retired from, if known
+        /// </summary>
+        public HumanOccupation? FormerOccupation { get; set; }
+
+        /// <summary>
+        /// constructor for when the former occupation is unknown
+        /// </summary>
+        public RetiredAttribute()
+        {
+            this.FormerOccupation = null;
+        }
+
+        /// <summary>
+        /// constructor for when the former occupation is known
+        /// </summary>
+        /// <param name="FormerOccupation">occupation the person retired from</param>
+        public RetiredAttribute(HumanOccupation FormerOccupation)
+        {
+            this.FormerOccupation = FormerOccupation;
+        }
+    }
+
+    /// <summary>
+    /// a person who was a student
+    /// </summary>
+    /// <remarks>
+    /// kept separate from <see cref="HumanOccupationAttribute"/>; use <see cref="StudentUniversityAttribute"/> for a university student
+    /// </remarks>
+    public class StudentAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// a person who was a university student
+    /// </summary>
+    public class StudentUniversityAttribute : StudentAttribute
+    {
     }
 
     public enum Level

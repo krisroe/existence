@@ -380,6 +380,7 @@ namespace Existence.Earth.War
         [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(22, TimePeriods.Years)]
         [DeathDateUnknown]
         AlZayadniHamzah = 7,
@@ -388,6 +389,7 @@ namespace Existence.Earth.War
         [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [ApproximateAgeInYears(52, 53)]
         [DeathDateUnknown]
         AlZayadniYosef = 8,
@@ -410,12 +412,14 @@ namespace Existence.Earth.War
         [EthnicGroups((int)WorldEthnicGroups.Arab, (int)WorldEthnicGroups.Bedouin)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.GuardSecurity)]
         [Age(51, TimePeriods.Years)]
         AlkadiQaidFarhan = 11,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(28, TimePeriods.Years)]
         AngkaewAnucha = 12,
 
@@ -430,6 +434,7 @@ namespace Existence.Earth.War
         [EthnicGroup(WorldEthnicGroups.Han)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Female)]
+        [StudentUniversity]
         [Age(25, TimePeriods.Years)]
         ArgamaniNoa = 14,
 
@@ -534,6 +539,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.Accountant)]
         [Age(54, TimePeriods.Years)]
         BenAmiOhad = 28,
 
@@ -617,12 +623,14 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         BoonpromSanti = 39,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.GuardSecurity)]
         [Age(19, TimePeriods.Years)]
         BraslavskiRom = 40,
 
@@ -709,6 +717,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(29, TimePeriods.Years)]
         ChombuaKomkrit = 50,
 
@@ -969,6 +978,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [Gender(Gender.Female)]
+        [HumanOccupation(HumanOccupation.WorkerSocial)]
         [Age(48, TimePeriods.Years)]
         GoldsteinAlmogChen = 85,
 
@@ -1072,6 +1082,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.Beeri)]
         [Gender(Gender.Female)]
+        [HumanOccupation(HumanOccupation.Agronomist)]
         [Age(67, TimePeriods.Years)]
         HaranShoshan = 98,
 
@@ -1092,6 +1103,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Female)]
+        [Retired(HumanOccupation.WorkerSocial)]
         [Age(84, TimePeriods.Years)]
         HeimanDitza = 101,
 
@@ -1132,12 +1144,14 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(29, TimePeriods.Years)]
         JirachartManee = 107,
 
         [Country(CountryLikeThings.Nepal)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [Student]
         [Age(22, TimePeriods.Years)]
         [DeathDate(2023)]
         JoshiBipin = 108,
@@ -1145,6 +1159,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(28, TimePeriods.Years)]
         KalapratVichai = 109,
 
@@ -1213,18 +1228,21 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KesoognernSurin = 118,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         KongmaneeBancha = 119,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.GuardSecurity)]
         [Age(27, TimePeriods.Years)]
         KozlovAndrey = 120,
 
@@ -1286,6 +1304,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Male)]
+        [Retired]
         [Age(83, TimePeriods.Years)]
         [DeathDate(2023)]
         LifshitzOded = 129,
@@ -1294,6 +1313,7 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Female)]
+        [Retired]
         [Age(85, TimePeriods.Years)]
         LifshitzYokheved = 130,
 
@@ -1411,6 +1431,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.GuardSecurity)]
         [Age(23, TimePeriods.Years)]
         MorEitanAbraham = 146,
 
@@ -1475,6 +1496,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Female)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(35, TimePeriods.Years)]
         MunkanNattawaree = 154,
 
@@ -1503,6 +1525,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(30, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
         OakkharasriSonthaya = 158,
@@ -1525,6 +1548,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(26, TimePeriods.Years)]
         OnkaewNatthaporn = 161,
 
@@ -1580,6 +1604,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(45, TimePeriods.Years)]
         PankhongBoonthom = 169,
 
@@ -1608,24 +1633,28 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         PhachuabboonMongkol = 173,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(33, TimePeriods.Years)]
         PhoomeVetoon = 174,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(30, TimePeriods.Years)]
         PinakalowPornsawan = 175,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [ApproximateAgeInYears(35, 36)]
         [DeathDate(2023, 12)]
         PintaNattapong = 176,
@@ -1659,6 +1688,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(42, TimePeriods.Years)]
         RataninPaiboon = 181,
 
@@ -1677,6 +1707,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [ApproximateAgeInYears(42, 43)]
         [DeathDate(2023, 10, 7)]
         RinthalakSudthisak = 184,
@@ -1696,6 +1727,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [ApproximateAgeInYears(30, 31)]
         RumnaoSurasak = 187,
 
@@ -1716,23 +1748,27 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(26, TimePeriods.Years)]
         SaelaoKong = 190,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengboonBuddhee = 191,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SaengnuanUthai = 192,
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(27, TimePeriods.Years)]
         SaethaoBannawat = 193,
 
@@ -1753,6 +1789,7 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SangkaewChalermchai = 196,
 
@@ -1898,12 +1935,14 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(32, TimePeriods.Years)]
         SriaounWatchara = 215,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         SrikeinaJakkrapan = 216,
 
@@ -1911,17 +1950,20 @@ namespace Existence.Earth.War
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.KfarAza)]
         [Gender(Gender.Female)]
+        [HumanOccupation(HumanOccupation.NurseVeterinary)]
         [Age(30, TimePeriods.Years)]
         SteinbrecherDoron = 217,
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(40, TimePeriods.Years)]
         SuriyasriOwas = 218,
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(34, TimePeriods.Years)]
         SuwannakhamSathian = 219,
 
@@ -1968,11 +2010,13 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(37, TimePeriods.Years)]
         TemthongVichian = 225,
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(35, TimePeriods.Years)]
         ThaennaPongsak = 226,
 
@@ -1989,11 +2033,13 @@ namespace Existence.Earth.War
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         ToonsriUthai = 228,
 
         [Country(CountryLikeThings.Thailand)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(TimeStatic.UNKNOWN_TIME_PERIOD, TimePeriods.Years)]
         TornsokreePattanayut = 229,
 
@@ -2013,6 +2059,7 @@ namespace Existence.Earth.War
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
+        [HumanOccupation(HumanOccupation.EngineerSoftware)]
         [Age(27, TimePeriods.Years)]
         TrufanovAlexanderSasha = 231,
 
