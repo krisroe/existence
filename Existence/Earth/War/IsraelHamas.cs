@@ -3281,12 +3281,14 @@ internal enum HamasMilitaryBattalion
 }
 
 /// <summary>
-/// Qassam Brigades unit a person commanded at the time of their assassination, assassination attempt or death:
+/// Qassam Brigades unit a person commanded, or was deputy commander of, at the time of their assassination, assassination attempt or death:
 /// the entire military structure (<see cref="HamasMilitaryBrigade.AlQassam"/>), a whole <see cref="HamasMilitaryBrigade"/>,
 /// or a <see cref="HamasMilitaryBattalion"/> within a brigade
 /// </summary>
 /// <remarks>
-/// deputy commanders and heads of functional headquarters (e.g. the rocket array) are not included
+/// deputy commanders use the derived <see cref="HamasMilitaryCommanderDeputyAttribute"/>, which sets <see cref="IsDeputy"/>;
+/// a lookup of this attribute also returns deputies, so check <see cref="IsDeputy"/> to tell them apart.
+/// Heads of functional headquarters (e.g. the rocket array) are not included
 /// </remarks>
 internal class HamasMilitaryCommanderAttribute : Attribute
 {
@@ -3301,6 +3303,11 @@ internal class HamasMilitaryCommanderAttribute : Attribute
     public HamasMilitaryBattalion? Battalion { get; set; }
 
     /// <summary>
+    /// true for a deputy commander rather than the commander
+    /// </summary>
+    public bool IsDeputy { get; protected set; }
+
+    /// <summary>
     /// constructor for a commander of an entire brigade
     /// </summary>
     /// <param name="Brigade">brigade commanded</param>
@@ -3308,6 +3315,7 @@ internal class HamasMilitaryCommanderAttribute : Attribute
     {
         this.Brigade = Brigade;
         this.Battalion = null;
+        this.IsDeputy = false;
     }
 
     /// <summary>
@@ -3319,6 +3327,35 @@ internal class HamasMilitaryCommanderAttribute : Attribute
     {
         this.Brigade = Brigade;
         this.Battalion = Battalion;
+        this.IsDeputy = false;
+    }
+}
+
+/// <summary>
+/// Qassam Brigades unit a person was deputy commander of at the time of their assassination, assassination attempt or death
+/// </summary>
+/// <remarks>
+/// a <see cref="HamasMilitaryCommanderAttribute"/> with <see cref="HamasMilitaryCommanderAttribute.IsDeputy"/> set
+/// </remarks>
+internal class HamasMilitaryCommanderDeputyAttribute : HamasMilitaryCommanderAttribute
+{
+    /// <summary>
+    /// constructor for a deputy commander of an entire brigade
+    /// </summary>
+    /// <param name="Brigade">brigade the person was deputy commander of</param>
+    public HamasMilitaryCommanderDeputyAttribute(HamasMilitaryBrigade Brigade) : base(Brigade)
+    {
+        this.IsDeputy = true;
+    }
+
+    /// <summary>
+    /// constructor for a deputy commander of a battalion
+    /// </summary>
+    /// <param name="Brigade">brigade the battalion belongs to</param>
+    /// <param name="Battalion">battalion the person was deputy commander of</param>
+    public HamasMilitaryCommanderDeputyAttribute(HamasMilitaryBrigade Brigade, HamasMilitaryBattalion Battalion) : base(Brigade, Battalion)
+    {
+        this.IsDeputy = true;
     }
 }
 
@@ -4100,11 +4137,16 @@ internal enum IsraeliAssassinationTarget
     HazimaAliHussein,
 
     /// <summary>
-    /// Deputy commander of the Al-Qassam Brigades
+    /// Killed in an Israeli airstrike in Nuseirat in central Gaza. Second-in-command to <see cref="DeifMohammed"/> and closely
+    /// involved in planning the October 7 attacks; one of Israel's three most wanted Hamas militants with Deif and
+    /// <see cref="SinwarYahya"/>. Survived earlier Israeli assassination attempts: seriously wounded in a 2006 strike on a meeting
+    /// also attended by Deif, and his house was destroyed in 2014 and again in 2021, killing his brother. A son was killed in an
+    /// Israeli airstrike in central Gaza in December 2023.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.AlQassam)]
     [HamasMostWanted(StandardPlayingCard.ClubsAce)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
@@ -4430,11 +4472,13 @@ internal enum IsraeliAssassinationTarget
     RabbaniMehdi,
 
     /// <summary>
-    /// Deputy commander of Hamas's Northern Gaza Brigade
+    /// Killed in the IDF airstrike that also killed his commander <see cref="GhandourAhmed"/>, along with three Israeli hostages:
+    /// <see cref="HostageList.ToledanoElia"/>, <see cref="HostageList.BeizerNik"/> and <see cref="HostageList.ShermanRon"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.NorthernGaza)]
     [HamasMostWanted(StandardPlayingCard.DiamondsSix)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
@@ -4565,11 +4609,13 @@ internal enum IsraeliAssassinationTarget
     ShahriyariBehnam,
 
     /// <summary>
-    /// Deputy commander of the Gaza City Brigade
+    /// Killed in IDF airstrikes on Gaza that also killed a Hamas battalion commander, according to the IDF (reported 2025-03-23),
+    /// days after Israel resumed fighting on 2025-03-18 and ended the January 2025 ceasefire.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMilitaryCommanderDeputy(HamasMilitaryBrigade.GazaCity)]
     [HamasMostWanted(StandardPlayingCard.SpadesEight)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3)]

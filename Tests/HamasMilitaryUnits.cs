@@ -26,20 +26,27 @@ namespace Existence.Tests
         }
 
         /// <summary>
-        /// validates that every battalion commander attribute on the assassination targets names the brigade the battalion belongs to
+        /// validates that every battalion commander and deputy commander attribute on the assassination targets names the brigade
+        /// the battalion belongs to, and that nobody is marked as both a commander and a deputy commander
         /// </summary>
         [TestMethod]
         public void ValidateCommanderUnits()
         {
             foreach (FieldInfo field in typeof(IsraeliAssassinationTarget).GetFields(BindingFlags.Public | BindingFlags.Static))
             {
+                bool isCommander = false;
+                bool isDeputy = false;
                 foreach (HamasMilitaryCommanderAttribute commander in field.GetCustomAttributes<HamasMilitaryCommanderAttribute>())
                 {
+                    string role = commander.IsDeputy ? "is deputy commander of" : "commands";
                     if (commander.Battalion.HasValue)
                     {
-                        Assert.AreEqual(GetBrigade(commander.Battalion.Value), commander.Brigade, $"{field.Name} commands {commander.Battalion.Value}, which is not in the {commander.Brigade} brigade");
+                        Assert.AreEqual(GetBrigade(commander.Battalion.Value), commander.Brigade, $"{field.Name} {role} {commander.Battalion.Value}, which is not in the {commander.Brigade} brigade");
                     }
+                    isCommander |= !commander.IsDeputy;
+                    isDeputy |= commander.IsDeputy;
                 }
+                Assert.IsFalse(isCommander && isDeputy, $"{field.Name} is marked as both a commander and a deputy commander");
             }
         }
 
