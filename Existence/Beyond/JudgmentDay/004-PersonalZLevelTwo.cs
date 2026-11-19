@@ -85,6 +85,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 16, 0, 0)]
             [YearDate(2025, 8, 16)]
             LeydonJarComputerGamesCenterOfMass,
+
+            [BeyondObjectVersion(1, 17, 0, 0)]
+            [YearDate(2026, 11, 18)]
+            ChangedEnumPersonFormatToSurnameFirst,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -174,7 +178,7 @@ namespace Existence.Beyond.JudgmentDay
             new AntKilling(new SpiderRemoval()),
             new CalledPianoTeacherBeefJerky(),
             new LiceHiding(),
-            new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, religiousFlags),
+            new HesGotReligionMagicWords((int)ClassmateList.WhiteJason, (int)ClassmateList.RaudebushJustin, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, religiousFlags),
             new ELCALutheranConfirmationDespiteNearAtheism(),
             new TheEducationalValueOfThisIsQuestionable(),
             new MostOfEighthGradeEnglishClassKickedOut(),
@@ -754,7 +758,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [ApproximateAgeInYears(11)]
     [SinType(SinType.FindSomethingInappropriateFunny)]
-    [Witness((int)ClassmateList.LukePeyton)] //leader of the Spike faction
+    [Witness((int)ClassmateList.PeytonLuke)] //leader of the Spike faction
     public class SupportedInappropriateClassPetName : BaseEvent
     {
         public SupportedInappropriateClassPetName() : base("Supported Inappropriate Class Pet Name")
@@ -977,7 +981,7 @@ namespace Existence.Beyond.JudgmentDay
     /// detail text, perhaps the embarrassment was understood.
     /// </summary>
     [ApproximateAgeInYears(13)]
-    [Witness((int)ClassmateList.AbbyOBrien)]
+    [Witness((int)ClassmateList.OBrienAbby)]
     [SinType(SinType.EmbarrassingBehavior)]
     public class EmbarrassingEpisodeWithInfoFromTheJerkReadToHealthClass : BaseEvent
     {
@@ -995,7 +999,7 @@ namespace Existence.Beyond.JudgmentDay
     /// has consequences.
     /// </summary>
     [ApproximateAgeInYears(13)]
-    [Witness((int)ClassmateList.TonyLeggett)]
+    [Witness((int)ClassmateList.LeggettTony)]
     [SinTypes(SinType.NotStandingUpForYourself, SinType.LackOfCommunication)]
     public class UnresponsivenessForBeingMadeFunOfForCorduroyPants : BaseEvent
     {
@@ -1361,7 +1365,7 @@ namespace Existence.Beyond.JudgmentDay
     /// Regardless, we only tried it once, and we lost anyway.
     /// </summary>
     [ApproximateAgeInYears(16)]
-    [Witness((int)ClassmateList.NickBremer)]
+    [Witness((int)ClassmateList.BremerNick)]
     [SinType(SinType.Cheating)]
     public class PlayedEuchreWithPartnerSignalling : BaseEvent
     {
@@ -1392,7 +1396,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [MagicWords("Boom!", "Spanish Skit", "10th Grade Spanish Class", "10th Grade Spanish Class")]
     [ApproximateAgeInYears(16)]
-    [Witness((int)YearAboveClassmateList.HeatherDakter)]
+    [Witness((int)YearAboveClassmateList.DakterHeather)]
     [SinType(SinType.InappropriatePublicCommunication)]
     public class SpanishClassSkitWhereAnAirlinerExploded : BaseEvent
     {
@@ -1406,7 +1410,7 @@ namespace Existence.Beyond.JudgmentDay
     /// she immediately removed it.
     /// </summary>
     [ApproximateAgeInYears(16)]
-    [Witness((int)YearAboveClassmateList.LisaMitchell)]
+    [Witness((int)YearAboveClassmateList.MitchellLisa)]
     [SinType(SinType.PersonalSpaceViolation)]
     public class InappropriatelyPutArmAroundGirl : BaseEvent
     {
@@ -1420,7 +1424,7 @@ namespace Existence.Beyond.JudgmentDay
     /// me to do something. It was a total lie.
     /// </summary>
     [ApproximateAgeInYears(16)]
-    [Witness((int)YearAboveClassmateList.LisaMitchell)]
+    [Witness((int)YearAboveClassmateList.MitchellLisa)]
     [MagicWords("I've got contacts", "Me", "High School Classroom", "Classmate")]
     [SinType(SinType.Lie)]
 
@@ -1523,7 +1527,7 @@ namespace Existence.Beyond.JudgmentDay
     /// females. Then again, the article is lost to time.
     /// </summary>
     [ApproximateAgeInYears(17)]
-    [Witness((int)ClassmateList.TJClark)]
+    [Witness((int)ClassmateList.ClarkTJ)]
     [SinTypes(SinType.ObjectificationOfFemales, SinType.InappropriateJoke)]
     public class WrotePimpinStoryInHighSchoolEnglishCompositionClass : BaseEvent
     {
@@ -1588,7 +1592,7 @@ namespace Existence.Beyond.JudgmentDay
     /// it is kind of embarrassing.
     /// </summary>
     [ApproximateAgeInYears(17)]
-    [Witness((int)ClassmateList.MarkFela)]
+    [Witness((int)ClassmateList.FelaMark)]
     [SinType(SinType.NonAssertiveBehavior)]
     public class DidNotAssertMyselfInMagazineAssignmentInHighSchoolEnglishCompositionClass : BaseEvent
     {
@@ -1772,7 +1776,7 @@ namespace Existence.Beyond.JudgmentDay
     /// remains unsolved pending seemingly impossible advances in computing.
     /// </summary>
     [Year(1998)]
-    [Witness((int)ClassmateList.JasonWhite)]
+    [Witness((int)ClassmateList.WhiteJason)]
     [SinType(SinType.Ignorance)]
     public class ExpressedConfidenceChessCouldBeSolved : BaseEvent
     {
@@ -1810,7 +1814,7 @@ namespace Existence.Beyond.JudgmentDay
     /// the concepts of "ass" and "center of mass".
     /// </summary>
     [Year(1998)]
-    [Witness((int)YearAboveClassmateList.DavidBorud)]
+    [Witness((int)YearAboveClassmateList.BorudDavid)]
     [SinType(SinType.FindSomethingInappropriateFunny)]
     public class FoundFunnyManipulationOfPlayerToSayTheWordAss : BaseEvent
     {
@@ -1929,7 +1933,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [Year(1998)]
     [SinType(SinType.InappropriateJoke)]
-    [Witness((int)YearAboveClassmateList.LisaMitchell)]
+    [Witness((int)YearAboveClassmateList.MitchellLisa)]
     public class InappropriateAliensJoke : BaseEvent
     {
         public InappropriateAliensJoke() : base("Made an Inappropriate Joke about Area 51")
@@ -2198,7 +2202,7 @@ namespace Existence.Beyond.JudgmentDay
     /// this type of thing is likely more strict than others.
     /// </summary>
     [Year(2001)]
-    [Witness((int)YearAboveClassmateList.BrianWimann)]
+    [Witness((int)YearAboveClassmateList.WimannBrian)]
     [SinType(SinType.Cheating)]
     public class HelpedCollegeClassmateCheatOnCollegeCompSciClass : BaseEvent
     {
@@ -2696,7 +2700,7 @@ namespace Existence.Beyond.JudgmentDay
     /// </summary>
     [YearDate(2007)]
     [SinType(SinType.CrudeLanguage)]
-    [Witness((int)Coworkers.KyleOrCathyKimport)]
+    [Witness((int)Coworkers.KimportKyleOrCathy)]
     [MagicWords("Cum buckets", "Me", "Unknown", "Spouse and Friend")]
     public class CalledSpouseAndFriendCrudeSexualName : BaseEvent
     {
@@ -2750,7 +2754,7 @@ namespace Existence.Beyond.JudgmentDay
     /// my relationship with spouse. Nevertheless, I ghosted him.
     /// </summary>
     [Year(2009)]
-    [Witness((int)ClassmateList.JasonWhite)]
+    [Witness((int)ClassmateList.WhiteJason)]
     [SinType(SinType.Ghosting)]
     public class LackOfCommunicationAtHighSchoolReunion : BaseEvent
     {
@@ -2768,7 +2772,7 @@ namespace Existence.Beyond.JudgmentDay
     /// loss.
     /// </summary>
     [Year(2009)]
-    [Witness((int)IndividualCustomers.MikeMoore)]
+    [Witness((int)IndividualCustomers.MooreMike)]
     [MagicWords("Stupid Stupid Stupid", "Microsoft Rep", "Customer Conference Room", "Coworkers and Customers")]
     [SinType(SinType.Incompetence)]
     public class PoorAccountingOfSelfAtCustomerVisit : BaseEvent

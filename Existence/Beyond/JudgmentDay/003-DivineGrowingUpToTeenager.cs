@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using Existence.Earth.Religions;
 using static Existence.Beyond.JudgmentDay.HumanDivineGrowingUpToTeenager;
-using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Time;
 
 namespace Existence.Beyond.JudgmentDay
@@ -37,6 +36,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 3, 0, 0)]
             [YearDate(2025, 5, 3)]
             MadeSomeEventsMorePubliclyAvailable,
+
+            [BeyondObjectVersion(1, 4, 0, 0)]
+            [YearDate(2026, 11, 18)]
+            ChangedEnumPersonFormatToSurnameFirstRemoveUnusedUsing,
         }
 
         private IfIWasAnOmnipotentBeing _IfIWasAnOmnipotentBeing;
@@ -81,11 +84,11 @@ namespace Existence.Beyond.JudgmentDay
             //do not recognize him.
             SeventhGradeSundaySchoolClassmates = new List<int>()
             {
-                (int)ClassmateList.JessicaLloyd,
-                (int)YearBelowClassmateList.CassieMattei,
-                (int)ClassmateList.StephanieHartman,
-                (int)ClassmateList.GregFarrington,
-                (int)ClassmateList.JasonWhite,
+                (int)ClassmateList.LloydJessica,
+                (int)YearBelowClassmateList.MatteiCassie,
+                (int)ClassmateList.HartmanStephanie,
+                (int)ClassmateList.FarringtonGreg,
+                (int)ClassmateList.WhiteJason,
             };
         }
 
@@ -104,7 +107,7 @@ namespace Existence.Beyond.JudgmentDay
                 new ChildhoodNativityPlayDisrespect2(myReligionFlags),
                 new SomeoneCalledMeAGenius(
                  ZStuff.MAGIC_WORDS_HES_A_GENIUS,
-                 (int)ClassmateList.LauraCummings,
+                 (int)ClassmateList.CummingsLaura,
                  (int)FamilyMembers.MyMothersBrotherGerald,
                  (int)PersonalChurches.SaintJohnLutheranChurch,
                  new SomeoneCalledMeAGeniusGhosting()),
@@ -114,7 +117,7 @@ namespace Existence.Beyond.JudgmentDay
                 new FirstCommunionAsAnAcolyte(myReligionFlags),
                 new LeadRoleInSilentNightChristmasPageant(myReligionFlags),
                 new MultiEvent("Pre-atheist Events",
-                    [new HesGotReligionMagicWords((int)ClassmateList.JasonWhite, (int)ClassmateList.JustinRaudebush, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, myReligionFlags),
+                    [new HesGotReligionMagicWords((int)ClassmateList.WhiteJason, (int)ClassmateList.RaudebushJustin, "Present, listening, kept silent", (int)PersonalSchools.SpringHillMiddleSchool, myReligionFlags),
                     new ELCALutheranConfirmationDespiteNearAtheism()]),
                 new BecameAnAtheist(myReligionFlags),
                 new SemipubliclyClaimToBeTheAntichristAsAJoke(),

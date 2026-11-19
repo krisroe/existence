@@ -1,7 +1,6 @@
 ﻿
 using Existence.Beyond.Infrastructure;
 using Existence.Earth.Alphabet;
-using Existence.Personal.Beyond;
 using Existence.Personal.Employment;
 using Existence.Time;
 using System.Collections.Generic;
@@ -14,7 +13,11 @@ namespace Existence.Beyond.References
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2024, 4, 24)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2026, 11, 18)]
+            ChangedEnumPersonFormatToSurnameFirstRemovedUnusedUsing,
         }
 
         public ReferencesHistory()
@@ -92,7 +95,7 @@ namespace Existence.Beyond.References
     /// </summary>
     [Year(2013)]
     [MagicWords("Sloppy", "Me", "Job Reference", "Human Resources Person")]
-    [Coworker((int)Coworkers.MichaelMcConnell)]
+    [Coworker((int)Coworkers.McConnellMichael)]
     [SinTypes(SinType.PersonalCommunication, SinType.TalkingBehindSomeonesBack, SinType.Projection)]
     public class GavePoorReferenceForFormerCoworker : BaseEvent
     {

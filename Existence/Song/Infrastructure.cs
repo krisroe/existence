@@ -50,4 +50,90 @@ namespace Existence.Song
             this.Day = Day;
         }
     }
+
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class MusicalInstrumentGenreAttribute : MusicalInstrumentAttribute
+    {
+        public MusicGenres Genre { get; set; }
+        public MusicalInstrumentGenreAttribute(MusicalInstruments Instrument, MusicGenres Genre) : base(Instrument)
+        {
+            this.Genre = Genre;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class MusicalInstrumentAttribute : Attribute
+    {
+        public MusicalInstruments Instrument { get; set; }
+        public MusicalInstrumentAttribute(MusicalInstruments Instrument)
+        {
+            this.Instrument = Instrument;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    public class MusicalGenreAttribute : Attribute
+    {
+        public MusicGenres Genre { get; set; }
+        public MusicalGenreAttribute(MusicGenres Genre)
+        {
+            this.Genre = Genre;
+        }
+    }
+
+    public enum MusicGenres
+    {
+        Jazz,
+    }
+
+    public enum MusicalInstruments
+    {
+        Piccolo,
+
+        Flute,
+
+        /// <summary>
+        /// double reed instrument
+        /// </summary>
+        Oboe,
+
+        /// <summary>
+        /// double reed instrument
+        /// </summary>
+        Bassoon,
+
+        /// <summary>
+        /// single reed instrument
+        /// </summary>
+        Clarinet,
+
+        ClarinetBass,
+
+        SaxophoneAlto,
+
+        SaxophoneTenor,
+
+        Percussion,
+
+        PercussionDrumSet,
+
+        PercussionXylophone,
+
+        FrenchHorn,
+
+        Trumpet,
+
+        Trombone,
+
+        Tuba,
+
+        Piano,
+
+        Voice,
+
+        Handbells,
+
+        Guitar,
+    }
+
 }

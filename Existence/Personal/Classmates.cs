@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using Existence.Song;
 
 namespace Existence.Personal
 {
@@ -28,132 +29,282 @@ namespace Existence.Personal
         {
             Friendships = new List<KeyValuePair<ClassmateList, ClassmateList>>()
             {
-                new KeyValuePair<ClassmateList, ClassmateList>(ClassmateList.JasonWhite, ClassmateList.JustinRaudebush)
+                new KeyValuePair<ClassmateList, ClassmateList>(ClassmateList.WhiteJason, ClassmateList.RaudebushJustin)
             };
             EighthGradeEnglishClassmates = new List<ClassmateList>()
             {
-                ClassmateList.MeganWaterman,
-                ClassmateList.StephanieHartman,
-                ClassmateList.WayneCoder,
-                ClassmateList.KristinPearce,
+                ClassmateList.WatermanMegan,
+                ClassmateList.HartmanStephanie,
+                ClassmateList.CoderWayne,
+                ClassmateList.PearceKristin,
             };
             HighSchoolGradeClassmates = new List<ClassmateList>()
             {
-                ClassmateList.AbbyJoyce,
-                ClassmateList.AbbyOBrien,
-                ClassmateList.AlisaCantwell,
-                ClassmateList.AmyKuklewicz,
-                ClassmateList.AmberStrangstalien,
-                ClassmateList.ChrisPulver,
-                ClassmateList.DanSeiler,
-                ClassmateList.DerekPoulin,
-                ClassmateList.GregFarrington,
-                ClassmateList.HeidiLaundrie,
-                ClassmateList.JasonWhite,
-                ClassmateList.JesseCapelle,
-                ClassmateList.JessGraham,
-                ClassmateList.JessicaLloyd,
-                ClassmateList.JoshRybaski,
-                ClassmateList.JudyMcFaul,
-                ClassmateList.JustinRaudebush,
-                ClassmateList.KimPoff,
-                ClassmateList.KristinPearce,
-                ClassmateList.LauraCummings,
-                ClassmateList.LukePeyton,
-                ClassmateList.MattBeard,
-                ClassmateList.NickBremer,
-                ClassmateList.OliviaMarshall,
-                ClassmateList.RochelleBaldwin,
-                ClassmateList.StephanieHartman,
-                ClassmateList.TonyLeggett,
-                ClassmateList.WayneCoder,
-                ClassmateList.ZachNemitz,
+                ClassmateList.JoyceAbby,
+                ClassmateList.OBrienAbby,
+                ClassmateList.CantwellAlisa,
+                ClassmateList.KuklewiczAmy,
+                ClassmateList.StrangstalienAmber,
+                ClassmateList.PulverChris,
+                ClassmateList.SeilerDan,
+                ClassmateList.PoulinDerek,
+                ClassmateList.FarringtonGreg,
+                ClassmateList.LaundrieHeidi,
+                ClassmateList.WhiteJason,
+                ClassmateList.CapelleJesse,
+                ClassmateList.GrahamJess,
+                ClassmateList.LloydJessica,
+                ClassmateList.RybaskiJosh,
+                ClassmateList.McFaulJudy,
+                ClassmateList.RaudebushJustin,
+                ClassmateList.PoffKim,
+                ClassmateList.PearceKristin,
+                ClassmateList.CummingsLaura,
+                ClassmateList.PeytonLuke,
+                ClassmateList.BeardMatt,
+                ClassmateList.BremerNick,
+                ClassmateList.MarshallOlivia,
+                ClassmateList.BaldwinRochelle,
+                ClassmateList.HartmanStephanie,
+                ClassmateList.LeggettTony,
+                ClassmateList.CoderWayne,
+                ClassmateList.NemitzZach,
             };
             YouthSoccerTeam = new List<ClassmateList>()
             {
-                ClassmateList.BrittanyBorcher,
-                ClassmateList.DerekPoulin,
+                ClassmateList.BorcherBrittany,
+                ClassmateList.PoulinDerek,
             };
             TenthGradeUSHistoryClass = new List<int>()
             {
-                (int)YearAboveClassmateList.BrianWimann,
-                (int)YearBelowClassmateList.GregWisniewski,
-                (int)YearAboveClassmateList.KatieWisniewski,
+                (int)YearAboveClassmateList.WimannBrian,
+                (int)YearBelowClassmateList.WisniewskiGreg,
+                (int)YearAboveClassmateList.WisniewskiKatie,
             };
         }
     }
 
+    public enum TwoYearBelowClassmateList
+    {
+        [MusicalInstrument(MusicalInstruments.Percussion)]
+        RoweSonya,
+
+        [MusicalInstrument(MusicalInstruments.Percussion)]
+        SchlakeJason,
+    }
+
     public enum YearBelowClassmateList
     {
-        GregWisniewski,
-        CassieMattei,
+        [MusicalInstrument(MusicalInstruments.SaxophoneTenor)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        GuessJay,
+
+        /// <summary>
+        /// Mattei family owned Familyland around the time
+        /// </summary>
+        MatteiCassie,
+
+        /// <summary>
+        /// probably was 1st chair clarinet after me, third chair clarinet when I was a senior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        RotorMaria,
+
+        [MusicalInstrument(MusicalInstruments.Trombone)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        WisniewskiGreg,
+    }
+
+    public enum TwoYearAboveClassmateList
+    {
+        /// <summary>
+        /// first chair clarinet before me (beat me in the test because of older privilege)
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        CamposMelinda,
+
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        CamposMelissa,
+
+        [MusicalInstrument(MusicalInstruments.Trumpet)]
+        JoyceAmy,
     }
 
     public enum YearAboveClassmateList
     {
-        DavidBorud,
-        CarolBraun,
-        HeatherDakter,
-        MelissaHamburg,
-        LisaMitchell,
-        BrianWimann,
-        KatieWisniewski,
+        [MusicalInstrument(MusicalInstruments.Trombone)]
+        BorudDavid,
+
+        BraunCarol,
+
+        DakterHeather,
+
+        HamburgMelissa,
+
+        /// <summary>
+        /// third chair clarinet when I was a junior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        HammAnna,
+
+        /// <summary>
+        /// fourth chair clarinet when I was a junior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        JermierMegan,
+
+        MitchellLisa,
+
+        /// <summary>
+        /// high school biology seatmate
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        ScullyKatie,
+
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        [MusicalInstrument(MusicalInstruments.Piccolo)]
+        ToenjesMolly,
+
+        [MusicalInstrument(MusicalInstruments.Trumpet)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        WimannBrian,
+
+        [MusicalInstrument(MusicalInstruments.SaxophoneTenor)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        WisniewskiKatie,
     }
 
     public enum ClassmateList
     {
-        AbbyJoyce,
-        /// <summary>
-        /// something embarrassing related to "the jerk" happened in health class 7th grade? 8th grade?
-        /// </summary>
-        AbbyOBrien,
-        AlisaCantwell,
-        /// <summary>
-        /// got pregnant
-        /// </summary>
-        AmberStrangstalien,
-        AmyKuklewicz,
-        BrittanyBorcher,
-        /// <summary>
-        /// formerly Chris Droste
-        /// </summary>
-        ChrisPulver,
-        DanSeiler,
-        DerekPoulin,
-        GregFarrington,
-        GregLagoda,
-        HeidiLaundrie,
-        JasonWhite,
-        JesseCapelle,
-        JessGraham,
-        JessicaLloyd,
-        JoshRybaski,
-        JudyMcFaul,
-        JustinRaudebush,
-        KimPoff,
-        KristinPearce,
-        LauraCummings,
-        LukePeyton,
-        MarkFela,
-        /// <summary>
-        /// not sure on the spelling, he was Indian (presumably Ho Chunk)
-        /// </summary>
-        MatoMatalongo,
-        MattBeard,
-        MeganWaterman,
-        NickBremer,
-        OliviaMarshall,
-        PaulMartinski,
         /// <summary>
         /// church of God
         /// </summary>
-        RochelleBaldwin,
-        RyanWalker,
-        StephanieHartman,
-        TamekaGray,
-        TJClark,
-        TonyLeggett,
-        WayneCoder,
-        ZachNemitz,
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        BaldwinRochelle,
+
+        /// <summary>
+        /// second chair clarinet when I was a junior and senior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        [MusicalInstrument(MusicalInstruments.Bassoon)]
+        BeardMatt,
+
+        BorcherBrittany,
+
+        /// <summary>
+        /// first chair trumpet when I was a senior
+        /// </summary>
+        [MusicalGenre(MusicGenres.Jazz)]
+        [MusicalInstrument(MusicalInstruments.Trumpet)]
+        BremerNick,
+
+        CantwellAlisa,
+
+        CapelleJesse,
+
+        ClarkTJ,
+
+        CoderWayne,
+
+        [MusicalInstrument(MusicalInstruments.Trombone)]
+        CummingsLaura,
+
+        FarringtonGreg,
+
+        FelaMark,
+
+        GrahamJess,
+
+        GrayTameka,
+
+        HartmanStephanie,
+
+        [MusicalInstrument(MusicalInstruments.Percussion)]
+        JoyceAbby,
+
+        /// <summary>
+        /// second chair flute when I was a senior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        KuklewiczAmy,
+
+        LagodaGreg,
+
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        LaundrieHeidi,
+
+        LeggettTony,
+
+        LloydJessica,
+
+        /// <summary>
+        /// first chair flute when I was a senior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Flute)]
+        MarshallOlivia,
+
+        MartinskiPaul,
+
+        /// <summary>
+        /// not sure on the spelling, he was Indian (presumably Ho Chunk)
+        /// </summary>
+        MatalongoMato,
+
+        McFaulJudy,
+
+        /// <summary>
+        /// second chair trumpet when I was a senior
+        /// </summary>
+        [MusicalInstrument(MusicalInstruments.Trumpet)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        NemitzZach,
+
+        /// <summary>
+        /// something embarrassing related to "the jerk" happened in health class 7th grade? 8th grade?
+        /// </summary>
+        OBrienAbby,
+
+        PearceKristin,
+
+        PeytonLuke,
+
+        PoffKim,
+
+        PoulinDerek,
+
+        /// <summary>
+        /// formerly Chris Droste
+        /// </summary>
+        PulverChris,
+
+        RaudebushJustin,
+
+        [MusicalInstrumentGenre(MusicalInstruments.Piano, MusicGenres.Jazz)]
+        [MusicalInstrument(MusicalInstruments.Clarinet)]
+        RoweChris,
+
+        [MusicalInstrument(MusicalInstruments.SaxophoneAlto)]
+        [MusicalGenre(MusicGenres.Jazz)]
+        RybaskiJosh,
+
+        [MusicalInstrument(MusicalInstruments.Tuba)]
+        SeilerDan,
+
+        /// <summary>
+        /// got pregnant as a teenager
+        /// </summary>
+        StrangstalienAmber,
+
+        /// <summary>
+        /// left-handed, ticklish
+        /// </summary>
+        WalkerRyan,
+
+        /// <summary>
+        /// Family owned Noah's Ark around the time
+        /// </summary>
+        WatermanMegan,
+
+        WhiteJason,
     }
 }

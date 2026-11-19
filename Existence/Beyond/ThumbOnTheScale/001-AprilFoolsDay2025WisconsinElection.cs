@@ -66,6 +66,10 @@ namespace Existence.Beyond.ThumbOnTheScale
             [BeyondObjectVersion(2, 6, 0, 0)]
             [YearDate(2026, 11, 2)]
             FillOutThumbOnTheScaleHindsightCorrectness,
+
+            [BeyondObjectVersion(2, 7, 0, 0)]
+            [YearDate(2026, 11, 18)]
+            ChangedEnumPersonFormatToSurnameFirst,
         }
 
         public InternetMemeHowYourHouseIsLookedAt PropertyTaxMeme = new InternetMemeHowYourHouseIsLookedAt();
@@ -121,7 +125,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     new USPresidentNotVote1((int)UnitedStatesPoliticians.TsongasPaul, "Sixth Grade Primary Choice", false),
                     new HighSchoolNotVote(null, "Class President", false),
                     new HighSchoolNotVote((int)UnitedStatesPoliticians.DoleBob, "Standardized Test Propaganda", false),
-                    new HighSchoolVote((int)ClassmateList.PaulMartinski, "Prom or Homecoming King/Queen", false),
+                    new HighSchoolVote((int)ClassmateList.MartinskiPaul, "Prom or Homecoming King/Queen", false),
                     new HighSchoolGraduation(),
                     VotingSong,
                     new WikipediaNotVote((int)PeopleEnumerated.DuninElonka, "Request for Adminship", false),
@@ -137,7 +141,7 @@ namespace Existence.Beyond.ThumbOnTheScale
                     secondUSPresidentVote,
                     signedWisconsinGovernorRecallPetition,
                     thirdUSPresidentVote,
-                    new WorkVote((int)Coworkers.NickVavra, "Swiss Army Knife Award", false),
+                    new WorkVote((int)Coworkers.VavraNick, "Swiss Army Knife Award", false),
                     gaveMoneyToUSPresidentCampaign,
                     fourthUSPresidentVote,
                 });

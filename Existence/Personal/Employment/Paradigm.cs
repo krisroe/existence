@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using Existence.Song;
+using Existence.Time;
 
 namespace Existence.Personal.Employment
 {
@@ -7,69 +9,97 @@ namespace Existence.Personal.Employment
     {
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("Security")]
-        JoshBacon,
+        BaconJosh,
 
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("QA")]
-        BryanBerndt,
+        BerndtBryan,
 
         [Workplaces((int)Workplaces.Paradigm)]
-        JasonBulgrin,
+        BulgrinJason,
 
         /// <summary>
         /// he was out after the BFS takeover, he tried to be an architect-type for a bit but it didn't work
         /// </summary>
         [Workplaces((int)Workplaces.Paradigm)]
-        NathanHerbst,
+        HerbstNathan,
 
         [Workplaces((int)Workplaces.Epic)]
-        KyleOrCathyKimport,
+        KimportKyleOrCathy,
+
+        /// <summary>
+        // was in UW-Madison band
+        /// </summary>
+        [Workplaces((int)Workplaces.Paradigm)]
+        [MusicalInstrument(MusicalInstruments.Tuba)]
+        KothBen,
+
+        [Workplaces((int)Workplaces.Paradigm)]
+        [MusicalInstrument(MusicalInstruments.PercussionDrumSet)]
+        MarcAureleBruno,
 
         [Description("Development Management")]
         [Workplaces((int)Workplaces.Paradigm)]
-        KristiMcCombs,
+        McCombsKristi,
 
         [Description("Software Test Engineer")]
         [Workplaces((int)Workplaces.Epic)]
-        MichaelMcConnell,
+        McConnellMichael,
 
         /// <summary>
         /// left after the shooting (she was shot but not seriously). I don't know if that's why she left.
         /// </summary>
         [Workplaces((int)Workplaces.Paradigm)]
-        ErinOCallaghan,
+        OCallaghanErin,
+
+        /// <summary>
+        /// let go in BFS 10% purge
+        /// </summary>
+        [Workplaces((int)Workplaces.Paradigm)]
+        RodriguezNatalie,
 
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("IT")]
-        JacobSieran,
+        SieranJacob,
+
+        [Workplaces((int)Workplaces.Paradigm)]
+        [Description("Security")]
+        Snyk,
 
         /// <summary>
         /// deceased
         /// </summary>
         [Workplaces((int)Workplaces.Paradigm)]
-        AnthonyTong,
+        [DeathDate(2018, 9, 19)]
+        TongAnthony,
 
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("IT Management")]
-        EvanTouchett,
+        TouchettEvan,
+
+        /// <summary>
+        /// let go in 10% BFS purge
+        /// </summary>
+        [Workplaces((int)Workplaces.Paradigm)]
+        TrognerCory,
+
+        [Workplaces((int)Workplaces.Paradigm)]
+        [MusicalInstrument(MusicalInstruments.PercussionDrumSet)]
+        VandersteenRob,
 
         [Description("Architect")]
         [Workplaces((int)Workplaces.Paradigm)]
-        NickVavra,
+        VavraNick,
 
         /// <summary>
         /// fluent in spanish, she left awhile after the shooting because it was too much for her
         /// </summary>
         [Workplaces((int)Workplaces.Paradigm)]
-        RachelVenegas,
+        VenegasRachel,
 
         [Workplaces((int)Workplaces.Paradigm)]
         [Description("IT")]
-        MichaelWales,
-
-        [Workplaces((int)Workplaces.Paradigm)]
-        [Description("Security")]
-        Snyk,
+        WalesMichael,
     }
 
     public enum IndividualCustomers
@@ -77,7 +107,7 @@ namespace Existence.Personal.Employment
         /// <summary>
         /// Pella customer IT
         /// </summary>
-        MikeMoore,
+        MooreMike,
     }
 
     public class WorkplacesAttribute : Attribute
