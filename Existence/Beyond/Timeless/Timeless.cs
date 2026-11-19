@@ -15,6 +15,7 @@ using Existence.Earth.Time;
 using Existence.Logic;
 using Existence.Personal;
 using Existence.Personal.Infrastructure;
+using Existence.Song;
 using Existence.Time;
 using System;
 using System.Collections.Generic;
@@ -161,6 +162,17 @@ namespace Existence.Beyond.Timeless
             [BeyondObjectVersion(7, 2, 0, 0)]
             [YearDate(2026, 10, 28, Hour: 20, Minute: 53)]
             AddMaleAndFemaleSiblingCountsForMyGenericHumanSelfsFather,
+
+            [Explanation("Placed judgable religions next to political philosophy")]
+            [Explanation("Simplified sex and gender to use combined sex+gender attribute")]
+            [Explanation("Added musical instrument of piano to generic and primary human selfs")]
+            [Explanation("Added musical instrument of piano to myself and sibling in first family unit")]
+            [Explanation("Added musical instruments of clarinet and piano to myself in second family unit")]
+            [Explanation("Added musical instrument of percussion to my sister in second family unit")]
+            [Explanation("Added musical instruments of clarinet and piano to my children first family unit")]
+            [BeyondObjectVersion(7, 3, 0, 0)]
+            [YearDate(2026, 11, 18)]
+            AddMusicalInstruments,
         }
 
         /// <summary>
@@ -175,15 +187,15 @@ namespace Existence.Beyond.Timeless
         [HumanSpeciesType(HomoSpecies.HomoSapiens)]
         [Archetypes(Archetypes.Programmer)]
         [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
+        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)ChristianDenominations.LutheranELCA)]
+        [MusicalInstrument(MusicalInstruments.Piano)]
         [FavoriteColor(KnownColor.Transparent)]
         [FavoriteNumbers(24865, 4, 22, 9501)]
-        [Sex(Sexes.Male)]
-        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)ChristianDenominations.LutheranELCA)]
+        [SexAndGender(Sexes.Male)]
         [BirthDatePrecise(1980, 12, 6, 12, 53)]
         [Birthplace((int)CountryLikeThings.UnitedStates, (int)USCities.WisconsinMadison)]
         [ShortName("Chris Rowe")]
         [BirthName("Christopher Scott Rowe")]
-        [Gender(Gender.Male)]
         [HasTattoo(false)]
         public class HumanSelf
         {
@@ -239,9 +251,11 @@ namespace Existence.Beyond.Timeless
                     }
 
                     [FavoriteColor(KnownColor.Red)]
+                    [MusicalInstrument(MusicalInstruments.Piano)]
                     public class Brother { }
 
                     [BirthDate(1982, 12, 31)]
+                    [MusicalInstrument(MusicalInstruments.Piano)]
                     public class Sister { }
                 }
 
@@ -251,8 +265,12 @@ namespace Existence.Beyond.Timeless
                     public class Mother { }
                     [Description("Financial Support, Regular Visitation")]
                     public class Father { }
+
                     [PoliticalPhilosophies(PoliticalPhilosophies.Conservative, PoliticalPhilosophies.Libertarian)]
+                    [MusicalInstruments(MusicalInstruments.Clarinet, MusicalInstruments.Piano)]
                     public class Brother { }
+
+                    [MusicalInstrument(MusicalInstruments.Percussion)]
                     public class Sister { }
                 }
 
@@ -269,9 +287,11 @@ namespace Existence.Beyond.Timeless
                     public class Spouse2 { }
 
                     [BirthDate(2011, 6, 28)]
+                    [MusicalInstrument(MusicalInstruments.Piano)]
                     public class Sister { }
 
                     [BirthDate(2013, 4, 11)]
+                    [MusicalInstrument(MusicalInstruments.Clarinet)]
                     public class Brother { }
                 }
             }
@@ -519,13 +539,13 @@ namespace Existence.Beyond.Timeless
         [Archetypes(Archetypes.Programmer)]
         [FavoriteColor(KnownColor.Transparent)]
         [PoliticalPhilosophies(PoliticalPhilosophies.Libertarian)]
+        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)WorldReligions.Christianity)]
         [FavoriteNumberRange(1, 20000, 29999)]
         [SecondFavoriteNumber(4)]
         [ThirdFavoriteNumber(22)]
         [FavoriteNumberRange(4, 9000, 9999)]
-        [Sex(Sexes.Male)]
-        [JudgableReligions((int)WorldReligions.Atheism, (int)WorldReligions.MyPersonalReligion, (int)WorldReligions.Christianity)]
-        [Gender(Gender.Male)]
+        [SexAndGender(Sexes.Male)]
+        [MusicalInstrument(MusicalInstruments.Piano)]
         public class GenericHumanSelf
         {
             public static class FamilyUnits

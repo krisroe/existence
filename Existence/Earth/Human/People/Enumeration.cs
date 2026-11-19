@@ -35,6 +35,15 @@ namespace Existence.Earth.Human.People
         }
     }
 
+    public class SexAndGenderAttribute : Attribute
+    {
+        public Sexes SexAndGender { get; set; }
+        public SexAndGenderAttribute(Sexes SexAndGender)
+        {
+            this.SexAndGender = SexAndGender;
+        }
+    }
+
     public enum Sexes
     {
         Female,

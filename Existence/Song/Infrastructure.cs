@@ -71,6 +71,15 @@ namespace Existence.Song
         }
     }
 
+    public class MusicalInstrumentsAttribute : Attribute
+    {
+        public MusicalInstruments[] Instruments { get; set; }
+        public MusicalInstrumentsAttribute(params MusicalInstruments[] Instruments)
+        {
+            this.Instruments = Instruments;
+        }
+    }
+
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class MusicalGenreAttribute : Attribute
     {
