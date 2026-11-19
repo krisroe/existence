@@ -9,6 +9,7 @@ using Existence.Earth.Human.EthnicGroups;
 using Existence.Earth.Human.People;
 using Existence.Earth.Time;
 using Existence.Earth.War;
+using Existence.Song;
 using Existence.Time;
 using System;
 
@@ -1034,11 +1035,12 @@ namespace Existence.Earth.War
         GviliRan = 92,
 
         /// <summary>
-        /// aka Gadi
+        /// aka Gadi, former principal flautist in the IDF orchestra
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
+        [MusicalInstrumentGenre(MusicalInstruments.Flute, MusicGenres.Jazz)]
         [Gender(Gender.Male)]
         [Age(72, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
