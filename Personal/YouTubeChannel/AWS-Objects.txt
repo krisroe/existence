@@ -1,0 +1,28 @@
+AccountNumber
+- 339712894650
+
+EC2 Instance
+- Name: DestroyAllPugsMain
+- Region: us-east-2
+
+Secrets Manager Secret
+- DestroyAllPugsSiteSecrets
+- {"PGSQL_DB_PASSWORD": "W", "OAUTH_CLIENT_ID": "X", "OAUTH_CLIENT_SECRET": "Y", "GOOGLE_API_KEY": "Z"}
+- note the secret ARN so it can be used in the IAM role
+
+IAM Role
+- Role name: DestroyAllPugsSiteMain
+- Trusted entity type = AWS service
+- Service or use case = EC2
+- Attach to EC2 instance
+- Inline policy
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "arn:aws:secretsmanager:REGION:ACCOUNTNUMBER:secret:SECRETNAME-RANDOMSUFFIX"
+    }
+  ]
+}

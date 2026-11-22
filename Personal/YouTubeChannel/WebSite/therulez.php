@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -119,7 +120,7 @@ echo "<h3>Official Rulez</h3>";
 echo "<table>";
 echo "<tr><th>Number</th><th>Rule</th><th>Source</th><th>Actual Rule</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT r.number,r.rule,r.source,r.actualrule,v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,r.video1isadditionaltext FROM public.rulez_official r LEFT JOIN videos v1 ON r.videoid1=v1.id LEFT JOIN videos v2 ON r.videoid2=v2.id LEFT JOIN documents d ON v1.additionaltextdocumentid=d.id ORDER BY r.ord';
 $result = pg_query($dbconn,$query);
 
@@ -187,7 +188,7 @@ echo "<h3>Unofficial Rulez</h3>";
 echo "<table>";
 echo "<tr><th>Rule</th><th>Source</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT r.rule,r.source,v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,r.video1isadditionaltext FROM public.rulez_unofficial r LEFT JOIN videos v1 ON r.videoid1=v1.id LEFT JOIN videos v2 ON r.videoid2=v2.id LEFT JOIN documents d ON v1.additionaltextdocumentid=d.id ORDER BY r.ord';
 $result = pg_query($dbconn,$query);
 

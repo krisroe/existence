@@ -22,10 +22,7 @@ namespace LocalDeployer
         ///  stylefilename: stylesv2.css
         ///  server: localhost or destroyallpugz.site
         ///  protocol: http (local) or https (remote)
-        ///  oauthclientid: oauth client id
-        ///  oauthclientsecret: oauth client secret
-        ///  googlecloudapikey: google cloud api key
-        ///  pgconnstr: postgres connection string
+        ///  pgconnport: postgres port
         /// </remarks>
         static int Main(string[] args)
         {
@@ -110,12 +107,6 @@ namespace LocalDeployer
                 sftpClient.ChangeDirectory("/var/www/destroyallpugs");
             }
 
-            string sOAuthClientIDReplacement = "{oauthclientid}";
-            string sOAuthClientSecretReplacement = "{oauthclientsecret}";
-            string sOAuthClientID = "CSRTODO";
-            string sOAuthClientSecret = "CSRTODO";
-            string sGoogleCloudApiKey = "CSRTODO";
-
             int exitCode = 0;
 
             DirectoryInfo di = new DirectoryInfo(sSourceFolder);
@@ -123,14 +114,9 @@ namespace LocalDeployer
             {
                 string sContent = File.ReadAllText(fi.FullName);
                 sContent = sContent.Replace("{protocol}", sProtocol);
-                sContent = sContent.Replace("{pgconnstr}", $"host=localhost port={port} dbname=DestroyAllPugs user=postgres password=ToiletDrawHind939");
+                sContent = sContent.Replace("{pgconnport}", port.ToString());
                 sContent = sContent.Replace("{server}", sServer);
                 sContent = sContent.Replace("{stylefilename}", "stylesv2.css");
-                sContent = sContent.Replace(sOAuthClientIDReplacement, sOAuthClientID);
-                sContent = sContent.Replace(sOAuthClientSecretReplacement, sOAuthClientSecret);
-
-                //used for google drive and youtube APIs
-                sContent = sContent.Replace("{googlecloudapikey}", sGoogleCloudApiKey);
 
                 string sourceFullPath = fi.FullName;
                 string fileName = fi.Name;

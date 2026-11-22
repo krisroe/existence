@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -119,7 +120,7 @@ echo "<h2>Rule #27: I am NOT ALLOWED to COMPLAIN<br/>Rule #28: NO ONE is ALLOWED
 echo "<table>";
 echo "<tr><th>Number</th><th>Target</th><th>Complaint</th><th>Source</th><th>Comment</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT v.youtubeid,v.identifier,c.number,c.target,c.detail,c.source,c.comment FROM public.complaints c LEFT JOIN videos v ON c.videoid=v.id ORDER BY c.ord';
 $result = pg_query($dbconn,$query);
 

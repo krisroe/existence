@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -118,7 +119,7 @@ echo "<div id=\"maininfodiv\">";
 echo "<table>";
 echo "<tr><th>Video</th><th>Identifier</th><th>Original/Parody</th><th>Location</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT v.youtubeid,v.shortname,v.identifier,la.location,la.isparody FROM public.lyrics_analyses la INNER JOIN public.videos v ON la.videoid = v.id ORDER BY la.ord';
 $result = pg_query($dbconn,$query);
 

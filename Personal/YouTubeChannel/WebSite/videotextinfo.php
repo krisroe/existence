@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 
 function checkForInputErrors($youtubevideoid,$return,$doctype)
 {
@@ -103,7 +104,7 @@ if ($doctype == 'viddesc') //video description
   ],
  ];
  $context = stream_context_create($options);
- $response = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" . $youtubevideoid . "&key={googlecloudapikey}", false, $context);
+ $response = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" . $youtubevideoid . "&key=" . urlencode(getSecrets()['GOOGLE_API_KEY']), false, $context);
  if ($response === false)
  {
   OutputErrorPage("Error fetching video description data!");
@@ -141,13 +142,13 @@ if ($doctype == 'viddesc') //video description
 }
 else //video additional text
 {
- $dbconn = pg_connect("{pgconnstr}");
+ $dbconn = pg_connect(getPgConnectionString());
  $query = 'SELECT d.googledrivefileid FROM public.videos v INNER JOIN public.documents d ON d.id = v.additionaltextdocumentid WHERE v.youtubeid=$1';
  $result = pg_query_params($dbconn,$query,array($youtubevideoid));
  if ($result)
  {
   $googledrivefileid = pg_fetch_result($result, 0, 0);
-  $googledriveurl = 'https://www.googleapis.com/drive/v3/files/' . $googledrivefileid . '?alt=media&key={googlecloudapikey}';
+  $googledriveurl = 'https://www.googleapis.com/drive/v3/files/' . $googledrivefileid . '?alt=media&key=' . urlencode(getSecrets()['GOOGLE_API_KEY']);
   $description = nl2br(htmlspecialchars(file_get_contents($googledriveurl)));
   if ($description === false)
   {

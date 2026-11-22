@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -122,7 +123,7 @@ echo "<table>";
 
 echo "<tr><th>Name</th><th>Identifier</th><th>Concepts</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT v.youtubeid,v.shortname,v.identifier,wv.concepts,v.dislikes,v.likes FROM public.videolist_workvideos wv INNER JOIN public.videos v ON wv.videoid = v.id ORDER BY wv.ord';
 $result = pg_query($dbconn,$query);
 

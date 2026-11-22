@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -126,7 +127,7 @@ echo "<button class=\"playallbutton\" onclick=\"playall()\">Play All Including P
 echo "<table>";
 echo "<tr><th>Sequence</td><th>YouTube ID</th><th>Short Name</th><th>Identifier</th><th>Owner</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT v.id,v.youtubeid,v.shortname,v.identifier,v.owner,v.isprivate,v.dislikes,v.likes FROM public.videos v ORDER BY id';
 $result = pg_query($dbconn,$query);
 

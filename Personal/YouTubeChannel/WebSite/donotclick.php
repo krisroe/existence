@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 
 function checkForInputErrors($youtubevideoid, $autoplay)
 {
@@ -73,7 +74,7 @@ if ($land == 'destroyallpugz')
 }
 else
 {
- $dbconn = pg_connect("{pgconnstr}");
+ $dbconn = pg_connect(getPgConnectionString());
  $query = 'SELECT url FROM public.landing_pages WHERE name=$1';
  $result = pg_query_params($dbconn,$query,array($land));
  if ($result)

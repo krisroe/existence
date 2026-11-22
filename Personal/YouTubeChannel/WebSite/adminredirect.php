@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 function get_access_token() {
 	$accessToken = "";
 	$errorMessage = "";
@@ -8,8 +9,8 @@ function get_access_token() {
 		$data = array(
 		'grant_type' => 'authorization_code',
 		'code' => $_GET['code'],
-		'client_id' => '{oauthclientid}',
-		'client_secret' => '{oauthclientsecret}',
+		'client_id' => getSecrets()['OAUTH_CLIENT_ID'],
+		'client_secret' => getSecrets()['OAUTH_CLIENT_SECRET'],
 		'redirect_uri' => $redirectUri
 		);
 		$options = array(
@@ -63,7 +64,7 @@ $result = get_access_token();
 if ($result[0] === "")
 {
 	$access_token = $result[1];
-	$postgres_connection_string = "{pgconnstr}";
+	$postgres_connection_string = getPgConnectionString();
 
 	//get videos to update
 	$videos = [];	

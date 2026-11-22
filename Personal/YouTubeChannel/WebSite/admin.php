@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -12,7 +13,7 @@ echo "</head>";
 echo "<body>";
 echo "<h4><a href=\"../index.html\">Home</a></h4>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT videos_last_refreshed FROM public.dates WHERE id=1';
 $result = pg_query($dbconn,$query);
 
@@ -34,7 +35,7 @@ pg_close($dbconn);
 echo "</h4>";
 
 echo "<a href=\"https://accounts.google.com/o/oauth2/v2/auth?client_id=";
-echo "{oauthclientid}";
+echo htmlspecialchars(urlencode(getSecrets()['OAUTH_CLIENT_ID']));
 echo "&response_type=code&scope=https://www.googleapis.com/auth/youtube&redirect_uri={protocol}://";
 echo "{server}/adminredirect.php\"><button>Push Me!</button></a>";
 

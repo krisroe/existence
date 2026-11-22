@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 echo "<html>";
 
 echo "<head>";
@@ -16,7 +17,7 @@ echo "<table>";
 
 echo "<tr><th>Number</th><th>Song</th><th>Suggestion</th></tr>";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 $query = 'SELECT a.googledrivefileid,a.number,a.name,a.suggestion FROM public.audios a ORDER BY a.ord';
 $result = pg_query($dbconn,$query);
 

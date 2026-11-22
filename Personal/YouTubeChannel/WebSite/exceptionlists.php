@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/secrets.php';
 
 class MemberType
 {
@@ -153,7 +154,7 @@ echo "<script src=\"https://www.youtube.com/iframe_api\"></script>";
 
 echo "<div id=\"maininfodiv\">";
 
-$dbconn = pg_connect("{pgconnstr}");
+$dbconn = pg_connect(getPgConnectionString());
 
 //retrieve member types
 $exceptionlistmembertypes = [];
