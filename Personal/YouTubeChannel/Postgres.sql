@@ -1,3 +1,5 @@
+GRANT CONNECT ON DATABASE "DestroyAllPugs" TO destroyallpugs_web;
+
 CREATE TABLE IF NOT EXISTS public.documents
 (
 	id integer NOT NULL,
@@ -412,3 +414,9 @@ CREATE INDEX IF NOT EXISTS fki_fk_rulez_unofficial_video2
     ON public.rulez_unofficial USING btree
     (videoid2 ASC NULLS LAST)
     TABLESPACE pg_default;
+
+GRANT USAGE ON SCHEMA public TO destroyallpugs_web;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO destroyallpugs_web;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT SELECT ON TABLES TO destroyallpugs_web; --future tables
+GRANT UPDATE (likes, dislikes) ON public.videos TO destroyallpugs_web;
+GRANT INSERT, UPDATE ON public.dates TO destroyallpugs_web;

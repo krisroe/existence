@@ -30,5 +30,5 @@ function getPgConnectionString(): string
     //libpq connection strings need single quotes and backslashes escaped inside a quoted value
     $escapedPassword = str_replace(['\\', "'"], ['\\\\', "\\'"], $dbPassword);
 
-    return "host=localhost port={pgconnport} dbname=DestroyAllPugs user=postgres password='" . $escapedPassword . "'";
+    return "host=localhost port={pgconnport} dbname=DestroyAllPugs user={pgconnuser} password='" . $escapedPassword . "'";
 }

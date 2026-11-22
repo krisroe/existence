@@ -88,17 +88,20 @@ namespace LocalDeployer
             int port = local ? 5432 : 24866;
 
             SftpClient? sftpClient = null;
-            string sServer;
-            string sProtocol;
+            string server;
+            string protocol;
+            string user;
             if (local)
             {
-                sProtocol = "http";
-                sServer = "localhost";
+                protocol = "http";
+                server = "localhost";
+                user = "postgres";
             }
             else
             {
-                sProtocol = "https";
-                sServer = "destroyallpugz.site";
+                protocol = "https";
+                server = "destroyallpugz.site";
+                user = "destroyallpugs_web";
                 PrivateKeyFile pkf = new PrivateKeyFile(privateKeyFile!);
                 PrivateKeyAuthenticationMethod pkam = new PrivateKeyAuthenticationMethod("ubuntu", pkf);
                 ConnectionInfo ci = new ConnectionInfo("destroyallpugz.site", 22, "ubuntu", pkam);
@@ -113,9 +116,10 @@ namespace LocalDeployer
             foreach (FileInfo fi in di.GetFiles("*", SearchOption.TopDirectoryOnly))
             {
                 string sContent = File.ReadAllText(fi.FullName);
-                sContent = sContent.Replace("{protocol}", sProtocol);
+                sContent = sContent.Replace("{protocol}", protocol);
                 sContent = sContent.Replace("{pgconnport}", port.ToString());
-                sContent = sContent.Replace("{server}", sServer);
+                sContent = sContent.Replace("{pgconnuser}", user);
+                sContent = sContent.Replace("{server}", server);
                 sContent = sContent.Replace("{stylefilename}", "stylesv2.css");
 
                 string sourceFullPath = fi.FullName;

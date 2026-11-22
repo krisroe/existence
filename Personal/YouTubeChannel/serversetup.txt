@@ -37,13 +37,18 @@ sudo apt install postgresql
 
 sudo su postgres
 psql
-ALTER USER postgres WITH PASSWORD 'ToiletDrawHind939'; (local)
+ALTER USER postgres WITH PASSWORD 'XYZ'; (local)
+
+CREATE ROLE destroyallpugs_web LOGIN;
+\password destroyallpugs_web (asks for the password without echoing it, so it doesn't end up in shell or psql hx)
 
 modify /etc/postgresql/16/main/postgresql.conf set listen_addresses = '*', set port to 24866 (allow in security group)
 sudo service postgresql restart
 try to connect in pgadmin to get ip address
-modify /etc/postgresql/16/main/pg_hba.conf
+
+modify /etc/postgresql/POSTGRESQLVERSIONNUMBER/main/pg_hba.conf
 host all all 1.2.3.4/32 md5
+Run sudo pg_ctlcluster POSTGRESQLVERSIONNUMBER main reload since pg_hba.conf changes only take effect on service startup
 
 sudo apt-get install php-pgsql
 /etc/php/8.3/fpm/php.ini
