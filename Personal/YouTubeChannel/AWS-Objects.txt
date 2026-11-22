@@ -6,8 +6,11 @@ EC2 Instance
 - Region: us-east-2
 
 Secrets Manager Secret
-- DestroyAllPugsSiteSecrets
-- {"PGSQL_DB_PASSWORD": "W", "OAUTH_CLIENT_ID": "X", "OAUTH_CLIENT_SECRET": "Y", "GOOGLE_API_KEY": "Z"}
+- Name: DestroyAllPugsSiteSecrets
+- Key/Values: "PGSQL_DB_PASSWORD"="W"
+              "OAUTH_CLIENT_ID"="X"
+              "OAUTH_CLIENT_SECRET"="Y"
+              "GOOGLE_API_KEY"="Z"
 - note the secret ARN so it can be used in the IAM role
 
 IAM Role
