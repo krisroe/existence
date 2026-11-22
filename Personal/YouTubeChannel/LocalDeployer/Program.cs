@@ -92,20 +92,18 @@ namespace LocalDeployer
             SftpClient? sftpClient = null;
             string server;
             string protocol;
-            string user;
+            string user = "destroyallpugs_web";
             string localSecretsFile;
             if (local)
             {
                 protocol = "http";
                 server = "localhost";
-                user = "postgres";
                 localSecretsFile = @"C:\DestroyAllPugsSecrets\secrets.json";
             }
             else
             {
                 protocol = "https";
                 server = "destroyallpugz.site";
-                user = "destroyallpugs_web";
                 localSecretsFile = string.Empty;
                 PrivateKeyFile pkf = new PrivateKeyFile(privateKeyFile!);
                 PrivateKeyAuthenticationMethod pkam = new PrivateKeyAuthenticationMethod("ubuntu", pkf);
