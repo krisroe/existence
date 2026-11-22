@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using System.Text;
 using System.Xml;
 namespace DatabasePopulator
@@ -764,14 +765,11 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = d.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@doctype", Convert.ToInt32(d.type));
-                    cmd.Parameters.AddWithValue("@purpose", Convert.ToInt32(d.purpose));
-                    cmd.Parameters.AddWithValue("@googledrivefileid", d.googledrivefileid);
-                    if (d.supportsplayback == null)
-                        cmd.Parameters.AddWithValue("@supportsplayback", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@supportsplayback", d.supportsplayback.Value);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@doctype", NpgsqlDbType.Integer, Convert.ToInt32(d.type));
+                    AddParameter(cmd, "@purpose", NpgsqlDbType.Integer, Convert.ToInt32(d.purpose));
+                    AddParameter(cmd, "@googledrivefileid", NpgsqlDbType.Varchar, d.googledrivefileid);
+                    AddParameter(cmd, "@supportsplayback", NpgsqlDbType.Boolean, d.supportsplayback);
                     updateRecord = all.documentIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -789,24 +787,15 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = v.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@youtubeid", v.youtubeid);
-                    cmd.Parameters.AddWithValue("@shortname", v.shortname);
-                    cmd.Parameters.AddWithValue("@identifier", v.identifier);
-                    cmd.Parameters.AddWithValue("@owner", v.owner);
-                    cmd.Parameters.AddWithValue("@isprivate", v.isprivate);
-                    if (v.additionaltextdocument == null)
-                        cmd.Parameters.AddWithValue("@additionaltextdocumentid", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@additionaltextdocumentid", v.additionaltextdocument.id);
-                    if (v.musxdocument == null)
-                        cmd.Parameters.AddWithValue("@musxdocumentid", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@musxdocumentid", v.musxdocument.id);
-                    if (v.doricodocument == null)
-                        cmd.Parameters.AddWithValue("@doricodocumentid", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@doricodocumentid", v.doricodocument.id);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@youtubeid", NpgsqlDbType.Varchar, v.youtubeid);
+                    AddParameter(cmd, "@shortname", NpgsqlDbType.Varchar, v.shortname);
+                    AddParameter(cmd, "@identifier", NpgsqlDbType.Varchar, v.identifier);
+                    AddParameter(cmd, "@owner", NpgsqlDbType.Varchar, v.owner);
+                    AddParameter(cmd, "@isprivate", NpgsqlDbType.Boolean, v.isprivate);
+                    AddParameter(cmd, "@additionaltextdocumentid", NpgsqlDbType.Integer, v.additionaltextdocument?.id);
+                    AddParameter(cmd, "@musxdocumentid", NpgsqlDbType.Integer, v.musxdocument?.id);
+                    AddParameter(cmd, "@doricodocumentid", NpgsqlDbType.Integer, v.doricodocument?.id);
                     updateRecord = all.videoIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -824,9 +813,9 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = p.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", p.ord);
-                    cmd.Parameters.AddWithValue("@name", p.name);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, p.ord);
+                    AddParameter(cmd, "@name", NpgsqlDbType.Varchar, p.name);
                     updateRecord = all.performerIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -844,21 +833,15 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = r.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", r.ord);
-                    cmd.Parameters.AddWithValue("@number", r.number);
-                    cmd.Parameters.AddWithValue("@rule", r.rule);
-                    cmd.Parameters.AddWithValue("@source", r.source);
-                    cmd.Parameters.AddWithValue("@actualrule", r.actualrule);
-                    if (r.video1 != null)
-                        cmd.Parameters.AddWithValue("@videoid1", r.video1.id);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid1", DBNull.Value);
-                    if (r.video2 != null)
-                        cmd.Parameters.AddWithValue("@videoid2", r.video2.id);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid2", DBNull.Value);
-                    cmd.Parameters.AddWithValue("@video1isadditionaltext", r.video1isadditionaltext);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, r.ord);
+                    AddParameter(cmd, "@number", NpgsqlDbType.Varchar, r.number);
+                    AddParameter(cmd, "@rule", NpgsqlDbType.Varchar, r.rule);
+                    AddParameter(cmd, "@source", NpgsqlDbType.Varchar, r.source);
+                    AddParameter(cmd, "@actualrule", NpgsqlDbType.Varchar, r.actualrule);
+                    AddParameter(cmd, "@videoid1", NpgsqlDbType.Integer, r.video1?.id);
+                    AddParameter(cmd, "@videoid2", NpgsqlDbType.Integer, r.video2?.id);
+                    AddParameter(cmd, "@video1isadditionaltext", NpgsqlDbType.Boolean, r.video1isadditionaltext);
                     updateRecord = all.rulesOfficialIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -876,19 +859,13 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = r.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", r.ord);
-                    cmd.Parameters.AddWithValue("@rule", r.rule);
-                    cmd.Parameters.AddWithValue("@source", r.source);
-                    if (r.video1 != null)
-                        cmd.Parameters.AddWithValue("@videoid1", r.video1.id);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid1", DBNull.Value);
-                    if (r.video2 != null)
-                        cmd.Parameters.AddWithValue("@videoid2", r.video2.id);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid2", DBNull.Value);
-                    cmd.Parameters.AddWithValue("@video1isadditionaltext", r.video1isadditionaltext);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, r.ord);
+                    AddParameter(cmd, "@rule", NpgsqlDbType.Varchar, r.rule);
+                    AddParameter(cmd, "@source", NpgsqlDbType.Varchar, r.source);
+                    AddParameter(cmd, "@videoid1", NpgsqlDbType.Integer, r.video1?.id);
+                    AddParameter(cmd, "@videoid2", NpgsqlDbType.Integer, r.video2?.id);
+                    AddParameter(cmd, "@video1isadditionaltext", NpgsqlDbType.Boolean, r.video1isadditionaltext);
                     updateRecord = all.rulesUnofficialIDs.Contains(r.id);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -906,11 +883,11 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = la.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", la.ord);
-                    cmd.Parameters.AddWithValue("@videoid", la.video.id);
-                    cmd.Parameters.AddWithValue("@location", Convert.ToInt32(la.location));
-                    cmd.Parameters.AddWithValue("@isparody", la.parody);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, la.ord);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, la.video.id);
+                    AddParameter(cmd, "@location", NpgsqlDbType.Integer, Convert.ToInt32(la.location));
+                    AddParameter(cmd, "@isparody", NpgsqlDbType.Boolean, la.parody);
                     updateRecord = all.lyricsAnalysisIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -931,9 +908,9 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = elmt.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", elmt.ord);
-                    cmd.Parameters.AddWithValue("@name", elmt.name);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, elmt.ord);
+                    AddParameter(cmd, "@name", NpgsqlDbType.Varchar, elmt.name);
                     updateRecord = all.exceptionlistmembertypeIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -953,10 +930,10 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = lp.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", lp.ord);
-                    cmd.Parameters.AddWithValue("@name", lp.name);
-                    cmd.Parameters.AddWithValue("@url", lp.url);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, lp.ord);
+                    AddParameter(cmd, "@name", NpgsqlDbType.Varchar, lp.name);
+                    AddParameter(cmd, "@url", NpgsqlDbType.Varchar, lp.url);
                     updateRecord = all.landingPageIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -974,17 +951,14 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = c.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", c.ord);
-                    cmd.Parameters.AddWithValue("@number", c.number);
-                    cmd.Parameters.AddWithValue("@target", c.target);
-                    cmd.Parameters.AddWithValue("@detail", c.detail);
-                    cmd.Parameters.AddWithValue("@source", c.source);
-                    cmd.Parameters.AddWithValue("@comment", c.comment);
-                    if (c.video == null)
-                        cmd.Parameters.AddWithValue("@videoid", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid", c.video.id);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, c.ord);
+                    AddParameter(cmd, "@number", NpgsqlDbType.Varchar, c.number);
+                    AddParameter(cmd, "@target", NpgsqlDbType.Varchar, c.target);
+                    AddParameter(cmd, "@detail", NpgsqlDbType.Varchar, c.detail);
+                    AddParameter(cmd, "@source", NpgsqlDbType.Varchar, c.source);
+                    AddParameter(cmd, "@comment", NpgsqlDbType.Varchar, c.comment);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, c.video?.id);
                     updateRecord = all.complaintIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1002,12 +976,12 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = a.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", a.ord);
-                    cmd.Parameters.AddWithValue("@googledrivefileid", a.googledrivefileid);
-                    cmd.Parameters.AddWithValue("@number", a.number);
-                    cmd.Parameters.AddWithValue("@name", a.name);
-                    cmd.Parameters.AddWithValue("@suggestion", a.suggestion);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, a.ord);
+                    AddParameter(cmd, "@googledrivefileid", NpgsqlDbType.Varchar, a.googledrivefileid);
+                    AddParameter(cmd, "@number", NpgsqlDbType.Integer, a.number);
+                    AddParameter(cmd, "@name", NpgsqlDbType.Varchar, a.name);
+                    AddParameter(cmd, "@suggestion", NpgsqlDbType.Varchar, a.suggestion);
                     updateRecord = all.audioIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1027,14 +1001,14 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = v.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", v.ord);
-                    cmd.Parameters.AddWithValue("@episode", v.episode);
-                    cmd.Parameters.AddWithValue("@theme", v.theme);
-                    cmd.Parameters.AddWithValue("@audience", v.audience);
-                    cmd.Parameters.AddWithValue("@majorrulez", v.majorrulez);
-                    cmd.Parameters.AddWithValue("@memes", v.memes);
-                    cmd.Parameters.AddWithValue("@minorrulez", v.minorrulez);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, v.ord);
+                    AddParameter(cmd, "@episode", NpgsqlDbType.Varchar, v.episode);
+                    AddParameter(cmd, "@theme", NpgsqlDbType.Varchar, v.theme);
+                    AddParameter(cmd, "@audience", NpgsqlDbType.Varchar, v.audience);
+                    AddParameter(cmd, "@majorrulez", NpgsqlDbType.Varchar, v.majorrulez);
+                    AddParameter(cmd, "@memes", NpgsqlDbType.Varchar, v.memes);
+                    AddParameter(cmd, "@minorrulez", NpgsqlDbType.Varchar, v.minorrulez);
                     updateRecord = all.mainlinevideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1052,12 +1026,12 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = p.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", p.ord);
-                    cmd.Parameters.AddWithValue("@performerid", p.performer.id);
-                    cmd.Parameters.AddWithValue("@piece", p.piece);
-                    cmd.Parameters.AddWithValue("@author", p.author);
-                    cmd.Parameters.AddWithValue("@setting", p.setting);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, p.ord);
+                    AddParameter(cmd, "@performerid", NpgsqlDbType.Integer, p.performer.id);
+                    AddParameter(cmd, "@piece", NpgsqlDbType.Varchar, p.piece);
+                    AddParameter(cmd, "@author", NpgsqlDbType.Varchar, p.author);
+                    AddParameter(cmd, "@setting", NpgsqlDbType.Varchar, p.setting);
                     updateRecord = all.musicvideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1075,11 +1049,11 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = v.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", v.ord);
-                    cmd.Parameters.AddWithValue("@number", v.number);
-                    cmd.Parameters.AddWithValue("@rulez", v.rulez);
-                    cmd.Parameters.AddWithValue("@memes", v.memes);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, v.ord);
+                    AddParameter(cmd, "@number", NpgsqlDbType.Varchar, v.number);
+                    AddParameter(cmd, "@rulez", NpgsqlDbType.Varchar, v.rulez);
+                    AddParameter(cmd, "@memes", NpgsqlDbType.Varchar, v.memes);
                     updateRecord = all.sillysongvideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1097,9 +1071,9 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = v.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", v.ord);
-                    cmd.Parameters.AddWithValue("@concepts", v.concepts);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, v.ord);
+                    AddParameter(cmd, "@concepts", NpgsqlDbType.Varchar, v.concepts);
                     updateRecord = all.workvideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1117,8 +1091,8 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = v.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", v.ord);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, v.ord);
                     updateRecord = all.kidzvideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1136,9 +1110,9 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iVideoID = v.video.id;
-                    cmd.Parameters.AddWithValue("@videoid", iVideoID);
-                    cmd.Parameters.AddWithValue("@ord", v.ord);
-                    cmd.Parameters.AddWithValue("@reason", v.reason);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, iVideoID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, v.ord);
+                    AddParameter(cmd, "@reason", NpgsqlDbType.Varchar, v.reason);
                     updateRecord = all.unexplainablevideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1165,11 +1139,11 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = nextExList.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", nextExList.ord);
-                    cmd.Parameters.AddWithValue("@name", nextExList.name);
-                    cmd.Parameters.AddWithValue("@videoid", nextExList.SourceVideo.id);
-                    cmd.Parameters.AddWithValue("@detail", nextExList.detail);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, nextExList.ord);
+                    AddParameter(cmd, "@name", NpgsqlDbType.Varchar, nextExList.name);
+                    AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, nextExList.SourceVideo.id);
+                    AddParameter(cmd, "@detail", NpgsqlDbType.Varchar, nextExList.detail);
                     updateRecord = all.exceptionListIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? exceptionlistupdateStatement : exceptionlistinsertStatement;
                     cmd.ExecuteNonQuery();
@@ -1179,11 +1153,11 @@ namespace DatabasePopulator
                 {
                     using (NpgsqlCommand cmd = GetCommand(conn, tx))
                     {
-                        cmd.Parameters.AddWithValue("@exceptionlistid", nextExList.id);
-                        cmd.Parameters.AddWithValue("@ord", member.ord);
-                        cmd.Parameters.AddWithValue("@categoryid", member.Category.id);
-                        cmd.Parameters.AddWithValue("@videoid", member.SourceVideo.id);
-                        cmd.Parameters.AddWithValue("@name", member.name);
+                        AddParameter(cmd, "@exceptionlistid", NpgsqlDbType.Integer, nextExList.id);
+                        AddParameter(cmd, "@ord", NpgsqlDbType.Integer, member.ord);
+                        AddParameter(cmd, "@categoryid", NpgsqlDbType.Integer, member.Category.id);
+                        AddParameter(cmd, "@videoid", NpgsqlDbType.Integer, member.SourceVideo.id);
+                        AddParameter(cmd, "@name", NpgsqlDbType.Varchar, member.name);
                         string key = nextExList.id + "," + member.ord;
                         updateRecord = all.exceptionlistmemberIDs.Contains(key);
                         cmd.CommandText = updateRecord ? exceptionlistmemberupdateStatement : exceptionlistmemberinsertStatement;
@@ -1291,15 +1265,12 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     iID = c.id;
-                    cmd.Parameters.AddWithValue("@id", iID);
-                    cmd.Parameters.AddWithValue("@ord", c.ord);
-                    cmd.Parameters.AddWithValue("@song", c.song);
-                    cmd.Parameters.AddWithValue("@copyright", c.copyright);
-                    cmd.Parameters.AddWithValue("@videoid1", c.video1.id);
-                    if (c.video2 == null)
-                        cmd.Parameters.AddWithValue("@videoid2", DBNull.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@videoid2", c.video2.id);
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, c.ord);
+                    AddParameter(cmd, "@song", NpgsqlDbType.Varchar, c.song);
+                    AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, c.copyright);
+                    AddParameter(cmd, "@videoid1", NpgsqlDbType.Integer, c.video1.id);
+                    AddParameter(cmd, "@videoid2", NpgsqlDbType.Integer, c.video2?.id);
                     bool updateRecord = ids.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1369,6 +1340,18 @@ namespace DatabasePopulator
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Adds a parameter with an explicit column type; a null value is sent as SQL NULL.
+        /// </summary>
+        /// <param name="cmd">command object</param>
+        /// <param name="name">parameter name</param>
+        /// <param name="type">parameter type</param>
+        /// <param name="value">parameter value, with null treated as <see cref="DBNull.Value"/></param>
+        private static void AddParameter(NpgsqlCommand cmd, string name, NpgsqlDbType type, object? value)
+        {
+            cmd.Parameters.Add(name, type).Value = value ?? DBNull.Value;
         }
 
         private static NpgsqlCommand GetCommand(NpgsqlConnection conn, NpgsqlTransaction tx)
