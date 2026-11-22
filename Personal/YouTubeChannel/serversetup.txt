@@ -1,3 +1,21 @@
+Local
+
+1. Adding module mapping for CGI (requires Windows component install of CGI)
+- Add module mapping
+- Request path = *.php
+- Module = FastCgiModule
+- Executable = C:\PHP\php-cgi.exe
+- Name = PHP_FastCGI
+
+2. Copy php.ini from php.ini-development
+
+3. php.ini change
+3a. extension=pdo_pgsql
+3b. extension=pgsql
+3c. extension=openssl
+
+Remote
+
 sudo apt update
 sudo apt upgrade
 sudo reboot

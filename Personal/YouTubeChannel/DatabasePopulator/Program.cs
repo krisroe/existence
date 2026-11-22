@@ -5,12 +5,23 @@ namespace DatabasePopulator
 {
     internal class Program
     {
+        /// <summary>
+        /// database populator
+        /// </summary>
+        /// <param name="args">command line arguments</param>
+        /// <returns>process return code</returns>
+        /// <remarks>
+        /// Command line arguments:
+        ///  1. Input data file (path to Data.xml)
+        ///  2. Database name (typically DestroyAllPugs)
+        ///  3. local or remote
+        /// </remarks>
         static int Main(string[] args)
         {
-            int requiredArgsCount = 2;
+            int requiredArgsCount = 3;
             if (args == null || args.Length < requiredArgsCount)
             {
-                Console.Error.WriteLine(requiredArgsCount + " arguments are required.");
+                Console.Error.WriteLine($"{requiredArgsCount} arguments are required.");
                 return -1;
             }
             string sInputFile = args[0];
@@ -21,7 +32,7 @@ namespace DatabasePopulator
             }
             if (!File.Exists(sInputFile))
             {
-                Console.Error.WriteLine("File does not exist: " + sInputFile);
+                Console.Error.WriteLine($"File does not exist: {sInputFile}");
                 return -1;
             }
             string sDatabaseName = args[1];
@@ -30,6 +41,22 @@ namespace DatabasePopulator
                 Console.Error.WriteLine("No database name specified.");
                 return -1;
             }
+            bool local;
+            string sLocalOrRemote = args[2];
+            if (sLocalOrRemote == "local")
+            {
+                local = true;
+            }
+            else if (sLocalOrRemote == "remote")
+            {
+                local = false;
+            }
+            else
+            {
+                Console.Error.WriteLine($"Invalid argument #3 (local or remote): {sLocalOrRemote}");
+                return -1;
+            }
+
             XmlDocument xmlDoc = new XmlDocument();
             try
             {
@@ -52,7 +79,6 @@ namespace DatabasePopulator
 
             AllData all = new AllData();
 
-            bool local = true;
             string host;
             int port;
             if (local)
