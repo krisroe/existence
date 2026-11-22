@@ -15,52 +15,59 @@ namespace DatabasePopulator
         ///  1. Input data file (path to Data.xml)
         ///  2. Database name (typically DestroyAllPugs)
         ///  3. local or remote
+        ///  4. postgres user password
         /// </remarks>
         static int Main(string[] args)
         {
-            int requiredArgsCount = 3;
+            int requiredArgsCount = 4;
             if (args == null || args.Length < requiredArgsCount)
             {
                 Console.Error.WriteLine($"{requiredArgsCount} arguments are required.");
                 return -1;
             }
-            string sInputFile = args[0];
-            if (string.IsNullOrEmpty(sInputFile))
+            string inputFile = args[0];
+            if (string.IsNullOrEmpty(inputFile))
             {
                 Console.Error.WriteLine("No input file specified.");
                 return -1;
             }
-            if (!File.Exists(sInputFile))
+            if (!File.Exists(inputFile))
             {
-                Console.Error.WriteLine($"File does not exist: {sInputFile}");
+                Console.Error.WriteLine($"File does not exist: {inputFile}");
                 return -1;
             }
-            string sDatabaseName = args[1];
-            if (string.IsNullOrEmpty(sDatabaseName))
+            string dbName = args[1];
+            if (string.IsNullOrEmpty(dbName))
             {
                 Console.Error.WriteLine("No database name specified.");
                 return -1;
             }
             bool local;
-            string sLocalOrRemote = args[2];
-            if (sLocalOrRemote == "local")
+            string localOrRemote = args[2];
+            if (localOrRemote == "local")
             {
                 local = true;
             }
-            else if (sLocalOrRemote == "remote")
+            else if (localOrRemote == "remote")
             {
                 local = false;
             }
             else
             {
-                Console.Error.WriteLine($"Invalid argument #3 (local or remote): {sLocalOrRemote}");
+                Console.Error.WriteLine($"Invalid argument #3 (local or remote): {localOrRemote}");
+                return -1;
+            }
+            string password = args[3];
+            if (string.IsNullOrEmpty(password))
+            {
+                Console.Error.WriteLine("No password specified.");
                 return -1;
             }
 
             XmlDocument xmlDoc = new XmlDocument();
             try
             {
-                xmlDoc.Load(sInputFile);
+                xmlDoc.Load(inputFile);
             }
             catch (Exception ex)
             {
@@ -91,7 +98,6 @@ namespace DatabasePopulator
                 host = "destroyallpugz.site";
                 port = 24866;
             }
-            string p = "ToiletDrawHind939";
             try
             {
                 int iPerformerOrder = 0;
@@ -316,8 +322,8 @@ namespace DatabasePopulator
             ncsb.Host = host;
             ncsb.Port = port;
             ncsb.Username = "postgres";
-            ncsb.Password = p;
-            ncsb.Database = sDatabaseName;
+            ncsb.Password = password;
+            ncsb.Database = dbName;
 
             using (NpgsqlConnection conn = new NpgsqlConnection(ncsb.ToString()))
             {

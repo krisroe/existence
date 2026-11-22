@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-
 use Aws\SecretsManager\SecretsManagerClient;
 
 function getSecrets(): array
@@ -8,16 +6,33 @@ function getSecrets(): array
     static $secrets = null;
     if ($secrets === null)
     {
-        $client = new SecretsManagerClient([
-            'version' => 'latest',
-            'region'  => 'us-east-2'
-        ]);
+        //local deploys read a JSON file in the same format as the AWS secret; remote deploys leave this blank
+        $localSecretsFile = '{localsecretsfile}';
+        if ($localSecretsFile !== '')
+        {
+            $json = file_get_contents($localSecretsFile);
+            if ($json === false)
+            {
+                throw new RuntimeException("Could not read local secrets file " . $localSecretsFile);
+            }
+        }
+        else
+        {
+            require_once __DIR__ . '/vendor/autoload.php';
 
-        $result = $client->getSecretValue([
-            'SecretId' => 'DestroyAllPugsSiteSecrets'
-        ]);
+            $client = new SecretsManagerClient([
+                'version' => 'latest',
+                'region'  => 'us-east-2'
+            ]);
 
-        $secrets = json_decode($result['SecretString'], true, 512, JSON_THROW_ON_ERROR);
+            $result = $client->getSecretValue([
+                'SecretId' => 'DestroyAllPugsSiteSecrets'
+            ]);
+
+            $json = $result['SecretString'];
+        }
+
+        $secrets = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
     }
     return $secrets;
 }

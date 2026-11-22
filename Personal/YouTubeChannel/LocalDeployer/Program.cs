@@ -23,6 +23,8 @@ namespace LocalDeployer
         ///  server: localhost or destroyallpugz.site
         ///  protocol: http (local) or https (remote)
         ///  pgconnport: postgres port
+        ///  pgconnuser: postgres user
+        ///  localsecretsfile: local secrets JSON file (local), blank to use AWS Secrets Manager (remote)
         /// </remarks>
         static int Main(string[] args)
         {
@@ -91,17 +93,20 @@ namespace LocalDeployer
             string server;
             string protocol;
             string user;
+            string localSecretsFile;
             if (local)
             {
                 protocol = "http";
                 server = "localhost";
                 user = "postgres";
+                localSecretsFile = @"C:\DestroyAllPugsSecrets\secrets.json";
             }
             else
             {
                 protocol = "https";
                 server = "destroyallpugz.site";
                 user = "destroyallpugs_web";
+                localSecretsFile = string.Empty;
                 PrivateKeyFile pkf = new PrivateKeyFile(privateKeyFile!);
                 PrivateKeyAuthenticationMethod pkam = new PrivateKeyAuthenticationMethod("ubuntu", pkf);
                 ConnectionInfo ci = new ConnectionInfo("destroyallpugz.site", 22, "ubuntu", pkam);
@@ -119,6 +124,7 @@ namespace LocalDeployer
                 sContent = sContent.Replace("{protocol}", protocol);
                 sContent = sContent.Replace("{pgconnport}", port.ToString());
                 sContent = sContent.Replace("{pgconnuser}", user);
+                sContent = sContent.Replace("{localsecretsfile}", localSecretsFile);
                 sContent = sContent.Replace("{server}", server);
                 sContent = sContent.Replace("{stylefilename}", "stylesv2.css");
 
