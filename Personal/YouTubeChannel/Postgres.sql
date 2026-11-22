@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS public.documents
 	doctype integer NOT NULL,
 	purpose integer NOT NULL,
 	googledrivefileid character varying COLLATE pg_catalog."default" NOT NULL,
+	supportsplayback boolean NULL,
 	CONSTRAINT pk_documents PRIMARY KEY (id),
 	CONSTRAINT documents_unq_googledrivefileid UNIQUE (googledrivefileid)
 );
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS public.videos
 	isprivate boolean NOT NULL,
 	additionaltextdocumentid integer NULL,
 	musxdocumentid integer NULL,
+	doricodocumentid integer NULL,
     CONSTRAINT pk_videos PRIMARY KEY (id),
     CONSTRAINT videos_unq_youtube_id UNIQUE (youtubeid),
 	CONSTRAINT fk_videos_additionaltextdocumentid FOREIGN KEY (additionaltextdocumentid)
@@ -28,6 +30,10 @@ CREATE TABLE IF NOT EXISTS public.videos
     ON UPDATE NO ACTION
     ON DELETE CASCADE,
 	CONSTRAINT fk_videos_musxdocumentid FOREIGN KEY (musxdocumentid)
+    REFERENCES public.documents (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE,
+	CONSTRAINT fk_videos_doricodocumentid FOREIGN KEY (doricodocumentid)
     REFERENCES public.documents (id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE CASCADE
@@ -265,16 +271,11 @@ CREATE TABLE IF NOT EXISTS public.videolist_unexplainablevideos
     videoid integer NOT NULL,
     ord integer NOT NULL,
     reason character varying COLLATE pg_catalog."default" NOT NULL,
-	musxdocumentid integer NULL,
     CONSTRAINT pk_videolist_unexplainablevideos PRIMARY KEY (videoid),
     CONSTRAINT fk_videolist_unexplainablevideos_videos FOREIGN KEY (videoid)
         REFERENCES public.videos (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE,
-	CONSTRAINT fk_videolist_unexplainablevideos_musxdocumentid FOREIGN KEY (musxdocumentid)
-    REFERENCES public.documents (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE CASCADE
+        ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS public.videolist_musicvideos
 (
@@ -326,6 +327,10 @@ CREATE INDEX IF NOT EXISTS fki_fk_videos_musxdocumentid
     ON public.videos USING btree
     (musxdocumentid ASC NULLS LAST)
     TABLESPACE pg_default;
+CREATE INDEX IF NOT EXISTS fki_fk_videos_doricodocumentid
+    ON public.videos USING btree
+    (doricodocumentid ASC NULLS LAST)
+    TABLESPACE pg_default;
 CREATE INDEX IF NOT EXISTS fki_fk_videolist_mainline_videos
     ON public.videolist_mainline USING btree
     (videoid ASC NULLS LAST)
@@ -369,10 +374,6 @@ CREATE INDEX IF NOT EXISTS fki_fk_exception_list_members_category
 CREATE INDEX IF NOT EXISTS fki_fk_videolist_unexplainablevideos_videos
     ON public.videolist_unexplainablevideos USING btree
     (videoid ASC NULLS LAST)
-    TABLESPACE pg_default;
-CREATE INDEX IF NOT EXISTS fki_fk_videolist_unexplainablevideos_musxdocumentid
-    ON public.videolist_unexplainablevideos USING btree
-    (musxdocumentid ASC NULLS LAST)
     TABLESPACE pg_default;
 CREATE INDEX IF NOT EXISTS fki_fk_lyrics_analyses_video
     ON public.lyrics_analyses USING btree

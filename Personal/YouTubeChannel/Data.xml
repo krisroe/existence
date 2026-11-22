@@ -122,9 +122,10 @@
  <!--
  <document>
   <id>X</id>
-  <type>AdditionalTextFile/MUSC</type
+  <type>AdditionalTextFile/MUSX/Dorico</type
   <purpose>None,Transcript,Commentary</purpose>
   <googledrivefileid>XYZ<googledrivefileid>
+  <supportsplayback>true/false (MUSX/Dorico only, omit if unknown)</supportsplayback>
   <comment>WWW</comment>
  </document>
  -->
@@ -271,6 +272,7 @@
   <identifier>Unexplainable 2</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <musxdocumentid shared="true">10</musxdocumentid>
  </video>
  <video>
   <id>17</id>
@@ -290,7 +292,11 @@
   <identifier>Z</identifier>
   <owner>XX</owner>
   <isprivate>YY</isprivate>
+  <additionaltextdocumentid>A</additionaltextdocumentid>
+  <musxdocumentid>B</musxdocumentid>
+  <doricodocumentid>C</doricodocumentid>
  </video>
+ shared="true" on a document id element means the document belongs to another video
  -->
  <performer>
   <id>1</id>
@@ -1417,12 +1423,10 @@
   <unexplainablevideo>
    <videoid>11</videoid>
    <reason><![CDATA[I cannot explain why I deleted the original version of this video and replaced it with this one. I cannot explain how this video was cut. I cannot explain the abuse of artificial intelligence.]]></reason>
-   <musxdocumentid></musxdocumentid>
   </unexplainablevideo>
   <unexplainablevideo>
    <videoid>16</videoid>
    <reason><![CDATA[I cannot explain why the vertical lines in the musx file are red and green (I can only explain them as black)]]></reason>
-   <musxdocumentid>10</musxdocumentid>
   </unexplainablevideo>
  </videolists>
  <audio>

@@ -142,11 +142,21 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException("Invalid document purpose: " + sPurpose);
                         }
-                        if (eDocType == DocumentType.MUSX)
+                        string? sSupportsPlayback = GetRegularDataElement(nextElement, "supportsplayback", "document", false);
+                        bool? supportsPlayback = null;
+                        if (eDocType == DocumentType.MUSX || eDocType == DocumentType.Dorico)
                         {
                             if (eDocPurpose != DocumentPurpose.None)
                             {
-                                throw new InvalidDataException("MUSX documents should not have a purpose");
+                                throw new InvalidDataException($"{eDocType} documents should not have a purpose");
+                            }
+                            if (!string.IsNullOrEmpty(sSupportsPlayback))
+                            {
+                                if (!bool.TryParse(sSupportsPlayback, out bool bParsedSupportsPlayback))
+                                {
+                                    throw new InvalidDataException($"Invalid document supportsplayback value: {sSupportsPlayback}");
+                                }
+                                supportsPlayback = bParsedSupportsPlayback;
                             }
                         }
                         else if (eDocType == DocumentType.AdditionalTextFile)
@@ -155,13 +165,17 @@ namespace DatabasePopulator
                             {
                                 throw new InvalidDataException("Additional text document missing purpose");
                             }
+                            if (sSupportsPlayback != null)
+                            {
+                                throw new InvalidDataException("Additional text documents should not have supportsplayback");
+                            }
                         }
                         else
                         {
                             throw new InvalidDataException("Invalid document type: " + sType);
                         }
 
-                        all.attachedDocuments.Add(new AttachedDocument(iID, eDocType, eDocPurpose, sGoogleDriveFileID));
+                        all.attachedDocuments.Add(new AttachedDocument(iID, eDocType, eDocPurpose, sGoogleDriveFileID, supportsPlayback));
                     }
                     else if (nodeName == "video")
                     {
@@ -175,11 +189,10 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException("Invalid video isprivate value: " + sIsPrivate);
                         }
-                        string? sAdditionalTextDocID = GetRegularDataElement(nextElement, "additionaltextdocumentid", "video", false);
-                        string? sMUSXDocID = GetRegularDataElement(nextElement, "musxdocumentid", "video", false);
-                        AttachedDocument? additionalTextDoc = FindAttachedDocument(all, sAdditionalTextDocID, usedDocuments);
-                        AttachedDocument? musxDoc = FindAttachedDocument(all, sMUSXDocID, usedDocuments);
-                        all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, additionalTextDoc, musxDoc));
+                        AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, all, usedDocuments);
+                        AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, all, usedDocuments);
+                        AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, all, usedDocuments);
+                        all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, additionalTextDoc, musxDoc, doricoDoc));
                     }
                     else if (nodeName == "performer")
                     {
@@ -441,6 +454,31 @@ namespace DatabasePopulator
             copyrightList.Add(new Copyright(iID, iOrd, sSong, sCopyright, v1, v2));
         }
 
+        /// <summary>
+        /// Gets a document referenced by a video. Each document normally belongs to exactly one video; a reference marked
+        /// shared="true" points to a document that belongs to another video and is not counted as that document's use.
+        /// </summary>
+        private static AttachedDocument? GetVideoDocument(XmlElement videoElement, string elementName, DocumentType expectedType, AllData all, HashSet<int> usedDocuments)
+        {
+            AttachedDocument? doc = null;
+            XmlElement? subelem = videoElement.SelectSingleNode(elementName) as XmlElement;
+            if (subelem != null)
+            {
+                string sShared = subelem.GetAttribute("shared");
+                bool bShared = false;
+                if (!string.IsNullOrEmpty(sShared) && !bool.TryParse(sShared, out bShared))
+                {
+                    throw new InvalidDataException("Invalid video " + elementName + " shared value: " + sShared);
+                }
+                doc = FindAttachedDocument(all, subelem.InnerText, bShared ? null : usedDocuments);
+                if (doc != null && doc.type != expectedType)
+                {
+                    throw new InvalidDataException("Video " + elementName + " " + doc.id + " is not a " + expectedType + " document");
+                }
+            }
+            return doc;
+        }
+
         private static AttachedDocument? FindAttachedDocument(AllData all, string? docid, HashSet<int>? usedIDs)
         {
             if (string.IsNullOrEmpty(docid))
@@ -669,9 +707,7 @@ namespace DatabasePopulator
                     iVideoID = GetForeignKeyID(nextElement, "video list unexplainablevideo video id", "videoid");
                     iOrd = ++unexplainablevideoOrder;
                     string sReason = GetCDataNode(nextElement, "reason", sObjectType);
-                    string sMUSXDoc = GetRegularDataElement(nextElement, "musxdocumentid", "video list unexplainablevideo musx document id");
-                    AttachedDocument? musxdoc = FindAttachedDocument(all, sMUSXDoc, null);
-                    all.unexplainablevideos.Add(new UnexplainableVideo(iVideoID, all, iOrd, sReason, musxdoc));
+                    all.unexplainablevideos.Add(new UnexplainableVideo(iVideoID, all, iOrd, sReason));
                 }
                 else
                 {
@@ -720,7 +756,7 @@ namespace DatabasePopulator
             List<string> dataCols;
 
             idCols = new List<string>() { "id" };
-            dataCols = new List<string>() { "doctype", "purpose", "googledrivefileid" };
+            dataCols = new List<string>() { "doctype", "purpose", "googledrivefileid", "supportsplayback" };
             updateStatement = GenerateSQLStatement("documents", idCols, dataCols, true);
             insertStatement = GenerateSQLStatement("documents", idCols, dataCols, false);
             foreach (AttachedDocument d in all.attachedDocuments)
@@ -732,6 +768,10 @@ namespace DatabasePopulator
                     cmd.Parameters.AddWithValue("@doctype", Convert.ToInt32(d.type));
                     cmd.Parameters.AddWithValue("@purpose", Convert.ToInt32(d.purpose));
                     cmd.Parameters.AddWithValue("@googledrivefileid", d.googledrivefileid);
+                    if (d.supportsplayback == null)
+                        cmd.Parameters.AddWithValue("@supportsplayback", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@supportsplayback", d.supportsplayback.Value);
                     updateRecord = all.documentIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -741,7 +781,7 @@ namespace DatabasePopulator
             DeleteIDs(conn, tx, "documents", all.documentIDs, idCols);
 
             idCols = new List<string>() { "id" };
-            dataCols = new List<string>() { "youtubeid", "shortname", "identifier", "owner", "isprivate", "additionaltextdocumentid", "musxdocumentid" };
+            dataCols = new List<string>() { "youtubeid", "shortname", "identifier", "owner", "isprivate", "additionaltextdocumentid", "musxdocumentid", "doricodocumentid" };
             updateStatement = GenerateSQLStatement("videos", idCols, dataCols, true);
             insertStatement = GenerateSQLStatement("videos", idCols, dataCols, false);
             foreach (Video v in all.videos)
@@ -763,6 +803,10 @@ namespace DatabasePopulator
                         cmd.Parameters.AddWithValue("@musxdocumentid", DBNull.Value);
                     else
                         cmd.Parameters.AddWithValue("@musxdocumentid", v.musxdocument.id);
+                    if (v.doricodocument == null)
+                        cmd.Parameters.AddWithValue("@doricodocumentid", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@doricodocumentid", v.doricodocument.id);
                     updateRecord = all.videoIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1084,7 +1128,7 @@ namespace DatabasePopulator
             DeleteIDs(conn, tx, "videolist_kidzvideos", all.kidzvideoIDs, idCols);
 
             idCols = new List<string>() { "videoid" };
-            dataCols = new List<string>() { "ord", "reason", "musxdocumentid" };
+            dataCols = new List<string>() { "ord", "reason" };
             updateStatement = GenerateSQLStatement("videolist_unexplainablevideos", idCols, dataCols, true);
             insertStatement = GenerateSQLStatement("videolist_unexplainablevideos", idCols, dataCols, false);
             foreach (UnexplainableVideo v in all.unexplainablevideos)
@@ -1095,10 +1139,6 @@ namespace DatabasePopulator
                     cmd.Parameters.AddWithValue("@videoid", iVideoID);
                     cmd.Parameters.AddWithValue("@ord", v.ord);
                     cmd.Parameters.AddWithValue("@reason", v.reason);
-                    if (v.musxdocument != null)
-                        cmd.Parameters.AddWithValue("@musxdocumentid", v.musxdocument.id);
-                    else
-                        cmd.Parameters.AddWithValue("@musxdocumentid", DBNull.Value);
                     updateRecord = all.unexplainablevideoIDs.Contains(iVideoID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1460,14 +1500,12 @@ namespace DatabasePopulator
 
     internal class UnexplainableVideo : VideoInVideoList
     {
-        public UnexplainableVideo(int videoid, AllData allData, int ord, string reason, AttachedDocument? musxdocument)
+        public UnexplainableVideo(int videoid, AllData allData, int ord, string reason)
             : base(videoid, allData, ord, "unexplainablevideo")
         {
             this.reason = reason;
-            this.musxdocument = musxdocument;
         }
         public string reason { get; set; }
-        public AttachedDocument? musxdocument { get; set; }
     }
 
     internal class SillySongVideo : VideoInVideoList
@@ -1549,7 +1587,7 @@ namespace DatabasePopulator
 
     internal class Video
     {
-        public Video(int id, string youtubeid, string shortname, string identifier, string owner, bool isprivate, AttachedDocument? additionalTextDocument, AttachedDocument? MUSXDocument)
+        public Video(int id, string youtubeid, string shortname, string identifier, string owner, bool isprivate, AttachedDocument? additionalTextDocument, AttachedDocument? MUSXDocument, AttachedDocument? doricoDocument)
         {
             this.id = id;
             this.youtubeid = youtubeid;
@@ -1559,6 +1597,7 @@ namespace DatabasePopulator
             this.isprivate = isprivate;
             this.additionaltextdocument = additionalTextDocument;
             this.musxdocument = MUSXDocument;
+            this.doricodocument = doricoDocument;
         }
 
         public int id { get; set; }
@@ -1569,6 +1608,7 @@ namespace DatabasePopulator
         public bool isprivate { get; set; }
         public AttachedDocument? additionaltextdocument { get; set; }
         public AttachedDocument? musxdocument { get; set; }
+        public AttachedDocument? doricodocument { get; set; }
     }
 
     internal class NamedEntity
@@ -1764,6 +1804,7 @@ namespace DatabasePopulator
     {
         AdditionalTextFile = 1,
         MUSX = 2,
+        Dorico = 3,
     }
 
     [Flags]
@@ -1782,20 +1823,25 @@ namespace DatabasePopulator
 
     public class AttachedDocument
     {
-        public AttachedDocument(int id, DocumentType type, DocumentPurpose purpose, string googledrivefileid)
+        public AttachedDocument(int id, DocumentType type, DocumentPurpose purpose, string googledrivefileid, bool? supportsplayback)
         {
             this.id = id;
             this.type = type;
             this.purpose = purpose;
             this.googledrivefileid = googledrivefileid;
+            this.supportsplayback = supportsplayback;
         }
 
         public int id { get; set; }
         public DocumentType type { get; set; }
         public DocumentPurpose purpose { get; set; }
         /// <summary>
-        /// google drive file id for additional text document or MUSX file
+        /// google drive file id for additional text document, MUSX file or Dorico file
         /// </summary>
         public string googledrivefileid { get; set; }
+        /// <summary>
+        /// whether a MUSX or Dorico document supports playback; null if unknown or not applicable
+        /// </summary>
+        public bool? supportsplayback { get; set; }
     }
 }

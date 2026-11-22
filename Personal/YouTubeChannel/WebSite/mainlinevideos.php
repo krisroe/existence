@@ -121,7 +121,7 @@ echo "<table>";
 echo "<tr><th>Episode</td><th>Short Name</th><th>Owner</th><th>Theme</th><th>Audience</th><th>Major Rulez</th><th>Meme(s)</th><th>Minor Rulez</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
 $dbconn = pg_connect(getPgConnectionString());
-$query = 'SELECT v.youtubeid,ml.episode,v.owner,ml.theme,ml.audience,ml.majorrulez,ml.memes,ml.minorrulez,dtxt.purpose,dtxt.googledrivefileid txtfileid,dmusx.googledrivefileid musxfileid,v.dislikes,v.likes,v.shortname FROM public.videolist_mainline ml INNER JOIN public.videos v ON ml.videoid = v.id LEFT JOIN documents dtxt ON v.additionaltextdocumentid = dtxt.id LEFT JOIN documents dmusx ON v.musxdocumentid = dmusx.id ORDER BY ml.ord';
+$query = 'SELECT v.youtubeid,ml.episode,v.owner,ml.theme,ml.audience,ml.majorrulez,ml.memes,ml.minorrulez,dtxt.purpose,dtxt.googledrivefileid txtfileid,dmusx.googledrivefileid musxfileid,ddorico.googledrivefileid doricofileid,v.dislikes,v.likes,v.shortname FROM public.videolist_mainline ml INNER JOIN public.videos v ON ml.videoid = v.id LEFT JOIN documents dtxt ON v.additionaltextdocumentid = dtxt.id LEFT JOIN documents dmusx ON v.musxdocumentid = dmusx.id LEFT JOIN documents ddorico ON v.doricodocumentid = ddorico.id ORDER BY ml.ord';
 $result = pg_query($dbconn,$query);
 
 $allvideoids = null;
@@ -131,6 +131,8 @@ while ($row = pg_fetch_assoc($result)) {
  $musxfileid = $row['musxfileid'];
  $hastxt = !empty($txtfileid);
  $hasmusx = !empty($musxfileid);
+ $doricofileid = $row['doricofileid'];
+ $hasdorico = !empty($doricofileid);
  $youtubeid = $row['youtubeid'];
  if ($allvideoids === null)
  {
@@ -196,6 +198,13 @@ while ($row = pg_fetch_assoc($result)) {
   echo "<a href=\"https://drive.google.com/file/d/";
   echo $musxfileid;
   echo "\">MUSX</a>";
+ }
+ if ($hasdorico)
+ {
+  echo "<br/>";
+  echo "<a href=\"https://drive.google.com/file/d/";
+  echo $doricofileid;
+  echo "\">Dorico</a>";
  }
  echo "</td>";
  echo "<td>";
