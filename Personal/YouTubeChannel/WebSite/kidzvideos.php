@@ -124,13 +124,19 @@ echo "<table>";
 echo "<tr><th>Name</th><th>Identifier</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
 $dbconn = pg_connect(getPgConnectionString());
-$query = 'SELECT v.youtubeid,v.shortname,v.identifier,v.dislikes,v.likes FROM public.videolist_kidzvideos kv INNER JOIN public.videos v ON kv.videoid = v.id ORDER BY kv.ord';
+$query = 'SELECT v.youtubeid,v.shortname,v.identifier,dtxt.purpose,dtxt.googledrivefileid txtfileid,dmusx.googledrivefileid musxfileid,ddorico.googledrivefileid doricofileid,v.dislikes,v.likes FROM public.videolist_kidzvideos kv INNER JOIN public.videos v ON kv.videoid = v.id LEFT JOIN documents dtxt ON v.additionaltextdocumentid = dtxt.id LEFT JOIN documents dmusx ON v.musxdocumentid = dmusx.id LEFT JOIN documents ddorico ON v.doricodocumentid = ddorico.id ORDER BY kv.ord';
 $result = pg_query($dbconn,$query);
 
 $allvideoids = null;
 
 while ($row = pg_fetch_assoc($result)) {
  $youtubeid = $row['youtubeid'];
+ $txtfileid = $row['txtfileid'];
+ $hastxt = !empty($txtfileid);
+ $musxfileid = $row['musxfileid'];
+ $hasmusx = !empty($musxfileid);
+ $doricofileid = $row['doricofileid'];
+ $hasdorico = !empty($doricofileid);
  if ($allvideoids === null)
  {
 	 $allvideoids = "'" . $youtubeid . "'";
@@ -154,6 +160,37 @@ while ($row = pg_fetch_assoc($result)) {
  echo "<a href=\"videotextinfo.php?youtubeid=";
  echo $youtubeid;
  echo "&return=kidzvideos\">Description</a>";
+ if ($hastxt)
+ {
+  echo "<br/>";
+  echo "<a href=\"videotextinfo.php?youtubeid=";
+  echo $youtubeid;
+  echo "&doctype=gdrtxt&return=kidzvideos\">";
+  $purpose = $row['purpose'];
+  if ($purpose == 1)
+  {
+	  echo "Transcript";
+  }
+  else if ($purpose == 3)
+  {
+	  echo "Transcript+Commentary";
+  }
+  echo "</a>";
+ }
+ if ($hasmusx)
+ {
+  echo "<br/>";
+  echo "<a href=\"https://drive.google.com/file/d/";
+  echo $musxfileid;
+  echo "\">MUSX</a>";
+ }
+ if ($hasdorico)
+ {
+  echo "<br/>";
+  echo "<a href=\"https://drive.google.com/file/d/";
+  echo $doricofileid;
+  echo "\">Dorico</a>";
+ }
  echo "</td>";
  echo "<td>";
  echo $row["dislikes"];

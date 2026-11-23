@@ -119,6 +119,20 @@
   <supportsplayback>false</supportsplayback>
   <comment>Anti-Hero Dorico</comment>
  </document>
+ <document>
+  <id>19</id>
+  <type>Dorico</type>
+  <googledrivefileid>19FoYABSZ_oZsR2BHQluUft7H_txTONLZ</googledrivefileid>
+  <supportsplayback>true</supportsplayback>
+  <comment>Rickroll Connection Dorico</comment>
+ </document>
+ <document>
+  <id>20</id>
+  <type>AdditionalTextFile</type>
+  <purpose>Transcript</purpose>
+  <googledrivefileid>11LtMAwdj6PnU8xcFAosEQk5SZFtRpGPc</googledrivefileid>
+  <comment>Rickroll Connection Transcript</comment>
+ </document>
  <!-- template -->
  <!--
  <document>
@@ -282,10 +296,20 @@
   <youtubeid>dllXh4rML3s</youtubeid>
   <shortname>Cat's in the Cradle</shortname>
   <identifier>Mainline 10</identifier>
-  <owner>Me</owner>
+  <owner>Harry &amp; Sandy Chapin</owner>
   <isprivate>false</isprivate>
   <additionaltextdocumentid>16</additionaltextdocumentid>
   <musxdocumentid>17</musxdocumentid>
+ </video>
+ <video>
+  <id>18</id>
+  <youtubeid>FzrwPF9nj40</youtubeid>
+  <shortname>Rickroll Connection</shortname>
+  <identifier>Work 4</identifier>
+  <owner>Me</owner>
+  <isprivate>false</isprivate>
+  <additionaltextdocumentid>20</additionaltextdocumentid>
+  <doricodocumentid>19</doricodocumentid>
  </video>
  <!-- template
  <video>
@@ -1062,8 +1086,15 @@
  <copyrightfound>
   <id>7</id>
   <song><![CDATA[Cat's in the Cradle</br>Music and Lyrics by Harry Chapin and Sandy Chapin]]></song>
-  <copyright><![CDATA[Copyright 1974-08-01 Story Songs, Ltd. All rights reserved.]]></copyright>
+  <copyright><![CDATA[Copyright registration 1974-10-17 (EP0000330808) Story Songs, Ltd. Registration. Notice 1974-08-01. All rights reserved.]]></copyright>
   <videoid1>17</videoid1>
+  <videoid2></videoid2>
+ </copyrightfound>
+ <copyrightfound>
+  <id>8</id>
+  <song><![CDATA[Never Gonna Give You Up</br>Performed by Rick Astley and target of countless Rickrolls]]></song>
+  <copyright><![CDATA[Copyright 1986/1987 Sony/ATV Music Publishing, All Boys Music Ltd. PA0000375327, registered 1988-06-21. All rights reserved.]]></copyright>
+  <videoid1>18</videoid1>
   <videoid2></videoid2>
  </copyrightfound>
  <!-- template -->
@@ -1393,7 +1424,11 @@
   </workvideo>
   <workvideo>
    <videoid>7</videoid>
-   <concepts><![CDATA[Upgrader<br/>Version Graph<br/>Red Gate CLI]]></concepts>   
+   <concepts><![CDATA[Upgrader<br/>Version Graph<br/>Red Gate CLI]]></concepts>
+  </workvideo>
+  <workvideo>
+   <videoid>18</videoid>
+   <concepts><![CDATA[Mandatory Security Training]]></concepts>
   </workvideo>
   <!-- template -->
   <!--
