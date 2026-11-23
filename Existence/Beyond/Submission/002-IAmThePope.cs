@@ -59,8 +59,12 @@ namespace Existence.Beyond.CosmicSubmission
             PassReligiousFlagsToBirth,
 
             [BeyondObjectVersion(1, 10, 0, 0)]
-            [YearDate(2026, 11, 22)]
+            [YearDate(2026, 11, 22, 20, 54)]
             RenameReleasedOtherToBeyondSubmissionsAndRemoveUnusedUsing,
+
+            [BeyondObjectVersion(1, 11, 0, 0)]
+            [YearDate(2026, 11, 22, 21, 6)]
+            UpdatePopeListForFrancisTransitionToLeoXIV,
         }
 
         internal ThePope()
@@ -70,9 +74,9 @@ namespace Existence.Beyond.CosmicSubmission
         }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "list of popes, past to present",
-                                        @"Released\BeyondSubmissions\001-popelist.xml",
-                                        @"Released\BeyondSubmissions\001-popelist.txt",
-                                        @"Released\BeyondSubmissions\001-popelist.csv",
+                                        @"Released\BeyondSubmissions\001v2-popelist.xml",
+                                        @"Released\BeyondSubmissions\001v2-popelist.txt",
+                                        @"Released\BeyondSubmissions\001v2-popelist.csv",
                                         @"Released\BeyondSubmissions\001-popelist.xsd")]
         public static class PopeListAttachments { }
 
