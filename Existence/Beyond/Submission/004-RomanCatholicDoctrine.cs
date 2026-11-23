@@ -9,7 +9,7 @@ namespace Existence.Beyond.Submission
 {
 
     [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Roman Catholic Council Information",
-                                @"Released\Other\002-RomanCatholicChristianityCouncils.txt")]
+                                @"Released\BeyondSubmissions\002-RomanCatholicChristianityCouncils.txt")]
     internal class CatholicDoctrineSubmission : SubmissionBase
     {
         public enum VersionHistory
@@ -17,6 +17,10 @@ namespace Existence.Beyond.Submission
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 4, 12)]
             Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2026, 11, 22)]
+            RenameReleasedOtherToBeyondSubmissions,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()

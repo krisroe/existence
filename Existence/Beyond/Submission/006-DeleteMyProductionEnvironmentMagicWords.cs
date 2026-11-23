@@ -7,7 +7,7 @@ using Existence.Time;
 namespace Existence.Beyond.Submission
 {
     [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Delete My Production Environment",
-                                @"Released\Other\005-DeleteMyProductionEnvironmentMagicWords.txt")]
+                                @"Released\BeyondSubmissions\005-DeleteMyProductionEnvironmentMagicWords.txt")]
     [MagicWords("Delete My Production Environment", "Self", "Anywhere", "Preferably Alone")]
     internal class DeleteMyProductionEnvironmentMagicWords : SubmissionBase
     {
@@ -15,7 +15,11 @@ namespace Existence.Beyond.Submission
         {
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 5, 14)]
-            Created
+            Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2026, 11, 22)]
+            RenameReleasedOtherToBeyondSubmissions,
         }
     }
 }

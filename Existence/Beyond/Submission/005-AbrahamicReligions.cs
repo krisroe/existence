@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace Existence.Beyond.Submission
 {
     [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Abrahamic Religions",
-                                @"Released\Other\003-AbrahamicReligions.txt")]
+                                @"Released\BeyondSubmissions\003-AbrahamicReligions.txt")]
     class AbrahamicRelgions : SubmissionBase
     {
         public enum VersionHistory
@@ -17,6 +17,10 @@ namespace Existence.Beyond.Submission
             [BeyondObjectVersion(1, 0, 0, 0)]
             [YearDate(2025, 4, 17)]
             Created,
+
+            [BeyondObjectVersion(1, 1, 0, 0)]
+            [YearDate(2026, 11, 22)]
+            RenameReleasedOtherToBeyondSubmissions,
         }
 
         public string[] EarlyAbrahamicFigures = ["Adam/Eve", "Enoch", "Noah", "Abraham", "Lot", "Jacob", "Joseph", "Moses"];

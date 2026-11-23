@@ -2,7 +2,6 @@
 using Existence.Beyond.Infrastructure;
 using Existence.Beyond.References;
 using Existence.Earth.Alphabet;
-using Existence.Earth.FieldsOfStudy.Mathematics;
 using Existence.Earth.Time;
 using Existence.Earth.Human.People;
 using Existence.Personal.Employment;
@@ -89,6 +88,10 @@ namespace Existence.Beyond.JudgmentDay
             [BeyondObjectVersion(1, 17, 0, 0)]
             [YearDate(2026, 11, 18)]
             ChangedEnumPersonFormatToSurnameFirst,
+
+            [BeyondObjectVersion(1, 18, 0, 0)]
+            [YearDate(2026, 11, 22)]
+            RenameReleasedOtherToBeyondSubmissionsAndRemoveUnusedUsing,
         }
 
         internal override List<LevelJustification> GetLevelJustifications()
@@ -386,7 +389,7 @@ namespace Existence.Beyond.JudgmentDay
         }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "Program to Hide Text from the Divine", 
-            @"Released\Other\004-ProgramToHideTextFromTheDivine.txt")]
+            @"Released\BeyondSubmissions\004-ProgramToHideTextFromTheDivine.txt")]
         public class HowToHideTextFromTheDivine
         {
         }

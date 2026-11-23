@@ -5,7 +5,6 @@ using Existence.Beyond.JudgmentDay;
 using Existence.Earth.Human.People;
 using Existence.Logic;
 using Existence.Personal;
-using Existence.Personal.Beyond;
 using Existence.Personal.Infrastructure;
 using Existence.Time;
 
@@ -58,6 +57,10 @@ namespace Existence.Beyond.CosmicSubmission
             [BeyondObjectVersion(1, 9, 0, 0)]
             [YearDate(2025, 4, 2)]
             PassReligiousFlagsToBirth,
+
+            [BeyondObjectVersion(1, 10, 0, 0)]
+            [YearDate(2026, 11, 22)]
+            RenameReleasedOtherToBeyondSubmissionsAndRemoveUnusedUsing,
         }
 
         internal ThePope()
@@ -67,10 +70,10 @@ namespace Existence.Beyond.CosmicSubmission
         }
 
         [MusicNotesRepositoryOtherFiles(PeopleEnumerated.RoweChris, "list of popes, past to present",
-                                        @"Released\Other\001-popelist.xml",
-                                        @"Released\Other\001-popelist.txt",
-                                        @"Released\Other\001-popelist.csv",
-                                        @"Released\Other\001-popelist.xsd")]
+                                        @"Released\BeyondSubmissions\001-popelist.xml",
+                                        @"Released\BeyondSubmissions\001-popelist.txt",
+                                        @"Released\BeyondSubmissions\001-popelist.csv",
+                                        @"Released\BeyondSubmissions\001-popelist.xsd")]
         public static class PopeListAttachments { }
 
 
