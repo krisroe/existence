@@ -16,7 +16,6 @@
  <document>
   <id>3</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1qg3Ck6nMi-1NK2WHF1CSFpRInXZVkmjr</googledrivefileid>
   <comment>Rainbow Connection MUSX</comment>
  </document>
@@ -37,7 +36,6 @@
  <document>
   <id>6</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>103PU75ieW6iSJ9S8RpaphkO4jBOVTfgW</googledrivefileid>
   <comment>Wade in the Water MUSX</comment>
  </document>
@@ -51,7 +49,6 @@
  <document>
   <id>8</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1uTBXINr2jDm0LI7pmhmeEFOF9WGaxHXn</googledrivefileid>
   <comment>How Far I'll Go MUSX</comment>
  </document>
@@ -65,7 +62,6 @@
  <document>
   <id>10</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1Bzc0d9aDYCiJ0ct-0UoT-_AnuMTFSLca</googledrivefileid>
   <supportsplayback>true</supportsplayback>
   <comment>Anti-Hero MUSX</comment>
@@ -80,7 +76,6 @@
  <document>
   <id>12</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1exNtgqPufqhzM-ZZYbQ50uiYmqAteIPz</googledrivefileid>
   <comment>Complicated MUSX</comment>
  </document>
@@ -101,7 +96,6 @@
  <document>
   <id>15</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1-RzIoTzacieiXmphr9Xe7znVZVIslBXH</googledrivefileid>
   <comment>Let it Go MUSX</comment>
  </document>
@@ -115,14 +109,12 @@
  <document>
   <id>17</id>
   <type>MUSX</type>
-  <purpose>None</purpose>
   <googledrivefileid>1fym-Fn0tSZ8axxV9f-Wz8Tfp9MrO2JHv</googledrivefileid>
   <comment>Let it Go MUSX</comment>
  </document>
  <document>
   <id>18</id>
   <type>Dorico</type>
-  <purpose>None</purpose>
   <googledrivefileid>1AwL2F9Ou9xNBN7Ol7nsvIRnicU04zpol</googledrivefileid>
   <supportsplayback>false</supportsplayback>
   <comment>Anti-Hero Dorico</comment>
@@ -132,7 +124,7 @@
  <document>
   <id>X</id>
   <type>AdditionalTextFile/MUSX/Dorico</type
-  <purpose>None,Transcript,Commentary</purpose>
+  <purpose>Transcript,Commentary (AdditionalTextFile only)</purpose>
   <googledrivefileid>XYZ<googledrivefileid>
   <supportsplayback>true/false (MUSX/Dorico only, omit if unknown)</supportsplayback>
   <comment>WWW</comment>

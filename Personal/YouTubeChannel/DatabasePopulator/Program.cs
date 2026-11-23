@@ -124,7 +124,7 @@ namespace DatabasePopulator
                     {
                         iID = GetObjectID(nextElement, "document");
                         string sType = GetRegularDataElement(nextElement, "type", "document");
-                        string sPurpose = GetRegularDataElement(nextElement, "purpose", "document");
+                        string? purpose = GetRegularDataElement(nextElement, "purpose", "document", false);
                         sGoogleDriveFileID = GetRegularDataElement(nextElement, "googledrivefileid", "document");
                         string sComment = GetRegularDataElement(nextElement, "comment", "document");
                         if (string.IsNullOrEmpty(sComment))
@@ -139,15 +139,16 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException("Invalid document type: " + sType);
                         }
-                        if (!Enum.TryParse(sPurpose, out DocumentPurpose eDocPurpose))
+                        DocumentPurpose docPurpose = DocumentPurpose.None;
+                        if (purpose != null && !Enum.TryParse(purpose, out docPurpose))
                         {
-                            throw new InvalidDataException("Invalid document purpose: " + sPurpose);
+                            throw new InvalidDataException($"Invalid document purpose: {purpose}");
                         }
                         string? sSupportsPlayback = GetRegularDataElement(nextElement, "supportsplayback", "document", false);
                         bool? supportsPlayback = null;
                         if (eDocType == DocumentType.MUSX || eDocType == DocumentType.Dorico)
                         {
-                            if (eDocPurpose != DocumentPurpose.None)
+                            if (purpose != null)
                             {
                                 throw new InvalidDataException($"{eDocType} documents should not have a purpose");
                             }
@@ -162,7 +163,7 @@ namespace DatabasePopulator
                         }
                         else if (eDocType == DocumentType.AdditionalTextFile)
                         {
-                            if (eDocPurpose == DocumentPurpose.None)
+                            if (docPurpose == DocumentPurpose.None)
                             {
                                 throw new InvalidDataException("Additional text document missing purpose");
                             }
@@ -176,7 +177,7 @@ namespace DatabasePopulator
                             throw new InvalidDataException("Invalid document type: " + sType);
                         }
 
-                        all.attachedDocuments.Add(new AttachedDocument(iID, eDocType, eDocPurpose, sGoogleDriveFileID, supportsPlayback));
+                        all.attachedDocuments.Add(new AttachedDocument(iID, eDocType, docPurpose, sGoogleDriveFileID, supportsPlayback));
                     }
                     else if (nodeName == "video")
                     {
