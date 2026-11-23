@@ -67,6 +67,7 @@
   <type>MUSX</type>
   <purpose>None</purpose>
   <googledrivefileid>1Bzc0d9aDYCiJ0ct-0UoT-_AnuMTFSLca</googledrivefileid>
+  <supportsplayback>true</supportsplayback>
   <comment>Anti-Hero MUSX</comment>
  </document>
  <document>
@@ -117,6 +118,14 @@
   <purpose>None</purpose>
   <googledrivefileid>1fym-Fn0tSZ8axxV9f-Wz8Tfp9MrO2JHv</googledrivefileid>
   <comment>Let it Go MUSX</comment>
+ </document>
+ <document>
+  <id>18</id>
+  <type>Dorico</type>
+  <purpose>None</purpose>
+  <googledrivefileid>1AwL2F9Ou9xNBN7Ol7nsvIRnicU04zpol</googledrivefileid>
+  <supportsplayback>false</supportsplayback>
+  <comment>Anti-Hero Dorico</comment>
  </document>
  <!-- template -->
  <!--
@@ -187,6 +196,7 @@
   <isprivate>false</isprivate>
   <additionaltextdocumentid>9</additionaltextdocumentid>
   <musxdocumentid>10</musxdocumentid>
+  <doricodocumentid>18</doricodocumentid>
  </video>
  <video>
   <id>7</id>
@@ -273,6 +283,7 @@
   <owner>Me</owner>
   <isprivate>false</isprivate>
   <musxdocumentid shared="true">10</musxdocumentid>
+  <doricodocumentid shared="true">18</doricodocumentid>
  </video>
  <video>
   <id>17</id>
