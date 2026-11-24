@@ -152,7 +152,6 @@ while ($row = pg_fetch_assoc($result)) {
 }
 
 pg_free_result($result);
-pg_close($dbconn);
 
 echo "</table>";
 
@@ -160,7 +159,6 @@ echo "<h3>Copyrights Missing</h3>";
 echo "<table>";
 echo "<tr><th>Episode</th><th>Song</th><th>Copyright</th></tr>";
 
-$dbconn = connectToDatabase();
 $query = 'SELECT v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,c.song,c.copyright FROM public.copyrights_missing c INNER JOIN videos v1 ON c.videoid1=v1.id LEFT JOIN videos v2 ON c.videoid2=v2.id ORDER BY c.ord';
 $result = pg_query($dbconn,$query);
 
