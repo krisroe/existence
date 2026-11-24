@@ -62,3 +62,5 @@ curl -X POST -d [rest removed because contains secrets]
 sudo apt install composer
 sudo apt install php8.5-xml
 composer require aws/aws-sdk-php:^3 (install AWS SDK for PHP using composer for secret retrieval). This is run in the site folder.
+
+sudo apt install php-apcu (installs APCu, PHP's shared-memory cache)
