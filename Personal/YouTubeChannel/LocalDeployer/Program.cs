@@ -147,12 +147,18 @@ namespace LocalDeployer
                 }
                 else //remote
                 {
+                    string extension = fi.Extension.ToLowerInvariant();
+                    Encoding textEncoding;
+                    if (extension == ".json")
+                        textEncoding = new UTF8Encoding(false); //json_decode doesn't process a BOM
+                    else
+                        textEncoding = Encoding.UTF8;                    
                     long uploadFileLength;
                     byte[] localHash, remoteHash;
                     using (SHA256 sha = SHA256.Create())
                     {
                         using (MemoryStream ms = new MemoryStream())
-                        using (StreamWriter sw = new StreamWriter(ms, Encoding.UTF8))
+                        using (StreamWriter sw = new StreamWriter(ms, textEncoding))
                         {
                             sw.Write(sContent);
                             sw.Flush();
