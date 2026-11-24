@@ -135,7 +135,7 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException("Documents must have a URL");
                         }
-                        if (!Enum.TryParse(sType, out DocumentType eDocType))
+                        if (!Enum.TryParse(sType, out DocumentType docType))
                         {
                             throw new InvalidDataException("Invalid document type: " + sType);
                         }
@@ -146,11 +146,11 @@ namespace DatabasePopulator
                         }
                         string? sSupportsPlayback = GetRegularDataElement(nextElement, "supportsplayback", "document", false);
                         bool? supportsPlayback = null;
-                        if (eDocType == DocumentType.MUSX || eDocType == DocumentType.Dorico)
+                        if (docType == DocumentType.MUSX || docType == DocumentType.Dorico)
                         {
                             if (purpose != null)
                             {
-                                throw new InvalidDataException($"{eDocType} documents should not have a purpose");
+                                throw new InvalidDataException($"{docType} documents should not have a purpose");
                             }
                             if (!string.IsNullOrEmpty(sSupportsPlayback))
                             {
@@ -160,8 +160,12 @@ namespace DatabasePopulator
                                 }
                                 supportsPlayback = bParsedSupportsPlayback;
                             }
+                            else if (docType == DocumentType.Dorico)
+                            {
+                                throw new InvalidDataException("Dorico documents must have supportsplayback");
+                            }
                         }
-                        else if (eDocType == DocumentType.AdditionalTextFile)
+                        else if (docType == DocumentType.AdditionalTextFile)
                         {
                             if (docPurpose == DocumentPurpose.None)
                             {
@@ -177,7 +181,7 @@ namespace DatabasePopulator
                             throw new InvalidDataException("Invalid document type: " + sType);
                         }
 
-                        all.attachedDocuments.Add(new AttachedDocument(iID, eDocType, docPurpose, sGoogleDriveFileID, supportsPlayback));
+                        all.attachedDocuments.Add(new AttachedDocument(iID, docType, docPurpose, sGoogleDriveFileID, supportsPlayback));
                     }
                     else if (nodeName == "video")
                     {
