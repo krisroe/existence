@@ -144,9 +144,10 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException($"Invalid document purpose: {purpose}");
                         }
-                        string? sSupportsPlayback = GetRegularDataElement(nextElement, "supportsplayback", "document", false);
+                        bool isMusicNotationDocument = docType == DocumentType.MUSX || docType == DocumentType.Dorico;
+                        string? sSupportsPlayback = GetRegularDataElement(nextElement, "supportsplayback", "document", isMusicNotationDocument);
                         bool? supportsPlayback = null;
-                        if (docType == DocumentType.MUSX || docType == DocumentType.Dorico)
+                        if (isMusicNotationDocument)
                         {
                             if (purpose != null)
                             {
@@ -1384,19 +1385,17 @@ namespace DatabasePopulator
 
         private static string? GetRegularDataElement(XmlElement elem, string prop, string objectType, bool required)
         {
+            string? ret = null;
             XmlElement? subelem = elem.SelectSingleNode(prop) as XmlElement;
-            if (subelem == null)
+            if (subelem != null)
             {
-                if (required)
-                {
-                    throw new InvalidDataException("No " + objectType + " " + prop + " found");
-                }
-                else
-                {
-                    return null;
-                }
+                ret = subelem.InnerText;
             }
-            return subelem.InnerText;
+            else if (required)
+            {
+                throw new InvalidDataException($"No {objectType} {prop} found");
+            }
+            return ret;
         }
     }
 
