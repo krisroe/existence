@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Election>
+  <Input>
+    <Method Algorithms="Base">D'Hondt</Method>
+    <NumberOfSeats>250</NumberOfSeats>
+    <ElectoralThreshold>3</ElectoralThreshold>
+    <MinorityListQuotientBonus>35</MinorityListQuotientBonus>
+    <Parties>
+      <Party Id="1" Name="Student List" Votes="2354417" AboveThreshold="true" BaseSeats="138" Seats="140" />
+      <Party Id="2" Name="Aleksandar Vučić – United Serbia" Votes="1731323" AboveThreshold="true" BaseSeats="101" Seats="103" />
+      <Party Id="3" Name="Ivica Dačić – Factor of Stability!" Votes="94766" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="4" Name="Authentic Right" Votes="39503" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="5" Name="Alliance of Vojvodina Hungarians" Votes="35461" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="2" Seats="2" />
+      <Party Id="6" Name="Albanian Coalition" Votes="27683" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="2" Seats="2" />
+      <Party Id="7" Name="Ljudski (SDP–CDP)" Votes="20638" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="1" Seats="1" />
+      <Party Id="8" Name="Strength of Serbia Movement" Votes="20045" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="9" Name="SDA Sandžaka" Votes="12596" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="1" />
+      <Party Id="10" Name="European Serbia" Votes="12570" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="11" Name="Movement for Unification" Votes="12440" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="1" />
+      <Party Id="12" Name="Russian Party" Votes="6503" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+      <Party Id="13" Name="Russian–Serbian Unity Party" Votes="4286" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+      <Party Id="14" Name="Alternative for Serbia" Votes="3705" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="15" Name="Mother Serbia – Gruda" Votes="3234" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+      <Party Id="16" Name="Liberal-Green Party" Votes="2686" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="17" Name="Pa, This is for You" Votes="2022" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="18" Name="Force Coalition" Votes="1187" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+    </Parties>
+  </Input>
+  <Output>
+    <TotalVotes>4385065</TotalVotes>
+    <QualifyingVotes>4209768</QualifyingVotes>
+    <Quota>17012.7112</Quota>
+    <AnnulledSurplusVoteAgreements />
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Student List" Seats="2" />
+      <Recipient Name="Aleksandar Vučić – United Serbia" Seats="2" />
+      <Recipient Name="Alliance of Vojvodina Hungarians" Seats="0" />
+      <Recipient Name="Albanian Coalition" Seats="0" />
+      <Recipient Name="Ljudski (SDP–CDP)" Seats="0" />
+      <Recipient Name="SDA Sandžaka" Seats="1" />
+      <Recipient Name="Movement for Unification" Seats="1" />
+      <Recipient Name="Russian Party" Seats="0" />
+      <Recipient Name="Russian–Serbian Unity Party" Seats="0" />
+      <Recipient Name="Mother Serbia – Gruda" Seats="0" />
+      <Recipient Name="Force Coalition" Seats="0" />
+    </OrderedSeatsByRecipient>
+    <OrderedSeats>
+      <OrderedSeat SeatNumber="245" PoliticalParty="SDA Sandžaka" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="17004.6">
+        <Recipient Name="SDA Sandžaka" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="246" PoliticalParty="Aleksandar Vučić – United Serbia" DivisorCalculation="1*101 + 1" Divisor="102" Quotient="16973.754901960784313725490196">
+        <Recipient Name="Aleksandar Vučić – United Serbia" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="247" PoliticalParty="Student List" DivisorCalculation="1*138 + 1" Divisor="139" Quotient="16938.251798561151079136690648">
+        <Recipient Name="Student List" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="248" PoliticalParty="Student List" DivisorCalculation="1*139 + 1" Divisor="140" Quotient="16817.264285714285714285714286">
+        <Recipient Name="Student List" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="249" PoliticalParty="Aleksandar Vučić – United Serbia" DivisorCalculation="1*102 + 1" Divisor="103" Quotient="16808.96116504854368932038835">
+        <Recipient Name="Aleksandar Vučić – United Serbia" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="250" PoliticalParty="Movement for Unification" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="16794">
+        <Recipient Name="Movement for Unification" />
+      </OrderedSeat>
+    </OrderedSeats>
+    <NextOrderedSeat SeatNumber="251" PoliticalParty="Student List" DivisorCalculation="1*140 + 1" Divisor="141" Quotient="16697.992907801418439716312056">
+      <Recipient Name="Student List" />
+    </NextOrderedSeat>
+    <VotesNeededForNextOrderedSeat>13537</VotesNeededForNextOrderedSeat>
+  </Output>
+</Election>

@@ -28,6 +28,10 @@ namespace CalculateParliamentaryApportionment
     /// proportional, as in New Zealand, give each party that won electorates an ElectorateSeats attribute, also only for
     /// Sainte-Laguë; then each party also gets ListSeats, OverhangSeats and TotalSeats attributes, and the Output element
     /// gets NumberOfMembers.
+    /// For national minority lists, as in Serbia, give each one a MinorityList="true" attribute, only for D'Hondt; they
+    /// qualify whatever their votes. An optional MinorityListQuotientBonus element, also only for D'Hondt, is the
+    /// percentage the quotients of minority lists below the threshold are raised by, such as 35 for Serbia; each
+    /// minority list then also gets a QuotientBonus attribute saying whether it got the bonus.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
     /// Sainte-Laguë:
@@ -101,6 +105,9 @@ namespace CalculateParliamentaryApportionment
         private const string NumeratorAttribute = "Numerator";
         private const string DenominatorAttribute = "Denominator";
         private const string ElectorateSeatsAttribute = nameof(SainteLagueSeatDistribution.ElectorateSeats);
+        private const string MinorityListAttribute = "MinorityList";
+        private const string QuotientBonusAttribute = "QuotientBonus";
+        private const string MinorityListQuotientBonusElement = "MinorityListQuotientBonus";
         private const string DHondtMethod = "D'Hondt";
         private const string SainteLagueMethod = "Sainte-Laguë";
         private const string AlgorithmsAttribute = "Algorithms";
@@ -228,6 +235,8 @@ namespace CalculateParliamentaryApportionment
                     SimpleFraction electoralThreshold = SimpleFraction.FromDecimal((decimal)GetRequiredElement(input, ElectoralThresholdElement));
                     XElement? firstDivisor = input.Element(FirstDivisorElement);
                     Dictionary<int, int>? electorateSeats = ReadElectorateSeats(input, parties);
+                    List<int> minorityLists = ReadMinorityLists(input, parties);
+                    XElement? minorityListQuotientBonus = input.Element(MinorityListQuotientBonusElement);
                     XElement method = GetRequiredElement(input, MethodElement);
                     string sMethod = (string)method;
                     PerformanceRuns? performance = ReadPerformanceRuns(input);
@@ -236,13 +245,16 @@ namespace CalculateParliamentaryApportionment
                     {
                         if (firstDivisor != null) throw new FormatException($"{FirstDivisorElement} is only for {SainteLagueMethod}");
                         if (electorateSeats != null) throw new FormatException($"{ElectorateSeatsAttribute} is only for {SainteLagueMethod}");
+                        SimpleFraction? bonus = minorityListQuotientBonus == null ? null : SimpleFraction.FromDecimal((decimal)minorityListQuotientBonus);
                         available = new Dictionary<string, Func<SeatDistributionBase>>
                         {
-                            [BaseAlgorithm] = () => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold),
+                            [BaseAlgorithm] = () => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, minorityLists, bonus),
                         };
                     }
                     else if (sMethod == SainteLagueMethod)
                     {
+                        if (minorityLists.Count > 0) throw new FormatException($"{MinorityListAttribute} is only for {DHondtMethod}");
+                        if (minorityListQuotientBonus != null) throw new FormatException($"{MinorityListQuotientBonusElement} is only for {DHondtMethod}");
                         SimpleFraction? fraction = firstDivisor == null ? null : new SimpleFraction(
                             (long)GetRequiredAttribute(firstDivisor, NumeratorAttribute),
                             (long)GetRequiredAttribute(firstDivisor, DenominatorAttribute));
@@ -550,19 +562,37 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
+        /// reads the IDs of the parties with MinorityList="true", an input rather than a result
+        /// </summary>
+        /// <param name="parties">the parties from <see cref="ReadParties"/></param>
+        /// <returns>the minority lists' IDs in the order they're listed, empty if there are none</returns>
+        private static List<int> ReadMinorityLists(XElement input, List<PoliticalPartyVotes> parties)
+        {
+            Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+            return GetRequiredElement(input, PartiesElement).Elements(PartyElement)
+                .Where(p => (bool?)p.Attribute(MinorityListAttribute) == true)
+                .Select(p => ids[(string)GetRequiredAttribute(p, NameAttribute)])
+                .ToList();
+        }
+
+        /// <summary>
         /// sets the result attributes of each party, replacing any existing ones. Parties below the electoral threshold
         /// get no seats, so they aren't in the seat dictionaries. BaseSeats is removed for a method without base seats,
-        /// and ListSeats, OverhangSeats and TotalSeats are removed without electorate seats
+        /// ListSeats, OverhangSeats and TotalSeats are removed without electorate seats, and QuotientBonus is only on
+        /// minority lists when there is a minority list quotient bonus
         /// </summary>
         private static void WritePartyResults(XElement input, SeatDistributionBase r)
         {
             DHondtSeatDistribution? dHondt = r as DHondtSeatDistribution;
             SainteLagueSeatDistribution? mixedMember = r is SainteLagueSeatDistribution sainteLague && sainteLague.ElectorateSeats.Count > 0 ? sainteLague : null;
+            bool hasBonus = input.Element(MinorityListQuotientBonusElement) != null;
             foreach (XElement next in GetRequiredElement(input, PartiesElement).Elements(PartyElement))
             {
                 string sParty = (string)GetRequiredAttribute(next, NameAttribute);
                 bool isAboveThreshold = r.Seats.ContainsKey(sParty);
+                bool isMinorityList = (bool?)next.Attribute(MinorityListAttribute) == true;
                 next.SetAttributeValue(AboveThresholdAttribute, isAboveThreshold);
+                next.SetAttributeValue(QuotientBonusAttribute, hasBonus && isMinorityList ? dHondt?.MinorityListsWithQuotientBonus.Contains(sParty) : null);
                 next.SetAttributeValue(nameof(DHondtSeatDistribution.BaseSeats), dHondt?.BaseSeats.GetValueOrDefault(sParty));
                 next.SetAttributeValue(SeatsAttribute, r.Seats.GetValueOrDefault(sParty));
                 next.SetAttributeValue(nameof(SainteLagueSeatDistribution.ListSeats), mixedMember?.ListSeats.GetValueOrDefault(sParty));

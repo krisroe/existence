@@ -44,8 +44,9 @@ namespace Existence.Earth.Human.Politics
         public string DivisorCalculation { get; set; }
 
         /// <summary>
-        /// the recipients' combined votes divided by <see cref="Divisor"/>, the quotient that won the seat (for
-        /// information, since the comparison itself is done exactly with whole numbers)
+        /// the recipients' combined votes divided by <see cref="Divisor"/>, raised by any minority list quotient bonus,
+        /// the quotient that won the seat (for information, since the comparison itself is done exactly with whole
+        /// numbers)
         /// </summary>
         public decimal Quotient { get; set; }
 
@@ -108,8 +109,8 @@ namespace Existence.Earth.Human.Politics
         public string DivisorCalculation { get; set; }
 
         /// <summary>
-        /// the party's own votes divided by <see cref="Divisor"/> (for information, since the comparison itself is done
-        /// exactly with whole numbers)
+        /// the party's own votes divided by <see cref="Divisor"/>, raised by any minority list quotient bonus (for
+        /// information, since the comparison itself is done exactly with whole numbers)
         /// </summary>
         public decimal Quotient { get; set; }
 
@@ -186,7 +187,9 @@ namespace Existence.Earth.Human.Politics
         /// another party or surplus vote agreement, which is the one whose last seat was won with the lowest quotient. For a surplus vote
         /// agreement the votes can go to either party, though that can decide which of them gets the seat. Assumes the
         /// votes come from parties that are below the electoral threshold or from people who didn't vote, and that no
-        /// party crosses the electoral threshold as a result. Null if no other party or surplus vote agreement has seats
+        /// party crosses the electoral threshold as a result, which for a minority list with a quotient bonus would lose
+        /// it the bonus. A minority list's extra votes count with its bonus. Null if no other party or surplus vote
+        /// agreement has seats
         /// </summary>
         public long? VotesNeededForNextOrderedSeat { get; set; }
     }
@@ -197,9 +200,16 @@ namespace Existence.Earth.Human.Politics
     public class DHondtSeatDistribution : SeatDistributionBase
     {
         /// <summary>
-        /// qualifying votes per seat
+        /// qualifying votes per seat, with the votes of <see cref="MinorityListsWithQuotientBonus"/> counted with their
+        /// bonus
         /// </summary>
         public decimal Quota { get; set; }
+
+        /// <summary>
+        /// minority lists below the electoral threshold, which qualify anyway and have their quotients raised by the
+        /// minority list quotient bonus, in the order the parties were given. Empty without a bonus
+        /// </summary>
+        public List<string> MinorityListsWithQuotientBonus { get; set; } = new List<string>();
 
         /// <summary>
         /// seats from whole quotas, for each party that passed the electoral threshold
@@ -318,10 +328,20 @@ namespace Existence.Earth.Human.Politics
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
         /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
+        /// <param name="MinorityLists">national minority lists, which qualify whatever their votes. Each has to be in
+        /// <paramref name="NumberOfVotes"/>. Null if there are none</param>
+        /// <param name="MinorityListQuotientBonus">percentage the quotients of minority lists below the electoral
+        /// threshold are raised by, such as 35/1 for Serbia. Null for no bonus</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<string>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null)
         {
             List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
-            return CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold);
+            List<int>? minorityListIds = null;
+            if (MinorityLists != null)
+            {
+                Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
+                minorityListIds = MinorityLists.Select(p => ids.TryGetValue(p, out int iId) ? iId : throw new ArgumentException($"minority list {p} has no votes", nameof(MinorityLists))).ToList();
+            }
+            return CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, minorityListIds, MinorityListQuotientBonus);
         }
 
         /// <summary>
@@ -333,31 +353,61 @@ namespace Existence.Earth.Human.Politics
         /// party gets a base seat per whole quota of qualifying votes. Leftover seats then go one at a time to the party
         /// or surplus vote agreement with the most votes per seat if it got one more, and within an agreement to the party
         /// with the most votes per seat if it got one more. Ties go to the side with more votes. Surplus vote agreements
-        /// are an addition to plain D'Hondt, so pass none to get plain D'Hondt. The calculation works with party IDs, and
-        /// the results give the parties by name
+        /// are an addition to plain D'Hondt, so pass none to get plain D'Hondt. National minority lists can be exempt
+        /// from the electoral threshold, as in Serbia and Poland, and in Serbia those below it also have their quotients
+        /// raised by 35%. A bonus is the same as counting the list's votes with the bonus, so the base seats come from
+        /// whole quotas of the votes counted that way. The calculation works with party IDs, and the results give the
+        /// parties by name
         /// </summary>
         /// <param name="Parties">votes for each party, with IDs from 1 for the most votes. Include every party, since the
         /// electoral threshold is a percentage of all of them; minor parties far below the threshold can be lumped into
         /// one entry. The results list parties in this order</param>
-        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
+        /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements. A minority list with a
+        /// quotient bonus can only be in one that isn't annulled with another party that has the bonus</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
         /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
         /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold)
+        /// <param name="MinorityLists">IDs of national minority lists, which qualify whatever their votes. Null if there
+        /// are none</param>
+        /// <param name="MinorityListQuotientBonus">percentage the quotients of minority lists below the electoral
+        /// threshold are raised by, such as 35/1 for Serbia, with a numerator that isn't negative and a positive
+        /// denominator. Lists at or above the threshold get no bonus. Null for no bonus</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<int>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null)
         {
             Election e = new Election(Parties);
-            DHondtSeatDistribution r = new DHondtSeatDistribution();
-            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, new HashSet<int>());
-            r.Quota = (decimal)r.QualifyingVotes / NumberOfSeats;
+            HashSet<int> minorityLists = new HashSet<int>();
+            foreach (int iParty in MinorityLists ?? Enumerable.Empty<int>())
+            {
+                if (iParty < 1 || iParty >= e.Names.Length) throw new ArgumentException($"minority list party ID {iParty} has no votes", nameof(MinorityLists));
+                if (!minorityLists.Add(iParty)) throw new ArgumentException($"{e.Names[iParty]} is a minority list more than once", nameof(MinorityLists));
+            }
+            if (MinorityListQuotientBonus != null && (MinorityListQuotientBonus.Numerator < 0 || MinorityListQuotientBonus.Denominator <= 0))
+                throw new ArgumentException($"the minority list quotient bonus {MinorityListQuotientBonus} must have a numerator that isn't negative and a positive denominator", nameof(MinorityListQuotientBonus));
 
+            DHondtSeatDistribution r = new DHondtSeatDistribution();
+            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, minorityLists);
+            if (MinorityListQuotientBonus != null && MinorityListQuotientBonus.Numerator > 0)
+            {
+                HashSet<int> withBonus = qualifying.Where(p => minorityLists.Contains(p) && !IsAtElectoralThreshold(e.Votes[p], r.TotalVotes, ElectoralThreshold)).ToHashSet();
+                e.ApplyQuotientBonus(withBonus, MinorityListQuotientBonus);
+                r.MinorityListsWithQuotientBonus.AddRange(qualifying.Where(withBonus.Contains).Select(p => e.Names[p]));
+            }
+
+            long lQualifyingQuotientVotes = qualifying.Sum(e.QuotientVotes);
+            r.Quota = (decimal)lQualifyingQuotientVotes / e.QuotientScale / NumberOfSeats;
             foreach (int iParty in qualifying)
             {
-                int iSeats = (int)(e.Votes[iParty] * NumberOfSeats / r.QualifyingVotes);
+                int iSeats = (int)(checked(e.QuotientVotes(iParty) * NumberOfSeats) / lQualifyingQuotientVotes);
                 r.BaseSeats[e.Names[iParty]] = iSeats;
                 e.Seats[iParty] = iSeats;
             }
 
             List<int[]> recipients = GetRecipients(r, e, SurplusVoteAgreements, qualifying);
+
+            //the votes needed for the next seat can go to either party of a surplus vote agreement, which only works out
+            //when the bonus is the same for both
+            int[]? mixed = recipients.FirstOrDefault(a => a.Any(p => e.QuotientWeights[p] != e.QuotientWeights[a[0]]));
+            if (mixed != null) throw new ArgumentException($"{e.GetName(mixed)} is a surplus vote agreement with a minority list quotient bonus for only one of the parties", nameof(SurplusVoteAgreements));
             GiveOutOrderedSeats(r, e, recipients, GetLinearDivisor(DHondtSlope, new SimpleFraction(1, 1)), NumberOfSeats);
             CopySeats(r, e, qualifying);
             return r;
@@ -527,6 +577,17 @@ namespace Existence.Earth.Human.Politics
             public int[] Order { get; }
 
             /// <summary>
+            /// what each party's votes are multiplied by for its quotients, by ID, as whole numbers over
+            /// <see cref="QuotientScale"/>. All the same as the scale unless there is a minority list quotient bonus
+            /// </summary>
+            public long[] QuotientWeights { get; }
+
+            /// <summary>
+            /// what <see cref="QuotientWeights"/> are over, so a weight equal to it means no bonus
+            /// </summary>
+            public long QuotientScale { get; private set; } = 1;
+
+            /// <summary>
             /// checks the party IDs and sets up the parties. The IDs have to be 1 up to the number of parties, each used
             /// once, and a party with more votes has to have a lower ID
             /// </summary>
@@ -538,6 +599,7 @@ namespace Existence.Earth.Human.Politics
                 Votes = new long[iCount + 1];
                 Seats = new int[iCount + 1];
                 Order = new int[iCount];
+                QuotientWeights = Enumerable.Repeat(1L, iCount + 1).ToArray();
                 HashSet<string> names = new HashSet<string>();
                 for (int i = 0; i < iCount; i++)
                 {
@@ -565,6 +627,36 @@ namespace Existence.Earth.Human.Politics
             {
                 long ret = 0;
                 foreach (int iParty in group) ret += Votes[iParty];
+                return ret;
+            }
+
+            /// <summary>
+            /// raises the quotients of some parties by a percentage, such as 35/1 for 35%. Their votes are multiplied
+            /// by 1 + the percentage / 100 and everyone else's by 1, both scaled to whole numbers, so 35% makes the
+            /// weights 27 and 20 over a scale of 20
+            /// </summary>
+            /// <param name="parties">IDs of the parties that get the bonus</param>
+            /// <param name="percentage">the bonus, with a positive numerator and denominator</param>
+            public void ApplyQuotientBonus(HashSet<int> parties, SimpleFraction percentage)
+            {
+                SimpleFraction weight = new SimpleFraction(checked(percentage.Denominator * 100 + percentage.Numerator), checked(percentage.Denominator * 100)).Reduce();
+                QuotientScale = weight.Denominator;
+                for (int iParty = 1; iParty < QuotientWeights.Length; iParty++) QuotientWeights[iParty] = parties.Contains(iParty) ? weight.Numerator : weight.Denominator;
+            }
+
+            /// <summary>
+            /// gets a party's votes times its <see cref="QuotientWeights"/>, which its quotients are worked out from
+            /// </summary>
+            public long QuotientVotes(int iParty) => checked(Votes[iParty] * QuotientWeights[iParty]);
+
+            /// <summary>
+            /// gets the combined <see cref="QuotientVotes"/> of a party on its own or the parties of a surplus vote
+            /// agreement
+            /// </summary>
+            public long QuotientVotesOf(int[] group)
+            {
+                long ret = 0;
+                foreach (int iParty in group) ret = checked(ret + QuotientVotes(iParty));
                 return ret;
             }
 
@@ -826,9 +918,10 @@ namespace Existence.Earth.Human.Politics
             int[] next = r.NextOrderedSeat.RecipientGroup;
             long lNextVotes = e.VotesOf(next);
             int iNextSeats = e.SeatsOf(next);
+            //the parties of a surplus vote agreement all have the same quotient weight
             r.VotesNeededForNextOrderedSeat = recipients
                 .Where(a => a != next && e.SeatsOf(a) > 0)
-                .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, e.VotesOf(a), e.SeatsOf(a), divisor.Scaled) - lNextVotes));
+                .Min(a => (long?)(GetVotesToWinSeatFrom(iNextSeats, e.QuotientWeights[next[0]], e.VotesOf(a), e.QuotientWeights[a[0]], e.SeatsOf(a), divisor.Scaled) - lNextVotes));
         }
 
         /// <summary>
@@ -921,10 +1014,10 @@ namespace Existence.Earth.Human.Politics
         private static OrderedSeat PickOrderedSeat(Election e, List<int[]> recipients, LinearDivisor divisor, int iSeat)
         {
             //apply the divisor calculation to the parties that passed the electoral threshold, and to the surplus vote agreements that didn't get annulled
-            int[] winner = PickHighestQuotient(recipients, e.VotesOf, e.SeatsOf, divisor.Scaled);
+            int[] winner = PickHighestQuotient(recipients, e.QuotientVotesOf, e.SeatsOf, divisor.Scaled);
 
             //apply the divisor calculation to the parties in the agreeement to determine who gets the next seat within the agreement parties
-            int iParty = PickHighestQuotient(Election.ByVotes(winner), p => e.Votes[p], p => e.Seats[p], divisor.Scaled);
+            int iParty = PickHighestQuotient(Election.ByVotes(winner), e.QuotientVotes, p => e.Seats[p], divisor.Scaled);
 
             return BuildOrderedSeat(e, winner, iParty, divisor, iSeat);
         }
@@ -941,11 +1034,11 @@ namespace Existence.Earth.Human.Politics
         {
             List<int> winnerFirst = Election.ByVotes(winner).OrderBy(p => p == iParty ? 0 : 1).ToList(); //stable, so the others stay by votes descending
             List<OrderedSeatRecipient> recipientDetails = winnerFirst
-                .Select(p => new OrderedSeatRecipient(e.Names[p], divisor.GetActual(e.Seats[p]), divisor.Describe(new[] { e.Seats[p] }), divisor.GetQuotient(e.Votes[p], e.Seats[p])))
+                .Select(p => new OrderedSeatRecipient(e.Names[p], divisor.GetActual(e.Seats[p]), divisor.Describe(new[] { e.Seats[p] }), divisor.GetQuotient(e.QuotientVotes(p), e.Seats[p]) / e.QuotientScale))
                 .ToList();
-            long lVotes = e.VotesOf(winner);
+            long lQuotientVotes = e.QuotientVotesOf(winner);
             int iSeats = e.SeatsOf(winner);
-            return new OrderedSeat(iSeat, winner, iParty, recipientDetails, divisor.GetActual(iSeats), divisor.Describe(winnerFirst.Select(p => e.Seats[p]).ToList()), divisor.GetQuotient(lVotes, iSeats));
+            return new OrderedSeat(iSeat, winner, iParty, recipientDetails, divisor.GetActual(iSeats), divisor.Describe(winnerFirst.Select(p => e.Seats[p]).ToList()), divisor.GetQuotient(lQuotientVotes, iSeats) / e.QuotientScale);
         }
 
         /// <summary>
@@ -964,12 +1057,10 @@ namespace Existence.Earth.Human.Politics
             r.TotalVotes = e.Votes.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(PoliticalPartyVotes.Votes));
 
-            SimpleFraction threshold = ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
             List<int> qualifying = new List<int>();
             foreach (int iParty in e.Order)
             {
-                //the party's share of the vote, as a fraction so the comparison is exact
-                if (exempt.Contains(iParty) || new SimpleFraction(e.Votes[iParty], r.TotalVotes) >= threshold)
+                if (exempt.Contains(iParty) || IsAtElectoralThreshold(e.Votes[iParty], r.TotalVotes, ElectoralThreshold))
                     qualifying.Add(iParty);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(e.Names[iParty]);
@@ -977,6 +1068,15 @@ namespace Existence.Earth.Human.Politics
             if (qualifying.Count == 0) throw new InvalidOperationException("no party passed the electoral threshold");
             r.QualifyingVotes = qualifying.Sum(p => e.Votes[p]);
             return qualifying;
+        }
+
+        /// <summary>
+        /// whether a party's share of the vote reaches the electoral threshold, compared as fractions so it's exact
+        /// </summary>
+        /// <param name="ElectoralThreshold">percentage of all valid votes needed, such as 13/4 for 3.25%</param>
+        private static bool IsAtElectoralThreshold(long votes, long totalVotes, SimpleFraction ElectoralThreshold)
+        {
+            return new SimpleFraction(votes, totalVotes) >= ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
         }
 
         /// <summary>
@@ -1031,17 +1131,20 @@ namespace Existence.Earth.Human.Politics
         ///   votes needed           other votes
         ///   ---------------  &gt;  ---------------------
         ///   divisor(seats)         divisor(other seats - 1)
-        /// Under D'Hondt that is seats + 1 against other seats. A tie is also enough if it leaves the candidate with more
-        /// votes than the other candidate, since ties go to the side with more votes, which is when its divisor is the
-        /// larger one. This compares exactly with integer math
+        /// Under D'Hondt that is seats + 1 against other seats. With a minority list quotient bonus each side's votes are
+        /// multiplied by its quotient weight first. A tie is also enough if it leaves the candidate with more votes than
+        /// the other candidate, since ties go to the side with more votes, which without a bonus is when its divisor is
+        /// the larger one. This compares exactly with integer math
         /// </summary>
+        /// <param name="weight">the candidate's quotient weight</param>
+        /// <param name="otherWeight">the other candidate's quotient weight</param>
         /// <param name="divisorFxn">whole-number divisor for a party's next seat, given its current number of seats</param>
-        private static long GetVotesToWinSeatFrom(int seats, long otherVotes, int otherSeats, Func<int, long> divisorFxn)
+        private static long GetVotesToWinSeatFrom(int seats, long weight, long otherVotes, long otherWeight, int otherSeats, Func<int, long> divisorFxn)
         {
             long divisor = divisorFxn(seats);
             long otherDivisor = divisorFxn(otherSeats - 1);
-            long votesForTie = Math.DivRem(checked(otherVotes * divisor), otherDivisor, out long remainder);
-            return remainder == 0 && divisor > otherDivisor ? votesForTie : votesForTie + 1;
+            long votesForTie = Math.DivRem(checked(otherVotes * otherWeight * divisor), checked(weight * otherDivisor), out long remainder);
+            return remainder == 0 && votesForTie > otherVotes ? votesForTie : votesForTie + 1;
         }
 
         /// <summary>

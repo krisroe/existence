@@ -201,6 +201,143 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// votes for each list in the 2026 Serbian parliamentary election, as announced by the Republic Electoral
+        /// Commission on 5 November 2026
+        /// </summary>
+        private static readonly Dictionary<string, long> serbia2026Votes = new Dictionary<string, long>()
+        {
+            { "StudentList", 2354417 },
+            { "UnitedSerbia", 1731323 },
+            { "FactorOfStability", 94766 },
+            { "AuthenticRight", 39503 },
+            { "AllianceOfVojvodinaHungarians", 35461 },
+            { "AlbanianCoalition", 27683 },
+            { "Ljudski", 20638 },
+            { "StrengthOfSerbiaMovement", 20045 },
+            { "SDASandžaka", 12596 },
+            { "EuropeanSerbia", 12570 },
+            { "MovementForUnification", 12440 },
+            { "RussianParty", 6503 },
+            { "RussianSerbianUnityParty", 4286 },
+            { "AlternativeForSerbia", 3705 },
+            { "MotherSerbiaGruda", 3234 },
+            { "LiberalGreenParty", 2686 },
+            { "PaThisIsForYou", 2022 },
+            { "ForceCoalition", 1187 },
+        };
+
+        /// <summary>
+        /// the national minority lists in the 2026 Serbian parliamentary election, marked M in Wikipedia's table of
+        /// electoral lists, in the order of <see cref="serbia2026Votes"/>
+        /// </summary>
+        private static readonly string[] serbia2026MinorityLists = new[] { "AllianceOfVojvodinaHungarians", "AlbanianCoalition", "Ljudski", "SDASandžaka", "MovementForUnification", "RussianParty", "RussianSerbianUnityParty", "MotherSerbiaGruda", "ForceCoalition" };
+
+        /// <summary>
+        /// 3%
+        /// </summary>
+        private static readonly SimpleFraction serbiaElectoralThreshold = new SimpleFraction(3, 1);
+
+        /// <summary>
+        /// 35%, what the quotients of minority lists below the threshold are raised by
+        /// </summary>
+        private static readonly SimpleFraction serbiaMinorityListQuotientBonus = new SimpleFraction(35, 1);
+
+        private const int serbiaNumberOfSeats = 250;
+
+        /// <summary>
+        /// validates the 2026 Serbian parliamentary election's seat distribution: only the Student List and United Serbia
+        /// pass the 3% threshold, and the nine minority lists below it qualify anyway with their quotients raised by 35%,
+        /// though only five of them win seats
+        /// </summary>
+        [TestMethod]
+        public void ValidateSerbia2026SeatDistribution()
+        {
+            DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus);
+            Assert.AreEqual(4385065, r.TotalVotes);
+            Assert.AreEqual(4209768, r.QualifyingVotes);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "StudentList", 140 }, { "UnitedSerbia", 103 }, { "AllianceOfVojvodinaHungarians", 2 }, { "AlbanianCoalition", 2 }, { "Ljudski", 1 }, { "SDASandžaka", 1 }, { "MovementForUnification", 1 },
+                { "RussianParty", 0 }, { "RussianSerbianUnityParty", 0 }, { "MotherSerbiaGruda", 0 }, { "ForceCoalition", 0 },
+            }, r.Seats);
+            CollectionAssert.AreEqual(serbia2026MinorityLists, r.MinorityListsWithQuotientBonus);
+            Assert.AreEqual(serbiaNumberOfSeats, r.Seats.Values.Sum());
+
+            //the minority lists' quotients are shown with the bonus
+            OrderedSeat movementForUnification = r.OrderedSeats.Single(s => s.PoliticalParty == "MovementForUnification");
+            Assert.AreEqual(12440m * 27 / 20, movementForUnification.Quotient);
+        }
+
+        /// <summary>
+        /// validates that without the 35% bonus the minority lists still qualify, but the Student List and United Serbia
+        /// take 3 of their seats, and that without being minority lists they get nothing
+        /// </summary>
+        [TestMethod]
+        public void ValidateSerbia2026WithoutMinorityListRules()
+        {
+            DHondtSeatDistribution noBonus = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists);
+            CollectionAssert.AreEquivalent(new Dictionary<string, int>()
+            {
+                { "StudentList", 142 }, { "UnitedSerbia", 104 }, { "AllianceOfVojvodinaHungarians", 2 }, { "AlbanianCoalition", 1 }, { "Ljudski", 1 }, { "SDASandžaka", 0 }, { "MovementForUnification", 0 },
+                { "RussianParty", 0 }, { "RussianSerbianUnityParty", 0 }, { "MotherSerbiaGruda", 0 }, { "ForceCoalition", 0 },
+            }, noBonus.Seats);
+            Assert.AreEqual(0, noBonus.MinorityListsWithQuotientBonus.Count);
+
+            DHondtSeatDistribution noMinorityLists = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold);
+            CollectionAssert.AreEquivalent(new[] { "StudentList", "UnitedSerbia" }, noMinorityLists.Seats.Keys);
+        }
+
+        /// <summary>
+        /// validates that a minority list at or above the threshold gets no bonus, while one below it does
+        /// </summary>
+        [TestMethod]
+        public void ValidateMinorityListAboveThresholdGetsNoBonus()
+        {
+            Dictionary<string, long> votes = new Dictionary<string, long>() { { "A", 9000 }, { "B", 600 }, { "C", 400 } };
+            DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), 20, new SimpleFraction(5, 1), new[] { "B", "C" }, serbiaMinorityListQuotientBonus);
+            CollectionAssert.AreEqual(new[] { "C" }, r.MinorityListsWithQuotientBonus);
+        }
+
+        /// <summary>
+        /// validates that the next seat with minority list bonuses gives the same result as recalculating with more seats,
+        /// and that the votes needed for it are enough for its recipient to gain a seat while one vote fewer isn't
+        /// </summary>
+        [TestMethod]
+        public void ValidateSerbia2026NextOrderedSeatAndVotesNeededByRecalculating()
+        {
+            DHondtSeatDistribution Calculate(Dictionary<string, long> votes, int iSeats) => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), iSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus);
+            for (int iSeats = serbiaNumberOfSeats; iSeats < serbiaNumberOfSeats + 20; iSeats++)
+            {
+                DHondtSeatDistribution r = Calculate(serbia2026Votes, iSeats);
+                Dictionary<string, int> expectedSeats = new Dictionary<string, int>(r.Seats);
+                expectedSeats[r.NextOrderedSeat.PoliticalParty]++;
+                CollectionAssert.AreEquivalent(expectedSeats, Calculate(serbia2026Votes, iSeats + 1).Seats, $"going from {iSeats} seats to {iSeats + 1}");
+
+                string sParty = r.NextOrderedSeat.PoliticalParty;
+                long lVotesNeeded = r.VotesNeededForNextOrderedSeat!.Value;
+                Assert.IsTrue(lVotesNeeded > 0, $"at {iSeats} seats");
+                Assert.AreEqual(r.Seats[sParty] + 1, SeatsWithExtraVotes(lVotesNeeded), $"enough votes at {iSeats} seats");
+                Assert.AreEqual(r.Seats[sParty], SeatsWithExtraVotes(lVotesNeeded - 1), $"one vote fewer at {iSeats} seats");
+
+                int SeatsWithExtraVotes(long lExtraVotes)
+                {
+                    Dictionary<string, long> votes = new Dictionary<string, long>(serbia2026Votes);
+                    votes[sParty] += lExtraVotes;
+                    return Calculate(votes, iSeats).Seats[sParty];
+                }
+            }
+        }
+
+        /// <summary>
+        /// validates that a surplus vote agreement with a quotient bonus for only one of its parties is rejected
+        /// </summary>
+        [TestMethod]
+        public void ValidateSurplusVoteAgreementWithBonusForOnePartyIsRejected()
+        {
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>() { ("UnitedSerbia", "Ljudski") }, serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus));
+        }
+
+        /// <summary>
         /// validates that the votes needed are null when no other party has a seat that could be won
         /// </summary>
         [TestMethod]
