@@ -122,7 +122,7 @@ echo "<table>";
 
 echo "<tr><th>Name</th><th>Identifier</th><th>Reason</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT v.youtubeid,v.shortname,v.identifier,uv.reason,dmusx.googledrivefileid musxfileid,ddorico.googledrivefileid doricofileid,v.dislikes,v.likes FROM public.videolist_unexplainablevideos uv INNER JOIN public.videos v ON uv.videoid = v.id LEFT JOIN documents dmusx ON v.musxdocumentid = dmusx.id LEFT JOIN documents ddorico ON v.doricodocumentid = ddorico.id ORDER BY uv.ord';
 $result = pg_query($dbconn,$query);
 

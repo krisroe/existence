@@ -154,7 +154,7 @@ echo "<script src=\"https://www.youtube.com/iframe_api\"></script>";
 
 echo "<div id=\"maininfodiv\">";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 
 //retrieve member types
 $exceptionlistmembertypes = [];

@@ -13,7 +13,7 @@ echo "</head>";
 echo "<body>";
 echo "<h4><a href=\"../index.html\">Home</a></h4>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT videos_last_refreshed FROM public.dates WHERE id=1';
 $result = pg_query($dbconn,$query);
 

@@ -64,11 +64,10 @@ $result = get_access_token();
 if ($result[0] === "")
 {
 	$access_token = $result[1];
-	$postgres_connection_string = getPgConnectionString();
 
 	//get videos to update
 	$videos = [];	
-	$dbconn = pg_connect($postgres_connection_string);
+	$dbconn = connectToDatabase();
 	$query = 'SELECT id,youtubeid,dislikes,likes FROM public.videos';
 	$result = pg_query($dbconn,$query);
 	while ($row = pg_fetch_assoc($result)) {
@@ -153,7 +152,7 @@ if ($result[0] === "")
 	}
 	if (count($videos_to_update) > 0)
 	{
-		$dbconn = pg_connect($postgres_connection_string);
+		$dbconn = connectToDatabase();
 		foreach ($videos_to_update as $v)
 		{
 			$query = "UPDATE videos SET dislikes=" . $v[2] . ",likes=" . $v[3] . " WHERE id=" . $v[0];

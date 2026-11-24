@@ -120,7 +120,7 @@ echo "<div id=\"maininfodiv\">";
 echo "<table>";
 echo "<tr><th>Piece</th><th>Author</th><th>Setting</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT v.youtubeid,v.isprivate,p.id,p.name,mv.piece,mv.author,mv.setting,v.dislikes,v.likes FROM public.videolist_musicvideos mv INNER JOIN public.performers p ON mv.performerid=p.id INNER JOIN public.videos v ON mv.videoid=v.id ORDER BY p.ord,mv.ord';
 $result = pg_query($dbconn,$query);
 $performerid = 0;

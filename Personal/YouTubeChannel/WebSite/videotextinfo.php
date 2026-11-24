@@ -142,7 +142,7 @@ if ($doctype == 'viddesc') //video description
 }
 else //video additional text
 {
- $dbconn = pg_connect(getPgConnectionString());
+ $dbconn = connectToDatabase();
  $query = 'SELECT d.googledrivefileid FROM public.videos v INNER JOIN public.documents d ON d.id = v.additionaltextdocumentid WHERE v.youtubeid=$1';
  $result = pg_query_params($dbconn,$query,array($youtubevideoid));
  if ($result)

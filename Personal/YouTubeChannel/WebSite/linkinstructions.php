@@ -79,7 +79,7 @@ echo "<td><p>Video:</p></td>";
 echo "<td>";
 echo "<select id=\"selectvideo\" class=\"linkinstructionsselect\" onchange=\"changedropdown()\">";
 echo "<option selected></option>"; //blank option at the beginning of the list
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT youtubeid,shortname,identifier,owner FROM public.videos ORDER BY id';
 $result = pg_query($dbconn,$query);
 while ($row = pg_fetch_assoc($result))

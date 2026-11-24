@@ -123,7 +123,7 @@ echo "<table>";
 
 echo "<tr><th>Name</th><th>Identifier</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT v.youtubeid,v.shortname,v.identifier,dtxt.purpose,dtxt.googledrivefileid txtfileid,dmusx.googledrivefileid musxfileid,ddorico.googledrivefileid doricofileid,v.dislikes,v.likes FROM public.videolist_kidzvideos kv INNER JOIN public.videos v ON kv.videoid = v.id LEFT JOIN documents dtxt ON v.additionaltextdocumentid = dtxt.id LEFT JOIN documents dmusx ON v.musxdocumentid = dmusx.id LEFT JOIN documents ddorico ON v.doricodocumentid = ddorico.id ORDER BY kv.ord';
 $result = pg_query($dbconn,$query);
 

@@ -17,7 +17,7 @@ echo "<table>";
 
 echo "<tr><th>Number</th><th>Song</th><th>Suggestion</th></tr>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT a.googledrivefileid,a.number,a.name,a.suggestion FROM public.audios a ORDER BY a.ord';
 $result = pg_query($dbconn,$query);
 

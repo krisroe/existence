@@ -121,7 +121,7 @@ echo "<table>";
 
 echo "<tr><th>Number</th><th>Name</th><th>Identifier</th><th>Rulez</th><th>Memes</th><th>Additional</th><th>Dislikes</th><th>Likes</th></tr>";
 
-$dbconn = pg_connect(getPgConnectionString());
+$dbconn = connectToDatabase();
 $query = 'SELECT v.youtubeid,v.shortname,v.identifier,ss.number,ss.rulez,ss.memes,v.dislikes,v.likes FROM public.videolist_sillysongs ss INNER JOIN public.videos v ON ss.videoid = v.id ORDER BY ss.ord';
 $result = pg_query($dbconn,$query);
 

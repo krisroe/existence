@@ -74,7 +74,7 @@ if ($land == 'destroyallpugz')
 }
 else
 {
- $dbconn = pg_connect(getPgConnectionString());
+ $dbconn = connectToDatabase();
  $query = 'SELECT url FROM public.landing_pages WHERE name=$1';
  $result = pg_query_params($dbconn,$query,array($land));
  if ($result)
