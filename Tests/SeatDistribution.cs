@@ -245,6 +245,12 @@ namespace Existence.Tests
         private const int serbiaNumberOfSeats = 250;
 
         /// <summary>
+        /// invalid and blank ballots in the 2026 Serbian parliamentary election, which count toward the electoral
+        /// threshold since it is a percentage of everyone who voted
+        /// </summary>
+        private const long serbia2026InvalidAndBlankVotes = 56571;
+
+        /// <summary>
         /// validates the 2026 Serbian parliamentary election's seat distribution: only the Student List and United Serbia
         /// pass the 3% threshold, and the nine minority lists below it qualify anyway with their quotients raised by 35%,
         /// though only five of them win seats
@@ -252,8 +258,9 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateSerbia2026SeatDistribution()
         {
-            DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus);
+            DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus, serbia2026InvalidAndBlankVotes);
             Assert.AreEqual(4385065, r.TotalVotes);
+            Assert.AreEqual(4441636, r.ElectoralThresholdVotes);
             Assert.AreEqual(4209768, r.QualifyingVotes);
             CollectionAssert.AreEquivalent(new Dictionary<string, int>()
             {
@@ -305,7 +312,7 @@ namespace Existence.Tests
         [TestMethod]
         public void ValidateSerbia2026NextOrderedSeatAndVotesNeededByRecalculating()
         {
-            DHondtSeatDistribution Calculate(Dictionary<string, long> votes, int iSeats) => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), iSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus);
+            DHondtSeatDistribution Calculate(Dictionary<string, long> votes, int iSeats) => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, new List<(string, string)>(), iSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus, serbia2026InvalidAndBlankVotes);
             for (int iSeats = serbiaNumberOfSeats; iSeats < serbiaNumberOfSeats + 20; iSeats++)
             {
                 DHondtSeatDistribution r = Calculate(serbia2026Votes, iSeats);
@@ -469,6 +476,44 @@ namespace Existence.Tests
             CollectionAssert.Contains(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(atThreshold, new List<(string, string)>(), 10, threshold).Seats.Keys, "B");
             Dictionary<string, long> belowThreshold = new Dictionary<string, long>() { { "A", 9676 }, { "B", 324 } };
             CollectionAssert.Contains(SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(belowThreshold, new List<(string, string)>(), 10, threshold).PoliticalPartiesBelowElectoralThreshold, "B");
+        }
+
+        /// <summary>
+        /// validates that invalid and blank ballots counted toward the electoral threshold raise it: a party with exactly
+        /// 3.25% of the valid votes passes without them and falls below with one of them, under both methods, and that
+        /// they can't be negative
+        /// </summary>
+        [TestMethod]
+        public void ValidateInvalidAndBlankVotesRaiseElectoralThreshold()
+        {
+            Dictionary<string, long> votes = new Dictionary<string, long>() { { "A", 9675 }, { "B", 325 } };
+            List<(string, string)> agreements = new List<(string, string)>();
+
+            DHondtSeatDistribution dHondt = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, knessetV25ElectoralThreshold);
+            Assert.AreEqual(10000, dHondt.ElectoralThresholdVotes);
+            CollectionAssert.Contains(dHondt.Seats.Keys, "B");
+            DHondtSeatDistribution dHondtWithInvalid = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, knessetV25ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold: 1);
+            Assert.AreEqual(10000, dHondtWithInvalid.TotalVotes);
+            Assert.AreEqual(10001, dHondtWithInvalid.ElectoralThresholdVotes);
+            CollectionAssert.Contains(dHondtWithInvalid.PoliticalPartiesBelowElectoralThreshold, "B");
+
+            SainteLagueSeatDistribution sainteLagueWithInvalid = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, knessetV25ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold: 1);
+            CollectionAssert.Contains(sainteLagueWithInvalid.PoliticalPartiesBelowElectoralThreshold, "B");
+
+            Assert.ThrowsExactly<System.ArgumentException>(() => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, knessetV25ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold: -1));
+        }
+
+        /// <summary>
+        /// validates that a minority list with exactly the threshold's share of the valid votes gets no quotient bonus,
+        /// but does once invalid and blank ballots that count toward the threshold put it below
+        /// </summary>
+        [TestMethod]
+        public void ValidateInvalidAndBlankVotesCanGiveMinorityListQuotientBonus()
+        {
+            Dictionary<string, long> votes = new Dictionary<string, long>() { { "A", 9700 }, { "B", 300 } };
+            List<(string, string)> agreements = new List<(string, string)>();
+            Assert.AreEqual(0, SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, serbiaElectoralThreshold, new[] { "B" }, serbiaMinorityListQuotientBonus).MinorityListsWithQuotientBonus.Count);
+            CollectionAssert.AreEqual(new[] { "B" }, SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, serbiaElectoralThreshold, new[] { "B" }, serbiaMinorityListQuotientBonus, 1).MinorityListsWithQuotientBonus);
         }
 
         /// <summary>

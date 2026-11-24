@@ -4,6 +4,7 @@
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>250</NumberOfSeats>
     <ElectoralThreshold>3</ElectoralThreshold>
+    <InvalidAndBlankVotes Relevant="true">56571</InvalidAndBlankVotes>
     <MinorityListQuotientBonus>35</MinorityListQuotientBonus>
     <Parties>
       <Party Id="1" Name="Student List" Votes="2354417" AboveThreshold="true" BaseSeats="138" Seats="140" />
@@ -28,6 +29,7 @@
   </Input>
   <Output>
     <TotalVotes>4385065</TotalVotes>
+    <ElectoralThresholdVotes>4441636</ElectoralThresholdVotes>
     <QualifyingVotes>4209768</QualifyingVotes>
     <Quota>17012.7112</Quota>
     <AnnulledSurplusVoteAgreements />

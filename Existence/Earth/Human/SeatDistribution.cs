@@ -136,9 +136,15 @@ namespace Existence.Earth.Human.Politics
     public abstract class SeatDistributionBase
     {
         /// <summary>
-        /// valid votes for all parties, which the electoral threshold is a percentage of
+        /// valid votes for all parties
         /// </summary>
         public long TotalVotes { get; set; }
+
+        /// <summary>
+        /// the votes the electoral threshold is a percentage of: <see cref="TotalVotes"/>, plus any invalid and blank
+        /// ballots that count toward it
+        /// </summary>
+        public long ElectoralThresholdVotes { get; set; }
 
         /// <summary>
         /// votes for the parties that passed the electoral threshold
@@ -326,13 +332,17 @@ namespace Existence.Earth.Human.Politics
         /// the same votes are taken to be in the order given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
-        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count, as a fraction so it is compared exactly, such as 13/4
+        /// or 325/100 for 3.25%</param>
         /// <param name="MinorityLists">national minority lists, which qualify whatever their votes. Each has to be in
         /// <paramref name="NumberOfVotes"/>. Null if there are none</param>
         /// <param name="MinorityListQuotientBonus">percentage the quotients of minority lists below the electoral
         /// threshold are raised by, such as 35/1 for Serbia. Null for no bonus</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<string>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<string>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
             List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
             List<int>? minorityListIds = null;
@@ -341,7 +351,7 @@ namespace Existence.Earth.Human.Politics
                 Dictionary<string, int> ids = parties.ToDictionary(p => p.Name, p => p.Id);
                 minorityListIds = MinorityLists.Select(p => ids.TryGetValue(p, out int iId) ? iId : throw new ArgumentException($"minority list {p} has no votes", nameof(MinorityLists))).ToList();
             }
-            return CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, minorityListIds, MinorityListQuotientBonus);
+            return CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, minorityListIds, MinorityListQuotientBonus, InvalidAndBlankVotesInElectoralThreshold);
         }
 
         /// <summary>
@@ -349,7 +359,7 @@ namespace Existence.Earth.Human.Politics
         /// the 1870s and 1880s. The same method was proposed earlier by
         /// <see cref="UnitedStatesPoliticians.JeffersonThomas"/> in the United States in the 1790s, and also developed by
         /// Hagenbach-Bischoff in Switzerland and Bader-Ofer in Israel. Parties below the electoral threshold (a percentage
-        /// of all valid votes) get nothing, and surplus vote agreements with such a party are annulled. Each remaining
+        /// of all valid votes, plus any invalid and blank ballots that count) get nothing, and surplus vote agreements with such a party are annulled. Each remaining
         /// party gets a base seat per whole quota of qualifying votes. Leftover seats then go one at a time to the party
         /// or surplus vote agreement with the most votes per seat if it got one more, and within an agreement to the party
         /// with the most votes per seat if it got one more. Ties go to the side with more votes. Surplus vote agreements
@@ -365,14 +375,18 @@ namespace Existence.Earth.Human.Politics
         /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements. A minority list with a
         /// quotient bonus can only be in one that isn't annulled with another party that has the bonus</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
-        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count, as a fraction so it is compared exactly, such as 13/4
+        /// or 325/100 for 3.25%</param>
         /// <param name="MinorityLists">IDs of national minority lists, which qualify whatever their votes. Null if there
         /// are none</param>
         /// <param name="MinorityListQuotientBonus">percentage the quotients of minority lists below the electoral
         /// threshold are raised by, such as 35/1 for Serbia, with a numerator that isn't negative and a positive
         /// denominator. Lists at or above the threshold get no bonus. Null for no bonus</param>
-        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<int>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static DHondtSeatDistribution CalculateDHondtParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, IEnumerable<int>? MinorityLists = null, SimpleFraction? MinorityListQuotientBonus = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
             Election e = new Election(Parties);
             HashSet<int> minorityLists = new HashSet<int>();
@@ -385,10 +399,10 @@ namespace Existence.Earth.Human.Politics
                 throw new ArgumentException($"the minority list quotient bonus {MinorityListQuotientBonus} must have a numerator that isn't negative and a positive denominator", nameof(MinorityListQuotientBonus));
 
             DHondtSeatDistribution r = new DHondtSeatDistribution();
-            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, minorityLists);
+            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold, minorityLists);
             if (MinorityListQuotientBonus != null && MinorityListQuotientBonus.Numerator > 0)
             {
-                HashSet<int> withBonus = qualifying.Where(p => minorityLists.Contains(p) && !IsAtElectoralThreshold(e.Votes[p], r.TotalVotes, ElectoralThreshold)).ToHashSet();
+                HashSet<int> withBonus = qualifying.Where(p => minorityLists.Contains(p) && !IsAtElectoralThreshold(e.Votes[p], r.ElectoralThresholdVotes, ElectoralThreshold)).ToHashSet();
                 e.ApplyQuotientBonus(withBonus, MinorityListQuotientBonus);
                 r.MinorityListsWithQuotientBonus.AddRange(qualifying.Where(withBonus.Contains).Select(p => e.Names[p]));
             }
@@ -418,7 +432,7 @@ namespace Existence.Earth.Human.Politics
         /// France in 1910. The same method was proposed earlier by <see cref="UnitedStatesPoliticians.WebsterDaniel"/> in
         /// the United States in 1832 for apportioning the House of Representatives, and was used that way after the 1840,
         /// 1910 and 1930 censuses. Hans Schepers also developed it in Germany, where it is known as Sainte-Laguë/Schepers.
-        /// Parties below the electoral threshold (a percentage of all valid votes) get nothing, and surplus vote
+        /// Parties below the electoral threshold (a percentage of all valid votes, plus any invalid and blank ballots that count) get nothing, and surplus vote
         /// agreements with such a party are annulled. Seats then go one at a time to the party or surplus vote agreement
         /// with the highest votes / (2 × seats + 1), so the divisors are 1, 3, 5, ..., and within an agreement to the
         /// party with the highest votes / (2 × seats + 1). Ties go to the side with more votes. Unlike the D'Hondt method
@@ -436,16 +450,20 @@ namespace Existence.Earth.Human.Politics
         /// one entry. The results list parties in this order</param>
         /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
-        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count, as a fraction so it is compared exactly, such as 13/4
+        /// or 325/100 for 3.25%</param>
         /// <param name="FirstDivisor">divisor for a party's first seat, with a positive numerator and denominator, and
         /// no more than 3, the divisor for the second seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID;
         /// parties left out won none. Each party has to be in <paramref name="Parties"/>, so electorates won by
         /// independents aren't supported. Null if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
-            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutOrderedSeats);
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, InvalidAndBlankVotesInElectoralThreshold, GiveOutOrderedSeats);
         }
 
         /// <summary>
@@ -459,13 +477,17 @@ namespace Existence.Earth.Human.Politics
         /// <param name="Parties">votes for each party, with IDs from 1 for the most votes</param>
         /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count</param>
         /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID. Null
         /// if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
-            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingQuotientTable);
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, InvalidAndBlankVotesInElectoralThreshold, GiveOutSeatsUsingQuotientTable);
         }
 
         /// <summary>
@@ -485,13 +507,17 @@ namespace Existence.Earth.Human.Politics
         /// <param name="Parties">votes for each party, with IDs from 1 for the most votes</param>
         /// <param name="SurplusVoteAgreements">pairs of party IDs with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count</param>
         /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won, by party ID. Null
         /// if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<int, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
-            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, GiveOutSeatsUsingDivisorRounding);
+            return CalculateSainteLague(Parties, SurplusVoteAgreements, NumberOfSeats, ElectoralThreshold, FirstDivisor, ElectorateSeats, InvalidAndBlankVotesInElectoralThreshold, GiveOutSeatsUsingDivisorRounding);
         }
 
         /// <summary>
@@ -503,15 +529,19 @@ namespace Existence.Earth.Human.Politics
         /// the same votes are taken to be in the order given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats, as a fraction so it is
-        /// compared exactly, such as 13/4 or 325/100 for 3.25%</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count, as a fraction so it is compared exactly, such as 13/4
+        /// or 325/100 for 3.25%</param>
         /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won; parties left out
         /// won none. Each party has to be in <paramref name="NumberOfVotes"/>. Null if there are no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
             List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
-            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutOrderedSeats);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), InvalidAndBlankVotesInElectoralThreshold, GiveOutOrderedSeats);
         }
 
         /// <summary>
@@ -522,14 +552,18 @@ namespace Existence.Earth.Human.Politics
         /// given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count</param>
         /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won. Null if there are
         /// no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
             List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
-            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutSeatsUsingQuotientTable);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), InvalidAndBlankVotesInElectoralThreshold, GiveOutSeatsUsingQuotientTable);
         }
 
         /// <summary>
@@ -540,14 +574,18 @@ namespace Existence.Earth.Human.Politics
         /// given</param>
         /// <param name="SurplusVoteAgreements">pairs of parties with surplus vote agreements</param>
         /// <param name="NumberOfSeats">number of seats in the parliament</param>
-        /// <param name="ElectoralThreshold">percentage of all valid votes a party needs for any seats</param>
+        /// <param name="ElectoralThreshold">percentage of the votes a party needs for any seats, which are all valid
+        /// votes plus any invalid and blank ballots that count</param>
         /// <param name="FirstDivisor">divisor for a party's first seat. Null for plain Sainte-Laguë, which uses 1/1</param>
         /// <param name="ElectorateSeats">for mixed-member proportional, the electorates each party won. Null if there are
         /// no electorates</param>
-        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null)
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, as in Serbia, where it is a percentage of everyone who voted. 0 where it is a percentage of valid votes
+        /// only</param>
+        public static SainteLagueSeatDistribution CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(IDictionary<string, long> NumberOfVotes, IEnumerable<(string, string)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor = null, IDictionary<string, int>? ElectorateSeats = null, long InvalidAndBlankVotesInElectoralThreshold = 0)
         {
             List<PoliticalPartyVotes> parties = AssignIds(NumberOfVotes);
-            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), GiveOutSeatsUsingDivisorRounding);
+            return CalculateSainteLague(parties, GetSurplusVoteAgreementIds(parties, SurplusVoteAgreements), NumberOfSeats, ElectoralThreshold, FirstDivisor, GetElectorateSeatIds(parties, ElectorateSeats), InvalidAndBlankVotesInElectoralThreshold, GiveOutSeatsUsingDivisorRounding);
         }
 
         /// <summary>
@@ -708,7 +746,7 @@ namespace Existence.Earth.Human.Politics
         /// the electoral threshold, the surplus vote agreements and the electorates
         /// </summary>
         /// <param name="giveOutSeats">how the seats are given out among the recipients</param>
-        private static SainteLagueSeatDistribution CalculateSainteLague(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor, IDictionary<int, int>? ElectorateSeats, SeatGiver giveOutSeats)
+        private static SainteLagueSeatDistribution CalculateSainteLague(IReadOnlyList<PoliticalPartyVotes> Parties, IEnumerable<(int, int)> SurplusVoteAgreements, int NumberOfSeats, SimpleFraction ElectoralThreshold, SimpleFraction? FirstDivisor, IDictionary<int, int>? ElectorateSeats, long InvalidAndBlankVotesInElectoralThreshold, SeatGiver giveOutSeats)
         {
             LinearDivisor divisor = GetLinearDivisor(SainteLagueSlope, FirstDivisor ?? new SimpleFraction(1, 1));
             Election e = new Election(Parties);
@@ -720,7 +758,7 @@ namespace Existence.Earth.Human.Politics
 
             SainteLagueSeatDistribution r = new SainteLagueSeatDistribution();
             HashSet<int> wonElectorates = ElectorateSeats?.Where(p => p.Value > 0).Select(p => p.Key).ToHashSet() ?? new HashSet<int>();
-            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, wonElectorates);
+            List<int> qualifying = ApplyElectoralThreshold(r, e, NumberOfSeats, ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold, wonElectorates);
             List<int[]> recipients = GetRecipients(r, e, SurplusVoteAgreements, qualifying);
             giveOutSeats(r, e, recipients, divisor, NumberOfSeats);
             CopySeats(r, e, qualifying);
@@ -1043,24 +1081,29 @@ namespace Existence.Earth.Human.Politics
 
         /// <summary>
         /// validates the inputs common to all the methods and applies the electoral threshold, filling in
-        /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.QualifyingVotes"/> and
+        /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.ElectoralThresholdVotes"/>,
+        /// <see cref="SeatDistributionBase.QualifyingVotes"/> and
         /// <see cref="SeatDistributionBase.PoliticalPartiesBelowElectoralThreshold"/>
         /// </summary>
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">invalid and blank ballots that count toward the electoral
+        /// threshold, not negative</param>
         /// <param name="exempt">IDs of parties that qualify whatever their votes, such as those that won an electorate
         /// under mixed-member proportional</param>
         /// <returns>the IDs of the parties that passed the electoral threshold, in the order the parties were given</returns>
-        private static List<int> ApplyElectoralThreshold(SeatDistributionBase r, Election e, int NumberOfSeats, SimpleFraction ElectoralThreshold, HashSet<int> exempt)
+        private static List<int> ApplyElectoralThreshold(SeatDistributionBase r, Election e, int NumberOfSeats, SimpleFraction ElectoralThreshold, long InvalidAndBlankVotesInElectoralThreshold, HashSet<int> exempt)
         {
             if (NumberOfSeats <= 0) throw new ArgumentException("the number of seats must be positive", nameof(NumberOfSeats));
             if (ElectoralThreshold.Numerator < 0 || ElectoralThreshold.Denominator <= 0) throw new ArgumentException($"the electoral threshold {ElectoralThreshold} must have a numerator that isn't negative and a positive denominator", nameof(ElectoralThreshold));
+            if (InvalidAndBlankVotesInElectoralThreshold < 0) throw new ArgumentException("the invalid and blank votes counted toward the electoral threshold can't be negative", nameof(InvalidAndBlankVotesInElectoralThreshold));
 
             r.TotalVotes = e.Votes.Sum();
             if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(PoliticalPartyVotes.Votes));
+            r.ElectoralThresholdVotes = checked(r.TotalVotes + InvalidAndBlankVotesInElectoralThreshold);
 
             List<int> qualifying = new List<int>();
             foreach (int iParty in e.Order)
             {
-                if (exempt.Contains(iParty) || IsAtElectoralThreshold(e.Votes[iParty], r.TotalVotes, ElectoralThreshold))
+                if (exempt.Contains(iParty) || IsAtElectoralThreshold(e.Votes[iParty], r.ElectoralThresholdVotes, ElectoralThreshold))
                     qualifying.Add(iParty);
                 else
                     r.PoliticalPartiesBelowElectoralThreshold.Add(e.Names[iParty]);
@@ -1073,10 +1116,12 @@ namespace Existence.Earth.Human.Politics
         /// <summary>
         /// whether a party's share of the vote reaches the electoral threshold, compared as fractions so it's exact
         /// </summary>
-        /// <param name="ElectoralThreshold">percentage of all valid votes needed, such as 13/4 for 3.25%</param>
-        private static bool IsAtElectoralThreshold(long votes, long totalVotes, SimpleFraction ElectoralThreshold)
+        /// <param name="electoralThresholdVotes">the votes the threshold is a percentage of, from
+        /// <see cref="SeatDistributionBase.ElectoralThresholdVotes"/></param>
+        /// <param name="ElectoralThreshold">percentage needed, such as 13/4 for 3.25%</param>
+        private static bool IsAtElectoralThreshold(long votes, long electoralThresholdVotes, SimpleFraction ElectoralThreshold)
         {
-            return new SimpleFraction(votes, totalVotes) >= ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
+            return new SimpleFraction(votes, electoralThresholdVotes) >= ElectoralThreshold.FromPercentage(); //share of the vote needed, such as 13/400 for 3.25%
         }
 
         /// <summary>

@@ -4,6 +4,7 @@
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>3.25</ElectoralThreshold>
+    <InvalidAndBlankVotes Relevant="false">29851</InvalidAndBlankVotes>
     <Parties>
       <Party Id="1" Name="Likud" Votes="1115336" AboveThreshold="true" BaseSeats="30" Seats="32" />
       <Party Id="2" Name="Yesh Atid" Votes="847435" AboveThreshold="true" BaseSeats="23" Seats="24" />
@@ -56,6 +57,7 @@
   </Input>
   <Output>
     <TotalVotes>4764742</TotalVotes>
+    <ElectoralThresholdVotes>4764742</ElectoralThresholdVotes>
     <QualifyingVotes>4347342</QualifyingVotes>
     <Quota>36227.85</Quota>
     <AnnulledSurplusVoteAgreements>

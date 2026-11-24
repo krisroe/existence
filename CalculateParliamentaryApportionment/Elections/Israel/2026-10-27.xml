@@ -4,6 +4,7 @@
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>120</NumberOfSeats>
     <ElectoralThreshold>3.25</ElectoralThreshold>
+    <InvalidAndBlankVotes Relevant="false">25971</InvalidAndBlankVotes>
     <Parties>
       <Party Id="1" Name="Likud" Votes="1167591" AboveThreshold="true" BaseSeats="26" Seats="27" />
       <Party Id="2" Name="Yashar" Votes="913629" AboveThreshold="true" BaseSeats="20" Seats="21" />
@@ -53,6 +54,7 @@
   </Input>
   <Output>
     <TotalVotes>5691426</TotalVotes>
+    <ElectoralThresholdVotes>5691426</ElectoralThresholdVotes>
     <QualifyingVotes>5384948</QualifyingVotes>
     <Quota>44874.566666666666666666666667</Quota>
     <AnnulledSurplusVoteAgreements>

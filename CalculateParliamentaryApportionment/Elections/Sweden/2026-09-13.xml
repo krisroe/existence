@@ -5,6 +5,8 @@
     <FirstDivisor Numerator="6" Denominator="5" />
     <NumberOfSeats>349</NumberOfSeats>
     <ElectoralThreshold>4</ElectoralThreshold>
+    <InvalidVotes Relevant="false">7427</InvalidVotes>
+    <BlankVotes Relevant="false">59557</BlankVotes>
     <Parties>
       <Party Id="1" Name="Social Democrats" Votes="1895989" AboveThreshold="true" Seats="99" />
       <Party Id="2" Name="Moderate Party" Votes="1343448" AboveThreshold="true" Seats="70" />
@@ -29,6 +31,7 @@
   </Input>
   <Output>
     <TotalVotes>6767429</TotalVotes>
+    <ElectoralThresholdVotes>6767429</ElectoralThresholdVotes>
     <QualifyingVotes>6660230</QualifyingVotes>
     <AnnulledSurplusVoteAgreements />
     <OrderedSeatsByRecipient>
