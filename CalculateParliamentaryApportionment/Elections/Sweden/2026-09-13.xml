@@ -37,7 +37,6 @@
     <ValidVotes>6767429</ValidVotes>
     <ElectoralThresholdVotes>6767429</ElectoralThresholdVotes>
     <QualifyingVotes>6660230</QualifyingVotes>
-    <AnnulledSurplusVoteAgreements />
     <OrderedSeatsByRecipient>
       <Recipient Name="Social Democrats" Seats="99" />
       <Recipient Name="Moderate Party" Seats="70" />

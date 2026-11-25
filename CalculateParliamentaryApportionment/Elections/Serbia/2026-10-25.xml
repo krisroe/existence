@@ -37,7 +37,6 @@
     <ElectoralThresholdVotes>4441636</ElectoralThresholdVotes>
     <QualifyingVotes>4209768</QualifyingVotes>
     <Quota>17012.7112</Quota>
-    <AnnulledSurplusVoteAgreements />
     <OrderedSeatsByRecipient>
       <Recipient Name="Student List" Seats="2" />
       <Recipient Name="Aleksandar Vučić – United Serbia" Seats="2" />

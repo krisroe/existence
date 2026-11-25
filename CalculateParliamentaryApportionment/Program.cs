@@ -802,8 +802,8 @@ namespace CalculateParliamentaryApportionment
 
         /// <summary>
         /// builds the Output element, with TurnoutPercentage only when the input has turnout, TotalVotes and
-        /// ElectoralThresholdVotes only when it has invalid or blank votes, Quota only for D'Hondt and NumberOfMembers
-        /// only with electorate seats. An empty
+        /// ElectoralThresholdVotes only when it has invalid or blank votes, Quota only for D'Hondt, NumberOfMembers only
+        /// with electorate seats and AnnulledSurplusVoteAgreements only when there are any. An empty
         /// NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat element comes last when the next seat would go to a party
         /// with overhang seats, which makes both NextOrderedSeat and VotesNeededForNextOrderedSeat irrelevant. A
         /// Performance element with each algorithm's time comes after that when timing them
@@ -822,7 +822,7 @@ namespace CalculateParliamentaryApportionment
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),
                 r is DHondtSeatDistribution dHondt ? new XElement(nameof(DHondtSeatDistribution.Quota), dHondt.Quota) : null,
                 r is SainteLagueSeatDistribution sainteLague && sainteLague.ElectorateSeats.Count > 0 ? new XElement(nameof(SainteLagueSeatDistribution.NumberOfMembers), sainteLague.NumberOfMembers) : null,
-                new XElement(nameof(SeatDistributionBase.AnnulledSurplusVoteAgreements),
+                r.AnnulledSurplusVoteAgreements.Count == 0 ? null : new XElement(nameof(SeatDistributionBase.AnnulledSurplusVoteAgreements),
                     r.AnnulledSurplusVoteAgreements.Select(a => new XElement(SurplusVoteAgreementElement, new XAttribute(Party1Attribute, a.Item1), new XAttribute(Party2Attribute, a.Item2)))),
                 new XElement(nameof(SeatDistributionBase.OrderedSeatsByRecipient),
                     r.OrderedSeatsByRecipient.Select(p => new XElement(RecipientElement, new XAttribute(NameAttribute, p.Key), new XAttribute(SeatsAttribute, p.Value)))),

@@ -36,7 +36,6 @@
     <ElectoralThresholdVotes>3815007</ElectoralThresholdVotes>
     <QualifyingVotes>3456859</QualifyingVotes>
     <Quota>14038.1794</Quota>
-    <AnnulledSurplusVoteAgreements />
     <OrderedSeatsByRecipient>
       <Recipient Name="Serbia Must Not Stop" Seats="2" />
       <Recipient Name="Serbia Against Violence" Seats="1" />
