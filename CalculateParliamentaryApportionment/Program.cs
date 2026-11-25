@@ -40,6 +40,8 @@ namespace CalculateParliamentaryApportionment
     /// information and doesn't affect the seats, and ElectoralThresholdVotes, the votes the threshold is a percentage of.
     /// The ElectoralThreshold element can have a Base attribute, an <see cref="ElectoralThresholdBase"/> saying what the
     /// threshold is a percentage of. It explains the Relevant attributes rather than replacing them, so they have to agree.
+    /// It can also have a BaseLaw attribute with what the law says the threshold is a percentage of, which can be less
+    /// specific than Base. It is for information, so it is left as it is and not used.
     /// Optional TurnoutBase and TurnoutRaw elements, which go together, are the number turnout is a percentage of and the
     /// number included in turnout. Each has a required Meaning attribute saying where the number comes from, which is a
     /// <see cref="TurnoutBaseMeaning"/> or <see cref="TurnoutRawMeaning"/>. They are for information and don't affect the
