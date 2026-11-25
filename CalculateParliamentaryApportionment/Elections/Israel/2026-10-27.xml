@@ -3,7 +3,9 @@
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>120</NumberOfSeats>
-    <ElectoralThreshold>3.25</ElectoralThreshold>
+    <ElectoralThreshold Base="ValidVotes">3.25</ElectoralThreshold>
+    <TurnoutBase Meaning="RegisteredVoters">7331981</TurnoutBase>
+    <TurnoutRaw Meaning="TotalVotes">5717397</TurnoutRaw>
     <InvalidAndBlankVotes Relevant="false">25971</InvalidAndBlankVotes>
     <Parties>
       <Party Id="1" Name="Likud" Votes="1167591" AboveThreshold="true" BaseSeats="26" Seats="27" />
@@ -53,6 +55,7 @@
     </SurplusVoteAgreements>
   </Input>
   <Output>
+    <TurnoutPercentage>77.98</TurnoutPercentage>
     <TotalVotes>5717397</TotalVotes>
     <ValidVotes>5691426</ValidVotes>
     <ElectoralThresholdVotes>5691426</ElectoralThresholdVotes>
