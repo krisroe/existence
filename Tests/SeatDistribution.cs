@@ -259,7 +259,7 @@ namespace Existence.Tests
         public void ValidateSerbia2026SeatDistribution()
         {
             DHondtSeatDistribution r = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(serbia2026Votes, new List<(string, string)>(), serbiaNumberOfSeats, serbiaElectoralThreshold, serbia2026MinorityLists, serbiaMinorityListQuotientBonus, serbia2026InvalidAndBlankVotes);
-            Assert.AreEqual(4385065, r.TotalVotes);
+            Assert.AreEqual(4385065, r.ValidVotes);
             Assert.AreEqual(4441636, r.ElectoralThresholdVotes);
             Assert.AreEqual(4209768, r.QualifyingVotes);
             CollectionAssert.AreEquivalent(new Dictionary<string, int>()
@@ -397,7 +397,7 @@ namespace Existence.Tests
         public void ValidateNewZealandV55SeatDistribution()
         {
             SainteLagueSeatDistribution r = SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(newZealandV55Votes, new List<(string, string)>(), 120, newZealandElectoralThreshold, null, newZealandV55ElectorateSeats);
-            Assert.AreEqual(2418565, r.TotalVotes);
+            Assert.AreEqual(2418565, r.ValidVotes);
             CollectionAssert.AreEquivalent(new Dictionary<string, int>()
             {
                 { "Labour", 36 }, { "National", 35 }, { "Green", 16 }, { "ACT", 13 }, { "NewZealandFirst", 12 }, { "Opportunity", 7 }, { "TePātiMāori", 1 },
@@ -493,7 +493,7 @@ namespace Existence.Tests
             Assert.AreEqual(10000, dHondt.ElectoralThresholdVotes);
             CollectionAssert.Contains(dHondt.Seats.Keys, "B");
             DHondtSeatDistribution dHondtWithInvalid = SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(votes, agreements, 10, knessetV25ElectoralThreshold, InvalidAndBlankVotesInElectoralThreshold: 1);
-            Assert.AreEqual(10000, dHondtWithInvalid.TotalVotes);
+            Assert.AreEqual(10000, dHondtWithInvalid.ValidVotes);
             Assert.AreEqual(10001, dHondtWithInvalid.ElectoralThresholdVotes);
             CollectionAssert.Contains(dHondtWithInvalid.PoliticalPartiesBelowElectoralThreshold, "B");
 

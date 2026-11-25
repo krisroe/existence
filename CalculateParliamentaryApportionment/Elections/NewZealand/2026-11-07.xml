@@ -25,7 +25,7 @@
     </Parties>
   </Input>
   <Output>
-    <TotalVotes>2418565</TotalVotes>
+    <ValidVotes>2418565</ValidVotes>
     <QualifyingVotes>2397806</QualifyingVotes>
     <NumberOfMembers>131</NumberOfMembers>
     <AnnulledSurplusVoteAgreements />

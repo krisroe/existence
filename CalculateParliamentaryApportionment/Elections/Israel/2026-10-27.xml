@@ -53,7 +53,8 @@
     </SurplusVoteAgreements>
   </Input>
   <Output>
-    <TotalVotes>5691426</TotalVotes>
+    <TotalVotes>5717397</TotalVotes>
+    <ValidVotes>5691426</ValidVotes>
     <ElectoralThresholdVotes>5691426</ElectoralThresholdVotes>
     <QualifyingVotes>5384948</QualifyingVotes>
     <Quota>44874.566666666666666666666667</Quota>

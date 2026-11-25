@@ -36,7 +36,8 @@ namespace CalculateParliamentaryApportionment
     /// with InvalidAndBlankVotes for a count that doesn't separate them, so it can't be used with the other two. Each
     /// has a required Relevant attribute saying whether those ballots count toward the electoral threshold, as in
     /// Serbia, where it is a percentage of everyone who voted, rather than only of the valid votes. With any of them the
-    /// Output element gets ElectoralThresholdVotes, the votes the threshold is a percentage of.
+    /// Output element gets TotalVotes, the valid votes plus all of those ballots whether relevant or not, which is for
+    /// information and doesn't affect the seats, and ElectoralThresholdVotes, the votes the threshold is a percentage of.
     /// The ElectoralThreshold element can have a Base attribute, an <see cref="ElectoralThresholdBase"/> saying what the
     /// threshold is a percentage of. It explains the Relevant attributes rather than replacing them, so they have to agree.
     /// Optional TurnoutBase and TurnoutRaw elements, which go together, are the number turnout is a percentage of and the
@@ -125,6 +126,7 @@ namespace CalculateParliamentaryApportionment
         private const string InvalidVotesElement = "InvalidVotes";
         private const string BlankVotesElement = "BlankVotes";
         private const string RelevantAttribute = "Relevant";
+        private const string TotalVotesElement = "TotalVotes";
         private const string TurnoutBaseElement = "TurnoutBase";
         private const string TurnoutRawElement = "TurnoutRaw";
         private const string TurnoutPercentageElement = "TurnoutPercentage";
@@ -635,6 +637,13 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
+        /// gets all the ballots in the InvalidAndBlankVotes, InvalidVotes and BlankVotes elements, whether or not they
+        /// count toward the electoral threshold. They are validated by
+        /// <see cref="ReadInvalidAndBlankVotesInElectoralThreshold"/>
+        /// </summary>
+        private static long GetInvalidAndBlankVotes(XElement input) => InvalidAndBlankVotesElements.Sum(n => (long?)input.Element(n) ?? 0);
+
+        /// <summary>
         /// what the electoral threshold is a percentage of
         /// </summary>
         private enum ElectoralThresholdBase
@@ -697,6 +706,12 @@ namespace CalculateParliamentaryApportionment
             /// ballots found in the ballot boxes, valid or not
             /// </summary>
             BallotsInBoxes,
+
+            /// <summary>
+            /// valid, invalid and blank votes added together, where the source only gives those rather than a count of
+            /// voters or of ballots in boxes
+            /// </summary>
+            TotalVotes,
         }
 
         /// <summary>
@@ -784,13 +799,14 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// builds the Output element, with TurnoutPercentage only when the input has turnout, ElectoralThresholdVotes only
-        /// when it has invalid or blank votes, Quota only for D'Hondt and NumberOfMembers only with electorate seats. An empty
+        /// builds the Output element, with TurnoutPercentage only when the input has turnout, TotalVotes and
+        /// ElectoralThresholdVotes only when it has invalid or blank votes, Quota only for D'Hondt and NumberOfMembers
+        /// only with electorate seats. An empty
         /// NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat element comes last when the next seat would go to a party
         /// with overhang seats, which makes both NextOrderedSeat and VotesNeededForNextOrderedSeat irrelevant. A
         /// Performance element with each algorithm's time comes after that when timing them
         /// </summary>
-        /// <param name="input">the Input element, to see whether it has invalid or blank votes</param>
+        /// <param name="input">the Input element, for its invalid and blank votes</param>
         /// <param name="turnoutPercentage">the turnout percentage, or null to leave it out</param>
         /// <param name="performance">how many times the algorithms ran, or null if performance isn't included</param>
         /// <param name="results">the algorithms with how long each took</param>
@@ -798,7 +814,8 @@ namespace CalculateParliamentaryApportionment
         {
             return new XElement(OutputElement,
                 turnoutPercentage == null ? null : new XElement(TurnoutPercentageElement, turnoutPercentage),
-                new XElement(nameof(SeatDistributionBase.TotalVotes), r.TotalVotes),
+                HasInvalidOrBlankVotes(input) ? new XElement(TotalVotesElement, checked(r.ValidVotes + GetInvalidAndBlankVotes(input))) : null,
+                new XElement(nameof(SeatDistributionBase.ValidVotes), r.ValidVotes),
                 HasInvalidOrBlankVotes(input) ? new XElement(nameof(SeatDistributionBase.ElectoralThresholdVotes), r.ElectoralThresholdVotes) : null,
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),
                 r is DHondtSeatDistribution dHondt ? new XElement(nameof(DHondtSeatDistribution.Quota), dHondt.Quota) : null,

@@ -4,7 +4,9 @@
     <Method Algorithms="OrderedSeats,QuotientTable,DivisorRounding">Sainte-Laguë</Method>
     <FirstDivisor Numerator="6" Denominator="5" />
     <NumberOfSeats>349</NumberOfSeats>
-    <ElectoralThreshold>4</ElectoralThreshold>
+    <ElectoralThreshold Base="ValidVotes">4</ElectoralThreshold>
+    <TurnoutBase Meaning="RegisteredVoters">8051355</TurnoutBase>
+    <TurnoutRaw Meaning="TotalVotes">6834413</TurnoutRaw>
     <InvalidVotes Relevant="false">7427</InvalidVotes>
     <BlankVotes Relevant="false">59557</BlankVotes>
     <Parties>
@@ -30,7 +32,9 @@
     </Parties>
   </Input>
   <Output>
-    <TotalVotes>6767429</TotalVotes>
+    <TurnoutPercentage>84.89</TurnoutPercentage>
+    <TotalVotes>6834413</TotalVotes>
+    <ValidVotes>6767429</ValidVotes>
     <ElectoralThresholdVotes>6767429</ElectoralThresholdVotes>
     <QualifyingVotes>6660230</QualifyingVotes>
     <AnnulledSurplusVoteAgreements />

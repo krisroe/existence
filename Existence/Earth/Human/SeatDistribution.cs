@@ -121,10 +121,10 @@ namespace Existence.Earth.Human.Politics
         /// <summary>
         /// valid votes for all parties
         /// </summary>
-        public long TotalVotes { get; set; }
+        public long ValidVotes { get; set; }
 
         /// <summary>
-        /// the votes the electoral threshold is a percentage of: <see cref="TotalVotes"/>, plus any invalid and blank
+        /// the votes the electoral threshold is a percentage of: <see cref="ValidVotes"/>, plus any invalid and blank
         /// ballots that count toward it
         /// </summary>
         public long ElectoralThresholdVotes { get; set; }
@@ -1081,7 +1081,7 @@ namespace Existence.Earth.Human.Politics
 
         /// <summary>
         /// validates the inputs common to all the methods and applies the electoral threshold, filling in
-        /// <see cref="SeatDistributionBase.TotalVotes"/>, <see cref="SeatDistributionBase.ElectoralThresholdVotes"/>,
+        /// <see cref="SeatDistributionBase.ValidVotes"/>, <see cref="SeatDistributionBase.ElectoralThresholdVotes"/>,
         /// <see cref="SeatDistributionBase.QualifyingVotes"/> and
         /// <see cref="SeatDistributionBase.PoliticalPartiesBelowElectoralThreshold"/>
         /// </summary>
@@ -1096,9 +1096,9 @@ namespace Existence.Earth.Human.Politics
             if (ElectoralThreshold.Numerator < 0 || ElectoralThreshold.Denominator <= 0) throw new ArgumentException($"the electoral threshold {ElectoralThreshold} must have a numerator that isn't negative and a positive denominator", nameof(ElectoralThreshold));
             if (InvalidAndBlankVotesInElectoralThreshold < 0) throw new ArgumentException("the invalid and blank votes counted toward the electoral threshold can't be negative", nameof(InvalidAndBlankVotesInElectoralThreshold));
 
-            r.TotalVotes = e.Parties.Sum(p => p.Votes);
-            if (r.TotalVotes <= 0) throw new ArgumentException("there are no votes", nameof(PoliticalPartyVotes.Votes));
-            r.ElectoralThresholdVotes = checked(r.TotalVotes + InvalidAndBlankVotesInElectoralThreshold);
+            r.ValidVotes = e.Parties.Sum(p => p.Votes);
+            if (r.ValidVotes <= 0) throw new ArgumentException("there are no votes", nameof(PoliticalPartyVotes.Votes));
+            r.ElectoralThresholdVotes = checked(r.ValidVotes + InvalidAndBlankVotesInElectoralThreshold);
 
             List<Party> qualifying = new List<Party>();
             foreach (Party next in e.Parties)
