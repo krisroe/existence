@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Election>
+  <Input>
+    <Method Algorithms="Base">D'Hondt</Method>
+    <NumberOfSeats>250</NumberOfSeats>
+    <ElectoralThreshold Base="BallotsInBoxes">3</ElectoralThreshold>
+    <TurnoutBase Meaning="RegisteredVoters">6500666</TurnoutBase>
+    <TurnoutRaw Meaning="VotersSignedIn">3820746</TurnoutRaw>
+    <InvalidAndBlankVotes Relevant="true">104029</InvalidAndBlankVotes>
+    <MinorityListQuotientBonus>35</MinorityListQuotientBonus>
+    <Parties>
+      <Party Id="1" Name="Serbia Must Not Stop" Votes="1783701" AboveThreshold="true" BaseSeats="127" Seats="129" />
+      <Party Id="2" Name="Serbia Against Violence" Votes="902450" AboveThreshold="true" BaseSeats="64" Seats="65" />
+      <Party Id="3" Name="SPS–JS–Zeleni" Votes="249916" AboveThreshold="true" BaseSeats="17" Seats="18" />
+      <Party Id="4" Name="National Democratic Alternative" Votes="191431" AboveThreshold="true" BaseSeats="13" Seats="13" />
+      <Party Id="5" Name="We – Voice from the People" Votes="178830" AboveThreshold="true" BaseSeats="12" Seats="13" />
+      <Party Id="6" Name="National Gathering" Votes="105165" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="7" Name="Alliance of Vojvodina Hungarians" Votes="64747" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="6" Seats="6" />
+      <Party Id="8" Name="Serbian Radical Party" Votes="55782" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="9" Name="Good Morning Serbia" Votes="45079" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="10" Name="People's Party" Votes="33388" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="11" Name="SPP–DSHV" Votes="29066" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="2" Seats="2" />
+      <Party Id="12" Name="Party of Democratic Action of Sandžak" Votes="21827" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="2" Seats="2" />
+      <Party Id="13" Name="Political Struggle of the Albanians Continues" Votes="13501" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="1" Seats="1" />
+      <Party Id="14" Name="RS–NKPJ" Votes="11369" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="1" Seats="1" />
+      <Party Id="15" Name="It Must Be Different" Votes="9243" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="16" Name="Coalition for Peace and Tolerance" Votes="6786" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+      <Party Id="17" Name="Nova–D2SP–GDF–Libdem–Glas" Votes="5462" AboveThreshold="false" BaseSeats="0" Seats="0" />
+      <Party Id="18" Name="Albanian Democratic Alternative" Votes="3235" MinorityList="true" AboveThreshold="true" QuotientBonus="true" BaseSeats="0" Seats="0" />
+    </Parties>
+  </Input>
+  <Output>
+    <TurnoutPercentage>58.77</TurnoutPercentage>
+    <TotalVotes>3710978</TotalVotes>
+    <ElectoralThresholdVotes>3815007</ElectoralThresholdVotes>
+    <QualifyingVotes>3456859</QualifyingVotes>
+    <Quota>14038.1794</Quota>
+    <AnnulledSurplusVoteAgreements />
+    <OrderedSeatsByRecipient>
+      <Recipient Name="Serbia Must Not Stop" Seats="2" />
+      <Recipient Name="Serbia Against Violence" Seats="1" />
+      <Recipient Name="SPS–JS–Zeleni" Seats="1" />
+      <Recipient Name="National Democratic Alternative" Seats="0" />
+      <Recipient Name="We – Voice from the People" Seats="1" />
+      <Recipient Name="Alliance of Vojvodina Hungarians" Seats="0" />
+      <Recipient Name="SPP–DSHV" Seats="0" />
+      <Recipient Name="Party of Democratic Action of Sandžak" Seats="0" />
+      <Recipient Name="Political Struggle of the Albanians Continues" Seats="0" />
+      <Recipient Name="RS–NKPJ" Seats="0" />
+      <Recipient Name="Coalition for Peace and Tolerance" Seats="0" />
+      <Recipient Name="Albanian Democratic Alternative" Seats="0" />
+    </OrderedSeatsByRecipient>
+    <OrderedSeats>
+      <OrderedSeat SeatNumber="246" PoliticalParty="Serbia Must Not Stop" DivisorCalculation="1*127 + 1" Divisor="128" Quotient="13935.1640625">
+        <Recipient Name="Serbia Must Not Stop" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="247" PoliticalParty="SPS–JS–Zeleni" DivisorCalculation="1*17 + 1" Divisor="18" Quotient="13884.222222222222222222222222">
+        <Recipient Name="SPS–JS–Zeleni" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="248" PoliticalParty="Serbia Against Violence" DivisorCalculation="1*64 + 1" Divisor="65" Quotient="13883.846153846153846153846154">
+        <Recipient Name="Serbia Against Violence" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="249" PoliticalParty="Serbia Must Not Stop" DivisorCalculation="1*128 + 1" Divisor="129" Quotient="13827.13953488372093023255814">
+        <Recipient Name="Serbia Must Not Stop" />
+      </OrderedSeat>
+      <OrderedSeat SeatNumber="250" PoliticalParty="We – Voice from the People" DivisorCalculation="1*12 + 1" Divisor="13" Quotient="13756.153846153846153846153846">
+        <Recipient Name="We – Voice from the People" />
+      </OrderedSeat>
+    </OrderedSeats>
+    <NextOrderedSeat SeatNumber="251" PoliticalParty="Serbia Must Not Stop" DivisorCalculation="1*129 + 1" Divisor="130" Quotient="13720.776923076923076923076923">
+      <Recipient Name="Serbia Must Not Stop" />
+    </NextOrderedSeat>
+    <VotesNeededForNextOrderedSeat>4599</VotesNeededForNextOrderedSeat>
+  </Output>
+</Election>

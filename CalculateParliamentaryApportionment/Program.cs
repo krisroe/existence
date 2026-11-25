@@ -37,6 +37,14 @@ namespace CalculateParliamentaryApportionment
     /// has a required Relevant attribute saying whether those ballots count toward the electoral threshold, as in
     /// Serbia, where it is a percentage of everyone who voted, rather than only of the valid votes. With any of them the
     /// Output element gets ElectoralThresholdVotes, the votes the threshold is a percentage of.
+    /// The ElectoralThreshold element can have a Base attribute, an <see cref="ElectoralThresholdBase"/> saying what the
+    /// threshold is a percentage of. It explains the Relevant attributes rather than replacing them, so they have to agree.
+    /// Optional TurnoutBase and TurnoutRaw elements, which go together, are the number turnout is a percentage of and the
+    /// number included in turnout. Each has a required Meaning attribute saying where the number comes from, which is a
+    /// <see cref="TurnoutBaseMeaning"/> or <see cref="TurnoutRawMeaning"/>. They are for information and don't affect the
+    /// seats. With them the Output element gets TurnoutPercentage, rounded to 2 decimal places.
+    /// An optional RulesChanges element has text explaining changes to the rules since the previous election. It is for
+    /// information, so it is left as it is and not used.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
     /// Sainte-Laguë:
@@ -117,6 +125,11 @@ namespace CalculateParliamentaryApportionment
         private const string InvalidVotesElement = "InvalidVotes";
         private const string BlankVotesElement = "BlankVotes";
         private const string RelevantAttribute = "Relevant";
+        private const string TurnoutBaseElement = "TurnoutBase";
+        private const string TurnoutRawElement = "TurnoutRaw";
+        private const string TurnoutPercentageElement = "TurnoutPercentage";
+        private const string MeaningAttribute = "Meaning";
+        private const string BaseAttribute = "Base";
         private const string DHondtMethod = "D'Hondt";
         private const string SainteLagueMethod = "Sainte-Laguë";
         private const string AlgorithmsAttribute = "Algorithms";
@@ -247,6 +260,8 @@ namespace CalculateParliamentaryApportionment
                     List<int> minorityLists = ReadMinorityLists(input, parties);
                     XElement? minorityListQuotientBonus = input.Element(MinorityListQuotientBonusElement);
                     long lInvalidAndBlankVotes = ReadInvalidAndBlankVotesInElectoralThreshold(input);
+                    CheckElectoralThresholdBase(input);
+                    decimal? turnoutPercentage = ReadTurnoutPercentage(input);
                     XElement method = GetRequiredElement(input, MethodElement);
                     string sMethod = (string)method;
                     PerformanceRuns? performance = ReadPerformanceRuns(input);
@@ -291,7 +306,7 @@ namespace CalculateParliamentaryApportionment
                         SeatDistributionBase r = GetVerifiedResult(input, results);
                         WritePartyResults(input, r);
                         doc.Root!.Element(OutputElement)?.Remove();
-                        input.AddAfterSelf(BuildOutput(input, r, performance, results));
+                        input.AddAfterSelf(BuildOutput(input, r, turnoutPercentage, performance, results));
                         doc.Save(sPath);
                         rc = 0;
                     }
@@ -518,8 +533,8 @@ namespace CalculateParliamentaryApportionment
                 if (!XNode.DeepEquals(nextExpected, nextActual)) return $"results for {(string?)nextExpected.Attribute(NameAttribute)}";
             }
 
-            XElement expectedOutput = BuildOutput(input, expected, null, []);
-            XElement actualOutput = BuildOutput(input, actual, null, []);
+            XElement expectedOutput = BuildOutput(input, expected, null, null, []);
+            XElement actualOutput = BuildOutput(input, actual, null, null, []);
             if (!compareOrderedSeats)
             {
                 expectedOutput.Element(nameof(SeatDistributionBase.OrderedSeats))?.Remove();
@@ -620,6 +635,106 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
+        /// what the electoral threshold is a percentage of
+        /// </summary>
+        private enum ElectoralThresholdBase
+        {
+            /// <summary>
+            /// valid votes for all parties
+            /// </summary>
+            ValidVotes,
+
+            /// <summary>
+            /// ballots found in the ballot boxes, valid or not
+            /// </summary>
+            BallotsInBoxes,
+        }
+
+        /// <summary>
+        /// checks that the ElectoralThreshold element's optional Base attribute agrees with which invalid and blank votes
+        /// are relevant: none for valid votes, and all of them, with at least one given, for ballots in boxes
+        /// </summary>
+        private static void CheckElectoralThresholdBase(XElement input)
+        {
+            XElement threshold = GetRequiredElement(input, ElectoralThresholdElement);
+            if (threshold.Attribute(BaseAttribute) != null)
+            {
+                ElectoralThresholdBase thresholdBase = ReadEnum<ElectoralThresholdBase>(threshold, BaseAttribute);
+                List<bool> relevant = InvalidAndBlankVotesElements.Select(n => input.Element(n)).OfType<XElement>().Select(e => (bool)GetRequiredAttribute(e, RelevantAttribute)).ToList();
+                bool agrees = thresholdBase switch
+                {
+                    ElectoralThresholdBase.ValidVotes => !relevant.Contains(true),
+                    ElectoralThresholdBase.BallotsInBoxes => relevant.Count > 0 && !relevant.Contains(false),
+                    _ => throw new InvalidOperationException($"unexpected {BaseAttribute} {thresholdBase}"),
+                };
+                if (!agrees) throw new FormatException($"{BaseAttribute}=\"{thresholdBase}\" for {ElectoralThresholdElement} doesn't agree with the {RelevantAttribute} attributes of the invalid and blank votes");
+            }
+        }
+
+        /// <summary>
+        /// what the TurnoutBase element counts
+        /// </summary>
+        private enum TurnoutBaseMeaning
+        {
+            /// <summary>
+            /// people on the voter list
+            /// </summary>
+            RegisteredVoters,
+        }
+
+        /// <summary>
+        /// what the TurnoutRaw element counts
+        /// </summary>
+        private enum TurnoutRawMeaning
+        {
+            /// <summary>
+            /// people recorded on the voter list as having come to vote, such as by signing it, whether or not they cast a
+            /// ballot
+            /// </summary>
+            VotersSignedIn,
+
+            /// <summary>
+            /// ballots found in the ballot boxes, valid or not
+            /// </summary>
+            BallotsInBoxes,
+        }
+
+        /// <summary>
+        /// reads a required attribute that has to be the name of one of the values of an enum
+        /// </summary>
+        private static T ReadEnum<T>(XElement element, string sAttribute) where T : struct, Enum
+        {
+            string sValue = (string)GetRequiredAttribute(element, sAttribute);
+            string[] names = Enum.GetNames<T>(); //parsing on its own would also allow numbers
+            if (!names.Contains(sValue)) throw new FormatException($"{sAttribute} for {element.Name} can only be {string.Join(", ", names)}, not \"{sValue}\"");
+            return Enum.Parse<T>(sValue);
+        }
+
+        /// <summary>
+        /// reads the optional TurnoutBase and TurnoutRaw elements, which have to be given together, and works out the
+        /// turnout from them. Their Meaning attributes are checked but otherwise only for information
+        /// </summary>
+        /// <returns>the turnout percentage rounded to 2 decimal places, or null if the elements aren't there</returns>
+        private static decimal? ReadTurnoutPercentage(XElement input)
+        {
+            decimal? ret = null;
+            XElement? turnoutBase = input.Element(TurnoutBaseElement);
+            XElement? turnoutRaw = input.Element(TurnoutRawElement);
+            if ((turnoutBase == null) != (turnoutRaw == null)) throw new FormatException($"{TurnoutBaseElement} and {TurnoutRawElement} have to be given together");
+            if (turnoutBase != null && turnoutRaw != null)
+            {
+                ReadEnum<TurnoutBaseMeaning>(turnoutBase, MeaningAttribute);
+                ReadEnum<TurnoutRawMeaning>(turnoutRaw, MeaningAttribute);
+                long lBase = (long)turnoutBase;
+                long lRaw = (long)turnoutRaw;
+                if (lBase <= 0) throw new FormatException($"{TurnoutBaseElement} must be positive, not {lBase}");
+                if (lRaw < 0 || lRaw > lBase) throw new FormatException($"{TurnoutRawElement} must be from 0 to {TurnoutBaseElement} ({lBase}), not {lRaw}");
+                ret = Math.Round(lRaw * 100m / lBase, 2, MidpointRounding.AwayFromZero);
+            }
+            return ret;
+        }
+
+        /// <summary>
         /// sets the result attributes of each party, replacing any existing ones. Parties below the electoral threshold
         /// get no seats, so they aren't in the seat dictionaries. BaseSeats is removed for a method without base seats,
         /// ListSeats, OverhangSeats and TotalSeats are removed without electorate seats, and QuotientBonus is only on
@@ -669,18 +784,20 @@ namespace CalculateParliamentaryApportionment
         }
 
         /// <summary>
-        /// builds the Output element, with ElectoralThresholdVotes only when the input has invalid or blank votes, Quota
-        /// only for D'Hondt and NumberOfMembers only with electorate seats. An empty
+        /// builds the Output element, with TurnoutPercentage only when the input has turnout, ElectoralThresholdVotes only
+        /// when it has invalid or blank votes, Quota only for D'Hondt and NumberOfMembers only with electorate seats. An empty
         /// NextOrderedSeatIrrelevantBecausePartyHasOverhangSeat element comes last when the next seat would go to a party
         /// with overhang seats, which makes both NextOrderedSeat and VotesNeededForNextOrderedSeat irrelevant. A
         /// Performance element with each algorithm's time comes after that when timing them
         /// </summary>
         /// <param name="input">the Input element, to see whether it has invalid or blank votes</param>
+        /// <param name="turnoutPercentage">the turnout percentage, or null to leave it out</param>
         /// <param name="performance">how many times the algorithms ran, or null if performance isn't included</param>
         /// <param name="results">the algorithms with how long each took</param>
-        private static XElement BuildOutput(XElement input, SeatDistributionBase r, PerformanceRuns? performance, List<AlgorithmResult> results)
+        private static XElement BuildOutput(XElement input, SeatDistributionBase r, decimal? turnoutPercentage, PerformanceRuns? performance, List<AlgorithmResult> results)
         {
             return new XElement(OutputElement,
+                turnoutPercentage == null ? null : new XElement(TurnoutPercentageElement, turnoutPercentage),
                 new XElement(nameof(SeatDistributionBase.TotalVotes), r.TotalVotes),
                 HasInvalidOrBlankVotes(input) ? new XElement(nameof(SeatDistributionBase.ElectoralThresholdVotes), r.ElectoralThresholdVotes) : null,
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),

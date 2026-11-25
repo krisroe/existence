@@ -3,9 +3,12 @@
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>250</NumberOfSeats>
-    <ElectoralThreshold>3</ElectoralThreshold>
+    <ElectoralThreshold Base="BallotsInBoxes">3</ElectoralThreshold>
+    <TurnoutBase Meaning="RegisteredVoters">6451292</TurnoutBase>
+    <TurnoutRaw Meaning="VotersSignedIn">4444310</TurnoutRaw>
     <InvalidAndBlankVotes Relevant="true">56571</InvalidAndBlankVotes>
     <MinorityListQuotientBonus>35</MinorityListQuotientBonus>
+    <RulesChanges>The May 2026 amendments to the Law on the Election of Members of Parliament let groups of citizens submit national minority lists, which before could only be submitted by a political party of a national minority or a coalition made up only of such parties. They also made the criteria for national minority list status more specific. This does not change how the seats are calculated.</RulesChanges>
     <Parties>
       <Party Id="1" Name="Student List" Votes="2354417" AboveThreshold="true" BaseSeats="138" Seats="140" />
       <Party Id="2" Name="Aleksandar Vučić – United Serbia" Votes="1731323" AboveThreshold="true" BaseSeats="101" Seats="103" />
@@ -28,6 +31,7 @@
     </Parties>
   </Input>
   <Output>
+    <TurnoutPercentage>68.89</TurnoutPercentage>
     <TotalVotes>4385065</TotalVotes>
     <ElectoralThresholdVotes>4441636</ElectoralThresholdVotes>
     <QualifyingVotes>4209768</QualifyingVotes>
