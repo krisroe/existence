@@ -3814,6 +3814,23 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 }
 
 /// <summary>
+/// date a death was first reported, where the report came from the Israel Defence Forces (alone or jointly with the Shin Bet)
+/// </summary>
+internal class DeathDateReportedByIDFAttribute : DeathDateReportedAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Year">year the IDF reported the death</param>
+    /// <param name="Month">month the IDF reported the death</param>
+    /// <param name="Day">day the IDF reported the death</param>
+    /// <param name="Overnight">true when the death took place overnight before the report</param>
+    public DeathDateReportedByIDFAttribute(int Year, int Month, int Day, bool Overnight = false) : base(Year, Month, Day, Overnight)
+    {
+    }
+}
+
+/// <summary>
 /// a target who was still alive when the term of <see cref="IsraeliPoliticians.NetanyahuBenjamin"/> as prime minister of Israel ended,
 /// which is the end date of the <see cref="IsraeliAssassinationTarget"/> list
 /// </summary>
@@ -3927,7 +3944,7 @@ internal enum IsraeliAssassinationTarget
     AbiyarSaeed,
 
     /// <summary>
-    /// Killed in an IDF airstrike based on Shin Bet and military intelligence (reported 2023-10-31). The IDF said he commanded
+    /// Killed in an IDF airstrike based on Shin Bet and military intelligence. The IDF said he commanded
     /// the October 7 attacks on <see cref="IsraeliKibbutz.Erez"/> and <see cref="IsraeliMoshav.NetivHaAsara"/>. Previously commanded
     /// Hamas's aerial forces (<see cref="PalestinianMilitantSpecialty.Aerial"/>), working on its drones and paragliders.
     /// </summary>
@@ -3937,6 +3954,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.SpadesFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReportedByIDF(2023, 10, 31)]
     AbuAjinaNasim,
 
     /// <summary>
@@ -3947,7 +3965,8 @@ internal enum IsraeliAssassinationTarget
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
-    [DeathDate(2026, 11, 25)]
+    [DeathDate(2026, 11)]
+    [DeathDateReported(2026, 11, 25, Overnight: true)]
     AbueloufMohammad,
 
     /// <summary>
@@ -3975,7 +3994,7 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Killed in an Israeli air strike in the first days of the war that killed two members of Hamas's political office,
-    /// according to a Hamas official (reported 2023-10-10).
+    /// according to a Hamas official.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3984,6 +4003,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.DiamondsNine)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReported(2023, 10, 10)]
     AbuMaamarZakaria,
 
     /// <summary>
@@ -4034,14 +4054,15 @@ internal enum IsraeliAssassinationTarget
     AbuObeidNael,
 
     /// <summary>
-    /// Killed by Israeli fighter jets, according to Israel (reported 2023-10-28).
+    /// Killed by Israeli fighter jets in an overnight operation, according to Israel.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Aerial)]
     [HamasMostWanted(StandardPlayingCard.HeartsKing)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 10)] //reported 2023-10-28, IDF reported killed in overnight operation
+    [DeathDate(2023, 10)]
+    [DeathDateReportedByIDF(2023, 10, 28, Overnight: true)]
     AbuRakabaAsem,
 
     /// <summary>
@@ -4270,7 +4291,7 @@ internal enum IsraeliAssassinationTarget
     AlSaharIbrahim,
 
     /// <summary>
-    /// Killed in an IDF strike in July 2024 that the IDF only announced on 2024-10-03, three months later, together with the death
+    /// Killed in an IDF strike in July 2024 that the IDF only announced three months later, together with the death
     /// of <see cref="MushtahaRawhi"/>. Arab media had reported in August 2024 that the strike hit a tunnel under Gaza City and killed
     /// five Hamas leaders.
     /// </summary>
@@ -4281,6 +4302,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.SpadesQueen)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 7)]
+    [DeathDateReportedByIDF(2024, 10, 3)]
     AlSarrajSameh,
 
     /// <summary>
@@ -4293,7 +4315,7 @@ internal enum IsraeliAssassinationTarget
     AlTawilWissam,
 
     /// <summary>
-    /// Killed by Israeli Air Force fighter jets under Shin Bet guidance, according to the IDF and Shin Bet (reported 2023-10-18).
+    /// Killed by Israeli Air Force fighter jets under Shin Bet guidance, according to the IDF and Shin Bet.
     /// The same statement announced the killing of <see cref="HijaziAkram"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -4302,6 +4324,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.DiamondsTwo)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReportedByIDF(2023, 10, 18)]
     AlwadiaMohammed,
 
     /// <summary>
@@ -4322,7 +4345,7 @@ internal enum IsraeliAssassinationTarget
     AsadiSaleh,
 
     /// <summary>
-    /// Killed during the war, according to the IDF (reported 2023-11-13).
+    /// Killed during the war, according to the IDF.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4330,10 +4353,11 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.SpadesThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
+    [DeathDateReportedByIDF(2023, 11, 13)]
     AshurYakub,
 
     /// <summary>
-    /// Killed by Israeli forces, who announced his death on 2026-05-29 and said he was involved in the October 7 attacks; the date,
+    /// Killed by Israeli forces, who said he was involved in the October 7 attacks; the date,
     /// place and method of the killing were not given. Deputy commander of the Gaza City Brigade; also commanded the
     /// <see cref="HamasMilitaryBattalion.Zaytoun"/> Battalion from May 2021, after Israel killed its previous commander.
     /// </summary>
@@ -4342,6 +4366,7 @@ internal enum IsraeliAssassinationTarget
     [PalestinianMilitantCommanderDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2026, 5)]
+    [DeathDateReportedByIDF(2026, 5, 29)]
     AslimImadHassanHussein,
 
     /// <summary>
@@ -4375,7 +4400,7 @@ internal enum IsraeliAssassinationTarget
     AyyashSalim,
 
     /// <summary>
-    /// Killed by the IDF while hiding in a school in Gaza, according to the IDF (reported 2024-08-05).
+    /// Killed by the IDF while hiding in a school in Gaza, according to the IDF.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4383,6 +4408,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.DiamondsFive)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 8)]
+    [DeathDateReportedByIDF(2024, 8, 5)]
     AzizJaber,
 
     /// <summary>
@@ -4403,7 +4429,7 @@ internal enum IsraeliAssassinationTarget
     BarjiAliHussein,
 
     /// <summary>
-    /// Killed by the IDF, according to the IDF (reported 2023-10-26).
+    /// Killed by the IDF, according to the IDF.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4411,6 +4437,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.ClubsEight)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReportedByIDF(2023, 10, 26)]
     BaroudShadi,
 
     /// <summary>
@@ -4425,7 +4452,7 @@ internal enum IsraeliAssassinationTarget
     BiariIbrahim,
 
     /// <summary>
-    /// Killed in IDF airstrikes on Gaza (reported 2023-11-03).
+    /// Killed in IDF airstrikes on Gaza.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4433,6 +4460,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.ClubsFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
+    [DeathDateReported(2023, 11, 3)]
     DalulMustafa,
 
     /// <summary>
@@ -4540,7 +4568,7 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Weapons dealer, financier and coordinator of attacks in Israel, and active in Hamas's naval operations. Killed by the IDF
-    /// under Shin Bet guidance, according to the IDF and Shin Bet, who announced his death on 2023-10-18 in the same statement as
+    /// under Shin Bet guidance, according to the IDF and Shin Bet, who announced his death in the same statement as
     /// that of <see cref="AlwadiaMohammed"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -4548,6 +4576,7 @@ internal enum IsraeliAssassinationTarget
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReportedByIDF(2023, 10, 18)]
     HijaziAkram,
 
     /// <summary>
@@ -4669,11 +4698,12 @@ internal enum IsraeliAssassinationTarget
     [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisWest)]
     [HamasMostWanted(StandardPlayingCard.SpadesTwo)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 10)] //reported 2023-10-27
+    [DeathDate(2023, 10)]
+    [DeathDateReported(2023, 10, 27, Overnight: true)]
     MabasherMadhat,
 
     /// <summary>
-    /// Killed in an IDF airstrike (reported 2023-10-25). Previously commanded Hamas's naval force (<see cref="PalestinianMilitantSpecialty.Naval"/>).
+    /// Killed in an IDF airstrike. Previously commanded Hamas's naval force (<see cref="PalestinianMilitantSpecialty.Naval"/>).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4681,6 +4711,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.SpadesFour)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
+    [DeathDateReported(2023, 10, 25)]
     MabasherTaysir,
 
     /// <summary>
@@ -4758,6 +4789,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.ClubsKing)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 7)]
+    [DeathDateReportedByIDF(2024, 10, 3)]
     MushtahaRawhi,
 
     /// <summary>
@@ -5020,7 +5052,7 @@ internal enum IsraeliAssassinationTarget
     ShahriyariBehnam,
 
     /// <summary>
-    /// Killed in IDF airstrikes on Gaza that also killed a Hamas battalion commander, according to the IDF (reported 2025-03-23),
+    /// Killed in IDF airstrikes on Gaza that also killed a Hamas battalion commander, according to the IDF,
     /// days after Israel resumed fighting on 2025-03-18 and ended the January 2025 ceasefire.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -5029,6 +5061,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.SpadesEight)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2025, 3)]
+    [DeathDateReportedByIDF(2025, 3, 23)]
     ShamaliAhmed,
 
     /// <summary>
@@ -5115,7 +5148,7 @@ internal enum IsraeliAssassinationTarget
     SinwarYahya,
 
     /// <summary>
-    /// Killed with his deputy in an IDF strike (reported 2024-01-06). The IDF said his battalion led the October 7 attack on <see cref="IsraeliKibbutz.Beeri"/>.
+    /// Killed with his deputy in an IDF strike. The IDF said his battalion led the October 7 attack on <see cref="IsraeliKibbutz.Beeri"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -5123,6 +5156,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.DiamondsThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 1)]
+    [DeathDateReportedByIDF(2024, 1, 6)]
     SirajIsmail,
 
     /// <summary>
@@ -5180,7 +5214,7 @@ internal enum IsraeliAssassinationTarget
     TehranchiMohammadMehdi,
 
     /// <summary>
-    /// Killed during the IDF raid on Al-Shifa Hospital in Gaza City, according to the IDF (reported 2024-03-28).
+    /// Killed during the IDF raid on Al-Shifa Hospital in Gaza City, according to the IDF.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -5189,6 +5223,7 @@ internal enum IsraeliAssassinationTarget
     [HamasMostWanted(StandardPlayingCard.HeartsThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3)]
+    [DeathDateReportedByIDF(2024, 3, 28)]
     ThabatRaad,
 
     /// <summary>

@@ -176,6 +176,33 @@ namespace Existence.Time
         }
     }
 
+    /// <summary>
+    /// date a death was first reported, used alongside <see cref="DeathDateAttribute"/> when the death itself can only be placed
+    /// less precisely: the death took place on or before this date
+    /// </summary>
+    /// <remarks>
+    /// deliberately does not inherit from <see cref="DeathDateAttribute"/>, so a lookup of the death date does not return it
+    /// </remarks>
+    public class DeathDateReportedAttribute : YearDateAttribute
+    {
+        /// <summary>
+        /// true when the death took place overnight before the report: either on the report date or on the day before it
+        /// </summary>
+        public bool Overnight { get; set; }
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="Year">year the death was reported</param>
+        /// <param name="Month">month the death was reported</param>
+        /// <param name="Day">day the death was reported</param>
+        /// <param name="Overnight">true when the death took place overnight before the report</param>
+        public DeathDateReportedAttribute(int Year, int Month, int Day, bool Overnight = false) : base(Year, Month, Day)
+        {
+            this.Overnight = Overnight;
+        }
+    }
+
     public class ApproximateBirthDateAttribute : BirthDateAttribute
     {
         public ApproximateBirthDateAttribute(int Year) : base(Year, 0, 0)
