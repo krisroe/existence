@@ -156,14 +156,14 @@ if ($result[0] === "")
 		foreach ($videos_to_update as $v)
 		{
 			$query = "UPDATE videos SET dislikes=" . $v[2] . ",likes=" . $v[3] . " WHERE id=" . $v[0];
-			pg_query($dbconn,$query);
-			if ($result)
+			$updateresult = pg_query($dbconn,$query);
+			if ($updateresult)
 			{
 				$count++;
 			}
 			else
 			{
-				echo "Failed to update statistics for " . $v[1] . "<br/";
+				echo "Failed to update statistics for " . $v[1] . "<br/>";
 			}
 		}
 		$query = "INSERT INTO dates (id,videos_last_refreshed) VALUES (1, CURRENT_TIMESTAMP) ON CONFLICT (id) DO UPDATE SET videos_last_refreshed = EXCLUDED.videos_last_refreshed";
