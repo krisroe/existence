@@ -400,6 +400,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
+        [IsraeliKibbutz(IsraeliKibbutz.Reim)]
         [Gender(Gender.Male)]
         [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(28, TimePeriods.Years)]
@@ -702,6 +703,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
+        [IsraeliKibbutz(IsraeliKibbutz.Reim)]
         [Gender(Gender.Male)]
         [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(29, TimePeriods.Years)]
@@ -1128,6 +1130,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
+        [IsraeliKibbutz(IsraeliKibbutz.Reim)]
         [Gender(Gender.Male)]
         [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(29, TimePeriods.Years)]
@@ -1539,6 +1542,7 @@ namespace Existence.Earth.War
 
         [Country(CountryLikeThings.Thailand)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
+        [IsraeliKibbutz(IsraeliKibbutz.Reim)]
         [Gender(Gender.Male)]
         [HumanOccupation(HumanOccupation.WorkerAgricultural)]
         [Age(26, TimePeriods.Years)]
