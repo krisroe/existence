@@ -19,5 +19,6 @@
  </ItemGroup>
  <ItemGroup>
   <ProjectReference Include="..\Existence\Existence.csproj" />
+  <ProjectReference Include="..\CalculateParliamentaryApportionment\CalculateParliamentaryApportionment.csproj" />
  </ItemGroup>
 </Project>
