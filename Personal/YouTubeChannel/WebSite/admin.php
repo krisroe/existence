@@ -28,7 +28,7 @@ else
 	$now = new DateTime('now', new DateTimeZone('UTC'));
 	$refreshed = new DateTime('@' . (int)$row[0]);
 	$interval = $refreshed->diff($now);
-	echo $interval->format('Last refreshed %d days, %h hours, %i minutes, %s seconds ago');
+	echo $interval->format('Last refreshed %a days, %h hours, %i minutes, %s seconds ago');
 }
 pg_free_result($result);
 pg_close($dbconn);
