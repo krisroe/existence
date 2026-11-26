@@ -2,7 +2,7 @@
 <Election>
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
-    <ElectoralThreshold Base="ValidVotesAndBlankVotes" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
+    <ElectoralThreshold Base="ValidVotesIncludingBlanks" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
     <NationalParties>
       <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="137" />
       <NationalParty Id="2" Name="Spanish Socialist Workers' Party" Votes="7821718" Seats="121" />

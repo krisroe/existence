@@ -1000,7 +1000,7 @@ namespace CalculateParliamentaryApportionment
             /// valid votes for all parties plus blank ballots, but not invalid ones, as in Spain, where blank ballots count
             /// as valid votes
             /// </summary>
-            ValidVotesAndBlankVotes,
+            ValidVotesIncludingBlanks,
         }
 
         /// <summary>
@@ -1027,7 +1027,7 @@ namespace CalculateParliamentaryApportionment
                 {
                     ElectoralThresholdBase.ValidVotes => !relevant.Contains(true),
                     ElectoralThresholdBase.BallotsInBoxes => relevant.Count > 0 && !relevant.Contains(false),
-                    ElectoralThresholdBase.ValidVotesAndBlankVotes => IsRelevant(BlankVotesElement) == true && IsRelevant(InvalidVotesElement) != true,
+                    ElectoralThresholdBase.ValidVotesIncludingBlanks => IsRelevant(BlankVotesElement) == true && IsRelevant(InvalidVotesElement) != true,
                     _ => throw new InvalidOperationException($"unexpected {BaseAttribute} {thresholdBase}"),
                 };
                 if (!agrees) throw new FormatException($"{BaseAttribute}=\"{thresholdBase}\" for {ElectoralThresholdElement} doesn't agree with the {RelevantAttribute} attributes of the invalid and blank votes");
