@@ -57,11 +57,15 @@ namespace CalculateParliamentaryApportionment
     /// constituency's Party element belongs to the national party its optional NationalParty attribute names, or the one
     /// with its own name without one, and every national party needs at least one. National party IDs go from 1 for the
     /// most votes across all constituencies, and constituency party IDs carry on from there, constituency by
-    /// constituency in the order listed, each constituency's going down by its own votes. A constituency with
-    /// CalculateSeats="false" is checked and counts toward the national votes, but its seats aren't worked out. Each
-    /// constituency whose seats are worked out gets its party attributes and its own Output element, last inside the
-    /// Constituency element. Each NationalParty element gets Votes and Seats attributes, and the Output element after the
-    /// Input element gets the national TurnoutPercentage, TotalVotes and ValidVotes, and Performance.
+    /// constituency in the order listed, each constituency's going down by its own votes. A Constituency element's
+    /// optional CalculationMethod attribute, a <see cref="ConstituencyCalculationMethod"/>, says how its seats are worked
+    /// out, and is Proportional without it. A WinnerTakeAll constituency has no electoral threshold, and its Party
+    /// elements can't have MinorityList or ElectorateSeats attributes, nor the constituency SurplusVoteAgreements or
+    /// MinorityListQuotientBonus elements. Each constituency gets its party attributes, only Seats for WinnerTakeAll,
+    /// and its own Output element, last inside the Constituency element, with only TurnoutPercentage, TotalVotes and
+    /// ValidVotes for WinnerTakeAll. Each NationalParty element gets Votes and Seats attributes, and the Output element
+    /// after the Input element gets the national TurnoutPercentage, TotalVotes and ValidVotes, and Performance, which
+    /// times only the Proportional constituencies.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
     /// Sainte-Laguë:
@@ -164,7 +168,32 @@ namespace CalculateParliamentaryApportionment
         private const string NationalPartiesElement = "NationalParties";
         private const string NationalPartyElement = "NationalParty";
         private const string NationalPartyAttribute = "NationalParty";
-        private const string CalculateSeatsAttribute = "CalculateSeats";
+        private const string CalculationMethodAttribute = "CalculationMethod";
+
+        /// <summary>
+        /// how a constituency's seats are worked out
+        /// </summary>
+        private enum ConstituencyCalculationMethod
+        {
+            /// <summary>
+            /// shared out among the parties by the method in the Method element
+            /// </summary>
+            Proportional,
+
+            /// <summary>
+            /// all to the party with the most votes, as in Ceuta and Melilla, with the lower ID winning a tie
+            /// </summary>
+            WinnerTakeAll,
+        }
+
+        /// <summary>
+        /// a constituency whose seats all go to the party with the most votes
+        /// </summary>
+        /// <param name="Element">the Constituency element</param>
+        /// <param name="Winner">the name of the party with the most votes</param>
+        /// <param name="NumberOfSeats">the constituency's seats, which all go to <paramref name="Winner"/></param>
+        /// <param name="Turnout">the turnout, or null if it isn't given</param>
+        private sealed record WinnerTakeAllConstituency(XElement Element, string Winner, int NumberOfSeats, Turnout? Turnout);
 
         /// <summary>
         /// the elements that, with constituencies, go in each Constituency element rather than in the Input element
@@ -296,6 +325,7 @@ namespace CalculateParliamentaryApportionment
                     PerformanceRuns? performance = ReadPerformanceRuns(input);
                     XElement? constituencies = input.Element(ConstituenciesElement);
                     List<District> districts;
+                    List<WinnerTakeAllConstituency> winnerTakeAll = new List<WinnerTakeAllConstituency>();
                     if (constituencies == null)
                     {
                         if (input.Element(NationalPartiesElement) != null) throw new FormatException($"{NationalPartiesElement} is only for {ConstituenciesElement}");
@@ -303,7 +333,7 @@ namespace CalculateParliamentaryApportionment
                     }
                     else
                     {
-                        districts = ReadConstituencies(input, constituencies, sMethod);
+                        districts = ReadConstituencies(input, constituencies, sMethod, winnerTakeAll);
                     }
                     List<string> algorithms = ReadAlgorithms(method, sMethod, districts[0].Available);
 
@@ -328,7 +358,8 @@ namespace CalculateParliamentaryApportionment
                                 d.Element.Element(OutputElement)?.Remove();
                                 d.Element.Add(BuildOutput(d.Element, r, d.Turnout));
                             }
-                            output = WriteNationalResults(input, constituencies, districts, verified);
+                            foreach (WinnerTakeAllConstituency w in winnerTakeAll) WriteWinnerTakeAllResults(w);
+                            output = WriteNationalResults(input, constituencies, districts, verified, winnerTakeAll);
                         }
                         if (performance != null) output.Add(BuildPerformance(performance, results));
                         doc.Root!.Element(OutputElement)?.Remove();
@@ -416,13 +447,14 @@ namespace CalculateParliamentaryApportionment
         /// party IDs go from 1 for the national party with the most votes across all constituencies, and constituency
         /// party IDs carry on from there, constituency by constituency in the order listed, with a party with more votes
         /// in its constituency having a lower ID. Each constituency party belongs to the national party named by its
-        /// NationalParty attribute, or by its own name without one, and each national party needs at least one.
-        /// Constituencies with CalculateSeats="false" are checked and count toward the national totals, but their seats
-        /// aren't worked out
+        /// NationalParty attribute, or by its own name without one, and each national party needs at least one. Each
+        /// constituency's optional CalculationMethod attribute says how its seats are worked out, Proportional without
+        /// it, and at least one constituency has to be Proportional
         /// </summary>
         /// <param name="sMethod">the method from the Method element</param>
-        /// <returns>the constituencies whose seats are worked out, in the order listed</returns>
-        private static List<District> ReadConstituencies(XElement input, XElement constituencies, string sMethod)
+        /// <param name="winnerTakeAll">gets the WinnerTakeAll constituencies, in the order listed</param>
+        /// <returns>the Proportional constituencies, in the order listed</returns>
+        private static List<District> ReadConstituencies(XElement input, XElement constituencies, string sMethod, List<WinnerTakeAllConstituency> winnerTakeAll)
         {
             foreach (string sElement in ConstituencyElements)
             {
@@ -457,15 +489,17 @@ namespace CalculateParliamentaryApportionment
                         nationalVotes[sNationalParty] = checked(nationalVotes[sNationalParty] + votes.Votes);
                         used.Add(sNationalParty);
                     }
-                    if ((bool?)next.Attribute(CalculateSeatsAttribute) ?? true)
+                    ConstituencyCalculationMethod calculationMethod = next.Attribute(CalculationMethodAttribute) == null ? ConstituencyCalculationMethod.Proportional : ReadEnum<ConstituencyCalculationMethod>(next, CalculationMethodAttribute);
+                    switch (calculationMethod)
                     {
-                        ret.Add(ReadDistrict(input, next, sName, sMethod, iNextId - 1));
-                    }
-                    else
-                    {
-                        ReadInvalidAndBlankVotesInElectoralThreshold(next);
-                        CheckElectoralThresholdBase(input, next);
-                        ReadTurnout(next);
+                        case ConstituencyCalculationMethod.Proportional:
+                            ret.Add(ReadDistrict(input, next, sName, sMethod, iNextId - 1));
+                            break;
+                        case ConstituencyCalculationMethod.WinnerTakeAll:
+                            winnerTakeAll.Add(ReadWinnerTakeAll(next, parties));
+                            break;
+                        default:
+                            throw new InvalidOperationException($"unexpected {CalculationMethodAttribute} {calculationMethod}");
                     }
                     iNextId += parties.Count;
                 }
@@ -485,8 +519,54 @@ namespace CalculateParliamentaryApportionment
             {
                 throw new FormatException($"{NationalPartiesElement}: {ex.Message}", ex);
             }
-            if (ret.Count == 0) throw new FormatException($"no {ConstituencyElement} has its seats worked out");
+            if (ret.Count == 0) throw new FormatException($"at least one {ConstituencyElement} has to be {nameof(ConstituencyCalculationMethod.Proportional)}");
             return ret;
+        }
+
+        /// <summary>
+        /// reads a WinnerTakeAll constituency, which has no electoral threshold, so none of the proportional extras
+        /// </summary>
+        /// <param name="constituency">the Constituency element</param>
+        /// <param name="parties">the constituency's parties, with their IDs already checked</param>
+        private static WinnerTakeAllConstituency ReadWinnerTakeAll(XElement constituency, List<PoliticalPartyVotes> parties)
+        {
+            string sMethod = nameof(ConstituencyCalculationMethod.WinnerTakeAll);
+            foreach (string sElement in new[] { SurplusVoteAgreementsElement, MinorityListQuotientBonusElement })
+            {
+                if (constituency.Element(sElement) != null) throw new FormatException($"{sElement} isn't for {sMethod}");
+            }
+            foreach (string sAttribute in new[] { MinorityListAttribute, ElectorateSeatsAttribute })
+            {
+                if (GetRequiredElement(constituency, PartiesElement).Elements(PartyElement).Any(p => p.Attribute(sAttribute) != null)) throw new FormatException($"{sAttribute} isn't for {sMethod}");
+            }
+            int iNumberOfSeats = (int)GetRequiredElement(constituency, NumberOfSeatsElement);
+            if (iNumberOfSeats <= 0) throw new FormatException($"{NumberOfSeatsElement} must be positive, not {iNumberOfSeats}");
+            if (parties.Count == 0) throw new FormatException($"{sMethod} needs at least one party");
+            ReadInvalidAndBlankVotesInElectoralThreshold(constituency);
+
+            //the IDs go down by votes, so the lowest is the most votes and wins a tie
+            string sWinner = parties.MinBy(p => p.Id)!.Name;
+            return new WinnerTakeAllConstituency(constituency, sWinner, iNumberOfSeats, ReadTurnout(constituency));
+        }
+
+        /// <summary>
+        /// sets the Seats attribute of each party in a WinnerTakeAll constituency, replacing any existing one, and replaces
+        /// its Output element with one with TurnoutPercentage when it has turnout, TotalVotes when it has invalid or blank
+        /// votes, and ValidVotes
+        /// </summary>
+        private static void WriteWinnerTakeAllResults(WinnerTakeAllConstituency w)
+        {
+            long lValidVotes = 0;
+            foreach (XElement next in GetRequiredElement(w.Element, PartiesElement).Elements(PartyElement))
+            {
+                next.SetAttributeValue(SeatsAttribute, (string)GetRequiredAttribute(next, NameAttribute) == w.Winner ? w.NumberOfSeats : 0);
+                lValidVotes = checked(lValidVotes + (long)GetRequiredAttribute(next, VotesAttribute));
+            }
+            w.Element.Element(OutputElement)?.Remove();
+            w.Element.Add(new XElement(OutputElement,
+                w.Turnout == null ? null : new XElement(TurnoutPercentageElement, w.Turnout.Percentage),
+                HasInvalidOrBlankVotes(w.Element) ? new XElement(TotalVotesElement, checked(lValidVotes + GetInvalidAndBlankVotes(w.Element))) : null,
+                new XElement(nameof(SeatDistributionBase.ValidVotes), lValidVotes)));
         }
 
         /// <summary>
@@ -514,13 +594,14 @@ namespace CalculateParliamentaryApportionment
 
         /// <summary>
         /// sets the Votes and Seats attributes of each NationalParty element, replacing any existing ones, and builds the
-        /// national Output element. Votes are across all constituencies, and seats only across those whose seats are
-        /// worked out. The Output element has TurnoutPercentage only when every constituency has turnout, and TotalVotes
-        /// only when any has invalid or blank votes
+        /// national Output element, with votes and seats across all constituencies. The Output element has
+        /// TurnoutPercentage only when every constituency has turnout, and TotalVotes only when any has invalid or blank
+        /// votes
         /// </summary>
-        /// <param name="districts">the constituencies whose seats are worked out</param>
+        /// <param name="districts">the Proportional constituencies</param>
         /// <param name="results">the seat distribution of each of <paramref name="districts"/></param>
-        private static XElement WriteNationalResults(XElement input, XElement constituencies, List<District> districts, List<SeatDistributionBase> results)
+        /// <param name="winnerTakeAll">the WinnerTakeAll constituencies</param>
+        private static XElement WriteNationalResults(XElement input, XElement constituencies, List<District> districts, List<SeatDistributionBase> results, List<WinnerTakeAllConstituency> winnerTakeAll)
         {
             List<XElement> all = constituencies.Elements(ConstituencyElement).ToList();
             Dictionary<string, long> votes = new Dictionary<string, long>();
@@ -540,6 +621,12 @@ namespace CalculateParliamentaryApportionment
                     string sNationalParty = GetNationalParty(party);
                     seats[sNationalParty] = seats.GetValueOrDefault(sNationalParty) + r.Seats.GetValueOrDefault((string)GetRequiredAttribute(party, NameAttribute));
                 }
+            }
+            foreach (WinnerTakeAllConstituency w in winnerTakeAll)
+            {
+                XElement winner = GetRequiredElement(w.Element, PartiesElement).Elements(PartyElement).First(p => (string)GetRequiredAttribute(p, NameAttribute) == w.Winner);
+                string sNationalParty = GetNationalParty(winner);
+                seats[sNationalParty] = seats.GetValueOrDefault(sNationalParty) + w.NumberOfSeats;
             }
             foreach (XElement next in GetRequiredElement(input, NationalPartiesElement).Elements(NationalPartyElement))
             {

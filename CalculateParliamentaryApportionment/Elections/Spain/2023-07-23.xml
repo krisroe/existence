@@ -4,7 +4,7 @@
     <Method Algorithms="Base">D'Hondt</Method>
     <ElectoralThreshold Base="ValidVotesAndBlankVotes" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
     <NationalParties>
-      <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="135" />
+      <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="137" />
       <NationalParty Id="2" Name="Spanish Socialist Workers' Party" Votes="7821718" Seats="121" />
       <NationalParty Id="3" Name="Vox" Votes="3057000" Seats="33" />
       <NationalParty Id="4" Name="Unite" Votes="3044996" Seats="31" />
@@ -799,22 +799,27 @@
           <VotesNeededForNextOrderedSeat>4727</VotesNeededForNextOrderedSeat>
         </Output>
       </Constituency>
-      <Constituency Name="Ceuta" CalculateSeats="false">
+      <Constituency Name="Ceuta" CalculationMethod="WinnerTakeAll">
         <NumberOfSeats>1</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">63310</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">33674</TurnoutRaw>
         <InvalidVotes Relevant="false">353</InvalidVotes>
         <BlankVotes Relevant="true">328</BlankVotes>
         <Parties>
-          <Party Id="215" Name="People's Party" Votes="12918" />
-          <Party Id="216" Name="Spanish Socialist Workers' Party" Votes="11332" />
-          <Party Id="217" Name="Vox" Votes="7752" />
-          <Party Id="218" Name="Unite" Votes="821" />
-          <Party Id="219" Name="Workers' Front" Votes="53" />
-          <Party Id="220" Name="Free" Votes="53" />
-          <Party Id="221" Name="Zero Cuts" Votes="33" />
-          <Party Id="222" Name="For a Fairer World" Votes="31" />
+          <Party Id="215" Name="People's Party" Votes="12918" Seats="1" />
+          <Party Id="216" Name="Spanish Socialist Workers' Party" Votes="11332" Seats="0" />
+          <Party Id="217" Name="Vox" Votes="7752" Seats="0" />
+          <Party Id="218" Name="Unite" Votes="821" Seats="0" />
+          <Party Id="219" Name="Workers' Front" Votes="53" Seats="0" />
+          <Party Id="220" Name="Free" Votes="53" Seats="0" />
+          <Party Id="221" Name="Zero Cuts" Votes="33" Seats="0" />
+          <Party Id="222" Name="For a Fairer World" Votes="31" Seats="0" />
         </Parties>
+        <Output>
+          <TurnoutPercentage>53.19</TurnoutPercentage>
+          <TotalVotes>33674</TotalVotes>
+          <ValidVotes>32993</ValidVotes>
+        </Output>
       </Constituency>
       <Constituency Name="Ciudad Real">
         <NumberOfSeats>5</NumberOfSeats>
@@ -1613,22 +1618,27 @@
           <VotesNeededForNextOrderedSeat>2429</VotesNeededForNextOrderedSeat>
         </Output>
       </Constituency>
-      <Constituency Name="Melilla" CalculateSeats="false">
+      <Constituency Name="Melilla" CalculationMethod="WinnerTakeAll">
         <NumberOfSeats>1</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">61118</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">27649</TurnoutRaw>
         <InvalidVotes Relevant="false">300</InvalidVotes>
         <BlankVotes Relevant="true">253</BlankVotes>
         <Parties>
-          <Party Id="403" Name="People's Party" Votes="13446" />
-          <Party Id="404" Name="Spanish Socialist Workers' Party" Votes="6943" />
-          <Party Id="405" Name="Vox" Votes="4359" />
-          <Party Id="406" Name="Coalition for Melilla" Votes="1298" />
-          <Party Id="407" Name="Unite" Votes="827" />
-          <Party Id="408" Name="Animalist Party with the Environment" Votes="160" />
-          <Party Id="409" Name="For a Fairer World" Votes="40" />
-          <Party Id="410" Name="Zero Cuts" Votes="23" />
+          <Party Id="403" Name="People's Party" Votes="13446" Seats="1" />
+          <Party Id="404" Name="Spanish Socialist Workers' Party" Votes="6943" Seats="0" />
+          <Party Id="405" Name="Vox" Votes="4359" Seats="0" />
+          <Party Id="406" Name="Coalition for Melilla" Votes="1298" Seats="0" />
+          <Party Id="407" Name="Unite" Votes="827" Seats="0" />
+          <Party Id="408" Name="Animalist Party with the Environment" Votes="160" Seats="0" />
+          <Party Id="409" Name="For a Fairer World" Votes="40" Seats="0" />
+          <Party Id="410" Name="Zero Cuts" Votes="23" Seats="0" />
         </Parties>
+        <Output>
+          <TurnoutPercentage>45.24</TurnoutPercentage>
+          <TotalVotes>27649</TotalVotes>
+          <ValidVotes>27096</ValidVotes>
+        </Output>
       </Constituency>
       <Constituency Name="Murcia">
         <NumberOfSeats>10</NumberOfSeats>
