@@ -175,6 +175,13 @@ namespace Existence.Earth.Countries.Israel.Politics
         JabareenYousef,
 
         /// <summary>
+        /// Likud member of the Knesset, and defence minister from November 2024. Born in Ashkelon to Holocaust survivors from Romania
+        /// </summary>
+        [Gender(Gender.Male)]
+        [EthnicGroups((int)JewishEthnicDivisionsLevel2.Romanian)]
+        KatzIsrael,
+
+        /// <summary>
         /// father, Tommy Lapid, was a Hungarian-speaking Jew from Novi Sad, Yugoslavia
         /// </summary>
         [Gender(Gender.Male)]

@@ -465,7 +465,7 @@ namespace Existence.Earth.War
         AsherRaz = 18,
 
         /// <summary>
-        /// related to BeininLiat
+        /// related to <see cref="BeininLiat"/>
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -516,7 +516,7 @@ namespace Existence.Earth.War
         BaruchUriael = 25,
 
         /// <summary>
-        /// related to Aviv Atzili
+        /// related to <see cref="AtziliAviv"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -565,7 +565,7 @@ namespace Existence.Earth.War
         BergerAgam = 31,
 
         /// <summary>
-        /// Gali/Ziv Berman are twins
+        /// twin of <see cref="BermanZiv"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -575,7 +575,7 @@ namespace Existence.Earth.War
         BermanGali = 32,
 
         /// <summary>
-        /// Gali/Ziv Berman are twins
+        /// twin of <see cref="BermanGali"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -736,7 +736,7 @@ namespace Existence.Earth.War
         CohenNimrod = 52,
 
         /// <summary>
-        /// girlfriend of Alexandre (Sasha) Troufanov
+        /// girlfriend of <see cref="TrufanovAlexanderSasha"/>
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -915,23 +915,19 @@ namespace Existence.Earth.War
         [DeathDate(2023, 10, 7)]
         GelerenterItzhak = 77,
 
-        /// <summary>
-        /// originally named Danielle
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Bulgaria)]
         [IsraelDefenceForcesSoldier()]
         [KidnappedFrom(KidnappedFrom.MilitaryOutpost)]
         [Gender(Gender.Female)]
         [Age(19, TimePeriods.Years)]
+        [AlsoKnownAs("Danielle")]
         GilboaDaniella = 78,
 
-        /// <summary>
-        /// Guy Gilboa-Dalal
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
         [Age(22, TimePeriods.Years)]
+        [FullName("Guy Gilboa-Dalal")]
         GilboaDalalGuy = 79,
 
         [Country(CountryLikeThings.Israel)]
@@ -1025,17 +1021,18 @@ namespace Existence.Earth.War
         GritzewskyIlana = 91,
 
         /// <summary>
-        /// aka Rani, last hostage accounted for
+        /// last hostage accounted for
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Male)]
         [Age(24, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
+        [AlsoKnownAs("Rani")]
         GviliRan = 92,
 
         /// <summary>
-        /// aka Gadi, former principal flautist in the IDF orchestra
+        /// former principal flautist in the IDF orchestra
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -1044,6 +1041,7 @@ namespace Existence.Earth.War
         [Gender(Gender.Male)]
         [Age(72, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
+        [AlsoKnownAs("Gadi")]
         HaggaiGad = 93,
 
         /// <summary>
@@ -1193,7 +1191,7 @@ namespace Existence.Earth.War
         KalfonSegev = 113,
 
         /// <summary>
-        /// Death (after release) was attributed to medical complications from her time as a hostage
+        /// Death (after release) was attributed to medical complications from time as a hostage
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -1254,13 +1252,11 @@ namespace Existence.Earth.War
         [Age(25, TimePeriods.Years)]
         KriboyRoni = 121,
 
-        /// <summary>
-        /// aka Kuperstein
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
         [Age(21, TimePeriods.Years)]
+        [AlsoKnownAs("Bar Kuperstein")]
         KupershteinBar = 122,
 
         [Countries(CountryLikeThings.Argentina, CountryLikeThings.Israel)]
@@ -1455,7 +1451,6 @@ namespace Existence.Earth.War
         MosesMargalit = 148,
 
         /// <summary>
-        /// [sometimes refered to as Gadi Moses]
         /// His partner, Efrat Katz was presumed captive as well, but was likely killed
         /// 2023-10-07 by an Israeli helicopter gunship responding to the assault. The
         /// helicopter targeted a vehicle carrying Hamas gunmen, unaware that hostages
@@ -1466,6 +1461,7 @@ namespace Existence.Earth.War
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Male)]
         [Age(79, TimePeriods.Years)]
+        [AlsoKnownAs("Gadi Moses")]
         MozesGadiMoshe = 149,
 
         [Country(CountryLikeThings.Israel)]
@@ -1532,13 +1528,11 @@ namespace Existence.Earth.War
         [DeathDate(2023, 10, 7)]
         OakkharasriSonthaya = 158,
 
-        /// <summary>
-        /// Yosek-Haim Ohana
-        /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.MusicFestival)]
         [Gender(Gender.Male)]
         [Age(23, TimePeriods.Years)]
+        [FullName("Yosef-Haim Ohana")]
         OhanaYosefHaim = 159,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Serbia, CountryLikeThings.Germany)]
@@ -1828,7 +1822,7 @@ namespace Existence.Earth.War
         ShaniAmit = 200,
 
         /// <summary>
-        /// Sibling of Yossi Sharabi
+        /// Sibling of <see cref="SharabiYossi"/>
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -1838,7 +1832,7 @@ namespace Existence.Earth.War
         SharabiEli = 201,
 
         /// <summary>
-        /// Sibling of Eli Sharabi
+        /// Sibling of <see cref="SharabiEli"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Portugal)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -2001,7 +1995,7 @@ namespace Existence.Earth.War
         TarshanskyGali = 223,
 
         /// <summary>
-        /// mother of Yelena Trufanov and Alexander (Sasha) Trufanov
+        /// mother of <see cref="TrufanovYelena"/> and <see cref="TrufanovAlexanderSasha"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Russia)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -2072,15 +2066,13 @@ namespace Existence.Earth.War
         [DeathDate(2023)]
         TzarfatiOfir = 232,
 
-        /// <summary>
-        /// Judith Weinstein-Haggai
-        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Female)]
         [Age(70, TimePeriods.Years)]
         [DeathDate(2023, 10, 7)]
+        [FullName("Judith Weinstein-Haggai")]
         WeinsteinHaggaiJudith = 233,
 
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Hungary)]
@@ -2120,7 +2112,7 @@ namespace Existence.Earth.War
         WenkertOmer = 238,
 
         /// <summary>
-        /// Jacob is alternate spelling of last name, related to the other Yaakovs
+        /// Jacob is alternate spelling of last name, related to <see cref="YaakovYagil"/> and <see cref="YaakovYair"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -2130,7 +2122,7 @@ namespace Existence.Earth.War
         YaakovOr = 239,
 
         /// <summary>
-        /// Jacob is alternate spelling of last name, related to the other Yaakovs
+        /// Jacob is alternate spelling of last name, related to <see cref="YaakovOr"/> and <see cref="YaakovYair"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -2140,7 +2132,7 @@ namespace Existence.Earth.War
         YaakovYagil = 240,
 
         /// <summary>
-        /// Jacob is alternate spelling of last name, related to the other Yaakovs
+        /// Jacob is alternate spelling of last name, related to <see cref="YaakovOr"/> and <see cref="YaakovYagil"/>
         /// </summary>
         [Country(CountryLikeThings.Israel)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -3999,7 +3991,7 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// if they are confirmed as assassinations.
 /// Targets captured alive by Israeli forces are also included, marked with <see cref="CapturedByIsraelAttribute"/>
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(121)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(122)]
 [SurvivorCountRange(6, 7)]
 internal enum IsraeliAssassinationTarget
 {
@@ -4109,7 +4101,7 @@ internal enum IsraeliAssassinationTarget
     AbuMuradMurad,
 
     /// <summary>
-    /// Killed in an Israeli strike in western Gaza City that Netanyahu said targeted him; Hamas confirmed his death. Took over in
+    /// Killed in an Israeli strike in western Gaza City that <see cref="IsraeliPoliticians.NetanyahuBenjamin"/> said targeted him; Hamas confirmed his death. Took over in
     /// September 2026 after the capture of <see cref="AlArabidMuein"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -4207,6 +4199,16 @@ internal enum IsraeliAssassinationTarget
     AbuYounisSamir,
 
     /// <summary>
+    /// A major. Killed with <see cref="AlLadawiWaelMousa"/> in an Israeli airstrike on their car in Deir al-Balah.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasSecurity("Major")]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaDeirAlBalah)]
+    [DeathDate(2026, 7, 26)]
+    AbuZureiqRamezTawfiq,
+    /// <summary>
     /// Head of Hezbollah's media relations
     /// </summary>
     [Country(CountryLikeThings.Lebanon)]
@@ -4237,7 +4239,7 @@ internal enum IsraeliAssassinationTarget
     AlAmoudiAli,
 
     /// <summary>
-    /// Captured wounded in a Shin Bet special forces raid in Gaza City and taken to Israel for questioning; his wife Samah was killed
+    /// Captured wounded in a Shin Bet special forces raid in Gaza City and taken to Israel for questioning; his wife was killed
     /// and two of his sons were wounded, according to Palestinian reports. Hamas said he was a lower-ranking security officer rather
     /// than the head of the apparatus. Succeeded by <see cref="AbuNahelNaeem"/>.
     /// </summary>
@@ -4359,8 +4361,7 @@ internal enum IsraeliAssassinationTarget
     AlKedraBillal,
 
     /// <summary>
-    /// A colonel. Killed with Major Ramez Tawfiq Abu Zureiq in an Israeli
-    /// airstrike on their car in Deir al-Balah; the IDF and Shin Bet confirmed the strike the next day.
+    /// A colonel. Killed with <see cref="AbuZureiqRamezTawfiq"/> in an Israeli airstrike on their car in Deir al-Balah; the IDF and Shin Bet confirmed the strike the next day.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4665,7 +4666,7 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Killed in an IDF airstrike. The IDF said his battalion led the October 7 attack on Nahal Oz, and blamed him for a 2014
-    /// incident in Shuja'iyya in which seven IDF soldiers were killed, including Oron Shaul. Son of Umm Nidal; three of his brothers
+    /// incident in Shuja'iyya in which seven IDF soldiers were killed, including <see cref="HostageList.ShaulOron"/>. Son of Umm Nidal; three of his brothers
     /// were also killed for their Hamas activities.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -5138,7 +5139,7 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Killed in an Israeli drone strike on his car on Al-Rashid road west of Gaza City, which killed five people including his aide.
-    /// Netanyahu and Katz called it a response to an explosion that injured two IDF soldiers in southern Gaza, and called him an
+    /// <see cref="IsraeliPoliticians.NetanyahuBenjamin"/> and <see cref="IsraeliPoliticians.KatzIsrael"/> called it a response to an explosion that injured two IDF soldiers in southern Gaza, and called him an
     /// architect of the October 7 attacks. Survived an earlier strike targeting him in the Al-Shati camp on 2024-06-22.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
