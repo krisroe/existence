@@ -3891,7 +3891,7 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
 /// if they are confirmed as assassinations
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(113)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(114)]
 [SurvivorCountRange(5, 6)]
 internal enum IsraeliAssassinationTarget
 {
@@ -4294,7 +4294,7 @@ internal enum IsraeliAssassinationTarget
 
     /// <summary>
     /// Killed by Israeli Air Force fighter jets under Shin Bet guidance, according to the IDF and Shin Bet (reported 2023-10-18).
-    /// The same statement announced the killing of Akram Hijazi, a weapons dealer and financier active in Hamas's naval operations.
+    /// The same statement announced the killing of <see cref="HijaziAkram"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4537,6 +4537,18 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Lebanon, WorldCities.LebanonBeirut)]
     [DeathDate(2024, 10, 3)]
     HazimaAliHussein,
+
+    /// <summary>
+    /// Weapons dealer, financier and coordinator of attacks in Israel, and active in Hamas's naval operations. Killed by the IDF
+    /// under Shin Bet guidance, according to the IDF and Shin Bet, who announced his death on 2023-10-18 in the same statement as
+    /// that of <see cref="AlwadiaMohammed"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2023, 10)]
+    HijaziAkram,
 
     /// <summary>
     /// Killed in an Israeli airstrike in Nuseirat in central Gaza. Second-in-command to <see cref="DeifMohammed"/> and closely
