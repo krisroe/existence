@@ -320,10 +320,9 @@ namespace Existence.Earth.War
 
     /// <summary>
     /// Example source: https://www.israelhayom.com/2023/10/31/these-are-the-captives-held-by-hamas/
-    /// short rather than byte: although the list currently fits in a byte, additional space is added
-    /// for futureproofing in case additional people are found to be appropriate for this list.
+    /// The list has more than 256 values, so it does not fit in a byte and requires a short.
     /// </summary>
-    [Total(256)]
+    [Total(257)]
     public enum HostageList : short
     {
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
@@ -452,6 +451,10 @@ namespace Existence.Earth.War
         [Age(2, TimePeriods.Years)]
         AsherAviv = 16,
 
+        /// <summary>
+        /// daughter of <see cref="KatzEfrat"/>, mother of <see cref="AsherRaz"/> and <see cref="AsherAviv"/>, and half-sister of
+        /// <see cref="KatzRavid"/>
+        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [Gender(Gender.Female)]
@@ -1032,7 +1035,7 @@ namespace Existence.Earth.War
         GviliRan = 92,
 
         /// <summary>
-        /// former principal flautist in the IDF orchestra
+        /// former principal flautist in the IDF orchestra, and husband of <see cref="WeinsteinHaggaiJudith"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -1189,6 +1192,19 @@ namespace Existence.Earth.War
         [Gender(Gender.Male)]
         [Age(25, TimePeriods.Years)]
         KalfonSegev = 113,
+
+        /// <summary>
+        /// Partner of <see cref="MozesGadiMoshe"/>, mother of <see cref="AsherDoronKatz"/>, and grandmother of <see cref="AsherRaz"/>
+        /// and <see cref="AsherAviv"/>. Kidnapped from her home with her daughter and granddaughters and filmed on the back of a truck,
+        /// killed in crossfire before reaching Gaza. Buried in Kibbutz Revadim on 2023-10-25.
+        /// </summary>
+        [Country(CountryLikeThings.Israel)]
+        [KidnappedFrom(KidnappedFrom.Kibbutz)]
+        [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
+        [Gender(Gender.Female)]
+        [Age(68, TimePeriods.Years)]
+        [DeathDate(2023, 10, 7)]
+        KatzEfrat = 256,
 
         /// <summary>
         /// Death (after release) was attributed to medical complications from time as a hostage
@@ -1441,20 +1457,18 @@ namespace Existence.Earth.War
         MosheAdina = 147,
 
         /// <summary>
-        /// member of Kibbutz Nir Or
+        /// ex-wife and close neighbour of <see cref="MozesGadiMoshe"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
         [Gender(Gender.Female)]
         [ApproximateAgeInYears(77, 78)]
+        [FullName("Margalit Berta Mozes")]
         MosesMargalit = 148,
 
         /// <summary>
-        /// His partner, Efrat Katz was presumed captive as well, but was likely killed
-        /// 2023-10-07 by an Israeli helicopter gunship responding to the assault. The
-        /// helicopter targeted a vehicle carrying Hamas gunmen, unaware that hostages
-        /// were also inside.
+        /// partner of <see cref="KatzEfrat"/>, and ex-husband and close neighbour of <see cref="MosesMargalit"/>
         /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.Germany)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
@@ -2066,6 +2080,9 @@ namespace Existence.Earth.War
         [DeathDate(2023)]
         TzarfatiOfir = 232,
 
+        /// <summary>
+        /// wife of <see cref="HaggaiGad"/>
+        /// </summary>
         [Countries(CountryLikeThings.Israel, CountryLikeThings.UnitedStates)]
         [KidnappedFrom(KidnappedFrom.Kibbutz)]
         [IsraeliKibbutz(IsraeliKibbutz.NirOz)]
@@ -2277,7 +2294,7 @@ namespace Existence.Earth.War
     /// </summary>
     public class IsraelHamasHostages
     {
-        [Total(121)]
+        [Total(122)]
         public static class v2023
         {
             [Hostages(
@@ -2287,6 +2304,15 @@ namespace Existence.Earth.War
                 HostageList.AlSayedHishamShaaban)]
             [Number(4)]
             public static class HeldPriorToOctober7 { }
+
+            /// <summary>
+            /// killed by Israeli fire while being taken to Gaza, most likely by Israeli Air Force helicopter fire according to an IDF
+            /// investigation. Her captors left her body behind, later recovered.
+            /// </summary>
+            [Hostages(HostageList.KatzEfrat)]
+            [Number(1)]
+            [HostageOutcome(HostageOutcome.RecoveredBodyKilledByIsrael, CountryLikeThings.Israel)]
+            public static class October7 { }
 
             [Hostages(HostageList.RaananJudith, HostageList.RaananNatalie)]
             [Number(2)]
@@ -2544,7 +2570,7 @@ namespace Existence.Earth.War
             public static class December12 { }
 
             /// <summary>
-            /// An IDF airstrike targeting Hamas's northern Gaza brigade chief, Ahmed Ghandour, killed three hostages, but their
+            /// An IDF airstrike targeting Hamas's northern Gaza brigade chief, <see cref="IsraeliAssassinationTarget.GhandourAhmed"/>, killed three hostages, but their
             /// bodies were not recovered until December 15th
             /// </summary>
             [Number(3)]
@@ -4199,7 +4225,7 @@ internal enum IsraeliAssassinationTarget
     AbuYounisSamir,
 
     /// <summary>
-    /// A major. Killed with <see cref="AlLadawiWaelMousa"/> in an Israeli airstrike on their car in Deir al-Balah.
+    /// A major. Killed with <see cref="AlLadawiWaelMousa"/> in an Israeli airstrike on their car.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4208,6 +4234,7 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaDeirAlBalah)]
     [DeathDate(2026, 7, 26)]
     AbuZureiqRamezTawfiq,
+
     /// <summary>
     /// Head of Hezbollah's media relations
     /// </summary>
@@ -4361,7 +4388,7 @@ internal enum IsraeliAssassinationTarget
     AlKedraBillal,
 
     /// <summary>
-    /// A colonel. Killed with <see cref="AbuZureiqRamezTawfiq"/> in an Israeli airstrike on their car in Deir al-Balah; the IDF and Shin Bet confirmed the strike the next day.
+    /// A colonel. Killed with <see cref="AbuZureiqRamezTawfiq"/> in an Israeli airstrike on their car; the IDF and Shin Bet confirmed the strike the next day.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
