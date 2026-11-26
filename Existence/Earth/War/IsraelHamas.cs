@@ -152,6 +152,120 @@ namespace Existence.Earth.War
     }
 
     /// <summary>
+    /// estimated civilian deaths in the war that followed the 2023-10-07 attacks and its spillover (Lebanon, the West Bank, Yemen
+    /// and Iran, including the United States strikes on Iran coordinated with Israel), by period and by where the deaths took place
+    /// </summary>
+    /// <remarks>
+    /// most official tolls do not separate civilians from combatants: the Gaza Health Ministry and the Lebanese Health Ministry
+    /// count everyone killed. Gaza ranges apply a civilian share of 55% to 83% to the Gaza Health Ministry's count of people killed in
+    /// the period: the low end is roughly what the IDF's own claims of militants killed imply, and the high end is the share implied
+    /// by the IDF intelligence database of named militants reported in August 2025, which its sources called a floor. Places and
+    /// periods without a usable civilian estimate are left out rather than guessed, including the West Bank, where OCHA counts about
+    /// 1,000 Palestinians and 41 Israelis killed in the two years from 2023-10-07 without separating civilians
+    /// </remarks>
+    public class CivilianCasualties
+    {
+        public static class v2023
+        {
+            /// <summary>
+            /// the attacks themselves. Deaths in Gaza that day are not included: the Gaza Health Ministry reported about 232
+            /// killed without separating civilians
+            /// </summary>
+            [CivilianDeaths(CountryLikeThings.Israel, 767, 828, "AFP tally of Israeli social security data (767, February 2024) to Israeli sources cited by Wikipedia (828), both including 71 foreigners; Israel's National Insurance Institute later counted 778")]
+            public static class October7 { }
+
+            /// <summary>
+            /// 2023-10-08 to 2023-10-31
+            /// </summary>
+            [CivilianDeaths(CountryLikeThings.PalestineGaza, 4600, 6900, "55%-83% of the Gaza Health Ministry's roughly 8,300 deaths from 2023-10-08 to 2023-10-31 (8,525 by 2023-10-31)")]
+            public static class RemainderOfOctober { }
+
+            /// <summary>
+            /// 2023-11-01 to 2023-12-31
+            /// </summary>
+            [CivilianDeaths(CountryLikeThings.PalestineGaza, 7300, 11000, "55%-83% of the Gaza Health Ministry's roughly 13,300 deaths from 2023-11-01 to 2023-12-31 (21,822 by 2023-12-31)")]
+            public static class RemainderOfYear { }
+        }
+
+        public static class v2024
+        {
+            [CivilianDeaths(CountryLikeThings.PalestineGaza, 13000, 19700, "55%-83% of the Gaza Health Ministry's roughly 23,700 deaths in 2024 (45,541 by 2024-12-31)")]
+            [CivilianDeaths(CountryLikeThings.Lebanon, 700, 1200, "Jerusalem Post analysis of the Lebanese Health Ministry's 4,047 deaths from 2023-10-08 to the 2024-11-27 ceasefire, which do not separate civilians; mostly in 2024")]
+            [CivilianDeaths(CountryLikeThings.Israel, 41, 47, "civilians killed in Israel by Hezbollah fire, 47 from October 2023 to the November 2024 ceasefire, 6 of them in 2023; does not include attacks by Palestinians")]
+            public static class Year { }
+        }
+
+        public static class v2025
+        {
+            [CivilianDeaths(CountryLikeThings.PalestineGaza, 10400, 15700, "55%-83% of the 18,870 violent deaths in the Gaza Health Ministry's 2025 all-cause mortality report")]
+            [CivilianDeaths(CountryLikeThings.Iran, 276, 436, "Twelve-Day War, Iranian government (276, July 2025) and Iranian judiciary (436, of 935 killed) figures; HRANA counted 1,190 killed without a final civilian split")]
+            [CivilianDeaths(CountryLikeThings.Israel, 27, 28, "Twelve-Day War, Iranian missile strikes on Israel; does not include other attacks")]
+            [CivilianDeaths(CountryLikeThings.YemenHouthi, 153, 238, "United States Operation Rough Rider (March-May 2025), Pentagon (153) to Yemen Data Project (238) counts; Israeli strikes in Yemen killed more, but no consolidated count was found")]
+            public static class Year { }
+        }
+
+        public static class v2026
+        {
+            [CivilianDeaths(CountryLikeThings.PalestineGaza, 700, 1050, "55%-83% of roughly 1,270 people killed in Gaza in 2026, the Gaza Health Ministry's 1,675 killed since the October 2025 ceasefire less about 400 killed in 2025, through 2026-11-23")]
+            [CivilianDeaths(CountryLikeThings.Iran, 1701, 3636, "2026 Iran war (from 2026-02-28), HRANA's count of civilians by 2026-04-07 (a floor, with 714 deaths unclassified) to Iranian Health Ministry figures")]
+            [CivilianDeaths(CountryLikeThings.Israel, 24, 28, "2026 Iran war, Iranian missile strikes on Israel; unverified tracker figures")]
+            public static class Year { }
+        }
+    }
+
+    /// <summary>
+    /// estimated civilian deaths in one place over a period, as a range when sources disagree or the count has to be estimated
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    public class CivilianDeathsAttribute : Attribute
+    {
+        /// <summary>
+        /// where the deaths took place
+        /// </summary>
+        public CountryLikeThings Country { get; set; }
+
+        /// <summary>
+        /// low end of the estimate
+        /// </summary>
+        public int Low { get; set; }
+
+        /// <summary>
+        /// high end of the estimate; the same as <see cref="Low"/> for an exact count
+        /// </summary>
+        public int High { get; set; }
+
+        /// <summary>
+        /// where the figures come from and how they were derived
+        /// </summary>
+        public string Source { get; set; }
+
+        /// <summary>
+        /// constructor for an exact count
+        /// </summary>
+        /// <param name="Country">where the deaths took place</param>
+        /// <param name="DeathCount">number of civilian deaths</param>
+        /// <param name="Source">where the figure comes from</param>
+        public CivilianDeathsAttribute(CountryLikeThings Country, int DeathCount, string Source) : this(Country, DeathCount, DeathCount, Source)
+        {
+        }
+
+        /// <summary>
+        /// constructor for a range
+        /// </summary>
+        /// <param name="Country">where the deaths took place</param>
+        /// <param name="Low">low end of the estimate</param>
+        /// <param name="High">high end of the estimate</param>
+        /// <param name="Source">where the figures come from and how they were derived</param>
+        public CivilianDeathsAttribute(CountryLikeThings Country, int Low, int High, string Source)
+        {
+            this.Country = Country;
+            this.Low = Low;
+            this.High = High;
+            this.Source = Source;
+        }
+    }
+
+    /// <summary>
     /// category of a military rank
     /// </summary>
     public enum MilitaryRankCategory
