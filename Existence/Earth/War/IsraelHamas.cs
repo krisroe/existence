@@ -3781,8 +3781,8 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
 /// if they are confirmed as assassinations
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(106)]
-[SurvivorCountRange(4, 5)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(110)]
+[SurvivorCountRange(5, 6)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3830,6 +3830,17 @@ internal enum IsraeliAssassinationTarget
     AbuAjinaNasim,
 
     /// <summary>
+    /// Head of Hamas internal security in northern Gaza. Killed with his wife and two children in an overnight Israeli strike
+    /// on the Beach refugee camp; Hamas confirmed his death.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [DeathDate(2026, 11, 25)]
+    AbueloufMohammad,
+
+    /// <summary>
     /// Killed with his wife in an Israeli night air raid in central Gaza on the day Israel resumed fighting and ended the
     /// January 2025 ceasefire.
     /// </summary>
@@ -3874,6 +3885,17 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AbuMuradMurad,
+
+    /// <summary>
+    /// Head of Hamas internal security in Gaza. Killed in an Israeli strike in western Gaza City that Netanyahu said targeted him;
+    /// Hamas confirmed his death.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [DeathDate(2026, 11, 24)]
+    AbuNahelNaeem,
 
     /// <summary>
     /// Killed in an Israeli airstrike on his home in an apartment building in the Rimal neighborhood of Gaza City, which killed at least
@@ -3960,6 +3982,19 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.Iran, WorldCities.IranTehran)]
     [DeathDate(2026, 3, 17)]
     AhmadiEsmail,
+
+    /// <summary>
+    /// Head of Hamas's media department, and described as the de facto Hamas leader in Gaza at the time of the attempt.
+    /// Targeted by the IDF in a strike on an apartment in Gaza City that killed two church members; Hamas said on 2026-10-05
+    /// that he was alive.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasMostWanted(StandardPlayingCard.SpadesNine)]
+    [AssassinationAttempt(2026, 10, 3, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
+    AlAmoudiAli,
 
     /// <summary>
     /// Killed in an Israeli strike on a Hamas office in the Dahieh suburbs of Beirut that also killed six others, including
@@ -4181,6 +4216,18 @@ internal enum IsraeliAssassinationTarget
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
     AshurYakub,
+
+    /// <summary>
+    /// Killed by Israeli forces, who announced his death on 2026-05-29 and said he was involved in the October 7 attacks; the date,
+    /// place and method of the killing were not given. Deputy commander of the Gaza City Brigade; also commanded the
+    /// <see cref="HamasMilitaryBattalion.Zaytoun"/> Battalion from May 2021, after Israel killed its previous commander.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantCommanderDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2026, 5)]
+    AslimImadHassanHussein,
 
     /// <summary>
     /// Head of the anti-tank forces in Gaza
@@ -5080,13 +5127,6 @@ internal enum IsraeliHamasMostWantedTargets
     AbuMarzookMousa,
 
     /// <summary>
-    /// Head of the media department
-    /// </summary>
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMostWanted(StandardPlayingCard.SpadesNine)]
-    AlAmoudiAli,
-
-    /// <summary>
     /// Member of the Hamas Political Bureau
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
@@ -5110,10 +5150,10 @@ internal enum IsraeliHamasMostWantedTargets
     AwadallahNizar,
 
     /// <summary>
-    /// Member of the Executive Committee (spelled "Hassam" on the card list)
+    /// Member of the Executive Committee
     /// </summary>
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMostWanted(StandardPlayingCard.HeartsFive)]
+    [HamasMostWanted(StandardPlayingCard.HeartsFive, "spelled \"Hassam\" on the card list")]
     BadranHossam,
 
     /// <summary>
