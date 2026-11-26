@@ -170,8 +170,57 @@ if ($result[0] === "")
 		pg_query($dbconn,$query);
 		pg_close($dbconn);
 	}
-	
+
+	//load publish timestamps for videos that are missing them, up to 50 videos per API call
+	$publishedcount = 0;
+	$missing = []; //youtube id => database id
+	$dbconn = connectToDatabase();
+	$query = 'SELECT id,youtubeid FROM public.videos WHERE published_timestamp IS NULL';
+	$result = pg_query($dbconn,$query);
+	while ($row = pg_fetch_assoc($result)) {
+		$missing[$row['youtubeid']] = $row['id'];
+	}
+	pg_free_result($result);
+	foreach (array_chunk(array_keys($missing), 50) as $chunk)
+	{
+		$options = array(
+		 'http' => array(
+		   'header' => "Authorization: Bearer " . $access_token
+		  )
+		);
+		$context = stream_context_create($options);
+		$response = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=50&id=" . urlencode(implode(',', $chunk)), false, $context);
+
+		$updated = [];
+		$json = json_decode($response, true);
+		if (!($json === null) && isset($json["items"]))
+		{
+			foreach ($json["items"] as $item)
+			{
+				if (isset($item["id"]) && isset($missing[$item["id"]]) && isset($item["snippet"]["publishedAt"]))
+				{
+					$updateresult = pg_query_params($dbconn, 'UPDATE videos SET published_timestamp=$1 WHERE id=$2', [$item["snippet"]["publishedAt"], $missing[$item["id"]]]);
+					if ($updateresult)
+					{
+						$publishedcount++;
+						$updated[$item["id"]] = true;
+					}
+				}
+			}
+		}
+		foreach ($chunk as $youtubeid)
+		{
+			if (!isset($updated[$youtubeid]))
+			{
+				echo "Failed to retrieve publish timestamp for " . $youtubeid . "<br/>";
+			}
+		}
+	}
+	pg_close($dbconn);
+
 	echo $count . " videos updated with likes/dislikes.";
+	echo "<br/>";
+	echo $publishedcount . " videos updated with publish timestamps.";
 	echo "<br/>";
 	echo $gaineddislikes . " dislikes gained.";
 	echo "<br/>";

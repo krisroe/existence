@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS public.videos
     youtubeid character varying COLLATE pg_catalog."default" NOT NULL,
     likes integer,
     dislikes integer,
+    published_timestamp timestamp with time zone NULL,
     shortname character varying COLLATE pg_catalog."default" NOT NULL,
     identifier character varying COLLATE pg_catalog."default" NOT NULL,
     owner character varying COLLATE pg_catalog."default" NOT NULL,
@@ -419,5 +420,5 @@ CREATE INDEX IF NOT EXISTS fki_fk_rulez_unofficial_video2
 GRANT USAGE ON SCHEMA public TO destroyallpugs_web;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO destroyallpugs_web;
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT SELECT ON TABLES TO destroyallpugs_web; --future tables
-GRANT UPDATE (likes, dislikes) ON public.videos TO destroyallpugs_web;
+GRANT UPDATE (likes, dislikes, published_timestamp) ON public.videos TO destroyallpugs_web;
 GRANT INSERT, UPDATE ON public.dates TO destroyallpugs_web;
