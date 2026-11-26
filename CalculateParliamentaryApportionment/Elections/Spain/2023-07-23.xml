@@ -68,8 +68,8 @@
         <NumberOfSeats>8</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1085673</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">683187</TurnoutRaw>
-        <InvalidVotes Relevant="false">5485</InvalidVotes>
-        <BlankVotes Relevant="true">5197</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">5485</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">5197</BlankVotes>
         <Parties>
           <Party Id="59" Name="People's Party" Votes="292272" AboveThreshold="true" BaseSeats="3" Seats="4" />
           <Party Id="60" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="190897" AboveThreshold="true" BaseSeats="2" Seats="2" />
@@ -83,6 +83,7 @@
         <Output>
           <TurnoutPercentage>62.93</TurnoutPercentage>
           <TotalVotes>683187</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>672505</PartyVotes>
           <ElectoralThresholdVotes>677702</ElectoralThresholdVotes>
           <QualifyingVotes>667850</QualifyingVotes>
@@ -115,8 +116,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">260214</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">170538</TurnoutRaw>
-        <InvalidVotes Relevant="false">1431</InvalidVotes>
-        <BlankVotes Relevant="true">722</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1431</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">722</BlankVotes>
         <Parties>
           <Party Id="67" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="46775" AboveThreshold="true" BaseSeats="1" Seats="1" />
           <Party Id="68" Name="Basque Country Gather" Votes="32987" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -134,6 +135,7 @@
         <Output>
           <TurnoutPercentage>65.54</TurnoutPercentage>
           <TotalVotes>170538</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>168385</PartyVotes>
           <ElectoralThresholdVotes>169107</ElectoralThresholdVotes>
           <QualifyingVotes>166183</QualifyingVotes>
@@ -167,8 +169,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">307988</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">223917</TurnoutRaw>
-        <InvalidVotes Relevant="false">2726</InvalidVotes>
-        <BlankVotes Relevant="true">1834</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2726</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1834</BlankVotes>
         <Parties>
           <Party Id="79" Name="People's Party" Votes="88299" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="80" Name="Spanish Socialist Workers' Party" Votes="76322" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -182,6 +184,7 @@
         <Output>
           <TurnoutPercentage>72.70</TurnoutPercentage>
           <TotalVotes>223917</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>219357</PartyVotes>
           <ElectoralThresholdVotes>221191</ElectoralThresholdVotes>
           <QualifyingVotes>217205</QualifyingVotes>
@@ -210,8 +213,8 @@
         <NumberOfSeats>12</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1306311</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">908842</TurnoutRaw>
-        <InvalidVotes Relevant="false">9650</InvalidVotes>
-        <BlankVotes Relevant="true">6575</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">9650</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">6575</BlankVotes>
         <Parties>
           <Party Id="87" Name="People's Party" Votes="330293" AboveThreshold="true" BaseSeats="4" Seats="5" />
           <Party Id="88" Name="Spanish Socialist Workers' Party" Votes="287737" AboveThreshold="true" BaseSeats="3" Seats="4" />
@@ -226,6 +229,7 @@
         <Output>
           <TurnoutPercentage>69.57</TurnoutPercentage>
           <TotalVotes>908842</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>892617</PartyVotes>
           <ElectoralThresholdVotes>899192</ElectoralThresholdVotes>
           <QualifyingVotes>879950</QualifyingVotes>
@@ -257,8 +261,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">516114</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">324405</TurnoutRaw>
-        <InvalidVotes Relevant="false">3163</InvalidVotes>
-        <BlankVotes Relevant="true">2464</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3163</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2464</BlankVotes>
         <Parties>
           <Party Id="96" Name="People's Party" Votes="131524" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="97" Name="Spanish Socialist Workers' Party" Votes="93282" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -274,6 +278,7 @@
         <Output>
           <TurnoutPercentage>62.86</TurnoutPercentage>
           <TotalVotes>324405</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>318778</PartyVotes>
           <ElectoralThresholdVotes>321242</ElectoralThresholdVotes>
           <QualifyingVotes>314655</QualifyingVotes>
@@ -302,8 +307,8 @@
         <NumberOfSeats>7</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">959023</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">603183</TurnoutRaw>
-        <InvalidVotes Relevant="false">6151</InvalidVotes>
-        <BlankVotes Relevant="true">6079</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6151</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">6079</BlankVotes>
         <Parties>
           <Party Id="106" Name="People's Party" Votes="212816" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="107" Name="Spanish Socialist Workers' Party" Votes="205049" AboveThreshold="true" BaseSeats="2" Seats="2" />
@@ -320,6 +325,7 @@
         <Output>
           <TurnoutPercentage>62.90</TurnoutPercentage>
           <TotalVotes>603183</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>590953</PartyVotes>
           <ElectoralThresholdVotes>597032</ElectoralThresholdVotes>
           <QualifyingVotes>581066</QualifyingVotes>
@@ -348,8 +354,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">136669</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">99120</TurnoutRaw>
-        <InvalidVotes Relevant="false">1164</InvalidVotes>
-        <BlankVotes Relevant="true">632</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1164</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">632</BlankVotes>
         <Parties>
           <Party Id="117" Name="People's Party" Votes="42369" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="118" Name="Spanish Socialist Workers' Party" Votes="26828" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -366,6 +372,7 @@
         <Output>
           <TurnoutPercentage>72.53</TurnoutPercentage>
           <TotalVotes>99120</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>97324</PartyVotes>
           <ElectoralThresholdVotes>97956</ElectoralThresholdVotes>
           <QualifyingVotes>96654</QualifyingVotes>
@@ -395,8 +402,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">550702</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">398233</TurnoutRaw>
-        <InvalidVotes Relevant="false">6772</InvalidVotes>
-        <BlankVotes Relevant="true">3225</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6772</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3225</BlankVotes>
         <Parties>
           <Party Id="128" Name="Spanish Socialist Workers' Party" Votes="153473" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="129" Name="People's Party" Votes="148068" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -411,6 +418,7 @@
         <Output>
           <TurnoutPercentage>72.31</TurnoutPercentage>
           <TotalVotes>398233</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>388236</PartyVotes>
           <ElectoralThresholdVotes>391461</ElectoralThresholdVotes>
           <QualifyingVotes>381811</QualifyingVotes>
@@ -439,8 +447,8 @@
         <NumberOfSeats>8</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">828755</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">508233</TurnoutRaw>
-        <InvalidVotes Relevant="false">4953</InvalidVotes>
-        <BlankVotes Relevant="true">4704</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4953</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">4704</BlankVotes>
         <Parties>
           <Party Id="137" Name="People's Party" Votes="179303" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="138" Name="Socialist Party of the Balearic Islands" NationalParty="Spanish Socialist Workers' Party" Votes="151786" AboveThreshold="true" BaseSeats="2" Seats="3" />
@@ -454,6 +462,7 @@
         <Output>
           <TurnoutPercentage>61.32</TurnoutPercentage>
           <TotalVotes>508233</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>498576</PartyVotes>
           <ElectoralThresholdVotes>503280</ElectoralThresholdVotes>
           <QualifyingVotes>491123</QualifyingVotes>
@@ -482,8 +491,8 @@
         <NumberOfSeats>32</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">4243500</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">2688720</TurnoutRaw>
-        <InvalidVotes Relevant="false">21242</InvalidVotes>
-        <BlankVotes Relevant="true">21059</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">21242</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">21059</BlankVotes>
         <Parties>
           <Party Id="145" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="952347" AboveThreshold="true" BaseSeats="12" Seats="13" />
           <Party Id="146" Name="Unite–In Common We Can" NationalParty="Unite" Votes="405993" AboveThreshold="true" BaseSeats="5" Seats="5" />
@@ -501,6 +510,7 @@
         <Output>
           <TurnoutPercentage>63.36</TurnoutPercentage>
           <TotalVotes>2688720</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>2646419</PartyVotes>
           <ElectoralThresholdVotes>2667478</ElectoralThresholdVotes>
           <QualifyingVotes>2514490</QualifyingVotes>
@@ -531,8 +541,8 @@
         <NumberOfSeats>8</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">942983</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">614944</TurnoutRaw>
-        <InvalidVotes Relevant="false">5251</InvalidVotes>
-        <BlankVotes Relevant="true">3391</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">5251</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3391</BlankVotes>
         <Parties>
           <Party Id="157" Name="Basque Nationalist Party" Votes="164188" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="158" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="157448" AboveThreshold="true" BaseSeats="2" Seats="2" />
@@ -549,6 +559,7 @@
         <Output>
           <TurnoutPercentage>65.21</TurnoutPercentage>
           <TotalVotes>614944</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>606302</PartyVotes>
           <ElectoralThresholdVotes>609693</ElectoralThresholdVotes>
           <QualifyingVotes>584628</QualifyingVotes>
@@ -581,8 +592,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">296401</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">204886</TurnoutRaw>
-        <InvalidVotes Relevant="false">2317</InvalidVotes>
-        <BlankVotes Relevant="true">1851</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2317</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1851</BlankVotes>
         <Parties>
           <Party Id="168" Name="People's Party" Votes="82329" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="169" Name="Spanish Socialist Workers' Party" Votes="69775" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -599,6 +610,7 @@
         <Output>
           <TurnoutPercentage>69.12</TurnoutPercentage>
           <TotalVotes>204886</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>200718</PartyVotes>
           <ElectoralThresholdVotes>202569</ElectoralThresholdVotes>
           <QualifyingVotes>195470</QualifyingVotes>
@@ -627,8 +639,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">339491</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">239747</TurnoutRaw>
-        <InvalidVotes Relevant="false">3896</InvalidVotes>
-        <BlankVotes Relevant="true">1721</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3896</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1721</BlankVotes>
         <Parties>
           <Party Id="179" Name="Spanish Socialist Workers' Party" Votes="91692" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="180" Name="People's Party" Votes="89633" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -644,6 +656,7 @@
         <Output>
           <TurnoutPercentage>70.62</TurnoutPercentage>
           <TotalVotes>239747</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>234130</PartyVotes>
           <ElectoralThresholdVotes>235851</ElectoralThresholdVotes>
           <QualifyingVotes>229755</QualifyingVotes>
@@ -672,8 +685,8 @@
         <NumberOfSeats>9</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1017958</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">644801</TurnoutRaw>
-        <InvalidVotes Relevant="false">7703</InvalidVotes>
-        <BlankVotes Relevant="true">7103</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">7703</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">7103</BlankVotes>
         <Parties>
           <Party Id="189" Name="People's Party" Votes="221703" AboveThreshold="true" BaseSeats="3" Seats="4" />
           <Party Id="190" Name="Spanish Socialist Workers' Party" Votes="211200" AboveThreshold="true" BaseSeats="3" Seats="3" />
@@ -689,6 +702,7 @@
         <Output>
           <TurnoutPercentage>63.34</TurnoutPercentage>
           <TotalVotes>644801</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>629995</PartyVotes>
           <ElectoralThresholdVotes>637098</ElectoralThresholdVotes>
           <QualifyingVotes>611738</QualifyingVotes>
@@ -714,8 +728,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">507818</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">355145</TurnoutRaw>
-        <InvalidVotes Relevant="false">4995</InvalidVotes>
-        <BlankVotes Relevant="true">3262</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4995</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3262</BlankVotes>
         <Parties>
           <Party Id="199" Name="People's Party" Votes="147326" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="200" Name="Spanish Socialist Workers' Party" Votes="116596" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -729,6 +743,7 @@
         <Output>
           <TurnoutPercentage>69.94</TurnoutPercentage>
           <TotalVotes>355145</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>346888</PartyVotes>
           <ElectoralThresholdVotes>350150</ElectoralThresholdVotes>
           <QualifyingVotes>342878</QualifyingVotes>
@@ -757,8 +772,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">430830</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">311581</TurnoutRaw>
-        <InvalidVotes Relevant="false">3651</InvalidVotes>
-        <BlankVotes Relevant="true">2655</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3651</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2655</BlankVotes>
         <Parties>
           <Party Id="207" Name="People's Party" Votes="108302" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="208" Name="Spanish Socialist Workers' Party" Votes="100530" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -772,6 +787,7 @@
         <Output>
           <TurnoutPercentage>72.32</TurnoutPercentage>
           <TotalVotes>311581</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>305275</PartyVotes>
           <ElectoralThresholdVotes>307930</ElectoralThresholdVotes>
           <QualifyingVotes>301932</QualifyingVotes>
@@ -803,8 +819,8 @@
         <NumberOfSeats>1</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">63310</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">33674</TurnoutRaw>
-        <InvalidVotes Relevant="false">353</InvalidVotes>
-        <BlankVotes Relevant="true">328</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">353</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">328</BlankVotes>
         <Parties>
           <Party Id="215" Name="People's Party" Votes="12918" Seats="1" />
           <Party Id="216" Name="Spanish Socialist Workers' Party" Votes="11332" Seats="0" />
@@ -818,6 +834,7 @@
         <Output>
           <TurnoutPercentage>53.19</TurnoutPercentage>
           <TotalVotes>33674</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>32993</PartyVotes>
         </Output>
       </Constituency>
@@ -825,8 +842,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">391495</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">286895</TurnoutRaw>
-        <InvalidVotes Relevant="false">3916</InvalidVotes>
-        <BlankVotes Relevant="true">2353</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3916</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2353</BlankVotes>
         <Parties>
           <Party Id="223" Name="People's Party" Votes="114709" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="224" Name="Spanish Socialist Workers' Party" Votes="100102" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -840,6 +857,7 @@
         <Output>
           <TurnoutPercentage>73.28</TurnoutPercentage>
           <TotalVotes>286895</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>280626</PartyVotes>
           <ElectoralThresholdVotes>282979</ElectoralThresholdVotes>
           <QualifyingVotes>278262</QualifyingVotes>
@@ -868,8 +886,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">645288</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">455564</TurnoutRaw>
-        <InvalidVotes Relevant="false">6962</InvalidVotes>
-        <BlankVotes Relevant="true">4348</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6962</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">4348</BlankVotes>
         <Parties>
           <Party Id="231" Name="People's Party" Votes="169976" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="232" Name="Spanish Socialist Workers' Party" Votes="144080" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -885,6 +903,7 @@
         <Output>
           <TurnoutPercentage>70.60</TurnoutPercentage>
           <TotalVotes>455564</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>444254</PartyVotes>
           <ElectoralThresholdVotes>448602</ElectoralThresholdVotes>
           <QualifyingVotes>438176</QualifyingVotes>
@@ -916,8 +935,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">152694</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">115280</TurnoutRaw>
-        <InvalidVotes Relevant="false">1472</InvalidVotes>
-        <BlankVotes Relevant="true">969</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1472</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">969</BlankVotes>
         <Parties>
           <Party Id="241" Name="People's Party" Votes="45255" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="242" Name="Spanish Socialist Workers' Party" Votes="42528" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -933,6 +952,7 @@
         <Output>
           <TurnoutPercentage>75.50</TurnoutPercentage>
           <TotalVotes>115280</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>112839</PartyVotes>
           <ElectoralThresholdVotes>113808</ElectoralThresholdVotes>
           <QualifyingVotes>111808</QualifyingVotes>
@@ -958,8 +978,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">585873</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">378965</TurnoutRaw>
-        <InvalidVotes Relevant="false">2344</InvalidVotes>
-        <BlankVotes Relevant="true">2005</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2344</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2005</BlankVotes>
         <Parties>
           <Party Id="251" Name="Basque Country Gather" Votes="117321" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="252" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="87709" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -977,6 +997,7 @@
         <Output>
           <TurnoutPercentage>64.68</TurnoutPercentage>
           <TotalVotes>378965</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>374616</PartyVotes>
           <ElectoralThresholdVotes>376621</ElectoralThresholdVotes>
           <QualifyingVotes>362858</QualifyingVotes>
@@ -1009,8 +1030,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">546370</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">327159</TurnoutRaw>
-        <InvalidVotes Relevant="false">4171</InvalidVotes>
-        <BlankVotes Relevant="true">2981</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4171</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2981</BlankVotes>
         <Parties>
           <Party Id="263" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="93448" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="264" Name="Together for Catalonia" Votes="63251" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -1028,6 +1049,7 @@
         <Output>
           <TurnoutPercentage>59.88</TurnoutPercentage>
           <TotalVotes>327159</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>320007</PartyVotes>
           <ElectoralThresholdVotes>322988</ElectoralThresholdVotes>
           <QualifyingVotes>311850</QualifyingVotes>
@@ -1065,8 +1087,8 @@
         <NumberOfSeats>7</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">765478</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">509486</TurnoutRaw>
-        <InvalidVotes Relevant="false">6641</InvalidVotes>
-        <BlankVotes Relevant="true">4057</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6641</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">4057</BlankVotes>
         <Parties>
           <Party Id="275" Name="People's Party" Votes="185996" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="276" Name="Spanish Socialist Workers' Party" Votes="165862" AboveThreshold="true" BaseSeats="2" Seats="2" />
@@ -1083,6 +1105,7 @@
         <Output>
           <TurnoutPercentage>66.56</TurnoutPercentage>
           <TotalVotes>509486</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>498788</PartyVotes>
           <ElectoralThresholdVotes>502845</ElectoralThresholdVotes>
           <QualifyingVotes>491505</QualifyingVotes>
@@ -1111,8 +1134,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">196983</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">142744</TurnoutRaw>
-        <InvalidVotes Relevant="false">1831</InvalidVotes>
-        <BlankVotes Relevant="true">1143</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1831</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1143</BlankVotes>
         <Parties>
           <Party Id="286" Name="People's Party" Votes="51195" AboveThreshold="true" BaseSeats="1" Seats="1" />
           <Party Id="287" Name="Spanish Socialist Workers' Party" Votes="46479" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1128,6 +1151,7 @@
         <Output>
           <TurnoutPercentage>72.47</TurnoutPercentage>
           <TotalVotes>142744</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>139770</PartyVotes>
           <ElectoralThresholdVotes>140913</ElectoralThresholdVotes>
           <QualifyingVotes>137707</QualifyingVotes>
@@ -1153,8 +1177,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">402504</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">260861</TurnoutRaw>
-        <InvalidVotes Relevant="false">4057</InvalidVotes>
-        <BlankVotes Relevant="true">2410</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4057</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2410</BlankVotes>
         <Parties>
           <Party Id="296" Name="People's Party" Votes="93565" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="297" Name="Spanish Socialist Workers' Party" Votes="92326" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -1168,6 +1192,7 @@
         <Output>
           <TurnoutPercentage>64.81</TurnoutPercentage>
           <TotalVotes>260861</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>254394</PartyVotes>
           <ElectoralThresholdVotes>256804</ElectoralThresholdVotes>
           <QualifyingVotes>250215</QualifyingVotes>
@@ -1199,8 +1224,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">173391</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">121148</TurnoutRaw>
-        <InvalidVotes Relevant="false">1253</InvalidVotes>
-        <BlankVotes Relevant="true">1217</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1253</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1217</BlankVotes>
         <Parties>
           <Party Id="304" Name="People's Party" Votes="45783" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="305" Name="Spanish Socialist Workers' Party" Votes="40307" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1219,6 +1244,7 @@
         <Output>
           <TurnoutPercentage>69.87</TurnoutPercentage>
           <TotalVotes>121148</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>118678</PartyVotes>
           <ElectoralThresholdVotes>119895</ElectoralThresholdVotes>
           <QualifyingVotes>115019</QualifyingVotes>
@@ -1244,8 +1270,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">518371</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">373657</TurnoutRaw>
-        <InvalidVotes Relevant="false">4926</InvalidVotes>
-        <BlankVotes Relevant="true">2497</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4926</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2497</BlankVotes>
         <Parties>
           <Party Id="317" Name="People's Party" Votes="137617" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="318" Name="Spanish Socialist Workers' Party" Votes="133819" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -1260,6 +1286,7 @@
         <Output>
           <TurnoutPercentage>72.08</TurnoutPercentage>
           <TotalVotes>373657</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>366234</PartyVotes>
           <ElectoralThresholdVotes>368731</ElectoralThresholdVotes>
           <QualifyingVotes>355297</QualifyingVotes>
@@ -1291,8 +1318,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">252091</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">176945</TurnoutRaw>
-        <InvalidVotes Relevant="false">2282</InvalidVotes>
-        <BlankVotes Relevant="true">1608</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2282</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1608</BlankVotes>
         <Parties>
           <Party Id="326" Name="People's Party" Votes="79715" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="327" Name="Spanish Socialist Workers' Party" Votes="62322" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -1309,6 +1336,7 @@
         <Output>
           <TurnoutPercentage>70.19</TurnoutPercentage>
           <TotalVotes>176945</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>173055</PartyVotes>
           <ElectoralThresholdVotes>174663</ElectoralThresholdVotes>
           <QualifyingVotes>170563</QualifyingVotes>
@@ -1337,8 +1365,8 @@
         <NumberOfSeats>8</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">898882</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">534912</TurnoutRaw>
-        <InvalidVotes Relevant="false">5575</InvalidVotes>
-        <BlankVotes Relevant="true">3062</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">5575</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3062</BlankVotes>
         <Parties>
           <Party Id="337" Name="Spanish Socialist Workers' Party" Votes="175671" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="338" Name="People's Party" Votes="136857" AboveThreshold="true" BaseSeats="2" Seats="3" />
@@ -1355,6 +1383,7 @@
         <Output>
           <TurnoutPercentage>59.51</TurnoutPercentage>
           <TotalVotes>534912</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>526275</PartyVotes>
           <ElectoralThresholdVotes>529337</ElectoralThresholdVotes>
           <QualifyingVotes>520228</QualifyingVotes>
@@ -1388,8 +1417,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">422917</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">277726</TurnoutRaw>
-        <InvalidVotes Relevant="false">2486</InvalidVotes>
-        <BlankVotes Relevant="true">1577</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2486</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1577</BlankVotes>
         <Parties>
           <Party Id="348" Name="People's Party" Votes="101605" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="349" Name="Spanish Socialist Workers' Party" Votes="92578" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -1407,6 +1436,7 @@
         <Output>
           <TurnoutPercentage>65.67</TurnoutPercentage>
           <TotalVotes>277726</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>273663</PartyVotes>
           <ElectoralThresholdVotes>275240</ElectoralThresholdVotes>
           <QualifyingVotes>270886</QualifyingVotes>
@@ -1436,8 +1466,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">317225</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">186929</TurnoutRaw>
-        <InvalidVotes Relevant="false">2390</InvalidVotes>
-        <BlankVotes Relevant="true">2059</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2390</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2059</BlankVotes>
         <Parties>
           <Party Id="360" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="54414" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="361" Name="Republican Left of Catalonia" Votes="34331" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -1456,6 +1486,7 @@
         <Output>
           <TurnoutPercentage>58.93</TurnoutPercentage>
           <TotalVotes>186929</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>182480</PartyVotes>
           <ElectoralThresholdVotes>184539</ElectoralThresholdVotes>
           <QualifyingVotes>172793</QualifyingVotes>
@@ -1489,8 +1520,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">337755</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">200709</TurnoutRaw>
-        <InvalidVotes Relevant="false">2143</InvalidVotes>
-        <BlankVotes Relevant="true">1251</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2143</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1251</BlankVotes>
         <Parties>
           <Party Id="373" Name="People's Party" Votes="99769" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="374" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="60163" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1506,6 +1537,7 @@
         <Output>
           <TurnoutPercentage>59.42</TurnoutPercentage>
           <TotalVotes>200709</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>197315</PartyVotes>
           <ElectoralThresholdVotes>198566</ElectoralThresholdVotes>
           <QualifyingVotes>196059</QualifyingVotes>
@@ -1532,8 +1564,8 @@
         <NumberOfSeats>37</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">5224561</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">3639500</TurnoutRaw>
-        <InvalidVotes Relevant="false">30827</InvalidVotes>
-        <BlankVotes Relevant="true">28960</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">30827</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">28960</BlankVotes>
         <Parties>
           <Party Id="383" Name="People's Party" Votes="1463183" AboveThreshold="true" BaseSeats="15" Seats="16" />
           <Party Id="384" Name="Spanish Socialist Workers' Party" Votes="1004599" AboveThreshold="true" BaseSeats="10" Seats="10" />
@@ -1550,6 +1582,7 @@
         <Output>
           <TurnoutPercentage>69.66</TurnoutPercentage>
           <TotalVotes>3639500</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>3579713</PartyVotes>
           <ElectoralThresholdVotes>3608673</ElectoralThresholdVotes>
           <QualifyingVotes>3531726</QualifyingVotes>
@@ -1578,8 +1611,8 @@
         <NumberOfSeats>11</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1239846</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">798557</TurnoutRaw>
-        <InvalidVotes Relevant="false">10219</InvalidVotes>
-        <BlankVotes Relevant="true">7509</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">10219</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">7509</BlankVotes>
         <Parties>
           <Party Id="394" Name="People's Party" Votes="302000" AboveThreshold="true" BaseSeats="4" Seats="5" />
           <Party Id="395" Name="Spanish Socialist Workers' Party" Votes="239172" AboveThreshold="true" BaseSeats="3" Seats="3" />
@@ -1594,6 +1627,7 @@
         <Output>
           <TurnoutPercentage>64.41</TurnoutPercentage>
           <TotalVotes>798557</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>780829</PartyVotes>
           <ElectoralThresholdVotes>788338</ElectoralThresholdVotes>
           <QualifyingVotes>767582</QualifyingVotes>
@@ -1622,8 +1656,8 @@
         <NumberOfSeats>1</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">61118</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">27649</TurnoutRaw>
-        <InvalidVotes Relevant="false">300</InvalidVotes>
-        <BlankVotes Relevant="true">253</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">300</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">253</BlankVotes>
         <Parties>
           <Party Id="403" Name="People's Party" Votes="13446" Seats="1" />
           <Party Id="404" Name="Spanish Socialist Workers' Party" Votes="6943" Seats="0" />
@@ -1637,6 +1671,7 @@
         <Output>
           <TurnoutPercentage>45.24</TurnoutPercentage>
           <TotalVotes>27649</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>27096</PartyVotes>
         </Output>
       </Constituency>
@@ -1644,8 +1679,8 @@
         <NumberOfSeats>10</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1099703</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">755255</TurnoutRaw>
-        <InvalidVotes Relevant="false">7458</InvalidVotes>
-        <BlankVotes Relevant="true">5034</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">7458</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">5034</BlankVotes>
         <Parties>
           <Party Id="411" Name="People's Party" Votes="307972" AboveThreshold="true" BaseSeats="4" Seats="4" />
           <Party Id="412" Name="Spanish Socialist Workers' Party" Votes="189210" AboveThreshold="true" BaseSeats="2" Seats="3" />
@@ -1663,6 +1698,7 @@
         <Output>
           <TurnoutPercentage>68.68</TurnoutPercentage>
           <TotalVotes>755255</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>742763</PartyVotes>
           <ElectoralThresholdVotes>747797</ElectoralThresholdVotes>
           <QualifyingVotes>731884</QualifyingVotes>
@@ -1691,8 +1727,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">519918</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">345095</TurnoutRaw>
-        <InvalidVotes Relevant="false">3251</InvalidVotes>
-        <BlankVotes Relevant="true">2890</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3251</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2890</BlankVotes>
         <Parties>
           <Party Id="423" Name="Socialist Party of Navarre" NationalParty="Spanish Socialist Workers' Party" Votes="93553" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="424" Name="Basque Country Gather" Votes="58954" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -1710,6 +1746,7 @@
         <Output>
           <TurnoutPercentage>66.37</TurnoutPercentage>
           <TotalVotes>345095</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>338954</PartyVotes>
           <ElectoralThresholdVotes>341844</ElectoralThresholdVotes>
           <QualifyingVotes>325242</QualifyingVotes>
@@ -1746,8 +1783,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">355765</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">188065</TurnoutRaw>
-        <InvalidVotes Relevant="false">1794</InvalidVotes>
-        <BlankVotes Relevant="true">1109</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1794</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1109</BlankVotes>
         <Parties>
           <Party Id="435" Name="People's Party" Votes="93182" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="436" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="56035" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1764,6 +1801,7 @@
         <Output>
           <TurnoutPercentage>52.86</TurnoutPercentage>
           <TotalVotes>188065</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>185162</PartyVotes>
           <ElectoralThresholdVotes>186271</ElectoralThresholdVotes>
           <QualifyingVotes>183785</QualifyingVotes>
@@ -1790,8 +1828,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">137642</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">98079</TurnoutRaw>
-        <InvalidVotes Relevant="false">1117</InvalidVotes>
-        <BlankVotes Relevant="true">833</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1117</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">833</BlankVotes>
         <Parties>
           <Party Id="446" Name="People's Party" Votes="40709" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="447" Name="Spanish Socialist Workers' Party" Votes="33613" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1811,6 +1849,7 @@
         <Output>
           <TurnoutPercentage>71.26</TurnoutPercentage>
           <TotalVotes>98079</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>96129</PartyVotes>
           <ElectoralThresholdVotes>96962</ElectoralThresholdVotes>
           <QualifyingVotes>92703</QualifyingVotes>
@@ -1836,8 +1875,8 @@
         <NumberOfSeats>7</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">909434</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">579125</TurnoutRaw>
-        <InvalidVotes Relevant="false">6001</InvalidVotes>
-        <BlankVotes Relevant="true">3865</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6001</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3865</BlankVotes>
         <Parties>
           <Party Id="460" Name="People's Party" Votes="227658" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="461" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="179737" AboveThreshold="true" BaseSeats="2" Seats="3" />
@@ -1852,6 +1891,7 @@
         <Output>
           <TurnoutPercentage>63.68</TurnoutPercentage>
           <TotalVotes>579125</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>569259</PartyVotes>
           <ElectoralThresholdVotes>573124</ElectoralThresholdVotes>
           <QualifyingVotes>564377</QualifyingVotes>
@@ -1884,8 +1924,8 @@
         <NumberOfSeats>4</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">300506</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">201419</TurnoutRaw>
-        <InvalidVotes Relevant="false">2309</InvalidVotes>
-        <BlankVotes Relevant="true">1649</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">2309</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">1649</BlankVotes>
         <Parties>
           <Party Id="469" Name="People's Party" Votes="93318" AboveThreshold="true" BaseSeats="1" Seats="3" />
           <Party Id="470" Name="Spanish Socialist Workers' Party" Votes="60718" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -1903,6 +1943,7 @@
         <Output>
           <TurnoutPercentage>67.03</TurnoutPercentage>
           <TotalVotes>201419</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>197461</PartyVotes>
           <ElectoralThresholdVotes>199110</ElectoralThresholdVotes>
           <QualifyingVotes>194251</QualifyingVotes>
@@ -1931,8 +1972,8 @@
         <NumberOfSeats>7</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">881217</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">500777</TurnoutRaw>
-        <InvalidVotes Relevant="false">6404</InvalidVotes>
-        <BlankVotes Relevant="true">5088</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">6404</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">5088</BlankVotes>
         <Parties>
           <Party Id="481" Name="People's Party" Votes="174770" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="482" Name="Spanish Socialist Workers' Party" Votes="165590" AboveThreshold="true" BaseSeats="2" Seats="3" />
@@ -1947,6 +1988,7 @@
         <Output>
           <TurnoutPercentage>56.83</TurnoutPercentage>
           <TotalVotes>500777</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>489285</PartyVotes>
           <ElectoralThresholdVotes>494373</ElectoralThresholdVotes>
           <QualifyingVotes>476797</QualifyingVotes>
@@ -1975,8 +2017,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">119454</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">89945</TurnoutRaw>
-        <InvalidVotes Relevant="false">1332</InvalidVotes>
-        <BlankVotes Relevant="true">875</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1332</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">875</BlankVotes>
         <Parties>
           <Party Id="490" Name="People's Party" Votes="39894" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="491" Name="Spanish Socialist Workers' Party" Votes="27113" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -1993,6 +2035,7 @@
         <Output>
           <TurnoutPercentage>75.30</TurnoutPercentage>
           <TotalVotes>89945</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>87738</PartyVotes>
           <ElectoralThresholdVotes>88613</ElectoralThresholdVotes>
           <QualifyingVotes>86654</QualifyingVotes>
@@ -2021,8 +2064,8 @@
         <NumberOfSeats>12</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1564082</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">1075133</TurnoutRaw>
-        <InvalidVotes Relevant="false">15775</InvalidVotes>
-        <BlankVotes Relevant="true">10951</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">15775</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">10951</BlankVotes>
         <Parties>
           <Party Id="501" Name="Spanish Socialist Workers' Party" Votes="387760" AboveThreshold="true" BaseSeats="4" Seats="5" />
           <Party Id="502" Name="People's Party" Votes="353663" AboveThreshold="true" BaseSeats="4" Seats="4" />
@@ -2039,6 +2082,7 @@
         <Output>
           <TurnoutPercentage>68.74</TurnoutPercentage>
           <TotalVotes>1075133</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>1048407</PartyVotes>
           <ElectoralThresholdVotes>1059358</ElectoralThresholdVotes>
           <QualifyingVotes>1031255</QualifyingVotes>
@@ -2067,8 +2111,8 @@
         <NumberOfSeats>2</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">75768</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">51157</TurnoutRaw>
-        <InvalidVotes Relevant="false">388</InvalidVotes>
-        <BlankVotes Relevant="true">285</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">388</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">285</BlankVotes>
         <Parties>
           <Party Id="512" Name="People's Party" Votes="18895" AboveThreshold="true" BaseSeats="0" Seats="1" />
           <Party Id="513" Name="Spanish Socialist Workers' Party" Votes="14966" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -2084,6 +2128,7 @@
         <Output>
           <TurnoutPercentage>67.52</TurnoutPercentage>
           <TotalVotes>51157</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>50484</PartyVotes>
           <ElectoralThresholdVotes>50769</ElectoralThresholdVotes>
           <QualifyingVotes>50247</QualifyingVotes>
@@ -2113,8 +2158,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">596689</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">372426</TurnoutRaw>
-        <InvalidVotes Relevant="false">4402</InvalidVotes>
-        <BlankVotes Relevant="true">3168</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4402</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">3168</BlankVotes>
         <Parties>
           <Party Id="522" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="121126" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="523" Name="Republican Left of Catalonia" Votes="55461" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -2134,6 +2179,7 @@
         <Output>
           <TurnoutPercentage>62.42</TurnoutPercentage>
           <TotalVotes>372426</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>364856</PartyVotes>
           <ElectoralThresholdVotes>368024</ElectoralThresholdVotes>
           <QualifyingVotes>348197</QualifyingVotes>
@@ -2170,8 +2216,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">106352</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">76561</TurnoutRaw>
-        <InvalidVotes Relevant="false">648</InvalidVotes>
-        <BlankVotes Relevant="true">410</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">648</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">410</BlankVotes>
         <Parties>
           <Party Id="536" Name="People's Party" Votes="26586" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="537" Name="Spanish Socialist Workers' Party" Votes="22226" AboveThreshold="true" BaseSeats="0" Seats="1" />
@@ -2190,6 +2236,7 @@
         <Output>
           <TurnoutPercentage>71.99</TurnoutPercentage>
           <TotalVotes>76561</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>75503</PartyVotes>
           <ElectoralThresholdVotes>75913</ElectoralThresholdVotes>
           <QualifyingVotes>74218</QualifyingVotes>
@@ -2219,8 +2266,8 @@
         <NumberOfSeats>6</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">542567</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">392988</TurnoutRaw>
-        <InvalidVotes Relevant="false">5788</InvalidVotes>
-        <BlankVotes Relevant="true">2611</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">5788</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2611</BlankVotes>
         <Parties>
           <Party Id="549" Name="People's Party" Votes="146533" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="550" Name="Spanish Socialist Workers' Party" Votes="126072" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -2235,6 +2282,7 @@
         <Output>
           <TurnoutPercentage>72.43</TurnoutPercentage>
           <TotalVotes>392988</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>384589</PartyVotes>
           <ElectoralThresholdVotes>387200</ElectoralThresholdVotes>
           <QualifyingVotes>380525</QualifyingVotes>
@@ -2263,8 +2311,8 @@
         <NumberOfSeats>16</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">1999340</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">1451187</TurnoutRaw>
-        <InvalidVotes Relevant="false">14026</InvalidVotes>
-        <BlankVotes Relevant="true">10810</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">14026</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">10810</BlankVotes>
         <Parties>
           <Party Id="558" Name="People's Party" Votes="483469" AboveThreshold="true" BaseSeats="5" Seats="6" />
           <Party Id="559" Name="Spanish Socialist Workers' Party" Votes="461353" AboveThreshold="true" BaseSeats="5" Seats="5" />
@@ -2281,6 +2329,7 @@
         <Output>
           <TurnoutPercentage>72.58</TurnoutPercentage>
           <TotalVotes>1451187</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>1426351</PartyVotes>
           <ElectoralThresholdVotes>1437161</ElectoralThresholdVotes>
           <QualifyingVotes>1406318</QualifyingVotes>
@@ -2309,8 +2358,8 @@
         <NumberOfSeats>5</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">431381</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">319312</TurnoutRaw>
-        <InvalidVotes Relevant="false">3003</InvalidVotes>
-        <BlankVotes Relevant="true">2419</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">3003</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">2419</BlankVotes>
         <Parties>
           <Party Id="569" Name="People's Party" Votes="129170" AboveThreshold="true" BaseSeats="2" Seats="2" />
           <Party Id="570" Name="Spanish Socialist Workers' Party" Votes="103596" AboveThreshold="true" BaseSeats="1" Seats="2" />
@@ -2330,6 +2379,7 @@
         <Output>
           <TurnoutPercentage>74.02</TurnoutPercentage>
           <TotalVotes>319312</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>313890</PartyVotes>
           <ElectoralThresholdVotes>316309</ElectoralThresholdVotes>
           <QualifyingVotes>308763</QualifyingVotes>
@@ -2358,8 +2408,8 @@
         <NumberOfSeats>3</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">162998</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">104671</TurnoutRaw>
-        <InvalidVotes Relevant="false">1261</InvalidVotes>
-        <BlankVotes Relevant="true">922</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">1261</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">922</BlankVotes>
         <Parties>
           <Party Id="583" Name="People's Party" Votes="46196" AboveThreshold="true" BaseSeats="1" Seats="2" />
           <Party Id="584" Name="Spanish Socialist Workers' Party" Votes="33601" AboveThreshold="true" BaseSeats="1" Seats="1" />
@@ -2377,6 +2427,7 @@
         <Output>
           <TurnoutPercentage>64.22</TurnoutPercentage>
           <TotalVotes>104671</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>102488</PartyVotes>
           <ElectoralThresholdVotes>103410</ElectoralThresholdVotes>
           <QualifyingVotes>99288</QualifyingVotes>
@@ -2402,8 +2453,8 @@
         <NumberOfSeats>7</NumberOfSeats>
         <TurnoutBase Meaning="RegisteredVoters">740060</TurnoutBase>
         <TurnoutRaw Meaning="TotalVotes">523410</TurnoutRaw>
-        <InvalidVotes Relevant="false">4705</InvalidVotes>
-        <BlankVotes Relevant="true">4693</BlankVotes>
+        <InvalidVotes RelevantToCalculation="false">4705</InvalidVotes>
+        <BlankVotes RelevantToCalculation="true">4693</BlankVotes>
         <Parties>
           <Party Id="595" Name="People's Party" Votes="186776" AboveThreshold="true" BaseSeats="2" Seats="3" />
           <Party Id="596" Name="Spanish Socialist Workers' Party" Votes="159858" AboveThreshold="true" BaseSeats="2" Seats="2" />
@@ -2423,6 +2474,7 @@
         <Output>
           <TurnoutPercentage>70.73</TurnoutPercentage>
           <TotalVotes>523410</TotalVotes>
+          <BlankVotes RelevantToResult="false" />
           <PartyVotes>514012</PartyVotes>
           <ElectoralThresholdVotes>518705</ElectoralThresholdVotes>
           <QualifyingVotes>495935</QualifyingVotes>
@@ -2455,7 +2507,7 @@
     <TurnoutPercentage>66.59</TurnoutPercentage>
     <TotalVotes>24952447</TotalVotes>
     <InvalidVotes>264360</InvalidVotes>
-    <BlankVotes>200673</BlankVotes>
+    <BlankVotes RelevantToResult="false">200673</BlankVotes>
     <PartyVotes>24487414</PartyVotes>
   </Output>
 </Election>

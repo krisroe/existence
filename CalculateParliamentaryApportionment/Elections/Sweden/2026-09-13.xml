@@ -7,8 +7,8 @@
     <ElectoralThreshold Base="PartyVotes" BaseLaw="rösterna (the votes)">4</ElectoralThreshold>
     <TurnoutBase Meaning="RegisteredVoters">8051355</TurnoutBase>
     <TurnoutRaw Meaning="TotalVotes">6834413</TurnoutRaw>
-    <InvalidVotes Relevant="false">7427</InvalidVotes>
-    <BlankVotes Relevant="false">59557</BlankVotes>
+    <InvalidVotes RelevantToCalculation="false">7427</InvalidVotes>
+    <BlankVotes RelevantToCalculation="false">59557</BlankVotes>
     <Parties>
       <Party Id="1" Name="Social Democrats" Votes="1895989" AboveThreshold="true" Seats="99" />
       <Party Id="2" Name="Moderate Party" Votes="1343448" AboveThreshold="true" Seats="70" />

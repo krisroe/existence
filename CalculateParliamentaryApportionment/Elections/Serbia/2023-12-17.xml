@@ -6,7 +6,7 @@
     <ElectoralThreshold Base="BallotsInBoxes">3</ElectoralThreshold>
     <TurnoutBase Meaning="RegisteredVoters">6500666</TurnoutBase>
     <TurnoutRaw Meaning="VotersSignedIn">3820746</TurnoutRaw>
-    <InvalidAndBlankVotes Relevant="true">104029</InvalidAndBlankVotes>
+    <InvalidAndBlankVotes RelevantToCalculation="true">104029</InvalidAndBlankVotes>
     <MinorityListQuotientBonus>35</MinorityListQuotientBonus>
     <Parties>
       <Party Id="1" Name="Serbia Must Not Stop" Votes="1783701" AboveThreshold="true" BaseSeats="127" Seats="129" />
@@ -32,6 +32,7 @@
   <Output>
     <TurnoutPercentage>58.77</TurnoutPercentage>
     <TotalVotes>3815007</TotalVotes>
+    <InvalidAndBlankVotes RelevantToResult="false" />
     <PartyVotes>3710978</PartyVotes>
     <ElectoralThresholdVotes>3815007</ElectoralThresholdVotes>
     <QualifyingVotes>3456859</QualifyingVotes>

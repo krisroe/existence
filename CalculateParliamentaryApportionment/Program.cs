@@ -34,12 +34,17 @@ namespace CalculateParliamentaryApportionment
     /// minority list then also gets a QuotientBonus attribute saying whether it got the bonus.
     /// Ballots that aren't votes for a party go in optional InvalidAndBlankVotes, InvalidVotes and BlankVotes elements,
     /// with InvalidAndBlankVotes for a count that doesn't separate them, so it can't be used with the other two. Each
-    /// has a required Relevant attribute saying whether those ballots count toward the electoral threshold, as in
-    /// Serbia, where it is a percentage of everyone who voted, rather than only of the party votes. With any of them the
-    /// Output element gets TotalVotes, the party votes plus all of those ballots whether relevant or not, which is for
-    /// information and doesn't affect the seats, and ElectoralThresholdVotes, the votes the threshold is a percentage of.
+    /// has a required RelevantToCalculation attribute saying whether those ballots count toward the electoral threshold,
+    /// as in Serbia, where it is a percentage of everyone who voted, rather than only of the party votes. With any of
+    /// them the Output element gets TotalVotes, the party votes plus all of those ballots whether relevant or not, which
+    /// is for information and doesn't affect the seats, and ElectoralThresholdVotes, the votes the threshold is a
+    /// percentage of. For each one with RelevantToCalculation="true" the Output element also gets an empty element of
+    /// the same name with a RelevantToResult attribute saying whether any party's seats change when the seats are worked
+    /// out again without those ballots. InvalidAndBlankVotes gets one too, for working them out without any invalid or
+    /// blank ballots, when InvalidVotes and BlankVotes are both relevant.
     /// The ElectoralThreshold element can have a Base attribute, an <see cref="ElectoralThresholdBase"/> saying what the
-    /// threshold is a percentage of. It explains the Relevant attributes rather than replacing them, so they have to agree.
+    /// threshold is a percentage of. It explains the RelevantToCalculation attributes rather than replacing them, so
+    /// they have to agree.
     /// It can also have a BaseLaw attribute with what the law says the threshold is a percentage of, which can be less
     /// specific than Base. It is for information, so it is left as it is and not used.
     /// Optional TurnoutBase and TurnoutRaw elements, which go together, are the number turnout is a percentage of and the
@@ -64,12 +69,16 @@ namespace CalculateParliamentaryApportionment
     /// out, and is Proportional without it. A WinnerTakeAll constituency has no electoral threshold, and its Party
     /// elements can't have MinorityList or ElectorateSeats attributes, nor the constituency SurplusVoteAgreements or
     /// MinorityListQuotientBonus elements. Each constituency gets its party attributes, only Seats for WinnerTakeAll,
-    /// and its own Output element, last inside the Constituency element, with only TurnoutPercentage, TotalVotes and
-    /// PartyVotes for WinnerTakeAll. Each NationalParty element gets Votes and Seats attributes, and the Output element
-    /// after the Input element gets the national TotalVotes and PartyVotes, InvalidVotes, BlankVotes and
-    /// InvalidAndBlankVotes, each added up over the constituencies that have it and left out when none does, and
-    /// Performance, which times only the Proportional constituencies. When every constituency has turnout, it also gets TurnoutBase and TurnoutRaw added
-    /// up over the constituencies, with the Meaning attributes they all have to share, and TurnoutPercentage from them.
+    /// and its own Output element, last inside the Constituency element, with only TurnoutPercentage, TotalVotes, the
+    /// RelevantToResult elements, which are always false with no threshold, and PartyVotes for WinnerTakeAll. Each
+    /// NationalParty element gets Votes and Seats attributes, and the Output element after the Input element gets the
+    /// national TotalVotes and PartyVotes, InvalidVotes, BlankVotes and InvalidAndBlankVotes, each added up over the
+    /// constituencies that have it and left out when none does, and Performance, which times only the Proportional
+    /// constituencies. Each of InvalidVotes, BlankVotes and InvalidAndBlankVotes gets a RelevantToResult attribute when
+    /// any constituency has one, true when it is true in any constituency, even if the national seats come out the same,
+    /// and InvalidAndBlankVotes is then there without a total when the constituencies don't give one. When every
+    /// constituency has turnout, it also gets TurnoutBase and TurnoutRaw added up over the constituencies, with the
+    /// Meaning attributes they all have to share, and TurnoutPercentage from them.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
     /// Sainte-Laguë:
@@ -149,7 +158,8 @@ namespace CalculateParliamentaryApportionment
         private const string InvalidAndBlankVotesElement = "InvalidAndBlankVotes";
         private const string InvalidVotesElement = "InvalidVotes";
         private const string BlankVotesElement = "BlankVotes";
-        private const string RelevantAttribute = "Relevant";
+        private const string RelevantToCalculationAttribute = "RelevantToCalculation";
+        private const string RelevantToResultAttribute = "RelevantToResult";
         private const string TotalVotesElement = "TotalVotes";
         private const string TurnoutBaseElement = "TurnoutBase";
         private const string TurnoutRawElement = "TurnoutRaw";
@@ -197,7 +207,9 @@ namespace CalculateParliamentaryApportionment
         /// <param name="Winner">the name of the party with the most votes</param>
         /// <param name="NumberOfSeats">the constituency's seats, which all go to <paramref name="Winner"/></param>
         /// <param name="Turnout">the turnout, or null if it isn't given</param>
-        private sealed record WinnerTakeAllConstituency(XElement Element, string Winner, int NumberOfSeats, Turnout? Turnout);
+        /// <param name="RelevantToResult">whether each relevant kind of invalid or blank vote changed the result, which
+        /// with no electoral threshold is always false</param>
+        private sealed record WinnerTakeAllConstituency(XElement Element, string Winner, int NumberOfSeats, Turnout? Turnout, IReadOnlyDictionary<string, bool> RelevantToResult);
 
         /// <summary>
         /// the elements that, with constituencies, go in each Constituency element rather than in the Input element
@@ -210,9 +222,12 @@ namespace CalculateParliamentaryApportionment
         /// <param name="Name">the constituency, or null for the whole election</param>
         /// <param name="Element">the element with the parties, seats, invalid and blank votes and turnout: the Input
         /// element for the whole election, or a Constituency element</param>
-        /// <param name="Available">how to run each algorithm the method has</param>
+        /// <param name="Available">how to run each algorithm the method has, given the invalid and blank votes that
+        /// count toward the electoral threshold</param>
         /// <param name="Turnout">the turnout, or null if it isn't given</param>
-        private sealed record District(string? Name, XElement Element, Dictionary<string, Func<SeatDistributionBase>> Available, Turnout? Turnout);
+        /// <param name="RelevantVotes">the invalid and blank votes with RelevantToCalculation="true", by element name</param>
+        /// <param name="InvalidAndBlankVotesInElectoralThreshold">all of <paramref name="RelevantVotes"/> added up</param>
+        private sealed record District(string? Name, XElement Element, Dictionary<string, Func<long, SeatDistributionBase>> Available, Turnout? Turnout, IReadOnlyDictionary<string, long> RelevantVotes, long InvalidAndBlankVotesInElectoralThreshold);
 
         /// <summary>
         /// how many times to run the algorithms when including performance, and how long to wait along the way. The
@@ -347,23 +362,28 @@ namespace CalculateParliamentaryApportionment
                     if (iCopyExitCode == null)
                     {
                         List<AlgorithmResult> results = RunAlgorithms(algorithms, districts, performance);
-                        List<SeatDistributionBase> verified = GetVerifiedResults(districts, results);
+                        AlgorithmResult verified = GetVerifiedResults(districts, results);
+                        List<Dictionary<string, bool>> relevance = districts.Zip(verified.Results).Select(p => FindRelevanceToResult(p.First, verified.Name, p.Second)).ToList();
                         XElement output;
+                        SeatDistributionBase r;
                         if (constituencies == null)
                         {
-                            WritePartyResults(input, verified[0]);
-                            output = BuildOutput(input, verified[0], districts[0].Turnout);
+                            r = verified.Results[0];
+                            WritePartyResults(input, r);
+                            output = BuildOutput(input, r, districts[0].Turnout, relevance[0]);
                         }
                         else
                         {
-                            foreach ((District d, SeatDistributionBase r) in districts.Zip(verified))
+                            for (int i = 0; i < districts.Count; i++)
                             {
+                                District d = districts[i];
+                                r = verified.Results[i];
                                 WritePartyResults(d.Element, r);
                                 d.Element.Element(OutputElement)?.Remove();
-                                d.Element.Add(BuildOutput(d.Element, r, d.Turnout));
+                                d.Element.Add(BuildOutput(d.Element, r, d.Turnout, relevance[i]));
                             }
                             foreach (WinnerTakeAllConstituency w in winnerTakeAll) WriteWinnerTakeAllResults(w);
-                            output = WriteNationalResults(input, constituencies, districts, verified, winnerTakeAll);
+                            output = WriteNationalResults(input, constituencies, districts, verified.Results, winnerTakeAll, relevance.Cast<IReadOnlyDictionary<string, bool>>().Concat(winnerTakeAll.Select(w => w.RelevantToResult)).ToList());
                         }
                         if (performance != null) output.Add(BuildPerformance(performance, results));
                         doc.Root!.Element(OutputElement)?.Remove();
@@ -411,18 +431,18 @@ namespace CalculateParliamentaryApportionment
             Dictionary<int, int>? electorateSeats = ReadElectorateSeats(district, parties);
             List<int> minorityLists = ReadMinorityLists(district, parties);
             XElement? minorityListQuotientBonus = district.Element(MinorityListQuotientBonusElement);
-            long lInvalidAndBlankVotes = ReadInvalidAndBlankVotesInElectoralThreshold(district);
+            Dictionary<string, long> relevantVotes = ReadRelevantInvalidAndBlankVotes(district);
             CheckElectoralThresholdBase(input, district);
             Turnout? turnout = ReadTurnout(district);
-            Dictionary<string, Func<SeatDistributionBase>> available;
+            Dictionary<string, Func<long, SeatDistributionBase>> available;
             if (sMethod == DHondtMethod)
             {
                 if (firstDivisor != null) throw new FormatException($"{FirstDivisorElement} is only for {SainteLagueMethod}");
                 if (electorateSeats != null) throw new FormatException($"{ElectorateSeatsAttribute} is only for {SainteLagueMethod}");
                 SimpleFraction? bonus = minorityListQuotientBonus == null ? null : SimpleFraction.FromDecimal((decimal)minorityListQuotientBonus);
-                available = new Dictionary<string, Func<SeatDistributionBase>>
+                available = new Dictionary<string, Func<long, SeatDistributionBase>>
                 {
-                    [BaseAlgorithm] = () => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, minorityLists, bonus, lInvalidAndBlankVotes),
+                    [BaseAlgorithm] = lInvalidAndBlankVotes => SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, minorityLists, bonus, lInvalidAndBlankVotes),
                 };
             }
             else if (sMethod == SainteLagueMethod)
@@ -432,18 +452,18 @@ namespace CalculateParliamentaryApportionment
                 SimpleFraction? fraction = firstDivisor == null ? null : new SimpleFraction(
                     (long)GetRequiredAttribute(firstDivisor, NumeratorAttribute),
                     (long)GetRequiredAttribute(firstDivisor, DenominatorAttribute));
-                available = new Dictionary<string, Func<SeatDistributionBase>>
+                available = new Dictionary<string, Func<long, SeatDistributionBase>>
                 {
-                    [OrderedSeatsAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
-                    [QuotientTableAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
-                    [DivisorRoundingAlgorithm] = () => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
+                    [OrderedSeatsAlgorithm] = lInvalidAndBlankVotes => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrict(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
+                    [QuotientTableAlgorithm] = lInvalidAndBlankVotes => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingQuotientTable(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
+                    [DivisorRoundingAlgorithm] = lInvalidAndBlankVotes => SeatDistributions.CalculateSainteLagueParliamentarySeatDistributionSingleDistrictUsingDivisorRounding(parties, agreements, iNumberOfSeats, electoralThreshold, fraction, electorateSeats, lInvalidAndBlankVotes),
                 };
             }
             else
             {
                 throw new FormatException($"{MethodElement} must be {DHondtMethod} or {SainteLagueMethod}, not {sMethod}");
             }
-            return new District(sName, district, available, turnout);
+            return new District(sName, district, available, turnout, relevantVotes, checked(relevantVotes.Values.Sum()));
         }
 
         /// <summary>
@@ -547,17 +567,17 @@ namespace CalculateParliamentaryApportionment
             int iNumberOfSeats = (int)GetRequiredElement(constituency, NumberOfSeatsElement);
             if (iNumberOfSeats <= 0) throw new FormatException($"{NumberOfSeatsElement} must be positive, not {iNumberOfSeats}");
             if (parties.Count == 0) throw new FormatException($"{sMethod} needs at least one party");
-            ReadInvalidAndBlankVotesInElectoralThreshold(constituency);
+            Dictionary<string, bool> relevance = GetRelevanceToResultElements(ReadRelevantInvalidAndBlankVotes(constituency).Keys).ToDictionary(n => n, n => false);
 
             //the IDs go down by votes, so the lowest is the most votes and wins a tie
             string sWinner = parties.MinBy(p => p.Id)!.Name;
-            return new WinnerTakeAllConstituency(constituency, sWinner, iNumberOfSeats, ReadTurnout(constituency));
+            return new WinnerTakeAllConstituency(constituency, sWinner, iNumberOfSeats, ReadTurnout(constituency), relevance);
         }
 
         /// <summary>
         /// sets the Seats attribute of each party in a WinnerTakeAll constituency, replacing any existing one, and replaces
         /// its Output element with one with TurnoutPercentage when it has turnout, TotalVotes when it has invalid or blank
-        /// votes, and PartyVotes
+        /// votes, the RelevantToResult elements when any are relevant to the calculation, and PartyVotes
         /// </summary>
         private static void WriteWinnerTakeAllResults(WinnerTakeAllConstituency w)
         {
@@ -571,6 +591,7 @@ namespace CalculateParliamentaryApportionment
             w.Element.Add(new XElement(OutputElement,
                 w.Turnout == null ? null : new XElement(TurnoutPercentageElement, w.Turnout.Percentage),
                 HasInvalidOrBlankVotes(w.Element) ? new XElement(TotalVotesElement, checked(lPartyVotes + GetInvalidAndBlankVotes(w.Element))) : null,
+                BuildRelevanceToResult(w.RelevantToResult),
                 new XElement(nameof(SeatDistributionBase.PartyVotes), lPartyVotes)));
         }
 
@@ -607,7 +628,9 @@ namespace CalculateParliamentaryApportionment
         /// <param name="districts">the Proportional constituencies</param>
         /// <param name="results">the seat distribution of each of <paramref name="districts"/></param>
         /// <param name="winnerTakeAll">the WinnerTakeAll constituencies</param>
-        private static XElement WriteNationalResults(XElement input, XElement constituencies, List<District> districts, List<SeatDistributionBase> results, List<WinnerTakeAllConstituency> winnerTakeAll)
+        /// <param name="relevance">whether each relevant kind of invalid or blank vote changed the result, for every
+        /// constituency</param>
+        private static XElement WriteNationalResults(XElement input, XElement constituencies, List<District> districts, List<SeatDistributionBase> results, List<WinnerTakeAllConstituency> winnerTakeAll, List<IReadOnlyDictionary<string, bool>> relevance)
         {
             List<XElement> all = constituencies.Elements(ConstituencyElement).ToList();
             Dictionary<string, long> votes = new Dictionary<string, long>();
@@ -648,8 +671,29 @@ namespace CalculateParliamentaryApportionment
                 turnout == null ? null : new XElement(TurnoutRawElement, new XAttribute(MeaningAttribute, turnout.RawMeaning), turnout.Raw),
                 turnout == null ? null : new XElement(TurnoutPercentageElement, turnout.Percentage),
                 all.Any(HasInvalidOrBlankVotes) ? new XElement(TotalVotesElement, checked(lPartyVotes + all.Sum(GetInvalidAndBlankVotes))) : null,
-                InvalidAndBlankVotesElements.Select(n => SumElement(all, n)),
+                InvalidAndBlankVotesOutputElements.Select(n => BuildNationalInvalidOrBlankVotes(all, n, relevance)),
                 new XElement(nameof(SeatDistributionBase.PartyVotes), lPartyVotes));
+        }
+
+        /// <summary>
+        /// builds a national InvalidVotes, BlankVotes or InvalidAndBlankVotes element, with the total from
+        /// <see cref="SumElement"/> and a RelevantToResult attribute when any constituency has one, which is true when it
+        /// is in any constituency, even if the national seats come out the same. InvalidAndBlankVotes can have the
+        /// attribute without a total, when the constituencies give invalid and blank votes separately
+        /// </summary>
+        /// <param name="relevance">whether each relevant kind of invalid or blank vote changed the result, for every
+        /// constituency</param>
+        /// <returns>the element, or null if there is neither a total nor a RelevantToResult attribute</returns>
+        private static XElement? BuildNationalInvalidOrBlankVotes(List<XElement> constituencies, string sName, List<IReadOnlyDictionary<string, bool>> relevance)
+        {
+            XElement? ret = SumElement(constituencies, sName);
+            List<bool> relevant = relevance.Where(r => r.ContainsKey(sName)).Select(r => r[sName]).ToList();
+            if (relevant.Count > 0)
+            {
+                ret ??= new XElement(sName);
+                ret.SetAttributeValue(RelevantToResultAttribute, relevant.Contains(true));
+            }
+            return ret;
         }
 
         /// <summary>
@@ -669,7 +713,7 @@ namespace CalculateParliamentaryApportionment
         /// </summary>
         /// <param name="sMethod">the method, for error messages</param>
         /// <param name="available">the algorithms the method has</param>
-        private static List<string> ReadAlgorithms(XElement method, string sMethod, Dictionary<string, Func<SeatDistributionBase>> available)
+        private static List<string> ReadAlgorithms(XElement method, string sMethod, Dictionary<string, Func<long, SeatDistributionBase>> available)
         {
             List<string> ret = ((string)GetRequiredAttribute(method, AlgorithmsAttribute)).Split(',', StringSplitOptions.TrimEntries).ToList();
             HashSet<string> seen = new HashSet<string>();
@@ -827,12 +871,18 @@ namespace CalculateParliamentaryApportionment
         /// <summary>
         /// runs an algorithm on a district, naming the constituency in any error
         /// </summary>
-        private static SeatDistributionBase RunAlgorithm(District d, string sAlgorithm)
+        private static SeatDistributionBase RunAlgorithm(District d, string sAlgorithm) => RunAlgorithm(d, sAlgorithm, d.InvalidAndBlankVotesInElectoralThreshold);
+
+        /// <summary>
+        /// runs an algorithm on a district with different invalid and blank votes counting toward the electoral
+        /// threshold, naming the constituency in any error
+        /// </summary>
+        private static SeatDistributionBase RunAlgorithm(District d, string sAlgorithm, long lInvalidAndBlankVotes)
         {
             SeatDistributionBase ret;
             try
             {
-                ret = d.Available[sAlgorithm]();
+                ret = d.Available[sAlgorithm](lInvalidAndBlankVotes);
             }
             catch (ArgumentException ex) when (d.Name != null)
             {
@@ -860,9 +910,9 @@ namespace CalculateParliamentaryApportionment
         /// checks that all the algorithms give the same results in each district, comparing what gets written to the
         /// file. The ordered seats are only compared between algorithms that both give out seats in order
         /// </summary>
-        /// <returns>the results to write for each district, from the first algorithm that gives out seats in order, or
+        /// <returns>the algorithm whose results to write for each district, the first that gives out seats in order, or
         /// the first algorithm if none does</returns>
-        private static List<SeatDistributionBase> GetVerifiedResults(List<District> districts, List<AlgorithmResult> results)
+        private static AlgorithmResult GetVerifiedResults(List<District> districts, List<AlgorithmResult> results)
         {
             AlgorithmResult expected = results.FirstOrDefault(a => !UnorderedAlgorithms.Contains(a.Name)) ?? results[0];
             foreach (AlgorithmResult next in results.Where(a => a != expected))
@@ -874,7 +924,7 @@ namespace CalculateParliamentaryApportionment
                     if (sDifference != null) throw new InvalidOperationException($"{(districts[i].Name == null ? "" : $"{ConstituencyElement} {districts[i].Name}: ")}the {expected.Name} and {next.Name} algorithms give different {sDifference}");
                 }
             }
-            return expected.Results;
+            return expected;
         }
 
         /// <summary>
@@ -893,8 +943,8 @@ namespace CalculateParliamentaryApportionment
                 if (!XNode.DeepEquals(nextExpected, nextActual)) return $"results for {(string?)nextExpected.Attribute(NameAttribute)}";
             }
 
-            XElement expectedOutput = BuildOutput(input, expected, null);
-            XElement actualOutput = BuildOutput(input, actual, null);
+            XElement expectedOutput = BuildOutput(input, expected, null, null);
+            XElement actualOutput = BuildOutput(input, actual, null, null);
             if (!compareOrderedSeats)
             {
                 expectedOutput.Element(nameof(SeatDistributionBase.OrderedSeats))?.Remove();
@@ -971,16 +1021,17 @@ namespace CalculateParliamentaryApportionment
         private static bool HasInvalidOrBlankVotes(XElement input) => InvalidAndBlankVotesElements.Any(n => input.Element(n) != null);
 
         /// <summary>
-        /// reads the optional InvalidAndBlankVotes, InvalidVotes and BlankVotes elements, each with a required Relevant
-        /// attribute, where InvalidAndBlankVotes can't be used with the other two
+        /// reads the optional InvalidAndBlankVotes, InvalidVotes and BlankVotes elements, each with a required
+        /// RelevantToCalculation attribute, where InvalidAndBlankVotes can't be used with the other two
         /// </summary>
-        /// <returns>the ballots with Relevant="true", which count toward the electoral threshold, or 0 if there are none</returns>
-        private static long ReadInvalidAndBlankVotesInElectoralThreshold(XElement input)
+        /// <returns>the ballots with RelevantToCalculation="true", which count toward the electoral threshold, by element
+        /// name, empty if there are none</returns>
+        private static Dictionary<string, long> ReadRelevantInvalidAndBlankVotes(XElement input)
         {
             if (input.Element(InvalidAndBlankVotesElement) != null && (input.Element(InvalidVotesElement) != null || input.Element(BlankVotesElement) != null))
                 throw new FormatException($"{InvalidAndBlankVotesElement} can't be used with {InvalidVotesElement} or {BlankVotesElement}");
 
-            long ret = 0;
+            Dictionary<string, long> ret = new Dictionary<string, long>();
             foreach (string sName in InvalidAndBlankVotesElements)
             {
                 XElement? element = input.Element(sName);
@@ -988,16 +1039,72 @@ namespace CalculateParliamentaryApportionment
                 {
                     long lVotes = (long)element;
                     if (lVotes < 0) throw new FormatException($"{sName} can't be negative, not {lVotes}");
-                    if ((bool)GetRequiredAttribute(element, RelevantAttribute)) ret = checked(ret + lVotes);
+                    if ((bool)GetRequiredAttribute(element, RelevantToCalculationAttribute)) ret[sName] = lVotes;
                 }
             }
             return ret;
         }
 
         /// <summary>
+        /// the elements for ballots that aren't votes for a party, in the order they go in an Output element
+        /// </summary>
+        private static readonly string[] InvalidAndBlankVotesOutputElements = new[] { InvalidVotesElement, BlankVotesElement, InvalidAndBlankVotesElement };
+
+        /// <summary>
+        /// gets which elements get a RelevantToResult attribute, in the order they go in an Output element: each relevant
+        /// one, plus InvalidAndBlankVotes when invalid and blank votes are both relevant but given separately
+        /// </summary>
+        /// <param name="names">the names of the elements with RelevantToCalculation="true"</param>
+        private static List<string> GetRelevanceToResultElements(IEnumerable<string> names)
+        {
+            HashSet<string> relevant = names.ToHashSet();
+            bool both = relevant.Contains(InvalidVotesElement) && relevant.Contains(BlankVotesElement);
+            return InvalidAndBlankVotesOutputElements.Where(n => relevant.Contains(n) || (n == InvalidAndBlankVotesElement && both)).ToList();
+        }
+
+        /// <summary>
+        /// works out whether each relevant kind of invalid or blank vote changed the result, by working out the seats
+        /// again without those votes: InvalidVotes or BlankVotes on its own, and InvalidAndBlankVotes for all of them.
+        /// The result changed if any party's seats did
+        /// </summary>
+        /// <param name="sAlgorithm">the algorithm that gave <paramref name="r"/></param>
+        /// <param name="r">the seats with all the votes</param>
+        /// <returns>whether the result changed, by element name, for the elements from
+        /// <see cref="GetRelevanceToResultElements"/></returns>
+        private static Dictionary<string, bool> FindRelevanceToResult(District d, string sAlgorithm, SeatDistributionBase r)
+        {
+            Dictionary<string, bool> ret = new Dictionary<string, bool>();
+            foreach (string sName in GetRelevanceToResultElements(d.RelevantVotes.Keys))
+            {
+                long lVotes = sName == InvalidAndBlankVotesElement ? 0 : d.InvalidAndBlankVotesInElectoralThreshold - d.RelevantVotes[sName];
+                ret[sName] = HaveDifferentSeats(r, RunAlgorithm(d, sAlgorithm, lVotes));
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// whether any party has different seats in two results, including total seats under mixed-member proportional
+        /// </summary>
+        private static bool HaveDifferentSeats(SeatDistributionBase a, SeatDistributionBase b)
+        {
+            static bool Differ(Dictionary<string, int> x, Dictionary<string, int> y) => x.Keys.Union(y.Keys).Any(k => x.GetValueOrDefault(k) != y.GetValueOrDefault(k));
+            return Differ(a.Seats, b.Seats) || (a is SainteLagueSeatDistribution sa && b is SainteLagueSeatDistribution sb && Differ(sa.TotalSeats, sb.TotalSeats));
+        }
+
+        /// <summary>
+        /// builds an empty element with a RelevantToResult attribute for each of <paramref name="relevance"/>, in the
+        /// order they go in an Output element
+        /// </summary>
+        /// <param name="relevance">whether the result changed, by element name, or null for none</param>
+        private static IEnumerable<XElement> BuildRelevanceToResult(IReadOnlyDictionary<string, bool>? relevance)
+        {
+            return InvalidAndBlankVotesOutputElements.Where(n => relevance?.ContainsKey(n) == true).Select(n => new XElement(n, new XAttribute(RelevantToResultAttribute, relevance![n])));
+        }
+
+        /// <summary>
         /// gets all the ballots in the InvalidAndBlankVotes, InvalidVotes and BlankVotes elements, whether or not they
         /// count toward the electoral threshold. They are validated by
-        /// <see cref="ReadInvalidAndBlankVotesInElectoralThreshold"/>
+        /// <see cref="ReadRelevantInvalidAndBlankVotes"/>
         /// </summary>
         private static long GetInvalidAndBlankVotes(XElement input) => InvalidAndBlankVotesElements.Sum(n => (long?)input.Element(n) ?? 0);
 
@@ -1037,11 +1144,11 @@ namespace CalculateParliamentaryApportionment
             if (threshold.Attribute(BaseAttribute) != null)
             {
                 ElectoralThresholdBase thresholdBase = ReadEnum<ElectoralThresholdBase>(threshold, BaseAttribute);
-                List<bool> relevant = InvalidAndBlankVotesElements.Select(n => district.Element(n)).OfType<XElement>().Select(e => (bool)GetRequiredAttribute(e, RelevantAttribute)).ToList();
+                List<bool> relevant = InvalidAndBlankVotesElements.Select(n => district.Element(n)).OfType<XElement>().Select(e => (bool)GetRequiredAttribute(e, RelevantToCalculationAttribute)).ToList();
                 bool? IsRelevant(string sElement)
                 {
                     XElement? element = district.Element(sElement);
-                    return element == null ? null : (bool)GetRequiredAttribute(element, RelevantAttribute);
+                    return element == null ? null : (bool)GetRequiredAttribute(element, RelevantToCalculationAttribute);
                 }
                 bool agrees = thresholdBase switch
                 {
@@ -1050,7 +1157,7 @@ namespace CalculateParliamentaryApportionment
                     ElectoralThresholdBase.PartyVotesAndBlanks => IsRelevant(BlankVotesElement) == true && IsRelevant(InvalidVotesElement) != true,
                     _ => throw new InvalidOperationException($"unexpected {BaseAttribute} {thresholdBase}"),
                 };
-                if (!agrees) throw new FormatException($"{BaseAttribute}=\"{thresholdBase}\" for {ElectoralThresholdElement} doesn't agree with the {RelevantAttribute} attributes of the invalid and blank votes");
+                if (!agrees) throw new FormatException($"{BaseAttribute}=\"{thresholdBase}\" for {ElectoralThresholdElement} doesn't agree with the {RelevantToCalculationAttribute} attributes of the invalid and blank votes");
             }
         }
 
@@ -1218,11 +1325,14 @@ namespace CalculateParliamentaryApportionment
         /// <param name="input">the element with the invalid and blank votes: the Input element, or a Constituency
         /// element</param>
         /// <param name="turnout">the turnout, or null to leave it out</param>
-        private static XElement BuildOutput(XElement input, SeatDistributionBase r, Turnout? turnout)
+        /// <param name="relevance">whether each relevant kind of invalid or blank vote changed the result, from
+        /// <see cref="FindRelevanceToResult"/>, or null to leave it out</param>
+        private static XElement BuildOutput(XElement input, SeatDistributionBase r, Turnout? turnout, IReadOnlyDictionary<string, bool>? relevance)
         {
             return new XElement(OutputElement,
                 turnout == null ? null : new XElement(TurnoutPercentageElement, turnout.Percentage),
                 HasInvalidOrBlankVotes(input) ? new XElement(TotalVotesElement, checked(r.PartyVotes + GetInvalidAndBlankVotes(input))) : null,
+                BuildRelevanceToResult(relevance),
                 new XElement(nameof(SeatDistributionBase.PartyVotes), r.PartyVotes),
                 HasInvalidOrBlankVotes(input) ? new XElement(nameof(SeatDistributionBase.ElectoralThresholdVotes), r.ElectoralThresholdVotes) : null,
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),

@@ -6,7 +6,7 @@
     <ElectoralThreshold Base="PartyVotes">3.25</ElectoralThreshold>
     <TurnoutBase Meaning="RegisteredVoters">6788804</TurnoutBase>
     <TurnoutRaw Meaning="TotalVotes">4794593</TurnoutRaw>
-    <InvalidAndBlankVotes Relevant="false">29851</InvalidAndBlankVotes>
+    <InvalidAndBlankVotes RelevantToCalculation="false">29851</InvalidAndBlankVotes>
     <Parties>
       <Party Id="1" Name="Likud" Votes="1115336" AboveThreshold="true" BaseSeats="30" Seats="32" />
       <Party Id="2" Name="Yesh Atid" Votes="847435" AboveThreshold="true" BaseSeats="23" Seats="24" />
