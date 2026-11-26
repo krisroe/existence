@@ -63,6 +63,31 @@ namespace Existence.Tests
         }
 
         /// <summary>
+        /// validates the functional branch head attributes on the assassination targets: a whole military wing matches its faction,
+        /// and nobody with one also has a <see cref="PalestinianMilitantGroupAttribute"/>, since the head attribute already names the faction
+        /// </summary>
+        [TestMethod]
+        public void ValidateSpecialtyHeads()
+        {
+            foreach (FieldInfo field in typeof(IsraeliAssassinationTarget).GetFields(BindingFlags.Public | BindingFlags.Static))
+            {
+                PalestinianMilitantSpecialtyHeadAttribute? head = field.GetCustomAttribute<PalestinianMilitantSpecialtyHeadAttribute>();
+                if (head != null)
+                {
+                    if (head.Brigade == PalestinianGazaMilitaryBrigade.AlQassam)
+                    {
+                        Assert.AreEqual(PalestinianMilitantGroups.Hamas, head.Faction, $"{field.Name} has {nameof(PalestinianGazaMilitaryBrigade.AlQassam)} with faction {head.Faction}");
+                    }
+                    if (head.Brigade == PalestinianGazaMilitaryBrigade.AlQuds)
+                    {
+                        Assert.AreEqual(PalestinianMilitantGroups.PalestinianIslamicJihad, head.Faction, $"{field.Name} has {nameof(PalestinianGazaMilitaryBrigade.AlQuds)} with faction {head.Faction}");
+                    }
+                    Assert.IsFalse(field.IsDefined(typeof(PalestinianMilitantGroupAttribute)), $"{field.Name} has both a {nameof(PalestinianMilitantSpecialtyHeadAttribute)} and a {nameof(PalestinianMilitantGroupAttribute)}");
+                }
+            }
+        }
+
+        /// <summary>
         /// gets the brigade a battalion belongs to
         /// </summary>
         /// <param name="battalion">the battalion</param>

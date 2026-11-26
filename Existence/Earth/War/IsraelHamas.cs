@@ -3486,7 +3486,7 @@ internal class PalestinianMilitantAttribute : Attribute
 /// <remarks>
 /// deputy commanders use the derived <see cref="PalestinianMilitantCommanderDeputyAttribute"/>, which sets <see cref="IsDeputy"/>;
 /// a lookup of this attribute also returns deputies, so check <see cref="IsDeputy"/> to tell them apart.
-/// Heads of functional headquarters (e.g. the rocket array) are not included
+/// Heads of functional branches (e.g. the rocket array) use <see cref="PalestinianMilitantSpecialtyHeadAttribute"/> instead
 /// </remarks>
 internal class PalestinianMilitantCommanderAttribute : PalestinianMilitantAttribute
 {
@@ -3563,6 +3563,116 @@ internal class PalestinianMilitantSpokespersonAttribute : PalestinianMilitantAtt
 }
 
 /// <summary>
+/// functional branches ("arrays", "systems" or "headquarters" in English sources) of a Palestinian militant faction's
+/// military wing, organized alongside the regional brigades and battalions. A branch has a head for the whole military wing,
+/// and may also have a head within a regional brigade
+/// </summary>
+internal enum PalestinianMilitantSpecialty
+{
+    /// <summary>
+    /// aerial array: drones, paragliders, UAVs, aerial detection and defense systems
+    /// </summary>
+    Aerial,
+
+    /// <summary>
+    /// anti-tank array
+    /// </summary>
+    AntiTank,
+
+    /// <summary>
+    /// administrative and combat support headquarters
+    /// </summary>
+    CombatSupportAndAdministration,
+
+    /// <summary>
+    /// military intelligence
+    /// </summary>
+    Intelligence,
+
+    /// <summary>
+    /// naval force
+    /// </summary>
+    Naval,
+
+    /// <summary>
+    /// weapons production headquarters
+    /// </summary>
+    Production,
+
+    /// <summary>
+    /// rocket array
+    /// </summary>
+    Rockets,
+}
+
+/// <summary>
+/// functional branch of a Palestinian militant faction's military wing that a person headed, or was deputy head of, at the time
+/// of their assassination, assassination attempt or death
+/// </summary>
+/// <remarks>
+/// separate from <see cref="PalestinianMilitantAttribute"/>, so a person can hold both a regional command and a functional branch.
+/// Deputy heads use the derived <see cref="PalestinianMilitantSpecialtyHeadDeputyAttribute"/>, which sets <see cref="IsDeputy"/>.
+/// Earlier posts are described in the person's documentation instead
+/// </remarks>
+internal class PalestinianMilitantSpecialtyHeadAttribute : Attribute
+{
+    /// <summary>
+    /// faction whose military wing the branch belongs to
+    /// </summary>
+    public PalestinianMilitantGroups Faction { get; set; }
+
+    /// <summary>
+    /// the whole military wing for a head of the whole branch, or the regional brigade for a head within one brigade
+    /// </summary>
+    public PalestinianGazaMilitaryBrigade Brigade { get; set; }
+
+    /// <summary>
+    /// the functional branch
+    /// </summary>
+    public PalestinianMilitantSpecialty Specialty { get; set; }
+
+    /// <summary>
+    /// true for a deputy head rather than the head
+    /// </summary>
+    public bool IsDeputy { get; protected set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Faction">faction whose military wing the branch belongs to</param>
+    /// <param name="Brigade">the whole military wing, or the regional brigade the person headed the branch within</param>
+    /// <param name="Specialty">the functional branch</param>
+    public PalestinianMilitantSpecialtyHeadAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade, PalestinianMilitantSpecialty Specialty)
+    {
+        this.Faction = Faction;
+        this.Brigade = Brigade;
+        this.Specialty = Specialty;
+        this.IsDeputy = false;
+    }
+}
+
+/// <summary>
+/// functional branch of a Palestinian militant faction's military wing that a person was deputy head of at the time of their
+/// assassination, assassination attempt or death
+/// </summary>
+/// <remarks>
+/// a <see cref="PalestinianMilitantSpecialtyHeadAttribute"/> with <see cref="PalestinianMilitantSpecialtyHeadAttribute.IsDeputy"/> set
+/// </remarks>
+internal class PalestinianMilitantSpecialtyHeadDeputyAttribute : PalestinianMilitantSpecialtyHeadAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Faction">faction whose military wing the branch belongs to</param>
+    /// <param name="Brigade">the whole military wing, or the regional brigade the person was deputy head of the branch within</param>
+    /// <param name="Specialty">the functional branch</param>
+    public PalestinianMilitantSpecialtyHeadDeputyAttribute(PalestinianMilitantGroups Faction, PalestinianGazaMilitaryBrigade Brigade, PalestinianMilitantSpecialty Specialty) : base(Faction, Brigade, Specialty)
+    {
+        this.IsDeputy = true;
+    }
+}
+
+/// <summary>
 /// position a person held on the Hamas Political Bureau, the movement's top political leadership body,
 /// at the time of their assassination, assassination attempt or death
 /// </summary>
@@ -3587,8 +3697,8 @@ internal class HamasPoliticalBureauAttribute : Attribute
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
 /// <remarks>
-/// not used on people who have a <see cref="PalestinianMilitantAttribute"/> role (commander, deputy commander or spokesperson),
-/// whose <see cref="PalestinianMilitantAttribute.Faction"/> already names the group
+/// not used on people who have a <see cref="PalestinianMilitantAttribute"/> role (commander, deputy commander or spokesperson)
+/// or a <see cref="PalestinianMilitantSpecialtyHeadAttribute"/>, whose Faction already names the group
 /// </remarks>
 internal class PalestinianMilitantGroupAttribute : Attribute
 {
@@ -3777,11 +3887,11 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// and are not part of the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>.
 /// Members of the Hamas "most wanted" playing card deck (<see cref="HamasMostWantedAttribute"/>) who were killed during the war
 /// are included even when it is not known whether they were assassinated, marked with
-/// <see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>. Those deaths (currently 19) are not currently included
+/// <see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>. Those deaths (currently 17) are not currently included
 /// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
 /// if they are confirmed as assassinations
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(110)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(113)]
 [SurvivorCountRange(5, 6)]
 internal enum IsraeliAssassinationTarget
 {
@@ -3819,7 +3929,7 @@ internal enum IsraeliAssassinationTarget
     /// <summary>
     /// Killed in an IDF airstrike based on Shin Bet and military intelligence (reported 2023-10-31). The IDF said he commanded
     /// the October 7 attacks on <see cref="IsraeliKibbutz.Erez"/> and <see cref="IsraeliMoshav.NetivHaAsara"/>. Previously commanded
-    /// Hamas's aerial forces, working on its drones and paragliders.
+    /// Hamas's aerial forces (<see cref="PalestinianMilitantSpecialty.Aerial"/>), working on its drones and paragliders.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -3877,11 +3987,11 @@ internal enum IsraeliAssassinationTarget
     AbuMaamarZakaria,
 
     /// <summary>
-    /// Head of Hamas's aerial array
+    /// Killed in an Israeli drone strike that also killed <see cref="AlQadiAli"/>. An operational commander in the October 7 attacks.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Aerial)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 14)]
     AbuMuradMurad,
@@ -3924,14 +4034,14 @@ internal enum IsraeliAssassinationTarget
     AbuObeidNael,
 
     /// <summary>
-    /// Head of the air wing
+    /// Killed by Israeli fighter jets, according to Israel (reported 2023-10-28).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Aerial)]
     [HamasMostWanted(StandardPlayingCard.HeartsKing)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 10)]
+    [DeathDate(2023, 10)] //reported 2023-10-28, IDF reported killed in overnight operation
     AbuRakabaAsem,
 
     /// <summary>
@@ -3945,12 +4055,16 @@ internal enum IsraeliAssassinationTarget
     AbuShariaAsad,
 
     /// <summary>
-    /// Head of Hamas's administrative and combat support staff
+    /// Killed in an Israeli airstrike on the Nuseirat refugee camp that also killed <see cref="IssaMarwan"/>. Hamas confirmed his death
+    /// on 2025-01-30, together with that of <see cref="DeifMohammed"/>; thousands attended his funeral in Deir al-Balah.
+    /// A member of the Qassam Brigades' military council.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
-    [HamasMostWanted(StandardPlayingCard.HeartsEight)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.CombatSupportAndAdministration)]
+    [Texts("Ghazi Abu Tama’a", "غازي أبو طماعة")]
+    [AlsoKnownAs("Abu Musa")]
+    [HamasMostWanted(StandardPlayingCard.HeartsEight, "spelled \"Razi Abu Tama'ah\" on the card list")]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2024, 3, 10)]
     AbuTamaaGhazi,
@@ -4074,11 +4188,11 @@ internal enum IsraeliAssassinationTarget
     AlHayyaKhalil,
 
     /// <summary>
-    /// Head of Hamas's combat support and administrative headquarters
+    /// Killed in an Israeli airstrike in Gaza City. Succeeded <see cref="AbuTamaaGhazi"/>, who was killed in 2024.
     /// </summary>
     [Country(CountryLikeThings.PalestineUnited)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.CombatSupportAndAdministration)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 6, 27)]
     AlIssaHakhamMuhammadIssa,
@@ -4179,13 +4293,14 @@ internal enum IsraeliAssassinationTarget
     AlTawilWissam,
 
     /// <summary>
-    /// Commander of the Gaza City Brigade's anti-tank system (Al-Qassam Brigades)
+    /// Killed by Israeli Air Force fighter jets under Shin Bet guidance, according to the IDF and Shin Bet (reported 2023-10-18).
+    /// The same statement announced the killing of Akram Hijazi, a weapons dealer and financier active in Hamas's naval operations.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.GazaCity, PalestinianMilitantSpecialty.AntiTank)]
     [HamasMostWanted(StandardPlayingCard.DiamondsTwo)]
-    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
     AlwadiaMohammed,
 
@@ -4207,11 +4322,11 @@ internal enum IsraeliAssassinationTarget
     AsadiSaleh,
 
     /// <summary>
-    /// Commander of the anti-tank system in Khan Yunis
+    /// Killed during the war, according to the IDF (reported 2023-11-13).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, PalestinianMilitantSpecialty.AntiTank)]
     [HamasMostWanted(StandardPlayingCard.SpadesThree)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 11)]
@@ -4230,14 +4345,15 @@ internal enum IsraeliAssassinationTarget
     AslimImadHassanHussein,
 
     /// <summary>
-    /// Head of the anti-tank forces in Gaza
+    /// Killed in a joint IDF and Shin Bet airstrike on a building in the Jabalia refugee camp, based on specific
+    /// intelligence according to the IDF. Planned Hamas's anti-tank missile attacks, according to Israeli sources.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.AntiTank)]
     [HamasMostWanted(StandardPlayingCard.ClubsNine)]
-    [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 11)]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaJabalia)]
+    [DeathDate(2023, 11, 1)]
     AtzarMuhammad,
 
     /// <summary>
@@ -4287,11 +4403,11 @@ internal enum IsraeliAssassinationTarget
     BarjiAliHussein,
 
     /// <summary>
-    /// Deputy head of intelligence
+    /// Killed by the IDF, according to the IDF (reported 2023-10-26).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHeadDeputy(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Intelligence)]
     [HamasMostWanted(StandardPlayingCard.ClubsEight)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10)]
@@ -4534,18 +4650,18 @@ internal enum IsraeliAssassinationTarget
     LarijaniAli,
 
     /// <summary>
-    /// Killed in an overnight IDF strike (reported 2023-10-27).
+    /// Killed in an overnight IDF strike
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.KhanYunis, HamasMilitaryBattalion.KhanYunisWest)]
     [HamasMostWanted(StandardPlayingCard.SpadesTwo)]
     [KilledButMayHaveBeenWarOrAssassinationCasualty(CountryLikeThings.PalestineGaza)]
-    [DeathDate(2023, 10)]
+    [DeathDate(2023, 10)] //reported 2023-10-27
     MabasherMadhat,
 
     /// <summary>
-    /// Killed in an IDF airstrike (reported 2023-10-25). Previously commanded Hamas's naval force.
+    /// Killed in an IDF airstrike (reported 2023-10-25). Previously commanded Hamas's naval force (<see cref="PalestinianMilitantSpecialty.Naval"/>).
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
@@ -4683,6 +4799,7 @@ internal enum IsraeliAssassinationTarget
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantCommander(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.CentralCamps)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Aerial)]
     [HamasMostWanted(StandardPlayingCard.ClubsJack)]
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 17)]
@@ -4782,12 +4899,15 @@ internal enum IsraeliAssassinationTarget
     RezaeiBehnam,
 
     /// <summary>
-    /// Head of the Al-Qassam Brigades' production headquarters
+    /// Killed in an Israeli drone strike on his car on Al-Rashid road west of Gaza City, which killed five people including his aide.
+    /// Netanyahu and Katz called it a response to an explosion that injured two IDF soldiers in southern Gaza, and called him an
+    /// architect of the October 7 attacks. Survived an earlier strike targeting him in the Al-Shati camp on 2024-06-22.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Production)]
     [HamasMostWanted(StandardPlayingCard.HeartsFour)]
+    [AssassinationAttempt(2024, 6, 22, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2025, 12, 13)]
     SaadRaad,
@@ -4948,11 +5068,12 @@ internal enum IsraeliAssassinationTarget
     SiamAbdAlHadi,
 
     /// <summary>
-    /// Head of Hamas's rocket array
+    /// Killed in an Israeli airstrike in Gaza City. Hamas confirmed his death on 2023-11-26, together with those of
+    /// <see cref="GhandourAhmed"/>, <see cref="HalifaFarsan"/> and <see cref="RajebWael"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
-    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [PalestinianMilitantSpecialtyHead(PalestinianMilitantGroups.Hamas, PalestinianGazaMilitaryBrigade.AlQassam, PalestinianMilitantSpecialty.Rockets)]
     [HamasMostWanted(StandardPlayingCard.DiamondsQueen)]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2023, 11, 10)]
