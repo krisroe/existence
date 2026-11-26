@@ -3694,6 +3694,61 @@ internal class HamasPoliticalBureauAttribute : Attribute
 }
 
 /// <summary>
+/// position a person held in one of Hamas's security services in Gaza at the time of their assassination, assassination attempt,
+/// capture or death
+/// </summary>
+/// <remarks>
+/// the security services are separate from the Qassam Brigades' military structure (<see cref="PalestinianMilitantAttribute"/>).
+/// Use <see cref="HamasInteriorMinistryInternalSecurityAttribute"/> or <see cref="HamasGeneralSecurityAttribute"/> when sources
+/// say which service the person belonged to, and this attribute directly when they do not, or disagree. The police are not included
+/// </remarks>
+internal class HamasSecurityAttribute : Attribute
+{
+    /// <summary>
+    /// position held, e.g. "Head in Gaza" for the whole Gaza Strip or "Head in Khan Yunis" for one region
+    /// </summary>
+    public string Title { get; set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Title">position held</param>
+    public HamasSecurityAttribute(string Title)
+    {
+        this.Title = Title;
+    }
+}
+
+/// <summary>
+/// position a person held in the Internal Security apparatus of the Hamas-run Interior Ministry in Gaza
+/// </summary>
+internal class HamasInteriorMinistryInternalSecurityAttribute : HamasSecurityAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Title">position held</param>
+    public HamasInteriorMinistryInternalSecurityAttribute(string Title) : base(Title)
+    {
+    }
+}
+
+/// <summary>
+/// position a person held in Hamas's General Security apparatus (also called the General Security Mechanism) in Gaza, the
+/// movement's own security and intelligence service rather than a government body
+/// </summary>
+internal class HamasGeneralSecurityAttribute : HamasSecurityAttribute
+{
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Title">position held</param>
+    public HamasGeneralSecurityAttribute(string Title) : base(Title)
+    {
+    }
+}
+
+/// <summary>
 /// Palestinian militant group a person is specifically associated with (as a member, leader or financier)
 /// </summary>
 /// <remarks>
@@ -3814,6 +3869,40 @@ internal class AssassinatedButNotActuallyAssassinatedAttribute : Attribute
 }
 
 /// <summary>
+/// a target who was captured alive by Israeli forces rather than killed
+/// </summary>
+/// <remarks>
+/// not an assassination or assassination attempt, so it is not counted in the
+/// <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>
+/// </remarks>
+internal class CapturedByIsraelAttribute : YearDateAttribute
+{
+    /// <summary>
+    /// country where the capture took place
+    /// </summary>
+    public CountryLikeThings Country { get; set; }
+
+    /// <summary>
+    /// city where the capture took place
+    /// </summary>
+    public WorldCities City { get; set; }
+
+    /// <summary>
+    /// constructor
+    /// </summary>
+    /// <param name="Year">year of the capture</param>
+    /// <param name="Month">month of the capture</param>
+    /// <param name="Day">day of the capture</param>
+    /// <param name="Country">country where the capture took place</param>
+    /// <param name="City">city where the capture took place</param>
+    public CapturedByIsraelAttribute(int Year, int Month, int Day, CountryLikeThings Country, WorldCities City) : base(Year, Month, Day)
+    {
+        this.Country = Country;
+        this.City = City;
+    }
+}
+
+/// <summary>
 /// date a death was first reported, where the report came from the Israel Defence Forces (alone or jointly with the Shin Bet)
 /// </summary>
 internal class DeathDateReportedByIDFAttribute : DeathDateReportedAttribute
@@ -3884,7 +3973,8 @@ internal class SurvivorCountRangeAttribute : Attribute
 /// Not counted: earlier assassinations and attempts that are only on the list because they are adjacent to it
 /// (<see cref="AssassinatedPriorToOctober7Attribute"/>, <see cref="AttemptedAssassinationPriorToOctober7Attribute"/>),
 /// and deaths that may have been war casualties rather than assassinations
-/// (<see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>), which are not currently included
+/// (<see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>), which are not currently included,
+/// and captures (<see cref="CapturedByIsraelAttribute"/>)
 /// </remarks>
 internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute : TotalAttribute
 {
@@ -3906,10 +3996,11 @@ internal class TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute
 /// are included even when it is not known whether they were assassinated, marked with
 /// <see cref="KilledButMayHaveBeenWarOrAssassinationCasualtyAttribute"/>. Those deaths (currently 17) are not currently included
 /// in the <see cref="TotalAssassinationAttemptsStemmingFrom2023OctoberAttacksAttribute"/>; they could be added to it later
-/// if they are confirmed as assassinations
+/// if they are confirmed as assassinations.
+/// Targets captured alive by Israeli forces are also included, marked with <see cref="CapturedByIsraelAttribute"/>
 /// </remarks>
-[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(114)]
-[SurvivorCountRange(5, 6)]
+[TotalAssassinationAttemptsStemmingFrom2023OctoberAttacks(121)]
+[SurvivorCountRange(6, 7)]
 internal enum IsraeliAssassinationTarget
 {
     /// <summary>
@@ -3958,12 +4049,13 @@ internal enum IsraeliAssassinationTarget
     AbuAjinaNasim,
 
     /// <summary>
-    /// Head of Hamas internal security in northern Gaza. Killed with his wife and two children in an overnight Israeli strike
-    /// on the Beach refugee camp; Hamas confirmed his death.
+    /// Killed with his wife and two children in an overnight Israeli strike on the Beach refugee camp, the day after
+    /// <see cref="AbuNahelNaeem"/>; Hamas confirmed his death.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasInteriorMinistryInternalSecurity("Head in northern Gaza")]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 11)]
     [DeathDateReported(2026, 11, 25, Overnight: true)]
@@ -4017,12 +4109,13 @@ internal enum IsraeliAssassinationTarget
     AbuMuradMurad,
 
     /// <summary>
-    /// Head of Hamas internal security in Gaza. Killed in an Israeli strike in western Gaza City that Netanyahu said targeted him;
-    /// Hamas confirmed his death.
+    /// Killed in an Israeli strike in western Gaza City that Netanyahu said targeted him; Hamas confirmed his death. Took over in
+    /// September 2026 after the capture of <see cref="AlArabidMuein"/>.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
     [EthnicGroup(WorldEthnicGroups.Arab)]
     [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasInteriorMinistryInternalSecurity("Head in Gaza")]
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 11, 24)]
     AbuNahelNaeem,
@@ -4091,6 +4184,18 @@ internal enum IsraeliAssassinationTarget
     AbuTamaaGhazi,
 
     /// <summary>
+    /// Head of the Hamas-run Interior Ministry in Gaza, overseeing its police and internal security services, and a major general.
+    /// Killed with several members of his family in the early-morning Israeli strikes that ended the January 2025 ceasefire, which
+    /// also killed <see cref="AlDaalisIssam"/>; Hamas named him among the officials killed.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2025, 3, 18)]
+    AbuWatfaMahmoud,
+
+    /// <summary>
     /// Commander of Hamas's Rafah Brigade for about two months, succeeding <see cref="AbuObeidNael"/>. Killed by an IDF and
     /// Shin Bet drone strike in southern Gaza; Hamas confirmed his death.
     /// </summary>
@@ -4130,6 +4235,19 @@ internal enum IsraeliAssassinationTarget
     [AssassinationAttempt(2026, 10, 3, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     AlAmoudiAli,
+
+    /// <summary>
+    /// Captured wounded in a Shin Bet special forces raid in Gaza City and taken to Israel for questioning; his wife Samah was killed
+    /// and two of his sons were wounded, according to Palestinian reports. Hamas said he was a lower-ranking security officer rather
+    /// than the head of the apparatus. Succeeded by <see cref="AbuNahelNaeem"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasInteriorMinistryInternalSecurity("Head in Gaza")]
+    [CapturedByIsrael(2026, 9, 1, CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
+    AlArabidMuein,
 
     /// <summary>
     /// Killed in an Israeli strike on a Hamas office in the Dahieh suburbs of Beirut that also killed six others, including
@@ -4219,6 +4337,18 @@ internal enum IsraeliAssassinationTarget
     AlIssaHakhamMuhammadIssa,
 
     /// <summary>
+    /// Police colonel who led the anti-narcotics force in Khan Yunis, and described as a senior Interior Ministry officer. Killed in an
+    /// Israeli strike on his vehicle near al-Mawasi, west of Khan Yunis, which wounded at least 17 others; Palestinian medics called
+    /// it a targeted strike.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaKhanYunis)]
+    [DeathDate(2026, 5, 6)]
+    AlKalazaniNaseem,
+
+    /// <summary>
     /// Hamas commander of the Kfar Aza massacre
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -4227,6 +4357,29 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza)]
     [DeathDate(2023, 10, 15)]
     AlKedraBillal,
+
+    /// <summary>
+    /// A colonel. Killed with Major Ramez Tawfiq Abu Zureiq in an Israeli
+    /// airstrike on their car in Deir al-Balah; the IDF and Shin Bet confirmed the strike the next day.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasInteriorMinistryInternalSecurity("Head in central Gaza")]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaDeirAlBalah)]
+    [DeathDate(2026, 7, 26)]
+    AlLadawiWaelMousa,
+
+    /// <summary>
+    /// Chief of the Hamas-led police force; the IDF said he was also an al-Qassam Brigades militant. Killed in an Israeli strike in
+    /// the Sheikh Radwan neighborhood of Gaza City.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
+    [DeathDate(2026, 7, 25)]
+    AlMaqadmaAbdelNasser,
 
     /// <summary>
     /// Senior Hezbollah commander
@@ -4291,8 +4444,8 @@ internal enum IsraeliAssassinationTarget
     AlSaharIbrahim,
 
     /// <summary>
-    /// Killed in an IDF strike in July 2024 that the IDF only announced three months later, together with the death
-    /// of <see cref="MushtahaRawhi"/>. Arab media had reported in August 2024 that the strike hit a tunnel under Gaza City and killed
+    /// Killed in an IDF strike in July 2024 that the IDF only announced three months later, together with the deaths
+    /// of <see cref="MushtahaRawhi"/> and <see cref="OdehSami"/>. Arab media had reported in August 2024 that the strike hit a tunnel under Gaza City and killed
     /// five Hamas leaders.
     /// </summary>
     [Country(CountryLikeThings.PalestineGaza)]
@@ -4498,6 +4651,19 @@ internal enum IsraeliAssassinationTarget
     DeifMohammed,
 
     /// <summary>
+    /// Spelled "Ayman Atsalih" in IDF reports. Killed in Israeli airstrikes in
+    /// the days after Israel ended the January 2025 ceasefire, in the same strikes as <see cref="JahjouhRashid"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasGeneralSecurity("Head in Khan Yunis")]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2025, 3)]
+    [DeathDateReportedByIDF(2025, 3, 20)]
+    EslaiahAmin,
+
+    /// <summary>
     /// Killed in an IDF airstrike. The IDF said his battalion led the October 7 attack on Nahal Oz, and blamed him for a 2014
     /// incident in Shuja'iyya in which seven IDF soldiers were killed, including Oron Shaul. Son of Umm Nidal; three of his brothers
     /// were also killed for their Hamas activities.
@@ -4623,6 +4789,20 @@ internal enum IsraeliAssassinationTarget
     [AssassinationAttempt(2025, 9, 9, CountryLikeThings.Qatar, WorldCities.QatarDoha)]
     [SurvivedTheEndOfNetanyahusPostOctober7AttacksTerm]
     JabarinZaher,
+
+    /// <summary>
+    /// The IDF said he headed the General Security apparatus, while other reports called it the internal security agency.
+    /// Succeeded <see cref="OdehSami"/>. Killed in Israeli airstrikes in the days after Israel ended the January 2025 ceasefire,
+    /// together with <see cref="EslaiahAmin"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasSecurity("Head in Gaza")]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2025, 3)]
+    [DeathDateReportedByIDF(2025, 3, 20)]
+    JahjouhRashid,
 
     /// <summary>
     /// Commander of Hezbollah's Southern Front
@@ -4859,6 +5039,20 @@ internal enum IsraeliAssassinationTarget
     [Assassinated(CountryLikeThings.PalestineGaza, WorldCities.GazaGazaCity)]
     [DeathDate(2026, 5, 26)]
     OdehMohammed,
+
+    /// <summary>
+    /// Killed in a joint IDF and
+    /// Shin Bet strike in northern Gaza together with <see cref="MushtahaRawhi"/> and <see cref="AlSarrajSameh"/>.
+    /// Succeeded by <see cref="JahjouhRashid"/>.
+    /// </summary>
+    [Country(CountryLikeThings.PalestineGaza)]
+    [EthnicGroup(WorldEthnicGroups.Arab)]
+    [PalestinianMilitantGroup(PalestinianMilitantGroups.Hamas)]
+    [HamasGeneralSecurity("Head in Gaza")]
+    [Assassinated(CountryLikeThings.PalestineGaza)]
+    [DeathDate(2024, 7)]
+    [DeathDateReportedByIDF(2024, 10, 3)]
+    OdehSami,
 
     /// <summary>
     /// Head of Quds Force intelligence in Syria
