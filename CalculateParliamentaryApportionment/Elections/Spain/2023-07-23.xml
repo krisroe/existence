@@ -1,0 +1,2447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Election>
+  <Input>
+    <Method Algorithms="Base">D'Hondt</Method>
+    <ElectoralThreshold Base="ValidVotesAndBlankVotes" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
+    <NationalParties>
+      <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="135" />
+      <NationalParty Id="2" Name="Spanish Socialist Workers' Party" Votes="7821718" Seats="121" />
+      <NationalParty Id="3" Name="Vox" Votes="3057000" Seats="33" />
+      <NationalParty Id="4" Name="Unite" Votes="3044996" Seats="31" />
+      <NationalParty Id="5" Name="Republican Left of Catalonia" Votes="466020" Seats="7" />
+      <NationalParty Id="6" Name="Together for Catalonia" Votes="395429" Seats="7" />
+      <NationalParty Id="7" Name="Basque Country Gather" Votes="335129" Seats="6" />
+      <NationalParty Id="8" Name="Basque Nationalist Party" Votes="277289" Seats="5" />
+      <NationalParty Id="9" Name="Animalist Party with the Environment" Votes="169237" Seats="0" />
+      <NationalParty Id="10" Name="Galician Nationalist Bloc" Votes="153995" Seats="1" />
+      <NationalParty Id="11" Name="Canarian Coalition" Votes="116363" Seats="1" />
+      <NationalParty Id="12" Name="Popular Unity Candidacy–For Rupture" Votes="99644" Seats="0" />
+      <NationalParty Id="13" Name="Navarrese People's Union" Votes="52188" Seats="1" />
+      <NationalParty Id="14" Name="Workers' Front" Votes="46274" Seats="0" />
+      <NationalParty Id="15" Name="New Canaries–Canarian Bloc" Votes="45595" Seats="0" />
+      <NationalParty Id="16" Name="Catalan European Democratic Party–CiU Space" Votes="32016" Seats="0" />
+      <NationalParty Id="17" Name="Zero Cuts" Votes="23421" Seats="0" />
+      <NationalParty Id="18" Name="For a Fairer World" Votes="23290" Seats="0" />
+      <NationalParty Id="19" Name="Leonese People's Union" Votes="23201" Seats="0" />
+      <NationalParty Id="20" Name="Aragon Exists–Exists Coalition" Votes="20440" Seats="0" />
+      <NationalParty Id="21" Name="Communist Party of the Workers of Spain" Votes="18218" Seats="0" />
+      <NationalParty Id="22" Name="Yes to the Future" Votes="9938" Seats="0" />
+      <NationalParty Id="23" Name="Soria Now!" Votes="9697" Seats="0" />
+      <NationalParty Id="24" Name="Forward Andalusia" Votes="9191" Seats="0" />
+      <NationalParty Id="25" Name="Blank Seats to Leave Empty Seats" Votes="8448" Seats="0" />
+      <NationalParty Id="26" Name="Jaén Deserves More" Votes="8293" Seats="0" />
+      <NationalParty Id="27" Name="For Ávila" Votes="7362" Seats="0" />
+      <NationalParty Id="28" Name="Extremaduran Bloc" Votes="5807" Seats="0" />
+      <NationalParty Id="29" Name="Walking Together" Votes="5620" Seats="0" />
+      <NationalParty Id="30" Name="Empty Spain" Votes="5472" Seats="0" />
+      <NationalParty Id="31" Name="Spanish Phalanx of the CNSO" Votes="4683" Seats="0" />
+      <NationalParty Id="32" Name="Aragonese Party" Votes="4173" Seats="0" />
+      <NationalParty Id="33" Name="Humanist Party" Votes="2902" Seats="0" />
+      <NationalParty Id="34" Name="For Huelva" Votes="1931" Seats="0" />
+      <NationalParty Id="35" Name="Let's Go Palencia" Votes="1917" Seats="0" />
+      <NationalParty Id="36" Name="Zamora Yes" Votes="1843" Seats="0" />
+      <NationalParty Id="37" Name="Burgalese Way" Votes="1774" Seats="0" />
+      <NationalParty Id="38" Name="For My Region" Votes="1698" Seats="0" />
+      <NationalParty Id="39" Name="Canaries Now–Communist Party of the Canarian People" Votes="1674" Seats="0" />
+      <NationalParty Id="40" Name="Self-employed Party" Votes="1446" Seats="0" />
+      <NationalParty Id="41" Name="Valencian Welfare State" Votes="1442" Seats="0" />
+      <NationalParty Id="42" Name="Coalition for Melilla" Votes="1298" Seats="0" />
+      <NationalParty Id="43" Name="Together for Granada" Votes="1218" Seats="0" />
+      <NationalParty Id="44" Name="Empty Spain–Castilian Party–Commoners' Land" Votes="1184" Seats="0" />
+      <NationalParty Id="45" Name="Regionalist Party of the Leonese Country" Votes="964" Seats="0" />
+      <NationalParty Id="46" Name="We Are Cáceres" Votes="963" Seats="0" />
+      <NationalParty Id="47" Name="People from Almería–Regionalists for Almería" Votes="874" Seats="0" />
+      <NationalParty Id="48" Name="Federation of Independents of Aragon" Votes="506" Seats="0" />
+      <NationalParty Id="49" Name="Seniors in Action" Votes="484" Seats="0" />
+      <NationalParty Id="50" Name="Castilian Unity" Votes="463" Seats="0" />
+      <NationalParty Id="51" Name="Alive Land Palencia Independent Group" Votes="366" Seats="0" />
+      <NationalParty Id="52" Name="State of Spain Unionist Party" Votes="269" Seats="0" />
+      <NationalParty Id="53" Name="Catalonia Among Neighbors" Votes="265" Seats="0" />
+      <NationalParty Id="54" Name="Free" Votes="263" Seats="0" />
+      <NationalParty Id="55" Name="United Yes" Votes="253" Seats="0" />
+      <NationalParty Id="56" Name="System Money Referendum" Votes="165" Seats="0" />
+      <NationalParty Id="57" Name="Citizens of Democratic Centre" Votes="153" Seats="0" />
+      <NationalParty Id="58" Name="Civic Force" Votes="115" Seats="0" />
+    </NationalParties>
+    <Constituencies>
+      <Constituency Name="A Coruña">
+        <NumberOfSeats>8</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1085673</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">683187</TurnoutRaw>
+        <InvalidVotes Relevant="false">5485</InvalidVotes>
+        <BlankVotes Relevant="true">5197</BlankVotes>
+        <Parties>
+          <Party Id="59" Name="People's Party" Votes="292272" AboveThreshold="true" BaseSeats="3" Seats="4" />
+          <Party Id="60" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="190897" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="61" Name="Unite Galicia" NationalParty="Unite" Votes="82618" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="62" Name="Galician Nationalist Bloc" Votes="67653" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="63" Name="Vox" Votes="34410" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="64" Name="Animalist Party with the Environment" Votes="3096" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="65" Name="Workers' Front" Votes="1011" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="66" Name="Zero Cuts" Votes="548" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>62.93</TurnoutPercentage>
+          <TotalVotes>683187</TotalVotes>
+          <ValidVotes>672505</ValidVotes>
+          <ElectoralThresholdVotes>677702</ElectoralThresholdVotes>
+          <QualifyingVotes>667850</QualifyingVotes>
+          <Quota>83481.25</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Socialists' Party of Galicia" Seats="0" />
+            <Recipient Name="Unite Galicia" Seats="1" />
+            <Recipient Name="Galician Nationalist Bloc" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Unite Galicia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="82618">
+              <Recipient Name="Unite Galicia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="73068">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="8" PoliticalParty="Galician Nationalist Bloc" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="67653">
+              <Recipient Name="Galician Nationalist Bloc" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="9" PoliticalParty="Socialists' Party of Galicia" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="63632.333333333333333333333333">
+            <Recipient Name="Socialists' Party of Galicia" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>12062</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Álava">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">260214</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">170538</TurnoutRaw>
+        <InvalidVotes Relevant="false">1431</InvalidVotes>
+        <BlankVotes Relevant="true">722</BlankVotes>
+        <Parties>
+          <Party Id="67" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="46775" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="68" Name="Basque Country Gather" Votes="32987" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="69" Name="People's Party" Votes="30212" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="70" Name="Basque Nationalist Party" Votes="28075" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="71" Name="Unite" Votes="21561" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="72" Name="Vox" Votes="6573" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="73" Name="Animalist Party with the Environment" Votes="773" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="74" Name="Blank Seats to Leave Empty Seats" Votes="619" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="75" Name="Workers' Front" Votes="354" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="76" Name="Zero Cuts" Votes="185" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="77" Name="Communist Party of the Workers of the Basque Country" NationalParty="Communist Party of the Workers of Spain" Votes="165" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="78" Name="For a Fairer World" Votes="106" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>65.54</TurnoutPercentage>
+          <TotalVotes>170538</TotalVotes>
+          <ValidVotes>168385</ValidVotes>
+          <ElectoralThresholdVotes>169107</ElectoralThresholdVotes>
+          <QualifyingVotes>166183</QualifyingVotes>
+          <Quota>41545.75</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialist Party of the Basque Country–Basque Country Left" Seats="0" />
+            <Recipient Name="Basque Country Gather" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Basque Nationalist Party" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Basque Country Gather" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="32987">
+              <Recipient Name="Basque Country Gather" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="30212">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Basque Nationalist Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="28075">
+              <Recipient Name="Basque Nationalist Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Socialist Party of the Basque Country–Basque Country Left" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="23387.5">
+            <Recipient Name="Socialist Party of the Basque Country–Basque Country Left" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>9375</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Albacete">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">307988</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">223917</TurnoutRaw>
+        <InvalidVotes Relevant="false">2726</InvalidVotes>
+        <BlankVotes Relevant="true">1834</BlankVotes>
+        <Parties>
+          <Party Id="79" Name="People's Party" Votes="88299" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="80" Name="Spanish Socialist Workers' Party" Votes="76322" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="81" Name="Vox" Votes="36750" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="82" Name="Unite" Votes="15834" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="83" Name="Animalist Party with the Environment" Votes="1261" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="84" Name="Workers' Front" Votes="381" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="85" Name="For a Fairer World" Votes="325" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="86" Name="Zero Cuts" Votes="185" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.70</TurnoutPercentage>
+          <TotalVotes>223917</TotalVotes>
+          <ValidVotes>219357</ValidVotes>
+          <ElectoralThresholdVotes>221191</ElectoralThresholdVotes>
+          <QualifyingVotes>217205</QualifyingVotes>
+          <Quota>54301.25</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="44149.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="38161">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="36750">
+            <Recipient Name="Vox" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1412</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Alicante">
+        <NumberOfSeats>12</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1306311</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">908842</TurnoutRaw>
+        <InvalidVotes Relevant="false">9650</InvalidVotes>
+        <BlankVotes Relevant="true">6575</BlankVotes>
+        <Parties>
+          <Party Id="87" Name="People's Party" Votes="330293" AboveThreshold="true" BaseSeats="4" Seats="5" />
+          <Party Id="88" Name="Spanish Socialist Workers' Party" Votes="287737" AboveThreshold="true" BaseSeats="3" Seats="4" />
+          <Party Id="89" Name="Vox" Votes="146133" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="90" Name="Commitment–Unite: We Unite to Win" NationalParty="Unite" Votes="115787" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="91" Name="Animalist Party with the Environment" Votes="7335" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="92" Name="Workers' Front" Votes="1724" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="93" Name="Self-employed Party" Votes="1446" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="94" Name="Zero Cuts" Votes="1135" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="95" Name="Walking Together" Votes="1027" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>69.57</TurnoutPercentage>
+          <TotalVotes>908842</TotalVotes>
+          <ValidVotes>892617</ValidVotes>
+          <ElectoralThresholdVotes>899192</ElectoralThresholdVotes>
+          <QualifyingVotes>879950</QualifyingVotes>
+          <Quota>73329.166666666666666666666667</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Commitment–Unite: We Unite to Win" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="10" PoliticalParty="Vox" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="73066.5">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="11" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="71934.25">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="12" PoliticalParty="People's Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="66058.6">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="13" PoliticalParty="Commitment–Unite: We Unite to Win" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="57893.5">
+            <Recipient Name="Commitment–Unite: We Unite to Win" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>16331</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Almería">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">516114</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">324405</TurnoutRaw>
+        <InvalidVotes Relevant="false">3163</InvalidVotes>
+        <BlankVotes Relevant="true">2464</BlankVotes>
+        <Parties>
+          <Party Id="96" Name="People's Party" Votes="131524" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="97" Name="Spanish Socialist Workers' Party" Votes="93282" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="98" Name="Vox" Votes="68364" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="99" Name="Unite Andalusia" NationalParty="Unite" Votes="21485" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="100" Name="Animalist Party with the Environment" Votes="1962" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="101" Name="People from Almería–Regionalists for Almería" Votes="874" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="102" Name="Workers' Front" Votes="500" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="103" Name="For a Fairer World" Votes="371" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="104" Name="Free" Votes="210" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="105" Name="Zero Cuts" Votes="206" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>62.86</TurnoutPercentage>
+          <TotalVotes>324405</TotalVotes>
+          <ValidVotes>318778</ValidVotes>
+          <ElectoralThresholdVotes>321242</ElectoralThresholdVotes>
+          <QualifyingVotes>314655</QualifyingVotes>
+          <Quota>52442.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Andalusia" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46641">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="43841.333333333333333333333333">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="Vox" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="34182">
+            <Recipient Name="Vox" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>19319</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Asturias">
+        <NumberOfSeats>7</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">959023</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">603183</TurnoutRaw>
+        <InvalidVotes Relevant="false">6151</InvalidVotes>
+        <BlankVotes Relevant="true">6079</BlankVotes>
+        <Parties>
+          <Party Id="106" Name="People's Party" Votes="212816" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="107" Name="Spanish Socialist Workers' Party" Votes="205049" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="108" Name="Unite" Votes="88630" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="109" Name="Vox" Votes="74571" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="110" Name="Animalist Party with the Environment" Votes="3167" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="111" Name="Asturias Exists–Empty Spain" NationalParty="Empty Spain" Votes="2314" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="112" Name="Communist Party of the Workers of Spain" Votes="1598" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="113" Name="Workers' Front" Votes="1176" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="114" Name="For a Fairer World" Votes="773" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="115" Name="Zero Cuts" Votes="590" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="116" Name="State of Spain Unionist Party" Votes="269" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>62.90</TurnoutPercentage>
+          <TotalVotes>603183</TotalVotes>
+          <ValidVotes>590953</ValidVotes>
+          <ElectoralThresholdVotes>597032</ElectoralThresholdVotes>
+          <QualifyingVotes>581066</QualifyingVotes>
+          <Quota>83009.42857142857142857142857</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+            <Recipient Name="Vox" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="74571">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="70938.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="8" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="68349.666666666666666666666667">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>7768</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Ávila">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">136669</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">99120</TurnoutRaw>
+        <InvalidVotes Relevant="false">1164</InvalidVotes>
+        <BlankVotes Relevant="true">632</BlankVotes>
+        <Parties>
+          <Party Id="117" Name="People's Party" Votes="42369" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="118" Name="Spanish Socialist Workers' Party" Votes="26828" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="119" Name="Vox" Votes="15068" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="120" Name="For Ávila" Votes="7362" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="121" Name="Unite" Votes="5027" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="122" Name="Animalist Party with the Environment" Votes="275" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="123" Name="Workers' Front" Votes="100" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="124" Name="For a Fairer World" Votes="91" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="125" Name="Communist Party of the Workers of Spain" Votes="85" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="126" Name="Spanish Phalanx of the CNSO" Votes="77" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="127" Name="Zero Cuts" Votes="42" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.53</TurnoutPercentage>
+          <TotalVotes>99120</TotalVotes>
+          <ValidVotes>97324</ValidVotes>
+          <ElectoralThresholdVotes>97956</ElectoralThresholdVotes>
+          <QualifyingVotes>96654</QualifyingVotes>
+          <Quota>32218</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="For Ávila" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="26828">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="21184.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="15068">
+            <Recipient Name="Vox" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>6117</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Badajoz">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">550702</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">398233</TurnoutRaw>
+        <InvalidVotes Relevant="false">6772</InvalidVotes>
+        <BlankVotes Relevant="true">3225</BlankVotes>
+        <Parties>
+          <Party Id="128" Name="Spanish Socialist Workers' Party" Votes="153473" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="129" Name="People's Party" Votes="148068" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="130" Name="Vox" Votes="53492" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="131" Name="Unite" Votes="26778" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="132" Name="Extremaduran Bloc" Votes="3885" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="133" Name="Animalist Party with the Environment" Votes="1395" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="134" Name="Workers' Front" Votes="477" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="135" Name="For a Fairer World" Votes="464" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="136" Name="Zero Cuts" Votes="204" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.31</TurnoutPercentage>
+          <TotalVotes>398233</TotalVotes>
+          <ValidVotes>388236</ValidVotes>
+          <ElectoralThresholdVotes>391461</ElectoralThresholdVotes>
+          <QualifyingVotes>381811</QualifyingVotes>
+          <Quota>76362.2</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="74034">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="53492">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="51157.666666666666666666666667">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>7003</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Balearic Islands">
+        <NumberOfSeats>8</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">828755</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">508233</TurnoutRaw>
+        <InvalidVotes Relevant="false">4953</InvalidVotes>
+        <BlankVotes Relevant="true">4704</BlankVotes>
+        <Parties>
+          <Party Id="137" Name="People's Party" Votes="179303" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="138" Name="Socialist Party of the Balearic Islands" NationalParty="Spanish Socialist Workers' Party" Votes="151786" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="139" Name="More for Mallorca–More for Menorca–Unite" NationalParty="Unite" Votes="83487" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="140" Name="Vox" Votes="76547" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="141" Name="Animalist Party with the Environment" Votes="4969" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="142" Name="Workers' Front" Votes="1039" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="143" Name="Zero Cuts" Votes="726" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="144" Name="Communist Party of the Workers of Spain" Votes="719" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>61.32</TurnoutPercentage>
+          <TotalVotes>508233</TotalVotes>
+          <ValidVotes>498576</ValidVotes>
+          <ElectoralThresholdVotes>503280</ElectoralThresholdVotes>
+          <QualifyingVotes>491123</QualifyingVotes>
+          <Quota>61390.375</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Socialist Party of the Balearic Islands" Seats="1" />
+            <Recipient Name="More for Mallorca–More for Menorca–Unite" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="59767.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="8" PoliticalParty="Socialist Party of the Balearic Islands" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="50595.333333333333333333333333">
+              <Recipient Name="Socialist Party of the Balearic Islands" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="9" PoliticalParty="People's Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="44825.75">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>23079</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Barcelona">
+        <NumberOfSeats>32</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">4243500</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">2688720</TurnoutRaw>
+        <InvalidVotes Relevant="false">21242</InvalidVotes>
+        <BlankVotes Relevant="true">21059</BlankVotes>
+        <Parties>
+          <Party Id="145" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="952347" AboveThreshold="true" BaseSeats="12" Seats="13" />
+          <Party Id="146" Name="Unite–In Common We Can" NationalParty="Unite" Votes="405993" AboveThreshold="true" BaseSeats="5" Seats="5" />
+          <Party Id="147" Name="People's Party" Votes="367519" AboveThreshold="true" BaseSeats="4" Seats="5" />
+          <Party Id="148" Name="Republican Left of Catalonia" Votes="328697" AboveThreshold="true" BaseSeats="4" Seats="4" />
+          <Party Id="149" Name="Together for Catalonia" Votes="258159" AboveThreshold="true" BaseSeats="3" Seats="3" />
+          <Party Id="150" Name="Vox" Votes="201775" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="151" Name="Popular Unity Candidacy–For Rupture" Votes="67266" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="152" Name="Animalist Party with the Environment" Votes="28201" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="153" Name="Catalan European Democratic Party–CiU Space" Votes="24452" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="154" Name="Workers' Front" Votes="6048" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="155" Name="Zero Cuts" Votes="3104" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="156" Name="Communist Party of the Workers of Catalonia" NationalParty="Communist Party of the Workers of Spain" Votes="2858" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>63.36</TurnoutPercentage>
+          <TotalVotes>2688720</TotalVotes>
+          <ValidVotes>2646419</ValidVotes>
+          <ElectoralThresholdVotes>2667478</ElectoralThresholdVotes>
+          <QualifyingVotes>2514490</QualifyingVotes>
+          <Quota>78577.8125</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialists' Party of Catalonia" Seats="1" />
+            <Recipient Name="Unite–In Common We Can" Seats="0" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Republican Left of Catalonia" Seats="0" />
+            <Recipient Name="Together for Catalonia" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="31" PoliticalParty="People's Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="73503.8">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="32" PoliticalParty="Socialists' Party of Catalonia" DivisorCalculation="1*12 + 1" Divisor="13" Quotient="73257.461538461538461538461538">
+              <Recipient Name="Socialists' Party of Catalonia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="33" PoliticalParty="Socialists' Party of Catalonia" DivisorCalculation="1*13 + 1" Divisor="14" Quotient="68024.785714285714285714285714">
+            <Recipient Name="Socialists' Party of Catalonia" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>76707</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Biscay">
+        <NumberOfSeats>8</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">942983</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">614944</TurnoutRaw>
+        <InvalidVotes Relevant="false">5251</InvalidVotes>
+        <BlankVotes Relevant="true">3391</BlankVotes>
+        <Parties>
+          <Party Id="157" Name="Basque Nationalist Party" Votes="164188" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="158" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="157448" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="159" Name="Basque Country Gather" Votes="125867" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="160" Name="People's Party" Votes="70533" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="161" Name="Unite" Votes="66592" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="162" Name="Vox" Votes="16069" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="163" Name="Animalist Party with the Environment" Votes="2729" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="164" Name="Workers' Front" Votes="929" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="165" Name="For a Fairer World" Votes="804" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="166" Name="Communist Party of the Workers of the Basque Country" NationalParty="Communist Party of the Workers of Spain" Votes="618" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="167" Name="Zero Cuts" Votes="525" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>65.21</TurnoutPercentage>
+          <TotalVotes>614944</TotalVotes>
+          <ValidVotes>606302</ValidVotes>
+          <ElectoralThresholdVotes>609693</ElectoralThresholdVotes>
+          <QualifyingVotes>584628</QualifyingVotes>
+          <Quota>73078.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Basque Nationalist Party" Seats="0" />
+            <Recipient Name="Socialist Party of the Basque Country–Basque Country Left" Seats="0" />
+            <Recipient Name="Basque Country Gather" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Unite" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="70533">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="Unite" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="66592">
+              <Recipient Name="Unite" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="8" PoliticalParty="Basque Country Gather" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="62933.5">
+              <Recipient Name="Basque Country Gather" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="9" PoliticalParty="Basque Nationalist Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="54729.333333333333333333333333">
+            <Recipient Name="Basque Nationalist Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>24613</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Burgos">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">296401</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">204886</TurnoutRaw>
+        <InvalidVotes Relevant="false">2317</InvalidVotes>
+        <BlankVotes Relevant="true">1851</BlankVotes>
+        <Parties>
+          <Party Id="168" Name="People's Party" Votes="82329" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="169" Name="Spanish Socialist Workers' Party" Votes="69775" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="170" Name="Vox" Votes="25858" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="171" Name="Unite" Votes="17508" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="172" Name="Burgalese Way" Votes="1774" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="173" Name="Empty Spain–Castilian Party–Commoners' Land" Votes="1184" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="174" Name="Animalist Party with the Environment" Votes="943" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="175" Name="Workers' Front" Votes="490" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="176" Name="For a Fairer World" Votes="354" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="177" Name="Communist Party of the Workers of Spain" Votes="349" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="178" Name="Zero Cuts" Votes="154" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>69.12</TurnoutPercentage>
+          <TotalVotes>204886</TotalVotes>
+          <ValidVotes>200718</ValidVotes>
+          <ElectoralThresholdVotes>202569</ElectoralThresholdVotes>
+          <QualifyingVotes>195470</QualifyingVotes>
+          <Quota>48867.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="41164.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="34887.5">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="27443">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>22334</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Cáceres">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">339491</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">239747</TurnoutRaw>
+        <InvalidVotes Relevant="false">3896</InvalidVotes>
+        <BlankVotes Relevant="true">1721</BlankVotes>
+        <Parties>
+          <Party Id="179" Name="Spanish Socialist Workers' Party" Votes="91692" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="180" Name="People's Party" Votes="89633" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="181" Name="Vox" Votes="32076" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="182" Name="Unite" Votes="16354" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="183" Name="Extremaduran Bloc" Votes="1922" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="184" Name="We Are Cáceres" Votes="963" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="185" Name="Animalist Party with the Environment" Votes="814" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="186" Name="Workers' Front" Votes="316" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="187" Name="For a Fairer World" Votes="249" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="188" Name="Zero Cuts" Votes="111" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>70.62</TurnoutPercentage>
+          <TotalVotes>239747</TotalVotes>
+          <ValidVotes>234130</ValidVotes>
+          <ElectoralThresholdVotes>235851</ElectoralThresholdVotes>
+          <QualifyingVotes>229755</QualifyingVotes>
+          <Quota>57438.75</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="45846">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="44816.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="32076">
+            <Recipient Name="Vox" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>12741</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Cádiz">
+        <NumberOfSeats>9</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1017958</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">644801</TurnoutRaw>
+        <InvalidVotes Relevant="false">7703</InvalidVotes>
+        <BlankVotes Relevant="true">7103</BlankVotes>
+        <Parties>
+          <Party Id="189" Name="People's Party" Votes="221703" AboveThreshold="true" BaseSeats="3" Seats="4" />
+          <Party Id="190" Name="Spanish Socialist Workers' Party" Votes="211200" AboveThreshold="true" BaseSeats="3" Seats="3" />
+          <Party Id="191" Name="Vox" Votes="96720" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="192" Name="Unite Andalusia" NationalParty="Unite" Votes="82115" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="193" Name="Forward Andalusia" Votes="9191" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="194" Name="Animalist Party with the Environment" Votes="5937" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="195" Name="Workers' Front" Votes="1225" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="196" Name="Walking Together" Votes="745" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="197" Name="For a Fairer World" Votes="673" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="198" Name="Zero Cuts" Votes="486" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>63.34</TurnoutPercentage>
+          <TotalVotes>644801</TotalVotes>
+          <ValidVotes>629995</ValidVotes>
+          <ElectoralThresholdVotes>637098</ElectoralThresholdVotes>
+          <QualifyingVotes>611738</QualifyingVotes>
+          <Quota>67970.888888888888888888888889</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Andalusia" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="9" PoliticalParty="People's Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="55425.75">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="10" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="52800">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>10504</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Cantabria">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">507818</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">355145</TurnoutRaw>
+        <InvalidVotes Relevant="false">4995</InvalidVotes>
+        <BlankVotes Relevant="true">3262</BlankVotes>
+        <Parties>
+          <Party Id="199" Name="People's Party" Votes="147326" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="200" Name="Spanish Socialist Workers' Party" Votes="116596" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="201" Name="Vox" Votes="49243" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="202" Name="Unite" Votes="29713" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="203" Name="Animalist Party with the Environment" Votes="2089" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="204" Name="Workers' Front" Votes="790" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="205" Name="Communist Party of the Workers of Spain" Votes="598" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="206" Name="Zero Cuts" Votes="533" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>69.94</TurnoutPercentage>
+          <TotalVotes>355145</TotalVotes>
+          <ValidVotes>346888</ValidVotes>
+          <ElectoralThresholdVotes>350150</ElectoralThresholdVotes>
+          <QualifyingVotes>342878</QualifyingVotes>
+          <Quota>68575.6</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="58298">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="49243">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="49108.666666666666666666666667">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>403</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Castellón">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">430830</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">311581</TurnoutRaw>
+        <InvalidVotes Relevant="false">3651</InvalidVotes>
+        <BlankVotes Relevant="true">2655</BlankVotes>
+        <Parties>
+          <Party Id="207" Name="People's Party" Votes="108302" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="208" Name="Spanish Socialist Workers' Party" Votes="100530" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="209" Name="Vox" Votes="48913" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="210" Name="Commitment–Unite: We Unite to Win" NationalParty="Unite" Votes="44187" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="211" Name="Animalist Party with the Environment" Votes="1968" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="212" Name="Workers' Front" Votes="721" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="213" Name="Zero Cuts" Votes="493" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="214" Name="Spanish Phalanx of the CNSO" Votes="161" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.32</TurnoutPercentage>
+          <TotalVotes>311581</TotalVotes>
+          <ValidVotes>305275</ValidVotes>
+          <ElectoralThresholdVotes>307930</ElectoralThresholdVotes>
+          <QualifyingVotes>301932</QualifyingVotes>
+          <Quota>60386.4</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Commitment–Unite: We Unite to Win" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="54151">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="50265">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="48913">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="Commitment–Unite: We Unite to Win" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="44187">
+            <Recipient Name="Commitment–Unite: We Unite to Win" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>4727</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Ceuta" CalculateSeats="false">
+        <NumberOfSeats>1</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">63310</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">33674</TurnoutRaw>
+        <InvalidVotes Relevant="false">353</InvalidVotes>
+        <BlankVotes Relevant="true">328</BlankVotes>
+        <Parties>
+          <Party Id="215" Name="People's Party" Votes="12918" />
+          <Party Id="216" Name="Spanish Socialist Workers' Party" Votes="11332" />
+          <Party Id="217" Name="Vox" Votes="7752" />
+          <Party Id="218" Name="Unite" Votes="821" />
+          <Party Id="219" Name="Workers' Front" Votes="53" />
+          <Party Id="220" Name="Free" Votes="53" />
+          <Party Id="221" Name="Zero Cuts" Votes="33" />
+          <Party Id="222" Name="For a Fairer World" Votes="31" />
+        </Parties>
+      </Constituency>
+      <Constituency Name="Ciudad Real">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">391495</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">286895</TurnoutRaw>
+        <InvalidVotes Relevant="false">3916</InvalidVotes>
+        <BlankVotes Relevant="true">2353</BlankVotes>
+        <Parties>
+          <Party Id="223" Name="People's Party" Votes="114709" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="224" Name="Spanish Socialist Workers' Party" Votes="100102" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="225" Name="Vox" Votes="46046" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="226" Name="Unite" Votes="17405" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="227" Name="Animalist Party with the Environment" Votes="1319" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="228" Name="Workers' Front" Votes="447" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="229" Name="For a Fairer World" Votes="365" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="230" Name="Zero Cuts" Votes="233" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>73.28</TurnoutPercentage>
+          <TotalVotes>286895</TotalVotes>
+          <ValidVotes>280626</ValidVotes>
+          <ElectoralThresholdVotes>282979</ElectoralThresholdVotes>
+          <QualifyingVotes>278262</QualifyingVotes>
+          <Quota>55652.4</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="50051">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="46046">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="38236.333333333333333333333333">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>23429</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Córdoba">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">645288</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">455564</TurnoutRaw>
+        <InvalidVotes Relevant="false">6962</InvalidVotes>
+        <BlankVotes Relevant="true">4348</BlankVotes>
+        <Parties>
+          <Party Id="231" Name="People's Party" Votes="169976" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="232" Name="Spanish Socialist Workers' Party" Votes="144080" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="233" Name="Vox" Votes="62526" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="234" Name="Unite Andalusia" NationalParty="Unite" Votes="61594" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="235" Name="Animalist Party with the Environment" Votes="2699" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="236" Name="Blank Seats to Leave Empty Seats" Votes="942" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="237" Name="Communist Party of the Workers of Spain" Votes="746" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="238" Name="Workers' Front" Votes="701" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="239" Name="For a Fairer World" Votes="598" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="240" Name="Zero Cuts" Votes="392" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>70.60</TurnoutPercentage>
+          <TotalVotes>455564</TotalVotes>
+          <ValidVotes>444254</ValidVotes>
+          <ElectoralThresholdVotes>448602</ElectoralThresholdVotes>
+          <QualifyingVotes>438176</QualifyingVotes>
+          <Quota>73029.333333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite Andalusia" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="72040">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="62526">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Unite Andalusia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="61594">
+              <Recipient Name="Unite Andalusia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="56658.666666666666666666666667">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>14806</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Cuenca">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">152694</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">115280</TurnoutRaw>
+        <InvalidVotes Relevant="false">1472</InvalidVotes>
+        <BlankVotes Relevant="true">969</BlankVotes>
+        <Parties>
+          <Party Id="241" Name="People's Party" Votes="45255" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="242" Name="Spanish Socialist Workers' Party" Votes="42528" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="243" Name="Vox" Votes="17700" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="244" Name="Unite" Votes="6325" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="245" Name="Animalist Party with the Environment" Votes="387" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="246" Name="Workers' Front" Votes="207" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="247" Name="Blank Seats to Leave Empty Seats" Votes="168" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="248" Name="For a Fairer World" Votes="111" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="249" Name="Communist Party of the Workers of Spain" Votes="100" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="250" Name="Zero Cuts" Votes="58" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>75.50</TurnoutPercentage>
+          <TotalVotes>115280</TotalVotes>
+          <ValidVotes>112839</ValidVotes>
+          <ElectoralThresholdVotes>113808</ElectoralThresholdVotes>
+          <QualifyingVotes>111808</QualifyingVotes>
+          <Quota>37269.333333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="22627.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="21264">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>2728</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Gipuzkoa">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">585873</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">378965</TurnoutRaw>
+        <InvalidVotes Relevant="false">2344</InvalidVotes>
+        <BlankVotes Relevant="true">2005</BlankVotes>
+        <Parties>
+          <Party Id="251" Name="Basque Country Gather" Votes="117321" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="252" Name="Socialist Party of the Basque Country–Basque Country Left" NationalParty="Spanish Socialist Workers' Party" Votes="87709" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="253" Name="Basque Nationalist Party" Votes="85026" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="254" Name="Unite" Votes="40081" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="255" Name="People's Party" Votes="32721" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="256" Name="Vox" Votes="7877" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="257" Name="Animalist Party with the Environment" Votes="1568" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="258" Name="Blank Seats to Leave Empty Seats" Votes="933" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="259" Name="Workers' Front" Votes="530" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="260" Name="Zero Cuts" Votes="442" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="261" Name="Communist Party of the Workers of the Basque Country" NationalParty="Communist Party of the Workers of Spain" Votes="259" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="262" Name="For a Fairer World" Votes="149" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>64.68</TurnoutPercentage>
+          <TotalVotes>378965</TotalVotes>
+          <ValidVotes>374616</ValidVotes>
+          <ElectoralThresholdVotes>376621</ElectoralThresholdVotes>
+          <QualifyingVotes>362858</QualifyingVotes>
+          <Quota>60476.333333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Basque Country Gather" Seats="1" />
+            <Recipient Name="Socialist Party of the Basque Country–Basque Country Left" Seats="1" />
+            <Recipient Name="Basque Nationalist Party" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+            <Recipient Name="People's Party" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Basque Country Gather" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="58660.5">
+              <Recipient Name="Basque Country Gather" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Socialist Party of the Basque Country–Basque Country Left" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="43854.5">
+              <Recipient Name="Socialist Party of the Basque Country–Basque Country Left" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Basque Nationalist Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="42513">
+              <Recipient Name="Basque Nationalist Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="Unite" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="40081">
+            <Recipient Name="Unite" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>2433</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Girona">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">546370</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">327159</TurnoutRaw>
+        <InvalidVotes Relevant="false">4171</InvalidVotes>
+        <BlankVotes Relevant="true">2981</BlankVotes>
+        <Parties>
+          <Party Id="263" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="93448" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="264" Name="Together for Catalonia" Votes="63251" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="265" Name="Republican Left of Catalonia" Votes="47531" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="266" Name="Unite–In Common We Can" NationalParty="Unite" Votes="35344" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="267" Name="People's Party" Votes="31341" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="268" Name="Vox" Votes="22706" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="269" Name="Popular Unity Candidacy–For Rupture" Votes="18229" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="270" Name="Animalist Party with the Environment" Votes="3531" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="271" Name="Catalan European Democratic Party–CiU Space" Votes="3388" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="272" Name="Workers' Front" Votes="570" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="273" Name="Communist Party of the Workers of Catalonia" NationalParty="Communist Party of the Workers of Spain" Votes="420" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="274" Name="Zero Cuts" Votes="248" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>59.88</TurnoutPercentage>
+          <TotalVotes>327159</TotalVotes>
+          <ValidVotes>320007</ValidVotes>
+          <ElectoralThresholdVotes>322988</ElectoralThresholdVotes>
+          <QualifyingVotes>311850</QualifyingVotes>
+          <Quota>51975</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialists' Party of Catalonia" Seats="1" />
+            <Recipient Name="Together for Catalonia" Seats="1" />
+            <Recipient Name="Republican Left of Catalonia" Seats="1" />
+            <Recipient Name="Unite–In Common We Can" Seats="1" />
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Popular Unity Candidacy–For Rupture" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="Republican Left of Catalonia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="47531">
+              <Recipient Name="Republican Left of Catalonia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Socialists' Party of Catalonia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46724">
+              <Recipient Name="Socialists' Party of Catalonia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Unite–In Common We Can" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="35344">
+              <Recipient Name="Unite–In Common We Can" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Together for Catalonia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="31625.5">
+              <Recipient Name="Together for Catalonia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="31341">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>285</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Granada">
+        <NumberOfSeats>7</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">765478</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">509486</TurnoutRaw>
+        <InvalidVotes Relevant="false">6641</InvalidVotes>
+        <BlankVotes Relevant="true">4057</BlankVotes>
+        <Parties>
+          <Party Id="275" Name="People's Party" Votes="185996" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="276" Name="Spanish Socialist Workers' Party" Votes="165862" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="277" Name="Vox" Votes="81080" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="278" Name="Unite Andalusia" NationalParty="Unite" Votes="58567" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="279" Name="Animalist Party with the Environment" Votes="3143" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="280" Name="Together for Granada" Votes="1218" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="281" Name="For a Fairer World" Votes="765" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="282" Name="Communist Party of the Workers of Spain" Votes="695" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="283" Name="Workers' Front" Votes="658" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="284" Name="Walking Together" Votes="461" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="285" Name="Zero Cuts" Votes="343" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>66.56</TurnoutPercentage>
+          <TotalVotes>509486</TotalVotes>
+          <ValidVotes>498788</ValidVotes>
+          <ElectoralThresholdVotes>502845</ElectoralThresholdVotes>
+          <QualifyingVotes>491505</QualifyingVotes>
+          <Quota>70215</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Andalusia" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="61998.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="Unite Andalusia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="58567">
+              <Recipient Name="Unite Andalusia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="8" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="55287.333333333333333333333333">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>9839</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Guadalajara">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">196983</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">142744</TurnoutRaw>
+        <InvalidVotes Relevant="false">1831</InvalidVotes>
+        <BlankVotes Relevant="true">1143</BlankVotes>
+        <Parties>
+          <Party Id="286" Name="People's Party" Votes="51195" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="287" Name="Spanish Socialist Workers' Party" Votes="46479" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="288" Name="Vox" Votes="27126" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="289" Name="Unite" Votes="12907" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="290" Name="Animalist Party with the Environment" Votes="1039" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="291" Name="Workers' Front" Votes="304" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="292" Name="For a Fairer World" Votes="249" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="293" Name="Communist Party of the Workers of Spain" Votes="191" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="294" Name="Zero Cuts" Votes="162" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="295" Name="Spanish Phalanx of the CNSO" Votes="118" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.47</TurnoutPercentage>
+          <TotalVotes>142744</TotalVotes>
+          <ValidVotes>139770</ValidVotes>
+          <ElectoralThresholdVotes>140913</ElectoralThresholdVotes>
+          <QualifyingVotes>137707</QualifyingVotes>
+          <Quota>45902.333333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="27126">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="25597.5">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>3057</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Huelva">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">402504</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">260861</TurnoutRaw>
+        <InvalidVotes Relevant="false">4057</InvalidVotes>
+        <BlankVotes Relevant="true">2410</BlankVotes>
+        <Parties>
+          <Party Id="296" Name="People's Party" Votes="93565" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="297" Name="Spanish Socialist Workers' Party" Votes="92326" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="298" Name="Vox" Votes="37572" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="299" Name="Unite Andalusia" NationalParty="Unite" Votes="26752" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="300" Name="For Huelva" Votes="1931" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="301" Name="Animalist Party with the Environment" Votes="1663" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="302" Name="For a Fairer World" Votes="368" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="303" Name="Zero Cuts" Votes="217" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>64.81</TurnoutPercentage>
+          <TotalVotes>260861</TotalVotes>
+          <ValidVotes>254394</ValidVotes>
+          <ElectoralThresholdVotes>256804</ElectoralThresholdVotes>
+          <QualifyingVotes>250215</QualifyingVotes>
+          <Quota>50043</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite Andalusia" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46782.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46163">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="37572">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="31188.333333333333333333333333">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>19151</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Huesca">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">173391</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">121148</TurnoutRaw>
+        <InvalidVotes Relevant="false">1253</InvalidVotes>
+        <BlankVotes Relevant="true">1217</BlankVotes>
+        <Parties>
+          <Party Id="304" Name="People's Party" Votes="45783" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="305" Name="Spanish Socialist Workers' Party" Votes="40307" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="306" Name="Vox" Votes="15155" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="307" Name="Unite Aragon" NationalParty="Unite" Votes="13774" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="308" Name="Aragon Exists–Exists Coalition" Votes="1312" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="309" Name="Aragonese Party" Votes="717" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="310" Name="Animalist Party with the Environment" Votes="498" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="311" Name="Blank Seats to Leave Empty Seats" Votes="475" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="312" Name="Workers' Front" Votes="258" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="313" Name="Communist Party of the Workers of Spain" Votes="137" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="314" Name="For a Fairer World" Votes="114" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="315" Name="Federation of Independents of Aragon" Votes="84" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="316" Name="Zero Cuts" Votes="64" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>69.87</TurnoutPercentage>
+          <TotalVotes>121148</TotalVotes>
+          <ValidVotes>118678</ValidVotes>
+          <ElectoralThresholdVotes>119895</ElectoralThresholdVotes>
+          <QualifyingVotes>115019</QualifyingVotes>
+          <Quota>38339.666666666666666666666667</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Aragon" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="22891.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="20153.5">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>5477</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Jaén">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">518371</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">373657</TurnoutRaw>
+        <InvalidVotes Relevant="false">4926</InvalidVotes>
+        <BlankVotes Relevant="true">2497</BlankVotes>
+        <Parties>
+          <Party Id="317" Name="People's Party" Votes="137617" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="318" Name="Spanish Socialist Workers' Party" Votes="133819" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="319" Name="Vox" Votes="54400" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="320" Name="Unite Andalusia" NationalParty="Unite" Votes="29461" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="321" Name="Jaén Deserves More" Votes="8293" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="322" Name="Animalist Party with the Environment" Votes="1671" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="323" Name="Workers' Front" Votes="410" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="324" Name="For a Fairer World" Votes="360" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="325" Name="Zero Cuts" Votes="203" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.08</TurnoutPercentage>
+          <TotalVotes>373657</TotalVotes>
+          <ValidVotes>366234</ValidVotes>
+          <ElectoralThresholdVotes>368731</ElectoralThresholdVotes>
+          <QualifyingVotes>355297</QualifyingVotes>
+          <Quota>71059.4</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite Andalusia" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="68808.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="66909.5">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="54400">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="45872.333333333333333333333333">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>25583</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="La Rioja">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">252091</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">176945</TurnoutRaw>
+        <InvalidVotes Relevant="false">2282</InvalidVotes>
+        <BlankVotes Relevant="true">1608</BlankVotes>
+        <Parties>
+          <Party Id="326" Name="People's Party" Votes="79715" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="327" Name="Spanish Socialist Workers' Party" Votes="62322" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="328" Name="Vox" Votes="17056" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="329" Name="Unite" Votes="11470" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="330" Name="Animalist Party with the Environment" Votes="723" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="331" Name="Blank Seats to Leave Empty Seats" Votes="608" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="332" Name="Workers' Front" Votes="295" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="333" Name="Seniors in Action" Votes="286" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="334" Name="For a Fairer World" Votes="232" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="335" Name="Communist Party of the Workers of Spain" Votes="224" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="336" Name="Zero Cuts" Votes="124" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>70.19</TurnoutPercentage>
+          <TotalVotes>176945</TotalVotes>
+          <ValidVotes>173055</ValidVotes>
+          <ElectoralThresholdVotes>174663</ElectoralThresholdVotes>
+          <QualifyingVotes>170563</QualifyingVotes>
+          <Quota>42640.75</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="39857.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="31161">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="26571.666666666666666666666667">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>13768</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Las Palmas">
+        <NumberOfSeats>8</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">898882</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">534912</TurnoutRaw>
+        <InvalidVotes Relevant="false">5575</InvalidVotes>
+        <BlankVotes Relevant="true">3062</BlankVotes>
+        <Parties>
+          <Party Id="337" Name="Spanish Socialist Workers' Party" Votes="175671" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="338" Name="People's Party" Votes="136857" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="339" Name="Vox" Votes="77343" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="340" Name="Unite Canaries" NationalParty="Unite" Votes="54369" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="341" Name="New Canaries–Canarian Bloc" Votes="42430" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="342" Name="Canarian Coalition" Votes="33558" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="343" Name="Animalist Party with the Environment" Votes="3570" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="344" Name="Canaries Now–Communist Party of the Canarian People" Votes="883" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="345" Name="Workers' Front" Votes="635" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="346" Name="For a Fairer World" Votes="563" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="347" Name="Zero Cuts" Votes="396" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>59.51</TurnoutPercentage>
+          <TotalVotes>534912</TotalVotes>
+          <ValidVotes>526275</ValidVotes>
+          <ElectoralThresholdVotes>529337</ElectoralThresholdVotes>
+          <QualifyingVotes>520228</QualifyingVotes>
+          <Quota>65028.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Canaries" Seats="1" />
+            <Recipient Name="New Canaries–Canarian Bloc" Seats="0" />
+            <Recipient Name="Canarian Coalition" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="58557">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="Unite Canaries" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="54369">
+              <Recipient Name="Unite Canaries" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="8" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="45619">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="9" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="43917.75">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>6805</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="León">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">422917</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">277726</TurnoutRaw>
+        <InvalidVotes Relevant="false">2486</InvalidVotes>
+        <BlankVotes Relevant="true">1577</BlankVotes>
+        <Parties>
+          <Party Id="348" Name="People's Party" Votes="101605" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="349" Name="Spanish Socialist Workers' Party" Votes="92578" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="350" Name="Vox" Votes="35451" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="351" Name="Leonese People's Union" Votes="22675" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="352" Name="Unite" Votes="18577" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="353" Name="Animalist Party with the Environment" Votes="895" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="354" Name="Workers' Front" Votes="541" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="355" Name="Empty Spain" Votes="486" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="356" Name="Communist Party of the Workers of Spain" Votes="319" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="357" Name="Regionalist Party of the Leonese Country" Votes="309" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="358" Name="For a Fairer World" Votes="155" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="359" Name="Zero Cuts" Votes="72" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>65.67</TurnoutPercentage>
+          <TotalVotes>277726</TotalVotes>
+          <ValidVotes>273663</ValidVotes>
+          <ElectoralThresholdVotes>275240</ElectoralThresholdVotes>
+          <QualifyingVotes>270886</QualifyingVotes>
+          <Quota>67721.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Leonese People's Union" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="50802.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46289">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="35451">
+            <Recipient Name="Vox" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>10839</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Lleida">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">317225</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">186929</TurnoutRaw>
+        <InvalidVotes Relevant="false">2390</InvalidVotes>
+        <BlankVotes Relevant="true">2059</BlankVotes>
+        <Parties>
+          <Party Id="360" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="54414" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="361" Name="Republican Left of Catalonia" Votes="34331" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="362" Name="Together for Catalonia" Votes="33228" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="363" Name="People's Party" Votes="23699" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="364" Name="Unite–In Common We Can" NationalParty="Unite" Votes="14561" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="365" Name="Vox" Votes="12560" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="366" Name="Popular Unity Candidacy–For Rupture" Votes="5449" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="367" Name="Catalan European Democratic Party–CiU Space" Votes="1865" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="368" Name="Animalist Party with the Environment" Votes="1352" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="369" Name="Blank Seats to Leave Empty Seats" Votes="462" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="370" Name="Workers' Front" Votes="247" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="371" Name="Communist Party of the Workers of Catalonia" NationalParty="Communist Party of the Workers of Spain" Votes="192" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="372" Name="Zero Cuts" Votes="120" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>58.93</TurnoutPercentage>
+          <TotalVotes>186929</TotalVotes>
+          <ValidVotes>182480</ValidVotes>
+          <ElectoralThresholdVotes>184539</ElectoralThresholdVotes>
+          <QualifyingVotes>172793</QualifyingVotes>
+          <Quota>43198.25</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialists' Party of Catalonia" Seats="1" />
+            <Recipient Name="Republican Left of Catalonia" Seats="1" />
+            <Recipient Name="Together for Catalonia" Seats="1" />
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Unite–In Common We Can" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Republican Left of Catalonia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="34331">
+              <Recipient Name="Republican Left of Catalonia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="Together for Catalonia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="33228">
+              <Recipient Name="Together for Catalonia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Socialists' Party of Catalonia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="27207">
+              <Recipient Name="Socialists' Party of Catalonia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="23699">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>3509</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Lugo">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">337755</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">200709</TurnoutRaw>
+        <InvalidVotes Relevant="false">2143</InvalidVotes>
+        <BlankVotes Relevant="true">1251</BlankVotes>
+        <Parties>
+          <Party Id="373" Name="People's Party" Votes="99769" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="374" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="60163" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="375" Name="Galician Nationalist Bloc" Votes="17197" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="376" Name="Unite Galicia" NationalParty="Unite" Votes="10287" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="377" Name="Vox" Votes="8643" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="378" Name="Animalist Party with the Environment" Votes="645" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="379" Name="Workers' Front" Votes="233" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="380" Name="For a Fairer World" Votes="149" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="381" Name="Communist Party of the Workers of Galicia" NationalParty="Communist Party of the Workers of Spain" Votes="116" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="382" Name="Zero Cuts" Votes="113" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>59.42</TurnoutPercentage>
+          <TotalVotes>200709</TotalVotes>
+          <ValidVotes>197315</ValidVotes>
+          <ElectoralThresholdVotes>198566</ElectoralThresholdVotes>
+          <QualifyingVotes>196059</QualifyingVotes>
+          <Quota>49014.75</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Socialists' Party of Galicia" Seats="0" />
+            <Recipient Name="Galician Nationalist Bloc" Seats="0" />
+            <Recipient Name="Unite Galicia" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="33256.333333333333333333333333">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Socialists' Party of Galicia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="30081.5">
+            <Recipient Name="Socialists' Party of Galicia" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>6350</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Madrid">
+        <NumberOfSeats>37</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">5224561</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">3639500</TurnoutRaw>
+        <InvalidVotes Relevant="false">30827</InvalidVotes>
+        <BlankVotes Relevant="true">28960</BlankVotes>
+        <Parties>
+          <Party Id="383" Name="People's Party" Votes="1463183" AboveThreshold="true" BaseSeats="15" Seats="16" />
+          <Party Id="384" Name="Spanish Socialist Workers' Party" Votes="1004599" AboveThreshold="true" BaseSeats="10" Seats="10" />
+          <Party Id="385" Name="Unite" Votes="557780" AboveThreshold="true" BaseSeats="5" Seats="6" />
+          <Party Id="386" Name="Vox" Votes="506164" AboveThreshold="true" BaseSeats="5" Seats="5" />
+          <Party Id="387" Name="Animalist Party with the Environment" Votes="21742" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="388" Name="Workers' Front" Votes="7652" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="389" Name="For a Fairer World" Votes="6749" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="390" Name="Zero Cuts" Votes="3784" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="391" Name="Communist Party of the Workers of Spain" Votes="3407" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="392" Name="Humanist Party" Votes="2902" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="393" Name="Spanish Phalanx of the CNSO" Votes="1751" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>69.66</TurnoutPercentage>
+          <TotalVotes>3639500</TotalVotes>
+          <ValidVotes>3579713</ValidVotes>
+          <ElectoralThresholdVotes>3608673</ElectoralThresholdVotes>
+          <QualifyingVotes>3531726</QualifyingVotes>
+          <Quota>95452.05405405405405405405405</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Unite" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="36" PoliticalParty="Unite" DivisorCalculation="1*5 + 1" Divisor="6" Quotient="92963.33333333333333333333333">
+              <Recipient Name="Unite" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="37" PoliticalParty="People's Party" DivisorCalculation="1*15 + 1" Divisor="16" Quotient="91448.9375">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="38" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*10 + 1" Divisor="11" Quotient="91327.18181818181818181818182">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1340</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Málaga">
+        <NumberOfSeats>11</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1239846</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">798557</TurnoutRaw>
+        <InvalidVotes Relevant="false">10219</InvalidVotes>
+        <BlankVotes Relevant="true">7509</BlankVotes>
+        <Parties>
+          <Party Id="394" Name="People's Party" Votes="302000" AboveThreshold="true" BaseSeats="4" Seats="5" />
+          <Party Id="395" Name="Spanish Socialist Workers' Party" Votes="239172" AboveThreshold="true" BaseSeats="3" Seats="3" />
+          <Party Id="396" Name="Vox" Votes="129758" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="397" Name="Unite Andalusia" NationalParty="Unite" Votes="96652" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="398" Name="Animalist Party with the Environment" Votes="8487" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="399" Name="Workers' Front" Votes="1662" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="400" Name="For a Fairer World" Votes="1519" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="401" Name="Zero Cuts" Votes="888" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="402" Name="Walking Together" Votes="691" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>64.41</TurnoutPercentage>
+          <TotalVotes>798557</TotalVotes>
+          <ValidVotes>780829</ValidVotes>
+          <ElectoralThresholdVotes>788338</ElectoralThresholdVotes>
+          <QualifyingVotes>767582</QualifyingVotes>
+          <Quota>69780.181818181818181818181818</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite Andalusia" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="10" PoliticalParty="Vox" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="64879">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="11" PoliticalParty="People's Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="60400">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="12" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="59793">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>2429</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Melilla" CalculateSeats="false">
+        <NumberOfSeats>1</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">61118</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">27649</TurnoutRaw>
+        <InvalidVotes Relevant="false">300</InvalidVotes>
+        <BlankVotes Relevant="true">253</BlankVotes>
+        <Parties>
+          <Party Id="403" Name="People's Party" Votes="13446" />
+          <Party Id="404" Name="Spanish Socialist Workers' Party" Votes="6943" />
+          <Party Id="405" Name="Vox" Votes="4359" />
+          <Party Id="406" Name="Coalition for Melilla" Votes="1298" />
+          <Party Id="407" Name="Unite" Votes="827" />
+          <Party Id="408" Name="Animalist Party with the Environment" Votes="160" />
+          <Party Id="409" Name="For a Fairer World" Votes="40" />
+          <Party Id="410" Name="Zero Cuts" Votes="23" />
+        </Parties>
+      </Constituency>
+      <Constituency Name="Murcia">
+        <NumberOfSeats>10</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1099703</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">755255</TurnoutRaw>
+        <InvalidVotes Relevant="false">7458</InvalidVotes>
+        <BlankVotes Relevant="true">5034</BlankVotes>
+        <Parties>
+          <Party Id="411" Name="People's Party" Votes="307972" AboveThreshold="true" BaseSeats="4" Seats="4" />
+          <Party Id="412" Name="Spanish Socialist Workers' Party" Votes="189210" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="413" Name="Vox" Votes="163124" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="414" Name="Unite" Votes="71578" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="415" Name="Animalist Party with the Environment" Votes="5063" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="416" Name="For My Region" Votes="1698" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="417" Name="Blank Seats to Leave Empty Seats" Votes="1377" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="418" Name="Workers' Front" Votes="1201" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="419" Name="Zero Cuts" Votes="546" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="420" Name="Walking Together" Votes="453" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="421" Name="Spanish Phalanx of the CNSO" Votes="376" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="422" Name="System Money Referendum" Votes="165" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>68.68</TurnoutPercentage>
+          <TotalVotes>755255</TotalVotes>
+          <ValidVotes>742763</ValidVotes>
+          <ElectoralThresholdVotes>747797</ElectoralThresholdVotes>
+          <QualifyingVotes>731884</QualifyingVotes>
+          <Quota>73188.4</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="9" PoliticalParty="Unite" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="71578">
+              <Recipient Name="Unite" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="10" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="63070">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="11" PoliticalParty="People's Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="61594.4">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>7378</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Navarre">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">519918</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">345095</TurnoutRaw>
+        <InvalidVotes Relevant="false">3251</InvalidVotes>
+        <BlankVotes Relevant="true">2890</BlankVotes>
+        <Parties>
+          <Party Id="423" Name="Socialist Party of Navarre" NationalParty="Spanish Socialist Workers' Party" Votes="93553" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="424" Name="Basque Country Gather" Votes="58954" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="425" Name="People's Party" Votes="57134" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="426" Name="Navarrese People's Union" Votes="52188" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="427" Name="Unite" Votes="43922" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="428" Name="Vox" Votes="19491" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="429" Name="Yes to the Future" Votes="9938" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="430" Name="Animalist Party with the Environment" Votes="1530" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="431" Name="For a Fairer World" Votes="1002" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="432" Name="Workers' Front" Votes="679" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="433" Name="Communist Party of the Workers of Spain" Votes="311" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="434" Name="Zero Cuts" Votes="252" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>66.37</TurnoutPercentage>
+          <TotalVotes>345095</TotalVotes>
+          <ValidVotes>338954</ValidVotes>
+          <ElectoralThresholdVotes>341844</ElectoralThresholdVotes>
+          <QualifyingVotes>325242</QualifyingVotes>
+          <Quota>65048.4</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialist Party of Navarre" Seats="1" />
+            <Recipient Name="Basque Country Gather" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Navarrese People's Union" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Basque Country Gather" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="58954">
+              <Recipient Name="Basque Country Gather" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="57134">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Navarrese People's Union" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="52188">
+              <Recipient Name="Navarrese People's Union" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Socialist Party of Navarre" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46776.5">
+              <Recipient Name="Socialist Party of Navarre" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="Unite" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="43922">
+            <Recipient Name="Unite" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>2855</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Ourense">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">355765</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">188065</TurnoutRaw>
+        <InvalidVotes Relevant="false">1794</InvalidVotes>
+        <BlankVotes Relevant="true">1109</BlankVotes>
+        <Parties>
+          <Party Id="435" Name="People's Party" Votes="93182" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="436" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="56035" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="437" Name="Galician Nationalist Bloc" Votes="15317" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="438" Name="Unite Galicia" NationalParty="Unite" Votes="10171" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="439" Name="Vox" Votes="9080" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="440" Name="Animalist Party with the Environment" Votes="700" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="441" Name="Workers' Front" Votes="182" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="442" Name="Citizens of Democratic Centre" Votes="153" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="443" Name="For a Fairer World" Votes="144" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="444" Name="Communist Party of the Workers of Galicia" NationalParty="Communist Party of the Workers of Spain" Votes="101" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="445" Name="Zero Cuts" Votes="97" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>52.86</TurnoutPercentage>
+          <TotalVotes>188065</TotalVotes>
+          <ValidVotes>185162</ValidVotes>
+          <ElectoralThresholdVotes>186271</ElectoralThresholdVotes>
+          <QualifyingVotes>183785</QualifyingVotes>
+          <Quota>45946.25</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Socialists' Party of Galicia" Seats="0" />
+            <Recipient Name="Galician Nationalist Bloc" Seats="0" />
+            <Recipient Name="Unite Galicia" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="31060.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Socialists' Party of Galicia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="28017.5">
+            <Recipient Name="Socialists' Party of Galicia" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>6087</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Palencia">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">137642</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">98079</TurnoutRaw>
+        <InvalidVotes Relevant="false">1117</InvalidVotes>
+        <BlankVotes Relevant="true">833</BlankVotes>
+        <Parties>
+          <Party Id="446" Name="People's Party" Votes="40709" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="447" Name="Spanish Socialist Workers' Party" Votes="33613" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="448" Name="Vox" Votes="12504" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="449" Name="Unite" Votes="5877" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="450" Name="Let's Go Palencia" Votes="1917" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="451" Name="Empty Spain" Votes="384" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="452" Name="Alive Land Palencia Independent Group" Votes="366" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="453" Name="Animalist Party with the Environment" Votes="295" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="454" Name="Workers' Front" Votes="139" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="455" Name="For a Fairer World" Votes="99" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="456" Name="Communist Party of the Workers of Spain" Votes="80" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="457" Name="Spanish Phalanx of the CNSO" Votes="71" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="458" Name="Zero Cuts" Votes="42" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="459" Name="Walking Together" Votes="33" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>71.26</TurnoutPercentage>
+          <TotalVotes>98079</TotalVotes>
+          <ValidVotes>96129</ValidVotes>
+          <ElectoralThresholdVotes>96962</ElectoralThresholdVotes>
+          <QualifyingVotes>92703</QualifyingVotes>
+          <Quota>30901</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="20354.5">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="16806.5">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>7097</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Pontevedra">
+        <NumberOfSeats>7</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">909434</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">579125</TurnoutRaw>
+        <InvalidVotes Relevant="false">6001</InvalidVotes>
+        <BlankVotes Relevant="true">3865</BlankVotes>
+        <Parties>
+          <Party Id="460" Name="People's Party" Votes="227658" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="461" Name="Socialists' Party of Galicia" NationalParty="Spanish Socialist Workers' Party" Votes="179737" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="462" Name="Unite Galicia" NationalParty="Unite" Votes="75615" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="463" Name="Galician Nationalist Bloc" Votes="53828" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="464" Name="Vox" Votes="27539" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="465" Name="Animalist Party with the Environment" Votes="3003" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="466" Name="Workers' Front" Votes="884" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="467" Name="Zero Cuts" Votes="510" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="468" Name="Communist Party of the Workers of Galicia" NationalParty="Communist Party of the Workers of Spain" Votes="485" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>63.68</TurnoutPercentage>
+          <TotalVotes>579125</TotalVotes>
+          <ValidVotes>569259</ValidVotes>
+          <ElectoralThresholdVotes>573124</ElectoralThresholdVotes>
+          <QualifyingVotes>564377</QualifyingVotes>
+          <Quota>80625.28571428571428571428571</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Socialists' Party of Galicia" Seats="1" />
+            <Recipient Name="Unite Galicia" Seats="1" />
+            <Recipient Name="Galician Nationalist Bloc" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="5" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="75886">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Unite Galicia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="75615">
+              <Recipient Name="Unite Galicia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="Socialists' Party of Galicia" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="59912.333333333333333333333333">
+              <Recipient Name="Socialists' Party of Galicia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="8" PoliticalParty="People's Party" DivisorCalculation="1*3 + 1" Divisor="4" Quotient="56914.5">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>11992</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Salamanca">
+        <NumberOfSeats>4</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">300506</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">201419</TurnoutRaw>
+        <InvalidVotes Relevant="false">2309</InvalidVotes>
+        <BlankVotes Relevant="true">1649</BlankVotes>
+        <Parties>
+          <Party Id="469" Name="People's Party" Votes="93318" AboveThreshold="true" BaseSeats="1" Seats="3" />
+          <Party Id="470" Name="Spanish Socialist Workers' Party" Votes="60718" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="471" Name="Vox" Votes="29203" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="472" Name="Unite" Votes="11012" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="473" Name="Empty Spain" Votes="1062" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="474" Name="Animalist Party with the Environment" Votes="631" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="475" Name="Regionalist Party of the Leonese Country" Votes="489" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="476" Name="Communist Party of the Workers of Spain" Votes="325" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="477" Name="Workers' Front" Votes="278" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="478" Name="For a Fairer World" Votes="205" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="479" Name="Walking Together" Votes="140" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="480" Name="Zero Cuts" Votes="80" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>67.03</TurnoutPercentage>
+          <TotalVotes>201419</TotalVotes>
+          <ValidVotes>197461</ValidVotes>
+          <ElectoralThresholdVotes>199110</ElectoralThresholdVotes>
+          <QualifyingVotes>194251</QualifyingVotes>
+          <Quota>48562.75</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="2" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="46659">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="31106">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="5" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="30359">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1495</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Santa Cruz de Tenerife">
+        <NumberOfSeats>7</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">881217</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">500777</TurnoutRaw>
+        <InvalidVotes Relevant="false">6404</InvalidVotes>
+        <BlankVotes Relevant="true">5088</BlankVotes>
+        <Parties>
+          <Party Id="481" Name="People's Party" Votes="174770" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="482" Name="Spanish Socialist Workers' Party" Votes="165590" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="483" Name="Canarian Coalition" Votes="82805" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="484" Name="Unite Canaries" NationalParty="Unite" Votes="53632" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="485" Name="Animalist Party with the Environment" Votes="6147" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="486" Name="New Canaries–Canarian Bloc" Votes="3165" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="487" Name="Workers' Front" Votes="1619" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="488" Name="Canaries Now–Communist Party of the Canarian People" Votes="791" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="489" Name="Zero Cuts" Votes="766" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>56.83</TurnoutPercentage>
+          <TotalVotes>500777</TotalVotes>
+          <ValidVotes>489285</ValidVotes>
+          <ElectoralThresholdVotes>494373</ElectoralThresholdVotes>
+          <QualifyingVotes>476797</QualifyingVotes>
+          <Quota>68113.857142857142857142857143</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Canarian Coalition" Seats="0" />
+            <Recipient Name="Unite Canaries" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="58256.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="55196.666666666666666666666667">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="8" PoliticalParty="Unite Canaries" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="53632">
+            <Recipient Name="Unite Canaries" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1565</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Segovia">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">119454</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">89945</TurnoutRaw>
+        <InvalidVotes Relevant="false">1332</InvalidVotes>
+        <BlankVotes Relevant="true">875</BlankVotes>
+        <Parties>
+          <Party Id="490" Name="People's Party" Votes="39894" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="491" Name="Spanish Socialist Workers' Party" Votes="27113" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="492" Name="Vox" Votes="12510" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="493" Name="Unite" Votes="7137" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="494" Name="Animalist Party with the Environment" Votes="307" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="495" Name="Seniors in Action" Votes="198" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="496" Name="Workers' Front" Votes="183" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="497" Name="For a Fairer World" Votes="136" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="498" Name="Walking Together" Votes="102" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="499" Name="Communist Party of the Workers of Spain" Votes="94" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="500" Name="Zero Cuts" Votes="64" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>75.30</TurnoutPercentage>
+          <TotalVotes>89945</TotalVotes>
+          <ValidVotes>87738</ValidVotes>
+          <ElectoralThresholdVotes>88613</ElectoralThresholdVotes>
+          <QualifyingVotes>86654</QualifyingVotes>
+          <Quota>28884.666666666666666666666667</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="27113">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="19947">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="13556.5">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>12782</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Seville">
+        <NumberOfSeats>12</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1564082</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">1075133</TurnoutRaw>
+        <InvalidVotes Relevant="false">15775</InvalidVotes>
+        <BlankVotes Relevant="true">10951</BlankVotes>
+        <Parties>
+          <Party Id="501" Name="Spanish Socialist Workers' Party" Votes="387760" AboveThreshold="true" BaseSeats="4" Seats="5" />
+          <Party Id="502" Name="People's Party" Votes="353663" AboveThreshold="true" BaseSeats="4" Seats="4" />
+          <Party Id="503" Name="Unite Andalusia" NationalParty="Unite" Votes="148745" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="504" Name="Vox" Votes="141087" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="505" Name="Animalist Party with the Environment" Votes="9288" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="506" Name="Workers' Front" Votes="1950" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="507" Name="For a Fairer World" Votes="1765" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="508" Name="Communist Party of the Workers of Spain" Votes="1522" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="509" Name="Zero Cuts" Votes="1034" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="510" Name="Walking Together" Votes="912" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="511" Name="Spanish Phalanx of the CNSO" Votes="681" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>68.74</TurnoutPercentage>
+          <TotalVotes>1075133</TotalVotes>
+          <ValidVotes>1048407</ValidVotes>
+          <ElectoralThresholdVotes>1059358</ElectoralThresholdVotes>
+          <QualifyingVotes>1031255</QualifyingVotes>
+          <Quota>85937.91666666666666666666667</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Unite Andalusia" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="11" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="77552">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="12" PoliticalParty="Unite Andalusia" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="74372.5">
+              <Recipient Name="Unite Andalusia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="13" PoliticalParty="People's Party" DivisorCalculation="1*4 + 1" Divisor="5" Quotient="70732.6">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>18200</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Soria">
+        <NumberOfSeats>2</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">75768</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">51157</TurnoutRaw>
+        <InvalidVotes Relevant="false">388</InvalidVotes>
+        <BlankVotes Relevant="true">285</BlankVotes>
+        <Parties>
+          <Party Id="512" Name="People's Party" Votes="18895" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="513" Name="Spanish Socialist Workers' Party" Votes="14966" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="514" Name="Soria Now!" Votes="9697" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="515" Name="Vox" Votes="4978" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="516" Name="Unite" Votes="1711" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="517" Name="Animalist Party with the Environment" Votes="94" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="518" Name="Workers' Front" Votes="68" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="519" Name="Communist Party of the Workers of Spain" Votes="43" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="520" Name="For a Fairer World" Votes="23" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="521" Name="Zero Cuts" Votes="9" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>67.52</TurnoutPercentage>
+          <TotalVotes>51157</TotalVotes>
+          <ValidVotes>50484</ValidVotes>
+          <ElectoralThresholdVotes>50769</ElectoralThresholdVotes>
+          <QualifyingVotes>50247</QualifyingVotes>
+          <Quota>25123.5</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Soria Now!" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="1" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="18895">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="14966">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="3" PoliticalParty="Soria Now!" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="9697">
+            <Recipient Name="Soria Now!" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>5270</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Tarragona">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">596689</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">372426</TurnoutRaw>
+        <InvalidVotes Relevant="false">4402</InvalidVotes>
+        <BlankVotes Relevant="true">3168</BlankVotes>
+        <Parties>
+          <Party Id="522" Name="Socialists' Party of Catalonia" NationalParty="Spanish Socialist Workers' Party" Votes="121126" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="523" Name="Republican Left of Catalonia" Votes="55461" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="524" Name="People's Party" Votes="51061" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="525" Name="Unite–In Common We Can" NationalParty="Unite" Votes="41719" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="526" Name="Together for Catalonia" Votes="40791" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="527" Name="Vox" Votes="38039" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="528" Name="Popular Unity Candidacy–For Rupture" Votes="8700" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="529" Name="Animalist Party with the Environment" Votes="3797" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="530" Name="Catalan European Democratic Party–CiU Space" Votes="2311" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="531" Name="Workers' Front" Votes="661" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="532" Name="Communist Party of the Workers of Catalonia" NationalParty="Communist Party of the Workers of Spain" Votes="405" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="533" Name="Zero Cuts" Votes="267" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="534" Name="Catalonia Among Neighbors" Votes="265" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="535" Name="United Yes" Votes="253" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>62.42</TurnoutPercentage>
+          <TotalVotes>372426</TotalVotes>
+          <ValidVotes>364856</ValidVotes>
+          <ElectoralThresholdVotes>368024</ElectoralThresholdVotes>
+          <QualifyingVotes>348197</QualifyingVotes>
+          <Quota>58032.833333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="Socialists' Party of Catalonia" Seats="0" />
+            <Recipient Name="Republican Left of Catalonia" Seats="1" />
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Unite–In Common We Can" Seats="1" />
+            <Recipient Name="Together for Catalonia" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="Republican Left of Catalonia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="55461">
+              <Recipient Name="Republican Left of Catalonia" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="4" PoliticalParty="People's Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="51061">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Unite–In Common We Can" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="41719">
+              <Recipient Name="Unite–In Common We Can" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Together for Catalonia" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="40791">
+              <Recipient Name="Together for Catalonia" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="Socialists' Party of Catalonia" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="40375.333333333333333333333333">
+            <Recipient Name="Socialists' Party of Catalonia" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1247</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Teruel">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">106352</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">76561</TurnoutRaw>
+        <InvalidVotes Relevant="false">648</InvalidVotes>
+        <BlankVotes Relevant="true">410</BlankVotes>
+        <Parties>
+          <Party Id="536" Name="People's Party" Votes="26586" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="537" Name="Spanish Socialist Workers' Party" Votes="22226" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="538" Name="Teruel Exists–Exists Coalition" NationalParty="Aragon Exists–Exists Coalition" Votes="11348" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="539" Name="Vox" Votes="9932" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="540" Name="Unite Aragon" NationalParty="Unite" Votes="4126" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="541" Name="Aragonese Party" Votes="711" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="542" Name="Animalist Party with the Environment" Votes="172" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="543" Name="Blank Seats to Leave Empty Seats" Votes="135" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="544" Name="Workers' Front" Votes="94" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="545" Name="Communist Party of the Workers of Spain" Votes="60" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="546" Name="Zero Cuts" Votes="49" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="547" Name="For a Fairer World" Votes="36" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="548" Name="Federation of Independents of Aragon" Votes="28" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>71.99</TurnoutPercentage>
+          <TotalVotes>76561</TotalVotes>
+          <ValidVotes>75503</ValidVotes>
+          <ElectoralThresholdVotes>75913</ElectoralThresholdVotes>
+          <QualifyingVotes>74218</QualifyingVotes>
+          <Quota>24739.333333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Teruel Exists–Exists Coalition" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Aragon" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="2" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="22226">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="13293">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Teruel Exists–Exists Coalition" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="11348">
+            <Recipient Name="Teruel Exists–Exists Coalition" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>1946</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Toledo">
+        <NumberOfSeats>6</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">542567</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">392988</TurnoutRaw>
+        <InvalidVotes Relevant="false">5788</InvalidVotes>
+        <BlankVotes Relevant="true">2611</BlankVotes>
+        <Parties>
+          <Party Id="549" Name="People's Party" Votes="146533" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="550" Name="Spanish Socialist Workers' Party" Votes="126072" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="551" Name="Vox" Votes="76044" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="552" Name="Unite" Votes="31876" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="553" Name="Animalist Party with the Environment" Votes="2024" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="554" Name="Workers' Front" Votes="985" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="555" Name="For a Fairer World" Votes="499" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="556" Name="Spanish Phalanx of the CNSO" Votes="281" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="557" Name="Zero Cuts" Votes="275" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.43</TurnoutPercentage>
+          <TotalVotes>392988</TotalVotes>
+          <ValidVotes>384589</ValidVotes>
+          <ElectoralThresholdVotes>387200</ElectoralThresholdVotes>
+          <QualifyingVotes>380525</QualifyingVotes>
+          <Quota>63420.833333333333333333333333</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="63036">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="48844.333333333333333333333333">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="7" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="42024">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>20462</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Valencia">
+        <NumberOfSeats>16</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">1999340</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">1451187</TurnoutRaw>
+        <InvalidVotes Relevant="false">14026</InvalidVotes>
+        <BlankVotes Relevant="true">10810</BlankVotes>
+        <Parties>
+          <Party Id="558" Name="People's Party" Votes="483469" AboveThreshold="true" BaseSeats="5" Seats="6" />
+          <Party Id="559" Name="Spanish Socialist Workers' Party" Votes="461353" AboveThreshold="true" BaseSeats="5" Seats="5" />
+          <Party Id="560" Name="Commitment–Unite: We Unite to Win" NationalParty="Unite" Votes="242839" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="561" Name="Vox" Votes="218657" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="562" Name="Animalist Party with the Environment" Votes="10334" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="563" Name="Workers' Front" Votes="2919" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="564" Name="For a Fairer World" Votes="1778" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="565" Name="Zero Cuts" Votes="1773" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="566" Name="Valencian Welfare State" Votes="1442" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="567" Name="Walking Together" Votes="1056" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="568" Name="Spanish Phalanx of the CNSO" Votes="731" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>72.58</TurnoutPercentage>
+          <TotalVotes>1451187</TotalVotes>
+          <ValidVotes>1426351</ValidVotes>
+          <ElectoralThresholdVotes>1437161</ElectoralThresholdVotes>
+          <QualifyingVotes>1406318</QualifyingVotes>
+          <Quota>87894.875</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Commitment–Unite: We Unite to Win" Seats="1" />
+            <Recipient Name="Vox" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="15" PoliticalParty="Commitment–Unite: We Unite to Win" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="80946.33333333333333333333333">
+              <Recipient Name="Commitment–Unite: We Unite to Win" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="16" PoliticalParty="People's Party" DivisorCalculation="1*5 + 1" Divisor="6" Quotient="80578.16666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="17" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*5 + 1" Divisor="6" Quotient="76892.166666666666666666666667">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>22117</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Valladolid">
+        <NumberOfSeats>5</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">431381</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">319312</TurnoutRaw>
+        <InvalidVotes Relevant="false">3003</InvalidVotes>
+        <BlankVotes Relevant="true">2419</BlankVotes>
+        <Parties>
+          <Party Id="569" Name="People's Party" Votes="129170" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="570" Name="Spanish Socialist Workers' Party" Votes="103596" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="571" Name="Vox" Votes="47948" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="572" Name="Unite" Votes="28049" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="573" Name="Empty Spain" Votes="1226" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="574" Name="Animalist Party with the Environment" Votes="1105" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="575" Name="Workers' Front" Votes="601" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="576" Name="Blank Seats to Leave Empty Seats" Votes="583" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="577" Name="Castilian Unity" Votes="463" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="578" Name="For a Fairer World" Votes="376" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="579" Name="Communist Party of the Workers of Spain" Votes="335" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="580" Name="Spanish Phalanx of the CNSO" Votes="164" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="581" Name="Zero Cuts" Votes="159" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="582" Name="Civic Force" Votes="115" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>74.02</TurnoutPercentage>
+          <TotalVotes>319312</TotalVotes>
+          <ValidVotes>313890</ValidVotes>
+          <ElectoralThresholdVotes>316309</ElectoralThresholdVotes>
+          <QualifyingVotes>308763</QualifyingVotes>
+          <Quota>61752.6</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="0" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="1" />
+            <Recipient Name="Vox" Seats="1" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="51798">
+              <Recipient Name="Spanish Socialist Workers' Party" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="5" PoliticalParty="Vox" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="47948">
+              <Recipient Name="Vox" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="6" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="43056.666666666666666666666667">
+            <Recipient Name="People's Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>14674</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Zamora">
+        <NumberOfSeats>3</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">162998</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">104671</TurnoutRaw>
+        <InvalidVotes Relevant="false">1261</InvalidVotes>
+        <BlankVotes Relevant="true">922</BlankVotes>
+        <Parties>
+          <Party Id="583" Name="People's Party" Votes="46196" AboveThreshold="true" BaseSeats="1" Seats="2" />
+          <Party Id="584" Name="Spanish Socialist Workers' Party" Votes="33601" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="585" Name="Vox" Votes="13652" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="586" Name="Unite" Votes="5839" AboveThreshold="true" BaseSeats="0" Seats="0" />
+          <Party Id="587" Name="Zamora Yes" Votes="1843" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="588" Name="Leonese People's Union" Votes="526" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="589" Name="Animalist Party with the Environment" Votes="313" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="590" Name="Regionalist Party of the Leonese Country" Votes="166" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="591" Name="Workers' Front" Votes="121" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="592" Name="Communist Party of the Workers of Spain" Votes="100" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="593" Name="For a Fairer World" Votes="81" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="594" Name="Zero Cuts" Votes="50" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>64.22</TurnoutPercentage>
+          <TotalVotes>104671</TotalVotes>
+          <ValidVotes>102488</ValidVotes>
+          <ElectoralThresholdVotes>103410</ElectoralThresholdVotes>
+          <QualifyingVotes>99288</QualifyingVotes>
+          <Quota>33096</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite" Seats="0" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="3" PoliticalParty="People's Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="23098">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="4" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*1 + 1" Divisor="2" Quotient="16800.5">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>12596</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+      <Constituency Name="Zaragoza">
+        <NumberOfSeats>7</NumberOfSeats>
+        <TurnoutBase Meaning="RegisteredVoters">740060</TurnoutBase>
+        <TurnoutRaw Meaning="TotalVotes">523410</TurnoutRaw>
+        <InvalidVotes Relevant="false">4705</InvalidVotes>
+        <BlankVotes Relevant="true">4693</BlankVotes>
+        <Parties>
+          <Party Id="595" Name="People's Party" Votes="186776" AboveThreshold="true" BaseSeats="2" Seats="3" />
+          <Party Id="596" Name="Spanish Socialist Workers' Party" Votes="159858" AboveThreshold="true" BaseSeats="2" Seats="2" />
+          <Party Id="597" Name="Vox" Votes="79376" AboveThreshold="true" BaseSeats="1" Seats="1" />
+          <Party Id="598" Name="Unite Aragon" NationalParty="Unite" Votes="69925" AboveThreshold="true" BaseSeats="0" Seats="1" />
+          <Party Id="599" Name="Aragon Exists–Exists Coalition" Votes="7780" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="600" Name="Aragonese Party" Votes="2745" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="601" Name="Animalist Party with the Environment" Votes="2428" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="602" Name="Blank Seats to Leave Empty Seats" Votes="2146" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="603" Name="Workers' Front" Votes="1026" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="604" Name="Communist Party of the Workers of Spain" Votes="561" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="605" Name="For a Fairer World" Votes="419" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="606" Name="Federation of Independents of Aragon" Votes="394" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="607" Name="Zero Cuts" Votes="306" AboveThreshold="false" BaseSeats="0" Seats="0" />
+          <Party Id="608" Name="Spanish Phalanx of the CNSO" Votes="272" AboveThreshold="false" BaseSeats="0" Seats="0" />
+        </Parties>
+        <Output>
+          <TurnoutPercentage>70.73</TurnoutPercentage>
+          <TotalVotes>523410</TotalVotes>
+          <ValidVotes>514012</ValidVotes>
+          <ElectoralThresholdVotes>518705</ElectoralThresholdVotes>
+          <QualifyingVotes>495935</QualifyingVotes>
+          <Quota>70847.857142857142857142857143</Quota>
+          <OrderedSeatsByRecipient>
+            <Recipient Name="People's Party" Seats="1" />
+            <Recipient Name="Spanish Socialist Workers' Party" Seats="0" />
+            <Recipient Name="Vox" Seats="0" />
+            <Recipient Name="Unite Aragon" Seats="1" />
+          </OrderedSeatsByRecipient>
+          <OrderedSeats>
+            <OrderedSeat SeatNumber="6" PoliticalParty="Unite Aragon" DivisorCalculation="1*0 + 1" Divisor="1" Quotient="69925">
+              <Recipient Name="Unite Aragon" />
+            </OrderedSeat>
+            <OrderedSeat SeatNumber="7" PoliticalParty="People's Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="62258.666666666666666666666667">
+              <Recipient Name="People's Party" />
+            </OrderedSeat>
+          </OrderedSeats>
+          <NextOrderedSeat SeatNumber="8" PoliticalParty="Spanish Socialist Workers' Party" DivisorCalculation="1*2 + 1" Divisor="3" Quotient="53286">
+            <Recipient Name="Spanish Socialist Workers' Party" />
+          </NextOrderedSeat>
+          <VotesNeededForNextOrderedSeat>26919</VotesNeededForNextOrderedSeat>
+        </Output>
+      </Constituency>
+    </Constituencies>
+  </Input>
+  <Output>
+    <TurnoutPercentage>66.59</TurnoutPercentage>
+    <TotalVotes>24952447</TotalVotes>
+    <ValidVotes>24487414</ValidVotes>
+  </Output>
+</Election>
