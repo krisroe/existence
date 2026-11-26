@@ -14,7 +14,7 @@ echo "<body>";
 echo "<h4><a href=\"../index.html\">Home</a></h4>";
 
 $dbconn = connectToDatabase();
-$query = 'SELECT videos_last_refreshed FROM public.dates WHERE id=1';
+$query = 'SELECT EXTRACT(EPOCH FROM videos_last_refreshed) FROM public.dates WHERE id=1';
 $result = pg_query($dbconn,$query);
 
 echo "<h4>";
@@ -25,9 +25,9 @@ if (pg_num_rows($result) == 0)
 else	
 {
 	$row = pg_fetch_row($result);
-	$nowutc = new DateTime('now', new DateTimeZone('UTC'));
-	$refreshedutc = new DateTime($row[0]);
-	$interval = $refreshedutc->diff($nowutc);
+	$now = new DateTime('now', new DateTimeZone('UTC'));
+	$refreshed = new DateTime('@' . (int)$row[0]);
+	$interval = $refreshed->diff($now);
 	echo $interval->format('Last refreshed %d days, %h hours, %i minutes, %s seconds ago');
 }
 pg_free_result($result);

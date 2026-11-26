@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS public.performers
 CREATE TABLE IF NOT EXISTS public.dates
 (
     id integer NOT NULL,
-	videos_last_refreshed timestamp without time zone,
+	videos_last_refreshed timestamp with time zone,
     CONSTRAINT pk_dates PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS public.rulez_official

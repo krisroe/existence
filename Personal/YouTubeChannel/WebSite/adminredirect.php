@@ -166,7 +166,7 @@ if ($result[0] === "")
 				echo "Failed to update statistics for " . $v[1] . "<br/";
 			}
 		}
-		$query = "INSERT INTO dates (id,videos_last_refreshed) VALUES (1, CURRENT_TIMESTAMP AT TIME ZONE 'UTC') ON CONFLICT (id) DO UPDATE SET videos_last_refreshed = EXCLUDED.videos_last_refreshed";
+		$query = "INSERT INTO dates (id,videos_last_refreshed) VALUES (1, CURRENT_TIMESTAMP) ON CONFLICT (id) DO UPDATE SET videos_last_refreshed = EXCLUDED.videos_last_refreshed";
 		pg_query($dbconn,$query);
 		pg_close($dbconn);
 	}
