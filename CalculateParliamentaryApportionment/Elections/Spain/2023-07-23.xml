@@ -2,7 +2,7 @@
 <Election>
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
-    <ElectoralThreshold Base="PartyVotesAndBlanks" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
+    <ElectoralThreshold Base="PartyVotesAndBlanks" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency), en blanco pero válido (white but valid)">3</ElectoralThreshold>
     <NationalParties>
       <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="137" />
       <NationalParty Id="2" Name="Spanish Socialist Workers' Party" Votes="7821718" Seats="121" />
@@ -28,7 +28,7 @@
       <NationalParty Id="22" Name="Yes to the Future" Votes="9938" Seats="0" />
       <NationalParty Id="23" Name="Soria Now!" Votes="9697" Seats="0" />
       <NationalParty Id="24" Name="Forward Andalusia" Votes="9191" Seats="0" />
-      <NationalParty Id="25" Name="Blank Seats to Leave Empty Seats" Votes="8448" Seats="0" />
+      <NationalParty Id="25" Name="Blank Seats to Leave Empty Seats" SingleIssue="voto en blanco representado (blank votes represented as empty seats)" Votes="8448" Seats="0" />
       <NationalParty Id="26" Name="Jaén Deserves More" Votes="8293" Seats="0" />
       <NationalParty Id="27" Name="For Ávila" Votes="7362" Seats="0" />
       <NationalParty Id="28" Name="Extremaduran Bloc" Votes="5807" Seats="0" />

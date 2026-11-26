@@ -48,6 +48,8 @@ namespace CalculateParliamentaryApportionment
     /// seats. With them the Output element gets TurnoutPercentage, rounded to 2 decimal places.
     /// An optional RulesChanges element has text explaining changes to the rules since the previous election. It is for
     /// information, so it is left as it is and not used.
+    /// A Party element, or with constituencies a NationalParty element, can have a SingleIssue attribute with the one
+    /// issue a single-issue party stands for. It is for information, so it is left as it is and not used.
     /// For an election whose seats are worked out separately in each constituency, as in Spain, the Input element has a
     /// Constituencies element with a Constituency element for each, with a Name attribute, holding the NumberOfSeats,
     /// Parties, SurplusVoteAgreements, MinorityListQuotientBonus, invalid and blank votes and turnout elements that
