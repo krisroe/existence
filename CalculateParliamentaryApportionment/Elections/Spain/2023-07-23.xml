@@ -2454,6 +2454,8 @@
     <TurnoutRaw Meaning="TotalVotes">24952447</TurnoutRaw>
     <TurnoutPercentage>66.59</TurnoutPercentage>
     <TotalVotes>24952447</TotalVotes>
+    <InvalidVotes>264360</InvalidVotes>
+    <BlankVotes>200673</BlankVotes>
     <PartyVotes>24487414</PartyVotes>
   </Output>
 </Election>

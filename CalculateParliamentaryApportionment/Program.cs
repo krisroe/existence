@@ -66,8 +66,9 @@ namespace CalculateParliamentaryApportionment
     /// MinorityListQuotientBonus elements. Each constituency gets its party attributes, only Seats for WinnerTakeAll,
     /// and its own Output element, last inside the Constituency element, with only TurnoutPercentage, TotalVotes and
     /// PartyVotes for WinnerTakeAll. Each NationalParty element gets Votes and Seats attributes, and the Output element
-    /// after the Input element gets the national TotalVotes and PartyVotes, and Performance, which times only the
-    /// Proportional constituencies. When every constituency has turnout, it also gets TurnoutBase and TurnoutRaw added
+    /// after the Input element gets the national TotalVotes and PartyVotes, InvalidVotes, BlankVotes and
+    /// InvalidAndBlankVotes, each added up over the constituencies that have it and left out when none does, and
+    /// Performance, which times only the Proportional constituencies. When every constituency has turnout, it also gets TurnoutBase and TurnoutRaw added
     /// up over the constituencies, with the Meaning attributes they all have to share, and TurnoutPercentage from them.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
@@ -600,7 +601,8 @@ namespace CalculateParliamentaryApportionment
         /// sets the Votes and Seats attributes of each NationalParty element, replacing any existing ones, and builds the
         /// national Output element, with votes and seats across all constituencies. The Output element has TurnoutBase,
         /// TurnoutRaw and TurnoutPercentage, added up over the constituencies, only when every constituency has turnout,
-        /// and TotalVotes only when any has invalid or blank votes
+        /// TotalVotes only when any has invalid or blank votes, and InvalidVotes, BlankVotes and InvalidAndBlankVotes,
+        /// each added up over the constituencies that have it, only when any has it
         /// </summary>
         /// <param name="districts">the Proportional constituencies</param>
         /// <param name="results">the seat distribution of each of <paramref name="districts"/></param>
@@ -646,7 +648,20 @@ namespace CalculateParliamentaryApportionment
                 turnout == null ? null : new XElement(TurnoutRawElement, new XAttribute(MeaningAttribute, turnout.RawMeaning), turnout.Raw),
                 turnout == null ? null : new XElement(TurnoutPercentageElement, turnout.Percentage),
                 all.Any(HasInvalidOrBlankVotes) ? new XElement(TotalVotesElement, checked(lPartyVotes + all.Sum(GetInvalidAndBlankVotes))) : null,
+                InvalidAndBlankVotesElements.Select(n => SumElement(all, n)),
                 new XElement(nameof(SeatDistributionBase.PartyVotes), lPartyVotes));
+        }
+
+        /// <summary>
+        /// adds up an element across the constituencies that have it, such as InvalidVotes
+        /// </summary>
+        /// <param name="constituencies">the Constituency elements</param>
+        /// <param name="sName">the element to add up</param>
+        /// <returns>an element with the same name and the total, or null if no constituency has it</returns>
+        private static XElement? SumElement(List<XElement> constituencies, string sName)
+        {
+            List<long> values = constituencies.Select(c => c.Element(sName)).OfType<XElement>().Select(e => (long)e).ToList();
+            return values.Count == 0 ? null : new XElement(sName, checked(values.Sum()));
         }
 
         /// <summary>
