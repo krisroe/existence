@@ -35,8 +35,8 @@ namespace CalculateParliamentaryApportionment
     /// Ballots that aren't votes for a party go in optional InvalidAndBlankVotes, InvalidVotes and BlankVotes elements,
     /// with InvalidAndBlankVotes for a count that doesn't separate them, so it can't be used with the other two. Each
     /// has a required Relevant attribute saying whether those ballots count toward the electoral threshold, as in
-    /// Serbia, where it is a percentage of everyone who voted, rather than only of the valid votes. With any of them the
-    /// Output element gets TotalVotes, the valid votes plus all of those ballots whether relevant or not, which is for
+    /// Serbia, where it is a percentage of everyone who voted, rather than only of the party votes. With any of them the
+    /// Output element gets TotalVotes, the party votes plus all of those ballots whether relevant or not, which is for
     /// information and doesn't affect the seats, and ElectoralThresholdVotes, the votes the threshold is a percentage of.
     /// The ElectoralThreshold element can have a Base attribute, an <see cref="ElectoralThresholdBase"/> saying what the
     /// threshold is a percentage of. It explains the Relevant attributes rather than replacing them, so they have to agree.
@@ -63,9 +63,10 @@ namespace CalculateParliamentaryApportionment
     /// elements can't have MinorityList or ElectorateSeats attributes, nor the constituency SurplusVoteAgreements or
     /// MinorityListQuotientBonus elements. Each constituency gets its party attributes, only Seats for WinnerTakeAll,
     /// and its own Output element, last inside the Constituency element, with only TurnoutPercentage, TotalVotes and
-    /// ValidVotes for WinnerTakeAll. Each NationalParty element gets Votes and Seats attributes, and the Output element
-    /// after the Input element gets the national TurnoutPercentage, TotalVotes and ValidVotes, and Performance, which
-    /// times only the Proportional constituencies.
+    /// PartyVotes for WinnerTakeAll. Each NationalParty element gets Votes and Seats attributes, and the Output element
+    /// after the Input element gets the national TotalVotes and PartyVotes, and Performance, which times only the
+    /// Proportional constituencies. When every constituency has turnout, it also gets TurnoutBase and TurnoutRaw added
+    /// up over the constituencies, with the Meaning attributes they all have to share, and TurnoutPercentage from them.
     /// The Method element needs an Algorithms attribute, a comma-separated list of the ways to work out the seats:
     /// D'Hondt: Base (<see cref="SeatDistributions.CalculateDHondtParliamentarySeatDistributionSingleDistrict"/>)
     /// Sainte-Laguë:
@@ -520,6 +521,7 @@ namespace CalculateParliamentaryApportionment
                 throw new FormatException($"{NationalPartiesElement}: {ex.Message}", ex);
             }
             if (ret.Count == 0) throw new FormatException($"at least one {ConstituencyElement} has to be {nameof(ConstituencyCalculationMethod.Proportional)}");
+            SumTurnout(constituencies.Elements(ConstituencyElement).ToList()); //checks the constituencies agree on what turnout counts
             return ret;
         }
 
@@ -552,21 +554,21 @@ namespace CalculateParliamentaryApportionment
         /// <summary>
         /// sets the Seats attribute of each party in a WinnerTakeAll constituency, replacing any existing one, and replaces
         /// its Output element with one with TurnoutPercentage when it has turnout, TotalVotes when it has invalid or blank
-        /// votes, and ValidVotes
+        /// votes, and PartyVotes
         /// </summary>
         private static void WriteWinnerTakeAllResults(WinnerTakeAllConstituency w)
         {
-            long lValidVotes = 0;
+            long lPartyVotes = 0;
             foreach (XElement next in GetRequiredElement(w.Element, PartiesElement).Elements(PartyElement))
             {
                 next.SetAttributeValue(SeatsAttribute, (string)GetRequiredAttribute(next, NameAttribute) == w.Winner ? w.NumberOfSeats : 0);
-                lValidVotes = checked(lValidVotes + (long)GetRequiredAttribute(next, VotesAttribute));
+                lPartyVotes = checked(lPartyVotes + (long)GetRequiredAttribute(next, VotesAttribute));
             }
             w.Element.Element(OutputElement)?.Remove();
             w.Element.Add(new XElement(OutputElement,
                 w.Turnout == null ? null : new XElement(TurnoutPercentageElement, w.Turnout.Percentage),
-                HasInvalidOrBlankVotes(w.Element) ? new XElement(TotalVotesElement, checked(lValidVotes + GetInvalidAndBlankVotes(w.Element))) : null,
-                new XElement(nameof(SeatDistributionBase.ValidVotes), lValidVotes)));
+                HasInvalidOrBlankVotes(w.Element) ? new XElement(TotalVotesElement, checked(lPartyVotes + GetInvalidAndBlankVotes(w.Element))) : null,
+                new XElement(nameof(SeatDistributionBase.PartyVotes), lPartyVotes)));
         }
 
         /// <summary>
@@ -594,9 +596,9 @@ namespace CalculateParliamentaryApportionment
 
         /// <summary>
         /// sets the Votes and Seats attributes of each NationalParty element, replacing any existing ones, and builds the
-        /// national Output element, with votes and seats across all constituencies. The Output element has
-        /// TurnoutPercentage only when every constituency has turnout, and TotalVotes only when any has invalid or blank
-        /// votes
+        /// national Output element, with votes and seats across all constituencies. The Output element has TurnoutBase,
+        /// TurnoutRaw and TurnoutPercentage, added up over the constituencies, only when every constituency has turnout,
+        /// and TotalVotes only when any has invalid or blank votes
         /// </summary>
         /// <param name="districts">the Proportional constituencies</param>
         /// <param name="results">the seat distribution of each of <paramref name="districts"/></param>
@@ -635,13 +637,14 @@ namespace CalculateParliamentaryApportionment
                 next.SetAttributeValue(SeatsAttribute, seats.GetValueOrDefault(sNationalParty));
             }
 
-            List<Turnout?> turnouts = all.Select(ReadTurnout).ToList();
-            Turnout? turnout = turnouts.Contains(null) ? null : new Turnout(turnouts.Sum(t => t!.Base), turnouts.Sum(t => t!.Raw));
-            long lValidVotes = votes.Values.Sum();
+            Turnout? turnout = SumTurnout(all);
+            long lPartyVotes = votes.Values.Sum();
             return new XElement(OutputElement,
+                turnout == null ? null : new XElement(TurnoutBaseElement, new XAttribute(MeaningAttribute, turnout.BaseMeaning), turnout.Base),
+                turnout == null ? null : new XElement(TurnoutRawElement, new XAttribute(MeaningAttribute, turnout.RawMeaning), turnout.Raw),
                 turnout == null ? null : new XElement(TurnoutPercentageElement, turnout.Percentage),
-                all.Any(HasInvalidOrBlankVotes) ? new XElement(TotalVotesElement, checked(lValidVotes + all.Sum(GetInvalidAndBlankVotes))) : null,
-                new XElement(nameof(SeatDistributionBase.ValidVotes), lValidVotes));
+                all.Any(HasInvalidOrBlankVotes) ? new XElement(TotalVotesElement, checked(lPartyVotes + all.Sum(GetInvalidAndBlankVotes))) : null,
+                new XElement(nameof(SeatDistributionBase.PartyVotes), lPartyVotes));
         }
 
         /// <summary>
@@ -987,9 +990,9 @@ namespace CalculateParliamentaryApportionment
         private enum ElectoralThresholdBase
         {
             /// <summary>
-            /// valid votes for all parties
+            /// votes for all parties
             /// </summary>
-            ValidVotes,
+            PartyVotes,
 
             /// <summary>
             /// ballots found in the ballot boxes, valid or not
@@ -997,16 +1000,16 @@ namespace CalculateParliamentaryApportionment
             BallotsInBoxes,
 
             /// <summary>
-            /// valid votes for all parties plus blank ballots, but not invalid ones, as in Spain, where blank ballots count
-            /// as valid votes
+            /// votes for all parties plus blank ballots, but not invalid ones, as in Spain, where the law counts blank
+            /// ballots as valid votes
             /// </summary>
-            ValidVotesIncludingBlanks,
+            PartyVotesAndBlanks,
         }
 
         /// <summary>
         /// checks that the ElectoralThreshold element's optional Base attribute agrees with which invalid and blank votes
-        /// are relevant: none for valid votes, all of them, with at least one given, for ballots in boxes, and blank
-        /// votes, given separately, but not invalid votes for valid votes and blank votes
+        /// are relevant: none for party votes, all of them, with at least one given, for ballots in boxes, and blank
+        /// votes, given separately, but not invalid votes for party votes and blanks
         /// </summary>
         /// <param name="input">the Input element, for the ElectoralThreshold element</param>
         /// <param name="district">the element with the invalid and blank votes: the Input element, or a Constituency
@@ -1025,9 +1028,9 @@ namespace CalculateParliamentaryApportionment
                 }
                 bool agrees = thresholdBase switch
                 {
-                    ElectoralThresholdBase.ValidVotes => !relevant.Contains(true),
+                    ElectoralThresholdBase.PartyVotes => !relevant.Contains(true),
                     ElectoralThresholdBase.BallotsInBoxes => relevant.Count > 0 && !relevant.Contains(false),
-                    ElectoralThresholdBase.ValidVotesIncludingBlanks => IsRelevant(BlankVotesElement) == true && IsRelevant(InvalidVotesElement) != true,
+                    ElectoralThresholdBase.PartyVotesAndBlanks => IsRelevant(BlankVotesElement) == true && IsRelevant(InvalidVotesElement) != true,
                     _ => throw new InvalidOperationException($"unexpected {BaseAttribute} {thresholdBase}"),
                 };
                 if (!agrees) throw new FormatException($"{BaseAttribute}=\"{thresholdBase}\" for {ElectoralThresholdElement} doesn't agree with the {RelevantAttribute} attributes of the invalid and blank votes");
@@ -1084,7 +1087,9 @@ namespace CalculateParliamentaryApportionment
         /// </summary>
         /// <param name="Base">the number turnout is a percentage of, from the TurnoutBase element</param>
         /// <param name="Raw">the number included in turnout, from the TurnoutRaw element</param>
-        private sealed record Turnout(long Base, long Raw)
+        /// <param name="BaseMeaning">what <paramref name="Base"/> counts</param>
+        /// <param name="RawMeaning">what <paramref name="Raw"/> counts</param>
+        private sealed record Turnout(long Base, long Raw, TurnoutBaseMeaning BaseMeaning, TurnoutRawMeaning RawMeaning)
         {
             /// <summary>
             /// the turnout percentage rounded to 2 decimal places
@@ -1106,13 +1111,33 @@ namespace CalculateParliamentaryApportionment
             if ((turnoutBase == null) != (turnoutRaw == null)) throw new FormatException($"{TurnoutBaseElement} and {TurnoutRawElement} have to be given together");
             if (turnoutBase != null && turnoutRaw != null)
             {
-                ReadEnum<TurnoutBaseMeaning>(turnoutBase, MeaningAttribute);
-                ReadEnum<TurnoutRawMeaning>(turnoutRaw, MeaningAttribute);
+                TurnoutBaseMeaning baseMeaning = ReadEnum<TurnoutBaseMeaning>(turnoutBase, MeaningAttribute);
+                TurnoutRawMeaning rawMeaning = ReadEnum<TurnoutRawMeaning>(turnoutRaw, MeaningAttribute);
                 long lBase = (long)turnoutBase;
                 long lRaw = (long)turnoutRaw;
                 if (lBase <= 0) throw new FormatException($"{TurnoutBaseElement} must be positive, not {lBase}");
                 if (lRaw < 0 || lRaw > lBase) throw new FormatException($"{TurnoutRawElement} must be from 0 to {TurnoutBaseElement} ({lBase}), not {lRaw}");
-                ret = new Turnout(lBase, lRaw);
+                ret = new Turnout(lBase, lRaw, baseMeaning, rawMeaning);
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// adds up the turnout of all the constituencies, which have to agree on what their TurnoutBase and TurnoutRaw
+        /// elements count
+        /// </summary>
+        /// <param name="constituencies">the Constituency elements</param>
+        /// <returns>the national turnout, or null unless every constituency has turnout</returns>
+        private static Turnout? SumTurnout(List<XElement> constituencies)
+        {
+            List<Turnout?> turnouts = constituencies.Select(ReadTurnout).ToList();
+            Turnout? ret = null;
+            if (turnouts.Count > 0 && !turnouts.Contains(null))
+            {
+                Turnout first = turnouts[0]!;
+                Turnout? different = turnouts.FirstOrDefault(t => t!.BaseMeaning != first.BaseMeaning || t.RawMeaning != first.RawMeaning);
+                if (different != null) throw new FormatException($"the national turnout can't add up constituencies whose {TurnoutBaseElement} and {TurnoutRawElement} count different things, such as {first.BaseMeaning} and {first.RawMeaning} with {different.BaseMeaning} and {different.RawMeaning}");
+                ret = new Turnout(checked(turnouts.Sum(t => t!.Base)), checked(turnouts.Sum(t => t!.Raw)), first.BaseMeaning, first.RawMeaning);
             }
             return ret;
         }
@@ -1180,8 +1205,8 @@ namespace CalculateParliamentaryApportionment
         {
             return new XElement(OutputElement,
                 turnout == null ? null : new XElement(TurnoutPercentageElement, turnout.Percentage),
-                HasInvalidOrBlankVotes(input) ? new XElement(TotalVotesElement, checked(r.ValidVotes + GetInvalidAndBlankVotes(input))) : null,
-                new XElement(nameof(SeatDistributionBase.ValidVotes), r.ValidVotes),
+                HasInvalidOrBlankVotes(input) ? new XElement(TotalVotesElement, checked(r.PartyVotes + GetInvalidAndBlankVotes(input))) : null,
+                new XElement(nameof(SeatDistributionBase.PartyVotes), r.PartyVotes),
                 HasInvalidOrBlankVotes(input) ? new XElement(nameof(SeatDistributionBase.ElectoralThresholdVotes), r.ElectoralThresholdVotes) : null,
                 new XElement(nameof(SeatDistributionBase.QualifyingVotes), r.QualifyingVotes),
                 r is DHondtSeatDistribution dHondt ? new XElement(nameof(DHondtSeatDistribution.Quota), dHondt.Quota) : null,

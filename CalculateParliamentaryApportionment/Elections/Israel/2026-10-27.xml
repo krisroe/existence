@@ -3,7 +3,7 @@
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
     <NumberOfSeats>120</NumberOfSeats>
-    <ElectoralThreshold Base="ValidVotes">3.25</ElectoralThreshold>
+    <ElectoralThreshold Base="PartyVotes">3.25</ElectoralThreshold>
     <TurnoutBase Meaning="RegisteredVoters">7331981</TurnoutBase>
     <TurnoutRaw Meaning="TotalVotes">5717397</TurnoutRaw>
     <InvalidAndBlankVotes Relevant="false">25971</InvalidAndBlankVotes>
@@ -57,7 +57,7 @@
   <Output>
     <TurnoutPercentage>77.98</TurnoutPercentage>
     <TotalVotes>5717397</TotalVotes>
-    <ValidVotes>5691426</ValidVotes>
+    <PartyVotes>5691426</PartyVotes>
     <ElectoralThresholdVotes>5691426</ElectoralThresholdVotes>
     <QualifyingVotes>5384948</QualifyingVotes>
     <Quota>44874.566666666666666666666667</Quota>

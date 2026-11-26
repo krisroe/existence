@@ -2,7 +2,7 @@
 <Election>
   <Input>
     <Method Algorithms="Base">D'Hondt</Method>
-    <ElectoralThreshold Base="ValidVotesIncludingBlanks" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
+    <ElectoralThreshold Base="PartyVotesAndBlanks" BaseLaw="votos válidos emitidos en la circunscripción (valid votes cast in the constituency)">3</ElectoralThreshold>
     <NationalParties>
       <NationalParty Id="1" Name="People's Party" Votes="8160837" Seats="137" />
       <NationalParty Id="2" Name="Spanish Socialist Workers' Party" Votes="7821718" Seats="121" />
@@ -83,7 +83,7 @@
         <Output>
           <TurnoutPercentage>62.93</TurnoutPercentage>
           <TotalVotes>683187</TotalVotes>
-          <ValidVotes>672505</ValidVotes>
+          <PartyVotes>672505</PartyVotes>
           <ElectoralThresholdVotes>677702</ElectoralThresholdVotes>
           <QualifyingVotes>667850</QualifyingVotes>
           <Quota>83481.25</Quota>
@@ -134,7 +134,7 @@
         <Output>
           <TurnoutPercentage>65.54</TurnoutPercentage>
           <TotalVotes>170538</TotalVotes>
-          <ValidVotes>168385</ValidVotes>
+          <PartyVotes>168385</PartyVotes>
           <ElectoralThresholdVotes>169107</ElectoralThresholdVotes>
           <QualifyingVotes>166183</QualifyingVotes>
           <Quota>41545.75</Quota>
@@ -182,7 +182,7 @@
         <Output>
           <TurnoutPercentage>72.70</TurnoutPercentage>
           <TotalVotes>223917</TotalVotes>
-          <ValidVotes>219357</ValidVotes>
+          <PartyVotes>219357</PartyVotes>
           <ElectoralThresholdVotes>221191</ElectoralThresholdVotes>
           <QualifyingVotes>217205</QualifyingVotes>
           <Quota>54301.25</Quota>
@@ -226,7 +226,7 @@
         <Output>
           <TurnoutPercentage>69.57</TurnoutPercentage>
           <TotalVotes>908842</TotalVotes>
-          <ValidVotes>892617</ValidVotes>
+          <PartyVotes>892617</PartyVotes>
           <ElectoralThresholdVotes>899192</ElectoralThresholdVotes>
           <QualifyingVotes>879950</QualifyingVotes>
           <Quota>73329.166666666666666666666667</Quota>
@@ -274,7 +274,7 @@
         <Output>
           <TurnoutPercentage>62.86</TurnoutPercentage>
           <TotalVotes>324405</TotalVotes>
-          <ValidVotes>318778</ValidVotes>
+          <PartyVotes>318778</PartyVotes>
           <ElectoralThresholdVotes>321242</ElectoralThresholdVotes>
           <QualifyingVotes>314655</QualifyingVotes>
           <Quota>52442.5</Quota>
@@ -320,7 +320,7 @@
         <Output>
           <TurnoutPercentage>62.90</TurnoutPercentage>
           <TotalVotes>603183</TotalVotes>
-          <ValidVotes>590953</ValidVotes>
+          <PartyVotes>590953</PartyVotes>
           <ElectoralThresholdVotes>597032</ElectoralThresholdVotes>
           <QualifyingVotes>581066</QualifyingVotes>
           <Quota>83009.42857142857142857142857</Quota>
@@ -366,7 +366,7 @@
         <Output>
           <TurnoutPercentage>72.53</TurnoutPercentage>
           <TotalVotes>99120</TotalVotes>
-          <ValidVotes>97324</ValidVotes>
+          <PartyVotes>97324</PartyVotes>
           <ElectoralThresholdVotes>97956</ElectoralThresholdVotes>
           <QualifyingVotes>96654</QualifyingVotes>
           <Quota>32218</Quota>
@@ -411,7 +411,7 @@
         <Output>
           <TurnoutPercentage>72.31</TurnoutPercentage>
           <TotalVotes>398233</TotalVotes>
-          <ValidVotes>388236</ValidVotes>
+          <PartyVotes>388236</PartyVotes>
           <ElectoralThresholdVotes>391461</ElectoralThresholdVotes>
           <QualifyingVotes>381811</QualifyingVotes>
           <Quota>76362.2</Quota>
@@ -454,7 +454,7 @@
         <Output>
           <TurnoutPercentage>61.32</TurnoutPercentage>
           <TotalVotes>508233</TotalVotes>
-          <ValidVotes>498576</ValidVotes>
+          <PartyVotes>498576</PartyVotes>
           <ElectoralThresholdVotes>503280</ElectoralThresholdVotes>
           <QualifyingVotes>491123</QualifyingVotes>
           <Quota>61390.375</Quota>
@@ -501,7 +501,7 @@
         <Output>
           <TurnoutPercentage>63.36</TurnoutPercentage>
           <TotalVotes>2688720</TotalVotes>
-          <ValidVotes>2646419</ValidVotes>
+          <PartyVotes>2646419</PartyVotes>
           <ElectoralThresholdVotes>2667478</ElectoralThresholdVotes>
           <QualifyingVotes>2514490</QualifyingVotes>
           <Quota>78577.8125</Quota>
@@ -549,7 +549,7 @@
         <Output>
           <TurnoutPercentage>65.21</TurnoutPercentage>
           <TotalVotes>614944</TotalVotes>
-          <ValidVotes>606302</ValidVotes>
+          <PartyVotes>606302</PartyVotes>
           <ElectoralThresholdVotes>609693</ElectoralThresholdVotes>
           <QualifyingVotes>584628</QualifyingVotes>
           <Quota>73078.5</Quota>
@@ -599,7 +599,7 @@
         <Output>
           <TurnoutPercentage>69.12</TurnoutPercentage>
           <TotalVotes>204886</TotalVotes>
-          <ValidVotes>200718</ValidVotes>
+          <PartyVotes>200718</PartyVotes>
           <ElectoralThresholdVotes>202569</ElectoralThresholdVotes>
           <QualifyingVotes>195470</QualifyingVotes>
           <Quota>48867.5</Quota>
@@ -644,7 +644,7 @@
         <Output>
           <TurnoutPercentage>70.62</TurnoutPercentage>
           <TotalVotes>239747</TotalVotes>
-          <ValidVotes>234130</ValidVotes>
+          <PartyVotes>234130</PartyVotes>
           <ElectoralThresholdVotes>235851</ElectoralThresholdVotes>
           <QualifyingVotes>229755</QualifyingVotes>
           <Quota>57438.75</Quota>
@@ -689,7 +689,7 @@
         <Output>
           <TurnoutPercentage>63.34</TurnoutPercentage>
           <TotalVotes>644801</TotalVotes>
-          <ValidVotes>629995</ValidVotes>
+          <PartyVotes>629995</PartyVotes>
           <ElectoralThresholdVotes>637098</ElectoralThresholdVotes>
           <QualifyingVotes>611738</QualifyingVotes>
           <Quota>67970.888888888888888888888889</Quota>
@@ -729,7 +729,7 @@
         <Output>
           <TurnoutPercentage>69.94</TurnoutPercentage>
           <TotalVotes>355145</TotalVotes>
-          <ValidVotes>346888</ValidVotes>
+          <PartyVotes>346888</PartyVotes>
           <ElectoralThresholdVotes>350150</ElectoralThresholdVotes>
           <QualifyingVotes>342878</QualifyingVotes>
           <Quota>68575.6</Quota>
@@ -772,7 +772,7 @@
         <Output>
           <TurnoutPercentage>72.32</TurnoutPercentage>
           <TotalVotes>311581</TotalVotes>
-          <ValidVotes>305275</ValidVotes>
+          <PartyVotes>305275</PartyVotes>
           <ElectoralThresholdVotes>307930</ElectoralThresholdVotes>
           <QualifyingVotes>301932</QualifyingVotes>
           <Quota>60386.4</Quota>
@@ -818,7 +818,7 @@
         <Output>
           <TurnoutPercentage>53.19</TurnoutPercentage>
           <TotalVotes>33674</TotalVotes>
-          <ValidVotes>32993</ValidVotes>
+          <PartyVotes>32993</PartyVotes>
         </Output>
       </Constituency>
       <Constituency Name="Ciudad Real">
@@ -840,7 +840,7 @@
         <Output>
           <TurnoutPercentage>73.28</TurnoutPercentage>
           <TotalVotes>286895</TotalVotes>
-          <ValidVotes>280626</ValidVotes>
+          <PartyVotes>280626</PartyVotes>
           <ElectoralThresholdVotes>282979</ElectoralThresholdVotes>
           <QualifyingVotes>278262</QualifyingVotes>
           <Quota>55652.4</Quota>
@@ -885,7 +885,7 @@
         <Output>
           <TurnoutPercentage>70.60</TurnoutPercentage>
           <TotalVotes>455564</TotalVotes>
-          <ValidVotes>444254</ValidVotes>
+          <PartyVotes>444254</PartyVotes>
           <ElectoralThresholdVotes>448602</ElectoralThresholdVotes>
           <QualifyingVotes>438176</QualifyingVotes>
           <Quota>73029.333333333333333333333333</Quota>
@@ -933,7 +933,7 @@
         <Output>
           <TurnoutPercentage>75.50</TurnoutPercentage>
           <TotalVotes>115280</TotalVotes>
-          <ValidVotes>112839</ValidVotes>
+          <PartyVotes>112839</PartyVotes>
           <ElectoralThresholdVotes>113808</ElectoralThresholdVotes>
           <QualifyingVotes>111808</QualifyingVotes>
           <Quota>37269.333333333333333333333333</Quota>
@@ -977,7 +977,7 @@
         <Output>
           <TurnoutPercentage>64.68</TurnoutPercentage>
           <TotalVotes>378965</TotalVotes>
-          <ValidVotes>374616</ValidVotes>
+          <PartyVotes>374616</PartyVotes>
           <ElectoralThresholdVotes>376621</ElectoralThresholdVotes>
           <QualifyingVotes>362858</QualifyingVotes>
           <Quota>60476.333333333333333333333333</Quota>
@@ -1028,7 +1028,7 @@
         <Output>
           <TurnoutPercentage>59.88</TurnoutPercentage>
           <TotalVotes>327159</TotalVotes>
-          <ValidVotes>320007</ValidVotes>
+          <PartyVotes>320007</PartyVotes>
           <ElectoralThresholdVotes>322988</ElectoralThresholdVotes>
           <QualifyingVotes>311850</QualifyingVotes>
           <Quota>51975</Quota>
@@ -1083,7 +1083,7 @@
         <Output>
           <TurnoutPercentage>66.56</TurnoutPercentage>
           <TotalVotes>509486</TotalVotes>
-          <ValidVotes>498788</ValidVotes>
+          <PartyVotes>498788</PartyVotes>
           <ElectoralThresholdVotes>502845</ElectoralThresholdVotes>
           <QualifyingVotes>491505</QualifyingVotes>
           <Quota>70215</Quota>
@@ -1128,7 +1128,7 @@
         <Output>
           <TurnoutPercentage>72.47</TurnoutPercentage>
           <TotalVotes>142744</TotalVotes>
-          <ValidVotes>139770</ValidVotes>
+          <PartyVotes>139770</PartyVotes>
           <ElectoralThresholdVotes>140913</ElectoralThresholdVotes>
           <QualifyingVotes>137707</QualifyingVotes>
           <Quota>45902.333333333333333333333333</Quota>
@@ -1168,7 +1168,7 @@
         <Output>
           <TurnoutPercentage>64.81</TurnoutPercentage>
           <TotalVotes>260861</TotalVotes>
-          <ValidVotes>254394</ValidVotes>
+          <PartyVotes>254394</PartyVotes>
           <ElectoralThresholdVotes>256804</ElectoralThresholdVotes>
           <QualifyingVotes>250215</QualifyingVotes>
           <Quota>50043</Quota>
@@ -1219,7 +1219,7 @@
         <Output>
           <TurnoutPercentage>69.87</TurnoutPercentage>
           <TotalVotes>121148</TotalVotes>
-          <ValidVotes>118678</ValidVotes>
+          <PartyVotes>118678</PartyVotes>
           <ElectoralThresholdVotes>119895</ElectoralThresholdVotes>
           <QualifyingVotes>115019</QualifyingVotes>
           <Quota>38339.666666666666666666666667</Quota>
@@ -1260,7 +1260,7 @@
         <Output>
           <TurnoutPercentage>72.08</TurnoutPercentage>
           <TotalVotes>373657</TotalVotes>
-          <ValidVotes>366234</ValidVotes>
+          <PartyVotes>366234</PartyVotes>
           <ElectoralThresholdVotes>368731</ElectoralThresholdVotes>
           <QualifyingVotes>355297</QualifyingVotes>
           <Quota>71059.4</Quota>
@@ -1309,7 +1309,7 @@
         <Output>
           <TurnoutPercentage>70.19</TurnoutPercentage>
           <TotalVotes>176945</TotalVotes>
-          <ValidVotes>173055</ValidVotes>
+          <PartyVotes>173055</PartyVotes>
           <ElectoralThresholdVotes>174663</ElectoralThresholdVotes>
           <QualifyingVotes>170563</QualifyingVotes>
           <Quota>42640.75</Quota>
@@ -1355,7 +1355,7 @@
         <Output>
           <TurnoutPercentage>59.51</TurnoutPercentage>
           <TotalVotes>534912</TotalVotes>
-          <ValidVotes>526275</ValidVotes>
+          <PartyVotes>526275</PartyVotes>
           <ElectoralThresholdVotes>529337</ElectoralThresholdVotes>
           <QualifyingVotes>520228</QualifyingVotes>
           <Quota>65028.5</Quota>
@@ -1407,7 +1407,7 @@
         <Output>
           <TurnoutPercentage>65.67</TurnoutPercentage>
           <TotalVotes>277726</TotalVotes>
-          <ValidVotes>273663</ValidVotes>
+          <PartyVotes>273663</PartyVotes>
           <ElectoralThresholdVotes>275240</ElectoralThresholdVotes>
           <QualifyingVotes>270886</QualifyingVotes>
           <Quota>67721.5</Quota>
@@ -1456,7 +1456,7 @@
         <Output>
           <TurnoutPercentage>58.93</TurnoutPercentage>
           <TotalVotes>186929</TotalVotes>
-          <ValidVotes>182480</ValidVotes>
+          <PartyVotes>182480</PartyVotes>
           <ElectoralThresholdVotes>184539</ElectoralThresholdVotes>
           <QualifyingVotes>172793</QualifyingVotes>
           <Quota>43198.25</Quota>
@@ -1506,7 +1506,7 @@
         <Output>
           <TurnoutPercentage>59.42</TurnoutPercentage>
           <TotalVotes>200709</TotalVotes>
-          <ValidVotes>197315</ValidVotes>
+          <PartyVotes>197315</PartyVotes>
           <ElectoralThresholdVotes>198566</ElectoralThresholdVotes>
           <QualifyingVotes>196059</QualifyingVotes>
           <Quota>49014.75</Quota>
@@ -1550,7 +1550,7 @@
         <Output>
           <TurnoutPercentage>69.66</TurnoutPercentage>
           <TotalVotes>3639500</TotalVotes>
-          <ValidVotes>3579713</ValidVotes>
+          <PartyVotes>3579713</PartyVotes>
           <ElectoralThresholdVotes>3608673</ElectoralThresholdVotes>
           <QualifyingVotes>3531726</QualifyingVotes>
           <Quota>95452.05405405405405405405405</Quota>
@@ -1594,7 +1594,7 @@
         <Output>
           <TurnoutPercentage>64.41</TurnoutPercentage>
           <TotalVotes>798557</TotalVotes>
-          <ValidVotes>780829</ValidVotes>
+          <PartyVotes>780829</PartyVotes>
           <ElectoralThresholdVotes>788338</ElectoralThresholdVotes>
           <QualifyingVotes>767582</QualifyingVotes>
           <Quota>69780.181818181818181818181818</Quota>
@@ -1637,7 +1637,7 @@
         <Output>
           <TurnoutPercentage>45.24</TurnoutPercentage>
           <TotalVotes>27649</TotalVotes>
-          <ValidVotes>27096</ValidVotes>
+          <PartyVotes>27096</PartyVotes>
         </Output>
       </Constituency>
       <Constituency Name="Murcia">
@@ -1663,7 +1663,7 @@
         <Output>
           <TurnoutPercentage>68.68</TurnoutPercentage>
           <TotalVotes>755255</TotalVotes>
-          <ValidVotes>742763</ValidVotes>
+          <PartyVotes>742763</PartyVotes>
           <ElectoralThresholdVotes>747797</ElectoralThresholdVotes>
           <QualifyingVotes>731884</QualifyingVotes>
           <Quota>73188.4</Quota>
@@ -1710,7 +1710,7 @@
         <Output>
           <TurnoutPercentage>66.37</TurnoutPercentage>
           <TotalVotes>345095</TotalVotes>
-          <ValidVotes>338954</ValidVotes>
+          <PartyVotes>338954</PartyVotes>
           <ElectoralThresholdVotes>341844</ElectoralThresholdVotes>
           <QualifyingVotes>325242</QualifyingVotes>
           <Quota>65048.4</Quota>
@@ -1764,7 +1764,7 @@
         <Output>
           <TurnoutPercentage>52.86</TurnoutPercentage>
           <TotalVotes>188065</TotalVotes>
-          <ValidVotes>185162</ValidVotes>
+          <PartyVotes>185162</PartyVotes>
           <ElectoralThresholdVotes>186271</ElectoralThresholdVotes>
           <QualifyingVotes>183785</QualifyingVotes>
           <Quota>45946.25</Quota>
@@ -1811,7 +1811,7 @@
         <Output>
           <TurnoutPercentage>71.26</TurnoutPercentage>
           <TotalVotes>98079</TotalVotes>
-          <ValidVotes>96129</ValidVotes>
+          <PartyVotes>96129</PartyVotes>
           <ElectoralThresholdVotes>96962</ElectoralThresholdVotes>
           <QualifyingVotes>92703</QualifyingVotes>
           <Quota>30901</Quota>
@@ -1852,7 +1852,7 @@
         <Output>
           <TurnoutPercentage>63.68</TurnoutPercentage>
           <TotalVotes>579125</TotalVotes>
-          <ValidVotes>569259</ValidVotes>
+          <PartyVotes>569259</PartyVotes>
           <ElectoralThresholdVotes>573124</ElectoralThresholdVotes>
           <QualifyingVotes>564377</QualifyingVotes>
           <Quota>80625.28571428571428571428571</Quota>
@@ -1903,7 +1903,7 @@
         <Output>
           <TurnoutPercentage>67.03</TurnoutPercentage>
           <TotalVotes>201419</TotalVotes>
-          <ValidVotes>197461</ValidVotes>
+          <PartyVotes>197461</PartyVotes>
           <ElectoralThresholdVotes>199110</ElectoralThresholdVotes>
           <QualifyingVotes>194251</QualifyingVotes>
           <Quota>48562.75</Quota>
@@ -1947,7 +1947,7 @@
         <Output>
           <TurnoutPercentage>56.83</TurnoutPercentage>
           <TotalVotes>500777</TotalVotes>
-          <ValidVotes>489285</ValidVotes>
+          <PartyVotes>489285</PartyVotes>
           <ElectoralThresholdVotes>494373</ElectoralThresholdVotes>
           <QualifyingVotes>476797</QualifyingVotes>
           <Quota>68113.857142857142857142857143</Quota>
@@ -1993,7 +1993,7 @@
         <Output>
           <TurnoutPercentage>75.30</TurnoutPercentage>
           <TotalVotes>89945</TotalVotes>
-          <ValidVotes>87738</ValidVotes>
+          <PartyVotes>87738</PartyVotes>
           <ElectoralThresholdVotes>88613</ElectoralThresholdVotes>
           <QualifyingVotes>86654</QualifyingVotes>
           <Quota>28884.666666666666666666666667</Quota>
@@ -2039,7 +2039,7 @@
         <Output>
           <TurnoutPercentage>68.74</TurnoutPercentage>
           <TotalVotes>1075133</TotalVotes>
-          <ValidVotes>1048407</ValidVotes>
+          <PartyVotes>1048407</PartyVotes>
           <ElectoralThresholdVotes>1059358</ElectoralThresholdVotes>
           <QualifyingVotes>1031255</QualifyingVotes>
           <Quota>85937.91666666666666666666667</Quota>
@@ -2084,7 +2084,7 @@
         <Output>
           <TurnoutPercentage>67.52</TurnoutPercentage>
           <TotalVotes>51157</TotalVotes>
-          <ValidVotes>50484</ValidVotes>
+          <PartyVotes>50484</PartyVotes>
           <ElectoralThresholdVotes>50769</ElectoralThresholdVotes>
           <QualifyingVotes>50247</QualifyingVotes>
           <Quota>25123.5</Quota>
@@ -2134,7 +2134,7 @@
         <Output>
           <TurnoutPercentage>62.42</TurnoutPercentage>
           <TotalVotes>372426</TotalVotes>
-          <ValidVotes>364856</ValidVotes>
+          <PartyVotes>364856</PartyVotes>
           <ElectoralThresholdVotes>368024</ElectoralThresholdVotes>
           <QualifyingVotes>348197</QualifyingVotes>
           <Quota>58032.833333333333333333333333</Quota>
@@ -2190,7 +2190,7 @@
         <Output>
           <TurnoutPercentage>71.99</TurnoutPercentage>
           <TotalVotes>76561</TotalVotes>
-          <ValidVotes>75503</ValidVotes>
+          <PartyVotes>75503</PartyVotes>
           <ElectoralThresholdVotes>75913</ElectoralThresholdVotes>
           <QualifyingVotes>74218</QualifyingVotes>
           <Quota>24739.333333333333333333333333</Quota>
@@ -2235,7 +2235,7 @@
         <Output>
           <TurnoutPercentage>72.43</TurnoutPercentage>
           <TotalVotes>392988</TotalVotes>
-          <ValidVotes>384589</ValidVotes>
+          <PartyVotes>384589</PartyVotes>
           <ElectoralThresholdVotes>387200</ElectoralThresholdVotes>
           <QualifyingVotes>380525</QualifyingVotes>
           <Quota>63420.833333333333333333333333</Quota>
@@ -2281,7 +2281,7 @@
         <Output>
           <TurnoutPercentage>72.58</TurnoutPercentage>
           <TotalVotes>1451187</TotalVotes>
-          <ValidVotes>1426351</ValidVotes>
+          <PartyVotes>1426351</PartyVotes>
           <ElectoralThresholdVotes>1437161</ElectoralThresholdVotes>
           <QualifyingVotes>1406318</QualifyingVotes>
           <Quota>87894.875</Quota>
@@ -2330,7 +2330,7 @@
         <Output>
           <TurnoutPercentage>74.02</TurnoutPercentage>
           <TotalVotes>319312</TotalVotes>
-          <ValidVotes>313890</ValidVotes>
+          <PartyVotes>313890</PartyVotes>
           <ElectoralThresholdVotes>316309</ElectoralThresholdVotes>
           <QualifyingVotes>308763</QualifyingVotes>
           <Quota>61752.6</Quota>
@@ -2377,7 +2377,7 @@
         <Output>
           <TurnoutPercentage>64.22</TurnoutPercentage>
           <TotalVotes>104671</TotalVotes>
-          <ValidVotes>102488</ValidVotes>
+          <PartyVotes>102488</PartyVotes>
           <ElectoralThresholdVotes>103410</ElectoralThresholdVotes>
           <QualifyingVotes>99288</QualifyingVotes>
           <Quota>33096</Quota>
@@ -2423,7 +2423,7 @@
         <Output>
           <TurnoutPercentage>70.73</TurnoutPercentage>
           <TotalVotes>523410</TotalVotes>
-          <ValidVotes>514012</ValidVotes>
+          <PartyVotes>514012</PartyVotes>
           <ElectoralThresholdVotes>518705</ElectoralThresholdVotes>
           <QualifyingVotes>495935</QualifyingVotes>
           <Quota>70847.857142857142857142857143</Quota>
@@ -2450,8 +2450,10 @@
     </Constituencies>
   </Input>
   <Output>
+    <TurnoutBase Meaning="RegisteredVoters">37469458</TurnoutBase>
+    <TurnoutRaw Meaning="TotalVotes">24952447</TurnoutRaw>
     <TurnoutPercentage>66.59</TurnoutPercentage>
     <TotalVotes>24952447</TotalVotes>
-    <ValidVotes>24487414</ValidVotes>
+    <PartyVotes>24487414</PartyVotes>
   </Output>
 </Election>

@@ -25,7 +25,7 @@
     </Parties>
   </Input>
   <Output>
-    <ValidVotes>2418565</ValidVotes>
+    <PartyVotes>2418565</PartyVotes>
     <QualifyingVotes>2397806</QualifyingVotes>
     <NumberOfMembers>131</NumberOfMembers>
     <OrderedSeatsByRecipient>

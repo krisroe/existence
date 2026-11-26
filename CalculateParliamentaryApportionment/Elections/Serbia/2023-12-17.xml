@@ -32,7 +32,7 @@
   <Output>
     <TurnoutPercentage>58.77</TurnoutPercentage>
     <TotalVotes>3815007</TotalVotes>
-    <ValidVotes>3710978</ValidVotes>
+    <PartyVotes>3710978</PartyVotes>
     <ElectoralThresholdVotes>3815007</ElectoralThresholdVotes>
     <QualifyingVotes>3456859</QualifyingVotes>
     <Quota>14038.1794</Quota>
