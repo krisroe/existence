@@ -124,7 +124,7 @@ function formatCopyright($row)
 echo "<html>";
 
 echo "<head>";
-echo "<title>Copyrights</title>";
+echo "<title>Copyrights Found</title>";
 echo "<link rel=\"stylesheet\" href=\"";
 echo "{stylefilename}";
 echo "\">";
@@ -269,44 +269,6 @@ while ($row = pg_fetch_assoc($result)) {
  echo "<td>";
  echo formatCopyright($row);
  echo "</td>";
- echo "</tr>";
-}
-
-pg_free_result($result);
-
-echo "</table>";
-
-echo "<h3>Copyrights Missing</h3>";
-echo "<table>";
-echo "<tr><th>Episode</th><th>Song</th><th>Copyright</th></tr>";
-
-$query = 'SELECT v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,c.song,c.copyright FROM public.copyrights_missing c INNER JOIN videos v1 ON c.videoid1=v1.id LEFT JOIN videos v2 ON c.videoid2=v2.id ORDER BY c.ord';
-$result = pg_query($dbconn,$query);
-
-while ($row = pg_fetch_assoc($result)) {
- echo "<tr>";
- echo "<td>";
- echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
- echo $row["v1youtubeid"];
- echo "')\">";
- echo $row["v1identifier"];
- echo "</a>";
- if (!empty($row['v2youtubeid']))
- {
-  echo "<br/>";
-  echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
-  echo $row["v2youtubeid"];
-  echo "')\">";
-  echo $row["v2identifier"];
-  echo "</a>";
- }
- echo "</td>";
- echo "<td>";
- echo $row["song"];
- echo "</td>";
- echo "<td>";
- echo $row["copyright"];
- echo "</td>"; 
  echo "</tr>";
 }
 
