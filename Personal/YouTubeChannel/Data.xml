@@ -158,6 +158,7 @@
   <identifier>Mainline 1</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-03-27T04:13:26Z</publishtimestamp>
   <additionaltextdocumentid>1</additionaltextdocumentid>
  </video>
  <video>
@@ -167,6 +168,7 @@
   <identifier>Mainline 2</identifier>
   <owner>Muppet Movie</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-03-28T23:51:05Z</publishtimestamp>
   <additionaltextdocumentid>2</additionaltextdocumentid>
   <musxdocumentid>3</musxdocumentid>
  </video>
@@ -177,6 +179,7 @@
   <identifier>Mainline 3</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-03-30T17:46:26Z</publishtimestamp>
   <additionaltextdocumentid>4</additionaltextdocumentid>
  </video>
  <video>
@@ -186,6 +189,7 @@
   <identifier>Mainline 4</identifier>
   <owner>Negro Spiritual</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-04-06T15:02:15Z</publishtimestamp>
   <additionaltextdocumentid>5</additionaltextdocumentid>
   <musxdocumentid>6</musxdocumentid>
  </video>
@@ -196,6 +200,7 @@
   <identifier>Mainline 5</identifier>
   <owner>Moana</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-04-14T15:20:24Z</publishtimestamp>
   <additionaltextdocumentid>7</additionaltextdocumentid>
   <musxdocumentid>8</musxdocumentid>
  </video>
@@ -206,6 +211,7 @@
   <identifier>Mainline 6</identifier>
   <owner>Taylor Swift</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-04-21T19:55:10Z</publishtimestamp>
   <additionaltextdocumentid>9</additionaltextdocumentid>
   <musxdocumentid>10</musxdocumentid>
   <doricodocumentid>18</doricodocumentid>
@@ -217,6 +223,7 @@
   <identifier>Mainline 7</identifier>
   <owner>Avril Lavigne</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-04-27T18:50:22Z</publishtimestamp>
   <additionaltextdocumentid>11</additionaltextdocumentid>
   <musxdocumentid>12</musxdocumentid>
  </video>
@@ -227,6 +234,7 @@
   <identifier>Silly Song 15</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-04-30T00:58:49Z</publishtimestamp>
  </video>
  <video>
   <id>9</id>
@@ -235,6 +243,7 @@
   <identifier>Recital 1</identifier>
   <owner>My Daughter</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-01T01:24:53Z</publishtimestamp>
  </video>
  <video>
   <id>10</id>
@@ -243,6 +252,7 @@
   <identifier>The Song with No Name 1</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-01T17:59:58Z</publishtimestamp>
  </video>
  <video>
   <id>11</id>
@@ -251,6 +261,7 @@
   <identifier>Unexplainable 1</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-22T23:04:34Z</publishtimestamp>
  </video>
  <video>
   <id>12</id>
@@ -259,6 +270,7 @@
   <identifier>Recital 2</identifier>
   <owner>My Daughter</owner>
   <isprivate>true</isprivate>
+  <publishtimestamp>2024-05-05T01:08:02Z</publishtimestamp>
  </video>
  <video>
   <id>13</id>
@@ -267,6 +279,7 @@
   <identifier>Mainline 8</identifier>
   <owner>Muppet Movie</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-07T04:00:34Z</publishtimestamp>
   <additionaltextdocumentid>13</additionaltextdocumentid>
  </video>
  <video>
@@ -276,6 +289,7 @@
   <identifier>Mainline 9</identifier>
   <owner>Frozen</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-16T23:45:09Z</publishtimestamp>
   <additionaltextdocumentid>14</additionaltextdocumentid>
   <musxdocumentid>15</musxdocumentid>
  </video>
@@ -286,6 +300,7 @@
   <identifier>Silly Song 42</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-20T00:11:03Z</publishtimestamp>
  </video>
  <video>
   <id>16</id>
@@ -294,6 +309,7 @@
   <identifier>Unexplainable 2</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-05-24T13:28:10Z</publishtimestamp>
   <musxdocumentid shared="true">10</musxdocumentid>
   <doricodocumentid shared="true">18</doricodocumentid>
  </video>
@@ -304,6 +320,7 @@
   <identifier>Mainline 10</identifier>
   <owner>Harry &amp; Sandy Chapin</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-09-13T00:40:35Z</publishtimestamp>
   <additionaltextdocumentid>16</additionaltextdocumentid>
   <musxdocumentid>17</musxdocumentid>
  </video>
@@ -314,6 +331,7 @@
   <identifier>Work 4</identifier>
   <owner>Me</owner>
   <isprivate>false</isprivate>
+  <publishtimestamp>2024-10-29T23:11:40Z</publishtimestamp>
   <additionaltextdocumentid>20</additionaltextdocumentid>
   <doricodocumentid>19</doricodocumentid>
  </video>
