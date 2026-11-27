@@ -109,14 +109,14 @@
   <type>AdditionalTextFile</type>
   <purpose>Transcript</purpose>
   <googledrivefileid>1YoASjd8H6YLuXInYt3p1uv35Um8JA9Pt</googledrivefileid>
-  <comment>Cat's in the Cradle MUSX</comment>
+  <comment>Cat's in the Cradle Transcript</comment>
  </document>
  <document>
   <id>17</id>
   <type>MUSX</type>
   <googledrivefileid>1fym-Fn0tSZ8axxV9f-Wz8Tfp9MrO2JHv</googledrivefileid>
   <supportsplayback></supportsplayback>
-  <comment>Let it Go MUSX</comment>
+  <comment>Cat's in the Cradle MUSX</comment>
  </document>
  <document>
   <id>18</id>
@@ -150,7 +150,120 @@
   <comment>WWW</comment>
  </document>
  -->
- 
+
+ <song>
+  <id>1</id>
+  <title><![CDATA[Rainbow Connection]]></title>
+  <author><![CDATA[Lyrics and Music by Paul Williams and Kenny Ascher]]></author>
+  <copyright><![CDATA[Henson Associates, Inc.]]></copyright>
+  <copyrightyearstart>1979</copyrightyearstart>
+  <copyrightregistrationdate>1979-07-31</copyrightregistrationdate>
+  <copyrightregistrationnumber>SR0000010909</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <personalconnection><![CDATA[syncopated, split vocals/piano, transcribed to Finale]]></personalconnection>
+  <documentid>3</documentid>
+ </song>
+ <song>
+  <id>2</id>
+  <title><![CDATA[Wade in the Water]]></title>
+  <author><![CDATA[Negro Spiritual]]></author>
+  <copyrightflags>PublicDomain</copyrightflags>
+  <documentid>6</documentid>
+ </song>
+ <song>
+  <id>3</id>
+  <title><![CDATA[How Far I'll Go]]></title>
+  <author><![CDATA[Lyrics and Music by Lin-Manuel Miranda]]></author>
+  <copyright><![CDATA[Walt Disney Music Company]]></copyright>
+  <copyrightyearstart>2016</copyrightyearstart>
+  <copyrightregistrationdate>2016-10-28</copyrightregistrationdate>
+  <copyrightregistrationnumber>PA0002210560</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <personalconnection><![CDATA[split vocals/piano, transcribed to Finale]]></personalconnection>
+  <documentid>8</documentid>
+ </song>
+ <song>
+  <id>4</id>
+  <title><![CDATA[Anti-Hero]]></title>
+  <author><![CDATA[Original Lyrics and Music by Taylor Swift and Jack Antonoff]]></author>
+  <copyright><![CDATA[TASRM Publishing]]></copyright>
+  <copyrightyearstart>2022</copyrightyearstart>
+  <copyrightregistrationdate>2022-12-08</copyrightregistrationdate>
+  <copyrightregistrationnumber>PA0002390184</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <personalconnection><![CDATA[reinterpreted from musicnotes.com MN0264688]]></personalconnection>
+  <documentid>10</documentid>
+  <documentid>18</documentid>
+ </song>
+ <song>
+  <id>5</id>
+  <title><![CDATA[Complicated]]></title>
+  <author><![CDATA[By Avril Lavigne, Lauren Christy, Graham Edwards, David Alspach]]></author>
+  <copyright><![CDATA[Almo Music Corporation et al]]></copyright>
+  <copyrightyearstart>2002</copyrightyearstart>
+  <copyrightregistrationdate>2002-07-22</copyrightregistrationdate>
+  <copyrightregistrationnumber>PA0001101506</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <personalconnection><![CDATA[parodied from musicnotes.com MN0128885]]></personalconnection>
+  <documentid>12</documentid>
+ </song>
+ <song>
+  <id>6</id>
+  <title><![CDATA[Let it Go]]></title>
+  <author><![CDATA[Music and Lyrics by Kristen Anderson-Lopez and Robert Lopez]]></author>
+  <copyright><![CDATA[Wonderland Music Company, Inc.]]></copyright>
+  <copyrightyearstart>2013</copyrightyearstart>
+  <copyrightnoticedate>2013-10-21</copyrightnoticedate>
+  <copyrightregistrationdate>2018-07-11</copyrightregistrationdate>
+  <copyrightregistrationnumber>PA0002160548</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <personalconnection><![CDATA[Started from Frozen: Music from the Motion Picture Soundtrack]]></personalconnection>
+  <documentid>15</documentid>
+ </song>
+ <song>
+  <id>7</id>
+  <title><![CDATA[Cat's in the Cradle]]></title>
+  <author><![CDATA[Music and Lyrics by Harry Chapin and Sandy Chapin]]></author>
+  <copyright><![CDATA[Story Songs, Ltd.]]></copyright>
+  <copyrightyearstart>1974</copyrightyearstart>
+  <copyrightnoticedate>1974-08-01</copyrightnoticedate>
+  <copyrightregistrationdate>1974-10-17</copyrightregistrationdate>
+  <copyrightregistrationnumber>EP0000330808</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <documentid>17</documentid>
+ </song>
+ <song>
+  <id>8</id>
+  <title><![CDATA[Never Gonna Give You Up]]></title>
+  <author><![CDATA[Words and Music by Mike Stock, Matt Aitken, Pete Waterman]]></author>
+  <artist><![CDATA[Performed by Rick Astley and target of countless Rickrolls]]></artist>
+  <copyright><![CDATA[Sony/ATV Music Publishing, All Boys Music Ltd.]]></copyright>
+  <copyrightyearstart>1986</copyrightyearstart>
+  <copyrightyearend>1987</copyrightyearend>
+  <copyrightregistrationdate>1988-06-21</copyrightregistrationdate>
+  <copyrightregistrationnumber>PA0000375327</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+  <documentid>19</documentid>
+ </song>
+ <!-- template -->
+ <!--
+ <song>
+  <id>X</id>
+  <title><![CDATA[]]></title>
+  <author><![CDATA[]]></author>
+  <artist><![CDATA[]]></artist> (optional)
+  <copyright><![CDATA[]]></copyright> (optional, copyright holder)
+  <copyrightyearstart>yyyy</copyrightyearstart> (optional)
+  <copyrightyearend>yyyy</copyrightyearend> (optional, only when the copyright year is a range; requires copyrightyearstart)
+  <copyrightnoticedate>yyyy-MM-dd</copyrightnoticedate> (optional)
+  <copyrightregistrationdate>yyyy-MM-dd</copyrightregistrationdate> (optional)
+  <copyrightregistrationnumber>XYZ</copyrightregistrationnumber> (optional)
+  <copyrightflags>AllRightsReserved,InternationalCopyrightSecured,PublicDomain</copyrightflags> (optional)
+  <personalconnection><![CDATA[]]></personalconnection> (optional)
+  <documentid>A</documentid> (zero or more MUSX/Dorico documents)
+ </song>
+ -->
+
  <video>
   <id>1</id>
   <youtubeid>rFERC1KdbaI</youtubeid>
@@ -1072,6 +1185,7 @@
   <copyright><![CDATA[1979-07-31 Henson Associates, Inc. All rights reserved (SR0000010909)]]></copyright>
   <videoid1>2</videoid1>
   <videoid2>13</videoid2>
+  <songid>1</songid>
  </copyrightfound>
  <copyrightfound>
   <id>2</id>
@@ -1086,6 +1200,7 @@
   <copyright><![CDATA[2002-07-22 Almo Music Corporation etall. All rights reserved. (PA0001101506)]]></copyright>
   <videoid1>7</videoid1>
   <videoid2></videoid2>
+  <songid>5</songid>
  </copyrightfound>
  <copyrightfound>
   <id>4</id>
@@ -1093,6 +1208,7 @@
   <copyright><![CDATA[2016-10-28 Walt Disney Music Company. All rights reserved (PA0002210560)]]></copyright>
   <videoid1>5</videoid1>
   <videoid2></videoid2>
+  <songid>3</songid>
  </copyrightfound>
  <copyrightfound>
   <id>5</id>
@@ -1100,27 +1216,31 @@
   <copyright><![CDATA[2022-12-08 TASRM Publishing. All rights reserved. (PA0002390184)]]></copyright>
   <videoid1>6</videoid1>
   <videoid2></videoid2>
+  <songid>4</songid>
  </copyrightfound>
  <copyrightfound>
   <id>6</id>
   <song><![CDATA[Let it Go<br/>Music and Lyrics by Kristen Anderson-Lopez and Robert Lopez<br/>Started from Frozen: Music from the Motion Picture Soundtrack]]></song>
-  <copyright><![CDATA[Copyright 2013-10-21 Wonderland Music Company, Inc. (PA0002160548 2018-07-11). All rights reserved.]]></copyright>
+  <copyright><![CDATA[Notice 2013-10-21 Wonderland Music Company, Inc. (PA0002160548 2018-07-11). All rights reserved.]]></copyright>
   <videoid1>14</videoid1>
   <videoid2></videoid2>
+  <songid>6</songid>
  </copyrightfound>
  <copyrightfound>
   <id>7</id>
   <song><![CDATA[Cat's in the Cradle</br>Music and Lyrics by Harry Chapin and Sandy Chapin]]></song>
-  <copyright><![CDATA[Copyright registration 1974-10-17 (EP0000330808) Story Songs, Ltd. Registration. Notice 1974-08-01. All rights reserved.]]></copyright>
+  <copyright><![CDATA[Registration 1974-10-17 (EP0000330808) Story Songs, Ltd. Registration. Notice 1974-08-01. All rights reserved.]]></copyright>
   <videoid1>17</videoid1>
   <videoid2></videoid2>
+  <songid>7</songid>
  </copyrightfound>
  <copyrightfound>
   <id>8</id>
   <song><![CDATA[Never Gonna Give You Up</br>Performed by Rick Astley and target of countless Rickrolls]]></song>
-  <copyright><![CDATA[Copyright 1986/1987 Sony/ATV Music Publishing, All Boys Music Ltd. PA0000375327, registered 1988-06-21. All rights reserved.]]></copyright>
+  <copyright><![CDATA[1986/1987 Sony/ATV Music Publishing, All Boys Music Ltd. PA0000375327, registered 1988-06-21. All rights reserved.]]></copyright>
   <videoid1>18</videoid1>
   <videoid2></videoid2>
+  <songid>8</songid>
  </copyrightfound>
  <!-- template -->
  <!--
@@ -1130,6 +1250,7 @@
   <copyright><![CDATA[]]></copyright>
   <videoid1></videoid1>
   <videoid2></videoid2>
+  <songid></songid> (optional)
  </copyrightfound>
  -->
  <copyrightmissing>

@@ -87,6 +87,7 @@ namespace DatabasePopulator
             XmlElement docElementVal = docElement;
 
             HashSet<int> usedDocuments = new HashSet<int>(); //each document has one primary sink video
+            HashSet<string> songDocuments = new HashSet<string>(); //song id,document id pairs already linked
 
             AllData all = new AllData();
 
@@ -186,6 +187,10 @@ namespace DatabasePopulator
                         }
 
                         all.attachedDocuments.Add(new AttachedDocument(iID, docType, docPurpose, sGoogleDriveFileID, supportsPlayback));
+                    }
+                    else if (nodeName == "song")
+                    {
+                        all.songs.Add(ProcessSong(nextElement, all, songDocuments));
                     }
                     else if (nodeName == "video")
                     {
@@ -377,6 +382,8 @@ namespace DatabasePopulator
                         GetIDs(conn, tx, "audios", all.audioIDs, "id");
                         GetIDs(conn, tx, "documents", all.documentIDs, "id");
                         GetIDs(conn, tx, "videos", all.videoIDs, "id");
+                        GetIDs(conn, tx, "songs", all.songIDs, "id");
+                        GetIDs2(conn, tx, "song_documents", all.songDocumentIDs, "songid", "documentid");
                         GetIDs(conn, tx, "videolist_mainline", all.mainlinevideoIDs, "videoid");
                         GetIDs(conn, tx, "videolist_sillysongs", all.sillysongvideoIDs, "videoid");
                         GetIDs(conn, tx, "videolist_workvideos", all.workvideoIDs, "videoid");
@@ -459,6 +466,127 @@ namespace DatabasePopulator
             }
         }
 
+        /// <summary>
+        /// Reads a song element, including the MUSX/Dorico documents it links to.
+        /// </summary>
+        /// <param name="songElement">song element</param>
+        /// <param name="all">data read so far; the linked documents must already be in it</param>
+        /// <param name="songDocuments">song id,document id pairs linked so far, used to reject duplicate links</param>
+        /// <returns>the song</returns>
+        private static Song ProcessSong(XmlElement songElement, AllData all, HashSet<string> songDocuments)
+        {
+            const string objectType = "song";
+            int iID = GetObjectID(songElement, objectType);
+            if (all.songs.Any(s => s.id == iID))
+            {
+                throw new InvalidDataException($"Duplicate song id: {iID}");
+            }
+            string sTitle = GetCDataNode(songElement, "title", objectType);
+            string sAuthor = GetCDataNode(songElement, "author", objectType);
+            if (string.IsNullOrEmpty(sTitle))
+            {
+                throw new InvalidDataException($"Song {iID} has no title");
+            }
+            if (string.IsNullOrEmpty(sAuthor))
+            {
+                throw new InvalidDataException($"Song {iID} has no author");
+            }
+            string? sArtist = GetOptionalCDataNode(songElement, "artist", objectType);
+            string? sCopyright = GetOptionalCDataNode(songElement, "copyright", objectType);
+            string? sPersonalConnection = GetOptionalCDataNode(songElement, "personalconnection", objectType);
+            int? yearStart = GetOptionalInt(songElement, "copyrightyearstart", objectType);
+            int? yearEnd = GetOptionalInt(songElement, "copyrightyearend", objectType);
+            if (yearEnd != null && yearStart == null)
+            {
+                throw new InvalidDataException($"Song {iID} has a copyrightyearend without a copyrightyearstart");
+            }
+            if (yearEnd != null && yearEnd < yearStart)
+            {
+                throw new InvalidDataException($"Song {iID} copyrightyearend {yearEnd} is before copyrightyearstart {yearStart}");
+            }
+            DateOnly? noticeDate = GetOptionalDate(songElement, "copyrightnoticedate", objectType);
+            DateOnly? registrationDate = GetOptionalDate(songElement, "copyrightregistrationdate", objectType);
+            string? sRegistrationNumber = GetRegularDataElement(songElement, "copyrightregistrationnumber", objectType, false);
+            if (string.IsNullOrEmpty(sRegistrationNumber))
+            {
+                sRegistrationNumber = null;
+            }
+            CopyrightFlags? flags = null;
+            string? sFlags = GetRegularDataElement(songElement, "copyrightflags", objectType, false);
+            if (!string.IsNullOrEmpty(sFlags))
+            {
+                if (!Enum.TryParse(sFlags, out CopyrightFlags parsedFlags) || int.TryParse(sFlags, out _))
+                {
+                    throw new InvalidDataException($"Invalid song {iID} copyrightflags: {sFlags}");
+                }
+                flags = parsedFlags;
+            }
+
+            Song song = new Song(iID, sTitle, sAuthor, sArtist, sCopyright, yearStart, yearEnd, noticeDate, registrationDate, sRegistrationNumber, flags, sPersonalConnection);
+            foreach (XmlNode docNode in songElement.SelectNodes("documentid") ?? throw new InvalidDataException("song documentid selection failed"))
+            {
+                AttachedDocument? doc = FindAttachedDocument(all, docNode.InnerText, null);
+                if (doc == null)
+                {
+                    throw new InvalidDataException($"Song {iID} has an empty documentid");
+                }
+                if (doc.type != DocumentType.MUSX && doc.type != DocumentType.Dorico)
+                {
+                    throw new InvalidDataException($"Song {iID} document {doc.id} is not a {DocumentType.MUSX} or {DocumentType.Dorico} document");
+                }
+                if (!songDocuments.Add($"{iID},{doc.id}"))
+                {
+                    throw new InvalidDataException($"Song {iID} links to document {doc.id} more than once");
+                }
+                song.documents.Add(doc);
+            }
+            return song;
+        }
+
+        private static string? GetOptionalCDataNode(XmlElement elem, string prop, string objectType)
+        {
+            string? ret = null;
+            if (elem.SelectSingleNode(prop) != null)
+            {
+                ret = GetCDataNode(elem, prop, objectType);
+                if (string.IsNullOrEmpty(ret))
+                {
+                    ret = null;
+                }
+            }
+            return ret;
+        }
+
+        private static int? GetOptionalInt(XmlElement elem, string prop, string objectType)
+        {
+            int? ret = null;
+            string? s = GetRegularDataElement(elem, prop, objectType, false);
+            if (!string.IsNullOrEmpty(s))
+            {
+                if (!int.TryParse(s, NumberStyles.None, CultureInfo.InvariantCulture, out int parsed))
+                {
+                    throw new InvalidDataException($"Invalid {objectType} {prop}: {s}");
+                }
+                ret = parsed;
+            }
+            return ret;
+        }
+
+        private static DateOnly? GetOptionalDate(XmlElement elem, string prop, string objectType)
+        {
+            DateOnly? ret = null;
+            string? s = GetRegularDataElement(elem, prop, objectType, false);
+            if (!string.IsNullOrEmpty(s))
+            {
+                if (!DateOnly.TryParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateOnly parsed))
+                {
+                    throw new InvalidDataException($"Invalid {objectType} {prop} (expected yyyy-MM-dd): {s}");
+                }
+                ret = parsed;
+            }
+            return ret;
+        }
+
         private static void ProcessCopyrightXMLEntry(XmlElement nextElement, ref int order, string objectType, AllData all, List<Copyright> copyrightList)
         {
             int iID = GetObjectID(nextElement, objectType);
@@ -489,7 +617,21 @@ namespace DatabasePopulator
                     throw new InvalidDataException($"Invalid {objectType} video id 2: {sVideoID2}");
                 }
             }
-            copyrightList.Add(new Copyright(iID, iOrd, sSong, sCopyright, v1, v2));
+            Song? song = null;
+            string? sSongID = GetRegularDataElement(nextElement, "songid", objectType, false);
+            if (!string.IsNullOrEmpty(sSongID))
+            {
+                if (copyrightList != all.copyrightsFound)
+                {
+                    throw new InvalidDataException($"{objectType} entries do not support songid");
+                }
+                if (!int.TryParse(sSongID, out int iSongID))
+                {
+                    throw new InvalidDataException($"Invalid {objectType} song id: {sSongID}");
+                }
+                song = all.songs.FirstOrDefault(s => s.id == iSongID) ?? throw new InvalidDataException($"Invalid {objectType} song id found: {iSongID}");
+            }
+            copyrightList.Add(new Copyright(iID, iOrd, sSong, sCopyright, v1, v2, song));
         }
 
         /// <summary>
@@ -879,6 +1021,8 @@ namespace DatabasePopulator
                 }
             }
 
+            SaveSongs(conn, tx, all);
+
             idCols = new List<string>() { "id" };
             dataCols = new List<string>() { "name", "ord" };
             updateStatement = GenerateSQLStatement("performers", idCols, dataCols, true);
@@ -1197,6 +1341,60 @@ namespace DatabasePopulator
             DeleteIDs(conn, tx, "videolist_unexplainablevideos", all.unexplainablevideoIDs, idCols);
         }
 
+        /// <summary>
+        /// Saves songs and their song_documents links. Must run after documents are saved and before copyrights found,
+        /// which reference songs.
+        /// </summary>
+        private static void SaveSongs(NpgsqlConnection conn, NpgsqlTransaction tx, AllData all)
+        {
+            List<string> idCols = new List<string>() { "id" };
+            List<string> dataCols = new List<string>() { "title", "author", "artist", "copyright", "copyrightyearstart", "copyrightyearend", "copyrightnoticedate", "copyrightregistrationdate", "copyrightregistrationnumber", "copyrightflags", "personalconnection" };
+            string updateStatement = GenerateSQLStatement("songs", idCols, dataCols, true);
+            string insertStatement = GenerateSQLStatement("songs", idCols, dataCols, false);
+            foreach (Song s in all.songs)
+            {
+                using (NpgsqlCommand cmd = GetCommand(conn, tx))
+                {
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, s.id);
+                    AddParameter(cmd, "@title", NpgsqlDbType.Varchar, s.title);
+                    AddParameter(cmd, "@author", NpgsqlDbType.Varchar, s.author);
+                    AddParameter(cmd, "@artist", NpgsqlDbType.Varchar, s.artist);
+                    AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, s.copyright);
+                    AddParameter(cmd, "@copyrightyearstart", NpgsqlDbType.Integer, s.copyrightyearstart);
+                    AddParameter(cmd, "@copyrightyearend", NpgsqlDbType.Integer, s.copyrightyearend);
+                    AddParameter(cmd, "@copyrightnoticedate", NpgsqlDbType.Date, s.copyrightnoticedate);
+                    AddParameter(cmd, "@copyrightregistrationdate", NpgsqlDbType.Date, s.copyrightregistrationdate);
+                    AddParameter(cmd, "@copyrightregistrationnumber", NpgsqlDbType.Varchar, s.copyrightregistrationnumber);
+                    AddParameter(cmd, "@copyrightflags", NpgsqlDbType.Integer, s.copyrightflags == null ? null : (int)s.copyrightflags.Value);
+                    AddParameter(cmd, "@personalconnection", NpgsqlDbType.Varchar, s.personalconnection);
+                    bool updateRecord = all.songIDs.Contains(s.id);
+                    cmd.CommandText = updateRecord ? updateStatement : insertStatement;
+                    cmd.ExecuteNonQuery();
+                    if (updateRecord) all.songIDs.Remove(s.id);
+                }
+            }
+            DeleteIDs(conn, tx, "songs", all.songIDs, idCols);
+
+            //the junction table has no data columns, so links are only inserted or deleted
+            string linkInsertStatement = GenerateSQLStatement("song_documents", new List<string>() { "songid", "documentid" }, new List<string>(), false);
+            foreach (Song s in all.songs)
+            {
+                foreach (AttachedDocument d in s.documents)
+                {
+                    string key = s.id + "," + d.id;
+                    if (all.songDocumentIDs.Remove(key)) continue;
+                    using (NpgsqlCommand cmd = GetCommand(conn, tx))
+                    {
+                        AddParameter(cmd, "@songid", NpgsqlDbType.Integer, s.id);
+                        AddParameter(cmd, "@documentid", NpgsqlDbType.Integer, d.id);
+                        cmd.CommandText = linkInsertStatement;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            DeleteIDs2(conn, tx, "song_documents", all.songDocumentIDs, "songid", "documentid");
+        }
+
         private static void SaveExceptionLists(NpgsqlConnection conn, NpgsqlTransaction tx, AllData all)
         {
             int iID;
@@ -1332,6 +1530,10 @@ namespace DatabasePopulator
             }
             List<string> idCols = new List<string>() { "id" };
             List<string> dataCols = new List<string>() { "ord", "song", "copyright", "videoid1", "videoid2" };
+            if (forFound)
+            {
+                dataCols.Add("songid");
+            }
             string updateStatement = GenerateSQLStatement(table, idCols, dataCols, true);
             string insertStatement = GenerateSQLStatement(table, idCols, dataCols, false);
             foreach (Copyright c in lst)
@@ -1346,6 +1548,10 @@ namespace DatabasePopulator
                     AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, c.copyright);
                     AddParameter(cmd, "@videoid1", NpgsqlDbType.Integer, c.video1.id);
                     AddParameter(cmd, "@videoid2", NpgsqlDbType.Integer, c.video2?.id);
+                    if (forFound)
+                    {
+                        AddParameter(cmd, "@songid", NpgsqlDbType.Integer, c.songEntity?.id);
+                    }
                     bool updateRecord = ids.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1681,7 +1887,10 @@ namespace DatabasePopulator
         public HashSet<int> landingPageIDs = new HashSet<int>();
         public HashSet<int> audioIDs = new HashSet<int>();
         public HashSet<string> exceptionlistmemberIDs = new HashSet<string>();
+        public HashSet<int> songIDs = new HashSet<int>();
+        public HashSet<string> songDocumentIDs = new HashSet<string>();
         public List<AttachedDocument> attachedDocuments = new List<AttachedDocument>();
+        public List<Song> songs = new List<Song>();
         public List<Video> videos = new List<Video>();
         public List<NamedEntity> performers = new List<NamedEntity>();
         public List<RuleOfficial> rulesOfficial = new List<RuleOfficial>();
@@ -1943,7 +2152,7 @@ namespace DatabasePopulator
 
     internal class Copyright
     {
-        public Copyright(int id, int ord, string song, string copyright, Video video1, Video? video2)
+        public Copyright(int id, int ord, string song, string copyright, Video video1, Video? video2, Song? songEntity)
         {
             this.id = id;
             this.ord = ord;
@@ -1951,13 +2160,63 @@ namespace DatabasePopulator
             this.copyright = copyright;
             this.video1 = video1;
             this.video2 = video2;
+            this.songEntity = songEntity;
         }
         public int id { get; set; }
         public int ord { get; set; }
+        /// <summary>
+        /// song description HTML
+        /// </summary>
         public string song { get; set; }
         public string copyright { get; set; }
         public Video video1 { get; set; }
         public Video? video2 { get; set; }
+        /// <summary>
+        /// the song record this copyright is for; only copyrights found have one, and it's optional
+        /// </summary>
+        public Song? songEntity { get; set; }
+    }
+
+    internal class Song
+    {
+        public Song(int id, string title, string author, string? artist, string? copyright, int? copyrightyearstart, int? copyrightyearend, DateOnly? copyrightnoticedate, DateOnly? copyrightregistrationdate, string? copyrightregistrationnumber, CopyrightFlags? copyrightflags, string? personalconnection)
+        {
+            this.id = id;
+            this.title = title;
+            this.author = author;
+            this.artist = artist;
+            this.copyright = copyright;
+            this.copyrightyearstart = copyrightyearstart;
+            this.copyrightyearend = copyrightyearend;
+            this.copyrightnoticedate = copyrightnoticedate;
+            this.copyrightregistrationdate = copyrightregistrationdate;
+            this.copyrightregistrationnumber = copyrightregistrationnumber;
+            this.copyrightflags = copyrightflags;
+            this.personalconnection = personalconnection;
+            this.documents = new List<AttachedDocument>();
+        }
+        public int id { get; set; }
+        public string title { get; set; }
+        public string author { get; set; }
+        public string? artist { get; set; }
+        /// <summary>
+        /// copyright holder
+        /// </summary>
+        public string? copyright { get; set; }
+        public int? copyrightyearstart { get; set; }
+        /// <summary>
+        /// last year of the copyright year range, set only when the copyright year is a range
+        /// </summary>
+        public int? copyrightyearend { get; set; }
+        public DateOnly? copyrightnoticedate { get; set; }
+        public DateOnly? copyrightregistrationdate { get; set; }
+        public string? copyrightregistrationnumber { get; set; }
+        public CopyrightFlags? copyrightflags { get; set; }
+        public string? personalconnection { get; set; }
+        /// <summary>
+        /// MUSX and Dorico documents for the song, saved to the song_documents junction table
+        /// </summary>
+        public List<AttachedDocument> documents { get; set; }
     }
 
     internal class Complaint
@@ -2058,6 +2317,15 @@ namespace DatabasePopulator
         None = 0,
         Transcript = 1,
         Commentary = 2
+    }
+
+    [Flags]
+    public enum CopyrightFlags
+    {
+        None = 0,
+        AllRightsReserved = 1,
+        InternationalCopyrightSecured = 2,
+        PublicDomain = 4,
     }
 
     public enum LyricsAnalysisLocation

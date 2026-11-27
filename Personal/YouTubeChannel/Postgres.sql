@@ -49,6 +49,36 @@ BEGIN
 		ON DELETE SET NULL;
 	END IF;
 END $$;
+CREATE TABLE IF NOT EXISTS public.songs
+(
+	id integer NOT NULL,
+	title character varying COLLATE pg_catalog."default" NOT NULL,
+	author character varying COLLATE pg_catalog."default" NOT NULL,
+	artist character varying COLLATE pg_catalog."default" NULL,
+	copyright character varying COLLATE pg_catalog."default" NULL,
+	copyrightyearstart integer NULL,
+	copyrightyearend integer NULL,
+	copyrightnoticedate date NULL,
+	copyrightregistrationdate date NULL,
+	copyrightregistrationnumber character varying COLLATE pg_catalog."default" NULL,
+	copyrightflags integer NULL, --flags: 1=AllRightsReserved, 2=InternationalCopyrightSecured, 4=PublicDomain
+	personalconnection character varying COLLATE pg_catalog."default" NULL,
+	CONSTRAINT pk_songs PRIMARY KEY (id)
+);
+CREATE TABLE IF NOT EXISTS public.song_documents
+(
+	songid integer NOT NULL,
+	documentid integer NOT NULL,
+	CONSTRAINT pk_song_documents PRIMARY KEY (songid, documentid),
+	CONSTRAINT fk_song_documents_song FOREIGN KEY (songid)
+    REFERENCES public.songs (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE,
+	CONSTRAINT fk_song_documents_document FOREIGN KEY (documentid)
+    REFERENCES public.documents (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE
+);
 CREATE TABLE IF NOT EXISTS public.performers
 (
     id integer NOT NULL,
@@ -164,7 +194,12 @@ CREATE TABLE IF NOT EXISTS public.copyrights_found
 	copyright character varying COLLATE pg_catalog."default" NOT NULL,
 	videoid1 integer NOT NULL,
 	videoid2 integer NULL,
+	songid integer NULL,
     CONSTRAINT pk_copyrights_found PRIMARY KEY (id),
+	CONSTRAINT fk_copyrights_found_song FOREIGN KEY (songid)
+    REFERENCES public.songs (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE SET NULL,
 	CONSTRAINT fk_copyrights_found_video1 FOREIGN KEY (videoid1)
     REFERENCES public.videos (id) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -310,6 +345,8 @@ CREATE TABLE IF NOT EXISTS public.videolist_musicvideos
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.videos OWNER to postgres;
+ALTER TABLE IF EXISTS public.songs OWNER to postgres;
+ALTER TABLE IF EXISTS public.song_documents OWNER to postgres;
 ALTER TABLE IF EXISTS public.performers OWNER to postgres;
 ALTER TABLE IF EXISTS public.dates OWNER to postgres;
 ALTER TABLE IF EXISTS public.complaints OWNER to postgres;
@@ -397,6 +434,14 @@ CREATE INDEX IF NOT EXISTS fki_fk_lyrics_analyses_video
 CREATE INDEX IF NOT EXISTS fki_fk_complaints_video
     ON public.complaints USING btree
     (videoid ASC NULLS LAST)
+    TABLESPACE pg_default;
+CREATE INDEX IF NOT EXISTS fki_fk_song_documents_document
+    ON public.song_documents USING btree
+    (documentid ASC NULLS LAST)
+    TABLESPACE pg_default;
+CREATE INDEX IF NOT EXISTS fki_fk_copyrights_found_song
+    ON public.copyrights_found USING btree
+    (songid ASC NULLS LAST)
     TABLESPACE pg_default;
 CREATE INDEX IF NOT EXISTS fki_fk_copyrights_found_video1
     ON public.copyrights_found USING btree
