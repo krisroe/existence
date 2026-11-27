@@ -209,9 +209,9 @@ namespace DatabasePopulator
                                 throw new InvalidDataException($"Invalid video publishtimestamp value: {sPublishTimestamp}");
                             }
                         }
-                        AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, all, usedDocuments);
-                        AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, all, usedDocuments);
-                        AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, all, usedDocuments);
+                        AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, iID, all, usedDocuments);
+                        AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, iID, all, usedDocuments);
+                        AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, iID, all, usedDocuments);
                         all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, publishTimestamp, additionalTextDoc, musxDoc, doricoDoc));
                     }
                     else if (nodeName == "performer")
@@ -495,8 +495,9 @@ namespace DatabasePopulator
         /// <summary>
         /// Gets a document referenced by a video. Each document normally belongs to exactly one video; a reference marked
         /// shared="true" points to a document that belongs to another video and is not counted as that document's use.
+        /// The video a document belongs to becomes its <see cref="AttachedDocument.primaryvideoid"/>.
         /// </summary>
-        private static AttachedDocument? GetVideoDocument(XmlElement videoElement, string elementName, DocumentType expectedType, AllData all, HashSet<int> usedDocuments)
+        private static AttachedDocument? GetVideoDocument(XmlElement videoElement, string elementName, DocumentType expectedType, int videoID, AllData all, HashSet<int> usedDocuments)
         {
             AttachedDocument? doc = null;
             XmlElement? subelem = videoElement.SelectSingleNode(elementName) as XmlElement;
@@ -512,6 +513,10 @@ namespace DatabasePopulator
                 if (doc != null && doc.type != expectedType)
                 {
                     throw new InvalidDataException($"Video {elementName} {doc.id} is not a {expectedType} document");
+                }
+                if (doc != null && !bShared)
+                {
+                    doc.primaryvideoid = videoID;
                 }
             }
             return doc;
@@ -860,6 +865,19 @@ namespace DatabasePopulator
                 }
             }
             DeleteIDs(conn, tx, "videos", all.videoIDs, idCols);
+
+            //documents and videos reference each other, so each document's primary video can only be set once the videos are saved
+            updateStatement = GenerateSQLStatement("documents", new List<string>() { "id" }, new List<string>() { "primaryvideoid" }, true);
+            foreach (AttachedDocument d in all.attachedDocuments)
+            {
+                using (NpgsqlCommand cmd = GetCommand(conn, tx))
+                {
+                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, d.id);
+                    AddParameter(cmd, "@primaryvideoid", NpgsqlDbType.Integer, d.primaryvideoid);
+                    cmd.CommandText = updateStatement;
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
             idCols = new List<string>() { "id" };
             dataCols = new List<string>() { "name", "ord" };
@@ -2070,5 +2088,9 @@ namespace DatabasePopulator
         /// whether a MUSX or Dorico document supports playback; null if unknown or not applicable
         /// </summary>
         public bool? supportsplayback { get; set; }
+        /// <summary>
+        /// ID of the video the document belongs to: the one that references it without shared="true"
+        /// </summary>
+        public int? primaryvideoid { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+ALTER TABLE documents DROP CONSTRAINT IF EXISTS fk_documents_primaryvideoid;
 DROP TABLE videolist_mainline;
 DROP TABLE videolist_kidzvideos;
 DROP TABLE videolist_musicvideos;
