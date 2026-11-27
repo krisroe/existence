@@ -496,7 +496,7 @@ namespace DatabasePopulator
                 throw new InvalidDataException($"Song {iID} has no author");
             }
             string? sArtist = GetOptionalCDataNode(songElement, "artist", objectType);
-            string? sCopyright = GetOptionalCDataNode(songElement, "copyright", objectType);
+            string? sCopyrightHolder = GetOptionalCDataNode(songElement, "copyrightholder", objectType);
             string? sPersonalConnection = GetOptionalCDataNode(songElement, "personalconnection", objectType);
             int? yearStart = GetOptionalInt(songElement, "copyrightyearstart", objectType);
             int? yearEnd = GetOptionalInt(songElement, "copyrightyearend", objectType);
@@ -509,11 +509,18 @@ namespace DatabasePopulator
                 throw new InvalidDataException($"Song {iID} copyrightyearend {yearEnd} is before copyrightyearstart {yearStart}");
             }
             DateOnly? noticeDate = GetOptionalDate(songElement, "copyrightnoticedate", objectType);
+            DateOnly? publicationDate = GetOptionalDate(songElement, "publicationdate", objectType);
             DateOnly? registrationDate = GetOptionalDate(songElement, "copyrightregistrationdate", objectType);
+            ValidateSongDate(iID, "publicationdate", publicationDate, noticeDate, yearStart);
+            ValidateSongDate(iID, "copyrightregistrationdate", registrationDate, noticeDate, yearStart);
             string? sRegistrationNumber = GetRegularDataElement(songElement, "copyrightregistrationnumber", objectType, false);
             if (string.IsNullOrEmpty(sRegistrationNumber))
             {
                 sRegistrationNumber = null;
+            }
+            if ((registrationDate == null) != (sRegistrationNumber == null))
+            {
+                throw new InvalidDataException($"Song {iID} must have both a copyrightregistrationdate and a copyrightregistrationnumber, or neither");
             }
             CopyrightFlags? flags = null;
             string? sFlags = GetRegularDataElement(songElement, "copyrightflags", objectType, false);
@@ -526,7 +533,7 @@ namespace DatabasePopulator
                 flags = parsedFlags;
             }
 
-            Song song = new Song(iID, ord, sTitle, sAuthor, sArtist, sCopyright, yearStart, yearEnd, noticeDate, registrationDate, sRegistrationNumber, flags, sPersonalConnection);
+            Song song = new Song(iID, ord, sTitle, sAuthor, sArtist, sCopyrightHolder, yearStart, yearEnd, noticeDate, publicationDate, registrationDate, sRegistrationNumber, flags, sPersonalConnection);
             foreach (XmlNode docNode in songElement.SelectNodes("documentid") ?? throw new InvalidDataException("song documentid selection failed"))
             {
                 AttachedDocument? doc = FindAttachedDocument(all, docNode.InnerText, null);
@@ -545,6 +552,30 @@ namespace DatabasePopulator
                 song.documents.Add(doc);
             }
             return song;
+        }
+
+        /// <summary>
+        /// Checks that a song's publication or registration date isn't before its copyright notice date, and that its
+        /// year isn't before the copyright start year.
+        /// </summary>
+        /// <param name="songID">song id, for error messages</param>
+        /// <param name="prop">name of the date's element, for error messages</param>
+        /// <param name="date">date to check; nothing is checked when it's null</param>
+        /// <param name="noticeDate">copyright notice date, if any</param>
+        /// <param name="yearStart">copyright start year, if any</param>
+        private static void ValidateSongDate(int songID, string prop, DateOnly? date, DateOnly? noticeDate, int? yearStart)
+        {
+            if (date != null)
+            {
+                if (noticeDate != null && date < noticeDate)
+                {
+                    throw new InvalidDataException($"Song {songID} {prop} {date:yyyy-MM-dd} is before its copyrightnoticedate {noticeDate:yyyy-MM-dd}");
+                }
+                if (yearStart != null && date.Value.Year < yearStart)
+                {
+                    throw new InvalidDataException($"Song {songID} {prop} {date:yyyy-MM-dd} is before its copyrightyearstart {yearStart}");
+                }
+            }
         }
 
         private static string? GetOptionalCDataNode(XmlElement elem, string prop, string objectType)
@@ -597,8 +628,22 @@ namespace DatabasePopulator
             int iOrd = ++order;
             string sVideoID1 = GetRegularDataElement(nextElement, "videoid1", objectType);
             string sVideoID2 = GetRegularDataElement(nextElement, "videoid2", objectType);
-            string sSong = GetCDataNode(nextElement, "song", objectType);
-            string sCopyright = GetCDataNode(nextElement, "copyright", objectType);
+            bool songRequired = copyrightList == all.copyrightsFound;
+            //copyrights found get their song and copyright text from their song record
+            string? sSong = null;
+            string? sCopyright = null;
+            if (songRequired)
+            {
+                if (nextElement.SelectSingleNode("song") != null || nextElement.SelectSingleNode("copyright") != null)
+                {
+                    throw new InvalidDataException($"{objectType} {iID} should not have song or copyright elements; they come from its songid");
+                }
+            }
+            else
+            {
+                sSong = GetCDataNode(nextElement, "song", objectType);
+                sCopyright = GetCDataNode(nextElement, "copyright", objectType);
+            }
             int iVideoID1, iVideoID2;
             Video v1;
             if (int.TryParse(sVideoID1, out iVideoID1))
@@ -622,7 +667,6 @@ namespace DatabasePopulator
                 }
             }
             Song? song = null;
-            bool songRequired = copyrightList == all.copyrightsFound;
             string? sSongID = GetRegularDataElement(nextElement, "songid", objectType, false);
             if (!string.IsNullOrEmpty(sSongID))
             {
@@ -1340,7 +1384,7 @@ namespace DatabasePopulator
         private static void SaveSongs(NpgsqlConnection conn, NpgsqlTransaction tx, AllData all)
         {
             List<string> idCols = new List<string>() { "id" };
-            List<string> dataCols = new List<string>() { "ord", "title", "author", "artist", "copyright", "copyrightyearstart", "copyrightyearend", "copyrightnoticedate", "copyrightregistrationdate", "copyrightregistrationnumber", "copyrightflags", "personalconnection" };
+            List<string> dataCols = new List<string>() { "ord", "title", "author", "artist", "copyrightholder", "copyrightyearstart", "copyrightyearend", "copyrightnoticedate", "publicationdate", "copyrightregistrationdate", "copyrightregistrationnumber", "copyrightflags", "personalconnection" };
             string updateStatement = GenerateSQLStatement("songs", idCols, dataCols, true);
             string insertStatement = GenerateSQLStatement("songs", idCols, dataCols, false);
             foreach (Song s in all.songs)
@@ -1352,10 +1396,11 @@ namespace DatabasePopulator
                     AddParameter(cmd, "@title", NpgsqlDbType.Varchar, s.title);
                     AddParameter(cmd, "@author", NpgsqlDbType.Varchar, s.author);
                     AddParameter(cmd, "@artist", NpgsqlDbType.Varchar, s.artist);
-                    AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, s.copyright);
+                    AddParameter(cmd, "@copyrightholder", NpgsqlDbType.Varchar, s.copyrightholder);
                     AddParameter(cmd, "@copyrightyearstart", NpgsqlDbType.Integer, s.copyrightyearstart);
                     AddParameter(cmd, "@copyrightyearend", NpgsqlDbType.Integer, s.copyrightyearend);
                     AddParameter(cmd, "@copyrightnoticedate", NpgsqlDbType.Date, s.copyrightnoticedate);
+                    AddParameter(cmd, "@publicationdate", NpgsqlDbType.Date, s.publicationdate);
                     AddParameter(cmd, "@copyrightregistrationdate", NpgsqlDbType.Date, s.copyrightregistrationdate);
                     AddParameter(cmd, "@copyrightregistrationnumber", NpgsqlDbType.Varchar, s.copyrightregistrationnumber);
                     AddParameter(cmd, "@copyrightflags", NpgsqlDbType.Integer, s.copyrightflags == null ? null : (int)s.copyrightflags.Value);
@@ -1522,10 +1567,15 @@ namespace DatabasePopulator
                 lst = all.copyrightsMissing;
             }
             List<string> idCols = new List<string>() { "id" };
-            List<string> dataCols = new List<string>() { "ord", "song", "copyright", "videoid1", "videoid2" };
+            List<string> dataCols = new List<string>() { "ord", "videoid1", "videoid2" };
             if (forFound)
             {
                 dataCols.Add("songid");
+            }
+            else
+            {
+                dataCols.Add("song");
+                dataCols.Add("copyright");
             }
             string updateStatement = GenerateSQLStatement(table, idCols, dataCols, true);
             string insertStatement = GenerateSQLStatement(table, idCols, dataCols, false);
@@ -1537,13 +1587,16 @@ namespace DatabasePopulator
                     iID = c.id;
                     AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
                     AddParameter(cmd, "@ord", NpgsqlDbType.Integer, c.ord);
-                    AddParameter(cmd, "@song", NpgsqlDbType.Varchar, c.song);
-                    AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, c.copyright);
                     AddParameter(cmd, "@videoid1", NpgsqlDbType.Integer, c.video1.id);
                     AddParameter(cmd, "@videoid2", NpgsqlDbType.Integer, c.video2?.id);
                     if (forFound)
                     {
                         AddParameter(cmd, "@songid", NpgsqlDbType.Integer, c.songEntity?.id);
+                    }
+                    else
+                    {
+                        AddParameter(cmd, "@song", NpgsqlDbType.Varchar, c.song);
+                        AddParameter(cmd, "@copyright", NpgsqlDbType.Varchar, c.copyright);
                     }
                     bool updateRecord = ids.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
@@ -2145,7 +2198,7 @@ namespace DatabasePopulator
 
     internal class Copyright
     {
-        public Copyright(int id, int ord, string song, string copyright, Video video1, Video? video2, Song? songEntity)
+        public Copyright(int id, int ord, string? song, string? copyright, Video video1, Video? video2, Song? songEntity)
         {
             this.id = id;
             this.ord = ord;
@@ -2158,10 +2211,13 @@ namespace DatabasePopulator
         public int id { get; set; }
         public int ord { get; set; }
         /// <summary>
-        /// song description HTML
+        /// song description HTML; copyrights missing only, since copyrights found use <see cref="songEntity"/>
         /// </summary>
-        public string song { get; set; }
-        public string copyright { get; set; }
+        public string? song { get; set; }
+        /// <summary>
+        /// copyright HTML; copyrights missing only, since copyrights found use <see cref="songEntity"/>
+        /// </summary>
+        public string? copyright { get; set; }
         public Video video1 { get; set; }
         public Video? video2 { get; set; }
         /// <summary>
@@ -2172,17 +2228,18 @@ namespace DatabasePopulator
 
     internal class Song
     {
-        public Song(int id, int ord, string title, string author, string? artist, string? copyright, int? copyrightyearstart, int? copyrightyearend, DateOnly? copyrightnoticedate, DateOnly? copyrightregistrationdate, string? copyrightregistrationnumber, CopyrightFlags? copyrightflags, string? personalconnection)
+        public Song(int id, int ord, string title, string author, string? artist, string? copyrightholder, int? copyrightyearstart, int? copyrightyearend, DateOnly? copyrightnoticedate, DateOnly? publicationdate, DateOnly? copyrightregistrationdate, string? copyrightregistrationnumber, CopyrightFlags? copyrightflags, string? personalconnection)
         {
             this.id = id;
             this.ord = ord;
             this.title = title;
             this.author = author;
             this.artist = artist;
-            this.copyright = copyright;
+            this.copyrightholder = copyrightholder;
             this.copyrightyearstart = copyrightyearstart;
             this.copyrightyearend = copyrightyearend;
             this.copyrightnoticedate = copyrightnoticedate;
+            this.publicationdate = publicationdate;
             this.copyrightregistrationdate = copyrightregistrationdate;
             this.copyrightregistrationnumber = copyrightregistrationnumber;
             this.copyrightflags = copyrightflags;
@@ -2194,16 +2251,17 @@ namespace DatabasePopulator
         public string title { get; set; }
         public string author { get; set; }
         public string? artist { get; set; }
-        /// <summary>
-        /// copyright holder
-        /// </summary>
-        public string? copyright { get; set; }
+        public string? copyrightholder { get; set; }
         public int? copyrightyearstart { get; set; }
         /// <summary>
         /// last year of the copyright year range, set only when the copyright year is a range
         /// </summary>
         public int? copyrightyearend { get; set; }
         public DateOnly? copyrightnoticedate { get; set; }
+        /// <summary>
+        /// publication date from the US copyright public record
+        /// </summary>
+        public DateOnly? publicationdate { get; set; }
         public DateOnly? copyrightregistrationdate { get; set; }
         public string? copyrightregistrationnumber { get; set; }
         public CopyrightFlags? copyrightflags { get; set; }

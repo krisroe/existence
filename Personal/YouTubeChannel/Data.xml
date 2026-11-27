@@ -155,8 +155,9 @@
   <id>1</id>
   <title><![CDATA[Rainbow Connection]]></title>
   <author><![CDATA[Lyrics and Music by Paul Williams and Kenny Ascher]]></author>
-  <copyright><![CDATA[Henson Associates, Inc.]]></copyright>
+  <copyrightholder><![CDATA[Henson Associates, Inc.]]></copyrightholder>
   <copyrightyearstart>1979</copyrightyearstart>
+  <publicationdate>1979-06-22</publicationdate>
   <copyrightregistrationdate>1979-07-31</copyrightregistrationdate>
   <copyrightregistrationnumber>SR0000010909</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
@@ -174,9 +175,10 @@
   <id>3</id>
   <title><![CDATA[How Far I'll Go]]></title>
   <author><![CDATA[Lyrics and Music by Lin-Manuel Miranda]]></author>
-  <copyright><![CDATA[Walt Disney Music Company]]></copyright>
+  <copyrightholder><![CDATA[Walt Disney Music Company]]></copyrightholder>
   <copyrightyearstart>2016</copyrightyearstart>
-  <copyrightregistrationdate>2016-10-28</copyrightregistrationdate>
+  <publicationdate>2016-10-28</publicationdate>
+  <copyrightregistrationdate>2019-08-13</copyrightregistrationdate>
   <copyrightregistrationnumber>PA0002210560</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
   <personalconnection><![CDATA[split vocals/piano, transcribed to Finale]]></personalconnection>
@@ -186,8 +188,9 @@
   <id>4</id>
   <title><![CDATA[Anti-Hero]]></title>
   <author><![CDATA[Original Lyrics and Music by Taylor Swift and Jack Antonoff]]></author>
-  <copyright><![CDATA[TASRM Publishing]]></copyright>
+  <copyrightholder><![CDATA[TASRM Publishing]]></copyrightholder>
   <copyrightyearstart>2022</copyrightyearstart>
+  <publicationdate>2022-10-21</publicationdate>
   <copyrightregistrationdate>2022-12-08</copyrightregistrationdate>
   <copyrightregistrationnumber>PA0002390184</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
@@ -199,8 +202,9 @@
   <id>5</id>
   <title><![CDATA[Complicated]]></title>
   <author><![CDATA[By Avril Lavigne, Lauren Christy, Graham Edwards, David Alspach]]></author>
-  <copyright><![CDATA[Almo Music Corporation et al]]></copyright>
+  <copyrightholder><![CDATA[Almo Music Corporation et al]]></copyrightholder>
   <copyrightyearstart>2002</copyrightyearstart>
+  <publicationdate>2002-06-04</publicationdate>
   <copyrightregistrationdate>2002-07-22</copyrightregistrationdate>
   <copyrightregistrationnumber>PA0001101506</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
@@ -211,9 +215,9 @@
   <id>6</id>
   <title><![CDATA[Let it Go]]></title>
   <author><![CDATA[Music and Lyrics by Kristen Anderson-Lopez and Robert Lopez]]></author>
-  <copyright><![CDATA[Wonderland Music Company, Inc.]]></copyright>
+  <copyrightholder><![CDATA[Wonderland Music Company, Inc.]]></copyrightholder>
   <copyrightyearstart>2013</copyrightyearstart>
-  <copyrightnoticedate>2013-10-21</copyrightnoticedate>
+  <publicationdate>2013-10-21</publicationdate>
   <copyrightregistrationdate>2018-07-11</copyrightregistrationdate>
   <copyrightregistrationnumber>PA0002160548</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
@@ -224,7 +228,7 @@
   <id>7</id>
   <title><![CDATA[Cat's in the Cradle]]></title>
   <author><![CDATA[Music and Lyrics by Harry Chapin and Sandy Chapin]]></author>
-  <copyright><![CDATA[Story Songs, Ltd.]]></copyright>
+  <copyrightholder><![CDATA[Story Songs, Ltd.]]></copyrightholder>
   <copyrightyearstart>1974</copyrightyearstart>
   <copyrightnoticedate>1974-08-01</copyrightnoticedate>
   <copyrightregistrationdate>1974-10-17</copyrightregistrationdate>
@@ -237,9 +241,10 @@
   <title><![CDATA[Never Gonna Give You Up]]></title>
   <author><![CDATA[Words and Music by Mike Stock, Matt Aitken, Pete Waterman]]></author>
   <artist><![CDATA[Performed by Rick Astley and target of countless Rickrolls]]></artist>
-  <copyright><![CDATA[Sony/ATV Music Publishing, All Boys Music Ltd.]]></copyright>
+  <copyrightholder><![CDATA[Sony/ATV Music Publishing, All Boys Music Ltd.]]></copyrightholder>
   <copyrightyearstart>1986</copyrightyearstart>
   <copyrightyearend>1987</copyrightyearend>
+  <publicationdate>1986-10-01</publicationdate>
   <copyrightregistrationdate>1988-06-21</copyrightregistrationdate>
   <copyrightregistrationnumber>PA0000375327</copyrightregistrationnumber>
   <copyrightflags>AllRightsReserved</copyrightflags>
@@ -249,7 +254,7 @@
   <id>9</id>
   <title><![CDATA[Jazz, Rags & Blues, Book 1]]></title>
   <author><![CDATA[Martha Mier]]></author>
-  <copyright><![CDATA[Alfred Music]]></copyright>
+  <copyrightholder><![CDATA[Alfred Music]]></copyrightholder>
   <copyrightyearstart>1993</copyrightyearstart>
   <copyrightregistrationdate>1993-10-03</copyrightregistrationdate>
   <copyrightregistrationnumber>V3529D411</copyrightregistrationnumber>
@@ -262,12 +267,13 @@
   <title><![CDATA[]]></title>
   <author><![CDATA[]]></author>
   <artist><![CDATA[]]></artist> (optional)
-  <copyright><![CDATA[]]></copyright> (optional, copyright holder)
+  <copyrightholder><![CDATA[]]></copyrightholder> (optional)
   <copyrightyearstart>yyyy</copyrightyearstart> (optional)
   <copyrightyearend>yyyy</copyrightyearend> (optional, only when the copyright year is a range; requires copyrightyearstart)
   <copyrightnoticedate>yyyy-MM-dd</copyrightnoticedate> (optional)
-  <copyrightregistrationdate>yyyy-MM-dd</copyrightregistrationdate> (optional)
-  <copyrightregistrationnumber>XYZ</copyrightregistrationnumber> (optional)
+  <publicationdate>yyyy-MM-dd</publicationdate> (optional)
+  <copyrightregistrationdate>yyyy-MM-dd</copyrightregistrationdate> (optional, requires copyrightregistrationnumber)
+  <copyrightregistrationnumber>XYZ</copyrightregistrationnumber> (optional, requires copyrightregistrationdate)
   <copyrightflags>AllRightsReserved,InternationalCopyrightSecured,PublicDomain</copyrightflags> (optional)
   <personalconnection><![CDATA[]]></personalconnection> (optional)
   <documentid>A</documentid> (zero or more MUSX/Dorico documents)
@@ -1191,64 +1197,48 @@
  -->
  <copyrightfound>
   <id>1</id>
-  <song><![CDATA[Rainbow Connection<br/>Lyrics and Music by Paul Williams and Kenny Ascher<br/>I syncopated, split vocals/piano, transcribed to Finale]]></song>
-  <copyright><![CDATA[1979-07-31 Henson Associates, Inc. All rights reserved (SR0000010909)]]></copyright>
   <videoid1>2</videoid1>
   <videoid2>13</videoid2>
   <songid>1</songid>
  </copyrightfound>
  <copyrightfound>
   <id>2</id>
-  <song><![CDATA[Piano lesson book: Jazz rags & blues 1/pno.]]></song>
-  <copyright><![CDATA[1993-10-03 Alfred Music. All rights reserved. (V3529D411)]]></copyright>
   <videoid1>9</videoid1>
   <videoid2></videoid2>
   <songid>9</songid>
  </copyrightfound>
  <copyrightfound>
   <id>3</id>
-  <song><![CDATA[Complicated<br/>By Avril Lavigne, Lauren Christy, Graham Edwards, David Alspach<br/>I parodied from musicnotes.com MN0128885]]></song>
-  <copyright><![CDATA[2002-07-22 Almo Music Corporation etall. All rights reserved. (PA0001101506)]]></copyright>
   <videoid1>7</videoid1>
   <videoid2></videoid2>
   <songid>5</songid>
  </copyrightfound>
  <copyrightfound>
   <id>4</id>
-  <song><![CDATA[How Far I'll Go<br/>Lyrics and Music by Lin-Manuel Miranda<br/>I split vocals/piano, transcribed to Finale]]></song>
-  <copyright><![CDATA[2016-10-28 Walt Disney Music Company. All rights reserved (PA0002210560)]]></copyright>
   <videoid1>5</videoid1>
   <videoid2></videoid2>
   <songid>3</songid>
  </copyrightfound>
  <copyrightfound>
   <id>5</id>
-  <song><![CDATA[Anti-Hero<br/>Original Lyrics and Music by Taylor Swift and Jack Antonoff<br/>I reinterpreted from musicnotes.com MN0264688]]></song>
-  <copyright><![CDATA[2022-12-08 TASRM Publishing. All rights reserved. (PA0002390184)]]></copyright>
   <videoid1>6</videoid1>
   <videoid2></videoid2>
   <songid>4</songid>
  </copyrightfound>
  <copyrightfound>
   <id>6</id>
-  <song><![CDATA[Let it Go<br/>Music and Lyrics by Kristen Anderson-Lopez and Robert Lopez<br/>Started from Frozen: Music from the Motion Picture Soundtrack]]></song>
-  <copyright><![CDATA[Notice 2013-10-21 Wonderland Music Company, Inc. (PA0002160548 2018-07-11). All rights reserved.]]></copyright>
   <videoid1>14</videoid1>
   <videoid2></videoid2>
   <songid>6</songid>
  </copyrightfound>
  <copyrightfound>
   <id>7</id>
-  <song><![CDATA[Cat's in the Cradle</br>Music and Lyrics by Harry Chapin and Sandy Chapin]]></song>
-  <copyright><![CDATA[Registration 1974-10-17 (EP0000330808) Story Songs, Ltd. Registration. Notice 1974-08-01. All rights reserved.]]></copyright>
   <videoid1>17</videoid1>
   <videoid2></videoid2>
   <songid>7</songid>
  </copyrightfound>
  <copyrightfound>
   <id>8</id>
-  <song><![CDATA[Never Gonna Give You Up</br>Performed by Rick Astley and target of countless Rickrolls]]></song>
-  <copyright><![CDATA[1986/1987 Sony/ATV Music Publishing, All Boys Music Ltd. PA0000375327, registered 1988-06-21. All rights reserved.]]></copyright>
   <videoid1>18</videoid1>
   <videoid2></videoid2>
   <songid>8</songid>
@@ -1257,8 +1247,6 @@
  <!--
  <copyrightfound>
   <id>X</id>
-  <song><![CDATA[]]></song>
-  <copyright><![CDATA[]]></copyright>
   <videoid1></videoid1>
   <videoid2></videoid2>
   <songid></songid>

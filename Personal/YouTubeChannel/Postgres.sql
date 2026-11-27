@@ -47,15 +47,17 @@ CREATE TABLE IF NOT EXISTS public.songs
 	title character varying COLLATE pg_catalog."default" NOT NULL,
 	author character varying COLLATE pg_catalog."default" NOT NULL,
 	artist character varying COLLATE pg_catalog."default" NULL,
-	copyright character varying COLLATE pg_catalog."default" NULL,
+	copyrightholder character varying COLLATE pg_catalog."default" NULL,
 	copyrightyearstart integer NULL,
 	copyrightyearend integer NULL,
 	copyrightnoticedate date NULL,
+	publicationdate date NULL,
 	copyrightregistrationdate date NULL,
 	copyrightregistrationnumber character varying COLLATE pg_catalog."default" NULL,
 	copyrightflags integer NULL, --flags: 1=AllRightsReserved, 2=InternationalCopyrightSecured, 4=PublicDomain
 	personalconnection character varying COLLATE pg_catalog."default" NULL,
-	CONSTRAINT pk_songs PRIMARY KEY (id)
+	CONSTRAINT pk_songs PRIMARY KEY (id),
+	CONSTRAINT songs_chk_registration CHECK ((copyrightregistrationdate IS NULL) = (copyrightregistrationnumber IS NULL)) --registration date and number go together
 );
 CREATE TABLE IF NOT EXISTS public.song_documents
 (
@@ -182,8 +184,6 @@ CREATE TABLE IF NOT EXISTS public.copyrights_found
 (
     id integer NOT NULL,
     ord integer NOT NULL,
-    song character varying COLLATE pg_catalog."default" NOT NULL,
-	copyright character varying COLLATE pg_catalog."default" NOT NULL,
 	videoid1 integer NOT NULL,
 	videoid2 integer NULL,
 	songid integer NOT NULL,
