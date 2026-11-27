@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using NpgsqlTypes;
+using System.Globalization;
 using System.Text;
 using System.Xml;
 namespace DatabasePopulator
@@ -196,10 +197,20 @@ namespace DatabasePopulator
                         {
                             throw new InvalidDataException("Invalid video isprivate value: " + sIsPrivate);
                         }
+                        string? sPublishTimestamp = GetRegularDataElement(nextElement, "publishtimestamp", "video", false);
+                        DateTime? publishTimestamp = null;
+                        if (sPublishTimestamp != null)
+                        {
+                            publishTimestamp = ParsePublishTimestamp(sPublishTimestamp);
+                            if (publishTimestamp == null)
+                            {
+                                throw new InvalidDataException("Invalid video publishtimestamp value: " + sPublishTimestamp);
+                            }
+                        }
                         AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, all, usedDocuments);
                         AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, all, usedDocuments);
                         AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, all, usedDocuments);
-                        all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, additionalTextDoc, musxDoc, doricoDoc));
+                        all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, publishTimestamp, additionalTextDoc, musxDoc, doricoDoc));
                     }
                     else if (nodeName == "performer")
                     {
@@ -345,6 +356,7 @@ namespace DatabasePopulator
             ncsb.Password = password;
             ncsb.Database = dbName;
 
+            Dictionary<int, DateTime> databasePublishTimestamps = new Dictionary<int, DateTime>();
             using (NpgsqlConnection conn = new NpgsqlConnection(ncsb.ToString()))
             {
                 conn.Open();
@@ -372,7 +384,11 @@ namespace DatabasePopulator
                         GetIDs(conn, tx, "exception_list_member_types", all.exceptionlistmembertypeIDs, "id");
                         GetIDs(conn, tx, "exception_lists", all.exceptionListIDs, "id");
                         GetIDs2(conn, tx, "exception_list_members", all.exceptionlistmemberIDs, "exceptionlistid", "ord");
-                        SaveData(all, conn, tx);
+                        SaveData(all, conn, tx, local);
+                        if (!local)
+                        {
+                            GetPublishTimestamps(conn, tx, databasePublishTimestamps);
+                        }
                         tx.Commit();
                     }
                     catch (Exception ex)
@@ -381,6 +397,19 @@ namespace DatabasePopulator
                         Console.Error.WriteLine("Transaction rolled back: " + ex.ToString());
                         return -1;
                     }
+                }
+            }
+
+            if (!local)
+            {
+                try
+                {
+                    CopyPublishTimestampsToXml(inputFile, all, databasePublishTimestamps);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine("Database was updated, but copying publish timestamps to the XML file failed: " + ex.ToString());
+                    return -1;
                 }
             }
 
@@ -578,24 +607,26 @@ namespace DatabasePopulator
                     string sVideoID = string.Empty;
                     foreach (XmlNode propNode in nextElement.ChildNodes)
                     {
-                        if (!CheckForValidXmlElement(nextNode)) continue;
-                        XmlElement propElement = (XmlElement)propNode;
-                        string propName = propElement.Name;
-                        if (propName == "categoryid")
+                        if (CheckForValidXmlElement(propNode))
                         {
-                            sCategoryID = propElement.InnerText;
-                        }
-                        else if (propName == "name")
-                        {
-                            sName = propElement.InnerText;
-                        }
-                        else if (propName == "videoid")
-                        {
-                            sVideoID = propElement.InnerText;
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("Invalid exception list property: " + propName);
+                            XmlElement propElement = (XmlElement)propNode;
+                            string propName = propElement.Name;
+                            if (propName == "categoryid")
+                            {
+                                sCategoryID = propElement.InnerText;
+                            }
+                            else if (propName == "name")
+                            {
+                                sName = propElement.InnerText;
+                            }
+                            else if (propName == "videoid")
+                            {
+                                sVideoID = propElement.InnerText;
+                            }
+                            else
+                            {
+                                throw new InvalidDataException($"Invalid exception list property: {propName}");
+                            }
                         }
                     }
                     if (string.IsNullOrEmpty(sCategoryID)) throw new InvalidDataException("Exception list member missing category ID");
@@ -753,7 +784,17 @@ namespace DatabasePopulator
             return val;
         }
 
-        private static void SaveData(AllData all, NpgsqlConnection conn, NpgsqlTransaction tx)
+        /// <summary>
+        /// Saves the data read from the XML file to the database.
+        /// </summary>
+        /// <param name="all">data read from the XML file</param>
+        /// <param name="conn">database connection</param>
+        /// <param name="tx">database transaction</param>
+        /// <param name="local">
+        /// true to also save each video's <see cref="Video.publishtimestamp"/>; in remote mode the website's admin refresh
+        /// fills in that column from the YouTube API, so it's left alone
+        /// </param>
+        private static void SaveData(AllData all, NpgsqlConnection conn, NpgsqlTransaction tx, bool local)
         {
             int iID;
             bool updateRecord;
@@ -786,6 +827,10 @@ namespace DatabasePopulator
 
             idCols = new List<string>() { "id" };
             dataCols = new List<string>() { "youtubeid", "shortname", "identifier", "owner", "isprivate", "additionaltextdocumentid", "musxdocumentid", "doricodocumentid" };
+            if (local)
+            {
+                dataCols.Add("published_timestamp");
+            }
             updateStatement = GenerateSQLStatement("videos", idCols, dataCols, true);
             insertStatement = GenerateSQLStatement("videos", idCols, dataCols, false);
             foreach (Video v in all.videos)
@@ -802,6 +847,10 @@ namespace DatabasePopulator
                     AddParameter(cmd, "@additionaltextdocumentid", NpgsqlDbType.Integer, v.additionaltextdocument?.id);
                     AddParameter(cmd, "@musxdocumentid", NpgsqlDbType.Integer, v.musxdocument?.id);
                     AddParameter(cmd, "@doricodocumentid", NpgsqlDbType.Integer, v.doricodocument?.id);
+                    if (local)
+                    {
+                        AddParameter(cmd, "@published_timestamp", NpgsqlDbType.TimestampTz, v.publishtimestamp);
+                    }
                     updateRecord = all.videoIDs.Contains(iID);
                     cmd.CommandText = updateRecord ? updateStatement : insertStatement;
                     cmd.ExecuteNonQuery();
@@ -1349,6 +1398,187 @@ namespace DatabasePopulator
         }
 
         /// <summary>
+        /// Gets the publish timestamps the database has for videos.
+        /// </summary>
+        /// <param name="conn">database connection</param>
+        /// <param name="tx">database transaction</param>
+        /// <param name="timestamps">receives each video ID that has a publish timestamp, mapped to that timestamp in UTC</param>
+        private static void GetPublishTimestamps(NpgsqlConnection conn, NpgsqlTransaction tx, Dictionary<int, DateTime> timestamps)
+        {
+            using (NpgsqlCommand cmd = GetCommand(conn, tx))
+            {
+                cmd.CommandText = "SELECT id, published_timestamp FROM videos WHERE published_timestamp IS NOT NULL";
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        timestamps[reader.GetInt32(0)] = reader.GetFieldValue<DateTime>(1);
+                    }
+                }
+            }
+        }
+
+        private static readonly string[] PublishTimestampFormats = { "yyyy-MM-dd'T'HH:mm:ssK", "yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK" };
+
+        /// <summary>
+        /// Parses a video publish timestamp from the XML file, such as 2023-10-07T14:32:05Z.
+        /// </summary>
+        /// <param name="s">ISO 8601 timestamp; one without an offset is treated as UTC</param>
+        /// <returns>the timestamp in UTC (<see cref="DateTimeKind.Utc"/>), or null if it isn't valid</returns>
+        private static DateTime? ParsePublishTimestamp(string s)
+        {
+            if (DateTimeOffset.TryParseExact(s, PublishTimestampFormats, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out DateTimeOffset parsed))
+            {
+                return parsed.UtcDateTime;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Formats a video publish timestamp for the XML file in the same form the YouTube API uses, such as 2023-10-07T14:32:05Z.
+        /// </summary>
+        /// <param name="timestamp">timestamp in UTC</param>
+        /// <returns>the formatted timestamp, with fractional seconds only when there are any</returns>
+        private static string FormatPublishTimestamp(DateTime timestamp)
+        {
+            return timestamp.ToString("yyyy-MM-dd'T'HH:mm:ss.FFFFFFF'Z'", CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Copies the database's publish timestamps into the XML file's video elements. Only the lines holding those
+        /// timestamps are changed, so the rest of the file (formatting, comments, entities, line endings) stays as it was.
+        /// </summary>
+        /// <param name="inputFile">path to the XML file</param>
+        /// <param name="all">data read from the XML file</param>
+        /// <param name="databasePublishTimestamps">publish timestamps from the database, by video ID</param>
+        /// <remarks>
+        /// A new publishtimestamp element goes on the line after the video's isprivate element. A video that has a
+        /// timestamp in the XML file but not in the database keeps its XML value.
+        /// </remarks>
+        private static void CopyPublishTimestampsToXml(string inputFile, AllData all, Dictionary<int, DateTime> databasePublishTimestamps)
+        {
+            Dictionary<int, DateTime> changes = new Dictionary<int, DateTime>();
+            foreach (Video v in all.videos)
+            {
+                if (databasePublishTimestamps.TryGetValue(v.id, out DateTime databaseValue))
+                {
+                    if (v.publishtimestamp != databaseValue)
+                    {
+                        changes[v.id] = databaseValue;
+                    }
+                }
+                else if (v.publishtimestamp != null)
+                {
+                    Console.WriteLine($"Video {v.id} has a publishtimestamp in the XML file but not in the database; keeping the XML file's value.");
+                }
+            }
+            if (changes.Count == 0)
+            {
+                Console.WriteLine("No publish timestamps to copy to the XML file.");
+                return;
+            }
+
+            byte[] bytes = File.ReadAllBytes(inputFile);
+            bool hasBOM = bytes.Length >= 3 && bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF;
+            UTF8Encoding encoding = new UTF8Encoding(hasBOM);
+            int textStart = hasBOM ? 3 : 0;
+            string text = encoding.GetString(bytes, textStart, bytes.Length - textStart);
+            string newLine = text.Contains("\r\n") ? "\r\n" : "\n";
+            string textWithoutNewLines = text.Replace(newLine, string.Empty);
+            if (textWithoutNewLines.Contains('\r') || textWithoutNewLines.Contains('\n'))
+            {
+                throw new InvalidDataException("The XML file has mixed line endings");
+            }
+            List<string> lines = new List<string>(text.Split(newLine));
+
+            //find the (0-based) lines holding each changed video's isprivate and publishtimestamp elements
+            Dictionary<int, (int isPrivateLine, int? publishTimestampLine)> locations = new Dictionary<int, (int isPrivateLine, int? publishTimestampLine)>();
+            XmlReaderSettings settings = new XmlReaderSettings() { IgnoreComments = true, IgnoreWhitespace = true };
+            using (XmlReader reader = XmlReader.Create(new StringReader(text), settings))
+            {
+                IXmlLineInfo lineInfo = (IXmlLineInfo)reader;
+                bool inVideo = false;
+                string? childName = null;
+                string? sID = null;
+                int? isPrivateLine = null;
+                int? publishTimestampLine = null;
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Depth == 1 && reader.Name == "video")
+                    {
+                        inVideo = !reader.IsEmptyElement;
+                        childName = null;
+                        sID = null;
+                        isPrivateLine = null;
+                        publishTimestampLine = null;
+                    }
+                    else if (!inVideo)
+                    {
+                        continue;
+                    }
+                    else if (reader.NodeType == XmlNodeType.Element && reader.Depth == 2)
+                    {
+                        childName = reader.Name;
+                        if (childName == "isprivate")
+                        {
+                            isPrivateLine = lineInfo.LineNumber - 1;
+                        }
+                        else if (childName == "publishtimestamp")
+                        {
+                            publishTimestampLine = lineInfo.LineNumber - 1;
+                        }
+                    }
+                    else if (reader.NodeType == XmlNodeType.Text && reader.Depth == 3 && childName == "id")
+                    {
+                        sID = reader.Value;
+                    }
+                    else if (reader.NodeType == XmlNodeType.EndElement && reader.Depth == 1)
+                    {
+                        inVideo = false;
+                        if (int.TryParse(sID, out int iID) && changes.ContainsKey(iID) && isPrivateLine != null)
+                        {
+                            locations[iID] = (isPrivateLine.Value, publishTimestampLine);
+                        }
+                    }
+                }
+            }
+            foreach (int videoID in changes.Keys)
+            {
+                if (!locations.ContainsKey(videoID))
+                {
+                    throw new InvalidDataException($"Could not find the isprivate element of video {videoID} in the XML file");
+                }
+            }
+
+            //edit from the bottom of the file up so that inserting a line doesn't move the lines still to be edited
+            foreach (KeyValuePair<int, (int isPrivateLine, int? publishTimestampLine)> location in locations.OrderByDescending(l => l.Value.isPrivateLine))
+            {
+                int videoID = location.Key;
+                int lineIndex = location.Value.publishTimestampLine ?? location.Value.isPrivateLine;
+                string elementName = location.Value.publishTimestampLine != null ? "publishtimestamp" : "isprivate";
+                string existingLine = lines[lineIndex];
+                string trimmedLine = existingLine.TrimStart();
+                if (!trimmedLine.StartsWith("<" + elementName + ">") || !trimmedLine.TrimEnd().EndsWith("</" + elementName + ">"))
+                {
+                    throw new InvalidDataException($"The {elementName} element of video {videoID} must be on a line of its own in the XML file");
+                }
+                string indent = existingLine.Substring(0, existingLine.Length - trimmedLine.Length);
+                string newElementLine = indent + "<publishtimestamp>" + FormatPublishTimestamp(changes[videoID]) + "</publishtimestamp>";
+                if (location.Value.publishTimestampLine != null)
+                {
+                    lines[lineIndex] = newElementLine;
+                }
+                else
+                {
+                    lines.Insert(lineIndex + 1, newElementLine);
+                }
+            }
+
+            File.WriteAllText(inputFile, string.Join(newLine, lines), encoding);
+            Console.WriteLine($"Copied {changes.Count} publish timestamps to the XML file.");
+        }
+
+        /// <summary>
         /// Adds a parameter with an explicit column type; a null value is sent as SQL NULL.
         /// </summary>
         /// <param name="cmd">command object</param>
@@ -1574,7 +1804,7 @@ namespace DatabasePopulator
 
     internal class Video
     {
-        public Video(int id, string youtubeid, string shortname, string identifier, string owner, bool isprivate, AttachedDocument? additionalTextDocument, AttachedDocument? MUSXDocument, AttachedDocument? doricoDocument)
+        public Video(int id, string youtubeid, string shortname, string identifier, string owner, bool isprivate, DateTime? publishtimestamp, AttachedDocument? additionalTextDocument, AttachedDocument? MUSXDocument, AttachedDocument? doricoDocument)
         {
             this.id = id;
             this.youtubeid = youtubeid;
@@ -1582,6 +1812,7 @@ namespace DatabasePopulator
             this.identifier = identifier;
             this.owner = owner;
             this.isprivate = isprivate;
+            this.publishtimestamp = publishtimestamp;
             this.additionaltextdocument = additionalTextDocument;
             this.musxdocument = MUSXDocument;
             this.doricodocument = doricoDocument;
@@ -1593,6 +1824,10 @@ namespace DatabasePopulator
         public string identifier { get; set; }
         public string owner { get; set; }
         public bool isprivate { get; set; }
+        /// <summary>
+        /// when the video was published on YouTube, in UTC (<see cref="DateTimeKind.Utc"/>), or null if not known
+        /// </summary>
+        public DateTime? publishtimestamp { get; set; }
         public AttachedDocument? additionaltextdocument { get; set; }
         public AttachedDocument? musxdocument { get; set; }
         public AttachedDocument? doricodocument { get; set; }

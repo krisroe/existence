@@ -156,8 +156,8 @@ if ($result[0] === "")
 		foreach ($videos_to_update as $v)
 		{
 			$query = "UPDATE videos SET dislikes=" . $v[2] . ",likes=" . $v[3] . " WHERE id=" . $v[0];
-			$updateresult = pg_query($dbconn,$query);
-			if ($updateresult)
+			$result = pg_query($dbconn,$query);
+			if ($result)
 			{
 				$count++;
 			}
@@ -199,8 +199,8 @@ if ($result[0] === "")
 			{
 				if (isset($item["id"]) && isset($missing[$item["id"]]) && isset($item["snippet"]["publishedAt"]))
 				{
-					$updateresult = pg_query_params($dbconn, 'UPDATE videos SET published_timestamp=$1 WHERE id=$2', [$item["snippet"]["publishedAt"], $missing[$item["id"]]]);
-					if ($updateresult)
+					$result = pg_query_params($dbconn, 'UPDATE videos SET published_timestamp=$1 WHERE id=$2', [$item["snippet"]["publishedAt"], $missing[$item["id"]]]);
+					if ($result)
 					{
 						$publishedcount++;
 						$updated[$item["id"]] = true;

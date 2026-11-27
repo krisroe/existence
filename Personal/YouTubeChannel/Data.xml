@@ -325,6 +325,7 @@
   <identifier>Z</identifier>
   <owner>XX</owner>
   <isprivate>YY</isprivate>
+  <publishtimestamp>yyyy-MM-ddTHH:mm:ssZ (UTC, optional; filled in from the database in remote mode)</publishtimestamp>
   <additionaltextdocumentid>A</additionaltextdocumentid>
   <musxdocumentid>B</musxdocumentid>
   <doricodocumentid>C</doricodocumentid>
