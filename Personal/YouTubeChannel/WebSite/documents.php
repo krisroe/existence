@@ -112,7 +112,7 @@ echo "<script src=\"https://www.youtube.com/iframe_api\"></script>";
 echo "<div id=\"maininfodiv\">";
 echo "<h3>Documents</h3>";
 echo "<table>";
-echo "<tr><th>Document</th><th>Google Drive</th><th>Supports Playback</th><th>Video(s)</th></tr>";
+echo "<tr><th>Video(s)</th><th>Document</th><th>Supports Playback</th></tr>";
 
 //one row per document and video using it; documents are ordered by their primary video's publish timestamp, and each
 //document's primary video comes first in its list of videos
@@ -140,37 +140,54 @@ foreach ($documents as $document) {
  $row = $document['row'];
  $doctype = $row['doctype'];
  $isadditionaltext = $doctype == 1;
- echo "<tr>";
- echo "<td>";
+ $doclabel = "";
  if ($isadditionaltext)
  {
   $purpose = $row['purpose'];
   if ($purpose == 1)
   {
-   echo "Transcript";
+   $doclabel = "Transcript";
   }
   else if ($purpose == 2)
   {
-   echo "Commentary";
+   $doclabel = "Commentary";
   }
   else if ($purpose == 3)
   {
-   echo "Transcript+Commentary";
+   $doclabel = "Transcript+Commentary";
   }
  }
  else if ($doctype == 2)
  {
-  echo "MUSX";
+  $doclabel = "MUSX";
  }
  else if ($doctype == 3)
  {
-  echo "Dorico";
+  $doclabel = "Dorico";
+ }
+ echo "<tr>";
+ echo "<td>";
+ $first = true;
+ foreach ($document['videos'] as $video)
+ {
+  if (!$first)
+  {
+   echo "<br/>";
+  }
+  $first = false;
+  echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
+  echo $video["youtubeid"];
+  echo "')\">";
+  echo $video["shortname"];
+  echo "</a>";
  }
  echo "</td>";
  echo "<td>";
  echo "<a href=\"https://drive.google.com/file/d/";
  echo htmlspecialchars($row['googledrivefileid']);
- echo "\">Google Drive</a>";
+ echo "\">";
+ echo $doclabel;
+ echo "</a>";
  echo "</td>";
  echo "<td>";
  $supportsplayback = $row['supportsplayback'];
@@ -189,22 +206,6 @@ foreach ($documents as $document) {
  else
  {
   echo "&#10060; No";
- }
- echo "</td>";
- echo "<td>";
- $first = true;
- foreach ($document['videos'] as $video)
- {
-  if (!$first)
-  {
-   echo "<br/>";
-  }
-  $first = false;
-  echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
-  echo $video["youtubeid"];
-  echo "')\">";
-  echo $video["shortname"];
-  echo "</a>";
  }
  echo "</td>";
  echo "</tr>";
