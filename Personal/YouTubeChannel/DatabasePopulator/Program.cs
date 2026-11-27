@@ -116,6 +116,7 @@ namespace DatabasePopulator
                 int lyricsAnalysisOrder = 0;
                 int landingPageOrder = 0;
                 int audioOrder = 0;
+                int documentOrder = 0;
                 int iID, iOrd, iVideoID;
                 string sGoogleDriveFileID;
 
@@ -127,6 +128,7 @@ namespace DatabasePopulator
                     if (nodeName == "document")
                     {
                         iID = GetObjectID(nextElement, "document");
+                        iOrd = ++documentOrder;
                         string sType = GetRegularDataElement(nextElement, "type", "document");
                         string? purpose = GetRegularDataElement(nextElement, "purpose", "document", false);
                         sGoogleDriveFileID = GetRegularDataElement(nextElement, "googledrivefileid", "document");
@@ -186,7 +188,7 @@ namespace DatabasePopulator
                             throw new InvalidDataException($"Invalid document type: {sType}");
                         }
 
-                        all.attachedDocuments.Add(new AttachedDocument(iID, docType, docPurpose, sGoogleDriveFileID, supportsPlayback));
+                        all.attachedDocuments.Add(new AttachedDocument(iID, iOrd, docType, docPurpose, sGoogleDriveFileID, supportsPlayback));
                     }
                     else if (nodeName == "song")
                     {
@@ -214,9 +216,9 @@ namespace DatabasePopulator
                                 throw new InvalidDataException($"Invalid video publishtimestamp value: {sPublishTimestamp}");
                             }
                         }
-                        AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, iID, all, usedDocuments);
-                        AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, iID, all, usedDocuments);
-                        AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, iID, all, usedDocuments);
+                        AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, all, usedDocuments);
+                        AttachedDocument? musxDoc = GetVideoDocument(nextElement, "musxdocumentid", DocumentType.MUSX, all, usedDocuments);
+                        AttachedDocument? doricoDoc = GetVideoDocument(nextElement, "doricodocumentid", DocumentType.Dorico, all, usedDocuments);
                         all.videos.Add(new Video(iID, sYoutubeID, sShortName, sIdentifier, sOwner, bIsPrivate, publishTimestamp, additionalTextDoc, musxDoc, doricoDoc));
                     }
                     else if (nodeName == "performer")
@@ -637,9 +639,8 @@ namespace DatabasePopulator
         /// <summary>
         /// Gets a document referenced by a video. Each document normally belongs to exactly one video; a reference marked
         /// shared="true" points to a document that belongs to another video and is not counted as that document's use.
-        /// The video a document belongs to becomes its <see cref="AttachedDocument.primaryvideoid"/>.
         /// </summary>
-        private static AttachedDocument? GetVideoDocument(XmlElement videoElement, string elementName, DocumentType expectedType, int videoID, AllData all, HashSet<int> usedDocuments)
+        private static AttachedDocument? GetVideoDocument(XmlElement videoElement, string elementName, DocumentType expectedType, AllData all, HashSet<int> usedDocuments)
         {
             AttachedDocument? doc = null;
             XmlElement? subelem = videoElement.SelectSingleNode(elementName) as XmlElement;
@@ -655,10 +656,6 @@ namespace DatabasePopulator
                 if (doc != null && doc.type != expectedType)
                 {
                     throw new InvalidDataException($"Video {elementName} {doc.id} is not a {expectedType} document");
-                }
-                if (doc != null && !bShared)
-                {
-                    doc.primaryvideoid = videoID;
                 }
             }
             return doc;
@@ -953,7 +950,7 @@ namespace DatabasePopulator
             List<string> dataCols;
 
             idCols = new List<string>() { "id" };
-            dataCols = new List<string>() { "doctype", "purpose", "googledrivefileid", "supportsplayback" };
+            dataCols = new List<string>() { "ord", "doctype", "purpose", "googledrivefileid", "supportsplayback" };
             updateStatement = GenerateSQLStatement("documents", idCols, dataCols, true);
             insertStatement = GenerateSQLStatement("documents", idCols, dataCols, false);
             foreach (AttachedDocument d in all.attachedDocuments)
@@ -962,6 +959,7 @@ namespace DatabasePopulator
                 {
                     iID = d.id;
                     AddParameter(cmd, "@id", NpgsqlDbType.Integer, iID);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, d.ord);
                     AddParameter(cmd, "@doctype", NpgsqlDbType.Integer, Convert.ToInt32(d.type));
                     AddParameter(cmd, "@purpose", NpgsqlDbType.Integer, Convert.ToInt32(d.purpose));
                     AddParameter(cmd, "@googledrivefileid", NpgsqlDbType.Varchar, d.googledrivefileid);
@@ -1007,19 +1005,6 @@ namespace DatabasePopulator
                 }
             }
             DeleteIDs(conn, tx, "videos", all.videoIDs, idCols);
-
-            //documents and videos reference each other, so each document's primary video can only be set once the videos are saved
-            updateStatement = GenerateSQLStatement("documents", new List<string>() { "id" }, new List<string>() { "primaryvideoid" }, true);
-            foreach (AttachedDocument d in all.attachedDocuments)
-            {
-                using (NpgsqlCommand cmd = GetCommand(conn, tx))
-                {
-                    AddParameter(cmd, "@id", NpgsqlDbType.Integer, d.id);
-                    AddParameter(cmd, "@primaryvideoid", NpgsqlDbType.Integer, d.primaryvideoid);
-                    cmd.CommandText = updateStatement;
-                    cmd.ExecuteNonQuery();
-                }
-            }
 
             SaveSongs(conn, tx, all);
 
@@ -2336,9 +2321,10 @@ namespace DatabasePopulator
 
     public class AttachedDocument
     {
-        public AttachedDocument(int id, DocumentType type, DocumentPurpose purpose, string googledrivefileid, bool? supportsplayback)
+        public AttachedDocument(int id, int ord, DocumentType type, DocumentPurpose purpose, string googledrivefileid, bool? supportsplayback)
         {
             this.id = id;
+            this.ord = ord;
             this.type = type;
             this.purpose = purpose;
             this.googledrivefileid = googledrivefileid;
@@ -2346,6 +2332,7 @@ namespace DatabasePopulator
         }
 
         public int id { get; set; }
+        public int ord { get; set; }
         public DocumentType type { get; set; }
         public DocumentPurpose purpose { get; set; }
         /// <summary>
@@ -2356,9 +2343,5 @@ namespace DatabasePopulator
         /// whether a MUSX or Dorico document supports playback; null if unknown or not applicable
         /// </summary>
         public bool? supportsplayback { get; set; }
-        /// <summary>
-        /// ID of the video the document belongs to: the one that references it without shared="true"
-        /// </summary>
-        public int? primaryvideoid { get; set; }
     }
 }

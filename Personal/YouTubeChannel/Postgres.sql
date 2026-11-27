@@ -3,11 +3,11 @@ GRANT CONNECT ON DATABASE "DestroyAllPugs" TO destroyallpugs_web;
 CREATE TABLE IF NOT EXISTS public.documents
 (
 	id integer NOT NULL,
+	ord integer NOT NULL,
 	doctype integer NOT NULL,
 	purpose integer NOT NULL,
 	googledrivefileid character varying COLLATE pg_catalog."default" NOT NULL,
 	supportsplayback boolean NULL,
-	primaryvideoid integer NULL, --foreign key to videos is added after the videos table is created
 	CONSTRAINT pk_documents PRIMARY KEY (id),
 	CONSTRAINT documents_unq_googledrivefileid UNIQUE (googledrivefileid)
 );
@@ -40,15 +40,6 @@ CREATE TABLE IF NOT EXISTS public.videos
     ON UPDATE NO ACTION
     ON DELETE CASCADE
 );
-DO $$
-BEGIN
-	IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'fk_documents_primaryvideoid') THEN
-		ALTER TABLE public.documents ADD CONSTRAINT fk_documents_primaryvideoid FOREIGN KEY (primaryvideoid)
-		REFERENCES public.videos (id) MATCH SIMPLE
-		ON UPDATE NO ACTION
-		ON DELETE SET NULL;
-	END IF;
-END $$;
 CREATE TABLE IF NOT EXISTS public.songs
 (
 	id integer NOT NULL,
@@ -367,10 +358,6 @@ ALTER TABLE IF EXISTS public.exception_list_member_types OWNER to postgres;
 ALTER TABLE IF EXISTS public.exception_lists OWNER to postgres;
 ALTER TABLE IF EXISTS public.exception_list_members OWNER to postgres;
 
-CREATE INDEX IF NOT EXISTS fki_fk_documents_primaryvideoid
-    ON public.documents USING btree
-    (primaryvideoid ASC NULLS LAST)
-    TABLESPACE pg_default;
 CREATE INDEX IF NOT EXISTS fki_fk_videos_additionaltextdocumentid
     ON public.videos USING btree
     (additionaltextdocumentid ASC NULLS LAST)

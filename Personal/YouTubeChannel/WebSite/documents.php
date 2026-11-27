@@ -114,10 +114,9 @@ echo "<h3>Documents</h3>";
 echo "<table>";
 echo "<tr><th>Video(s)</th><th>Document</th><th>Supports Playback</th></tr>";
 
-//one row per document and video using it; documents are ordered by their primary video's publish timestamp, and each
-//document's primary video comes first in its list of videos
+//one row per document and video using it; documents are ordered by their order in the XML file
 $dbconn = connectToDatabase();
-$query = 'SELECT d.id,d.doctype,d.purpose,d.googledrivefileid,d.supportsplayback,v.youtubeid,v.shortname FROM public.documents d LEFT JOIN public.videos pv ON d.primaryvideoid = pv.id LEFT JOIN public.videos v ON v.additionaltextdocumentid = d.id OR v.musxdocumentid = d.id OR v.doricodocumentid = d.id ORDER BY pv.published_timestamp NULLS LAST,d.id,(v.id = d.primaryvideoid) DESC,v.published_timestamp NULLS LAST,v.id';
+$query = 'SELECT d.id,d.doctype,d.purpose,d.googledrivefileid,d.supportsplayback,v.youtubeid,v.shortname FROM public.documents d LEFT JOIN public.videos v ON v.additionaltextdocumentid = d.id OR v.musxdocumentid = d.id OR v.doricodocumentid = d.id ORDER BY d.ord,v.id';
 $result = pg_query($dbconn,$query);
 
 $documents = [];
