@@ -185,12 +185,12 @@ CREATE TABLE IF NOT EXISTS public.copyrights_found
 	copyright character varying COLLATE pg_catalog."default" NOT NULL,
 	videoid1 integer NOT NULL,
 	videoid2 integer NULL,
-	songid integer NULL,
+	songid integer NOT NULL,
     CONSTRAINT pk_copyrights_found PRIMARY KEY (id),
 	CONSTRAINT fk_copyrights_found_song FOREIGN KEY (songid)
     REFERENCES public.songs (id) MATCH SIMPLE
     ON UPDATE NO ACTION
-    ON DELETE SET NULL,
+    ON DELETE CASCADE,
 	CONSTRAINT fk_copyrights_found_video1 FOREIGN KEY (videoid1)
     REFERENCES public.videos (id) MATCH SIMPLE
     ON UPDATE NO ACTION

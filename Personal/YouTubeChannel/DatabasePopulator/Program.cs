@@ -620,10 +620,11 @@ namespace DatabasePopulator
                 }
             }
             Song? song = null;
+            bool songRequired = copyrightList == all.copyrightsFound;
             string? sSongID = GetRegularDataElement(nextElement, "songid", objectType, false);
             if (!string.IsNullOrEmpty(sSongID))
             {
-                if (copyrightList != all.copyrightsFound)
+                if (!songRequired)
                 {
                     throw new InvalidDataException($"{objectType} entries do not support songid");
                 }
@@ -632,6 +633,10 @@ namespace DatabasePopulator
                     throw new InvalidDataException($"Invalid {objectType} song id: {sSongID}");
                 }
                 song = all.songs.FirstOrDefault(s => s.id == iSongID) ?? throw new InvalidDataException($"Invalid {objectType} song id found: {iSongID}");
+            }
+            else if (songRequired)
+            {
+                throw new InvalidDataException($"{objectType} {iID} has no songid");
             }
             copyrightList.Add(new Copyright(iID, iOrd, sSong, sCopyright, v1, v2, song));
         }
@@ -2157,7 +2162,7 @@ namespace DatabasePopulator
         public Video video1 { get; set; }
         public Video? video2 { get; set; }
         /// <summary>
-        /// the song record this copyright is for; only copyrights found have one, and it's optional
+        /// the song record this copyright is for; required for copyrights found, and null for copyrights missing
         /// </summary>
         public Song? songEntity { get; set; }
     }

@@ -245,6 +245,16 @@
   <copyrightflags>AllRightsReserved</copyrightflags>
   <documentid>19</documentid>
  </song>
+ <song>
+  <id>9</id>
+  <title><![CDATA[Jazz, Rags & Blues, Book 1]]></title>
+  <author><![CDATA[Martha Mier]]></author>
+  <copyright><![CDATA[Alfred Music]]></copyright>
+  <copyrightyearstart>1993</copyrightyearstart>
+  <copyrightregistrationdate>1993-10-03</copyrightregistrationdate>
+  <copyrightregistrationnumber>V3529D411</copyrightregistrationnumber>
+  <copyrightflags>AllRightsReserved</copyrightflags>
+ </song>
  <!-- template -->
  <!--
  <song>
@@ -1193,6 +1203,7 @@
   <copyright><![CDATA[1993-10-03 Alfred Music. All rights reserved. (V3529D411)]]></copyright>
   <videoid1>9</videoid1>
   <videoid2></videoid2>
+  <songid>9</songid>
  </copyrightfound>
  <copyrightfound>
   <id>3</id>
@@ -1250,7 +1261,7 @@
   <copyright><![CDATA[]]></copyright>
   <videoid1></videoid1>
   <videoid2></videoid2>
-  <songid></songid> (optional)
+  <songid></songid>
  </copyrightfound>
  -->
  <copyrightmissing>
