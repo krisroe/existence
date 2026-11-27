@@ -1,3 +1,4 @@
 {
-  "awsSecretsCacheTTLMinutes": 60
+  "awsSecretsCacheTTLMinutes": 60,
+  "paginationRecordCount": 10
 }

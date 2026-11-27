@@ -27,3 +27,14 @@ function getAwsSecretsCacheTTLMinutes(): int
     }
     return $ttl;
 }
+
+//number of records to show per page on paginated pages
+function getPaginationRecordCount(): int
+{
+    $count = getSiteConfig()['paginationRecordCount'] ?? null;
+    if (!is_int($count) || $count <= 0)
+    {
+        throw new RuntimeException("paginationRecordCount in siteconfig.json must be a positive integer");
+    }
+    return $count;
+}

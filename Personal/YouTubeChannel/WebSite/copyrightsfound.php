@@ -237,45 +237,74 @@ echo "</div>";
 echo "</div>";
 echo "<script src=\"https://www.youtube.com/iframe_api\"></script>";
 echo "<div id=\"maininfodiv\">";
-echo "<h3>Copyrights Found</h3>";
-echo "<table>";
-echo "<tr><th>Episode</th><th>Song</th><th>Copyright</th></tr>";
+//one page of records; the skip query string parameter is how many records to skip (default 0)
+$pagesize = getPaginationRecordCount();
+$skip = filter_var($_GET['skip'] ?? 0, FILTER_VALIDATE_INT, ['options' => ['default' => 0, 'min_range' => 0]]);
 
 $dbconn = connectToDatabase();
-$query = 'SELECT v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,s.title,s.author,s.artist,s.personalconnection,s.copyrightholder,s.copyrightyearstart,s.copyrightyearend,s.copyrightnoticedate,s.publicationdate,s.copyrightregistrationdate,s.copyrightregistrationnumber,s.copyrightflags FROM public.copyrights_found c INNER JOIN songs s ON c.songid=s.id INNER JOIN videos v1 ON c.videoid1=v1.id LEFT JOIN videos v2 ON c.videoid2=v2.id ORDER BY c.ord';
-$result = pg_query($dbconn,$query);
-
-while ($row = pg_fetch_assoc($result)) {
- echo "<tr>";
- echo "<td>";
- echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
- echo $row["v1youtubeid"];
- echo "')\">";
- echo $row["v1identifier"];
- echo "</a>";
- if (!empty($row['v2youtubeid']))
- {
-  echo "<br/>";
-  echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
-  echo $row["v2youtubeid"];
-  echo "')\">";
-  echo $row["v2identifier"];
-  echo "</a>";
- }
- echo "</td>";
- echo "<td>";
- echo formatSong($row);
- echo "</td>";
- echo "<td>";
- echo formatCopyright($row);
- echo "</td>";
- echo "</tr>";
-}
-
+$query = 'SELECT v1.youtubeid v1youtubeid,v1.identifier v1identifier,v2.youtubeid v2youtubeid,v2.identifier v2identifier,s.title,s.author,s.artist,s.personalconnection,s.copyrightholder,s.copyrightyearstart,s.copyrightyearend,s.copyrightnoticedate,s.publicationdate,s.copyrightregistrationdate,s.copyrightregistrationnumber,s.copyrightflags FROM public.copyrights_found c INNER JOIN songs s ON c.songid=s.id INNER JOIN videos v1 ON c.videoid1=v1.id LEFT JOIN videos v2 ON c.videoid2=v2.id ORDER BY c.ord LIMIT $1 OFFSET $2';
+$result = pg_query_params($dbconn, $query, [$pagesize, $skip]);
+$rows = pg_fetch_all($result) ?: [];
 pg_free_result($result);
 pg_close($dbconn);
 
-echo "</table>";
+//page information next to the heading: which records are showing, and links to the previous and next pages
+$pageinfo = [];
+if (count($rows) > 0)
+{
+ $pageinfo[] = "Showing records " . ($skip + 1) . " through " . ($skip + count($rows)) . ".";
+}
+if ($skip > 0)
+{
+ $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . max(0, $skip - $pagesize) . "\">Previous Page</a>.";
+}
+if (count($rows) > 0)
+{
+ $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . ($skip + $pagesize) . "\">Next Page</a>.";
+}
+echo "<h3>Copyrights Found";
+if (count($pageinfo) > 0)
+{
+ echo " (" . implode(" ", $pageinfo) . ")";
+}
+echo "</h3>";
+
+if (count($rows) > 0)
+{
+ echo "<table>";
+ echo "<tr><th>Episode</th><th>Song</th><th>Copyright</th></tr>";
+ foreach ($rows as $row) {
+  echo "<tr>";
+  echo "<td>";
+  echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
+  echo $row["v1youtubeid"];
+  echo "')\">";
+  echo $row["v1identifier"];
+  echo "</a>";
+  if (!empty($row['v2youtubeid']))
+  {
+   echo "<br/>";
+   echo "<a href=\"javascript:void(0);\" onclick=\"doPlayVideo('";
+   echo $row["v2youtubeid"];
+   echo "')\">";
+   echo $row["v2identifier"];
+   echo "</a>";
+  }
+  echo "</td>";
+  echo "<td>";
+  echo formatSong($row);
+  echo "</td>";
+  echo "<td>";
+  echo formatCopyright($row);
+  echo "</td>";
+  echo "</tr>";
+ }
+ echo "</table>";
+}
+else
+{
+ echo "<p>No records found.</p>";
+}
 echo "</div>";
 
 echo "</body>";
