@@ -256,11 +256,11 @@ if (count($rows) > 0)
 }
 if ($skip > 0)
 {
- $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . max(0, $skip - $pagesize) . "\">Previous Page</a>.";
+ $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . max(0, $skip - $pagesize) . "\">Previous Page</a>";
 }
 if (count($rows) > 0)
 {
- $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . ($skip + $pagesize) . "\">Next Page</a>.";
+ $pageinfo[] = "<a href=\"copyrightsfound.php?skip=" . ($skip + $pagesize) . "\">Next Page</a>";
 }
 echo "<h3>Copyrights Found";
 if (count($pageinfo) > 0)
