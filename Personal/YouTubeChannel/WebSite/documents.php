@@ -111,8 +111,8 @@ echo "</div>";
 echo "<script src=\"https://www.youtube.com/iframe_api\"></script>";
 echo "<div id=\"maininfodiv\">";
 echo "<h3>Documents</h3>";
-echo "<table>";
-echo "<tr><th>Video(s)</th><th>Document</th><th>Supports Playback</th></tr>";
+echo "<table class=\"fitcolumnstable\">";
+echo "<tr><th>Video(s)</th><th>Song(s)</th><th>Document</th><th>Supports Playback</th></tr>";
 
 //one row per document and video using it; documents are ordered by their order in the XML file
 $dbconn = connectToDatabase();
@@ -124,11 +124,24 @@ while ($row = pg_fetch_assoc($result)) {
  $id = $row['id'];
  if (!isset($documents[$id]))
  {
-  $documents[$id] = ['row' => $row, 'videos' => []];
+  $documents[$id] = ['row' => $row, 'videos' => [], 'songs' => []];
  }
  if ($row['youtubeid'] !== null)
  {
   $documents[$id]['videos'][] = $row;
+ }
+}
+
+pg_free_result($result);
+
+//songs for each document, in song order
+$query = 'SELECT sd.documentid,s.title FROM public.song_documents sd INNER JOIN public.songs s ON sd.songid = s.id ORDER BY s.ord';
+$result = pg_query($dbconn,$query);
+while ($row = pg_fetch_assoc($result)) {
+ $id = $row['documentid'];
+ if (isset($documents[$id]))
+ {
+  $documents[$id]['songs'][] = $row['title'];
  }
 }
 
@@ -180,6 +193,9 @@ foreach ($documents as $document) {
   echo $video["shortname"];
   echo "</a>";
  }
+ echo "</td>";
+ echo "<td>";
+ echo implode("<br/>", array_map('htmlspecialchars', $document['songs']));
  echo "</td>";
  echo "<td>";
  echo "<a href=\"https://drive.google.com/file/d/";

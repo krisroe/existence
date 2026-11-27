@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS public.videos
 CREATE TABLE IF NOT EXISTS public.songs
 (
 	id integer NOT NULL,
+	ord integer NOT NULL,
 	title character varying COLLATE pg_catalog."default" NOT NULL,
 	author character varying COLLATE pg_catalog."default" NOT NULL,
 	artist character varying COLLATE pg_catalog."default" NULL,

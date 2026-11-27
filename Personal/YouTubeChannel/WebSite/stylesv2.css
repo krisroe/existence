@@ -80,3 +80,8 @@ th, td {
 #autosizetable {
  width: auto;
 }
+/* every column but the last fits its content; the last column takes the rest of the table's width */
+.fitcolumnstable th:not(:last-child), .fitcolumnstable td:not(:last-child) {
+ width: 1%;
+ white-space: nowrap;
+}

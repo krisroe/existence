@@ -117,6 +117,7 @@ namespace DatabasePopulator
                 int landingPageOrder = 0;
                 int audioOrder = 0;
                 int documentOrder = 0;
+                int songOrder = 0;
                 int iID, iOrd, iVideoID;
                 string sGoogleDriveFileID;
 
@@ -192,7 +193,7 @@ namespace DatabasePopulator
                     }
                     else if (nodeName == "song")
                     {
-                        all.songs.Add(ProcessSong(nextElement, all, songDocuments));
+                        all.songs.Add(ProcessSong(nextElement, ++songOrder, all, songDocuments));
                     }
                     else if (nodeName == "video")
                     {
@@ -472,10 +473,11 @@ namespace DatabasePopulator
         /// Reads a song element, including the MUSX/Dorico documents it links to.
         /// </summary>
         /// <param name="songElement">song element</param>
+        /// <param name="ord">song order</param>
         /// <param name="all">data read so far; the linked documents must already be in it</param>
         /// <param name="songDocuments">song id,document id pairs linked so far, used to reject duplicate links</param>
         /// <returns>the song</returns>
-        private static Song ProcessSong(XmlElement songElement, AllData all, HashSet<string> songDocuments)
+        private static Song ProcessSong(XmlElement songElement, int ord, AllData all, HashSet<string> songDocuments)
         {
             const string objectType = "song";
             int iID = GetObjectID(songElement, objectType);
@@ -524,7 +526,7 @@ namespace DatabasePopulator
                 flags = parsedFlags;
             }
 
-            Song song = new Song(iID, sTitle, sAuthor, sArtist, sCopyright, yearStart, yearEnd, noticeDate, registrationDate, sRegistrationNumber, flags, sPersonalConnection);
+            Song song = new Song(iID, ord, sTitle, sAuthor, sArtist, sCopyright, yearStart, yearEnd, noticeDate, registrationDate, sRegistrationNumber, flags, sPersonalConnection);
             foreach (XmlNode docNode in songElement.SelectNodes("documentid") ?? throw new InvalidDataException("song documentid selection failed"))
             {
                 AttachedDocument? doc = FindAttachedDocument(all, docNode.InnerText, null);
@@ -1338,7 +1340,7 @@ namespace DatabasePopulator
         private static void SaveSongs(NpgsqlConnection conn, NpgsqlTransaction tx, AllData all)
         {
             List<string> idCols = new List<string>() { "id" };
-            List<string> dataCols = new List<string>() { "title", "author", "artist", "copyright", "copyrightyearstart", "copyrightyearend", "copyrightnoticedate", "copyrightregistrationdate", "copyrightregistrationnumber", "copyrightflags", "personalconnection" };
+            List<string> dataCols = new List<string>() { "ord", "title", "author", "artist", "copyright", "copyrightyearstart", "copyrightyearend", "copyrightnoticedate", "copyrightregistrationdate", "copyrightregistrationnumber", "copyrightflags", "personalconnection" };
             string updateStatement = GenerateSQLStatement("songs", idCols, dataCols, true);
             string insertStatement = GenerateSQLStatement("songs", idCols, dataCols, false);
             foreach (Song s in all.songs)
@@ -1346,6 +1348,7 @@ namespace DatabasePopulator
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
                     AddParameter(cmd, "@id", NpgsqlDbType.Integer, s.id);
+                    AddParameter(cmd, "@ord", NpgsqlDbType.Integer, s.ord);
                     AddParameter(cmd, "@title", NpgsqlDbType.Varchar, s.title);
                     AddParameter(cmd, "@author", NpgsqlDbType.Varchar, s.author);
                     AddParameter(cmd, "@artist", NpgsqlDbType.Varchar, s.artist);
@@ -2169,9 +2172,10 @@ namespace DatabasePopulator
 
     internal class Song
     {
-        public Song(int id, string title, string author, string? artist, string? copyright, int? copyrightyearstart, int? copyrightyearend, DateOnly? copyrightnoticedate, DateOnly? copyrightregistrationdate, string? copyrightregistrationnumber, CopyrightFlags? copyrightflags, string? personalconnection)
+        public Song(int id, int ord, string title, string author, string? artist, string? copyright, int? copyrightyearstart, int? copyrightyearend, DateOnly? copyrightnoticedate, DateOnly? copyrightregistrationdate, string? copyrightregistrationnumber, CopyrightFlags? copyrightflags, string? personalconnection)
         {
             this.id = id;
+            this.ord = ord;
             this.title = title;
             this.author = author;
             this.artist = artist;
@@ -2186,6 +2190,7 @@ namespace DatabasePopulator
             this.documents = new List<AttachedDocument>();
         }
         public int id { get; set; }
+        public int ord { get; set; }
         public string title { get; set; }
         public string author { get; set; }
         public string? artist { get; set; }
