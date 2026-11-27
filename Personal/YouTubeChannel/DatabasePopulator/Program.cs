@@ -7,6 +7,8 @@ namespace DatabasePopulator
 {
     internal class Program
     {
+        private static readonly string[] PublishTimestampFormats = { "yyyy-MM-dd'T'HH:mm:ssK", "yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK" };
+
         /// <summary>
         /// database populator
         /// </summary>
@@ -138,7 +140,7 @@ namespace DatabasePopulator
                         }
                         if (!Enum.TryParse(sType, out DocumentType docType))
                         {
-                            throw new InvalidDataException("Invalid document type: " + sType);
+                            throw new InvalidDataException($"Invalid document type: {sType}");
                         }
                         DocumentPurpose docPurpose = DocumentPurpose.None;
                         if (purpose != null && !Enum.TryParse(purpose, out docPurpose))
@@ -180,7 +182,7 @@ namespace DatabasePopulator
                         }
                         else
                         {
-                            throw new InvalidDataException("Invalid document type: " + sType);
+                            throw new InvalidDataException($"Invalid document type: {sType}");
                         }
 
                         all.attachedDocuments.Add(new AttachedDocument(iID, docType, docPurpose, sGoogleDriveFileID, supportsPlayback));
@@ -195,7 +197,7 @@ namespace DatabasePopulator
                         string sIsPrivate = GetRegularDataElement(nextElement, "isprivate", "video");
                         if (!bool.TryParse(sIsPrivate, out bool bIsPrivate))
                         {
-                            throw new InvalidDataException("Invalid video isprivate value: " + sIsPrivate);
+                            throw new InvalidDataException($"Invalid video isprivate value: {sIsPrivate}");
                         }
                         string? sPublishTimestamp = GetRegularDataElement(nextElement, "publishtimestamp", "video", false);
                         DateTime? publishTimestamp = null;
@@ -204,7 +206,7 @@ namespace DatabasePopulator
                             publishTimestamp = ParsePublishTimestamp(sPublishTimestamp);
                             if (publishTimestamp == null)
                             {
-                                throw new InvalidDataException("Invalid video publishtimestamp value: " + sPublishTimestamp);
+                                throw new InvalidDataException($"Invalid video publishtimestamp value: {sPublishTimestamp}");
                             }
                         }
                         AttachedDocument? additionalTextDoc = GetVideoDocument(nextElement, "additionaltextdocumentid", DocumentType.AdditionalTextFile, all, usedDocuments);
@@ -244,19 +246,19 @@ namespace DatabasePopulator
                         string sParody = GetRegularDataElement(nextElement, "parody", "lyricsanalysis");
                         if (!int.TryParse(sVideoID, out iVideoID))
                         {
-                            throw new InvalidDataException("Invalid lyricsanalysis video id: " + sVideoID);
+                            throw new InvalidDataException($"Invalid lyricsanalysis video id: {sVideoID}");
                         }
                         if (!Enum.TryParse(sLocation, out LyricsAnalysisLocation loc))
                         {
-                            throw new InvalidDataException("Invalid lyricsanalysis location: " + sLocation);
+                            throw new InvalidDataException($"Invalid lyricsanalysis location: {sLocation}");
                         }
                         if (!bool.TryParse(sParody, out bool bParody))
                         {
-                            throw new InvalidDataException("Invalid lyricsanalysis parody: " + sParody);
+                            throw new InvalidDataException($"Invalid lyricsanalysis parody: {sParody}");
                         }
                         if (loc != LyricsAnalysisLocation.VideoDescription && loc != LyricsAnalysisLocation.Commentary)
                         {
-                            throw new InvalidDataException("Invalid lyricsanalysis location value: " + loc.ToString());
+                            throw new InvalidDataException($"Invalid lyricsanalysis location value: {loc.ToString()}");
                         }
                         Video v = all.GetVideoByID(iVideoID, "lyricsanalysis");
                         all.lyricsAnalyses.Add(new LyricsAnalysis(iID, iOrd, v, loc, bParody));
@@ -288,7 +290,7 @@ namespace DatabasePopulator
                             }
                             else
                             {
-                                throw new InvalidDataException("Invalid complaint video id: " + sVideoID);
+                                throw new InvalidDataException($"Invalid complaint video id: {sVideoID}");
                             }
                         }
                         all.complaints.Add(new Complaint(iID, iOrd, sNumber, sTarget, sDetail, sSource, sComment, v));
@@ -327,7 +329,7 @@ namespace DatabasePopulator
                         string sNumber = GetRegularDataElement(nextElement, "number", "audio");
                         if (!int.TryParse(sNumber, out int iNumber))
                         {
-                            throw new InvalidOperationException("Invalid audio number: " + iNumber);
+                            throw new InvalidOperationException($"Invalid audio number: {iNumber}");
                         }
                         string sName = GetRegularDataElement(nextElement, "name", "audio");
                         string sSuggestion = GetRegularDataElement(nextElement, "suggestion", "audio");
@@ -335,12 +337,12 @@ namespace DatabasePopulator
                     }
                     else
                     {
-                        throw new InvalidDataException("Invalid data type: " + nodeName);
+                        throw new InvalidDataException($"Invalid data type: {nodeName}");
                     }
                 }
                 if (usedDocuments.Count != all.attachedDocuments.Count)
                 {
-                    throw new InvalidDataException("Mismatch between attached documents and usage of documents in primary videos: " + usedDocuments.Count + "," + all.attachedDocuments.Count);
+                    throw new InvalidDataException($"Mismatch between attached documents and usage of documents in primary videos: {usedDocuments.Count},{all.attachedDocuments.Count}");
                 }
             }
             catch (InvalidDataException ex)
@@ -394,7 +396,7 @@ namespace DatabasePopulator
                     catch (Exception ex)
                     {
                         tx.Rollback();
-                        Console.Error.WriteLine("Transaction rolled back: " + ex.ToString());
+                        Console.Error.WriteLine($"Transaction rolled back: {ex}");
                         return -1;
                     }
                 }
@@ -408,7 +410,7 @@ namespace DatabasePopulator
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine("Database was updated, but copying publish timestamps to the XML file failed: " + ex.ToString());
+                    Console.Error.WriteLine($"Database was updated, but copying publish timestamps to the XML file failed: {ex}");
                     return -1;
                 }
             }
@@ -429,7 +431,7 @@ namespace DatabasePopulator
             }
             else if (!bool.TryParse(sVideo1IsAdditionalText, out video1isadditionaltext))
             {
-                throw new InvalidDataException("Invalid " + objectType + "  video 1 is additional text: " + sVideo1IsAdditionalText);
+                throw new InvalidDataException($"Invalid {objectType} video 1 is additional text: {sVideo1IsAdditionalText}");
             }
             video1 = null;
             if (!string.IsNullOrEmpty(sVideoID1))
@@ -440,7 +442,7 @@ namespace DatabasePopulator
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid " + objectType + " video id 1: " + sVideoID1);
+                    throw new InvalidDataException($"Invalid {objectType} video id 1: {sVideoID1}");
                 }
             }
             video2 = null;
@@ -452,7 +454,7 @@ namespace DatabasePopulator
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid " + objectType + " video id 2: " + sVideoID2);
+                    throw new InvalidDataException($"Invalid {objectType} video id 2: {sVideoID2}");
                 }
             }
         }
@@ -473,7 +475,7 @@ namespace DatabasePopulator
             }
             else
             {
-                throw new InvalidDataException("Invalid " + objectType + " video id 1: " + sVideoID1);
+                throw new InvalidDataException($"Invalid {objectType} video id 1: {sVideoID1}");
             }
             Video? v2 = null;
             if (!string.IsNullOrEmpty(sVideoID2))
@@ -484,7 +486,7 @@ namespace DatabasePopulator
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid " + objectType + " video id 2: " + sVideoID2);
+                    throw new InvalidDataException($"Invalid {objectType} video id 2: {sVideoID2}");
                 }
             }
             copyrightList.Add(new Copyright(iID, iOrd, sSong, sCopyright, v1, v2));
@@ -504,12 +506,12 @@ namespace DatabasePopulator
                 bool bShared = false;
                 if (!string.IsNullOrEmpty(sShared) && !bool.TryParse(sShared, out bShared))
                 {
-                    throw new InvalidDataException("Invalid video " + elementName + " shared value: " + sShared);
+                    throw new InvalidDataException($"Invalid video {elementName} shared value: {sShared}");
                 }
                 doc = FindAttachedDocument(all, subelem.InnerText, bShared ? null : usedDocuments);
                 if (doc != null && doc.type != expectedType)
                 {
-                    throw new InvalidDataException("Video " + elementName + " " + doc.id + " is not a " + expectedType + " document");
+                    throw new InvalidDataException($"Video {elementName} {doc.id} is not a {expectedType} document");
                 }
             }
             return doc;
@@ -523,7 +525,7 @@ namespace DatabasePopulator
             }
             if (!int.TryParse(docid, out int iDocID))
             {
-                throw new InvalidDataException("Invalid document ID: " + docid);
+                throw new InvalidDataException($"Invalid document ID: {docid}");
             }
             AttachedDocument? found = null;
             foreach (AttachedDocument doc in all.attachedDocuments)
@@ -536,13 +538,13 @@ namespace DatabasePopulator
             }
             if (found == null)
             {
-                throw new InvalidDataException("Did not find document: " + docid);
+                throw new InvalidDataException($"Did not find document: {docid}");
             }
             if (usedIDs != null)
             {
                 if (usedIDs.Contains(found.id))
                 {
-                    throw new InvalidDataException("Document used primarily multiple times: " + docid);
+                    throw new InvalidDataException($"Document used primarily multiple times: {docid}");
                 }
                 usedIDs.Add(found.id);
             }
@@ -561,7 +563,7 @@ namespace DatabasePopulator
             }
             else
             {
-                throw new InvalidDataException("Invalid XML node type found: " + node.NodeType.ToString());
+                throw new InvalidDataException($"Invalid XML node type found: {node.NodeType}");
             }
         }
 
@@ -582,7 +584,7 @@ namespace DatabasePopulator
                 {
                     if (!int.TryParse(nextElement.InnerText, out iExceptionListID))
                     {
-                        throw new InvalidDataException("Invalid exception list id specified: " + nextElement.InnerText);
+                        throw new InvalidDataException($"Invalid exception list id specified: {nextElement.InnerText}");
                     }
                 }
                 else if (elemName == "detail")
@@ -597,7 +599,7 @@ namespace DatabasePopulator
                 {
                     if (!int.TryParse(nextElement.InnerText, out iExceptionListVideoID))
                     {
-                        throw new InvalidDataException("Invalid exception list video id: " + nextElement.InnerText);
+                        throw new InvalidDataException($"Invalid exception list video id: {nextElement.InnerText}");
                     }
                 }
                 else if (elemName == "member")
@@ -635,19 +637,19 @@ namespace DatabasePopulator
                     int iCategoryID;
                     if (!int.TryParse(sCategoryID, out iCategoryID))
                     {
-                        throw new InvalidDataException("Invalid exception list member category: " + sCategoryID);
+                        throw new InvalidDataException($"Invalid exception list member category: {sCategoryID}");
                     }
                     int iVideoID;
                     if (!int.TryParse(sVideoID, out iVideoID))
                     {
-                        throw new InvalidDataException("Invalid exception list member video " + sVideoID);
+                        throw new InvalidDataException($"Invalid exception list member video {sVideoID}");
                     }
                     ++iMemberORD;
                     members.Add(new ExceptionListMember(iMemberORD, sName, iVideoID, all, iCategoryID));
                 }
                 else
                 {
-                    throw new InvalidDataException("Invalid exception list member " + elemName);
+                    throw new InvalidDataException($"Invalid exception list member {elemName}");
                 }
             }
             if (iExceptionListID <= 0)
@@ -660,11 +662,11 @@ namespace DatabasePopulator
             }
             if (members.Count == 0)
             {
-                throw new InvalidDataException("Exception list has no members: " + sExceptionListName);
+                throw new InvalidDataException($"Exception list has no members: {sExceptionListName}");
             }
             if (iExceptionListVideoID <= 0)
             {
-                throw new InvalidDataException("Invalid exception list video ID: " + iExceptionListVideoID);
+                throw new InvalidDataException($"Invalid exception list video ID: {iExceptionListVideoID}");
             }
             if (sExceptionListDetailHTML == null)
             {
@@ -759,12 +761,12 @@ namespace DatabasePopulator
             XmlElement? elem = nextElement.SelectSingleNode("id") as XmlElement;
             if (elem == null)
             {
-                throw new InvalidDataException("No " + objecttype + " id found");
+                throw new InvalidDataException($"No {objecttype} id found");
             }
             string innerText = elem.InnerText;
             if (!int.TryParse(innerText, out int val))
             {
-                throw new InvalidDataException("Invalid " + objecttype + " id: " + innerText);
+                throw new InvalidDataException($"Invalid {objecttype} id: {innerText}");
             }
             return val; ;
         }
@@ -774,12 +776,12 @@ namespace DatabasePopulator
             XmlElement? elem = nextElement.SelectSingleNode(elementName) as XmlElement;
             if (elem == null)
             {
-                throw new InvalidDataException("No " + objecttype + " found");
+                throw new InvalidDataException($"No {objecttype} found");
             }
             string innerText = elem.InnerText;
             if (!int.TryParse(innerText, out int val))
             {
-                throw new InvalidDataException("Invalid " + objecttype + ": " + innerText);
+                throw new InvalidDataException($"Invalid {objecttype}: {innerText}");
             }
             return val;
         }
@@ -1342,7 +1344,7 @@ namespace DatabasePopulator
                 string[] idValues = deleteIDs.Split([',']);
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
-                    cmd.CommandText = "DELETE FROM " + table + " WHERE " + idCol1 + " = " + idValues[0] + " AND " + idCol2 + " = " + idValues[1];
+                    cmd.CommandText = $"DELETE FROM {table} WHERE {idCol1} = {idValues[0]} AND {idCol2} = {idValues[1]}";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -1352,14 +1354,14 @@ namespace DatabasePopulator
         {
             if (idCols.Count != 1)
             {
-                throw new InvalidDataException("expected a single id column, got " + idCols.Count + " id columns.");
+                throw new InvalidDataException($"expected a single id column, got {idCols.Count} id columns.");
             }
             string idCol = idCols[0];
             foreach (int deleteid in ids)
             {
                 using (NpgsqlCommand cmd = GetCommand(conn, tx))
                 {
-                    cmd.CommandText = "DELETE FROM " + table + " WHERE " + idCol + " = " + deleteid;
+                    cmd.CommandText = $"DELETE FROM {table} WHERE {idCol} = {deleteid}";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -1369,13 +1371,13 @@ namespace DatabasePopulator
         {
             using (NpgsqlCommand cmd = GetCommand(conn, tx))
             {
-                string sCmd = "SELECT " + idCol1 + "," + idCol2 + " FROM " + table;
+                string sCmd = $"SELECT {idCol1},{idCol2} FROM {table}";
                 cmd.CommandText = sCmd;
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        ids.Add(Convert.ToInt32(reader[0]) + "," + Convert.ToInt32(reader[1]));
+                        ids.Add($"{Convert.ToInt32(reader[0])},{Convert.ToInt32(reader[1])}");
                     }
                 }
             }
@@ -1385,7 +1387,7 @@ namespace DatabasePopulator
         {
             using (NpgsqlCommand cmd = GetCommand(conn, tx))
             {
-                string sCmd = "SELECT " + idCol + " FROM " + table;
+                string sCmd = $"SELECT {idCol} FROM {table}";
                 cmd.CommandText = sCmd;
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -1418,8 +1420,6 @@ namespace DatabasePopulator
             }
         }
 
-        private static readonly string[] PublishTimestampFormats = { "yyyy-MM-dd'T'HH:mm:ssK", "yyyy-MM-dd'T'HH:mm:ss.FFFFFFFK" };
-
         /// <summary>
         /// Parses a video publish timestamp from the XML file, such as 2023-10-07T14:32:05Z.
         /// </summary>
@@ -1427,11 +1427,16 @@ namespace DatabasePopulator
         /// <returns>the timestamp in UTC (<see cref="DateTimeKind.Utc"/>), or null if it isn't valid</returns>
         private static DateTime? ParsePublishTimestamp(string s)
         {
+            DateTime? ret;
             if (DateTimeOffset.TryParseExact(s, PublishTimestampFormats, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out DateTimeOffset parsed))
             {
-                return parsed.UtcDateTime;
+                ret = parsed.UtcDateTime;
             }
-            return null;
+            else
+            {
+                ret = null;
+            }
+            return ret;
         }
 
         /// <summary>
@@ -1600,9 +1605,9 @@ namespace DatabasePopulator
         private static string GetCDataNode(XmlElement elem, string prop, string objectType)
         {
             XmlElement? subelem = elem.SelectSingleNode(prop) as XmlElement;
-            if (subelem == null) throw new InvalidDataException("No " + objectType + " " + prop + " found");
+            if (subelem == null) throw new InvalidDataException($"No {objectType} {prop} found");
             XmlCDataSection? cdata = subelem.FirstChild as XmlCDataSection;
-            if (cdata == null) throw new InvalidDataException("No " + objectType + " " + prop + " cdata found");
+            if (cdata == null) throw new InvalidDataException($"No {objectType} {prop} cdata found");
             return cdata.InnerText;
         }
 
@@ -1691,7 +1696,7 @@ namespace DatabasePopulator
             }
             if (foundVideo == null)
             {
-                throw new InvalidDataException("Invalid " + source + " video id found: " + videoid);
+                throw new InvalidDataException($"Invalid {source} video id found: {videoid}");
             }
             return foundVideo;
         }
